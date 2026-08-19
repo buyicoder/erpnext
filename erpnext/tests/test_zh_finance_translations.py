@@ -68,6 +68,7 @@ CORE_BUSINESS_DOCTYPES = {
 	"Request for Quotation",
 	"Sales Invoice",
 	"Sales Order",
+	"Stock Reconciliation",
 	"Stock Entry",
 	"Supplier",
 	"Supplier Quotation",
@@ -836,6 +837,41 @@ class TestZhFinanceTranslations(TestCase):
 				"数值示例 2：<b>mean &gt; 3.5</b>（已填写读数字段的平均值）<br>\n"
 				'按值判定示例：<b>reading_value in ("A", "B", "C")</b>'
 			),
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+
+	def test_stock_reconciliation_uses_reviewed_chinese_terms(self):
+		translations = {
+			"Stock Reconciliation": "库存盘点调整",
+			"Stock Reconciliation Item": "库存盘点调整明细",
+			"Before reconciliation": "盘点调整前",
+			"Current Qty": "账面数量",
+			"Current Amount": "账面金额",
+			"Current Valuation Rate": "账面成本价",
+			"Current Serial / Batch Bundle": "账面序列号与批号",
+			"Quantity Difference": "数量差异",
+			"Amount Difference": "金额差异",
+			"Allow Zero Valuation Rate": "允许成本价为零",
+			"Negative Quantity is not allowed": "库存数量不能为负数",
+			"Negative Valuation Rate is not allowed": "成本价不可以为负数",
+			"Please enter Batch No": "请输入批号",
+			"Please enter Serial No": "请输入序列号",
+			"Please specify either Quantity or Valuation Rate or both": "请填写实盘数量、成本价，或同时填写两者",
+			"Reconcile All Serial Nos / Batches": "盘点全部序列号与批号",
+			"Serial / Batch Bundle": "序列号与批号",
+			"Add Serial / Batch No": "添加序列号与批号",
+			"Row # {0}: Please add Serial and Batch Bundle for Item {1}": "第 {0} 行：请为物料 {1} 添加序列号与批号",
+			"Row #{0}: Item {1} is not a Serialized/Batched Item. It cannot have a Serial No/Batch No against it.": "第 {0} 行：物料 {1} 未启用序列号或批号管理，不能为其设置序列号或批号。",
+			"Same item and warehouse combination already entered.": "已存在相同的物料与仓库组合。",
+			"No stock ledger entries were created. Please set the quantity or valuation rate for the items properly and try again.": "未生成物料凭证。请正确设置物料的实盘数量或成本价后重试。",
+			"Difference Account must be a Asset/Liability type account, since this Stock Reconciliation is an Opening Entry": "此库存盘点调整属于开账凭证，因此差异科目必须为资产或负债类科目",
+			"Row #{0}: You cannot use the inventory dimension '{1}' in Stock Reconciliation to modify the quantity or valuation rate. Stock reconciliation with inventory dimensions is intended solely for performing opening entries.": "第 {0} 行：库存盘点调整不能使用库存维度“{1}”修改数量或成本价。包含库存维度的盘点调整仅用于录入期初库存。",
+			"This tool helps you to update or fix the quantity and valuation of stock in the system. It is typically used to synchronise the system values and what actually exists in your warehouses.": "此工具用于根据仓库实盘结果更新系统中的库存数量和成本价，使账面库存与实际库存保持一致。",
+			"Valuation Rate required for Item {0} at row {1}": "物料 {0} 在第 {1} 行必须填写成本价",
+			"Valuation rate for customer provided items has been set to zero.": "客户提供物料的成本价已设为零。",
+			"The stock has been reserved for the following Items and Warehouses, un-reserve the same to {0} the Stock Reconciliation: <br /><br /> {1}": "以下物料与仓库的库存已被预留。请先取消预留，再{0}库存盘点调整：<br /><br />{1}",
+			"{0} units are reserved for Item {1} in Warehouse {2}, please un-reserve the same to {3} the Stock Reconciliation.": "已预留 {0} 个单位的物料 {1}（仓库 {2}）。请先取消预留，再{3}库存盘点调整。",
 		}
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)

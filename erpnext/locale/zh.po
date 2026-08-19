@@ -2853,7 +2853,7 @@ msgstr "添加序列号/批号"
 #: erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json
 #: erpnext/stock/doctype/stock_reconciliation_item/stock_reconciliation_item.json
 msgid "Add Serial / Batch No"
-msgstr "添加序列号/批号"
+msgstr "添加序列号与批号"
 
 #. Label of the add_serial_batch_for_rejected_qty (Button) field in DocType
 #. 'Purchase Receipt Item'
@@ -4408,7 +4408,7 @@ msgstr "允许0成本价"
 #: erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json
 #: erpnext/stock/doctype/stock_reconciliation_item/stock_reconciliation_item.json
 msgid "Allow Zero Valuation Rate"
-msgstr "成本价为0"
+msgstr "允许成本价为零"
 
 #. Label of the allow_delivery_of_overproduced_qty (Check) field in DocType
 #. 'Selling Settings'
@@ -8365,7 +8365,7 @@ msgstr "启用批号成本"
 #. Reconciliation Item'
 #: erpnext/stock/doctype/stock_reconciliation_item/stock_reconciliation_item.json
 msgid "Before reconciliation"
-msgstr "核销前"
+msgstr "盘点调整前"
 
 #. Label of the start (Int) field in DocType 'Task'
 #: erpnext/projects/doctype/task/task.json
@@ -14408,7 +14408,7 @@ msgstr "当前地址性质"
 #. Reconciliation Item'
 #: erpnext/stock/doctype/stock_reconciliation_item/stock_reconciliation_item.json
 msgid "Current Amount"
-msgstr "当前金额"
+msgstr "账面金额"
 
 #. Option for the 'Account Type' (Select) field in DocType 'Account'
 #: erpnext/accounts/doctype/account/account.json
@@ -14482,7 +14482,7 @@ msgstr "当前节点"
 #: erpnext/stock/doctype/stock_reconciliation_item/stock_reconciliation_item.json
 #: erpnext/stock/report/total_stock_summary/total_stock_summary.py:23
 msgid "Current Qty"
-msgstr "当前库存数量"
+msgstr "账面数量"
 
 #: erpnext/accounts/report/financial_ratios/financial_ratios.py:154
 msgid "Current Ratio"
@@ -14492,7 +14492,7 @@ msgstr "流动比率"
 #. Reconciliation Item'
 #: erpnext/stock/doctype/stock_reconciliation_item/stock_reconciliation_item.json
 msgid "Current Serial / Batch Bundle"
-msgstr "当前序列号/批号"
+msgstr "账面序列号与批号"
 
 #. Label of the current_serial_no (Long Text) field in DocType 'Stock
 #. Reconciliation Item'
@@ -14523,7 +14523,7 @@ msgstr "当前库存"
 #. Reconciliation Item'
 #: erpnext/stock/doctype/stock_reconciliation_item/stock_reconciliation_item.json
 msgid "Current Valuation Rate"
-msgstr "当前成本价"
+msgstr "账面成本价"
 
 #. Description of the 'Loyalty Program Tier' (Data) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
@@ -17191,7 +17191,7 @@ msgstr "因本库存凭证为期初凭证，差异科目必须为资产/负债�
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:980
 msgid "Difference Account must be a Asset/Liability type account, since this Stock Reconciliation is an Opening Entry"
-msgstr "因为此库存调账是开账凭证，差异科目必须是资产/负债类科目，"
+msgstr "此库存盘点调整属于开账凭证，因此差异科目必须为资产或负债类科目"
 
 #. Label of the difference_amount (Currency) field in DocType 'Payment
 #. Reconciliation Allocation'
@@ -31971,7 +31971,7 @@ msgstr ""
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:633
 msgid "Negative Quantity is not allowed"
-msgstr "不能是负数"
+msgstr "库存数量不能为负数"
 
 #. Label of the negative_stock_section (Section Break) field in DocType 'Stock
 #. Settings'
@@ -32974,7 +32974,7 @@ msgstr ""
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:815
 msgid "No stock ledger entries were created. Please set the quantity or valuation rate for the items properly and try again."
-msgstr "未生成库存分类账条目。请正确设置物料数量或计价率后重试。"
+msgstr "未生成物料凭证。请正确设置物料的实盘数量或成本价后重试。"
 
 #. Description of the 'Stock frozen up to' (Date) field in DocType 'Stock
 #. Settings'
@@ -38115,7 +38115,7 @@ msgstr "请输入角色核准或审批用户"
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:688
 msgid "Please enter Batch No"
-msgstr ""
+msgstr "请输入批号"
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:965
 msgid "Please enter Cost Center"
@@ -38131,7 +38131,7 @@ msgstr "请输入业务员员工号"
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:974
 msgid "Please enter Expense Account"
-msgstr "请输入您的费用科目"
+msgstr "请输入费用科目"
 
 #: erpnext/assets/doctype/asset_capitalization/asset_capitalization.js:84
 #: erpnext/stock/doctype/stock_entry/stock_entry.js:99
@@ -38176,7 +38176,7 @@ msgstr "请输入账户-{0}的根类型"
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:690
 msgid "Please enter Serial No"
-msgstr ""
+msgstr "请输入序列号"
 
 #: erpnext/public/js/utils/serial_no_batch_selector.js:319
 msgid "Please enter Serial Nos"
@@ -39045,7 +39045,7 @@ msgstr "请指定属性表中的至少一个属性"
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:628
 msgid "Please specify either Quantity or Valuation Rate or both"
-msgstr "请输入数量或（和）成本价"
+msgstr "请填写实盘数量、成本价，或同时填写两者"
 
 #: erpnext/stock/doctype/item_attribute/item_attribute.py:97
 msgid "Please specify from/to range"
@@ -43674,7 +43674,7 @@ msgstr "核销（对账）"
 #. Reconciliation Item'
 #: erpnext/stock/doctype/stock_reconciliation_item/stock_reconciliation_item.json
 msgid "Reconcile All Serial Nos / Batches"
-msgstr "对账所有序列号/批次"
+msgstr "盘点全部序列号与批号"
 
 #. Label of the reconcile_effect_on (Date) field in DocType 'Payment Entry
 #. Reference'
@@ -46115,7 +46115,7 @@ msgstr "行＃{0}：无法退回超过{1}的物料{2}"
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:193
 msgid "Row # {0}: Please add Serial and Batch Bundle for Item {1}"
-msgstr "行号{0}：请为物料{1}添加序列号和批次包"
+msgstr "第 {0} 行：请为物料 {1} 添加序列号与批号"
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:212
 msgid "Row # {0}: Please enter quantity for Item {1} as it is not zero."
@@ -46446,7 +46446,7 @@ msgstr "第{0}行：物料{1}不是客户提供物料。"
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:771
 msgid "Row #{0}: Item {1} is not a Serialized/Batched Item. It cannot have a Serial No/Batch No against it."
-msgstr "第{0}行: 物料未启用序列号/批号，不能为其设置序列号/批号"
+msgstr "第 {0} 行：物料 {1} 未启用序列号或批号管理，不能为其设置序列号或批号。"
 
 #: erpnext/controllers/subcontracting_inward_controller.py:115
 #: erpnext/controllers/subcontracting_inward_controller.py:496
@@ -46784,7 +46784,7 @@ msgstr "第{0}行：存在针对物料{1}全部或部分数量的工作订单"
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:106
 msgid "Row #{0}: You cannot use the inventory dimension '{1}' in Stock Reconciliation to modify the quantity or valuation rate. Stock reconciliation with inventory dimensions is intended solely for performing opening entries."
-msgstr "行号#{0}：库存对账中不可使用库存维度'{1}'修改数量或估价率，带维度的库存对账仅用于期初录入"
+msgstr "第 {0} 行：库存盘点调整不能使用库存维度“{1}”修改数量或成本价。包含库存维度的盘点调整仅用于录入期初库存。"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:450
 msgid "Row #{0}: You must select an Asset for Item {1}."
@@ -48367,7 +48367,7 @@ msgstr ""
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:610
 msgid "Same item and warehouse combination already entered."
-msgstr "已输入相同的商品和仓库组合。"
+msgstr "已存在相同的物料与仓库组合。"
 
 #: erpnext/buying/utils.py:64
 msgid "Same item cannot be entered multiple times."
@@ -49444,7 +49444,7 @@ msgstr "序列号 / 批号"
 #: erpnext/stock/doctype/stock_reconciliation_item/stock_reconciliation_item.json
 #: erpnext/subcontracting/doctype/subcontracting_receipt_supplied_item/subcontracting_receipt_supplied_item.json
 msgid "Serial / Batch Bundle"
-msgstr "序列号/批号"
+msgstr "序列号与批号"
 
 #: erpnext/accounts/doctype/pos_invoice/pos_invoice.py:488
 msgid "Serial / Batch Bundle Missing"
@@ -52258,12 +52258,12 @@ msgstr "暂估库存(已收货，未开票)"
 #: erpnext/stock/workspace/stock/stock.json
 #: erpnext/workspace_sidebar/stock.json
 msgid "Stock Reconciliation"
-msgstr "库存调账"
+msgstr "库存盘点调整"
 
 #. Name of a DocType
 #: erpnext/stock/doctype/stock_reconciliation_item/stock_reconciliation_item.json
 msgid "Stock Reconciliation Item"
-msgstr "库存调账明细"
+msgstr "库存盘点调整明细"
 
 #: erpnext/stock/doctype/item/item.py:669
 msgid "Stock Reconciliations"
@@ -55729,7 +55729,7 @@ msgstr ""
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:742
 msgid "The stock has been reserved for the following Items and Warehouses, un-reserve the same to {0} the Stock Reconciliation: <br /><br /> {1}"
-msgstr "以下物料和仓库的库存已被预留，请取消预留以{0}库存对账：<br /><br />{1}"
+msgstr "以下物料与仓库的库存已被预留。请先取消预留，再{0}库存盘点调整：<br /><br />{1}"
 
 #: erpnext/erpnext_integrations/doctype/plaid_settings/plaid_settings.js:37
 msgid "The sync has started in the background, please check the {0} list for new records."
@@ -55751,7 +55751,7 @@ msgstr "系统将基于此设置从POS界面创建销售发票或POS发票。对
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:1112
 msgid "The task has been enqueued as a background job. In case there is any issue on processing in background, the system will add a comment about the error on this Stock Reconciliation and revert to the Draft stage"
-msgstr "该任务已被列入后台工作。如果在后台处理有任何问题，系统将在此库存对账中添加有关错误的注释，并恢复到草稿阶段"
+msgstr "任务已加入后台作业队列。若后台处理出错，系统将在此库存盘点调整中记录错误备注，并将单据恢复为草稿状态。"
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:1123
 msgid "The task has been enqueued as a background job. In case there is any issue on processing in background, the system will add a comment about the error on this Stock Reconciliation and revert to the Submitted stage"
@@ -56298,7 +56298,7 @@ msgstr "用于设置'物料'、'数量'、'基本汇率'等详细信息"
 #. Description of a DocType
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.json
 msgid "This tool helps you to update or fix the quantity and valuation of stock in the system. It is typically used to synchronise the system values and what actually exists in your warehouses."
-msgstr "用于调整物料库存数量(库存盘点)和成本价(成本调整)。"
+msgstr "此工具用于根据仓库实盘结果更新系统中的库存数量和成本价，使账面库存与实际库存保持一致。"
 
 #: banking/src/components/features/BankReconciliation/BankTransactionUnreconcileModalBody.tsx:52
 msgid "This transaction has been reconciled with the following document(s):"
@@ -59964,7 +59964,7 @@ msgstr "库存开账凭证中成本价字段必填"
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:794
 msgid "Valuation Rate required for Item {0} at row {1}"
-msgstr "第{1}的物料{0}需有成本价"
+msgstr "物料 {0} 在第 {1} 行必须填写成本价"
 
 #. Option for the 'Consider Tax or Charge for' (Select) field in DocType
 #. 'Purchase Taxes and Charges'
@@ -59974,7 +59974,7 @@ msgstr "成本价与总计"
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:998
 msgid "Valuation rate for customer provided items has been set to zero."
-msgstr "客户提供物料的计价单价已设为零"
+msgstr "客户提供物料的成本价已设为零。"
 
 #. Description of the 'Sales Incoming Rate' (Currency) field in DocType
 #. 'Purchase Invoice Item'
@@ -63007,7 +63007,7 @@ msgstr ""
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:732
 msgid "{0} units are reserved for Item {1} in Warehouse {2}, please un-reserve the same to {3} the Stock Reconciliation."
-msgstr "仓库 {2} 中物料 {1} 已被预留了{0} ，请取消预留后再 {3} 库存调账"
+msgstr "已预留 {0} 个单位的物料 {1}（仓库 {2}）。请先取消预留，再{3}库存盘点调整。"
 
 #: erpnext/stock/doctype/pick_list/pick_list.py:1120
 msgid "{0} units of Item {1} is not available in any of the warehouses."
