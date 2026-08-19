@@ -61,7 +61,11 @@ export const Preferences = () => {
                             </p>
                         </div>
                         <div className="min-w-40 flex justify-end">
-                            <Select disabled={isLoading} onValueChange={(value) => onUpdate("transfer_match_days", Number(value))} value={accountsSettings?.transfer_match_days?.toString()}>
+                            <Select
+                                disabled={isLoading}
+                                onValueChange={(value) => onUpdate("transfer_match_days", Number(value))}
+                                value={accountsSettings?.transfer_match_days?.toString() ?? ""}
+                            >
                                 <SelectTrigger id="transfer_match_days" className="min-w-32">
                                     <SelectValue placeholder={_("Select number of days")} />
                                 </SelectTrigger>
