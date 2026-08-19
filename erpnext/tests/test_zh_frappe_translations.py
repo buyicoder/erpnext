@@ -33,6 +33,7 @@ class TestZhFrappeTranslations(TestCase):
 			"Permissions": "权限",
 			"Add a Row": "新增一行",
 			"No Results found": "未找到结果",
+			"Begin typing for results.": "输入关键词搜索。",
 		}
 		for source, translation in expected.items():
 			with self.subTest(source=source):
