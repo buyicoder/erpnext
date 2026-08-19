@@ -23,6 +23,7 @@ class TestZhFinanceImage(TestCase):
 		self.runtime_i18n_validator = (
 			self.repo_root / "scripts" / "validate_frappe_runtime_i18n.py"
 		).read_text()
+		self.patches = (self.repo_root / "erpnext" / "patches.txt").read_text()
 		self.browser_overrides = (
 			self.repo_root / "erpnext" / "public" / "js" / "zh_finance_overrides.js"
 		).read_text()
@@ -76,6 +77,9 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("erpnext/stock/utils.py", self.containerfile)
 		self.assertIn("erpnext/manufacturing/doctype/production_plan/production_plan.py", self.containerfile)
 		self.assertIn("erpnext/setup/china_defaults.py", self.containerfile)
+		self.assertIn("erpnext/patches.txt", self.containerfile)
+		self.assertIn("erpnext/patches/v16_0/localize_china_demo_cached_values.py", self.containerfile)
+		self.assertIn("erpnext.patches.v16_0.localize_china_demo_cached_values", self.patches)
 		self.assertIn("erpnext/setup/demo_data/customer.json", self.containerfile)
 		self.assertIn("erpnext/setup/demo_data/customer_group.json", self.containerfile)
 		self.assertIn("erpnext/setup/demo_data/item.json", self.containerfile)

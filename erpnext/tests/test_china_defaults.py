@@ -277,6 +277,7 @@ class TestChinaDefaults(TestCase):
 
 		with (
 			patch.object(china_defaults.frappe, "db", fake_db),
+			patch.object(china_defaults.frappe, "get_all", return_value=[]),
 			patch.object(china_defaults.frappe, "rename_doc") as rename_doc,
 			patch.object(china_defaults, "rebuild_for_doctype") as rebuild_for_doctype,
 		):
@@ -312,6 +313,131 @@ class TestChinaDefaults(TestCase):
 		fake_db.set_value.assert_not_called()
 		rename_doc.assert_not_called()
 
+	def test_demo_migration_refreshes_cached_party_and_item_names(self):
+		fake_db = MagicMock()
+		fake_db.get_single_value.return_value = "占永杰企业数字化服务 (Demo)"
+		fake_db.exists.return_value = False
+		cached_records = {
+			"Sales Order": {
+				"SAL-ORD-2026-00001": {
+					"customer": "格兰特塑料有限公司",
+					"customer_name": "Grant Plastics Ltd.",
+				}
+			},
+			"Sales Invoice": {
+				"ACC-SINV-2026-00001": {
+					"customer": "格兰特塑料有限公司",
+					"customer_name": "Grant Plastics Ltd.",
+				}
+			},
+			"Purchase Order": {
+				"PUR-ORD-2026-00001": {
+					"supplier": "MA实业有限公司",
+					"supplier_name": "MA Inc.",
+				}
+			},
+			"Purchase Invoice": {
+				"ACC-PINV-2026-00001": {
+					"supplier": "MA实业有限公司",
+					"supplier_name": "MA Inc.",
+				}
+			},
+			"Payment Entry": {
+				"ACC-PAY-2026-00001": {
+					"party_type": "Customer",
+					"party": "格兰特塑料有限公司",
+					"party_name": "Grant Plastics Ltd.",
+				},
+				"ACC-PAY-2026-00002": {
+					"party_type": "Supplier",
+					"party": "MA实业有限公司",
+					"party_name": "MA Inc.",
+				},
+			},
+			"Sales Order Item": {"soi-1": {"item_code": "SKU001", "item_name": "T-shirt"}},
+			"Sales Invoice Item": {"sii-1": {"item_code": "SKU001", "item_name": "T-shirt"}},
+			"Purchase Order Item": {"poi-1": {"item_code": "SKU001", "item_name": "T-shirt"}},
+			"Purchase Invoice Item": {"pii-1": {"item_code": "SKU001", "item_name": "T-shirt"}},
+		}
+
+		def get_all(doctype, filters, fields, limit_page_length):
+			self.assertIn("name", fields)
+			self.assertEqual(limit_page_length, 500)
+			return [
+				china_defaults.frappe._dict(name=name, **values)
+				for name, values in cached_records.get(doctype, {}).items()
+				if all(
+					values.get(field) in value[1] if isinstance(value, list) else values.get(field) == value
+					for field, value in filters.items()
+				)
+			]
+
+		def bulk_update(doctype, doc_updates, **kwargs):
+			self.assertFalse(kwargs["update_modified"])
+			for name, updates in doc_updates.items():
+				cached_records[doctype][name].update(updates)
+
+		fake_db.bulk_update.side_effect = bulk_update
+
+		with (
+			patch.object(china_defaults.frappe, "db", fake_db),
+			patch.object(china_defaults.frappe, "get_all", side_effect=get_all),
+			patch.object(
+				china_defaults,
+				"CHINA_DEMO_RECORD_NAMES",
+				{
+					"Customer": {"Grant Plastics Ltd.": "格兰特塑料有限公司"},
+					"Supplier": {"MA Inc.": "MA实业有限公司"},
+				},
+			),
+			patch.object(china_defaults, "CHINA_DEMO_ITEM_NAMES", {"SKU001": ("T-shirt", "T恤")}),
+		):
+			self.assertTrue(china_defaults.localize_bundled_demo_cached_values())
+			self.assertFalse(china_defaults.localize_bundled_demo_cached_values())
+
+		expected_updates = {
+			("Sales Order", "SAL-ORD-2026-00001", "customer_name", "格兰特塑料有限公司"),
+			("Sales Invoice", "ACC-SINV-2026-00001", "customer_name", "格兰特塑料有限公司"),
+			("Purchase Order", "PUR-ORD-2026-00001", "supplier_name", "MA实业有限公司"),
+			("Purchase Invoice", "ACC-PINV-2026-00001", "supplier_name", "MA实业有限公司"),
+			("Payment Entry", "ACC-PAY-2026-00001", "party_name", "格兰特塑料有限公司"),
+			("Payment Entry", "ACC-PAY-2026-00002", "party_name", "MA实业有限公司"),
+			("Sales Order Item", "soi-1", "item_name", "T恤"),
+			("Sales Invoice Item", "sii-1", "item_name", "T恤"),
+			("Purchase Order Item", "poi-1", "item_name", "T恤"),
+			("Purchase Invoice Item", "pii-1", "item_name", "T恤"),
+		}
+		actual_updates = {
+			(doctype, name, field, value)
+			for call in fake_db.bulk_update.call_args_list
+			for doctype, doc_updates in [call.args[:2]]
+			for name, updates in doc_updates.items()
+			for field, value in updates.items()
+		}
+		self.assertEqual(actual_updates, expected_updates)
+
+	def test_demo_cached_value_patch_runs_master_migration_before_backfill(self):
+		from erpnext.patches.v16_0 import localize_china_demo_cached_values as patch_module
+
+		call_order = []
+		with (
+			patch.object(
+				patch_module,
+				"localize_bundled_demo_data",
+				side_effect=lambda: call_order.append("masters"),
+			) as migrate_masters,
+			patch.object(
+				patch_module,
+				"localize_bundled_demo_cached_values",
+				side_effect=lambda: call_order.append("cached_values"),
+			) as backfill_cached_values,
+		):
+			patch_module.execute()
+
+		migrate_masters.assert_called_once_with()
+		backfill_cached_values.assert_called_once_with()
+		self.assertEqual(call_order, ["masters", "cached_values"])
+
 	def test_successful_demo_data_migration_is_idempotent(self):
 		state = {
 			("Item Group", "Demo Item Group"): {},
@@ -345,6 +471,7 @@ class TestChinaDefaults(TestCase):
 		fake_db.set_value.side_effect = set_value
 		with (
 			patch.object(china_defaults.frappe, "db", fake_db),
+			patch.object(china_defaults.frappe, "get_all", return_value=[]),
 			patch.object(china_defaults.frappe, "rename_doc", side_effect=rename_doc) as rename,
 			patch.object(china_defaults, "rebuild_for_doctype") as rebuild_for_doctype,
 			patch.object(

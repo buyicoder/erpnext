@@ -66,6 +66,36 @@ CHINA_DEMO_ITEM_NAMES = {
 	"SKU010": ("Camera", "相机"),
 }
 
+CHINA_DEMO_PARTY_DISPLAY_FIELDS = {
+	"Customer": (
+		("Sales Order", "customer", "customer_name"),
+		("Sales Invoice", "customer", "customer_name"),
+		("Delivery Note", "customer", "customer_name"),
+		("POS Invoice", "customer", "customer_name"),
+		("Payment Entry", "party", "party_name", {"party_type": "Customer"}),
+	),
+	"Supplier": (
+		("Purchase Order", "supplier", "supplier_name"),
+		("Purchase Invoice", "supplier", "supplier_name"),
+		("Purchase Receipt", "supplier", "supplier_name"),
+		("Subcontracting Order", "supplier", "supplier_name"),
+		("Payment Entry", "party", "party_name", {"party_type": "Supplier"}),
+	),
+}
+
+CHINA_DEMO_ITEM_DISPLAY_DOCTYPES = (
+	"Sales Order Item",
+	"Sales Invoice Item",
+	"Delivery Note Item",
+	"POS Invoice Item",
+	"Purchase Order Item",
+	"Purchase Invoice Item",
+	"Purchase Receipt Item",
+	"Stock Entry Detail",
+	"Material Request Item",
+	"Quotation Item",
+)
+
 UPSTREAM_CHINA_ADDRESS_TEMPLATE = """{{ address_line1 }}<br>
 {% if address_line2 %}{{ address_line2 }}<br>{% endif -%}
 {{ city }}<br>
@@ -154,6 +184,49 @@ def localize_bundled_demo_data():
 
 	if item_names_changed:
 		rebuild_for_doctype("Item")
+
+	return changed
+
+
+def localize_bundled_demo_cached_values():
+	"""Refresh fetched display fields that Frappe does not cascade during master renames."""
+	if not frappe.db.get_single_value("Global Defaults", "demo_company"):
+		return False
+
+	changed = False
+	for party_type, doctypes in CHINA_DEMO_PARTY_DISPLAY_FIELDS.items():
+		translations = CHINA_DEMO_RECORD_NAMES.get(party_type, {})
+		if not translations:
+			continue
+		for config in doctypes:
+			doctype, link_field, display_field, *extra = config
+			for old_name, new_name in translations.items():
+				filters = {
+					link_field: new_name,
+					display_field: old_name,
+					**(extra[0] if extra else {}),
+				}
+				while records := frappe.get_all(
+					doctype,
+					filters=filters,
+					fields=["name"],
+					limit_page_length=500,
+				):
+					doc_updates = {record.name: {display_field: new_name} for record in records}
+					frappe.db.bulk_update(doctype, doc_updates, update_modified=False)
+					changed = True
+
+	for doctype in CHINA_DEMO_ITEM_DISPLAY_DOCTYPES:
+		for item_code, (old_name, new_name) in CHINA_DEMO_ITEM_NAMES.items():
+			while records := frappe.get_all(
+				doctype,
+				filters={"item_code": item_code, "item_name": old_name},
+				fields=["name"],
+				limit_page_length=500,
+			):
+				doc_updates = {record.name: {"item_name": new_name} for record in records}
+				frappe.db.bulk_update(doctype, doc_updates, update_modified=False)
+				changed = True
 
 	return changed
 
