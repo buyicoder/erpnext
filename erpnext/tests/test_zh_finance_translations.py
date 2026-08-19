@@ -1,9 +1,39 @@
+import json
 from io import BytesIO
 from pathlib import Path
 from string import Formatter
 from unittest import TestCase
 
 from babel.messages.pofile import read_po
+
+
+FRAPPE_OWNED_WORKSPACE_LABELS = {
+	"Address",
+	"Bulk Update",
+	"Campaign",
+	"Communication",
+	"Contact",
+	"Contacts",
+	"Department",
+	"Download Backups",
+	"Email Account",
+	"Email Group",
+	"Export Data",
+	"Feedback",
+	"Letter Head",
+	"Location",
+	"Meeting",
+	"Operation",
+	"Print Settings",
+	"Role Permissions",
+	"SMS Log",
+	"SMS Settings",
+	"System Settings",
+	"Task",
+	"UTM Source",
+	"User",
+}
+
 
 class TestZhFinanceTranslations(TestCase):
 	def setUp(self):
@@ -82,6 +112,12 @@ class TestZhFinanceTranslations(TestCase):
 			"Pending": "待处理",
 			"Date": "日期",
 			"descending": "降序",
+			"Average Order Value": "平均订单金额",
+			"Average Order Values": "平均订单金额",
+			"Purchase Orders Count": "采购订单数量",
+			"Item Wise Consumption": "按物料统计用量",
+			"Stock Value by Item Group": "按物料组统计库存价值",
+			"ERPNext Settings": "ERPNext 设置",
 		}
 
 		for source, translation in translations.items():
@@ -125,6 +161,63 @@ class TestZhFinanceTranslations(TestCase):
 
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
+
+	def test_workspace_metrics_and_navigation_use_reviewed_chinese_terms(self):
+		translations = {
+			"AP Summary": "应付账款汇总",
+			"AR Summary": "应收账款汇总",
+			"Active Subcontracted Items": "在制委外物料",
+			"Bank Reconciliation": "银行对账",
+			"Budget Variance": "预算差异",
+			"Deduction Certificate": "低税率扣除证明",
+			"Feedback Template": "反馈模板",
+			"Inward Order": "委外入库订单",
+			"Item-wise sales Register": "物料销售台账",
+			"Items To Be Received": "待收货委外成品",
+			"Manufactured Items Value": "完工物料价值",
+			"Material Planning": "物料计划",
+			"Materials To Be Transferred": "待调拨委外原材料",
+			"Outward Order": "委外发料订单",
+			"Quality Inspections": "质检单",
+			"Reconciliation Statement": "银行对账单",
+			"Subcontracting Inward Order Count": "委外入库订单数量",
+			"Subcontracting Outward Order": "委外发料订单",
+			"Subcontracting Outward Order Count": "委外发料订单数量",
+			"Tax Template": "税费模板",
+			"WIP Work Orders": "在制工单",
+		}
+
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+
+	def test_every_erpnext_workspace_label_has_a_translation_owner(self):
+		erpnext_root = Path(__file__).parents[1]
+		workspace_files = list(erpnext_root.glob("**/workspace/**/*.json"))
+		workspace_files.extend(erpnext_root.glob("workspace_sidebar/*.json"))
+		label_sources = {}
+
+		def collect_labels(value, source):
+			if isinstance(value, dict):
+				for key, child in value.items():
+					if key in {"label", "title"} and isinstance(child, str):
+						label_sources.setdefault(child, set()).add(str(source.relative_to(erpnext_root)))
+					collect_labels(child, source)
+			elif isinstance(value, list):
+				for child in value:
+					collect_labels(child, source)
+
+		for workspace_file in workspace_files:
+			collect_labels(json.loads(workspace_file.read_text()), workspace_file)
+
+		missing = {}
+		for label, sources in sorted(label_sources.items()):
+			if label in FRAPPE_OWNED_WORKSPACE_LABELS:
+				continue
+			message = self.catalog.get(label)
+			if not message or not message.string or "fuzzy" in message.flags:
+				missing[label] = sorted(sources)
+
+		self.assertEqual(missing, {})
 
 	def test_master_data_uses_reviewed_chinese_terms(self):
 		translations = {

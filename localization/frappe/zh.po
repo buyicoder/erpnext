@@ -1574,3 +1574,6 @@ msgstr "单据已提交"
 
 msgid "Begin typing for results."
 msgstr "输入关键词搜索。"
+
+msgid "Framework"
+msgstr "系统管理"

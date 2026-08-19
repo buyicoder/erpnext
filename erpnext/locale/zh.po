@@ -1219,7 +1219,7 @@ msgstr "年底维保合同到期日"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/financial_reports.json
 msgid "AP Summary"
-msgstr ""
+msgstr "应付账款汇总"
 
 #. Label of the api_details_section (Section Break) field in DocType 'Currency
 #. Exchange Settings'
@@ -1230,7 +1230,7 @@ msgstr "接口详情"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/financial_reports.json
 msgid "AR Summary"
-msgstr ""
+msgstr "应收账款汇总"
 
 #. Label of the awb_number (Data) field in DocType 'Shipment'
 #: erpnext/stock/doctype/shipment/shipment.json
@@ -2476,7 +2476,7 @@ msgstr "在产状态"
 #. Label of a number card in the Subcontracting Workspace
 #: erpnext/subcontracting/workspace/subcontracting/subcontracting.json
 msgid "Active Subcontracted Items"
-msgstr ""
+msgstr "在制委外物料"
 
 #. Label of the activities_tab (Tab Break) field in DocType 'Lead'
 #. Label of the activities_tab (Tab Break) field in DocType 'Opportunity'
@@ -6945,12 +6945,12 @@ msgstr "平均折扣"
 #. Label of a number card in the Selling Workspace
 #: erpnext/selling/workspace/selling/selling.json
 msgid "Average Order Value"
-msgstr ""
+msgstr "平均订单金额"
 
 #. Label of a number card in the Buying Workspace
 #: erpnext/buying/workspace/buying/buying.json
 msgid "Average Order Values"
-msgstr ""
+msgstr "平均订单金额"
 
 #. Label of the valuation_rate (Currency) field in DocType 'Stock Ledger Entry'
 #: erpnext/accounts/report/share_balance/share_balance.py:60
@@ -7794,7 +7794,7 @@ msgstr "银行透支账户"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/banking.json
 msgid "Bank Reconciliation"
-msgstr ""
+msgstr "银行对账"
 
 #. Name of a report
 #. Label of a Link in the Invoicing Workspace
@@ -9105,7 +9105,7 @@ msgstr "预算开始日期"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/budget.json
 msgid "Budget Variance"
-msgstr ""
+msgstr "预算差异"
 
 #. Name of a report
 #. Label of a Link in the Invoicing Workspace
@@ -15789,7 +15789,7 @@ msgstr "扣除方明细"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/taxes.json
 msgid "Deduction Certificate"
-msgstr ""
+msgstr "低税率扣除证明"
 
 #. Label of the deductions_or_loss_section (Section Break) field in DocType
 #. 'Payment Entry'
@@ -18500,7 +18500,7 @@ msgstr "ERPNext"
 #: erpnext/setup/workspace/erpnext_settings/erpnext_settings.json
 #: erpnext/workspace_sidebar/erpnext_settings.json
 msgid "ERPNext Settings"
-msgstr "ERPNext设置"
+msgstr "ERPNext 设置"
 
 #. Label of the user_id (Data) field in DocType 'Employee Group Table'
 #: erpnext/setup/doctype/employee_group_table/employee_group_table.json
@@ -20459,7 +20459,7 @@ msgstr "反馈人"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/quality.json
 msgid "Feedback Template"
-msgstr ""
+msgstr "反馈模板"
 
 #. Option for the 'Reference Type' (Select) field in DocType 'Journal Entry
 #. Account'
@@ -26030,7 +26030,7 @@ msgstr "收款"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/subcontracting.json
 msgid "Inward Order"
-msgstr ""
+msgstr "委外入库订单"
 
 #. Label of the is_account_payable (Check) field in DocType 'Cheque Print
 #. Template'
@@ -27901,7 +27901,7 @@ msgstr ""
 #: erpnext/stock/report/item_wise_consumption/item_wise_consumption.json
 #: erpnext/workspace_sidebar/buying.json
 msgid "Item Wise Consumption"
-msgstr ""
+msgstr "按物料统计用量"
 
 #. Name of a DocType
 #: erpnext/accounts/doctype/item_wise_tax_detail/item_wise_tax_detail.json
@@ -28187,7 +28187,7 @@ msgstr "物料销售台账"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/financial_reports.json
 msgid "Item-wise sales Register"
-msgstr ""
+msgstr "物料销售台账"
 
 #: erpnext/stock/get_item_details.py:731
 msgid "Item/Item Code required to get Item Tax Template."
@@ -28221,7 +28221,7 @@ msgstr "所需物料"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/subcontracting.json
 msgid "Items To Be Received"
-msgstr ""
+msgstr "待收货委外成品"
 
 #. Label of a Link in the Buying Workspace
 #. Name of a report
@@ -30169,7 +30169,7 @@ msgstr "基于物料需求生产"
 #. Label of a number card in the Manufacturing Workspace
 #: erpnext/manufacturing/workspace/manufacturing/manufacturing.json
 msgid "Manufactured Items Value"
-msgstr ""
+msgstr "完工物料价值"
 
 #. Label of the manufactured_qty (Float) field in DocType 'Job Card'
 #. Label of the produced_qty (Float) field in DocType 'Work Order'
@@ -30614,7 +30614,7 @@ msgstr "其他出库"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/manufacturing.json
 msgid "Material Planning"
-msgstr ""
+msgstr "物料计划"
 
 #. Option for the 'Purpose' (Select) field in DocType 'Stock Entry'
 #. Option for the 'Purpose' (Select) field in DocType 'Stock Entry Type'
@@ -30901,7 +30901,7 @@ msgstr "委外原材料"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/subcontracting.json
 msgid "Materials To Be Transferred"
-msgstr ""
+msgstr "待调拨委外原材料"
 
 #: erpnext/controllers/subcontracting_controller.py:1589
 msgid "Materials are already received against the {0} {1}"
@@ -34775,7 +34775,7 @@ msgstr "付款"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/subcontracting.json
 msgid "Outward Order"
-msgstr ""
+msgstr "委外发料订单"
 
 #. Label of the over_billing_allowance (Currency) field in DocType 'Accounts
 #. Settings'
@@ -41433,7 +41433,7 @@ msgstr "采购订单"
 #. Label of a number card in the Buying Workspace
 #: erpnext/buying/workspace/buying/buying.json
 msgid "Purchase Orders Count"
-msgstr ""
+msgstr "采购订单数量"
 
 #. Label of the purchase_orders_items_overdue (Check) field in DocType 'Email
 #. Digest'
@@ -42294,7 +42294,7 @@ msgstr "质检单"
 #. Label of a chart in the Quality Workspace
 #: erpnext/quality_management/workspace/quality/quality.json
 msgid "Quality Inspections"
-msgstr ""
+msgstr "质检单"
 
 #: erpnext/setup/doctype/company/company.py:508
 msgid "Quality Management"
@@ -43746,7 +43746,7 @@ msgstr "对账进度"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/banking.json
 msgid "Reconciliation Statement"
-msgstr ""
+msgstr "银行对账单"
 
 #. Label of the reconciliation_takes_effect_on (Select) field in DocType
 #. 'Company'
@@ -52608,7 +52608,7 @@ msgstr "库存价值不一致"
 #. Label of a chart in the Stock Workspace
 #: erpnext/stock/workspace/stock/stock.json
 msgid "Stock Value by Item Group"
-msgstr ""
+msgstr "按物料组统计库存价值"
 
 #. Description of the 'Default Inventory Account' (Link) field in DocType 'Item
 #. Default'
@@ -52977,7 +52977,7 @@ msgstr "外包收货订单"
 #. Label of a number card in the Subcontracting Workspace
 #: erpnext/subcontracting/workspace/subcontracting/subcontracting.json
 msgid "Subcontracting Inward Order Count"
-msgstr ""
+msgstr "委外入库订单数量"
 
 #. Label of the subcontracting_inward_order_item (Data) field in DocType 'Work
 #. Order'
@@ -53060,12 +53060,12 @@ msgstr "外协订单{0}已创建"
 #. Label of a Link in the Subcontracting Workspace
 #: erpnext/subcontracting/workspace/subcontracting/subcontracting.json
 msgid "Subcontracting Outward Order"
-msgstr ""
+msgstr "委外发料订单"
 
 #. Label of a number card in the Subcontracting Workspace
 #: erpnext/subcontracting/workspace/subcontracting/subcontracting.json
 msgid "Subcontracting Outward Order Count"
-msgstr ""
+msgstr "委外发料订单数量"
 
 #. Label of the purchase_order (Link) field in DocType 'Subcontracting Order'
 #: erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.json
@@ -54588,7 +54588,7 @@ msgstr "税设置"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/selling.json
 msgid "Tax Template"
-msgstr ""
+msgstr "税费模板"
 
 #: erpnext/accounts/doctype/tax_rule/tax_rule.py:86
 msgid "Tax Template is mandatory."
@@ -60707,7 +60707,7 @@ msgstr "车间仓"
 #. Label of a number card in the Manufacturing Workspace
 #: erpnext/manufacturing/workspace/manufacturing/manufacturing.json
 msgid "WIP Work Orders"
-msgstr ""
+msgstr "在制工单"
 
 #: erpnext/manufacturing/doctype/workstation/test_workstation.py:148
 #: erpnext/patches/v16_0/make_workstation_operating_components.py:50

@@ -34,6 +34,7 @@ class TestZhFrappeTranslations(TestCase):
 			"Add a Row": "新增一行",
 			"No Results found": "未找到结果",
 			"Begin typing for results.": "输入关键词搜索。",
+			"Framework": "系统管理",
 		}
 		for source, translation in expected.items():
 			with self.subTest(source=source):
