@@ -15,7 +15,7 @@ if (frappe.boot.lang === "zh") {
 		".number",
 		".list-row-container .filterable div",
 		"[data-fieldtype='Currency'] .static-area div",
-		".frappe-control[data-fieldtype='Currency'] .control-value",
+		".control-value",
 		".summary-value",
 	].join(", ");
 	const awesomplete_status_selector = ".awesomplete [role='status']";
@@ -58,6 +58,12 @@ if (frappe.boot.lang === "zh") {
 				return;
 			}
 			mutation.addedNodes.forEach((node) => {
+				if (node.nodeType === Node.TEXT_NODE) {
+					localize_compact_cny(node.parentElement);
+					localize_awesomplete_status(node.parentElement);
+					localize_chart_dates(node.parentElement);
+					return;
+				}
 				if (node.nodeType !== Node.ELEMENT_NODE) return;
 				localize_compact_cny(node);
 				localize_awesomplete_status(node);
