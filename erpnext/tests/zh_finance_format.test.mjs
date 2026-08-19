@@ -37,6 +37,9 @@ test("uses Chinese yuan, ten-thousand and hundred-million units", () => {
 	assert.equal(format_compact_cny_text("CNY 1 B"), "¥10.00亿");
 	assert.equal(format_compact_cny_text("CNY 229,000.00"), "¥22.90万");
 	assert.equal(format_compact_cny_text("CNY 363.00"), "¥363.00");
+	assert.equal(format_compact_cny_text("CNY -363.00 K"), "-¥36.30万");
+	assert.equal(format_compact_cny_text("CNY -1 B"), "-¥10.00亿");
+	assert.equal(format_compact_cny_text("CNY -363.00"), "-¥363.00");
 });
 
 test("localizes report datatable accessibility labels", () => {
