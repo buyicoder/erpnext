@@ -12844,7 +12844,7 @@ msgstr "已复制到剪贴板"
 #. and Conditions'
 #: erpnext/setup/doctype/terms_and_conditions/terms_and_conditions.json
 msgid "Copy Attachments to Transaction"
-msgstr ""
+msgstr "将附件复制到交易单据"
 
 #. Label of the copy_fields_to_variant (Section Break) field in DocType 'Item
 #. Variant Settings'
@@ -13968,7 +13968,7 @@ msgstr "正在创建用户..."
 
 #: erpnext/setup/setup_wizard/setup_wizard.py:44
 msgid "Creating demo data"
-msgstr ""
+msgstr "正在创建演示数据"
 
 #: erpnext/accounts/doctype/opening_invoice_creation_tool/opening_invoice_creation_tool.py:327
 msgid "Creating {} out of {} {}"
@@ -16849,7 +16849,7 @@ msgstr "演示公司"
 
 #: erpnext/setup/demo.py:51
 msgid "Demo Data creation failed."
-msgstr ""
+msgstr "演示数据创建失败。"
 
 #: erpnext/public/js/utils/demo.js:25
 msgid "Demo data cleared"
@@ -16857,7 +16857,7 @@ msgstr "演示数据已清除"
 
 #: erpnext/setup/demo.py:42
 msgid "Demo data creation failed. Check notifications for more info."
-msgstr ""
+msgstr "演示数据创建失败。请查看通知了解详情。"
 
 #: erpnext/setup/setup_wizard/data/industry_type.txt:18
 msgid "Department Stores"
@@ -20368,7 +20368,7 @@ msgstr "API密钥认证失败"
 #: erpnext/setup/setup_wizard/setup_wizard.py:45
 #: erpnext/setup/setup_wizard/setup_wizard.py:46
 msgid "Failed to create demo data"
-msgstr ""
+msgstr "创建演示数据失败"
 
 #: banking/src/components/features/BankReconciliation/BankBalance.tsx:295
 msgid "Failed to delete closing balance."
@@ -20394,7 +20394,7 @@ msgstr "解析MT940格式失败。错误：{0}"
 #: erpnext/setup/setup_wizard/setup_wizard.py:34
 #: erpnext/setup/setup_wizard/setup_wizard.py:36
 msgid "Failed to personalize your setup"
-msgstr ""
+msgstr "个性化系统设置失败"
 
 #: erpnext/assets/doctype/asset/asset.js:277
 msgid "Failed to post depreciation entries"
@@ -20410,7 +20410,7 @@ msgstr "为营销活动 {0} 向 {1} 发送邮件失败"
 
 #: erpnext/setup/setup_wizard/setup_wizard.py:27
 msgid "Failed to set defaults"
-msgstr ""
+msgstr "设置默认值失败"
 
 #: erpnext/setup/setup_wizard/setup_wizard.py:22
 #: erpnext/setup/setup_wizard/setup_wizard.py:23
@@ -21567,7 +21567,7 @@ msgstr "ERPNext 尚未启用 Frappe CRM 数据同步，请联系 ERPNext 系统�
 
 #: erpnext/setup/install.py:235
 msgid "Frappe School"
-msgstr ""
+msgstr "Frappe 学堂"
 
 #. Title of an incoterm
 #: erpnext/setup/doctype/incoterm/incoterms.csv:4
@@ -25834,7 +25834,7 @@ msgstr "投资"
 #. Label of an action in the Onboarding Step 'Invite Users'
 #: erpnext/setup/onboarding_step/invite_users/invite_users.json
 msgid "Invite Users"
-msgstr ""
+msgstr "邀请用户"
 
 #. Option for the 'Posting Date inheritance for exchange gain / loss' (Select)
 #. field in DocType 'Accounts Settings'
@@ -26284,7 +26284,7 @@ msgstr "是父仓库"
 #: erpnext/setup/doctype/holiday/holiday.json
 #: erpnext/setup/doctype/holiday_list/holiday_list.json
 msgid "Is Half Day"
-msgstr ""
+msgstr "是否为半天"
 
 #. Label of the is_internal_customer (Check) field in DocType 'Sales Invoice'
 #. Label of the is_internal_customer (Check) field in DocType 'Customer'
@@ -31187,7 +31187,7 @@ msgstr "超过160字符的消息将被分割为多条消息"
 
 #: erpnext/setup/install.py:131
 msgid "Messaging CRM Campaign"
-msgstr ""
+msgstr "消息 CRM 营销活动"
 
 #. Name of a UOM
 #: erpnext/setup/setup_wizard/data/uom_data.json
@@ -37462,7 +37462,7 @@ msgstr "个人电子邮件"
 
 #: erpnext/setup/setup_wizard/setup_wizard.py:33
 msgid "Personalizing your setup"
-msgstr ""
+msgstr "正在个性化系统设置"
 
 #. Option for the 'Fuel Type' (Select) field in DocType 'Vehicle'
 #: erpnext/setup/doctype/vehicle/vehicle.json
@@ -45793,7 +45793,7 @@ msgstr "检查库存设置"
 #. Label of an action in the Onboarding Step 'Review System Settings'
 #: erpnext/setup/onboarding_step/review_system_settings/review_system_settings.json
 msgid "Review System Settings"
-msgstr ""
+msgstr "检查系统设置"
 
 #. Label of a Card Break in the Quality Workspace
 #: erpnext/quality_management/workspace/quality/quality.json
@@ -50487,24 +50487,24 @@ msgstr "已结清"
 #. Label of an action in the Onboarding Step 'Setup Company'
 #: erpnext/setup/onboarding_step/setup_company/setup_company.json
 msgid "Setup Company"
-msgstr ""
+msgstr "设置公司"
 
 #. Title of an Onboarding Step
 #. Label of an action in the Onboarding Step 'Setup Email Account'
 #: erpnext/setup/onboarding_step/setup_email_account/setup_email_account.json
 msgid "Setup Email Account"
-msgstr ""
+msgstr "设置电子邮箱账户"
 
 #. Title of the Module Onboarding 'Organization Onboarding'
 #: erpnext/setup/module_onboarding/organization_onboarding/organization_onboarding.json
 msgid "Setup Organization"
-msgstr ""
+msgstr "设置组织"
 
 #. Title of an Onboarding Step
 #. Label of an action in the Onboarding Step 'Setup Role Permissions'
 #: erpnext/setup/onboarding_step/setup_role_permissions/setup_role_permissions.json
 msgid "Setup Role Permissions"
-msgstr ""
+msgstr "设置角色权限"
 
 #. Label of an action in the Onboarding Step 'Setup Sales taxes'
 #: erpnext/accounts/onboarding_step/setup_sales_taxes/setup_sales_taxes.json
@@ -59483,7 +59483,7 @@ msgstr "采用多级物料清单"
 #. DocType 'Global Defaults'
 #: erpnext/setup/doctype/global_defaults/global_defaults.json
 msgid "Use Posting Datetime for Naming Documents"
-msgstr ""
+msgstr "使用记账日期时间生成单据编号"
 
 #. Label of the use_serial_batch_fields (Check) field in DocType 'Stock
 #. Settings'
@@ -61327,7 +61327,7 @@ msgstr "运行中"
 #. in DocType 'Global Defaults'
 #: erpnext/setup/doctype/global_defaults/global_defaults.json
 msgid "When checked, the system will use the posting datetime of the document for naming the document instead of the creation datetime of the document."
-msgstr ""
+msgstr "勾选后，系统将使用单据的记账日期时间生成单据编号，而不是使用单据创建日期时间。"
 
 #: erpnext/stock/doctype/item/item.js:1303
 msgid "When creating an Item, entering a value for this field will automatically create an Item Price at the backend."

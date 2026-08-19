@@ -147,6 +147,8 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn('"Duplicate Serial Number Error": "序列号重复错误"', self.build_script)
 		self.assertIn('"Quality Inspection Not Configured": "质量检验单未配置"', self.build_script)
 		self.assertIn('"Select Company Address": "选择公司地址"', self.build_script)
+		self.assertIn('"Invite Users": "邀请用户"', self.build_script)
+		self.assertIn('"Use Posting Datetime for Naming Documents": "使用记账日期时间生成单据编号"', self.build_script)
 		self.assertIn("this.print_format_control.get_value()", self.build_script)
 		self.assertIn("Banking HTML references missing assets", self.build_script)
 		self.assertIn("Banking entry bundle lacks translation readiness contract", self.build_script)

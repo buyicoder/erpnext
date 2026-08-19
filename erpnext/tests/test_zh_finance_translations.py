@@ -467,6 +467,7 @@ class TestZhFinanceTranslations(TestCase):
 			"erpnext/controllers/",
 			"erpnext/stock/",
 			"erpnext/public/",
+			"erpnext/setup/",
 		)
 		missing = []
 		for source_message in self.source_catalog:
@@ -474,6 +475,8 @@ class TestZhFinanceTranslations(TestCase):
 			if not locations:
 				continue
 			source_id = source_message.id[0] if isinstance(source_message.id, tuple) else source_message.id
+			if not source_id.strip():
+				continue
 			message = self.catalog.get(source_id, context=source_message.context)
 			if message is None:
 				missing.append(f"{','.join(locations)}:{source_message.context or ''}:{source_id}")
@@ -723,6 +726,37 @@ class TestZhFinanceTranslations(TestCase):
 				any(message and message.string and "fuzzy" not in message.flags for message in messages),
 				source,
 			)
+
+	def test_setup_and_onboarding_use_reviewed_chinese_terms(self):
+		translations = {
+			"Copy Attachments to Transaction": "将附件复制到交易单据",
+			"Creating demo data": "正在创建演示数据",
+			"Demo Data creation failed.": "演示数据创建失败。",
+			"Demo data creation failed. Check notifications for more info.": "演示数据创建失败。请查看通知了解详情。",
+			"Failed to create demo data": "创建演示数据失败",
+			"Failed to personalize your setup": "个性化系统设置失败",
+			"Failed to set defaults": "设置默认值失败",
+			"Frappe School": "Frappe 学堂",
+			"Invite Users": "邀请用户",
+			"Is Half Day": "是否为半天",
+			"Messaging CRM Campaign": "消息 CRM 营销活动",
+			"Personalizing your setup": "正在个性化系统设置",
+			"Review System Settings": "检查系统设置",
+			"Setup Company": "设置公司",
+			"Setup Email Account": "设置电子邮箱账户",
+			"Setup Organization": "设置组织",
+			"Setup Role Permissions": "设置角色权限",
+			"Use Posting Datetime for Naming Documents": "使用记账日期时间生成单据编号",
+			"When checked, the system will use the posting datetime of the document for naming the document instead of the creation datetime of the document.": "勾选后，系统将使用单据的记账日期时间生成单据编号，而不是使用单据创建日期时间。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+	def test_source_location_gate_ignores_whitespace_only_extraction_noise(self):
+		whitespace = self.source_catalog.get("  ")
+		self.assertIsNotNone(whitespace)
+		self.assertFalse(whitespace.id.strip())
 
 	def test_accounts_workflows_use_reviewed_chinese_terms(self):
 		translations = {

@@ -69,6 +69,9 @@ expected_translations = {
 	"Quality Inspection Not Configured": "质量检验单未配置",
 	"Select Company Address": "选择公司地址",
 	"Total Advance Paid": "预付款合计",
+	"Invite Users": "邀请用户",
+	"Use Posting Datetime for Naming Documents": "使用记账日期时间生成单据编号",
+	"Creating demo data": "正在创建演示数据",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)
