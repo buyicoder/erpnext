@@ -7,6 +7,7 @@ import {
 	localize_list_filter_title,
 	localize_list_sort_title,
 	localize_list_value_title,
+	localize_sidebar_editor_text,
 	localize_awesomplete_status_text,
 	localize_timeline_element,
 	localize_tree_level_label,
@@ -20,6 +21,7 @@ if (frappe.boot.lang === "zh") {
 	});
 
 	Object.assign(frappe._messages, {
+		"Add Sidebar Item": "添加侧栏项目",
 		"Begin typing for results.": "输入关键词搜索。",
 		"Book Advance Payments In Separate Party Account": "启用预收/付款科目",
 		Masters: "基础资料",
@@ -45,6 +47,11 @@ if (frappe.boot.lang === "zh") {
 	const list_sort_selector = ".list-row-head [data-sort-by][title]";
 	const list_filter_selector = ".filter-button[title$='Filter Applied'], .filter-button[title$='Filters Applied']";
 	const list_value_title_selector = ".list-row .ellipsis[title]";
+	const sidebar_editor_selector = [
+		'.body-sidebar [data-name="add-sidebar-item"] .sidebar-item-label',
+		".body-sidebar .bottom-edit-controls .discard-button",
+		".body-sidebar .bottom-edit-controls .save-sidebar",
+	].join(", ");
 	const localize_compact_cny = (root = document) => {
 		if (!root) return;
 		const elements = root.matches?.(cny_amount_selector)
@@ -143,6 +150,22 @@ if (frappe.boot.lang === "zh") {
 			element.title = localize_list_value_title(element.title, element.textContent, __);
 		});
 	};
+	const localize_sidebar_editor = (root = document) => {
+		if (!root) return;
+		const in_sidebar =
+			root === document ||
+			root.matches?.(".body-sidebar") ||
+			root.closest?.(".body-sidebar") ||
+			root.querySelector?.(".body-sidebar");
+		if (!in_sidebar) return;
+		const elements = root.matches?.(sidebar_editor_selector)
+			? [root]
+			: root.querySelectorAll?.(sidebar_editor_selector) || [];
+		elements.forEach((element) => {
+			const localized = localize_sidebar_editor_text(element.textContent, __);
+			if (localized !== element.textContent) element.textContent = localized;
+		});
+	};
 
 	localize_compact_cny();
 	localize_awesomplete_status();
@@ -150,6 +173,7 @@ if (frappe.boot.lang === "zh") {
 	localize_timeline();
 	localize_datatable_controls();
 	localize_list_titles();
+	localize_sidebar_editor();
 	new MutationObserver((mutations) => {
 		mutations.forEach((mutation) => {
 			if (mutation.type === "attributes") {
@@ -164,6 +188,7 @@ if (frappe.boot.lang === "zh") {
 				localize_timeline(mutation.target.parentElement);
 				localize_datatable_controls(mutation.target.parentElement);
 				localize_list_titles(mutation.target.parentElement);
+				localize_sidebar_editor(mutation.target.parentElement);
 				return;
 			}
 			mutation.addedNodes.forEach((node) => {
@@ -174,6 +199,7 @@ if (frappe.boot.lang === "zh") {
 					localize_timeline(node.parentElement);
 					localize_datatable_controls(node.parentElement);
 					localize_list_titles(node.parentElement);
+					localize_sidebar_editor(node.parentElement);
 					return;
 				}
 				if (node.nodeType !== Node.ELEMENT_NODE) return;
@@ -183,6 +209,7 @@ if (frappe.boot.lang === "zh") {
 				localize_timeline(node);
 				localize_datatable_controls(node);
 				localize_list_titles(node);
+				localize_sidebar_editor(node);
 			});
 		});
 	}).observe(document.body, {

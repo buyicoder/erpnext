@@ -11,12 +11,24 @@ import {
 	localize_list_filter_title,
 	localize_list_sort_title,
 	localize_list_value_title,
+	localize_sidebar_editor_text,
 	localize_awesomplete_status_text,
 	localize_timeline_element,
 	localize_timeline_text,
 	localize_tree_level_label,
 	localize_version_value_text,
 } from "../public/js/zh_finance_format.mjs";
+
+test("localizes only the hard-coded workspace sidebar editor controls", () => {
+	const translate = (message) =>
+		({ "Add Sidebar Item": "添加侧栏项目", Discard: "放弃更改", Save: "保存" })[message] ||
+		message;
+	assert.equal(localize_sidebar_editor_text("Add Sidebar Item", translate), "添加侧栏项目");
+	assert.equal(localize_sidebar_editor_text("Discard", translate), "放弃更改");
+	assert.equal(localize_sidebar_editor_text("Save", translate), "保存");
+	assert.equal(localize_sidebar_editor_text("Customer Save", translate), "Customer Save");
+	assert.equal(localize_sidebar_editor_text("保存", translate), "保存");
+});
 
 test("uses Chinese yuan, ten-thousand and hundred-million units", () => {
 	assert.equal(format_compact_cny_text("CNY 1 K"), "¥1,000.00");

@@ -92,6 +92,14 @@ export const localize_list_value_title = (title, visible_value, translate) => {
 	return `${match[1]}: ${localized_value}`;
 };
 
+const SIDEBAR_EDITOR_LABELS = new Set(["Add Sidebar Item", "Discard", "Save"]);
+
+export const localize_sidebar_editor_text = (text, translate) => {
+	const normalized = text.trim();
+	if (!SIDEBAR_EDITOR_LABELS.has(normalized)) return text;
+	return text.replace(normalized, translate(normalized));
+};
+
 const LOCALIZABLE_TIMELINE_VALUES = new Set(["To Deliver and Bill", "To Receive and Bill"]);
 
 export const localize_version_value_text = (text, translate) =>
