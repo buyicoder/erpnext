@@ -39,6 +39,9 @@ class TestZhFinanceTranslations(TestCase):
 			"Logout": "退出登录",
 			"Keyboard Shortcuts": "键盘快捷键",
 			"Plaid Settings": "Plaid 设置",
+			"Due Date": "到期日",
+			"Today": "今天",
+			"Total": "合计",
 		}
 
 		for source, translation in translations.items():

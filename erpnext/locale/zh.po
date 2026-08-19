@@ -63501,3 +63501,15 @@ msgstr "系统健康状态"
 
 msgid "Frappe Support"
 msgstr "Frappe 技术支持"
+
+msgid "Due Date"
+msgstr "到期日"
+
+msgid "Today"
+msgstr "今天"
+
+msgid "Total"
+msgstr "合计"
+
+msgid "Filter based on"
+msgstr "筛选条件"

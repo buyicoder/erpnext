@@ -194,6 +194,9 @@ frappe.query_reports["Accounts Receivable"] = {
 	],
 
 	formatter: function (value, row, column, data, default_formatter) {
+		if (["party_type", "voucher_type"].includes(column.fieldname) || value === "Total") {
+			value = __(value);
+		}
 		value = default_formatter(value, row, column, data);
 		if (data && data.bold) {
 			value = value.bold();
