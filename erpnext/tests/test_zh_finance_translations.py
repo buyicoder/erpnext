@@ -87,9 +87,13 @@ CORE_OPERATIONAL_MASTER_DOCTYPES = {
 	"Accounting Dimension",
 	"Activity Type",
 	"Asset",
+	"Asset Capitalization",
 	"Asset Depreciation Schedule",
+	"Asset Maintenance",
+	"Asset Maintenance Log",
 	"Asset Movement",
 	"Asset Repair",
+	"Asset Value Adjustment",
 	"Bank",
 	"Bank Clearance",
 	"Bank Statement Import",
@@ -649,6 +653,37 @@ class TestZhFinanceTranslations(TestCase):
 			"Row #{0}: Repair cost {1} exceeds available amount {2} for Purchase Invoice {3} and Account {4}": "第 {0} 行：维修费用 {1} 超过可用金额 {2}（采购发票 {3}，科目 {4}）",
 			"Row {0}: The entire expense amount for account {1} in {2} has already been allocated.": "第 {0} 行：科目 {1} 在 {2} 中的费用金额已全部分配。",
 			"{0} is in Draft. Submit it before creating the Asset.": "{0} 仍为草稿。请先提交，再创建资产。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+
+	def test_asset_capitalization_and_maintenance_use_reviewed_chinese_terms(self):
+		translations = {
+			"Asset Capitalization": "资产资本化",
+			"Asset Maintenance": "资产维护",
+			"Asset Maintenance Log": "资产维护日志",
+			"Asset Value Adjustment": "资产价值调整",
+			"Asset capitalized after Asset Capitalization {0} was submitted": "提交资产资本化单 {0} 后，资产已完成资本化",
+			"Asset restored after Asset Capitalization {0} was cancelled": "取消资产资本化单 {0} 后，资产已恢复",
+			"Consumed Asset Total Value": "耗用资产总价值",
+			"Consumed Stock Total Value": "耗用库存总价值",
+			"Consumed Stock Items, Consumed Asset Items or Consumed Service Items is mandatory for Capitalization": "执行资本化时，必须填写耗用的库存物料、资产物料或服务物料",
+			"Service Expense Total Amount": "服务费用总额",
+			"Target Asset": "目标资产",
+			"Target Incoming Rate": "目标入账单价",
+			"Target Item Code": "目标物料编码",
+			"Value Details": "价值明细",
+			"Maintenance Log": "维护日志",
+			"Maintenance Manager Name": "维护负责人姓名",
+			"Maintenance Status": "维护状态",
+			"Maintenance Status has to be Cancelled or Completed to Submit": "提交前，维护状态必须为已取消或已完成",
+			"Maintenance Tasks": "维护任务",
+			"Maintenance Team": "维护团队",
+			"Maintenance Type": "维护类型",
+			"Task Name": "任务名称",
+			"Task Assignee Email": "任务负责人邮箱",
+			"Start date should be less than end date for task {0}": "任务 {0} 的开始日期必须早于结束日期",
+			"Please enter Item Code to get Batch Number": "请输入物料编码以获取批号",
 		}
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)

@@ -5944,7 +5944,7 @@ msgstr "资产地点"
 #: erpnext/assets/workspace/assets/assets.json
 #: erpnext/workspace_sidebar/assets.json
 msgid "Asset Maintenance"
-msgstr "资产保养"
+msgstr "资产维护"
 
 #. Name of a DocType
 #. Label of a Link in the Assets Workspace
@@ -5953,7 +5953,7 @@ msgstr "资产保养"
 #: erpnext/assets/workspace/assets/assets.json
 #: erpnext/workspace_sidebar/assets.json
 msgid "Asset Maintenance Log"
-msgstr "资产保养日志"
+msgstr "资产维护日志"
 
 #. Name of a DocType
 #: erpnext/assets/doctype/asset_maintenance_task/asset_maintenance_task.json
@@ -6139,7 +6139,7 @@ msgstr "在最后折旧分录前不能报废资产"
 
 #: erpnext/assets/doctype/asset_capitalization/asset_capitalization.py:601
 msgid "Asset capitalized after Asset Capitalization {0} was submitted"
-msgstr "资产资本化{0} 增加了资产价值"
+msgstr "提交资产资本化单 {0} 后，资产已完成资本化"
 
 #: erpnext/assets/doctype/asset/asset.py:290
 msgid "Asset created"
@@ -6171,7 +6171,7 @@ msgstr "资产已恢复"
 
 #: erpnext/assets/doctype/asset_capitalization/asset_capitalization.py:609
 msgid "Asset restored after Asset Capitalization {0} was cancelled"
-msgstr "因取消资产资本化{0} 恢复了资产价值"
+msgstr "取消资产资本化单 {0} 后，资产已恢复"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:1575
 msgid "Asset returned"
@@ -12357,7 +12357,7 @@ msgstr "消耗量"
 #. Capitalization'
 #: erpnext/assets/doctype/asset_capitalization/asset_capitalization.json
 msgid "Consumed Asset Total Value"
-msgstr "耗用的资产金额"
+msgstr "耗用资产总价值"
 
 #. Label of the section_break_26 (Section Break) field in DocType 'Asset
 #. Capitalization'
@@ -12424,13 +12424,13 @@ msgstr "耗用的库存物料"
 
 #: erpnext/assets/doctype/asset_capitalization/asset_capitalization.py:289
 msgid "Consumed Stock Items, Consumed Asset Items or Consumed Service Items is mandatory for Capitalization"
-msgstr "资本化需填写消耗库存/资产/服务项"
+msgstr "执行资本化时，必须填写耗用的库存物料、资产物料或服务物料"
 
 #. Label of the stock_items_total (Currency) field in DocType 'Asset
 #. Capitalization'
 #: erpnext/assets/doctype/asset_capitalization/asset_capitalization.json
 msgid "Consumed Stock Total Value"
-msgstr "耗用的库存金额"
+msgstr "耗用库存总价值"
 
 #: erpnext/stock/doctype/stock_entry_type/stock_entry_type.py:136
 msgid "Consumed quantity of item {0} exceeds transferred quantity."
@@ -29765,7 +29765,7 @@ msgstr "维护详情"
 
 #: erpnext/assets/doctype/asset_maintenance/asset_maintenance.js:50
 msgid "Maintenance Log"
-msgstr "保养日志"
+msgstr "维护日志"
 
 #. Label of the maintenance_manager_name (Read Only) field in DocType 'Asset
 #. Maintenance'
@@ -29774,7 +29774,7 @@ msgstr "保养日志"
 #: erpnext/assets/doctype/asset_maintenance/asset_maintenance.json
 #: erpnext/assets/doctype/asset_maintenance_team/asset_maintenance_team.json
 msgid "Maintenance Manager Name"
-msgstr "维保经理姓名"
+msgstr "维护负责人姓名"
 
 #. Label of the maintenance_required (Check) field in DocType 'Asset'
 #: erpnext/assets/doctype/asset/asset.json
@@ -29842,11 +29842,11 @@ msgstr "保养计划"
 #: erpnext/assets/doctype/asset_maintenance_task/asset_maintenance_task.json
 #: erpnext/stock/doctype/serial_no/serial_no.json
 msgid "Maintenance Status"
-msgstr "保养状态"
+msgstr "维护状态"
 
 #: erpnext/assets/doctype/asset_maintenance_log/asset_maintenance_log.py:59
 msgid "Maintenance Status has to be Cancelled or Completed to Submit"
-msgstr "提交前保养状态须为取消或完成"
+msgstr "提交前，维护状态必须为已取消或已完成"
 
 #. Label of the maintenance_task (Data) field in DocType 'Asset Maintenance
 #. Task'
@@ -29858,12 +29858,12 @@ msgstr "保养任务"
 #. Maintenance'
 #: erpnext/assets/doctype/asset_maintenance/asset_maintenance.json
 msgid "Maintenance Tasks"
-msgstr "保养任务"
+msgstr "维护任务"
 
 #. Label of the maintenance_team (Link) field in DocType 'Asset Maintenance'
 #: erpnext/assets/doctype/asset_maintenance/asset_maintenance.json
 msgid "Maintenance Team"
-msgstr "保养小组"
+msgstr "维护团队"
 
 #. Name of a DocType
 #: erpnext/assets/doctype/maintenance_team_member/maintenance_team_member.json
@@ -29896,7 +29896,7 @@ msgstr "保养时间"
 #: erpnext/assets/doctype/asset_maintenance_task/asset_maintenance_task.json
 #: erpnext/maintenance/doctype/maintenance_visit/maintenance_visit.json
 msgid "Maintenance Type"
-msgstr "保养类型"
+msgstr "维护类型"
 
 #. Label of a Link in the CRM Workspace
 #. Name of a DocType
@@ -38136,7 +38136,7 @@ msgstr "请输入您的费用科目"
 #: erpnext/assets/doctype/asset_capitalization/asset_capitalization.js:84
 #: erpnext/stock/doctype/stock_entry/stock_entry.js:99
 msgid "Please enter Item Code to get Batch Number"
-msgstr "请输入产品代码来获得批号"
+msgstr "请输入物料编码以获取批号"
 
 #: erpnext/public/js/controllers/transaction.js:3048
 msgid "Please enter Item Code to get batch no"
@@ -49937,7 +49937,7 @@ msgstr "服务费用科目"
 #. Capitalization'
 #: erpnext/assets/doctype/asset_capitalization/asset_capitalization.json
 msgid "Service Expense Total Amount"
-msgstr "耗用的服务金额"
+msgstr "服务费用总额"
 
 #. Label of the service_expenses_section (Section Break) field in DocType
 #. 'Asset Capitalization'
@@ -51724,7 +51724,7 @@ msgstr "物料{0}的开始日期必须小于结束日期"
 
 #: erpnext/assets/doctype/asset_maintenance/asset_maintenance.py:37
 msgid "Start date should be less than end date for task {0}"
-msgstr "开始日期应该小于任务{0}的结束日期"
+msgstr "任务 {0} 的开始日期必须早于结束日期"
 
 #: erpnext/utilities/bulk_transaction.py:44
 msgid "Started a background job to create {1} {0}. {2}"
@@ -54147,7 +54147,7 @@ msgstr "目标（{}）"
 #. Label of the target_asset (Link) field in DocType 'Asset Capitalization'
 #: erpnext/assets/doctype/asset_capitalization/asset_capitalization.json
 msgid "Target Asset"
-msgstr "结转的资产号"
+msgstr "目标资产"
 
 #: erpnext/assets/doctype/asset_capitalization/asset_capitalization.py:212
 msgid "Target Asset {0} cannot be cancelled"
@@ -54204,12 +54204,12 @@ msgstr "目标固定资产科目"
 #. Capitalization'
 #: erpnext/assets/doctype/asset_capitalization/asset_capitalization.json
 msgid "Target Incoming Rate"
-msgstr "入账单价"
+msgstr "目标入账单价"
 
 #. Label of the target_item_code (Link) field in DocType 'Asset Capitalization'
 #: erpnext/assets/doctype/asset_capitalization/asset_capitalization.json
 msgid "Target Item Code"
-msgstr "结转的物料号"
+msgstr "目标物料编码"
 
 #: erpnext/assets/doctype/asset_capitalization/asset_capitalization.py:186
 msgid "Target Item {0} must be a Fixed Asset item"
@@ -54316,7 +54316,7 @@ msgstr "税则号"
 #. Log'
 #: erpnext/assets/doctype/asset_maintenance_log/asset_maintenance_log.json
 msgid "Task Assignee Email"
-msgstr "任务分配人邮箱"
+msgstr "任务负责人邮箱"
 
 #. Option for the '% Complete Method' (Select) field in DocType 'Project'
 #: erpnext/projects/doctype/project/project.json
@@ -60024,7 +60024,7 @@ msgstr "检测结果"
 #. Value Adjustment'
 #: erpnext/assets/doctype/asset_value_adjustment/asset_value_adjustment.json
 msgid "Value Details"
-msgstr "详情"
+msgstr "价值明细"
 
 #: erpnext/buying/report/purchase_analytics/purchase_analytics.js:24
 #: erpnext/selling/report/sales_analytics/sales_analytics.js:40
@@ -63939,3 +63939,8 @@ msgstr "正在按 {0} 个单位拆分 {1}"
 # Reviewed stock reposting localization
 msgid "Current Index"
 msgstr "已处理项数"
+
+# Reviewed asset maintenance localization
+#: erpnext/assets/doctype/asset_maintenance_log/asset_maintenance_log.json
+msgid "Task Name"
+msgstr "任务名称"
