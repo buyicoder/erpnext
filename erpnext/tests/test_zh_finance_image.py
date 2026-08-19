@@ -47,12 +47,21 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("erpnext/setup/setup_wizard/operations/defaults_setup.py", self.containerfile)
 		self.assertIn("AS banking-builder", self.containerfile)
 		self.assertIn("COPY banking/ ./", self.containerfile)
-		self.assertIn("yarn build", self.containerfile)
-		self.assertIn("/home/frappe/frappe-bench/apps/erpnext/erpnext/public/banking", self.containerfile)
+		self.assertIn("yarn test:localization && mkdir -p /erpnext/www && yarn build", self.containerfile)
+		self.assertIn("/home/frappe/frappe-bench/assets/erpnext/banking", self.containerfile)
 		self.assertIn("/home/frappe/frappe-bench/apps/erpnext/erpnext/www/banking.html", self.containerfile)
+		self.assertGreater(
+			self.containerfile.index("COPY --from=banking-builder"),
+			self.containerfile.index("bench build --app erpnext"),
+		)
+		self.assertIn("assets/erpnext/banking", self.containerfile)
 		banking_main = (self.repo_root / "banking" / "src" / "main.tsx").read_text()
-		self.assertIn("await window.frappe?._translations_loaded", banking_main)
+		banking_html = (self.repo_root / "banking" / "index.html").read_text()
+		self.assertIn("await resolveTranslationMessages", banking_main)
+		self.assertIn("window.frappe?._translations_loaded", banking_main)
 		self.assertIn("function renderApp", banking_main)
+		self.assertIn("frappe._messages = frappe.boot.__messages || {};", banking_html)
+		self.assertIn("data.message || {}", banking_html)
 		self.assertIn("frappe-v16.24.4-zh.po", self.containerfile)
 		self.assertIn("localization/frappe/zh.po", self.containerfile)
 		self.assertIn("localization/frappe/realtime_utils.js", self.containerfile)
@@ -79,6 +88,8 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("Compiled ERPNext translations do not match", self.build_script)
 		self.assertIn('"Statement PDF Password": "对账单 PDF 密码"', self.build_script)
 		self.assertIn("this.print_format_control.get_value()", self.build_script)
+		self.assertIn("Banking HTML references missing assets", self.build_script)
+		self.assertIn("Banking entry bundle lacks translation readiness contract", self.build_script)
 		self.assertIn("Refusing to build from a dirty worktree", self.build_script)
 
 	def test_asset_manifest_syncs_every_built_bundle(self):

@@ -5,7 +5,7 @@ RUN corepack enable
 COPY banking/package.json banking/yarn.lock ./
 RUN yarn install --frozen-lockfile
 COPY banking/ ./
-RUN mkdir -p /erpnext/www && yarn build
+RUN yarn test:localization && mkdir -p /erpnext/www && yarn build
 
 FROM buyicoder/erpnext-cn:v16.32.3
 
@@ -42,8 +42,6 @@ COPY --chown=frappe:frappe erpnext/projects/doctype/project/project.py /home/fra
 COPY --chown=frappe:frappe erpnext/stock/doctype/item/item.json /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json
 COPY --chown=frappe:frappe erpnext/setup/china_defaults.py /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/china_defaults.py
 COPY --chown=frappe:frappe erpnext/setup/setup_wizard/operations/defaults_setup.py /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/setup_wizard/operations/defaults_setup.py
-COPY --from=banking-builder --chown=frappe:frappe /erpnext/public/banking /home/frappe/frappe-bench/apps/erpnext/erpnext/public/banking
-COPY --from=banking-builder --chown=frappe:frappe /erpnext/www/banking.html /home/frappe/frappe-bench/apps/erpnext/erpnext/www/banking.html
 RUN sed -i \
 	's#proxy_set_header Origin \$proxy_x_forwarded_proto://${FRAPPE_SITE_NAME_HEADER};#proxy_set_header Origin \$frappe_socket_origin;#' \
 	/templates/nginx/frappe.conf.template && \
@@ -69,3 +67,9 @@ RUN /home/frappe/frappe-bench/env/bin/python /tmp/merge_frappe_zh_catalog.py \
 	mkdir -p assets/locale/zh/LC_MESSAGES && \
 	cp sites/assets/locale/zh/LC_MESSAGES/frappe.mo assets/locale/zh/LC_MESSAGES/frappe.mo && \
 	cp sites/assets/locale/zh/LC_MESSAGES/erpnext.mo assets/locale/zh/LC_MESSAGES/erpnext.mo
+
+# bench build rebuilds ERPNext's bundled Banking app from the pinned upstream
+# source. Overlay the localized standalone build afterwards and update both the
+# immutable image assets and the sites/assets tree used by existing deployments.
+COPY --from=banking-builder --chown=frappe:frappe /erpnext/public/banking /home/frappe/frappe-bench/assets/erpnext/banking
+COPY --from=banking-builder --chown=frappe:frappe /erpnext/www/banking.html /home/frappe/frappe-bench/apps/erpnext/erpnext/www/banking.html

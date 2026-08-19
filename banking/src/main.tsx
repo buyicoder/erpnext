@@ -4,6 +4,7 @@ import './index.css'
 import App from './App.tsx'
 import './lib/namespace'
 import { DirectionProvider } from './components/ui/direction.tsx'
+import { resolveTranslationMessages } from './lib/boot-translations.js'
 
 function renderApp(layoutDirection: 'ltr' | 'rtl') {
   createRoot(document.getElementById('root') as HTMLElement).render(
@@ -16,7 +17,10 @@ function renderApp(layoutDirection: 'ltr' | 'rtl') {
 }
 
 async function startProductionApp() {
-  await window.frappe?._translations_loaded
+  window.frappe._messages = await resolveTranslationMessages(
+    window.frappe?._messages,
+    window.frappe?._translations_loaded,
+  )
   window.frappe.model.sync(window.frappe.boot.docs)
   renderApp(window.frappe?.boot?.layout_direction ?? 'ltr')
 }

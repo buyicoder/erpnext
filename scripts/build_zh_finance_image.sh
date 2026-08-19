@@ -22,6 +22,7 @@ docker run --rm --entrypoint sh "$image" -lc '
 	set -eu
 	/home/frappe/frappe-bench/env/bin/python - <<"PY"
 import json
+import re
 from gettext import GNUTranslations
 from pathlib import Path
 
@@ -47,9 +48,25 @@ mismatches = {
 if mismatches:
 	raise SystemExit(f"Compiled ERPNext translations do not match: {mismatches}")
 print(f"Verified {len(expected_translations)} compiled ERPNext translations")
+
+banking_html = Path("/home/frappe/frappe-bench/apps/erpnext/erpnext/www/banking.html").read_text()
+asset_paths = re.findall(r"(?:src|href)=\"(/assets/erpnext/banking/[^\"]+)\"", banking_html)
+if not asset_paths:
+	raise SystemExit("Banking HTML has no built asset references")
+missing_banking_assets = [path for path in asset_paths if not (Path("/home/frappe/frappe-bench") / path.removeprefix("/")).is_file()]
+if missing_banking_assets:
+	raise SystemExit("Banking HTML references missing assets: " + ", ".join(missing_banking_assets))
+entry_paths = [path for path in asset_paths if re.search(r"/index-[^/]+\.js$", path)]
+if len(entry_paths) != 1:
+	raise SystemExit(f"Expected one Banking entry bundle, found: {entry_paths}")
+entry_file = Path("/home/frappe/frappe-bench/assets") / entry_paths[0].removeprefix("/assets/")
+if "_translations_loaded" not in entry_file.read_text():
+	raise SystemExit(f"Banking entry bundle lacks translation readiness contract: {entry_paths[0]}")
+print(f"Verified {len(asset_paths)} Banking HTML asset references")
 PY
 	grep -F "this.print_format_control.get_value()" /home/frappe/frappe-bench/apps/frappe/frappe/printing/page/print/print.js >/dev/null
 	test -s /home/frappe/frappe-bench/assets/locale/zh/LC_MESSAGES/erpnext.mo
+	grep -F "{{ _(\"Banking\") }}" /home/frappe/frappe-bench/apps/erpnext/erpnext/www/banking.html >/dev/null
 '
 
 printf '%s\n' "Built $image from $source_commit"
