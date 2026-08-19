@@ -17919,7 +17919,7 @@ msgstr "手动分摊"
 #: erpnext/stock/doctype/delivery_note_item/delivery_note_item.json
 #: erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json
 msgid "Distributed Discount Amount"
-msgstr "分摊的折旧金额"
+msgstr "分摊折扣金额"
 
 #. Label of the distribution_frequency (Select) field in DocType 'Budget'
 #: erpnext/accounts/doctype/budget/budget.json
@@ -18143,7 +18143,7 @@ msgstr "下载CSV文件模板"
 
 #: erpnext/buying/doctype/request_for_quotation/request_for_quotation.js:145
 msgid "Download PDF for Supplier"
-msgstr "为供应商下载PDF"
+msgstr "下载供应商版 PDF"
 
 #. Label of the download_materials_required (Button) field in DocType
 #. 'Production Plan'
@@ -22521,7 +22521,7 @@ msgstr "选供应商"
 
 #: erpnext/buying/doctype/request_for_quotation/request_for_quotation.js:485
 msgid "Get Suppliers By"
-msgstr "获得供应商"
+msgstr "供应商筛选依据"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.js:357
 msgid "Get Timesheets"
@@ -24960,7 +24960,7 @@ msgstr ""
 #: erpnext/stock/doctype/purchase_receipt/purchase_receipt.json
 #: erpnext/stock/doctype/shipment/shipment.json
 msgid "Incoterm"
-msgstr "贸易条款"
+msgstr "国际贸易术语"
 
 #. Label of the increase_in_asset_life (Int) field in DocType 'Asset Finance
 #. Book'
@@ -29288,7 +29288,7 @@ msgstr "链接到物料需求"
 #: erpnext/buying/doctype/request_for_quotation/request_for_quotation.js:452
 #: erpnext/buying/doctype/supplier_quotation/supplier_quotation.js:80
 msgid "Link to Material Requests"
-msgstr "链接到物料申请集"
+msgstr "关联物料需求"
 
 #: erpnext/buying/doctype/supplier/supplier.js:164
 msgid "Link with Customer"
@@ -37888,7 +37888,7 @@ msgstr "请先添加工序。"
 
 #: erpnext/buying/doctype/request_for_quotation/request_for_quotation.py:214
 msgid "Please add Request for Quotation to the sidebar in Portal Settings."
-msgstr "请在门户设置中将报价请求添加到侧边栏"
+msgstr "请在门户设置中将询价单添加到侧边栏。"
 
 #: erpnext/accounts/doctype/chart_of_accounts_importer/chart_of_accounts_importer.py:420
 msgid "Please add Root Account for - {0}"
@@ -39108,7 +39108,7 @@ msgstr "门户网站用户"
 
 #: erpnext/buying/doctype/request_for_quotation/request_for_quotation.js:407
 msgid "Possible Supplier"
-msgstr "潜在供应商"
+msgstr "候选供应商"
 
 #. Label of the post_description_key (Data) field in DocType 'Support Search
 #. Source'
@@ -42796,7 +42796,7 @@ msgstr "询价与采购订单设置"
 
 #: erpnext/buying/doctype/request_for_quotation/request_for_quotation.py:133
 msgid "RFQs are not allowed for {0} due to a scorecard standing of {1}"
-msgstr "由于评分卡的当前评级为{1}，使用向{0}询价"
+msgstr "供应商 {0} 的评分卡等级为 {1}，不允许向其发出询价。"
 
 #. Label of the auto_indent (Check) field in DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
@@ -44803,7 +44803,7 @@ msgstr "索取资料"
 #: erpnext/stock/doctype/material_request/material_request.js:205
 #: erpnext/workspace_sidebar/buying.json
 msgid "Request for Quotation"
-msgstr "询价"
+msgstr "询价单"
 
 #. Name of a DocType
 #. Label of the request_for_quotation_item (Data) field in DocType 'Supplier
@@ -44811,12 +44811,12 @@ msgstr "询价"
 #: erpnext/buying/doctype/request_for_quotation_item/request_for_quotation_item.json
 #: erpnext/buying/doctype/supplier_quotation_item/supplier_quotation_item.json
 msgid "Request for Quotation Item"
-msgstr "询价物料"
+msgstr "询价单明细"
 
 #. Name of a DocType
 #: erpnext/buying/doctype/request_for_quotation_supplier/request_for_quotation_supplier.json
 msgid "Request for Quotation Supplier"
-msgstr "询价供应商"
+msgstr "询价单供应商"
 
 #: erpnext/selling/doctype/sales_order/sales_order.js:1098
 msgid "Request for Raw Materials"
@@ -48957,7 +48957,7 @@ msgstr ""
 
 #: erpnext/buying/doctype/request_for_quotation/request_for_quotation.js:411
 msgid "Select Possible Supplier"
-msgstr "选择潜在供应商"
+msgstr "选择候选供应商"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.js:1120
 #: erpnext/stock/doctype/pick_list/pick_list.js:224
@@ -49350,13 +49350,13 @@ msgstr "发送上传的附件"
 #. Quotation'
 #: erpnext/buying/doctype/request_for_quotation/request_for_quotation.json
 msgid "Send Document Print"
-msgstr "发送打印的pdf附件"
+msgstr "附加单据 PDF"
 
 #. Label of the send_email (Check) field in DocType 'Request for Quotation
 #. Supplier'
 #: erpnext/buying/doctype/request_for_quotation_supplier/request_for_quotation_supplier.json
 msgid "Send Email"
-msgstr "发电子邮件"
+msgstr "发送邮件"
 
 #: erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.js:11
 msgid "Send Emails"
@@ -53769,7 +53769,7 @@ msgstr "供应商编号列表"
 #: erpnext/buying/doctype/request_for_quotation_item/request_for_quotation_item.json
 #: erpnext/templates/includes/rfq/rfq_macros.html:20
 msgid "Supplier Part No"
-msgstr "供应商部件号"
+msgstr "供应商物料编码"
 
 #. Label of the supplier_part_no (Data) field in DocType 'Purchase Order Item'
 #. Label of the supplier_part_no (Data) field in DocType 'Supplier Quotation
@@ -53782,7 +53782,7 @@ msgstr "供应商部件号"
 #: erpnext/stock/doctype/item_supplier/item_supplier.json
 #: erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json
 msgid "Supplier Part Number"
-msgstr "供应商物料号"
+msgstr "供应商物料编码"
 
 #. Label of the portal_users (Table) field in DocType 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
@@ -53810,7 +53810,7 @@ msgstr "供应商门户网站用户"
 #: erpnext/stock/doctype/material_request/material_request.js:211
 #: erpnext/workspace_sidebar/buying.json
 msgid "Supplier Quotation"
-msgstr "供应商报价"
+msgstr "供应商报价单"
 
 #. Name of a report
 #. Label of a Link in the Buying Workspace
@@ -53828,7 +53828,7 @@ msgstr "供应商比价"
 #: erpnext/buying/doctype/purchase_order_item/purchase_order_item.json
 #: erpnext/buying/doctype/supplier_quotation_item/supplier_quotation_item.json
 msgid "Supplier Quotation Item"
-msgstr "供应商报价明细"
+msgstr "供应商报价单明细"
 
 #: erpnext/buying/doctype/request_for_quotation/request_for_quotation.py:512
 msgid "Supplier Quotation {0} Created"
@@ -54744,8 +54744,8 @@ msgstr "代扣税款税率"
 #: erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json
 msgid "Tax detail table fetched from item master as a string and stored in this field.\n"
 "Used for Taxes and Charges"
-msgstr "税务细节表已作为字符串从项目主中获取并存储在此字段。\n"
-"用于税收和费用"
+msgstr "从物料主数据获取税费明细表，以字符串形式存储在此字段中。\n"
+"用于计算税费"
 
 #. Description of the 'Only Deduct Tax On Excess Amount ' (Check) field in
 #. DocType 'Tax Withholding Category'
@@ -59765,7 +59765,7 @@ msgstr "生效日期必须在{0}之后，因成本中心{1}的最后总账分录
 #: erpnext/selling/doctype/quotation/quotation.json
 #: erpnext/templates/pages/order.html:59
 msgid "Valid Till"
-msgstr "失效日期"
+msgstr "有效期至"
 
 #. Label of the valid_upto (Date) field in DocType 'Coupon Code'
 #. Label of the valid_upto (Date) field in DocType 'Pricing Rule'
@@ -59806,7 +59806,7 @@ msgstr "请为累积类型维护生效和失效日期"
 
 #: erpnext/buying/doctype/supplier_quotation/supplier_quotation.py:169
 msgid "Valid till Date cannot be before Transaction Date"
-msgstr "有效期至不可早于交易日期"
+msgstr "有效期至不能早于业务日期"
 
 #: erpnext/selling/doctype/quotation/quotation.py:162
 msgid "Valid till date cannot be before transaction date"

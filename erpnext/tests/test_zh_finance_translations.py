@@ -63,10 +63,12 @@ CORE_BUSINESS_DOCTYPES = {
 	"Purchase Invoice",
 	"Purchase Order",
 	"Purchase Receipt",
+	"Request for Quotation",
 	"Sales Invoice",
 	"Sales Order",
 	"Stock Entry",
 	"Supplier",
+	"Supplier Quotation",
 	"Work Order",
 }
 
@@ -757,6 +759,39 @@ class TestZhFinanceTranslations(TestCase):
 			"Total Landed Cost (Company Currency)": "到岸成本合计（本币）",
 			"Total Vendor Invoices Cost (Company Currency)": "供应商发票成本合计（本币）",
 			"Total {0} for all items is zero, may be you should change 'Distribute Charges Based On'": "所有物料的 {0} 合计为零，请考虑更改“费用分摊依据”",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+
+	def test_supplier_quotation_workflow_uses_reviewed_chinese_terms(self):
+		translations = {
+			"Request for Quotation": "询价单",
+			"Request for Quotation Item": "询价单明细",
+			"Request for Quotation Supplier": "询价单供应商",
+			"Supplier Quotation": "供应商报价单",
+			"Supplier Quotation Item": "供应商报价单明细",
+			"Supplier Quotation Comparison": "供应商比价",
+			"Create Supplier Quotation": "创建供应商报价",
+			"Quote Status": "报价状态",
+			"Valid Till": "有效期至",
+			"Valid till Date cannot be before Transaction Date": "有效期至不能早于业务日期",
+			"Expected Delivery Date": "预计交货日期",
+			"Possible Supplier": "候选供应商",
+			"Select Possible Supplier": "选择候选供应商",
+			"Get Suppliers By": "供应商筛选依据",
+			"Supplier Part No": "供应商物料编码",
+			"Supplier Part Number": "供应商物料编码",
+			"Distributed Discount Amount": "分摊折扣金额",
+			"Incoterm": "国际贸易术语",
+			"Link to Material Requests": "关联物料需求",
+			"Download PDF for Supplier": "下载供应商版 PDF",
+			"Send Document Print": "附加单据 PDF",
+			"Send Email": "发送邮件",
+			"RFQs are not allowed for {0} due to a scorecard standing of {1}": "供应商 {0} 的评分卡等级为 {1}，不允许向其发出询价。",
+			"{0} currently has a {1} Supplier Scorecard standing, and RFQs to this supplier should be issued with caution.": "{0}当前供应商评分等级为{1}，请谨慎向该供应商询价。",
+			"Row {0}: For Supplier {1}, Email Address is Required to send an email": "行号{0}：供应商{1}必须填写邮箱地址以发送邮件",
+			"Same supplier has been entered multiple times": "同一个供应商已多次输入",
+			"The Access to Request for Quotation From Portal is Disabled. To Allow Access, Enable it in Portal Settings.": "门户询价申请功能已禁用。如需启用，请在门户设置中开启",
 		}
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
