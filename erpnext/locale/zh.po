@@ -1589,7 +1589,7 @@ msgstr "零钱科目"
 
 #: erpnext/accounts/doctype/budget/budget.py:150
 msgid "Account is mandatory"
-msgstr ""
+msgstr "必须填写科目"
 
 #: erpnext/accounts/doctype/bank_clearance/bank_clearance.py:48
 msgid "Account is mandatory to get payment entries"
@@ -1676,7 +1676,7 @@ msgstr "科目{0}无法禁用，因其已设置为{2}的{1}。"
 
 #: erpnext/accounts/doctype/budget/budget.py:159
 msgid "Account {0} does not belong to company {1}"
-msgstr ""
+msgstr "科目 {0} 不属于公司 {1}"
 
 #: erpnext/setup/doctype/company/company.py:289
 msgid "Account {0} does not belong to company: {1}"
@@ -2910,7 +2910,7 @@ msgstr ""
 
 #: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:92
 msgid "Add atleast one voucher to repost."
-msgstr ""
+msgstr "至少添加一张需要重新过账的凭证。"
 
 #: erpnext/www/book_appointment/index.html:42
 msgid "Add details"
@@ -2950,7 +2950,7 @@ msgstr "添加至在途"
 
 #: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:178
 msgid "Add vouchers to generate preview."
-msgstr ""
+msgstr "请添加凭证以生成预览。"
 
 #: erpnext/accounts/doctype/coupon_code/coupon_code.js:36
 msgid "Add/Edit Coupon Conditions"
@@ -5168,7 +5168,7 @@ msgstr "年收入"
 
 #: erpnext/accounts/doctype/budget/budget.py:142
 msgid "Another Budget record '{0}' already exists against {1} '{2}' and account '{3}' with overlapping fiscal years."
-msgstr ""
+msgstr "已存在另一条预算记录“{0}”，其针对 {1}“{2}”和科目“{3}”的会计年度范围与当前记录重叠。"
 
 #: erpnext/accounts/doctype/cost_center_allocation/cost_center_allocation.py:107
 msgid "Another Cost Center Allocation record {0} applicable from {1}, hence this allocation will be applicable upto {2}"
@@ -5638,7 +5638,7 @@ msgstr "确认重启此订阅？"
 
 #: erpnext/accounts/doctype/budget/budget.js:83
 msgid "Are you sure you want to revise this budget? The current budget will be cancelled and a new draft will be created."
-msgstr ""
+msgstr "确定要修订此预算吗？当前预算将被取消，并创建一份新草稿。"
 
 #: banking/src/components/features/ActionLog/ActionLogDialogBody.tsx:379
 msgid "Are you sure you want to unmatch the voucher from this transaction?"
@@ -9121,7 +9121,7 @@ msgstr "预算不能分派给组类科目{0}"
 
 #: erpnext/accounts/doctype/budget/budget.py:162
 msgid "Budget cannot be assigned against {0}, as its Root Type is not of Income or Expense"
-msgstr ""
+msgstr "无法为 {0} 分配预算，因为其根类型不是收入或费用"
 
 #: erpnext/accounts/doctype/fiscal_year/fiscal_year_dashboard.py:9
 msgid "Budgets"
@@ -9970,7 +9970,7 @@ msgstr "此收取类型不能引用大于或等于本行的数据。"
 
 #: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:96
 msgid "Cannot repost more than {0} vouchers at once. Split them into multiple documents."
-msgstr ""
+msgstr "一次不能重新过账超过 {0} 张凭证。请拆分为多份单据处理。"
 
 #: erpnext/accounts/doctype/bank/bank.js:63
 msgid "Cannot retrieve link token for update. Check Error Log for more information"
@@ -18422,7 +18422,7 @@ msgstr "重复的行{0}同{1}"
 
 #: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:110
 msgid "Duplicate vouchers found. Remove the duplicate vouchers to continue to repost."
-msgstr ""
+msgstr "发现重复凭证。请删除重复凭证后继续重新过账。"
 
 #: erpnext/accounts/doctype/pricing_rule/pricing_rule.py:157
 msgid "Duplicate {0} found in the table"
@@ -21074,7 +21074,7 @@ msgstr "财年{0}不存在"
 
 #: erpnext/accounts/doctype/budget/budget.py:97
 msgid "Fiscal Year {0} is not available for Company {1}."
-msgstr ""
+msgstr "会计年度 {0} 不适用于公司 {1}。"
 
 #: erpnext/accounts/report/trial_balance/trial_balance.py:43
 msgid "Fiscal Year {0} is required"
@@ -32485,7 +32485,7 @@ msgstr "新的解除临时冻结日期必须晚于今天"
 
 #: erpnext/accounts/doctype/budget/budget.js:92
 msgid "New revised budget created successfully"
-msgstr ""
+msgstr "已成功创建修订后的新预算"
 
 #: erpnext/templates/pages/projects.html:37
 msgid "New task"
@@ -35815,7 +35815,7 @@ msgstr "部分对账"
 #. Option for the 'Status' (Select) field in DocType 'Repost Accounting Ledger'
 #: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.json
 msgid "Partially Reposted"
-msgstr ""
+msgstr "部分重新过账"
 
 #. Option for the 'Status' (Select) field in DocType 'Stock Reservation Entry'
 #: erpnext/stock/doctype/stock_reservation_entry/stock_reservation_entry.json
@@ -44678,11 +44678,11 @@ msgstr "凭证重新过账进度"
 
 #: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:216
 msgid "Reposting can be started only for submitted document."
-msgstr ""
+msgstr "只能对已提交的单据启动重新过账。"
 
 #: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:221
 msgid "Reposting cannot be started when status is {0}."
-msgstr ""
+msgstr "状态为 {0} 时无法启动重新过账。"
 
 #: erpnext/stock/report/stock_and_account_value_comparison/stock_and_account_value_comparison.py:227
 #: erpnext/stock/report/stock_ledger_invariant_check/stock_ledger_invariant_check.py:347
@@ -44707,11 +44707,11 @@ msgstr "重过账后台任务运行中"
 
 #: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:211
 msgid "Reposting is still in progress in background."
-msgstr ""
+msgstr "重新过账仍在后台进行。"
 
 #: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:315
 msgid "Reposting {0} {1}"
-msgstr ""
+msgstr "正在重新过账 {0} {1}"
 
 #. Label of the represents_company (Link) field in DocType 'Purchase Invoice'
 #. Label of the represents_company (Link) field in DocType 'Sales Invoice'
@@ -45806,7 +45806,7 @@ msgstr "修订自"
 
 #: erpnext/accounts/doctype/budget/budget.js:99
 msgid "Revision cancelled"
-msgstr ""
+msgstr "已取消修订"
 
 #. Label of the rgt (Int) field in DocType 'Account'
 #. Label of the rgt (Int) field in DocType 'Company'
@@ -48558,7 +48558,7 @@ msgstr "后台任务进程未开启，无法合并科目"
 
 #: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:232
 msgid "Scheduler is inactive. Reposting will only run once background jobs are processed."
-msgstr ""
+msgstr "调度器未启用。只有在后台作业开始处理后，重新过账才会运行。"
 
 #. Label of the schedules (Table) field in DocType 'Maintenance Schedule'
 #: erpnext/maintenance/doctype/maintenance_schedule/maintenance_schedule.json
@@ -51485,7 +51485,7 @@ msgstr "指定用来计算运费金额的条件"
 
 #: erpnext/accounts/doctype/budget/budget.py:217
 msgid "Spending for Account {0} ({1}) between {2} and {3} has already exceeded the new allocated budget. Spent: {4}, Budget: {5}"
-msgstr ""
+msgstr "科目 {0}（{1}）在 {2} 至 {3} 期间的支出已超过新分配的预算。已支出：{4}，预算：{5}"
 
 #: banking/src/components/features/ActionLog/ActionLogDialogBody.tsx:142
 #: banking/src/components/features/BankReconciliation/SelectedTransactionDetails.tsx:55
@@ -55532,7 +55532,7 @@ msgstr ""
 
 #: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:130
 msgid "The following vouchers are not submitted: {0}"
-msgstr ""
+msgstr "以下凭证尚未提交：{0}"
 
 #: erpnext/stock/doctype/material_request/material_request.py:1062
 msgid "The following {0} were created: {1}"
@@ -57788,11 +57788,11 @@ msgstr "总贡献百分比应等于100"
 
 #: erpnext/accounts/doctype/budget/budget.py:363
 msgid "Total distributed amount {0} must be equal to Budget Amount {1}"
-msgstr ""
+msgstr "分配总额 {0} 必须等于预算金额 {1}"
 
 #: erpnext/accounts/doctype/budget/budget.py:370
 msgid "Total distribution percent must equal 100 (currently {0})"
-msgstr ""
+msgstr "分配比例合计必须等于 100（当前为 {0}）"
 
 #: erpnext/projects/doctype/project/project_dashboard.html:2
 msgid "Total hours: {0}"
@@ -62655,11 +62655,11 @@ msgstr "{0}科目：{1}({2})必须使用客户结算货币{3}或公司默认货�
 
 #: erpnext/accounts/doctype/budget/budget.py:547
 msgid "{0} Budget for Account {1} against {2} {3} is {4}. It is already exceeded by {5}."
-msgstr ""
+msgstr "{0}预算中，科目 {1} 针对 {2} {3} 的预算为 {4}，已超支 {5}。"
 
 #: erpnext/accounts/doctype/budget/budget.py:550
 msgid "{0} Budget for Account {1} against {2} {3} is {4}. It will be exceeded by {5}."
-msgstr ""
+msgstr "{0}预算中，科目 {1} 针对 {2} {3} 的预算为 {4}，本次操作将超支 {5}。"
 
 #: erpnext/accounts/doctype/pricing_rule/utils.py:772
 msgid "{0} Coupon used are {1}. Allowed quantity is exhausted"
@@ -63186,7 +63186,7 @@ msgstr "{0} {1}必须提交"
 
 #: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:506
 msgid "{0} {1} not allowed to be reposted. You can enable it by adding it '{2}' table in {3}."
-msgstr ""
+msgstr "不允许对 {0} {1} 重新过账。可将该单据类型添加到“{2}”表格（位于 {3}）以启用。"
 
 #: erpnext/buying/utils.py:117
 msgid "{0} {1} status is {2}."

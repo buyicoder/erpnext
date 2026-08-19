@@ -84,6 +84,7 @@ CORE_OPERATIONAL_MASTER_DOCTYPES = {
 	"Bank Transaction",
 	"Branch",
 	"Brand",
+	"Budget",
 	"Buying Settings",
 	"Department",
 	"Dunning",
@@ -105,6 +106,7 @@ CORE_OPERATIONAL_MASTER_DOCTYPES = {
 	"Stock Reposting Settings",
 	"Stock Settings",
 	"Repost Item Valuation",
+	"Repost Accounting Ledger",
 	"Task Type",
 	"Territory",
 }
@@ -623,6 +625,43 @@ class TestZhFinanceTranslations(TestCase):
 			"Restart Failed Entries": "重新启动失败记录",
 			"No account set": "未设置科目",
 			"If enabled, a weekly scheduler scans the Stock Ledger Variance for item-warehouses with incorrect valuation in the current financial year and auto-creates Item & Warehouse based reposts to fix them.": "启用后，每周调度任务将扫描当前会计年度的物料凭证差异报表，找出成本价错误的物料与仓库组合，并自动创建重新过账任务进行修复。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+
+	def test_accounting_reposting_uses_reviewed_chinese_terms(self):
+		translations = {
+			"Partially Reposted": "部分重新过账",
+			"Add atleast one voucher to repost.": "至少添加一张需要重新过账的凭证。",
+			"Add vouchers to generate preview.": "请添加凭证以生成预览。",
+			"Cannot repost more than {0} vouchers at once. Split them into multiple documents.": "一次不能重新过账超过 {0} 张凭证。请拆分为多份单据处理。",
+			"Duplicate vouchers found. Remove the duplicate vouchers to continue to repost.": "发现重复凭证。请删除重复凭证后继续重新过账。",
+			"The following vouchers are not submitted: {0}": "以下凭证尚未提交：{0}",
+			"Reposting can be started only for submitted document.": "只能对已提交的单据启动重新过账。",
+			"Reposting cannot be started when status is {0}.": "状态为 {0} 时无法启动重新过账。",
+			"Reposting is still in progress in background.": "重新过账仍在后台进行。",
+			"Reposting {0} {1}": "正在重新过账 {0} {1}",
+			"Scheduler is inactive. Reposting will only run once background jobs are processed.": "调度器未启用。只有在后台作业开始处理后，重新过账才会运行。",
+			"{0} {1} not allowed to be reposted. You can enable it by adding it '{2}' table in {3}.": "不允许对 {0} {1} 重新过账。可将该单据类型添加到“{2}”表格（位于 {3}）以启用。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+
+	def test_budget_controls_use_reviewed_chinese_terms(self):
+		translations = {
+			"Account is mandatory": "必须填写科目",
+			"Account {0} does not belong to company {1}": "科目 {0} 不属于公司 {1}",
+			"Fiscal Year {0} is not available for Company {1}.": "会计年度 {0} 不适用于公司 {1}。",
+			"Another Budget record '{0}' already exists against {1} '{2}' and account '{3}' with overlapping fiscal years.": "已存在另一条预算记录“{0}”，其针对 {1}“{2}”和科目“{3}”的会计年度范围与当前记录重叠。",
+			"Budget cannot be assigned against {0}, as its Root Type is not of Income or Expense": "无法为 {0} 分配预算，因为其根类型不是收入或费用",
+			"Are you sure you want to revise this budget? The current budget will be cancelled and a new draft will be created.": "确定要修订此预算吗？当前预算将被取消，并创建一份新草稿。",
+			"New revised budget created successfully": "已成功创建修订后的新预算",
+			"Revision cancelled": "已取消修订",
+			"Spending for Account {0} ({1}) between {2} and {3} has already exceeded the new allocated budget. Spent: {4}, Budget: {5}": "科目 {0}（{1}）在 {2} 至 {3} 期间的支出已超过新分配的预算。已支出：{4}，预算：{5}",
+			"Total distributed amount {0} must be equal to Budget Amount {1}": "分配总额 {0} 必须等于预算金额 {1}",
+			"Total distribution percent must equal 100 (currently {0})": "分配比例合计必须等于 100（当前为 {0}）",
+			"{0} Budget for Account {1} against {2} {3} is {4}. It is already exceeded by {5}.": "{0}预算中，科目 {1} 针对 {2} {3} 的预算为 {4}，已超支 {5}。",
+			"{0} Budget for Account {1} against {2} {3} is {4}. It will be exceeded by {5}.": "{0}预算中，科目 {1} 针对 {2} {3} 的预算为 {4}，本次操作将超支 {5}。",
 		}
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
