@@ -4,6 +4,7 @@ import {
 	localize_audit_doctype_text,
 	localize_login_activity_text,
 	localize_awesomplete_status_text,
+	localize_timeline_element,
 } from "./zh_finance_format.mjs";
 
 if (frappe.boot.lang === "zh") {
@@ -28,6 +29,8 @@ if (frappe.boot.lang === "zh") {
 	].join(", ");
 	const awesomplete_status_selector = ".awesomplete [role='status']";
 	const chart_date_selector = ".chart-container svg .x.axis text";
+	const timeline_selector = ".timeline-content";
+	const administrator_link_selector = 'a[href="/desk/user/Administrator"]';
 	const localize_compact_cny = (root = document) => {
 		if (!root) return;
 		const elements = root.matches?.(cny_amount_selector)
@@ -59,16 +62,34 @@ if (frappe.boot.lang === "zh") {
 			if (localized !== element.textContent) element.textContent = localized;
 		});
 	};
+	const localize_timeline = (root = document) => {
+		if (!root) return;
+		const elements = root.matches?.(timeline_selector)
+			? [root]
+			: root.querySelectorAll?.(timeline_selector) || [];
+		elements.forEach((element) => {
+			localize_timeline_element(element, __, Node.TEXT_NODE);
+		});
+
+		const administrator_links = root.matches?.(administrator_link_selector)
+			? [root]
+			: root.querySelectorAll?.(administrator_link_selector) || [];
+		administrator_links.forEach((link) => {
+			if (link.textContent.trim() === "Administrator") link.textContent = __("Administrator");
+		});
+	};
 
 	localize_compact_cny();
 	localize_awesomplete_status();
 	localize_chart_dates();
+	localize_timeline();
 	new MutationObserver((mutations) => {
 		mutations.forEach((mutation) => {
 			if (mutation.type === "characterData") {
 				localize_compact_cny(mutation.target.parentElement);
 				localize_awesomplete_status(mutation.target.parentElement);
 				localize_chart_dates(mutation.target.parentElement);
+				localize_timeline(mutation.target.parentElement);
 				return;
 			}
 			mutation.addedNodes.forEach((node) => {
@@ -76,12 +97,14 @@ if (frappe.boot.lang === "zh") {
 					localize_compact_cny(node.parentElement);
 					localize_awesomplete_status(node.parentElement);
 					localize_chart_dates(node.parentElement);
+					localize_timeline(node.parentElement);
 					return;
 				}
 				if (node.nodeType !== Node.ELEMENT_NODE) return;
 				localize_compact_cny(node);
 				localize_awesomplete_status(node);
 				localize_chart_dates(node);
+				localize_timeline(node);
 			});
 		});
 	}).observe(document.body, {

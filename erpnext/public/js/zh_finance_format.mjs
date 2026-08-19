@@ -46,6 +46,28 @@ export const localize_login_activity_text = (text, translate) => {
 
 export const localize_audit_doctype_text = (text, translate) => translate(text);
 
+const LOCALIZABLE_TIMELINE_VALUES = new Set(["To Deliver and Bill"]);
+
+export const localize_timeline_text = (text, translate) => {
+	const normalized = text.trim();
+	if (!LOCALIZABLE_TIMELINE_VALUES.has(normalized)) return text;
+
+	const localized = translate(normalized);
+	return localized === normalized ? text : text.replace(normalized, localized);
+};
+
+export const localize_timeline_element = (element, translate, text_node_type = 3) => {
+	let writes = 0;
+	element.childNodes.forEach((node) => {
+		if (node.nodeType !== text_node_type) return;
+		const localized = localize_timeline_text(node.textContent, translate);
+		if (localized === node.textContent) return;
+		node.textContent = localized;
+		writes += 1;
+	});
+	return writes;
+};
+
 const MONTHS = {
 	Jan: 1,
 	Feb: 2,

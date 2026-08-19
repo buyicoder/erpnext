@@ -7,6 +7,8 @@ import {
 	localize_audit_doctype_text,
 	localize_login_activity_text,
 	localize_awesomplete_status_text,
+	localize_timeline_element,
+	localize_timeline_text,
 } from "../public/js/zh_finance_format.mjs";
 
 test("uses Chinese yuan, ten-thousand and hundred-million units", () => {
@@ -16,6 +18,36 @@ test("uses Chinese yuan, ten-thousand and hundred-million units", () => {
 	assert.equal(format_compact_cny_text("CNY 1 B"), "¥10.00亿");
 	assert.equal(format_compact_cny_text("CNY 229,000.00"), "¥22.90万");
 	assert.equal(format_compact_cny_text("CNY 363.00"), "¥363.00");
+});
+
+test("localizes exact persisted timeline values while preserving surrounding whitespace", () => {
+	const translate = (message) =>
+		({
+			"To Deliver and Bill": "待出货与开票",
+			"Grant Plastics Ltd.": "不应翻译的客户名",
+		})[message] || message;
+
+	assert.equal(localize_timeline_text(" To Deliver and Bill", translate), " 待出货与开票");
+	assert.equal(localize_timeline_text(" · 昨天", translate), " · 昨天");
+	assert.equal(localize_timeline_text("Grant Plastics Ltd.", translate), "Grant Plastics Ltd.");
+});
+
+test("localizes only direct approved timeline values and is idempotent", () => {
+	const statusNode = { nodeType: 3, textContent: " To Deliver and Bill" };
+	const businessNode = { nodeType: 3, textContent: "Grant Plastics Ltd." };
+	const nestedTimestamp = { nodeType: 1, textContent: "To Deliver and Bill" };
+	const element = { childNodes: [statusNode, businessNode, nestedTimestamp] };
+	const translate = (message) =>
+		({
+			"To Deliver and Bill": "待出货与开票",
+			"Grant Plastics Ltd.": "不应翻译的客户名",
+		})[message] || message;
+
+	assert.equal(localize_timeline_element(element, translate), 1);
+	assert.equal(statusNode.textContent, " 待出货与开票");
+	assert.equal(businessNode.textContent, "Grant Plastics Ltd.");
+	assert.equal(nestedTimestamp.textContent, "To Deliver and Bill");
+	assert.equal(localize_timeline_element(element, translate), 0);
 });
 
 test("formats report-cell CNY amounts without compact units", () => {

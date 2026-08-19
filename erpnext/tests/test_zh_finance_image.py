@@ -78,6 +78,10 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn('"Access Log": "public/js/zh_audit_list.js"', hooks)
 		self.assertIn('"User": "public/js/zh_audit_list.js"', hooks)
 
+	def test_timeline_localization_is_scoped_to_timeline_content(self):
+		self.assertIn('const timeline_selector = ".timeline-content";', self.browser_overrides)
+		self.assertIn('a[href="/desk/user/Administrator"]', self.browser_overrides)
+
 	def test_realtime_proxy_preserves_the_browser_origin(self):
 		self.assertIn("proxy_set_header Origin \\$frappe_socket_origin", self.containerfile)
 		self.assertIn("default $http_origin", self.containerfile)
