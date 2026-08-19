@@ -45,7 +45,9 @@ CORE_BUSINESS_DOCTYPES = {
 	"Delivery Note",
 	"Item",
 	"Journal Entry",
+	"Job Card",
 	"Material Request",
+	"Manufacturing Settings",
 	"Opportunity",
 	"Payment Entry",
 	"Pick List",
@@ -57,6 +59,7 @@ CORE_BUSINESS_DOCTYPES = {
 	"Sales Order",
 	"Stock Entry",
 	"Supplier",
+	"Work Order",
 }
 
 CORE_ACCOUNTING_MASTER_DOCTYPES = {
@@ -694,6 +697,34 @@ class TestZhFinanceTranslations(TestCase):
 			"{0} units of Item {1} is not available in any of the warehouses. Other Pick Lists exist for this item.": "任何仓库中均无法提供 {0} 个单位的物料 {1}，且该物料还存在其他拣货单。",
 			"Cannot declare as Lost because an active Quotation exists.": "存在有效报价单，无法将此商机标记为未成交。",
 			"Row #{0}: Quantity must be greater than 0 for Item {1}": "第 {0} 行：物料 {1} 的数量必须大于 0",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+
+	def test_manufacturing_execution_uses_reviewed_chinese_terms(self):
+		translations = {
+			"Production Item Info": "生产物料信息",
+			"Additional Costs (as per BOM)": "额外费用（按物料清单）",
+			"Work Order Additional Item": "生产工单附加物料",
+			"Allow Editing of Items and Quantities in Work Order": "允许编辑生产工单中的物料和数量",
+			"If enabled, the system will allow users to edit the raw materials and their quantities in the Work Order. The system will not reset the quantities as per the BOM, if the user has changed them.": "启用后，用户可编辑生产工单中的原材料及其数量。用户修改后，系统不会再按物料清单重置这些数量。",
+			"Set Operating Cost / Secondary Items From Sub-assemblies": "从半成品设置工费成本 / 副产品",
+			"Secondary Items": "副产品",
+			"Secondary Items (as per BOM)": "副产品（按物料清单）",
+			"Secondary Items (as per Manufacture Entries)": "副产品（按生产入库单）",
+			"Job Card Secondary Item": "生产任务单副产品",
+			"BOM Secondary Item Reference": "物料清单副产品引用",
+			"Source Manufacture Entry": "来源生产入库单",
+			"Serial / Batch": "序列号 / 批号",
+			"Job Card On Hold": "生产任务单已暂停",
+			"Cancelled Job Card cannot be processed.": "已取消的生产任务单无法处理。",
+			"Submitted Job Card cannot be processed.": "已提交的生产任务单无法继续处理。",
+			"Cannot submit Job Card {0} while it is On Hold. Please resume and complete the job before submission.": "生产任务单 {0} 处于暂停状态时不能提交。请恢复并完成作业后再提交。",
+			"Process loss quantity cannot be negative.": "制程损耗数量不能为负数。",
+			"Quality Inspection is required for the item {0} before completing the job card {1}": "物料 {0} 必须完成质量检验，才能完成生产任务单 {1}",
+			"Quality Inspection {0} is not submitted for the item: {1}": "质检单 {0} 尚未针对物料 {1} 提交",
+			"Quality Inspection {0} is rejected for the item: {1}": "质检单 {0} 针对物料 {1} 的检验未通过",
+			"The completed quantity {0} of an operation {1} cannot be greater than the completed quantity {2} of a previous operation {3}.": "完成数量 {0}（工序 {1}）不能大于完成数量 {2}（上一道工序 {3}）。",
 		}
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)

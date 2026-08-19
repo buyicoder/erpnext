@@ -3022,7 +3022,7 @@ msgstr "额外费用"
 #. Label of the non_stock_items (Table) field in DocType 'Work Order'
 #: erpnext/manufacturing/doctype/work_order/work_order.json
 msgid "Additional Costs (as per BOM)"
-msgstr ""
+msgstr "额外费用（按物料清单）"
 
 #. Label of the additional_data (Code) field in DocType 'Common Code'
 #: erpnext/edi/doctype/common_code/common_code.json
@@ -4214,7 +4214,7 @@ msgstr "启用工单耗用"
 #. field in DocType 'Manufacturing Settings'
 #: erpnext/manufacturing/doctype/manufacturing_settings/manufacturing_settings.json
 msgid "Allow Editing of Items and Quantities in Work Order"
-msgstr ""
+msgstr "允许编辑生产工单中的物料和数量"
 
 #. Label of the job_card_excess_transfer (Check) field in DocType
 #. 'Manufacturing Settings'
@@ -7247,7 +7247,7 @@ msgstr "物料清单副产品"
 #. Item'
 #: erpnext/manufacturing/doctype/job_card_secondary_item/job_card_secondary_item.json
 msgid "BOM Secondary Item Reference"
-msgstr ""
+msgstr "物料清单副产品引用"
 
 #. Name of a report
 #: erpnext/manufacturing/report/bom_stock_analysis/bom_stock_analysis.json
@@ -9697,7 +9697,7 @@ msgstr "取消日期"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.py:1521
 msgid "Cancelled Job Card cannot be processed."
-msgstr ""
+msgstr "已取消的生产任务单无法处理。"
 
 #: erpnext/accounts/doctype/pos_opening_entry/pos_opening_entry.py:76
 msgid "Cannot Assign Cashier"
@@ -9944,7 +9944,7 @@ msgstr ""
 
 #: erpnext/manufacturing/doctype/work_order/work_order.py:647
 msgid "Cannot produce more Item {0} than Sales Order quantity {1} {2}"
-msgstr ""
+msgstr "物料 {0} 的生产数量不能超过销售订单数量 {1} {2}"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.py:1620
 msgid "Cannot produce more item for {0}"
@@ -10023,7 +10023,7 @@ msgstr ""
 
 #: erpnext/manufacturing/doctype/job_card/job_card.py:874
 msgid "Cannot submit Job Card {0} while it is On Hold. Please resume and complete the job before submission."
-msgstr ""
+msgstr "生产任务单 {0} 处于暂停状态时不能提交。请恢复并完成作业后再提交。"
 
 #: erpnext/controllers/accounts_controller.py:4014
 msgid "Cannot update rate as item {0} is already ordered or purchased against this quotation"
@@ -17450,7 +17450,7 @@ msgstr "拆解数量不能小于或等于 0。"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.js:457
 msgid "Disassemble Qty cannot be less than or equal to <b>0</b>."
-msgstr ""
+msgstr "拆解数量必须大于 <b>0</b>。"
 
 #. Label of the disassembled_qty (Float) field in DocType 'Work Order'
 #: erpnext/manufacturing/doctype/work_order/work_order.json
@@ -18637,7 +18637,7 @@ msgstr "需要指定目标数量和金额。"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.js:677
 msgid "Elapsed Time"
-msgstr ""
+msgstr "已用时间"
 
 #. Option for the 'Fuel Type' (Select) field in DocType 'Vehicle'
 #: erpnext/setup/doctype/vehicle/vehicle.json
@@ -23819,7 +23819,7 @@ msgstr "如勾选则采购/销售订单中仅限选择物料主数据维护了�
 #. (Check) field in DocType 'Manufacturing Settings'
 #: erpnext/manufacturing/doctype/manufacturing_settings/manufacturing_settings.json
 msgid "If enabled, the system will allow users to edit the raw materials and their quantities in the Work Order. The system will not reset the quantities as per the BOM, if the user has changed them."
-msgstr ""
+msgstr "启用后，用户可编辑生产工单中的原材料及其数量。用户修改后，系统不会再按物料清单重置这些数量。"
 
 #. Description of the 'Set valuation rate for rejected Materials' (Check) field
 #. in DocType 'Buying Settings'
@@ -28359,7 +28359,7 @@ msgstr "生产任务单明细"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.py:877
 msgid "Job Card On Hold"
-msgstr ""
+msgstr "生产任务单已暂停"
 
 #. Name of a DocType
 #: erpnext/manufacturing/doctype/job_card_operation/job_card_operation.json
@@ -28374,7 +28374,7 @@ msgstr "生产任务单计划工时"
 #. Name of a DocType
 #: erpnext/manufacturing/doctype/job_card_secondary_item/job_card_secondary_item.json
 msgid "Job Card Secondary Item"
-msgstr ""
+msgstr "生产任务单副产品"
 
 #. Name of a report
 #. Label of a Link in the Manufacturing Workspace
@@ -34378,7 +34378,7 @@ msgstr "优化路线"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.js:1033
 msgid "Optional. Select a specific manufacture entry to reverse."
-msgstr ""
+msgstr "可选。选择要冲销的具体生产入库单。"
 
 #: erpnext/accounts/doctype/account/account_tree.js:178
 msgid "Optional. Sets company's default currency, if not specified."
@@ -37099,11 +37099,11 @@ msgstr "待处理数量"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.js:70
 msgid "Pending Quantity cannot be greater than {0}"
-msgstr ""
+msgstr "待处理数量不能大于 {0}"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.js:62
 msgid "Pending Quantity cannot be less than 0"
-msgstr ""
+msgstr "待处理数量不能小于 0"
 
 #. Option for the 'Status' (Select) field in DocType 'Task'
 #. Option in a Select field in the tasks Web Form
@@ -37135,11 +37135,11 @@ msgstr "等待后台处理"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.py:1534
 msgid "Pending quantity cannot be greater than the for quantity."
-msgstr ""
+msgstr "待处理数量不能大于计划生产数量。"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.py:1528
 msgid "Pending quantity cannot be negative."
-msgstr ""
+msgstr "待处理数量不能为负数。"
 
 #: erpnext/setup/setup_wizard/data/industry_type.txt:36
 msgid "Pension Funds"
@@ -37738,7 +37738,7 @@ msgstr "计划结束日期"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.py:300
 msgid "Planned End Date cannot be before Planned Start Date"
-msgstr ""
+msgstr "计划结束日期不能早于计划开始日期"
 
 #. Label of the planned_end_time (Datetime) field in DocType 'Work Order
 #. Operation'
@@ -38002,7 +38002,7 @@ msgstr "请点击计划任务标签下的“生成排期表”按钮生成计划
 
 #: erpnext/manufacturing/doctype/job_card/job_card.js:58
 msgid "Please complete the job first before entering Pending Quantity"
-msgstr ""
+msgstr "填写待处理数量前，请先完成作业"
 
 #: erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:122
 msgid "Please configure accounts for the Bank Entry rule."
@@ -40301,7 +40301,7 @@ msgstr "在单事务中处理"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.py:1531
 msgid "Process loss quantity cannot be negative."
-msgstr ""
+msgstr "制程损耗数量不能为负数。"
 
 #. Label of the processed_boms (Long Text) field in DocType 'BOM Update Log'
 #: erpnext/manufacturing/doctype/bom_update_log/bom_update_log.json
@@ -40511,7 +40511,7 @@ msgstr "成品"
 #: erpnext/manufacturing/doctype/bom/bom.json
 #: erpnext/manufacturing/doctype/work_order/work_order.json
 msgid "Production Item Info"
-msgstr ""
+msgstr "生产物料信息"
 
 #. Label of the production_plan (Link) field in DocType 'Purchase Order Item'
 #. Name of a DocType
@@ -41940,7 +41940,7 @@ msgstr "待生产数量（{0}）不能是计量单位{2}的分数。若要允许
 
 #: erpnext/manufacturing/doctype/job_card/job_card.py:261
 msgid "Qty To Manufacture in the job card cannot be greater than Qty To Manufacture in the work order for the operation {0}. <br><br><b>Solution: </b> Either you can reduce the Qty To Manufacture in the job card or set the 'Overproduction Percentage For Work Order' in the {1}."
-msgstr ""
+msgstr "生产任务单中工序 {0} 的待生产数量不能大于生产工单中的待生产数量。<br><br><b>解决方法：</b>请减少生产任务单中的待生产数量，或在 {1} 中设置“生产工单超量生产比例”。"
 
 #. Label of the qty_to_produce (Float) field in DocType 'Batch'
 #: erpnext/stock/doctype/batch/batch.json
@@ -42282,17 +42282,17 @@ msgstr "质检模板名称"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.py:800
 msgid "Quality Inspection is required for the item {0} before completing the job card {1}"
-msgstr ""
+msgstr "物料 {0} 必须完成质量检验，才能完成生产任务单 {1}"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.py:811
 #: erpnext/manufacturing/doctype/job_card/job_card.py:820
 msgid "Quality Inspection {0} is not submitted for the item: {1}"
-msgstr ""
+msgstr "质检单 {0} 尚未针对物料 {1} 提交"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.py:830
 #: erpnext/manufacturing/doctype/job_card/job_card.py:839
 msgid "Quality Inspection {0} is rejected for the item: {1}"
-msgstr ""
+msgstr "质检单 {0} 针对物料 {1} 的检验未通过"
 
 #: erpnext/public/js/controllers/transaction.js:433
 #: erpnext/stock/doctype/stock_entry/stock_entry.js:212
@@ -48715,12 +48715,12 @@ msgstr "第二封邮件"
 #. Label of the item_code (Link) field in DocType 'Job Card Secondary Item'
 #: erpnext/manufacturing/doctype/job_card_secondary_item/job_card_secondary_item.json
 msgid "Secondary Item Code"
-msgstr ""
+msgstr "副产品编码"
 
 #. Label of the item_name (Data) field in DocType 'Job Card Secondary Item'
 #: erpnext/manufacturing/doctype/job_card_secondary_item/job_card_secondary_item.json
 msgid "Secondary Item Name"
-msgstr ""
+msgstr "副产品名称"
 
 #. Label of the secondary_items (Table) field in DocType 'BOM'
 #. Label of the secondary_items (Table) field in DocType 'Job Card'
@@ -48731,17 +48731,17 @@ msgstr ""
 #: erpnext/manufacturing/doctype/job_card/job_card.json
 #: erpnext/subcontracting/doctype/subcontracting_inward_order/subcontracting_inward_order.json
 msgid "Secondary Items"
-msgstr ""
+msgstr "副产品"
 
 #. Label of the secondary_items (Table) field in DocType 'Work Order'
 #: erpnext/manufacturing/doctype/work_order/work_order.js:136
 #: erpnext/manufacturing/doctype/work_order/work_order.json
 msgid "Secondary Items (as per BOM)"
-msgstr ""
+msgstr "副产品（按物料清单）"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.js:135
 msgid "Secondary Items (as per Manufacture Entries)"
-msgstr ""
+msgstr "副产品（按生产入库单）"
 
 #. Label of the secondary_items_cost (Currency) field in DocType 'BOM'
 #: erpnext/manufacturing/doctype/bom/bom.json
@@ -49435,7 +49435,7 @@ msgstr "序列号与批号"
 #. Label of the section_break_jcmx (Section Break) field in DocType 'Job Card'
 #: erpnext/manufacturing/doctype/job_card/job_card.json
 msgid "Serial / Batch"
-msgstr ""
+msgstr "序列号 / 批号"
 
 #. Label of the serial_and_batch_bundle (Link) field in DocType 'Stock
 #. Reconciliation Item'
@@ -50172,7 +50172,7 @@ msgstr "设置解除冻结日期"
 #. field in DocType 'Manufacturing Settings'
 #: erpnext/manufacturing/doctype/manufacturing_settings/manufacturing_settings.json
 msgid "Set Operating Cost / Secondary Items From Sub-assemblies"
-msgstr ""
+msgstr "从半成品设置工费成本 / 副产品"
 
 #. Label of the set_cost_based_on_bom_qty (Check) field in DocType 'BOM
 #. Operation'
@@ -51353,7 +51353,7 @@ msgstr "源地点"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.js:1030
 msgid "Source Manufacture Entry"
-msgstr ""
+msgstr "来源生产入库单"
 
 #. Label of the source_stock_entry (Link) field in DocType 'Stock Entry'
 #: erpnext/stock/doctype/stock_entry/stock_entry.json
@@ -51808,7 +51808,7 @@ msgstr "状态图样"
 #. Label of the section_break_dfoc (Section Break) field in DocType 'Job Card'
 #: erpnext/manufacturing/doctype/job_card/job_card.json
 msgid "Status and Reference"
-msgstr ""
+msgstr "状态与关联信息"
 
 #: erpnext/projects/doctype/project/project.py:749
 msgid "Status must be Cancelled or Completed"
@@ -53183,7 +53183,7 @@ msgstr "提交您的报价单"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.py:1524
 msgid "Submitted Job Card cannot be processed."
-msgstr ""
+msgstr "已提交的生产任务单无法继续处理。"
 
 #. Label of the subscription_section (Section Break) field in DocType 'Payment
 #. Request'
@@ -55412,7 +55412,7 @@ msgstr ""
 
 #: erpnext/manufacturing/doctype/job_card/job_card.py:1379
 msgid "The completed quantity {0} of an operation {1} cannot be greater than the completed quantity {2} of a previous operation {3}."
-msgstr ""
+msgstr "完成数量 {0}（工序 {1}）不能大于完成数量 {2}（上一道工序 {3}）。"
 
 #: erpnext/accounts/doctype/dunning/dunning.py:87
 msgid "The currency of invoice {} ({}) is different from the currency of this dunning ({})."
@@ -56842,7 +56842,7 @@ msgstr "将非库存物料纳入物料需求计划（即取消勾选'维护库�
 #. Sub-assemblies' (Check) field in DocType 'Manufacturing Settings'
 #: erpnext/manufacturing/doctype/manufacturing_settings/manufacturing_settings.json
 msgid "To include sub-assembly costs and secondary items in Finished Goods on a work order without using a job card, when the 'Use Multi-Level BOM' option is enabled."
-msgstr ""
+msgstr "启用“使用多层物料清单”时，若生产工单不使用生产任务单，可将半成品成本和副产品计入产成品。"
 
 #: erpnext/accounts/doctype/payment_entry/payment_entry.py:2268
 #: erpnext/controllers/accounts_controller.py:3280
@@ -57180,7 +57180,7 @@ msgstr "总完工数量"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.py:192
 msgid "Total Completed Qty is required for Job Card {0}, please start and complete the job card before submission"
-msgstr ""
+msgstr "生产任务单 {0} 必须填写完成总数量；请先开始并完成作业，再提交单据"
 
 #. Label of the total_consumed_material_cost (Currency) field in DocType
 #. 'Project'
@@ -61547,7 +61547,7 @@ msgstr "生产工单 / 委外采购订单"
 #. Name of a DocType
 #: erpnext/manufacturing/doctype/work_order_additional_item/work_order_additional_item.json
 msgid "Work Order Additional Item"
-msgstr ""
+msgstr "生产工单附加物料"
 
 #: erpnext/manufacturing/dashboard_fixtures.py:93
 msgid "Work Order Analysis"
@@ -62946,7 +62946,7 @@ msgstr "{0}处于开启状态。请关闭POS或取消现有POS期初凭证以创
 
 #: erpnext/manufacturing/doctype/work_order/work_order.js:537
 msgid "{0} items disassembled"
-msgstr ""
+msgstr "已拆解 {0} 个物料"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.js:501
 msgid "{0} items in progress"
@@ -62962,11 +62962,11 @@ msgstr "{0}物料已完工"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.js:505
 msgid "{0} items returned"
-msgstr ""
+msgstr "已退回 {0} 个物料"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.js:508
 msgid "{0} items to return"
-msgstr ""
+msgstr "待退回 {0} 个物料"
 
 #: erpnext/accounts/doctype/dunning_type/dunning_type.py:144
 msgid "{0} languages are marked as default languages. Please select only one of them."
