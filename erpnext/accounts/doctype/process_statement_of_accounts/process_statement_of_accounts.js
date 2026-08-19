@@ -167,7 +167,7 @@ frappe.ui.form.on("Process Statement Of Accounts", {
 				},
 			});
 		} else {
-			frappe.throw("Enter " + frm.doc.customer_collection + " name.");
+			frappe.throw(__("Enter {0} name.", [__(frm.doc.customer_collection)]));
 		}
 	},
 });

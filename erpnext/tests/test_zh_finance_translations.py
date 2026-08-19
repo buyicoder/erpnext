@@ -186,8 +186,37 @@ class TestZhFinanceTranslations(TestCase):
 				missing.append(source)
 		self.assertEqual(missing, [])
 
+	def test_reviewed_core_visible_sinks_use_translation_helpers(self):
+		repo_root = Path(__file__).parents[2]
+		contracts = {
+			"erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.js":
+				'frappe.throw(__("Enter {0} name.", [__(frm.doc.customer_collection)]));',
+			"erpnext/buying/doctype/purchase_order/purchase_order.js":
+				'frappe.msgprint(__("Splitting {0} units of {1}", [qty, d.item_code]));',
+			"erpnext/selling/doctype/sales_order/sales_order.js":
+				'message: __("Please select Items from the Table"),',
+			"erpnext/selling/page/point_of_sale/pos_payment.js":
+				'this.addl_dlg.primary_action_label = __("Submit");',
+			"erpnext/stock/doctype/delivery_trip/delivery_trip.js": [
+				'message: __("Calculating Arrival Times"),',
+				'message: __("Optimizing Route"),',
+			],
+			"erpnext/stock/page/warehouse_capacity_summary/warehouse_capacity_summary.html":
+				'title="{{ __("Occupied Qty") }}: {{ d.actual_qty }}"',
+		}
+		for relative_path, expected in contracts.items():
+			text = (repo_root / relative_path).read_text()
+			for snippet in expected if isinstance(expected, list) else [expected]:
+				self.assertIn(snippet, text, relative_path)
+
 	def test_core_finance_journey_uses_reviewed_chinese_terms(self):
 		translations = {
+			"Calculating Arrival Times": "正在计算预计到达时间",
+			"Enter {0} name.": "请输入{0}名称。",
+			"Occupied Qty": "已占用数量",
+			"Optimizing Route": "正在优化路线",
+			"Please select Items from the Table": "请从表格中选择物料",
+			"Splitting {0} units of {1}": "正在按 {0} 个单位拆分 {1}",
 			"Completion percentage must be between 0 and 100": "完成百分比必须介于 0 和 100 之间",
 			"Accounting Onboarding": "会计功能引导",
 			"Custom Financial Statement": "自定义财务报表",

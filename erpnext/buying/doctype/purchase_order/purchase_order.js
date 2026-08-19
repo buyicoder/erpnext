@@ -634,7 +634,7 @@ erpnext.buying.PurchaseOrderController = class PurchaseOrderController extends (
 											")"
 									);
 									if (qty > 0) {
-										frappe.msgprint("Splitting " + qty + " units of " + d.item_code);
+										frappe.msgprint(__("Splitting {0} units of {1}", [qty, d.item_code]));
 										var new_row = frappe.model.add_child(
 											me.frm.doc,
 											me.frm.doc.items[i].doctype,

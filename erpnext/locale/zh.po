@@ -63911,3 +63911,27 @@ msgstr "条结果"
 #: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx
 msgid "results"
 msgstr "条结果"
+
+#: erpnext/selling/doctype/sales_order/sales_order.js
+msgid "Please select Items from the Table"
+msgstr "请从表格中选择物料"
+
+#: erpnext/stock/doctype/delivery_trip/delivery_trip.js
+msgid "Calculating Arrival Times"
+msgstr "正在计算预计到达时间"
+
+#: erpnext/stock/doctype/delivery_trip/delivery_trip.js
+msgid "Optimizing Route"
+msgstr "正在优化路线"
+
+#: erpnext/stock/page/warehouse_capacity_summary/warehouse_capacity_summary.html
+msgid "Occupied Qty"
+msgstr "已占用数量"
+
+#: erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.js
+msgid "Enter {0} name."
+msgstr "请输入{0}名称。"
+
+#: erpnext/buying/doctype/purchase_order/purchase_order.js
+msgid "Splitting {0} units of {1}"
+msgstr "正在按 {0} 个单位拆分 {1}"

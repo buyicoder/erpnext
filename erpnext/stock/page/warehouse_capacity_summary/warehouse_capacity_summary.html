@@ -14,7 +14,7 @@
 				{{ d.actual_qty }}
 			</div>
 			<div class="col-sm-2">
-				<div class="progress" title="Occupied Qty: {{ d.actual_qty }}" style="margin-bottom: 4px; height: 7px; margin-top: 14px;">
+				<div class="progress" title="{{ __("Occupied Qty") }}: {{ d.actual_qty }}" style="margin-bottom: 4px; height: 7px; margin-top: 14px;">
 					<div class="progress-bar" role="progressbar"
 						aria-valuenow="{{ d.percent_occupied }}"
 						aria-valuemin="0" aria-valuemax="100"

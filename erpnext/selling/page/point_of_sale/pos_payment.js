@@ -725,7 +725,7 @@ erpnext.PointOfSale.Payment = class {
 		const doc = this.events.get_frm().doc;
 		for (const df of this.addl_dlg.fields) {
 			if (df.reqd && !doc[df.fieldname]) {
-				this.addl_dlg.primary_action_label = "Submit";
+				this.addl_dlg.primary_action_label = __("Submit");
 				this.addl_dlg.complete_order = true;
 				this.addl_dlg.show();
 				this.addl_dlg.fields_dict[df.fieldname].$input.focus();
