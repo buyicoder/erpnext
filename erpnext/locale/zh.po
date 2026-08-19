@@ -1575,7 +1575,7 @@ msgstr "科目余额在'借方'，余额方向不能设置为'贷方'"
 #: erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:148
 #: erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:154
 msgid "Account company does not match with the rule company."
-msgstr ""
+msgstr "科目所属公司与规则所属公司不一致。"
 
 #. Label of the account_for_change_amount (Link) field in DocType 'POS Invoice'
 #. Label of the account_for_change_amount (Link) field in DocType 'POS Profile'
@@ -4640,7 +4640,7 @@ msgstr "允许用户提交零数量供应商报价，适用于费率固定但数
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:1297
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:1316
 msgid "Already Imported"
-msgstr ""
+msgstr "已导入"
 
 #: erpnext/stock/doctype/pick_list/pick_list.py:1116
 msgid "Already Picked"
@@ -5004,13 +5004,13 @@ msgstr "量图"
 #. Statement Import Log'
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.json
 msgid "Amount column has \"CR\"/\"DR\" values"
-msgstr ""
+msgstr "金额列使用“CR”/“DR”标记"
 
 #. Option for the 'Detected Amount Format' (Select) field in DocType 'Bank
 #. Statement Import Log'
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.json
 msgid "Amount column has positive/negative values"
-msgstr ""
+msgstr "金额列使用正数/负数"
 
 #: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:896
 msgid "Amount does not match the selected transaction"
@@ -5186,7 +5186,7 @@ msgstr "另外销售人员{0}存在具有相同员工号"
 #. Transaction Rule'
 #: erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.json
 msgid "Any"
-msgstr ""
+msgstr "任意"
 
 #: banking/src/components/features/BankReconciliation/Rules/RuleForm.tsx:50
 msgid "Any debit transaction with the keyword 'Bank Fee'."
@@ -7834,7 +7834,7 @@ msgstr "银行对账单导入日志"
 #. Name of a DocType
 #: erpnext/accounts/doctype/bank_statement_import_log_column_map/bank_statement_import_log_column_map.json
 msgid "Bank Statement Import Log Column Map"
-msgstr ""
+msgstr "银行对账单导入日志列映射"
 
 #: erpnext/accounts/report/bank_reconciliation_statement/bank_reconciliation_statement.py:44
 msgid "Bank Statement balance as per General Ledger"
@@ -7870,12 +7870,12 @@ msgstr "银行交易匹配规则"
 #. Name of a DocType
 #: erpnext/accounts/doctype/bank_transaction_rule_accounts/bank_transaction_rule_accounts.json
 msgid "Bank Transaction Rule Accounts"
-msgstr ""
+msgstr "银行交易匹配规则科目"
 
 #. Name of a DocType
 #: erpnext/accounts/doctype/bank_transaction_rule_description_conditions/bank_transaction_rule_description_conditions.json
 msgid "Bank Transaction Rule Description Conditions"
-msgstr ""
+msgstr "银行交易匹配规则描述条件"
 
 #: erpnext/public/js/bank_reconciliation_tool/dialog_manager.js:508
 msgid "Bank Transaction {0} Matched"
@@ -13296,7 +13296,7 @@ msgstr "无法自动创建退款单，请取消选中&#39;退款&#39;并再次�
 
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:978
 msgid "Could not detect any tables in this PDF. It may be a scanned or image-based statement, which is not supported (no OCR)."
-msgstr ""
+msgstr "未在此 PDF 中检测到任何表格。该文件可能是扫描件或图像型对账单，当前不支持（未提供 OCR）。"
 
 #: erpnext/erpnext_integrations/doctype/plaid_settings/plaid_settings.py:353
 msgid "Could not detect the Company for updating Bank Accounts"
@@ -17063,7 +17063,7 @@ msgstr "通过冲销消除折旧"
 #. Rule'
 #: erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.json
 msgid "Description Rules"
-msgstr ""
+msgstr "描述匹配规则"
 
 #. Label of the description_of_content (Small Text) field in DocType 'Shipment'
 #: erpnext/stock/doctype/shipment/shipment.json
@@ -17093,20 +17093,20 @@ msgstr "详细原因说明"
 #: banking/src/components/features/BankStatementImporter/CSV/StatementDetails.tsx:191
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.json
 msgid "Detected Amount Format"
-msgstr ""
+msgstr "识别出的金额格式"
 
 #. Label of the detected_date_format (Data) field in DocType 'Bank Statement
 #. Import Log'
 #: banking/src/components/features/BankStatementImporter/CSV/StatementDetails.tsx:204
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.json
 msgid "Detected Date Format"
-msgstr ""
+msgstr "识别出的日期格式"
 
 #. Label of the detected_header_index (Int) field in DocType 'Bank Statement
 #. Import Log'
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.json
 msgid "Detected Header Index"
-msgstr ""
+msgstr "检测到的表头行号"
 
 #: banking/src/components/features/BankStatementImporter/PDF/PDFTableEditor.tsx:174
 msgid "Detected Tables"
@@ -17116,13 +17116,13 @@ msgstr ""
 #. Statement Import Log'
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.json
 msgid "Detected Transaction Ending Index"
-msgstr ""
+msgstr "检测到的交易结束行号"
 
 #. Label of the detected_transaction_starting_index (Int) field in DocType
 #. 'Bank Statement Import Log'
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.json
 msgid "Detected Transaction Starting Index"
-msgstr ""
+msgstr "检测到的交易起始行号"
 
 #. Label of the determine_address_tax_category_from (Select) field in DocType
 #. 'Accounts Settings'
@@ -17396,7 +17396,7 @@ msgstr "选中了禁用账户"
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:97
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:505
 msgid "Disabled Bank Account"
-msgstr ""
+msgstr "已禁用的银行账户"
 
 #: erpnext/stock/utils.py:432
 msgid "Disabled Warehouse {0} cannot be used for this transaction."
@@ -22577,7 +22577,7 @@ msgstr "返回"
 
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.js:7
 msgid "Go to <a href='/banking/statement-importer' target='_blank' style='text-decoration: underline;'>Bank Statement Importer</a> in the Banking module to use this importer."
-msgstr ""
+msgstr "请前往银行模块的<a href='/banking/statement-importer' target='_blank' style='text-decoration: underline;'>银行流水导入器</a>使用此功能。"
 
 #: banking/src/pages/BankReconciliation.tsx:96
 msgid "Go to Desktop"
@@ -22585,7 +22585,7 @@ msgstr "返回工作台"
 
 #: erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.js:15
 msgid "Go to the <a href='/banking' target='_blank' style='text-decoration: underline;'>Banking module</a> to setup this rule."
-msgstr ""
+msgstr "请前往<a href='/banking' target='_blank' style='text-decoration: underline;'>银行模块</a>设置此规则。"
 
 #. Label of a Card Break in the Quality Workspace
 #: erpnext/quality_management/workspace/quality/quality.json
@@ -24299,7 +24299,7 @@ msgstr "进口散装"
 
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:206
 msgid "Import template should be of type .csv, .xlsx, .xls or .pdf"
-msgstr ""
+msgstr "导入文件必须为 .csv、.xlsx、.xls 或 .pdf 格式"
 
 #: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:277
 msgid "Import your bank statement to get started."
@@ -25692,7 +25692,7 @@ msgstr "无效的条件表达式"
 #: erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:49
 #: erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:52
 msgid "Invalid debit/credit formula: {0}"
-msgstr ""
+msgstr "无效的借方/贷方公式：{0}"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:1069
 msgid "Invalid file URL"
@@ -25720,7 +25720,7 @@ msgstr "无效的参考{0} {1}"
 
 #: erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:143
 msgid "Invalid regex pattern."
-msgstr ""
+msgstr "无效的正则表达式。"
 
 #: erpnext/accounts/doctype/currency_exchange_settings/currency_exchange_settings.py:107
 msgid "Invalid result key. Response:"
@@ -31375,7 +31375,7 @@ msgstr "最小值：{0}，最大值：{1}，递增步长：{2}"
 
 #: erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:104
 msgid "Min amount cannot be greater than max amount."
-msgstr ""
+msgstr "最小金额不能大于最大金额。"
 
 #: banking/src/components/features/BankReconciliation/Rules/RuleForm.tsx:59
 msgid "Minimum Amount"
@@ -32635,7 +32635,7 @@ msgstr "未找到代表公司{0}的关联公司交易供应商"
 
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:982
 msgid "No Tables Detected"
-msgstr ""
+msgstr "未检测到表格"
 
 #: erpnext/accounts/doctype/tax_withholding_category/tax_withholding_category.py:100
 msgid "No Tax Withholding data found for the current posting date."
@@ -34993,11 +34993,11 @@ msgstr ""
 #. Label of the pdf_tables (JSON) field in DocType 'Bank Statement Import Log'
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.json
 msgid "PDF Tables"
-msgstr ""
+msgstr "PDF 表格"
 
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:930
 msgid "PDF statement support requires the 'pdfplumber' library to be installed."
-msgstr ""
+msgstr "支持 PDF 对账单需要安装“pdfplumber”库。"
 
 #. Label of the pin (Data) field in DocType 'Warehouse'
 #: erpnext/stock/doctype/warehouse/warehouse.json
@@ -36037,7 +36037,7 @@ msgstr "交易方全称"
 #. Log Column Map'
 #: erpnext/accounts/doctype/bank_statement_import_log_column_map/bank_statement_import_log_column_map.json
 msgid "Party IBAN"
-msgstr ""
+msgstr "往来单位 IBAN"
 
 #. Label of the bank_party_iban (Data) field in DocType 'Bank Transaction'
 #: erpnext/accounts/doctype/bank_transaction/bank_transaction.json
@@ -36209,7 +36209,7 @@ msgstr "往来单位用户"
 
 #: erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:114
 msgid "Party account is required to create a payment entry."
-msgstr ""
+msgstr "创建收付款单必须填写往来单位科目。"
 
 #: erpnext/accounts/doctype/payment_entry/payment_entry.js:475
 msgid "Party can only be one of {0}"
@@ -36230,7 +36230,7 @@ msgstr "交易方需要创建付款凭证。"
 
 #: erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:108
 msgid "Party type is required to create a payment entry."
-msgstr ""
+msgstr "创建收付款单必须填写往来类型。"
 
 #. Name of a UOM
 #: erpnext/setup/setup_wizard/data/uom_data.json
@@ -36257,7 +36257,7 @@ msgstr "护照号码"
 
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:947
 msgid "Password Required"
-msgstr ""
+msgstr "需要密码"
 
 #. Description of the 'Statement PDF Password' (Password) field in DocType
 #. 'Bank Account'
@@ -37201,7 +37201,7 @@ msgstr "分公司核算科目"
 #. Import Log'
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.json
 msgid "Per-table extraction data for PDF statements (rows, bbox, page image, column mapping). Edited via the banking app."
-msgstr ""
+msgstr "PDF 对账单的逐表提取数据（行、边界框、页面图像、列映射），通过银行模块编辑。"
 
 #. Label of the percentage (Percent) field in DocType 'Cost Center Allocation
 #. Percentage'
@@ -37904,7 +37904,7 @@ msgstr ""
 
 #: erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:119
 msgid "Please add an account for the Bank Entry rule."
-msgstr ""
+msgstr "请为银行凭证规则添加科目。"
 
 #: erpnext/public/js/utils/serial_no_batch_selector.js:662
 msgid "Please add atleast one Serial No / Batch No"
@@ -38006,7 +38006,7 @@ msgstr "填写待处理数量前，请先完成作业"
 
 #: erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:122
 msgid "Please configure accounts for the Bank Entry rule."
-msgstr ""
+msgstr "请为银行凭证规则配置科目。"
 
 #: erpnext/selling/doctype/customer/customer.py:650
 msgid "Please contact any of the following users to extend the credit limits for {0}: {1}"
@@ -44123,7 +44123,7 @@ msgstr "重新生成库存结账分录"
 #: banking/src/components/features/BankReconciliation/Rules/RuleForm.tsx:204
 #: erpnext/accounts/doctype/bank_transaction_rule_description_conditions/bank_transaction_rule_description_conditions.json
 msgid "Regex"
-msgstr ""
+msgstr "正则表达式"
 
 #. Label of a Card Break in the Buying Workspace
 #: erpnext/buying/workspace/buying/buying.json
@@ -55387,12 +55387,12 @@ msgstr "此收付款申请中设置的{0}金额与所有付款计划的计算金
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:97
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:505
 msgid "The bank account is disabled. Please enable it"
-msgstr ""
+msgstr "该银行账户已禁用，请先启用"
 
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:91
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:499
 msgid "The bank account is not a company account. Please select a company account"
-msgstr ""
+msgstr "该银行账户不是公司账户，请选择公司账户"
 
 #: erpnext/controllers/stock_controller.py:1496
 msgid "The batch {0} is reserved for {1} in the warehouse {2} and the remaining quantity is not enough to cover the reservations. So, cannot proceed with the {3} {4}."
@@ -55579,7 +55579,7 @@ msgstr "工序卡{0}处于{1}状态，无法重新启动"
 
 #: erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:129
 msgid "The last account row must not have any debit or credit amounts set."
-msgstr ""
+msgstr "最后一行科目不能设置借方或贷方金额。"
 
 #: erpnext/public/js/utils/barcode_scanner.js:542
 msgid "The last scanned warehouse has been cleared and won't be set in the subsequently scanned items"
@@ -55988,7 +55988,7 @@ msgstr "本月摘要"
 
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:943
 msgid "This PDF is password protected. Please set the correct statement password on the Bank Account and try again."
-msgstr ""
+msgstr "此 PDF 受密码保护。请在银行账户中设置正确的对账单密码后重试。"
 
 #: erpnext/accounts/doctype/payment_entry/payment_entry.js:1754
 msgid "This Payment Entry is reconciled with {0}. Cancelling will automatically unreconcile it. Do you want to proceed?"
@@ -56284,7 +56284,7 @@ msgstr "可设置催款函正文和结尾文本（按语言），用于打印"
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:1297
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:1316
 msgid "This statement has already been imported."
-msgstr ""
+msgstr "此对账单已导入。"
 
 #. Description of the 'Default Supplier' (Link) field in DocType 'Item Default'
 #: erpnext/stock/doctype/item_default/item_default.json
@@ -58083,19 +58083,19 @@ msgstr "交易参考编号 {0} 日期 {1}"
 #. Statement Import Log'
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.json
 msgid "Transaction type column has \"C\"/\"D\" values"
-msgstr ""
+msgstr "交易类型列使用“C”/“D”标记"
 
 #. Option for the 'Detected Amount Format' (Select) field in DocType 'Bank
 #. Statement Import Log'
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.json
 msgid "Transaction type column has \"CR\"/\"DR\" values"
-msgstr ""
+msgstr "交易类型列使用“CR”/“DR”标记"
 
 #. Option for the 'Detected Amount Format' (Select) field in DocType 'Bank
 #. Statement Import Log'
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.json
 msgid "Transaction type column has \"Deposit\"/\"Withdrawal\" values"
-msgstr ""
+msgstr "交易类型列使用“Deposit”/“Withdrawal”标记"
 
 #. Group in Bank Account's connections
 #: erpnext/accounts/doctype/bank_account/bank_account.json
@@ -62120,12 +62120,12 @@ msgstr "您没有足够权限访问 {0}：{1}"
 
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:82
 msgid "You do not have permission to import and submit bank transactions"
-msgstr ""
+msgstr "您没有导入并提交银行交易的权限"
 
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:73
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:77
 msgid "You do not have permission to import bank transactions"
-msgstr ""
+msgstr "您没有导入银行交易的权限"
 
 #: erpnext/controllers/accounts_controller.py:3937
 msgid "You do not have permissions to {} items in a {}."

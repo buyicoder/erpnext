@@ -89,7 +89,9 @@ CORE_OPERATIONAL_MASTER_DOCTYPES = {
 	"Bank",
 	"Bank Clearance",
 	"Bank Statement Import",
+	"Bank Statement Import Log",
 	"Bank Transaction",
+	"Bank Transaction Rule",
 	"Branch",
 	"Brand",
 	"Budget",
@@ -677,6 +679,37 @@ class TestZhFinanceTranslations(TestCase):
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
 
+	def test_bank_statement_import_backend_uses_reviewed_chinese_terms(self):
+		translations = {
+			"Already Imported": "已导入",
+			"This statement has already been imported.": "此对账单已导入。",
+			"Detected Date Format": "识别出的日期格式",
+			"Detected Amount Format": "识别出的金额格式",
+			"Detected Header Index": "检测到的表头行号",
+			"Detected Transaction Starting Index": "检测到的交易起始行号",
+			"Detected Transaction Ending Index": "检测到的交易结束行号",
+			"Amount column has \"CR\"/\"DR\" values": "金额列使用“CR”/“DR”标记",
+			"Amount column has positive/negative values": "金额列使用正数/负数",
+			"Transaction type column has \"Deposit\"/\"Withdrawal\" values": "交易类型列使用“Deposit”/“Withdrawal”标记",
+			"Bank Statement Import Log Column Map": "银行对账单导入日志列映射",
+			"PDF Tables": "PDF 表格",
+			"No Tables Detected": "未检测到表格",
+			"Password Required": "需要密码",
+			"This PDF is password protected. Please set the correct statement password on the Bank Account and try again.": "此 PDF 受密码保护。请在银行账户中设置正确的对账单密码后重试。",
+			"Bank Transaction Rule Accounts": "银行交易匹配规则科目",
+			"Bank Transaction Rule Description Conditions": "银行交易匹配规则描述条件",
+			"Description Rules": "描述匹配规则",
+			"Regex": "正则表达式",
+			"Party IBAN": "往来单位 IBAN",
+			"Party account is required to create a payment entry.": "创建收付款单必须填写往来单位科目。",
+			"Party type is required to create a payment entry.": "创建收付款单必须填写往来类型。",
+			"You do not have permission to import bank transactions": "您没有导入银行交易的权限",
+			"You do not have permission to import and submit bank transactions": "您没有导入并提交银行交易的权限",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
 	def test_material_planning_and_picking_use_reviewed_chinese_terms(self):
 		translations = {
 			"Auto Created (Reorder)": "自动创建（再订购）",
@@ -1046,6 +1079,14 @@ class TestZhFinanceTranslations(TestCase):
 				self._format_fields(source),
 				self._format_fields(translation),
 			)
+
+	def _assert_erpnext_runtime_translation(self, source, translation):
+		with self.subTest(runtime_source=source):
+			message = self.merged_erpnext_catalog.get(source)
+			self.assertIsNotNone(message)
+			self.assertNotIn("fuzzy", message.flags)
+			self.assertEqual(message.string, translation)
+			self.assertTrue(self._message_is_valid(message), [str(error) for error in message.check()])
 
 	def _assert_frappe_translation(self, source, translation):
 		with self.subTest(source=source):
