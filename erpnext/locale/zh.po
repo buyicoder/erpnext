@@ -19418,7 +19418,7 @@ msgstr "在Google设置中输入API密钥"
 
 #: erpnext/public/js/print.js:67
 msgid "Enter Company Details"
-msgstr ""
+msgstr "填写公司信息"
 
 #: erpnext/setup/doctype/employee/employee.js:148
 msgid "Enter First and Last name of Employee, based on Which Full Name will be updated. IN transactions, it will be Full Name which will be fetched."

@@ -222,6 +222,7 @@ class TestZhFinanceTranslations(TestCase):
 			"Item Wise Consumption": "按物料统计用量",
 			"Stock Value by Item Group": "按物料组统计库存价值",
 			"ERPNext Settings": "ERPNext 设置",
+			"Enter Company Details": "填写公司信息",
 			"Assets Setup": "资产功能引导",
 			"Learn Asset": "了解资产管理",
 			"Create Asset Category": "创建资产类别",
@@ -298,6 +299,8 @@ class TestZhFinanceTranslations(TestCase):
 			"Version": "版本",
 			"Document Name": "单据名称",
 			"Navigation Buttons": "导航按钮",
+			"Customize Quick Filters": "自定义快捷筛选条件",
+			"Open Link": "打开链接",
 		}
 
 		for source, translation in translations.items():

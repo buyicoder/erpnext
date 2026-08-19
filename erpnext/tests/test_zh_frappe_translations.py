@@ -43,7 +43,11 @@ class TestZhFrappeTranslations(TestCase):
 			"System User": "系统用户",
 			"Website User": "网站用户",
 			"Audits": "审计",
+			"Customize Quick Filters": "自定义快捷筛选条件",
+			"Open Link": "打开链接",
 		}
 		for source, translation in expected.items():
 			with self.subTest(source=source):
-				self.assertEqual(self.catalog.get(source).string, translation)
+				message = self.catalog.get(source)
+				self.assertNotIn("fuzzy", message.flags)
+				self.assertEqual(message.string, translation)

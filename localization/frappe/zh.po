@@ -1604,3 +1604,9 @@ msgstr "网站用户"
 
 msgid "Audits"
 msgstr "审计"
+
+msgid "Customize Quick Filters"
+msgstr "自定义快捷筛选条件"
+
+msgid "Open Link"
+msgstr "打开链接"
