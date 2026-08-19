@@ -25,7 +25,8 @@ if (frappe.boot.lang === "zh") {
 			? [root]
 			: root.querySelectorAll?.(cny_amount_selector) || [];
 		elements.forEach((element) => {
-			element.textContent = format_compact_cny_text(element.textContent);
+			const localized = format_compact_cny_text(element.textContent);
+			if (localized !== element.textContent) element.textContent = localized;
 		});
 	};
 	const localize_chart_dates = (root = document) => {
@@ -33,7 +34,8 @@ if (frappe.boot.lang === "zh") {
 			? [root]
 			: root.querySelectorAll?.(chart_date_selector) || [];
 		elements.forEach((element) => {
-			element.textContent = format_month_year_text(element.textContent);
+			const localized = format_month_year_text(element.textContent);
+			if (localized !== element.textContent) element.textContent = localized;
 		});
 	};
 	const localize_awesomplete_status = (root = document) => {
@@ -42,7 +44,8 @@ if (frappe.boot.lang === "zh") {
 			? [root]
 			: root.querySelectorAll?.(awesomplete_status_selector) || [];
 		elements.forEach((element) => {
-			element.textContent = localize_awesomplete_status_text(element.textContent);
+			const localized = localize_awesomplete_status_text(element.textContent);
+			if (localized !== element.textContent) element.textContent = localized;
 		});
 	};
 
