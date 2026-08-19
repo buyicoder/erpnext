@@ -4,6 +4,8 @@ import test from "node:test";
 import {
 	format_compact_cny_text,
 	format_month_year_text,
+	localize_audit_doctype_text,
+	localize_login_activity_text,
 	localize_awesomplete_status_text,
 } from "../public/js/zh_finance_format.mjs";
 
@@ -58,4 +60,26 @@ test("localizes every Awesomplete accessibility status", () => {
 	assert.equal(localize_awesomplete_status_text("3 results found"), "找到 3 条结果");
 	assert.equal(localize_awesomplete_status_text("ABC, list item 2 of 3"), "ABC，第 2 项，共 3 项");
 	assert.equal(localize_awesomplete_status_text("已翻译"), "已翻译");
+});
+
+test("localizes persisted audit labels without changing their stored values", () => {
+	const translations = {
+		"{0} logged in": "{0}已登录",
+		Administrator: "管理员",
+		"Sales Invoice": "销售发票",
+	};
+	const translate = (message, values = []) =>
+		(values || []).reduce(
+			(result, value, index) => result.replace(`{${index}}`, value),
+			translations[message] || message,
+		);
+
+	assert.equal(localize_login_activity_text("占永杰 logged in", translate), "占永杰已登录");
+	assert.equal(
+		localize_login_activity_text("Administrator logged in", translate),
+		"管理员已登录",
+	);
+	assert.equal(localize_login_activity_text("已完成数据导出", translate), "已完成数据导出");
+	assert.equal(localize_audit_doctype_text("Sales Invoice", translate), "销售发票");
+	assert.equal(localize_audit_doctype_text("自定义来源", translate), "自定义来源");
 });

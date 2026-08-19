@@ -43,6 +43,8 @@ doctype_js = {
 	"Contact": "public/js/contact.js",
 }
 doctype_list_js = {
+	"Activity Log": "public/js/zh_audit_list.js",
+	"Access Log": "public/js/zh_audit_list.js",
 	"Code List": [
 		"edi/doctype/code_list/code_list_import.js",
 	],

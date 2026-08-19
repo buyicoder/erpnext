@@ -39,6 +39,13 @@ export const localize_awesomplete_status_text = (text) => {
 	return text;
 };
 
+export const localize_login_activity_text = (text, translate) => {
+	const match = text.match(/^(.+) logged in$/);
+	return match ? translate("{0} logged in", [translate(match[1])]) : text;
+};
+
+export const localize_audit_doctype_text = (text, translate) => translate(text);
+
 const MONTHS = {
 	Jan: 1,
 	Feb: 2,

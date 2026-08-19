@@ -1,10 +1,17 @@
 import {
 	format_compact_cny_text,
 	format_month_year_text,
+	localize_audit_doctype_text,
+	localize_login_activity_text,
 	localize_awesomplete_status_text,
 } from "./zh_finance_format.mjs";
 
 if (frappe.boot.lang === "zh") {
+	Object.assign((frappe.utils.zh_finance ||= {}), {
+		localize_audit_doctype_text,
+		localize_login_activity_text,
+	});
+
 	Object.assign(frappe._messages, {
 		"Begin typing for results.": "输入关键词搜索。",
 		Masters: "基础资料",

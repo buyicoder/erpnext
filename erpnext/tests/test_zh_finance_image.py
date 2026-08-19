@@ -22,6 +22,7 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("bench compile-po-to-mo --app frappe --locale zh --force", self.containerfile)
 		self.assertIn("bench build --app erpnext", self.containerfile)
 		self.assertIn("erpnext/public/js/zh_finance_format.mjs", self.containerfile)
+		self.assertIn("erpnext/public/js/zh_audit_list.js", self.containerfile)
 		self.assertIn("erpnext/public/scss/modern-cn-theme.scss", self.containerfile)
 		self.assertIn("erpnext/public/scss/erpnext.bundle.scss", self.containerfile)
 		self.assertIn("erpnext/projects/doctype/project/project.py", self.containerfile)
@@ -70,6 +71,11 @@ class TestZhFinanceImage(TestCase):
 			'const chart_date_selector = ".chart-container svg text";',
 			self.browser_overrides,
 		)
+
+	def test_audit_list_localization_uses_doctype_hooks(self):
+		hooks = (self.repo_root / "erpnext" / "hooks.py").read_text()
+		self.assertIn('"Activity Log": "public/js/zh_audit_list.js"', hooks)
+		self.assertIn('"Access Log": "public/js/zh_audit_list.js"', hooks)
 
 	def test_realtime_proxy_preserves_the_browser_origin(self):
 		self.assertIn("proxy_set_header Origin \\$frappe_socket_origin", self.containerfile)

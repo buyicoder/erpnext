@@ -40,6 +40,8 @@ class TestZhFrappeTranslations(TestCase):
 			"Last Edited By {0}": "最后由 {0} 编辑",
 			"Created By You": "由你创建",
 			"Created By {0}": "由 {0} 创建",
+			"System User": "系统用户",
+			"Website User": "网站用户",
 		}
 		for source, translation in expected.items():
 			with self.subTest(source=source):
