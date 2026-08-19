@@ -466,6 +466,7 @@ class TestZhFinanceTranslations(TestCase):
 			"erpnext/crm/",
 			"erpnext/controllers/",
 			"erpnext/stock/",
+			"erpnext/public/",
 		)
 		missing = []
 		for source_message in self.source_catalog:
@@ -673,6 +674,55 @@ class TestZhFinanceTranslations(TestCase):
 		self.assertTrue(
 			any(message and message.string and "fuzzy" not in message.flags for message in messages)
 		)
+
+	def test_public_frontend_uses_reviewed_chinese_terms(self):
+		translations = {
+			" Phantom Item": " 虚拟物料",
+			"A few quick questions so we can set things up the way you work.": "请回答几个简单问题，以便按您的工作方式完成系统设置。",
+			"A little about you": "关于您",
+			"Add Phantom Item": "添加虚拟物料",
+			"Clear Last Scanned Warehouse": "清除上次扫描的仓库",
+			"Create Payment Request": "创建收付款申请",
+			"Delete Demo Data": "删除演示数据",
+			"Enable <b>{0}</b> on the Item master to proceed with {1} inspection.": "请在物料主数据中启用<b>{0}</b>，然后再进行{1}检验。",
+			"How big is the team?": "您的团队规模有多大？",
+			"Payment Schedules": "付款计划",
+			"Phantom Item is mandatory": "必须选择虚拟物料",
+			"Please select at least one schedule.": "请至少选择一项付款计划。",
+			"Project Management": "项目管理",
+			"Quality Inspection Not Configured": "质量检验单未配置",
+			"Schedule Name": "计划名称",
+			"Select Company Address": "选择公司地址",
+			"Select Payment Schedule": "选择付款计划",
+			"Select the modules that you plan to implement": "选择计划启用的业务模块",
+			"Total Advance Paid": "预付款合计",
+			"Total Advance Paid: {0}": "预付款合计：{0}",
+			"Total Advance Received": "预收款合计",
+			"Total Advance Received: {0}": "预收款合计：{0}",
+			"Total Unpaid": "未付合计",
+			"What do you use today?": "您目前使用什么系统？",
+			"What kind of work do you do?": "您从事哪类业务？",
+			"Who are you setting this up for?": "您在为谁设置这套系统？",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+	def test_public_quality_inspection_message_translates_visible_arguments(self):
+		text = (Path(__file__).parents[2] / "erpnext/public/js/controllers/transaction.js").read_text()
+		self.assertIn("__(fieldname)", text)
+		self.assertIn("__(type)", text)
+		for source in (
+			"Inspection Required before Purchase",
+			"Inspection Required before Delivery",
+			"Purchase",
+			"Delivery",
+		):
+			messages = [self.catalog.get(source), self.merged_frappe_catalog.get(source)]
+			self.assertTrue(
+				any(message and message.string and "fuzzy" not in message.flags for message in messages),
+				source,
+			)
 
 	def test_accounts_workflows_use_reviewed_chinese_terms(self):
 		translations = {

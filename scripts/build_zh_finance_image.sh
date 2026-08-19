@@ -66,6 +66,9 @@ expected_translations = {
 	"Stock Frozen": "库存已冻结",
 	"Duplicate Serial Number Error": "序列号重复错误",
 	"Reserved Inventory": "已预留库存",
+	"Quality Inspection Not Configured": "质量检验单未配置",
+	"Select Company Address": "选择公司地址",
+	"Total Advance Paid": "预付款合计",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)

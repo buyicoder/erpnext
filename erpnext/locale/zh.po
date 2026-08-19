@@ -76,7 +76,7 @@ msgstr "名称"
 #: erpnext/public/js/bom_configurator/bom_configurator.bundle.js:152
 #: erpnext/public/js/bom_configurator/bom_configurator.bundle.js:193
 msgid " Phantom Item"
-msgstr ""
+msgstr " 虚拟物料"
 
 #: erpnext/accounts/report/item_wise_sales_register/item_wise_sales_register.py:602
 msgid " Rate"
@@ -1128,11 +1128,11 @@ msgstr "必须设置驾驶员才能提交"
 
 #: erpnext/public/js/setup_wizard.js:27
 msgid "A few quick questions so we can set things up the way you work."
-msgstr ""
+msgstr "请回答几个简单问题，以便按您的工作方式完成系统设置。"
 
 #: erpnext/public/js/setup_wizard.js:25
 msgid "A little about you"
-msgstr ""
+msgstr "关于您"
 
 #. Description of a DocType
 #: erpnext/stock/doctype/warehouse/warehouse.json
@@ -2798,7 +2798,7 @@ msgstr "添加订单折扣"
 #: erpnext/public/js/bom_configurator/bom_configurator.bundle.js:289
 #: erpnext/public/js/bom_configurator/bom_configurator.bundle.js:424
 msgid "Add Phantom Item"
-msgstr ""
+msgstr "添加虚拟物料"
 
 #. Label of the add_quote (Check) field in DocType 'Email Digest'
 #: erpnext/setup/doctype/email_digest/email_digest.json
@@ -10774,7 +10774,7 @@ msgstr "条款和条件"
 
 #: erpnext/public/js/utils/barcode_scanner.js:502
 msgid "Clear Last Scanned Warehouse"
-msgstr ""
+msgstr "清除上次扫描的仓库"
 
 #. Label of the clear_notifications_status (Select) field in DocType
 #. 'Transaction Deletion Record'
@@ -13610,7 +13610,7 @@ msgstr "为合并POS发票创建付款凭证。"
 
 #: erpnext/public/js/controllers/transaction.js:579
 msgid "Create Payment Request"
-msgstr ""
+msgstr "创建收付款申请"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.js:812
 msgid "Create Pick List"
@@ -16437,7 +16437,7 @@ msgstr "删除被取消凭证"
 #. Type: Action
 #: erpnext/hooks.py erpnext/public/js/utils/demo.js:5
 msgid "Delete Demo Data"
-msgstr ""
+msgstr "删除演示数据"
 
 #: erpnext/stock/doctype/inventory_dimension/inventory_dimension.js:65
 msgid "Delete Dimension"
@@ -18996,7 +18996,7 @@ msgstr "Ems（派卡）"
 
 #: erpnext/public/js/controllers/transaction.js:2970
 msgid "Enable <b>{0}</b> on the Item master to proceed with {1} inspection."
-msgstr ""
+msgstr "请在物料主数据中启用<b>{0}</b>，然后再进行{1}检验。"
 
 #. Label of the enable_accounting_dimensions (Check) field in DocType 'Accounts
 #. Settings'
@@ -23453,7 +23453,7 @@ msgstr "定价规则如何应用？"
 
 #: erpnext/public/js/setup_wizard.js:40
 msgid "How big is the team?"
-msgstr ""
+msgstr "您的团队规模有多大？"
 
 #. Label of the frequency (Select) field in DocType 'Email Digest'
 #: erpnext/setup/doctype/email_digest/email_digest.json
@@ -36831,7 +36831,7 @@ msgstr "该单据已存在收付款凭证，无法再按付款计划创建付款
 
 #: erpnext/public/js/controllers/transaction.js:534
 msgid "Payment Schedules"
-msgstr ""
+msgstr "付款计划"
 
 #. Label of the payment_term (Link) field in DocType 'Overdue Payment'
 #. Label of the payment_term (Link) field in DocType 'Payment Entry Reference'
@@ -37481,7 +37481,7 @@ msgstr "虚拟物料"
 
 #: erpnext/public/js/bom_configurator/bom_configurator.bundle.js:438
 msgid "Phantom Item is mandatory"
-msgstr ""
+msgstr "必须选择虚拟物料"
 
 #: erpnext/setup/setup_wizard/operations/install_fixtures.py:237
 msgid "Pharmaceutical"
@@ -38667,7 +38667,7 @@ msgstr "请至少选择一条存在差异的记录"
 
 #: erpnext/public/js/controllers/transaction.js:586
 msgid "Please select at least one schedule."
-msgstr ""
+msgstr "请至少选择一项付款计划。"
 
 #: erpnext/selling/doctype/sales_order/sales_order.js:1330
 msgid "Please select atleast one item to continue"
@@ -40721,7 +40721,7 @@ msgstr "项目编号"
 
 #: erpnext/public/js/setup_wizard.js:95
 msgid "Project Management"
-msgstr ""
+msgstr "项目管理"
 
 #: erpnext/setup/setup_wizard/data/designation.txt:26
 msgid "Project Manager"
@@ -42233,7 +42233,7 @@ msgstr "质检单分析"
 
 #: erpnext/public/js/controllers/transaction.js:2969
 msgid "Quality Inspection Not Configured"
-msgstr ""
+msgstr "质量检验单未配置"
 
 #. Name of a DocType
 #: erpnext/stock/doctype/quality_inspection_parameter/quality_inspection_parameter.json
@@ -48525,7 +48525,7 @@ msgstr "计划日期"
 
 #: erpnext/public/js/controllers/transaction.js:543
 msgid "Schedule Name"
-msgstr ""
+msgstr "计划名称"
 
 #. Label of the scheduled_date (Date) field in DocType 'Maintenance Schedule
 #. Detail'
@@ -48874,7 +48874,7 @@ msgstr "选择公司"
 
 #: erpnext/public/js/print.js:118
 msgid "Select Company Address"
-msgstr ""
+msgstr "选择公司地址"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.js:476
 msgid "Select Corrective Operation"
@@ -48969,7 +48969,7 @@ msgstr "选择积分方案"
 
 #: erpnext/public/js/controllers/transaction.js:529
 msgid "Select Payment Schedule"
-msgstr ""
+msgstr "选择付款计划"
 
 #: erpnext/buying/doctype/request_for_quotation/request_for_quotation.js:411
 msgid "Select Possible Supplier"
@@ -49187,7 +49187,7 @@ msgstr "请先选择客户组，以筛选下方适用的代扣税类别。"
 
 #: erpnext/public/js/setup_wizard.js:89
 msgid "Select the modules that you plan to implement"
-msgstr ""
+msgstr "选择计划启用的业务模块"
 
 #: erpnext/manufacturing/doctype/bom/bom.js:1011
 msgid "Select the raw materials (Items) required to manufacture the Item"
@@ -57047,19 +57047,19 @@ msgstr "总预收/付"
 
 #: erpnext/public/js/utils.js:250
 msgid "Total Advance Paid"
-msgstr ""
+msgstr "预付款合计"
 
 #: erpnext/public/js/utils.js:195
 msgid "Total Advance Paid: {0}"
-msgstr ""
+msgstr "预付款合计：{0}"
 
 #: erpnext/public/js/utils.js:252
 msgid "Total Advance Received"
-msgstr ""
+msgstr "预收款合计"
 
 #: erpnext/public/js/utils.js:198
 msgid "Total Advance Received: {0}"
-msgstr ""
+msgstr "预收款合计：{0}"
 
 #. Label of the total_allocated_amount (Currency) field in DocType 'Payment
 #. Entry'
@@ -57717,7 +57717,7 @@ msgstr "总时间(分)"
 
 #: erpnext/public/js/utils.js:253
 msgid "Total Unpaid"
-msgstr ""
+msgstr "未付合计"
 
 #: erpnext/public/js/utils.js:200
 msgid "Total Unpaid: {0}"
@@ -61276,11 +61276,11 @@ msgstr "你有什么需要帮助的？"
 
 #: erpnext/public/js/setup_wizard.js:69
 msgid "What do you use today?"
-msgstr ""
+msgstr "您目前使用什么系统？"
 
 #: erpnext/public/js/setup_wizard.js:47
 msgid "What kind of work do you do?"
-msgstr ""
+msgstr "您从事哪类业务？"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:82
 msgid "What will be deleted:"
@@ -61374,7 +61374,7 @@ msgstr "白"
 
 #: erpnext/public/js/setup_wizard.js:31
 msgid "Who are you setting this up for?"
-msgstr ""
+msgstr "您在为谁设置这套系统？"
 
 #. Option for the 'Marital Status' (Select) field in DocType 'Employee'
 #: erpnext/setup/doctype/employee/employee.json

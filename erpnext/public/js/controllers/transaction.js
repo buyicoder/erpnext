@@ -2969,8 +2969,8 @@ erpnext.TransactionController = class TransactionController extends erpnext.taxe
 					frappe.msgprint({
 						title: __("Quality Inspection Not Configured"),
 						message: __(`Enable <b>{0}</b> on the Item master to proceed with {1} inspection.`, [
-							fieldname,
-							type,
+							__(fieldname),
+							__(type),
 						]),
 					});
 					return;
