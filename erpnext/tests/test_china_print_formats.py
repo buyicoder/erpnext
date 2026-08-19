@@ -60,6 +60,8 @@ class TestChinaPrintFormats(TestCase):
 			with self.subTest(print_format=relative_path):
 				self.assertEqual(print_format["default_print_language"], "zh")
 				self.assertIn('{{ _("Row No.") }}', html)
+				self.assertIn("{{ _(item.uom) }}", html)
+				self.assertNotIn("{{ item.uom }}", html)
 				self.assertGreaterEqual(html.count("format_china_money("), 6)
 				self.assertNotIn('{{ _("No") }}', html)
 				self.assertIn("@media screen and (max-width: 600px)", html)
