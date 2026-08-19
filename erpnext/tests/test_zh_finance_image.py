@@ -37,6 +37,14 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("erpnext/public/scss/modern-cn-theme.scss", self.containerfile)
 		self.assertIn("erpnext/public/scss/erpnext.bundle.scss", self.containerfile)
 		self.assertIn("erpnext/projects/doctype/project/project.py", self.containerfile)
+		self.assertIn(
+			"erpnext/projects/report/project_wise_stock_tracking/project_wise_stock_tracking.py",
+			self.containerfile,
+		)
+		self.assertIn(
+			"erpnext/projects/report/project_wise_stock_tracking/project_wise_stock_tracking.json",
+			self.containerfile,
+		)
 		self.assertIn("erpnext/setup/china_money.py", self.containerfile)
 		self.assertIn("erpnext/hooks.py", self.containerfile)
 		self.assertIn("erpnext/controllers/selling_controller.py", self.containerfile)
