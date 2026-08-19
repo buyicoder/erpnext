@@ -26,6 +26,11 @@ class TestZhFinanceTranslations(TestCase):
 			"Notification": "通知",
 			"steps completed": "项已完成",
 			"completed": "已完成",
+			"Set Level": "设置层级",
+			"Collapse All": "全部折叠",
+			"Tree Level": "树形层级",
+			"Filter based on {0}": "按 {0} 筛选",
+			"Execution Time: {0} sec": "执行用时：{0} 秒",
 		}
 
 		for source, translation in translations.items():

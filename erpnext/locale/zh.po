@@ -63434,3 +63434,21 @@ msgstr "已完成"
 
 msgid "steps completed"
 msgstr "项已完成"
+
+msgid "Set Level"
+msgstr "设置层级"
+
+msgid "Collapse All"
+msgstr "全部折叠"
+
+msgid "Tree Level"
+msgstr "树形层级"
+
+msgid "Filter based on {0}"
+msgstr "按 {0} 筛选"
+
+msgid "For comparison, use >5, <10 or =324. For ranges, use 5:10 (for values between 5 & 10)."
+msgstr "比较时请使用 >5、<10 或 =324；范围请使用 5:10（表示 5 到 10 之间的值）。"
+
+msgid "Execution Time: {0} sec"
+msgstr "执行用时：{0} 秒"
