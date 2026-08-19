@@ -1,10 +1,12 @@
 import {
-	format_compact_cny_text,
 	format_month_year_text,
 	localize_audit_doctype_text,
+	localize_compact_cny_element,
+	localize_datatable_filter_title,
 	localize_login_activity_text,
 	localize_awesomplete_status_text,
 	localize_timeline_element,
+	localize_tree_level_label,
 } from "./zh_finance_format.mjs";
 
 if (frappe.boot.lang === "zh") {
@@ -24,6 +26,7 @@ if (frappe.boot.lang === "zh") {
 		".list-row-container .filterable div",
 		"[data-fieldtype='Currency'] .static-area div",
 		".datatable .dt-cell__content > div",
+		".datatable .dt-cell__content div[style*='text-align: right']",
 		".control-value",
 		".summary-value",
 	].join(", ");
@@ -31,15 +34,18 @@ if (frappe.boot.lang === "zh") {
 	const chart_date_selector = ".chart-container svg .x.axis text";
 	const timeline_selector = ".timeline-content";
 	const administrator_link_selector = 'a[href="/desk/user/Administrator"]';
+	const datatable_filter_selector = ".datatable input.dt-filter[title^='Filter based on ']";
+	const tree_level_selector = "#tree-level[aria-label='Tree Level']";
 	const localize_compact_cny = (root = document) => {
 		if (!root) return;
 		const elements = root.matches?.(cny_amount_selector)
 			? [root]
 			: root.querySelectorAll?.(cny_amount_selector) || [];
 		elements.forEach((element) => {
-			if (!element.textContent.trimStart().startsWith("CNY ")) return;
-			const localized = format_compact_cny_text(element.textContent);
-			if (localized !== element.textContent) element.textContent = localized;
+			const result = localize_compact_cny_element(element, Node.TEXT_NODE);
+			if (!result) return;
+			const cell = element.closest?.(".dt-cell__content");
+			if (cell?.title === result.original) cell.title = result.localized;
 		});
 	};
 	const localize_chart_dates = (root = document) => {
@@ -78,11 +84,31 @@ if (frappe.boot.lang === "zh") {
 			if (link.textContent.trim() === "Administrator") link.textContent = __("Administrator");
 		});
 	};
+	const localize_datatable_controls = (root = document) => {
+		if (!root) return;
+		const filters = root.matches?.(datatable_filter_selector)
+			? [root]
+			: root.querySelectorAll?.(datatable_filter_selector) || [];
+		filters.forEach((input) => {
+			input.title = localize_datatable_filter_title(input.title, __);
+		});
+
+		const tree_levels = root.matches?.(tree_level_selector)
+			? [root]
+			: root.querySelectorAll?.(tree_level_selector) || [];
+		tree_levels.forEach((input) => {
+			input.setAttribute(
+				"aria-label",
+				localize_tree_level_label(input.getAttribute("aria-label"), __),
+			);
+		});
+	};
 
 	localize_compact_cny();
 	localize_awesomplete_status();
 	localize_chart_dates();
 	localize_timeline();
+	localize_datatable_controls();
 	new MutationObserver((mutations) => {
 		mutations.forEach((mutation) => {
 			if (mutation.type === "characterData") {
@@ -90,6 +116,7 @@ if (frappe.boot.lang === "zh") {
 				localize_awesomplete_status(mutation.target.parentElement);
 				localize_chart_dates(mutation.target.parentElement);
 				localize_timeline(mutation.target.parentElement);
+				localize_datatable_controls(mutation.target.parentElement);
 				return;
 			}
 			mutation.addedNodes.forEach((node) => {
@@ -98,6 +125,7 @@ if (frappe.boot.lang === "zh") {
 					localize_awesomplete_status(node.parentElement);
 					localize_chart_dates(node.parentElement);
 					localize_timeline(node.parentElement);
+					localize_datatable_controls(node.parentElement);
 					return;
 				}
 				if (node.nodeType !== Node.ELEMENT_NODE) return;
@@ -105,6 +133,7 @@ if (frappe.boot.lang === "zh") {
 				localize_awesomplete_status(node);
 				localize_chart_dates(node);
 				localize_timeline(node);
+				localize_datatable_controls(node);
 			});
 		});
 	}).observe(document.body, {

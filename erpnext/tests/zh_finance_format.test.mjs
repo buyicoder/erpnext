@@ -5,10 +5,13 @@ import {
 	format_compact_cny_text,
 	format_month_year_text,
 	localize_audit_doctype_text,
+	localize_compact_cny_element,
+	localize_datatable_filter_title,
 	localize_login_activity_text,
 	localize_awesomplete_status_text,
 	localize_timeline_element,
 	localize_timeline_text,
+	localize_tree_level_label,
 } from "../public/js/zh_finance_format.mjs";
 
 test("uses Chinese yuan, ten-thousand and hundred-million units", () => {
@@ -18,6 +21,32 @@ test("uses Chinese yuan, ten-thousand and hundred-million units", () => {
 	assert.equal(format_compact_cny_text("CNY 1 B"), "¥10.00亿");
 	assert.equal(format_compact_cny_text("CNY 229,000.00"), "¥22.90万");
 	assert.equal(format_compact_cny_text("CNY 363.00"), "¥363.00");
+});
+
+test("localizes report datatable accessibility labels", () => {
+	const translate = (message, values = []) =>
+		({ "Filter based on {0}": `按 ${values[0]} 筛选`, "Tree Level": "树形层级" })[
+			message
+		] || message;
+	assert.equal(localize_datatable_filter_title("Filter based on 科目", translate), "按 科目 筛选");
+	assert.equal(localize_datatable_filter_title("按科目筛选", translate), "按科目筛选");
+	assert.equal(localize_tree_level_label("Tree Level", translate), "树形层级");
+	assert.equal(localize_tree_level_label("Level", translate), "Level");
+});
+
+test("localizes nested CNY text without replacing its wrapper", () => {
+	const textNode = { nodeType: 3, textContent: "CNY 363.00 K" };
+	const span = { nodeType: 1, className: "amount", childNodes: [textNode] };
+	const element = { childNodes: [span] };
+
+	assert.deepEqual(localize_compact_cny_element(element), {
+		localized: "¥36.30万",
+		original: "CNY 363.00 K",
+	});
+	assert.equal(element.childNodes[0], span);
+	assert.equal(span.className, "amount");
+	assert.equal(textNode.textContent, "¥36.30万");
+	assert.equal(localize_compact_cny_element(element), null);
 });
 
 test("localizes exact persisted timeline values while preserving surrounding whitespace", () => {

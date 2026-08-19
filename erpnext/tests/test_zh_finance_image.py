@@ -82,6 +82,11 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn('const timeline_selector = ".timeline-content";', self.browser_overrides)
 		self.assertIn('a[href="/desk/user/Administrator"]', self.browser_overrides)
 
+	def test_report_datatable_controls_are_localized(self):
+		self.assertIn("input.dt-filter[title^='Filter based on ']", self.browser_overrides)
+		self.assertIn("#tree-level[aria-label='Tree Level']", self.browser_overrides)
+		self.assertIn("div[style*='text-align: right']", self.browser_overrides)
+
 	def test_realtime_proxy_preserves_the_browser_origin(self):
 		self.assertIn("proxy_set_header Origin \\$frappe_socket_origin", self.containerfile)
 		self.assertIn("default $http_origin", self.containerfile)

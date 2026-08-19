@@ -23,6 +23,26 @@ export const format_compact_cny_text = (text) => {
 	return `¥${format_decimal(amount)}`;
 };
 
+export const localize_compact_cny_element = (element, text_node_type = 3) => {
+	const text_nodes = [];
+	const visit = (node) => {
+		if (node.nodeType === text_node_type) {
+			if (node.textContent.trimStart().startsWith("CNY ")) text_nodes.push(node);
+			return;
+		}
+		node.childNodes?.forEach(visit);
+	};
+	element.childNodes.forEach(visit);
+	if (text_nodes.length !== 1) return null;
+
+	const node = text_nodes[0];
+	const original = node.textContent.trim();
+	const localized = format_compact_cny_text(node.textContent);
+	if (localized === node.textContent) return null;
+	node.textContent = localized;
+	return { localized, original };
+};
+
 export const localize_awesomplete_status_text = (text) => {
 	if (text === "Begin typing for results.") return "输入关键词搜索。";
 	if (text === "No results found") return "未找到结果";
@@ -45,6 +65,14 @@ export const localize_login_activity_text = (text, translate) => {
 };
 
 export const localize_audit_doctype_text = (text, translate) => translate(text);
+
+export const localize_datatable_filter_title = (text, translate) => {
+	const match = text.match(/^Filter based on (.+)$/);
+	return match ? translate("Filter based on {0}", [match[1]]) : text;
+};
+
+export const localize_tree_level_label = (text, translate) =>
+	text === "Tree Level" ? translate(text) : text;
 
 const LOCALIZABLE_TIMELINE_VALUES = new Set(["To Deliver and Bill"]);
 
