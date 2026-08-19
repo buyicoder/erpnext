@@ -52,6 +52,7 @@ if (frappe.boot.lang === "zh") {
 	new MutationObserver((mutations) => {
 		mutations.forEach((mutation) => {
 			if (mutation.type === "characterData") {
+				localize_compact_cny(mutation.target.parentElement);
 				localize_awesomplete_status(mutation.target.parentElement);
 				localize_chart_dates(mutation.target.parentElement);
 				return;
