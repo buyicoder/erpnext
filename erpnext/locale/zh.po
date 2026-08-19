@@ -63430,3 +63430,11 @@ msgstr "已完成 {0}%"
 msgid "{0}/{1} steps completed"
 msgstr "已完成 {0}/{1} 项"
 
+
+# Chinese finance localization overrides
+msgid "completed"
+msgstr "已完成"
+
+msgid "steps completed"
+msgstr "项已完成"
+
