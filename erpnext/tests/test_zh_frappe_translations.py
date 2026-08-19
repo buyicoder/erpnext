@@ -12,7 +12,7 @@ class TestZhFrappeTranslations(TestCase):
 
 	def test_public_component_catalog_is_complete_and_valid(self):
 		messages = [message for message in self.catalog if message.id]
-		self.assertGreaterEqual(len(messages), 130)
+		self.assertGreaterEqual(len(messages), 240)
 		self.assertEqual([message.id for message in messages if not message.string], [])
 		self.assertEqual(
 			{

@@ -434,3 +434,366 @@ msgstr "关注"
 
 msgid "From"
 msgstr "来自"
+
+msgid "Access Control"
+msgstr "访问控制"
+
+msgid "Add New Permission Rule"
+msgstr "新增权限规则"
+
+msgid "Add Roles"
+msgstr "新增角色"
+
+msgid "Add User Permissions"
+msgstr "新增用户权限"
+
+msgid "Additional Permissions"
+msgstr "附加权限"
+
+msgid "Allow Print for Cancelled"
+msgstr "允许打印已取消单据"
+
+msgid "Allow Print for Draft"
+msgstr "允许打印草稿"
+
+msgid "Allow Read On All Link Options"
+msgstr "允许读取全部关联选项"
+
+msgid "Allow Roles"
+msgstr "允许的角色"
+
+msgid "Allowed Roles"
+msgstr "允许的角色"
+
+msgid "Apply Strict User Permissions"
+msgstr "严格应用用户权限"
+
+msgid "Apply User Permission On"
+msgstr "应用用户权限于"
+
+msgid "Based on Permissions For User"
+msgstr "按用户权限查看"
+
+msgid "Cannot Download Report due to insufficient permissions"
+msgstr "权限不足，无法下载报表"
+
+msgid "Cannot edit Standard Notification. To edit, please disable this and duplicate it"
+msgstr "不能编辑标准通知；如需修改，请先停用并复制一份。"
+
+msgid "Cannot edit a standard report. Please duplicate and create a new report"
+msgstr "不能编辑标准报表，请复制后创建新报表。"
+
+msgid "Cannot share {0} with submit permission as the doctype {1} is not submittable"
+msgstr "{1} 不支持提交，不能向 {0} 授予提交权限。"
+
+msgid "Clear User Permissions"
+msgstr "清除用户权限"
+
+msgid "Confirm Access"
+msgstr "确认访问"
+
+msgid "Custom Report"
+msgstr "自定义报表"
+
+msgid "Custom Reports"
+msgstr "自定义报表"
+
+msgid "Default Print Format"
+msgstr "默认打印格式"
+
+msgid "Default Print Language"
+msgstr "默认打印语言"
+
+msgid "Desk Access"
+msgstr "工作台访问权限"
+
+msgid "Document Share"
+msgstr "单据共享"
+
+msgid "Document Share Key"
+msgstr "单据共享密钥"
+
+msgid "Document Share Key Expiry (in Days)"
+msgstr "单据共享密钥有效期（天）"
+
+msgid "Document Types and Permissions"
+msgstr "单据类型与权限"
+
+msgid "Edit Auto Email Report Settings"
+msgstr "编辑自动邮件报表设置"
+
+msgid "Edit Print Format"
+msgstr "编辑打印格式"
+
+msgid "Enable Email Notifications"
+msgstr "启用邮件通知"
+
+msgid "Enable Prepared Report"
+msgstr "启用预生成报表"
+
+msgid "Enable Report"
+msgstr "启用报表"
+
+msgid "Enable Snapshot Reports"
+msgstr "启用快照报表"
+
+msgid "Enable System Notification"
+msgstr "启用系统通知"
+
+msgid "Error in Notification"
+msgstr "通知配置错误"
+
+msgid "Event Notifications"
+msgstr "事件通知"
+
+msgid "Export Report: {0}"
+msgstr "导出报表：{0}"
+
+msgid "Export not allowed. You need {0} role to export."
+msgstr "不允许导出，需要具备 {0} 角色。"
+
+msgid "Following Report Filters have missing values:"
+msgstr "以下报表筛选条件缺少值："
+
+msgid "Generate New Report"
+msgstr "生成新报表"
+
+msgid "Go to Notification Settings List"
+msgstr "前往通知设置列表"
+
+msgid "Ignore User Permissions"
+msgstr "忽略用户权限"
+
+msgid "Insufficient Permission Level for {0}"
+msgstr "对 {0} 的权限级别不足"
+
+msgid "Insufficient Permission for {0}"
+msgstr "没有足够权限访问 {0}"
+
+msgid "Looks like you haven’t received any notifications."
+msgstr "暂时没有收到通知。"
+
+msgid "Mark all as read"
+msgstr "全部标为已读"
+
+msgid "Mark as Read"
+msgstr "标为已读"
+
+msgid "Mark as Unread"
+msgstr "标为未读"
+
+msgid "Missing Permission"
+msgstr "缺少权限"
+
+msgid "Must have report permission to access this report."
+msgstr "必须具备报表权限才能访问此报表。"
+
+msgid "New Notification"
+msgstr "新建通知"
+
+msgid "New Report name"
+msgstr "新报表名称"
+
+msgid "New Role"
+msgstr "新建角色"
+
+msgid "No New notifications"
+msgstr "没有新通知"
+
+msgid "No Permissions Specified"
+msgstr "未指定权限"
+
+msgid "No Permissions set for this criteria."
+msgstr "未为此条件设置权限。"
+
+msgid "No Roles Specified"
+msgstr "未指定角色"
+
+msgid "No permission for {0}"
+msgstr "没有访问 {0} 的权限"
+
+msgid "No permission to read {0}"
+msgstr "没有读取 {0} 的权限"
+
+msgid "Notification"
+msgstr "通知"
+
+msgid "Notification Log"
+msgstr "通知日志"
+
+msgid "Notification Recipient"
+msgstr "通知接收人"
+
+msgid "Notification Settings"
+msgstr "通知设置"
+
+msgid "Notifications"
+msgstr "通知"
+
+msgid "Notifications Disabled"
+msgstr "通知已停用"
+
+msgid "Permission"
+msgstr "权限"
+
+msgid "Permission Error"
+msgstr "权限错误"
+
+msgid "Permission Inspector"
+msgstr "权限检查器"
+
+msgid "Permission Level"
+msgstr "权限级别"
+
+msgid "Permission Manager"
+msgstr "权限管理"
+
+msgid "Permission Rules"
+msgstr "权限规则"
+
+msgid "Permission Type"
+msgstr "权限类型"
+
+msgid "Permitted Roles"
+msgstr "获准角色"
+
+msgid "Prepared Report"
+msgstr "预生成报表"
+
+msgid "Preparing Report"
+msgstr "正在生成报表"
+
+msgid "Print Documents"
+msgstr "打印单据"
+
+msgid "Print Format"
+msgstr "打印格式"
+
+msgid "Print Format Builder"
+msgstr "打印格式设计器"
+
+msgid "Print Language"
+msgstr "打印语言"
+
+msgid "Print Settings"
+msgstr "打印设置"
+
+msgid "Printing"
+msgstr "正在打印"
+
+msgid "Printing failed"
+msgstr "打印失败"
+
+msgid "Query Report"
+msgstr "查询报表"
+
+msgid "Read"
+msgstr "读取"
+
+msgid "Read Only"
+msgstr "只读"
+
+msgid "Reload Report"
+msgstr "重新加载报表"
+
+msgid "Report Builder"
+msgstr "报表设计器"
+
+msgid "Report Filters"
+msgstr "报表筛选条件"
+
+msgid "Report Name"
+msgstr "报表名称"
+
+msgid "Report Type"
+msgstr "报表类型"
+
+msgid "Report View"
+msgstr "报表视图"
+
+msgid "Report timed out."
+msgstr "报表生成超时。"
+
+msgid "Report updated successfully"
+msgstr "报表更新成功"
+
+msgid "Report was not saved (there were errors)"
+msgstr "报表未保存（存在错误）"
+
+msgid "Reports"
+msgstr "报表"
+
+msgid "Reset Permissions for {0}?"
+msgstr "是否重置 {0} 的权限？"
+
+msgid "Restore Original Permissions"
+msgstr "恢复原始权限"
+
+msgid "Role Permissions"
+msgstr "角色权限"
+
+msgid "Role Permissions Manager"
+msgstr "角色权限管理"
+
+msgid "Roles"
+msgstr "角色"
+
+msgid "Roles & Permissions"
+msgstr "角色与权限"
+
+msgid "Save Report"
+msgstr "保存报表"
+
+msgid "Select Print Format"
+msgstr "选择打印格式"
+
+msgid "Select Report"
+msgstr "选择报表"
+
+msgid "Set Permissions"
+msgstr "设置权限"
+
+msgid "Set Role For"
+msgstr "设置角色"
+
+msgid "Set User Permissions"
+msgstr "设置用户权限"
+
+msgid "Share With"
+msgstr "共享给"
+
+msgid "Share this document with"
+msgstr "将此单据共享给"
+
+msgid "Shared"
+msgstr "已共享"
+
+msgid "Show Permissions"
+msgstr "显示权限"
+
+msgid "Show Report"
+msgstr "查看报表"
+
+msgid "Standard Permissions"
+msgstr "标准权限"
+
+msgid "System Notification"
+msgstr "系统通知"
+
+msgid "Unread"
+msgstr "未读"
+
+msgid "User Permission"
+msgstr "用户权限"
+
+msgid "User Permissions"
+msgstr "用户权限"
+
+msgid "User Permissions are used to limit users to specific records."
+msgstr "用户权限用于限制用户只能访问指定记录。"
+
+msgid "User Permissions created successfully"
+msgstr "用户权限创建成功"
+
+msgid "User is mandatory for Share"
+msgstr "共享时必须选择用户"
