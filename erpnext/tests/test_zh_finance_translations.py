@@ -74,15 +74,45 @@ class TestZhFinanceTranslations(TestCase):
 		}
 
 		for source, translation in translations.items():
-			with self.subTest(source=source):
-				message = self.catalog.get(source)
-				self.assertIsNotNone(message)
-				self.assertNotIn("fuzzy", message.flags)
-				self.assertEqual(message.string, translation)
-				self.assertEqual(
-					self._format_fields(source),
-					self._format_fields(translation),
-				)
+			self._assert_translation(source, translation)
+
+	def test_core_transaction_forms_use_reviewed_chinese_terms(self):
+		translations = {
+			"Amount {0} {1} adjusted against {2} {3}": "金额 {0} {1} 已冲抵 {2} {3}",
+			"Amount {0} {1} as adjustment to {2}": "金额 {0} {1} 作为对 {2} 的调整",
+			"Consider for Tax Withholding ": "计入代扣税计算",
+			"Grand Total (Company Currency": "总计（本币）",
+			"Material Request already created for the ordered quantity": "已按订购数量创建物料需求",
+			"Payment methods refreshed. Please review before proceeding.": "付款方式已刷新，请核对后继续。",
+			"Please save the Sales Order before adding a delivery schedule.": "请先保存销售订单，再添加交付计划。",
+			"Purchase Invoice without any outstanding amount cannot be held.": "没有未结金额的采购发票不能暂停付款。",
+			"Return Purchase Invoice cannot be held.": "采购退货发票不能暂停付款。",
+			"Reversal Of Exchange Rate Revaluation": "汇率重估冲销",
+			"Sales Order {0} is not available for production": "销售订单 {0} 当前不可用于生产",
+			"Set Supplier": "设置供应商",
+			"Source warehouse required for stock item {0}": "库存物料 {0} 必须填写发料仓",
+			"Supplier Required": "必须填写供应商",
+			"Supplier is required for all selected Items": "所有选中物料都必须填写供应商",
+			"Timesheet {0} cannot be invoiced in its current state": "工时表 {0} 当前状态无法开票",
+			"UTM Analytics": "营销来源分析",
+			"{0} {1} is blocked and on hold until {2}.": "{0} {1} 已被冻结，暂停至 {2}。",
+			"{0} {1} is blocked.": "{0} {1} 已被冻结。",
+		}
+
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+
+	def _assert_translation(self, source, translation):
+		with self.subTest(source=source):
+			message = self.catalog.get(source)
+			self.assertIsNotNone(message)
+			self.assertNotIn("fuzzy", message.flags)
+			self.assertEqual(message.string, translation)
+			self.assertEqual(message.check(), [])
+			self.assertEqual(
+				self._format_fields(source),
+				self._format_fields(translation),
+			)
 
 	@staticmethod
 	def _format_fields(value):

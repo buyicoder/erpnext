@@ -5049,11 +5049,11 @@ msgstr "待开票金额"
 
 #: erpnext/accounts/doctype/payment_entry/payment_entry.py:1274
 msgid "Amount {0} {1} adjusted against {2} {3}"
-msgstr ""
+msgstr "金额 {0} {1} 已冲抵 {2} {3}"
 
 #: erpnext/accounts/doctype/payment_entry/payment_entry.py:1285
 msgid "Amount {0} {1} as adjustment to {2}"
-msgstr ""
+msgstr "金额 {0} {1} 作为对 {2} 的调整"
 
 #: erpnext/accounts/doctype/payment_entry/payment_entry.py:1249
 msgid "Amount {0} {1} transferred from {2} to {3}"
@@ -5485,7 +5485,7 @@ msgstr "适用单据"
 #. 'Sales Order'
 #: erpnext/selling/doctype/sales_order/sales_order.json
 msgid "Applying a Discount Amount? When this Sales Order is partially fulfilled through multiple Delivery Notes and Sales Invoices, the Discount Amount is allocated on a FIFO basis. The earlier transactions receive a larger share of the discount. To spread the discount proportionally across item prices, use Additional Discount Percentage instead."
-msgstr ""
+msgstr "正在使用折扣金额？当销售订单通过多张送货单或销售发票分批履约时，折扣金额将按先进先出原则分配，较早的单据会分摊更多折扣。如需按物料价格比例分摊，请改用附加折扣百分比。"
 
 #. Name of a DocType
 #. Label of a Workspace Sidebar Item
@@ -9780,7 +9780,7 @@ msgstr "无法取消本生产库存凭证，因产成品数量不得少于关联
 
 #: erpnext/accounts/doctype/journal_entry/journal_entry.py:584
 msgid "Cannot cancel this document as it is linked with the submitted Asset Value Adjustment <b>{0}</b>. Please cancel the Asset Value Adjustment to continue."
-msgstr ""
+msgstr "此单据已关联已提交的资产价值调整 <b>{0}</b>，无法取消。请先取消该资产价值调整。"
 
 #: erpnext/controllers/buying_controller.py:1219
 msgid "Cannot cancel this document as it is linked with the submitted asset {asset_link}. Please cancel the asset to continue."
@@ -9836,7 +9836,7 @@ msgstr "科目类型字段须为空才能转换为组。"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:2852
 msgid "Cannot create Intercompany {0}. All items in the source {1} have already been fully invoiced. Please check the existing linked {2}s."
-msgstr ""
+msgstr "无法创建内部公司 {0}。来源 {1} 中的所有物料均已全部开票，请检查现有关联的 {2}。"
 
 #: erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:1011
 msgid "Cannot create Stock Reservation Entries for future dated Purchase Receipts."
@@ -12249,7 +12249,7 @@ msgstr "计入代扣税计算"
 #. Label of the apply_tds (Check) field in DocType 'Journal Entry'
 #: erpnext/accounts/doctype/journal_entry/journal_entry.json
 msgid "Consider for Tax Withholding "
-msgstr ""
+msgstr "计入代扣税计算"
 
 #. Label of the included_in_paid_amount (Check) field in DocType 'Advance Taxes
 #. and Charges'
@@ -17315,7 +17315,7 @@ msgstr "直接收入"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:365
 msgid "Direct return is not allowed for Timesheet."
-msgstr ""
+msgstr "工时表不允许直接退回。"
 
 #. Label of the disable_capacity_planning (Check) field in DocType
 #. 'Manufacturing Settings'
@@ -20418,7 +20418,7 @@ msgstr ""
 
 #: erpnext/accounts/doctype/payment_entry/payment_entry.py:521
 msgid "Failed to update subscription status for {0} {1}"
-msgstr ""
+msgstr "无法更新 {0} {1} 的订阅状态"
 
 #. Label of the failure_date (Datetime) field in DocType 'Asset Repair'
 #: erpnext/assets/doctype/asset_repair/asset_repair.json
@@ -22765,7 +22765,7 @@ msgstr "总计"
 #. Label of the base_grand_total (Currency) field in DocType 'Sales Invoice'
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.json
 msgid "Grand Total (Company Currency"
-msgstr ""
+msgstr "总计（本币）"
 
 #. Label of the base_grand_total (Currency) field in DocType 'POS Invoice'
 #. Label of the base_grand_total (Currency) field in DocType 'Supplier
@@ -23655,13 +23655,13 @@ msgstr "如果勾选，打印的单价/总额就含税"
 #. Description of the 'Update Stock' (Check) field in DocType 'Sales Invoice'
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.json
 msgid "If checked, updates inventory; stock and accounting entries are created together. Leave unchecked if a Delivery Note is created separately."
-msgstr ""
+msgstr "勾选后将同步更新库存，并同时生成库存和会计分录；如果另行创建送货单，请勿勾选。"
 
 #. Description of the 'Update Stock' (Check) field in DocType 'Purchase
 #. Invoice'
 #: erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json
 msgid "If checked, updates inventory; stock and accounting entries are created together. Leave unchecked if a Purchase Receipt is created separately."
-msgstr ""
+msgstr "勾选后将同步更新库存，并同时生成库存和会计分录；如果另行创建采购入库单，请勿勾选。"
 
 #: erpnext/public/js/setup_wizard.js:151
 msgid "If checked, we will create demo data for you to explore the system. This demo data can be erased later."
@@ -26642,7 +26642,7 @@ msgstr "问题类型"
 #. DocType 'Sales Invoice'
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.json
 msgid "Issue a debit note against an existing Sales Invoice to adjust the rate. The quantity will be retained from the original invoice."
-msgstr ""
+msgstr "针对现有销售发票开具借项通知单以调整单价，数量沿用原发票。"
 
 #. Option for the 'Current State' (Select) field in DocType 'Share Balance'
 #. Option for the 'Status' (Select) field in DocType 'Material Request'
@@ -30766,7 +30766,7 @@ msgstr "物料需求类型"
 
 #: erpnext/selling/doctype/sales_order/sales_order.py:1119
 msgid "Material Request already created for the ordered quantity"
-msgstr ""
+msgstr "已按订购数量创建物料需求"
 
 #: erpnext/selling/doctype/sales_order/sales_order.py:1851
 msgid "Material Request not created, as quantity for Raw Materials already available."
@@ -32563,7 +32563,7 @@ msgstr "未选择待转移物料"
 
 #: erpnext/selling/doctype/sales_order/sales_order.js:1260
 msgid "No Items with Bill of Materials to Manufacture or all items already manufactured"
-msgstr ""
+msgstr "没有需要生产且已维护物料清单的物料，或所有物料均已完成生产"
 
 #: erpnext/selling/doctype/sales_order/sales_order.js:1413
 msgid "No Items with Bill of Materials."
@@ -36948,7 +36948,7 @@ msgstr "必须设置付款方式，请至少添加一种"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:3104
 msgid "Payment methods refreshed. Please review before proceeding."
-msgstr ""
+msgstr "付款方式已刷新，请核对后继续。"
 
 #: erpnext/accounts/doctype/pos_invoice/pos_invoice.js:466
 #: erpnext/selling/page/point_of_sale/pos_payment.js:366
@@ -38363,7 +38363,7 @@ msgstr "请先保存"
 
 #: erpnext/selling/doctype/sales_order/sales_order.js:865
 msgid "Please save the Sales Order before adding a delivery schedule."
-msgstr ""
+msgstr "请先保存销售订单，再添加交付计划。"
 
 #: erpnext/accounts/doctype/chart_of_accounts_importer/chart_of_accounts_importer.js:79
 msgid "Please select <b>Template Type</b> to download template"
@@ -41261,7 +41261,7 @@ msgstr "采购发票不能基于现存固定资产 {0}"
 
 #: erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:1943
 msgid "Purchase Invoice without any outstanding amount cannot be held."
-msgstr ""
+msgstr "没有未结金额的采购发票不能暂停付款。"
 
 #: erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:2033
 msgid "Purchase Invoices"
@@ -45539,7 +45539,7 @@ msgstr "被退货"
 
 #: erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:328
 msgid "Return Purchase Invoice cannot be held."
-msgstr ""
+msgstr "采购退货发票不能暂停付款。"
 
 #: erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:329
 #: erpnext/subcontracting/doctype/subcontracting_receipt/subcontracting_receipt.js:127
@@ -45689,7 +45689,7 @@ msgstr "被冲销凭证"
 
 #: erpnext/accounts/doctype/journal_entry/journal_entry_list.js:6
 msgid "Reversal Of Exchange Rate Revaluation"
-msgstr ""
+msgstr "汇率重估冲销"
 
 #: erpnext/accounts/doctype/journal_entry/journal_entry.js:100
 msgid "Reverse Journal Entry"
@@ -47183,7 +47183,7 @@ msgstr "第{0}行：在记账时间点({2} {3}) 物料{4}在{1}中的可用数�
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:939
 msgid "Row {0}: Sales Invoice {1} is already created for {2}"
-msgstr ""
+msgstr "第 {0} 行：已为 {2} 创建销售发票 {1}"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:353
 msgid "Row {0}: Serial/Batch has been reset to values linked with Work Order {1} because the previously selected serial/batch does not belong to this Work Order."
@@ -47231,7 +47231,7 @@ msgstr "行{0}：单位转换系数是必需的"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:407
 msgid "Row {0}: Update Stock must be checked for item {1} because it is against Pick List {2}."
-msgstr ""
+msgstr "第 {0} 行：物料 {1} 来源于拣货单 {2}，必须勾选“更新库存”。"
 
 #: erpnext/stock/doctype/pick_list/pick_list.py:175
 msgid "Row {0}: Warehouse is required"
@@ -47952,7 +47952,7 @@ msgstr "销售订单 {0} 已存在于客户的采购订单 {1}。若要允许多
 #: erpnext/selling/doctype/sales_order/sales_order.py:1805
 #: erpnext/selling/doctype/sales_order/sales_order.py:1818
 msgid "Sales Order {0} is not available for production"
-msgstr ""
+msgstr "销售订单 {0} 当前不可用于生产"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:1451
 msgid "Sales Order {0} is not submitted"
@@ -49245,7 +49245,7 @@ msgstr ""
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:1464
 msgid "Sell quantity cannot exceed the asset quantity. Asset {0} has only {1} item(s)."
-msgstr ""
+msgstr "销售数量不能超过资产数量。资产 {0} 仅有 {1} 件。"
 
 #: erpnext/assets/doctype/asset/asset.js:660
 msgid "Sell quantity must be greater than zero"
@@ -50226,7 +50226,7 @@ msgstr "发料仓"
 
 #: erpnext/selling/doctype/sales_order/sales_order.js:1645
 msgid "Set Supplier"
-msgstr ""
+msgstr "设置供应商"
 
 #: erpnext/stock/doctype/material_request/material_request.js:455
 msgid "Set Supplier for All Items"
@@ -51443,7 +51443,7 @@ msgstr "请为第{0}行填写发料仓"
 
 #: erpnext/selling/doctype/sales_order/sales_order.py:455
 msgid "Source warehouse required for stock item {0}"
-msgstr ""
+msgstr "库存物料 {0} 必须填写发料仓"
 
 #. Label of the sourced_by_supplier (Check) field in DocType 'BOM Creator Item'
 #. Label of the sourced_by_supplier (Check) field in DocType 'BOM Explosion
@@ -52648,7 +52648,7 @@ msgstr "因发票包含直运物料，无法更新库存。请禁用'更新库�
 
 #: erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:765
 msgid "Stock cannot be updated for Purchase Invoice {0} because a Purchase Receipt {1} has already been created for this transaction. Please disable the 'Update Stock' checkbox in the Purchase Invoice and save the invoice."
-msgstr ""
+msgstr "采购发票 {0} 已关联采购入库单 {1}，不能再次更新库存。请取消勾选采购发票中的“更新库存”后保存。"
 
 #: erpnext/stock/doctype/warehouse/warehouse.py:124
 msgid "Stock entries exist with the old account. Changing the account may lead to a mismatch between the warehouse closing balance and the account closing balance. The overall closing balance will still match, but not for the specific account."
@@ -53832,7 +53832,7 @@ msgstr "供应商介绍"
 
 #: erpnext/selling/doctype/sales_order/sales_order.js:1727
 msgid "Supplier Required"
-msgstr ""
+msgstr "必须填写供应商"
 
 #. Label of the supplier_score (Data) field in DocType 'Supplier Scorecard'
 #: erpnext/buying/doctype/supplier_scorecard/supplier_scorecard.json
@@ -53926,7 +53926,7 @@ msgstr "供应商直运给客户"
 
 #: erpnext/selling/doctype/sales_order/sales_order.js:1726
 msgid "Supplier is required for all selected Items"
-msgstr ""
+msgstr "所有选中物料都必须填写供应商"
 
 #. Description of a DocType
 #: erpnext/buying/doctype/supplier/supplier.json
@@ -55983,7 +55983,7 @@ msgstr ""
 
 #: erpnext/accounts/doctype/payment_entry/payment_entry.js:1754
 msgid "This Payment Entry is reconciled with {0}. Cancelling will automatically unreconcile it. Do you want to proceed?"
-msgstr ""
+msgstr "此付款单已与 {0} 完成核销。取消单据将自动撤销核销，是否继续？"
 
 #: erpnext/buying/doctype/purchase_order/purchase_order.py:986
 msgid "This Purchase Order has been fully subcontracted."
@@ -56519,7 +56519,7 @@ msgstr "任务工时表。"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:948
 msgid "Timesheet {0} cannot be invoiced in its current state"
-msgstr ""
+msgstr "工时表 {0} 当前状态无法开票"
 
 #. Label of the timesheet_sb (Section Break) field in DocType 'Projects
 #. Settings'
@@ -58715,7 +58715,7 @@ msgstr "网址必须为字符串格式"
 #: erpnext/selling/doctype/sales_order/sales_order.json
 #: erpnext/stock/doctype/delivery_note/delivery_note.json
 msgid "UTM Analytics"
-msgstr ""
+msgstr "营销来源分析"
 
 #. Option for the 'Data fetch method' (Select) field in DocType 'Accounts
 #. Settings'
@@ -63108,11 +63108,11 @@ msgstr "待付款源单据 {0} {1} 科目 {2} 与当前收付款凭证科目 {3}
 
 #: erpnext/accounts/doctype/journal_entry/journal_entry.py:911
 msgid "{0} {1} is blocked and on hold until {2}."
-msgstr ""
+msgstr "{0} {1} 已被冻结，暂停至 {2}。"
 
 #: erpnext/accounts/doctype/journal_entry/journal_entry.py:915
 msgid "{0} {1} is blocked."
-msgstr ""
+msgstr "{0} {1} 已被冻结。"
 
 #: erpnext/controllers/selling_controller.py:494
 #: erpnext/controllers/subcontracting_controller.py:1174
