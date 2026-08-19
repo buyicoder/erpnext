@@ -152,6 +152,11 @@ if (frappe.boot.lang === "zh") {
 	localize_list_titles();
 	new MutationObserver((mutations) => {
 		mutations.forEach((mutation) => {
+			if (mutation.type === "attributes") {
+				localize_datatable_controls(mutation.target);
+				localize_list_titles(mutation.target);
+				return;
+			}
 			if (mutation.type === "characterData") {
 				localize_compact_cny(mutation.target.parentElement);
 				localize_awesomplete_status(mutation.target.parentElement);
@@ -181,6 +186,8 @@ if (frappe.boot.lang === "zh") {
 			});
 		});
 	}).observe(document.body, {
+		attributeFilter: ["aria-label", "title"],
+		attributes: true,
 		characterData: true,
 		childList: true,
 		subtree: true,
