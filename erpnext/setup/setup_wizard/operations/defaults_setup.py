@@ -26,6 +26,10 @@ def set_default_settings(args):
 	system_settings = frappe.get_doc("System Settings")
 	system_settings.email_footer_address = args.get("company_name")
 	system_settings.save()
+	if args.get("country") == "China":
+		from erpnext.setup.china_defaults import apply_china_defaults
+
+		apply_china_defaults()
 
 	stock_settings = frappe.get_doc("Stock Settings")
 	stock_settings.item_naming_by = "Item Code"

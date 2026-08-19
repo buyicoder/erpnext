@@ -11,6 +11,8 @@ COPY --chown=frappe:frappe erpnext/public/js/zh_finance_format.mjs /home/frappe/
 COPY --chown=frappe:frappe erpnext/accounts/report/accounts_receivable/accounts_receivable.js /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/report/accounts_receivable/accounts_receivable.js
 COPY --chown=frappe:frappe erpnext/projects/doctype/project/project.py /home/frappe/frappe-bench/apps/erpnext/erpnext/projects/doctype/project/project.py
 COPY --chown=frappe:frappe erpnext/stock/doctype/item/item.json /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json
+COPY --chown=frappe:frappe erpnext/setup/china_defaults.py /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/china_defaults.py
+COPY --chown=frappe:frappe erpnext/setup/setup_wizard/operations/defaults_setup.py /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/setup_wizard/operations/defaults_setup.py
 
 USER frappe
 RUN cd /home/frappe/frappe-bench && \
