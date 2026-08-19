@@ -89,6 +89,8 @@ class TestZhFinanceImage(TestCase):
 	def test_timeline_localization_is_scoped_to_timeline_content(self):
 		self.assertIn('const timeline_selector = ".timeline-content";', self.browser_overrides)
 		self.assertIn('a[href="/desk/user/Administrator"]', self.browser_overrides)
+		self.assertIn('a[href^="/desk/version/"] b', self.browser_overrides)
+		self.assertIn('"Book Advance Payments In Separate Party Account": "启用预收/付款科目"', self.browser_overrides)
 
 	def test_report_datatable_controls_are_localized(self):
 		self.assertIn("input.dt-filter[title^='Filter based on ']", self.browser_overrides)

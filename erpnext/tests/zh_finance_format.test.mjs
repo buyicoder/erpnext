@@ -14,6 +14,7 @@ import {
 	localize_timeline_element,
 	localize_timeline_text,
 	localize_tree_level_label,
+	localize_version_value_text,
 } from "../public/js/zh_finance_format.mjs";
 
 test("uses Chinese yuan, ten-thousand and hundred-million units", () => {
@@ -72,12 +73,22 @@ test("localizes exact persisted timeline values while preserving surrounding whi
 	const translate = (message) =>
 		({
 			"To Deliver and Bill": "待出货与开票",
+			"To Receive and Bill": "待入库与开票",
 			"Grant Plastics Ltd.": "不应翻译的客户名",
 		})[message] || message;
 
 	assert.equal(localize_timeline_text(" To Deliver and Bill", translate), " 待出货与开票");
+	assert.equal(localize_timeline_text("To Receive and Bill ", translate), "待入库与开票 ");
 	assert.equal(localize_timeline_text(" · 昨天", translate), " · 昨天");
 	assert.equal(localize_timeline_text("Grant Plastics Ltd.", translate), "Grant Plastics Ltd.");
+});
+
+test("localizes only null values inside generated version changes", () => {
+	const translate = (message) => ({ "Not Set": "空值" })[message] || message;
+	assert.equal(localize_version_value_text("null", translate), "空值");
+	assert.equal(localize_version_value_text(" null ", translate), "空值");
+	assert.equal(localize_version_value_text("customer null", translate), "customer null");
+	assert.equal(localize_version_value_text("0", translate), "0");
 });
 
 test("localizes only direct approved timeline values and is idempotent", () => {

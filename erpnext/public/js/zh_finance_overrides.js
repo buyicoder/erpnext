@@ -9,6 +9,7 @@ import {
 	localize_awesomplete_status_text,
 	localize_timeline_element,
 	localize_tree_level_label,
+	localize_version_value_text,
 } from "./zh_finance_format.mjs";
 
 if (frappe.boot.lang === "zh") {
@@ -19,6 +20,7 @@ if (frappe.boot.lang === "zh") {
 
 	Object.assign(frappe._messages, {
 		"Begin typing for results.": "输入关键词搜索。",
+		"Book Advance Payments In Separate Party Account": "启用预收/付款科目",
 		Masters: "基础资料",
 		Reports: "报表",
 	});
@@ -35,6 +37,7 @@ if (frappe.boot.lang === "zh") {
 	const awesomplete_status_selector = ".awesomplete [role='status']";
 	const chart_date_selector = ".chart-container svg .x.axis text";
 	const timeline_selector = ".timeline-content";
+	const version_value_selector = '.timeline-content a[href^="/desk/version/"] b';
 	const administrator_link_selector = 'a[href="/desk/user/Administrator"]';
 	const datatable_filter_selector = ".datatable input.dt-filter[title^='Filter based on ']";
 	const tree_level_selector = "#tree-level[aria-label='Tree Level']";
@@ -86,6 +89,14 @@ if (frappe.boot.lang === "zh") {
 			: root.querySelectorAll?.(administrator_link_selector) || [];
 		administrator_links.forEach((link) => {
 			if (link.textContent.trim() === "Administrator") link.textContent = __("Administrator");
+		});
+
+		const version_values = root.matches?.(version_value_selector)
+			? [root]
+			: root.querySelectorAll?.(version_value_selector) || [];
+		version_values.forEach((value) => {
+			const localized = localize_version_value_text(value.textContent, __);
+			if (localized !== value.textContent) value.textContent = localized;
 		});
 	};
 	const localize_datatable_controls = (root = document) => {

@@ -87,7 +87,10 @@ export const localize_list_value_title = (title, visible_value, translate) => {
 	return `${match[1]}: ${localized_value}`;
 };
 
-const LOCALIZABLE_TIMELINE_VALUES = new Set(["To Deliver and Bill"]);
+const LOCALIZABLE_TIMELINE_VALUES = new Set(["To Deliver and Bill", "To Receive and Bill"]);
+
+export const localize_version_value_text = (text, translate) =>
+	text.trim() === "null" ? translate("Not Set") : text;
 
 export const localize_timeline_text = (text, translate) => {
 	const normalized = text.trim();
