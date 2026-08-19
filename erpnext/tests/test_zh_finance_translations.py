@@ -55,6 +55,54 @@ CORE_BUSINESS_DOCTYPES = {
 	"Supplier",
 }
 
+CORE_ACCOUNTING_MASTER_DOCTYPES = {
+	"Account",
+	"Bank Account",
+	"Cost Center",
+	"Currency Exchange",
+	"Customer Group",
+	"Item Group",
+	"Item Price",
+	"Mode of Payment",
+	"Payment Terms Template",
+	"Price List",
+	"Purchase Taxes and Charges Template",
+	"Sales Taxes and Charges Template",
+	"Supplier Group",
+	"UOM",
+	"UOM Category",
+	"Warehouse",
+}
+
+CORE_OPERATIONAL_MASTER_DOCTYPES = {
+	"Accounting Dimension",
+	"Activity Type",
+	"Bank",
+	"Bank Clearance",
+	"Bank Statement Import",
+	"Bank Transaction",
+	"Branch",
+	"Brand",
+	"Department",
+	"Dunning",
+	"Employee",
+	"Finance Book",
+	"Fiscal Year",
+	"Loyalty Program",
+	"Payment Reconciliation",
+	"Payment Request",
+	"Payment Term",
+	"Pricing Rule",
+	"Project Template",
+	"Project Type",
+	"Promotional Scheme",
+	"Sales Partner",
+	"Sales Person",
+	"Shipping Rule",
+	"Task Type",
+	"Territory",
+}
+
 CHINA_COMPLIANCE_DOCTYPES = {
 	"Account Closing Balance",
 	"Accounting Period",
@@ -84,6 +132,7 @@ BABEL_LITERAL_PERCENT_MESSAGES = {
 	"% of materials billed against this Sales Order",
 	"% of materials delivered against this Sales Order",
 	"Check if this tax is not applicable to items (distinct from 0% rate)",
+	"{0}% of total invoice value will be given as discount.",
 }
 
 
@@ -370,13 +419,27 @@ class TestZhFinanceTranslations(TestCase):
 			if isinstance(data, dict) and data.get("name"):
 				documents[data["name"]] = (path, data)
 
-		root_doctypes = CORE_BUSINESS_DOCTYPES | CHINA_COMPLIANCE_DOCTYPES
+		root_doctypes = (
+			CORE_BUSINESS_DOCTYPES
+			| CORE_ACCOUNTING_MASTER_DOCTYPES
+			| CORE_OPERATIONAL_MASTER_DOCTYPES
+			| CHINA_COMPLIANCE_DOCTYPES
+		)
 		target_doctypes = self._doctype_closure(documents, root_doctypes)
 
 		missing = []
 		select_option_allowlist = {"GTIN-14"}
 		for doctype in sorted(target_doctypes):
 			path, data = documents[doctype]
+			doctype_messages = [
+				catalog.get(doctype) for catalog in (self.catalog, self.merged_frappe_catalog)
+			]
+			if not any(
+				message and message.string and "fuzzy" not in message.flags and self._message_is_valid(message)
+				for message in doctype_messages
+			):
+				missing.append(f"{path.relative_to(doctype_root)}:doctype:{doctype}")
+
 			for field in data.get("fields", []):
 				for key in ("label", "description"):
 					source = field.get(key)
@@ -395,7 +458,7 @@ class TestZhFinanceTranslations(TestCase):
 				if field.get("fieldtype") == "Select" and field.get("fieldname") != "naming_series":
 					for source in field.get("options", "").splitlines():
 						source = source.strip()
-						if not source or source in select_option_allowlist:
+						if not source or source.isdecimal() or source in select_option_allowlist:
 							continue
 						messages = [
 							catalog.get(source) for catalog in (self.catalog, self.merged_frappe_catalog)
@@ -407,6 +470,23 @@ class TestZhFinanceTranslations(TestCase):
 							missing.append(
 								f"{path.relative_to(doctype_root)}:{field.get('fieldname')}:option:{source}"
 							)
+
+		target_location_markers = {
+			f"/doctype/{documents[doctype][0].parent.name}/" for doctype in target_doctypes
+		}
+		for message in self.catalog:
+			if not message.id or isinstance(message.id, tuple):
+				continue
+			if message.id in select_option_allowlist:
+				continue
+			if not any(
+				marker in filename
+				for filename, _ in message.locations
+				for marker in target_location_markers
+			):
+				continue
+			if not message.string or "fuzzy" in message.flags or not self._message_is_valid(message):
+				missing.append(f"catalog:{message.id}")
 
 		self.assertEqual(missing, [])
 
@@ -421,6 +501,10 @@ class TestZhFinanceTranslations(TestCase):
 
 	def test_china_compliance_controls_use_reviewed_terms(self):
 		translations = {
+			"Clearance date changed from {0} to {1} via Bank Clearance Tool": "已通过银行清账工具将清账日期从 {0} 更改为 {1}",
+			"Stock Closing Entry In Progress": "库存结转分录处理中",
+			"When there are multiple finished goods ({0}) in a Repack stock entry, the basic rate for all finished goods must be set manually. To set rate manually, enable the checkbox 'Set Basic Rate Manually' in the respective finished good row.": "重新包装库存单中存在多个成品（{0}）时，必须手动设置所有成品的单价。请在对应成品行中启用“手动设置成本”。",
+			"Process Period Closing Voucher Detail": "期末结账凭证处理明细",
 			"Role allowed to bypass period restrictions.": "允许绕过会计期间限制的角色。",
 			"Accounting entries are frozen up to this date. Only users with the specified role can create or modify entries before this date.": "截至该日期的会计分录均已冻结；只有拥有指定角色的用户才能创建或修改该日期之前的分录。",
 			"Roles Allowed to Set and Edit Frozen Account Entries": "允许设置和编辑冻结会计分录的角色",
@@ -542,6 +626,37 @@ class TestZhFinanceTranslations(TestCase):
 
 	def test_master_data_uses_reviewed_chinese_terms(self):
 		translations = {
+			"Auto User Creation Error": "自动创建用户失败",
+			"Company Account is mandatory": "必须填写总账科目",
+			"Company or Personal Email is mandatory when 'Create User Automatically' is enabled": "启用“自动创建用户”时，必须填写公司邮箱或个人邮箱",
+			"Email is required to create a user": "创建用户必须填写邮箱",
+			"Email is required to create a user.": "创建用户必须填写邮箱。",
+			"Employee is required": "必须填写员工",
+			"Employee {0} already has a linked user": "员工 {0} 已关联用户",
+			"Employee {0} not found": "未找到员工 {0}",
+			"Import Employees": "导入员工",
+			"Included fee is bigger than the withdrawal itself.": "已计入手续费不能大于支出金额。",
+			"Interest on Fixed Deposits": "定期存款利息",
+			"Missing Parameter": "缺少参数",
+			"Only one of Deposit or Withdrawal should be non-zero when applying an Excluded Fee.": "应用未计入手续费时，存入金额和支出金额只能有一项非零。",
+			"Optional. Used with Financial Report Template": "可选。用于财务报表模板。",
+			"The Excluded Fee is bigger than the Deposit it is deducted from.": "未计入手续费不能大于其扣减的存入金额。",
+			"The account type of {0} cannot be changed from {1} because stock ledger entries exist against it.": "{0} 的科目类型不能从 {1} 更改，因为该科目已有库存总账记录。",
+			"Variant {0} and its template {1} cannot both be added to the same Pricing Rule": "变体物料 {0} 及其模板 {1} 不能同时添加到同一条定价规则中",
+			"Extended Bank Statement": "银行流水扩展信息",
+			"Included Fee": "已计入手续费",
+			"Excluded Fee": "未计入手续费",
+			"On save, the Excluded Fee will be converted to an Included Fee.": "保存时，未计入手续费将转换为已计入手续费。",
+			"Create User Automatically": "自动创建用户",
+			"Creates a User account for this employee using the Preferred, Company, or Personal email.": "使用员工的首选、公司或个人邮箱为其创建用户账户。",
+			"Transaction": "交易",
+			"Weight": "权重",
+			"Disable": "禁用",
+			"Used with Financial Report Template": "用于财务报表模板",
+			"Statement PDF Password": "对账单 PDF 密码",
+			"Password used to open password-protected PDF statements for this account. Stored encrypted.": "用于打开该账户受密码保护的 PDF 对账单；密码将加密保存。",
+			"If checked, journal entries made using bank reconciliation will be of type \"Credit Card Entry\"": "勾选后，通过银行对账创建的日记账分录类型将为“信用卡分录”。",
+			"Template Name": "模板名称",
 			"Alias": "别名",
 			"Allow purchase invoice creation without purchase order": "允许不经采购订单直接创建采购发票",
 			"Allow purchase invoice creation without purchase receipt": "允许不经采购入库单直接创建采购发票",
@@ -567,25 +682,6 @@ class TestZhFinanceTranslations(TestCase):
 
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
-
-	def test_core_master_data_catalogs_have_no_empty_messages(self):
-		targets = ("customer", "supplier", "item", "project")
-		for target in targets:
-			messages = [
-				message
-				for message in self.catalog
-				if message.id
-				and not isinstance(message.id, tuple)
-				and any(f"/doctype/{target}/" in filename for filename, _ in message.locations)
-			]
-			empty_messages = [message.id for message in messages if not message.string]
-			self.assertEqual(empty_messages, [], f"Untranslated {target} messages")
-			invalid_messages = {
-				message.id: [str(error) for error in message.check()]
-				for message in messages
-				if message.string and message.check()
-			}
-			self.assertEqual(invalid_messages, {}, f"Invalid {target} translations")
 
 	def _assert_translation(self, source, translation):
 		with self.subTest(source=source):

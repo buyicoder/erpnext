@@ -2110,7 +2110,7 @@ msgstr "会计期间"
 
 #: erpnext/accounts/doctype/accounting_period/accounting_period.py:49
 msgid "Accounting Period cannot be created for a future date. End Date {0} is after today."
-msgstr ""
+msgstr "会计期间不能创建到未来日期；结束日期 {0} 晚于今天。"
 
 #: erpnext/accounts/doctype/accounting_period/accounting_period.py:81
 msgid "Accounting Period overlaps with {0}"
@@ -6364,7 +6364,7 @@ msgstr "必须选择销售或采购至少一项"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:437
 msgid "At least one raw material item must be present in the stock entry for the type {0}"
-msgstr ""
+msgstr "类型为 {0} 的库存单至少必须包含一项原材料。"
 
 #: erpnext/accounts/doctype/financial_report_template/financial_report_template.js:27
 msgid "At least one row is required for a financial report template"
@@ -6643,7 +6643,7 @@ msgstr "自动税务设置错误"
 
 #: erpnext/setup/doctype/employee/employee.py:166
 msgid "Auto User Creation Error"
-msgstr ""
+msgstr "自动创建用户失败"
 
 #. Description of the 'Close Replied Opportunity After Days' (Int) field in
 #. DocType 'CRM Settings'
@@ -7312,7 +7312,7 @@ msgstr "展示在网站上的BOM工序"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:2834
 msgid "BOM and Finished Good Quantity is mandatory for Disassembly"
-msgstr ""
+msgstr "拆解时必须填写物料清单和成品数量"
 
 #. Label of the bom_and_work_order_tab (Tab Break) field in DocType
 #. 'Manufacturing Settings'
@@ -9907,7 +9907,7 @@ msgstr "拆解数量不得超过产出数量。"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1045
 msgid "Cannot disassemble {0} qty against Stock Entry {1}. Only {2} qty available to disassemble."
-msgstr ""
+msgstr "无法按库存单 {1} 拆解数量 {0}，可拆解数量仅为 {2}。"
 
 #: erpnext/setup/doctype/company/company.py:226
 msgid "Cannot enable Item-wise Inventory Account, as there are existing Stock Ledger Entries for the company {0} with Warehouse-wise Inventory Account. Please cancel the stock transactions first and try again."
@@ -9924,7 +9924,7 @@ msgstr "物料{0}同时存在启用和未启用序列号交付，无法确保"
 
 #: erpnext/accounts/doctype/payment_request/payment_request.js:113
 msgid "Cannot fetch selected rows for submitted Payment Request"
-msgstr ""
+msgstr "无法获取已提交付款申请中选中的行"
 
 #: erpnext/public/js/utils/barcode_scanner.js:67
 msgid "Cannot find Item or Warehouse with this Barcode"
@@ -10806,7 +10806,7 @@ msgstr "清账日期已更新"
 #: erpnext/accounts/doctype/bank_clearance/bank_clearance.py:159
 #: erpnext/accounts/doctype/bank_clearance/bank_clearance.py:174
 msgid "Clearance date changed from {0} to {1} via Bank Clearance Tool"
-msgstr ""
+msgstr "已通过银行清账工具将清账日期从 {0} 更改为 {1}"
 
 #: banking/src/components/features/BankReconciliation/BankClearanceSummary.tsx:292
 msgid "Clearance date updated"
@@ -10897,7 +10897,7 @@ msgstr "已关闭单据类型"
 
 #: erpnext/stock/doctype/stock_closing_entry/stock_closing_entry.py:147
 msgid "Closed Period"
-msgstr ""
+msgstr "已结账期间"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.py:2775
 msgid "Closed Work Order can not be stopped or Re-opened"
@@ -11688,7 +11688,7 @@ msgstr "总账科目"
 
 #: erpnext/accounts/doctype/bank_account/bank_account.py:70
 msgid "Company Account is mandatory"
-msgstr ""
+msgstr "必须填写总账科目"
 
 #. Label of the company_address (Link) field in DocType 'Dunning'
 #. Label of the company_address_display (Text Editor) field in DocType 'POS
@@ -11886,7 +11886,7 @@ msgstr "资产{0}与采购单据{1}的公司不匹配"
 
 #: erpnext/setup/doctype/employee/employee.py:164
 msgid "Company or Personal Email is mandatory when 'Create User Automatically' is enabled"
-msgstr ""
+msgstr "启用“自动创建用户”时，必须填写公司邮箱或个人邮箱"
 
 #. Description of the 'Registration Details' (Code) field in DocType 'Company'
 #: erpnext/setup/doctype/company/company.json
@@ -13770,7 +13770,7 @@ msgstr "创建用户"
 #. Label of the create_user_automatically (Check) field in DocType 'Employee'
 #: erpnext/setup/doctype/employee/employee.json
 msgid "Create User Automatically"
-msgstr ""
+msgstr "自动创建用户"
 
 #. Label of the create_user_permission (Check) field in DocType 'Employee'
 #: erpnext/setup/doctype/employee/employee.js:65
@@ -13808,7 +13808,7 @@ msgstr "创建工作中心"
 
 #: erpnext/accounts/doctype/period_closing_voucher/period_closing_voucher.py:228
 msgid "Create a Stock Closing Entry for the entire company with To Date as {0} before submitting the Period Closing Voucher."
-msgstr ""
+msgstr "提交期末结账凭证前，请先为整个公司创建截止日期为 {0} 的库存结转分录。"
 
 #: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:683
 msgid "Create a journal entry for expenses, income or split transactions"
@@ -13874,7 +13874,7 @@ msgstr "已为{1}创建{0}张计分卡，时间范围："
 #. 'Employee'
 #: erpnext/setup/doctype/employee/employee.json
 msgid "Creates a User account for this employee using the Preferred, Company, or Personal email."
-msgstr ""
+msgstr "使用员工的首选、公司或个人邮箱为其创建用户账户。"
 
 #. Description of the 'Create Grouped Asset' (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
@@ -16451,7 +16451,7 @@ msgstr "删除业务单据(交易)"
 
 #: erpnext/setup/doctype/company/company.js:249
 msgid "Delete all the Transactions for {0}"
-msgstr ""
+msgstr "删除 {0} 的所有交易"
 
 #. Label of a Link in the ERPNext Settings Workspace
 #: erpnext/setup/workspace/erpnext_settings/erpnext_settings.json
@@ -16495,7 +16495,7 @@ msgstr "分隔符"
 
 #: erpnext/buying/doctype/purchase_order/purchase_order.js:359
 msgid "Deliver (Dropship)"
-msgstr ""
+msgstr "标记直发交付"
 
 #. Label of the deliver_secondary_items (Check) field in DocType 'Selling
 #. Settings'
@@ -16567,11 +16567,11 @@ msgstr "已交付数量（库存计量单位）"
 
 #: erpnext/buying/doctype/purchase_order/purchase_order.py:612
 msgid "Delivered Qty cannot be increased by more than {0} for item {1}"
-msgstr ""
+msgstr "物料 {1} 的已交付数量增加值不能超过 {0}"
 
 #: erpnext/buying/doctype/purchase_order/purchase_order.py:605
 msgid "Delivered Qty cannot be reduced by more than {0} for item {1}"
-msgstr ""
+msgstr "物料 {1} 的已交付数量减少值不能超过 {0}"
 
 #: erpnext/selling/report/item_wise_sales_history/item_wise_sales_history.py:102
 msgid "Delivered Quantity"
@@ -18313,11 +18313,11 @@ msgstr "催款信文本"
 
 #: erpnext/accounts/doctype/dunning/dunning.py:184
 msgid "Dunning Letter for Dunning Type {0} in language '{1}' not found."
-msgstr ""
+msgstr "未找到催款类型 {0} 的 {1} 语言催款函。"
 
 #: erpnext/accounts/doctype/dunning/dunning.py:188
 msgid "Dunning Letter for Dunning Type {0} not found."
-msgstr ""
+msgstr "未找到催款类型 {0} 的催款函。"
 
 #. Label of the dunning_level (Int) field in DocType 'Overdue Payment'
 #: erpnext/accounts/doctype/overdue_payment/overdue_payment.json
@@ -18374,7 +18374,7 @@ msgstr "发现重复POS发票"
 
 #: erpnext/accounts/doctype/payment_request/payment_request.py:134
 msgid "Duplicate Payment Schedule selected"
-msgstr ""
+msgstr "选择了重复的付款计划"
 
 #: erpnext/projects/doctype/project/project.js:83
 msgid "Duplicate Project with Tasks"
@@ -18747,15 +18747,15 @@ msgstr ""
 
 #: erpnext/accounts/doctype/payment_request/payment_request.js:57
 msgid "Email couldn't be sent."
-msgstr ""
+msgstr "邮件发送失败。"
 
 #: erpnext/setup/doctype/employee/employee.py:440
 msgid "Email is required to create a user"
-msgstr ""
+msgstr "创建用户必须填写邮箱"
 
 #: erpnext/setup/doctype/employee/employee.js:72
 msgid "Email is required to create a user."
-msgstr ""
+msgstr "创建用户必须填写邮箱。"
 
 #: erpnext/stock/doctype/shipment/shipment.js:174
 msgid "Email or Phone/Mobile of the Contact are mandatory to continue."
@@ -18937,7 +18937,7 @@ msgstr "员工不能是自己的上级主管。"
 
 #: erpnext/setup/doctype/employee/employee.py:574
 msgid "Employee is required"
-msgstr ""
+msgstr "必须填写员工"
 
 #: erpnext/assets/doctype/asset_movement/asset_movement.py:109
 msgid "Employee is required while issuing Asset {0}"
@@ -18945,7 +18945,7 @@ msgstr "发放资产{0}时必须指定员工"
 
 #: erpnext/setup/doctype/employee/employee.py:437
 msgid "Employee {0} already has a linked user"
-msgstr ""
+msgstr "员工 {0} 已关联用户"
 
 #: erpnext/assets/doctype/asset_movement/asset_movement.py:92
 #: erpnext/assets/doctype/asset_movement/asset_movement.py:113
@@ -18958,7 +18958,7 @@ msgstr "员工{0}正在其他工作中心工作，请指派其他员工"
 
 #: erpnext/setup/doctype/employee/employee.py:599
 msgid "Employee {0} not found"
-msgstr ""
+msgstr "未找到员工 {0}"
 
 #: erpnext/manufacturing/doctype/workstation/workstation.js:351
 msgid "Employees"
@@ -19710,11 +19710,11 @@ msgstr "例外预算审批人角色"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1052
 msgid "Excess Disassembly"
-msgstr ""
+msgstr "超额拆解"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1348
 msgid "Excess Material Transfer"
-msgstr ""
+msgstr "超额物料调拨"
 
 #: erpnext/manufacturing/report/work_order_consumed_materials/work_order_consumed_materials.js:55
 msgid "Excess Materials Consumed"
@@ -19886,7 +19886,7 @@ msgstr "不包括单据类型"
 #: erpnext/accounts/doctype/bank_statement_import_log_column_map/bank_statement_import_log_column_map.json
 #: erpnext/accounts/doctype/bank_transaction/bank_transaction.json
 msgid "Excluded Fee"
-msgstr ""
+msgstr "未计入手续费"
 
 #: erpnext/setup/setup_wizard/operations/install_fixtures.py:268
 msgid "Execution"
@@ -20255,7 +20255,7 @@ msgstr "出口电子发票"
 #. DocType 'Bank Transaction'
 #: erpnext/accounts/doctype/bank_transaction/bank_transaction.json
 msgid "Extended Bank Statement"
-msgstr ""
+msgstr "银行流水扩展信息"
 
 #. Label of the external_work_history (Table) field in DocType 'Employee'
 #: erpnext/setup/doctype/employee/employee.json
@@ -20570,11 +20570,11 @@ msgstr "银行交易流水字段"
 
 #: erpnext/accounts/doctype/accounting_dimension/accounting_dimension.py:95
 msgid "Fieldname Conflict"
-msgstr ""
+msgstr "字段名冲突"
 
 #: erpnext/accounts/doctype/accounting_dimension/accounting_dimension.py:87
 msgid "Fieldname {0} already exists in the following doctypes: {1}. A separate dimension field will not be added to these doctypes. GL Entries will use the value of the existing field as the dimension value."
-msgstr ""
+msgstr "字段名 {0} 已存在于以下单据类型：{1}。系统不会为这些单据类型新增独立的维度字段；总账分录将使用现有字段值作为维度值。"
 
 #. Description of the 'Do not update variants on save' (Check) field in DocType
 #. 'Item Variant Settings'
@@ -20958,7 +20958,7 @@ msgstr "产成品{0}与工单{1}不匹配"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1069
 msgid "Finished good quantity being consumed ({0} in stock UOM) must equal the quantity to disassemble ({1}). Do not change the UOM, conversion factor or quantity of the finished good row."
-msgstr ""
+msgstr "消耗的成品数量（库存单位为 {0}）必须等于待拆解数量（{1}）。请勿更改成品行的计量单位、换算系数或数量。"
 
 #: erpnext/selling/doctype/sales_order/sales_order.js:585
 msgid "First Delivery Date"
@@ -21443,7 +21443,7 @@ msgstr "为方便客户，这些代码可以在打印格式(如发票和销售�
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1279
 msgid "For the item {0}, the consumed quantity should be {1} according to the BOM {2}."
-msgstr ""
+msgstr "根据物料清单 {2}，物料 {0} 的应耗数量应为 {1}。"
 
 #: erpnext/public/js/controllers/transaction.js:1429
 msgctxt "Clear payment terms template and/or payment schedule when due date is changed"
@@ -22784,7 +22784,7 @@ msgstr "总计（交易币种）"
 
 #: erpnext/accounts/doctype/payment_request/payment_request.py:126
 msgid "Grand Total must match sum of Payment References"
-msgstr ""
+msgstr "总计必须等于付款关联明细金额之和"
 
 #. Label of the grant_commission (Check) field in DocType 'POS Invoice Item'
 #. Label of the grant_commission (Check) field in DocType 'Sales Invoice Item'
@@ -23621,7 +23621,7 @@ msgstr "勾选后，在订单<b>提交</b>时会创建库存预留"
 #. Description of the 'Is Credit Card' (Check) field in DocType 'Bank Account'
 #: erpnext/accounts/doctype/bank_account/bank_account.json
 msgid "If checked, journal entries made using bank reconciliation will be of type \"Credit Card Entry\""
-msgstr ""
+msgstr "勾选后，通过银行对账创建的日记账分录类型将为“信用卡分录”。"
 
 #. Description of the 'Scan Mode' (Check) field in DocType 'Pick List'
 #: erpnext/stock/doctype/pick_list/pick_list.json
@@ -24249,7 +24249,7 @@ msgstr "导入数据"
 
 #: erpnext/setup/doctype/employee/employee_list.js:16
 msgid "Import Employees"
-msgstr ""
+msgstr "导入员工"
 
 #: erpnext/edi/doctype/code_list/code_list.js:7
 #: erpnext/edi/doctype/code_list/code_list_list.js:3
@@ -24732,11 +24732,11 @@ msgstr "是毛利相关科目"
 #: erpnext/accounts/doctype/bank_statement_import_log_column_map/bank_statement_import_log_column_map.json
 #: erpnext/accounts/doctype/bank_transaction/bank_transaction.json
 msgid "Included Fee"
-msgstr ""
+msgstr "已计入手续费"
 
 #: erpnext/accounts/doctype/bank_transaction/bank_transaction.py:335
 msgid "Included fee is bigger than the withdrawal itself."
-msgstr ""
+msgstr "已计入手续费不能大于支出金额。"
 
 #: erpnext/accounts/report/gross_and_net_profit_report/gross_and_net_profit_report.py:74
 #: erpnext/accounts/report/gross_and_net_profit_report/gross_and_net_profit_report.py:75
@@ -25334,7 +25334,7 @@ msgstr "利息及/或催收费"
 #: erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts.py:147
 #: erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts_with_account_number.py:244
 msgid "Interest on Fixed Deposits"
-msgstr ""
+msgstr "定期存款利息"
 
 #. Option for the 'Status' (Select) field in DocType 'Lead'
 #: erpnext/crm/doctype/lead/lead.json
@@ -25518,12 +25518,12 @@ msgstr "无效交付日期"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1108
 msgid "Invalid Disassembly Item"
-msgstr ""
+msgstr "无效的拆解物料"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1074
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1123
 msgid "Invalid Disassembly Quantity"
-msgstr ""
+msgstr "无效的拆解数量"
 
 #: erpnext/selling/page/point_of_sale/pos_item_cart.js:414
 msgid "Invalid Discount"
@@ -25660,7 +25660,7 @@ msgstr "无效的序列号和批次组合"
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1375
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1397
 msgid "Invalid Source and Target Warehouse"
-msgstr ""
+msgstr "发料仓和收料仓无效"
 
 #: erpnext/selling/report/sales_analytics/sales_analytics.py:507
 msgid "Invalid Tree Type {0}"
@@ -25712,7 +25712,7 @@ msgstr "编号规则无效（缺少.）于{0}"
 
 #: erpnext/accounts/doctype/payment_request/payment_request.py:587
 msgid "Invalid parameter. 'dn' should be of type str"
-msgstr ""
+msgstr "参数无效：dn 必须为字符串类型"
 
 #: erpnext/utilities/transaction_base.py:126
 msgid "Invalid reference {0} {1}"
@@ -28015,7 +28015,7 @@ msgstr "有相同属性的多规格物料{0}已存在"
 
 #: erpnext/buying/doctype/purchase_order/purchase_order.py:579
 msgid "Item with name {0} not found in the Purchase Order"
-msgstr ""
+msgstr "采购订单中未找到名称为 {0} 的物料"
 
 #: erpnext/manufacturing/doctype/bom_creator/bom_creator.py:99
 msgid "Item {0} added multiple times under the same parent item {1} at rows {2} and {3}"
@@ -28065,7 +28065,7 @@ msgstr "物料{0}无序列号，只有序列化物料可按序列号交货"
 
 #: erpnext/buying/doctype/purchase_order/purchase_order.py:598
 msgid "Item {0} has no changes in delivered quantity. Please unselect the row if you do not wish to update its quantity."
-msgstr ""
+msgstr "物料 {0} 的已交付数量没有变化。如无需更新其数量，请取消选择该行。"
 
 #: erpnext/stock/doctype/item/item.py:1260
 msgid "Item {0} has reached its end of life on {1}"
@@ -28089,7 +28089,7 @@ msgstr "物料{0}已禁用"
 
 #: erpnext/buying/doctype/purchase_order/purchase_order.py:584
 msgid "Item {0} is not a drop ship item. Only drop ship items can have Delivered Qty updated."
-msgstr ""
+msgstr "物料 {0} 不是直发物料；只有直发物料才能更新已交付数量。"
 
 #: erpnext/selling/doctype/installation_note/installation_note.py:79
 msgid "Item {0} is not a serialized Item"
@@ -31514,7 +31514,7 @@ msgstr "缺少物料"
 
 #: erpnext/setup/doctype/employee/employee.py:574
 msgid "Missing Parameter"
-msgstr ""
+msgstr "缺少参数"
 
 #: erpnext/utilities/__init__.py:52 erpnext/utilities/__init__.py:57
 msgid "Missing Payments App"
@@ -32376,7 +32376,7 @@ msgstr "新发票"
 
 #: erpnext/accounts/doctype/payment_reconciliation/payment_reconciliation.js:337
 msgid "New Journal Entry will be posted for the difference amount. The Posting Date can be modified."
-msgstr ""
+msgstr "系统将按差额生成新的日记账分录，记账日期可以修改。"
 
 #. Label of a number card in the CRM Workspace
 #: erpnext/crm/workspace/crm/crm.json
@@ -33581,7 +33581,7 @@ msgstr "已暂停"
 #. Transaction'
 #: erpnext/accounts/doctype/bank_transaction/bank_transaction.json
 msgid "On save, the Excluded Fee will be converted to an Included Fee."
-msgstr ""
+msgstr "保存时，未计入手续费将转换为已计入手续费。"
 
 #. Description of the 'Use Serial / Batch fields' (Check) field in DocType
 #. 'Stock Settings'
@@ -33698,7 +33698,7 @@ msgstr "只有子节点才可用于业务单据中"
 
 #: erpnext/accounts/doctype/bank_transaction/bank_transaction.py:350
 msgid "Only one of Deposit or Withdrawal should be non-zero when applying an Excluded Fee."
-msgstr ""
+msgstr "应用未计入手续费时，存入金额和支出金额只能有一项非零。"
 
 #: erpnext/manufacturing/doctype/bom/bom.py:330
 msgid "Only one operation can have 'Is Final Finished Good' checked when 'Track Semi Finished Goods' is enabled."
@@ -34382,7 +34382,7 @@ msgstr "可选。此设置将被应用于各种交易进行过滤。"
 
 #: erpnext/accounts/doctype/account/account_tree.js:165
 msgid "Optional. Used with Financial Report Template"
-msgstr ""
+msgstr "可选。用于财务报表模板。"
 
 #: erpnext/selling/report/territory_wise_sales/territory_wise_sales.py:43
 msgid "Order Amount"
@@ -34966,11 +34966,11 @@ msgstr "期末结账凭证任务超时（秒）"
 
 #: erpnext/accounts/doctype/process_period_closing_voucher/process_period_closing_voucher.js:35
 msgid "PCV Paused"
-msgstr ""
+msgstr "期末结账凭证已暂停"
 
 #: erpnext/accounts/doctype/process_period_closing_voucher/process_period_closing_voucher.js:53
 msgid "PCV Resumed"
-msgstr ""
+msgstr "期末结账凭证已恢复"
 
 #. Label of the pdf_name (Data) field in DocType 'Process Statement Of
 #. Accounts'
@@ -36255,7 +36255,7 @@ msgstr ""
 #. 'Bank Account'
 #: erpnext/accounts/doctype/bank_account/bank_account.json
 msgid "Password used to open password-protected PDF statements for this account. Stored encrypted."
-msgstr ""
+msgstr "用于打开该账户受密码保护的 PDF 对账单；密码将加密保存。"
 
 #: erpnext/accounts/doctype/subscription/subscription_list.js:10
 msgid "Past Due Date"
@@ -36571,7 +36571,7 @@ msgstr "付款限额"
 
 #: erpnext/accounts/doctype/payment_request/payment_request.py:434
 msgid "Payment Link couldn't be sent."
-msgstr ""
+msgstr "付款链接发送失败。"
 
 #: erpnext/accounts/report/pos_register/pos_register.js:50
 #: erpnext/accounts/report/pos_register/pos_register.py:126
@@ -36798,7 +36798,7 @@ msgstr "付款计划"
 
 #: erpnext/accounts/doctype/payment_request/payment_request.py:606
 msgid "Payment Schedule based Payment Requests cannot be created because a Payment Entry already exists for this document."
-msgstr ""
+msgstr "该单据已存在收付款凭证，无法再按付款计划创建付款申请。"
 
 #: erpnext/public/js/controllers/transaction.js:534
 msgid "Payment Schedules"
@@ -37276,11 +37276,11 @@ msgstr "期末结账凭证"
 
 #: erpnext/accounts/doctype/period_closing_voucher/period_closing_voucher.py:627
 msgid "Period Closing Voucher {0} GL Entry Cancellation Failed"
-msgstr ""
+msgstr "期末结账凭证 {0} 的总账分录取消失败"
 
 #: erpnext/accounts/doctype/period_closing_voucher/period_closing_voucher.py:606
 msgid "Period Closing Voucher {0} GL Entry Processing Failed"
-msgstr ""
+msgstr "期末结账凭证 {0} 的总账分录处理失败"
 
 #. Label of the period_details_section (Section Break) field in DocType 'POS
 #. Closing Entry'
@@ -38313,7 +38313,7 @@ msgstr "请确保文件标题包含'上级账户'列"
 
 #: erpnext/setup/doctype/company/company.js:229
 msgid "Please make sure you really want to delete all the transactions for {0}. Your master data will remain as it is. This action cannot be undone."
-msgstr ""
+msgstr "请确认确实要删除 {0} 的所有交易。基础资料将保留，此操作无法撤销。"
 
 #: erpnext/stock/doctype/item/item.js:741
 msgid "Please mention 'Weight UOM' along with Weight."
@@ -38626,7 +38626,7 @@ msgstr "请至少选择一个筛选条件：物料编码、批次或序列号"
 
 #: erpnext/buying/doctype/purchase_order/purchase_order.py:572
 msgid "Please select at least one item to update delivered quantity."
-msgstr ""
+msgstr "请至少选择一项需要更新已交付数量的物料。"
 
 #: erpnext/stock/report/incorrect_serial_and_batch_bundle/incorrect_serial_and_batch_bundle.js:33
 msgid "Please select at least one row to fix"
@@ -40263,7 +40263,7 @@ msgstr "执行期末结账"
 #. Name of a DocType
 #: erpnext/accounts/doctype/process_period_closing_voucher_detail/process_period_closing_voucher_detail.json
 msgid "Process Period Closing Voucher Detail"
-msgstr ""
+msgstr "期末结账凭证处理明细"
 
 #. Name of a DocType
 #: erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.json
@@ -42031,7 +42031,7 @@ msgstr "待出货数量"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.js:401
 msgid "Qty to Disassemble"
-msgstr ""
+msgstr "待拆解数量"
 
 #: erpnext/public/js/utils/serial_no_batch_selector.js:384
 msgid "Qty to Fetch"
@@ -42371,7 +42371,7 @@ msgstr "质量审核目标"
 
 #: erpnext/buying/doctype/purchase_order/purchase_order.js:832
 msgid "Quantities updated successfully."
-msgstr ""
+msgstr "数量更新成功。"
 
 #. Label of the qty (Data) field in DocType 'Opening Invoice Creation Tool
 #. Item'
@@ -43236,7 +43236,7 @@ msgstr "原材料耗用"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:440
 msgid "Raw Materials Missing"
-msgstr ""
+msgstr "缺少原材料"
 
 #. Label of the raw_materials_received_section (Section Break) field in DocType
 #. 'Subcontracting Inward Order'
@@ -46219,7 +46219,7 @@ msgstr "第{0}行：无法取消本库存凭证，因关联外包收货订单中
 
 #: erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.py:78
 msgid "Row #{0}: Cannot create entry with different taxable AND withholding document links."
-msgstr ""
+msgstr "第 {0} 行：不能同时关联不同的计税单据和扣缴单据。"
 
 #: erpnext/controllers/accounts_controller.py:3864
 msgid "Row #{0}: Cannot delete item {1} which has already been billed."
@@ -46251,7 +46251,7 @@ msgstr "第 {0} 行：对生产任务单 {3} 发物料 {2} 不可超过需求量
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1338
 msgid "Row #{0}: Cannot transfer {1} {2} of Item {3}. Maximum transferable quantity is {4} {2}."
-msgstr ""
+msgstr "第 {0} 行：物料 {3} 不能调拨 {1} {2}，最大可调拨数量为 {4} {2}。"
 
 #: erpnext/selling/doctype/product_bundle/product_bundle.py:87
 msgid "Row #{0}: Child Item should not be a Product Bundle. Please remove Item {1} and Save"
@@ -46283,7 +46283,7 @@ msgstr "第{0}行:成本中心 {1} 不隶属于公司 {2}"
 
 #: erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.py:211
 msgid "Row #{0}: Could not find enough {1} entries to match. Remaining amount: {2}"
-msgstr ""
+msgstr "第 {0} 行：没有足够的 {1} 分录可供匹配，剩余金额为 {2}。"
 
 #: erpnext/accounts/doctype/tax_withholding_category/tax_withholding_category.py:88
 msgid "Row #{0}: Cumulative threshold cannot be less than Single Transaction threshold"
@@ -46326,7 +46326,7 @@ msgstr "第{0}行：客户提供物料{1}不属于工作订单{2}"
 
 #: erpnext/accounts/doctype/tax_withholding_category/tax_withholding_category.py:61
 msgid "Row #{0}: Dates overlapping with other row in group {1}"
-msgstr ""
+msgstr "第 {0} 行：日期与组 {1} 中其他行重叠"
 
 #: erpnext/buying/doctype/purchase_order/purchase_order.py:361
 msgid "Row #{0}: Default BOM not found for FG Item {1}"
@@ -46410,7 +46410,7 @@ msgstr "行＃{0}：已添加"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1967
 msgid "Row #{0}: Item {1} cannot be transferred more than {2} against {3} {4}"
-msgstr ""
+msgstr "第 {0} 行：物料 {1} 针对 {3} {4} 的调拨数量不能超过 {2}"
 
 #: erpnext/buying/utils.py:98
 msgid "Row #{0}: Item {1} does not exist"
@@ -46455,7 +46455,7 @@ msgstr "行号#{0}：物料{1}非库存物料"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1104
 msgid "Row #{0}: Item {1} is not part of the source manufacture entry and cannot be added to this disassembly."
-msgstr ""
+msgstr "第 {0} 行：物料 {1} 不属于来源生产入库单，不能加入本次拆解。"
 
 #: erpnext/controllers/subcontracting_inward_controller.py:79
 msgid "Row #{0}: Item {1} mismatch. Changing of item code is not permitted, add another row instead."
@@ -46467,7 +46467,7 @@ msgstr "第{0}行：物料{1}不匹配。不允许修改物料编码。"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1113
 msgid "Row #{0}: Item {1} quantity ({2} in stock UOM) does not match the quantity derived from the source ({3}). Do not change the UOM, conversion factor or quantity of disassembly rows."
-msgstr ""
+msgstr "第 {0} 行：物料 {1} 的数量（库存单位为 {2}）与来源单据计算出的数量（{3}）不一致。请勿更改拆解行的计量单位、换算系数或数量。"
 
 #: erpnext/accounts/doctype/payment_entry/payment_entry.py:780
 msgid "Row #{0}: Journal Entry {1} does not have account {2} or already matched against another voucher"
@@ -46687,11 +46687,11 @@ msgstr "第{0}行：物料{2}的源仓库{1}必须与工作订单中的源仓库
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1372
 msgid "Row #{0}: Source and Target Warehouse cannot be the same for Material Transfer"
-msgstr ""
+msgstr "第 {0} 行：物料调拨的发料仓和收料仓不能相同"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1394
 msgid "Row #{0}: Source, Target Warehouse and Inventory Dimensions cannot be the exact same for Material Transfer"
-msgstr ""
+msgstr "第 {0} 行：物料调拨的发料仓、收料仓和库存维度不能完全相同"
 
 #: erpnext/manufacturing/doctype/workstation/workstation.py:108
 msgid "Row #{0}: Start Time must be before End Time"
@@ -46768,7 +46768,7 @@ msgstr ""
 
 #: erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.py:94
 msgid "Row #{0}: Withholding Amount {1} does not match calculated amount {2}."
-msgstr ""
+msgstr "第 {0} 行：扣缴金额 {1} 与计算金额 {2} 不一致。"
 
 #: erpnext/controllers/subcontracting_inward_controller.py:577
 msgid "Row #{0}: Work Order exists against full or partial quantity of Item {1}"
@@ -47187,7 +47187,7 @@ msgstr "第 {0} 行：已为 {2} 创建销售发票 {1}"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:353
 msgid "Row {0}: Serial/Batch has been reset to values linked with Work Order {1} because the previously selected serial/batch does not belong to this Work Order."
-msgstr ""
+msgstr "第 {0} 行：此前选择的序列号或批号不属于生产工单 {1}，已重置为该生产工单关联的值。"
 
 #: erpnext/assets/doctype/asset_shift_allocation/asset_shift_allocation.py:58
 msgid "Row {0}: Shift cannot be changed since the depreciation has already been processed"
@@ -47223,7 +47223,7 @@ msgstr "行号{0}：设置{1}周期时，起止日期差值必须大于等于{2}
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:3986
 msgid "Row {0}: Transferred quantity cannot be greater than the requested quantity."
-msgstr ""
+msgstr "第 {0} 行：已调拨数量不能大于申请数量。"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:741
 msgid "Row {0}: UOM Conversion Factor is mandatory"
@@ -48379,7 +48379,7 @@ msgstr "样品数量"
 #: erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:269
 #: erpnext/stock/doctype/stock_entry/stock_entry.js:557
 msgid "Sample Retention Stock Entry"
-msgstr ""
+msgstr "留样库存单"
 
 #. Label of the sample_retention_warehouse (Link) field in DocType 'Stock
 #. Settings'
@@ -49397,7 +49397,7 @@ msgstr "发送附件"
 #: erpnext/accounts/doctype/payment_request/payment_request.js:51
 #: erpnext/accounts/doctype/payment_request/payment_request.js:55
 msgid "Sending Email"
-msgstr ""
+msgstr "正在发送邮件"
 
 #. Option for the 'Detected Amount Format' (Select) field in DocType 'Bank
 #. Statement Import Log'
@@ -50118,7 +50118,7 @@ msgstr "设置交货仓库"
 
 #: erpnext/buying/doctype/purchase_order/purchase_order.js:753
 msgid "Set Dropship Items Delivered Quantity"
-msgstr ""
+msgstr "设置直发物料已交付数量"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.js:362
 #: erpnext/manufacturing/doctype/job_card/job_card.js:424
@@ -51354,11 +51354,11 @@ msgstr "来源生产入库单"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1033
 msgid "Source Stock Entry {0} belongs to Work Order {1}, not {2}. Please use a manufacture entry from the same Work Order."
-msgstr ""
+msgstr "来源库存单 {0} 属于生产工单 {1}，而不是 {2}。请使用同一生产工单的生产入库单。"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:2756
 msgid "Source Stock Entry {0} has no finished goods quantity"
-msgstr ""
+msgstr "来源库存单 {0} 没有成品数量"
 
 #. Label of the source_type (Select) field in DocType 'Support Search Source'
 #: erpnext/support/doctype/support_search_source/support_search_source.json
@@ -51779,7 +51779,7 @@ msgstr "往来对账单"
 #. Label of the statement_password (Password) field in DocType 'Bank Account'
 #: erpnext/accounts/doctype/bank_account/bank_account.json
 msgid "Statement PDF Password"
-msgstr ""
+msgstr "对账单 PDF 密码"
 
 #: erpnext/accounts/report/general_ledger/general_ledger.html:145
 msgid "Statement Period"
@@ -51929,15 +51929,15 @@ msgstr "库存结转分录"
 
 #: erpnext/accounts/doctype/period_closing_voucher/period_closing_voucher.py:239
 msgid "Stock Closing Entry In Progress"
-msgstr ""
+msgstr "库存结转分录处理中"
 
 #: erpnext/accounts/doctype/period_closing_voucher/period_closing_voucher.py:257
 msgid "Stock Closing Entry Outdated"
-msgstr ""
+msgstr "库存结转分录已过期"
 
 #: erpnext/accounts/doctype/period_closing_voucher/period_closing_voucher.py:231
 msgid "Stock Closing Entry Required"
-msgstr ""
+msgstr "必须创建库存结转分录"
 
 #: erpnext/stock/doctype/stock_closing_entry/stock_closing_entry.py:122
 msgid "Stock Closing Entry {0} already exists for the selected date range"
@@ -51945,7 +51945,7 @@ msgstr "所选日期范围已存在库存结转分录{0}"
 
 #: erpnext/stock/doctype/stock_closing_entry/stock_closing_entry.py:144
 msgid "Stock Closing Entry {0} belongs to a closed accounting period. Cancel the Period Closing Voucher {1} first."
-msgstr ""
+msgstr "库存结转分录 {0} 属于已结账会计期间，请先取消期末结账凭证 {1}。"
 
 #: erpnext/stock/doctype/stock_closing_entry/stock_closing_entry.py:159
 msgid "Stock Closing Entry {0} has been queued for processing, system will take sometime to complete it."
@@ -52652,7 +52652,7 @@ msgstr "采购发票 {0} 已关联采购入库单 {1}，不能再次更新库存
 
 #: erpnext/stock/doctype/warehouse/warehouse.py:124
 msgid "Stock entries exist with the old account. Changing the account may lead to a mismatch between the warehouse closing balance and the account closing balance. The overall closing balance will still match, but not for the specific account."
-msgstr ""
+msgstr "旧科目下已有库存分录。更改科目可能导致仓库结存与该科目余额不一致；整体结存仍会一致，但该科目的余额可能不一致。"
 
 #. Label of the stock_frozen_upto (Date) field in DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
@@ -52691,7 +52691,7 @@ msgstr "补录单据过账日期不得早于今天-锁帐天数，如今天9月2
 
 #: erpnext/accounts/doctype/period_closing_voucher/period_closing_voucher.py:254
 msgid "Stock transactions were created or modified after the Stock Closing Entry {0} was generated. Regenerate it before submitting the Period Closing Voucher."
-msgstr ""
+msgstr "库存结转分录 {0} 生成后又有库存交易被创建或修改。提交期末结账凭证前，请重新生成该库存结转分录。"
 
 #. Description of the 'Auto reserve Stock for Sales Order on Purchase' (Check)
 #. field in DocType 'Stock Settings'
@@ -55300,7 +55300,7 @@ msgstr "单据类型{0}必须具有状态字段以配置服务级别协议"
 
 #: erpnext/accounts/doctype/bank_transaction/bank_transaction.py:345
 msgid "The Excluded Fee is bigger than the Deposit it is deducted from."
-msgstr ""
+msgstr "未计入手续费不能大于其扣减的存入金额。"
 
 #: erpnext/accounts/doctype/period_closing_voucher/period_closing_voucher.py:306
 msgid "The GL Entries and closing balances will be processed in the background, it can take a few minutes."
@@ -55348,7 +55348,7 @@ msgstr "序列号批次组合{0}对此交易无效。在序列号批次组合{0}
 
 #: erpnext/accounts/doctype/period_closing_voucher/period_closing_voucher.py:236
 msgid "The Stock Closing Entry for {0} is not completed yet. Wait for it to complete before submitting the Period Closing Voucher."
-msgstr ""
+msgstr "{0} 的库存结转分录尚未完成。请等待其完成后再提交期末结账凭证。"
 
 #: erpnext/manufacturing/doctype/manufacturing_settings/manufacturing_settings.js:17
 msgid "The Stock Entry of type 'Manufacture' is known as backflush. Raw materials being consumed to manufacture finished goods is known as backflushing. <br><br> When creating Manufacture Entry, raw-material items are backflushed based on BOM of production item. If you want raw-material items to be backflushed based on Material Transfer entry made against that Work Order instead, then you can set it under this field."
@@ -55362,7 +55362,7 @@ msgstr "负债或权益下的科目，用于利润/亏损记账"
 
 #: erpnext/accounts/doctype/account/account.py:222
 msgid "The account type of {0} cannot be changed from {1} because stock ledger entries exist against it."
-msgstr ""
+msgstr "{0} 的科目类型不能从 {1} 更改，因为该科目已有库存总账记录。"
 
 #: erpnext/accounts/doctype/payment_request/payment_request.py:1016
 msgid "The allocated amount is greater than the outstanding amount of Payment Request {0}"
@@ -55392,7 +55392,7 @@ msgstr ""
 
 #: erpnext/accounts/doctype/period_closing_voucher/period_closing_voucher.py:179
 msgid "The closing balance {0} of the Stock Asset accounts does not match the closing value {1} of the Stock Balance report as on {2}. Resolve the difference using the Stock Ledger Variance report before closing the period."
-msgstr ""
+msgstr "截至 {2}，存货资产科目的期末余额 {0} 与库存余额报表的期末价值 {1} 不一致。请在结账前使用库存总账差异报表处理该差异。"
 
 #: erpnext/regional/report/vat_audit_report/vat_audit_report.py:43
 msgid "The company {0} is not in South Africa. VAT Audit Report is only available for companies in South Africa."
@@ -55515,7 +55515,8 @@ msgstr "以下无效定价规则已被删除："
 #: erpnext/accounts/doctype/payment_request/payment_request.py:639
 msgid "The following payment schedule(s) already exist:\n"
 "{0}"
-msgstr ""
+msgstr "以下付款计划已存在：\n"
+"{0}"
 
 #: erpnext/assets/doctype/asset_repair/asset_repair.py:115
 msgid "The following rows are duplicates:"
@@ -57931,7 +57932,7 @@ msgstr ""
 
 #: erpnext/setup/doctype/company/company.py:1093
 msgid "Transaction Deletion Document {0} has been triggered for company {1}"
-msgstr ""
+msgstr "已为公司 {1} 触发交易删除单 {0}"
 
 #. Name of a DocType
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.json
@@ -59582,7 +59583,7 @@ msgstr "用于在代扣税类别中为该供应商选择正确的税率行（如
 #. Description of the 'Account Category' (Link) field in DocType 'Account'
 #: erpnext/accounts/doctype/account/account.json
 msgid "Used with Financial Report Template"
-msgstr ""
+msgstr "用于财务报表模板"
 
 #: erpnext/setup/install.py:229
 msgid "User Forum"
@@ -60167,7 +60168,7 @@ msgstr "创建多规格物料任务已添加到后台资料更新队列中。"
 
 #: erpnext/accounts/doctype/pricing_rule/pricing_rule.py:172
 msgid "Variant {0} and its template {1} cannot both be added to the same Pricing Rule"
-msgstr ""
+msgstr "变体物料 {0} 及其模板 {1} 不能同时添加到同一条定价规则中"
 
 #. Name of a DocType
 #. Label of the vehicle (Link) field in DocType 'Delivery Trip'
@@ -60986,7 +60987,7 @@ msgstr "警告！"
 
 #: erpnext/stock/doctype/warehouse/warehouse.py:122
 msgid "Warning: Account changed for warehouse"
-msgstr ""
+msgstr "警告：仓库科目已更改"
 
 #: erpnext/accounts/doctype/journal_entry/journal_entry.py:1341
 msgid "Warning: Another {0} # {1} exists against stock entry {2}"
@@ -61321,7 +61322,7 @@ msgstr "启用后，将根据下方的暂停类型限制与该供应商的交易
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:417
 msgid "When there are multiple finished goods ({0}) in a Repack stock entry, the basic rate for all finished goods must be set manually. To set rate manually, enable the checkbox 'Set Basic Rate Manually' in the respective finished good row."
-msgstr ""
+msgstr "重新包装库存单中存在多个成品（{0}）时，必须手动设置所有成品的单价。请在对应成品行中启用“手动设置成本”。"
 
 #. Description of the 'Deferred Expense Account' (Link) field in DocType 'Item
 #. Default'
@@ -61560,7 +61561,7 @@ msgstr "工单明细"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1036
 msgid "Work Order Mismatch"
-msgstr ""
+msgstr "生产工单不匹配"
 
 #. Name of a DocType
 #: erpnext/manufacturing/doctype/work_order_operation/work_order_operation.json
@@ -61622,7 +61623,7 @@ msgstr "工作订单{0}已创建"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:2772
 msgid "Work Order {0} has no produced qty"
-msgstr ""
+msgstr "生产工单 {0} 没有已生产数量"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1160
 msgid "Work Order {0}: Job Card not found for the operation {1}"
@@ -62107,7 +62108,7 @@ msgstr "无法{0}此单据，因为存在后续的期间结账分录{1}在{2}之
 
 #: erpnext/accounts/doctype/payment_reconciliation/payment_reconciliation.py:168
 msgid "You do not have enough permission to access {0}: {1}"
-msgstr ""
+msgstr "您没有足够权限访问 {0}：{1}"
 
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:82
 msgid "You do not have permission to import and submit bank transactions"
@@ -62140,7 +62141,7 @@ msgstr ""
 
 #: erpnext/buying/doctype/purchase_order/purchase_order.py:591
 msgid "You don't have permission to update Received Qty DocField for item {0}"
-msgstr ""
+msgstr "您没有权限更新物料 {0} 的已收货数量字段"
 
 #: erpnext/controllers/accounts_controller.py:4479
 msgid "You don't have permission to update this document. Please contact your System Manager."
@@ -62600,7 +62601,7 @@ msgstr "唯一值，例如SAVE20，用于获取折扣"
 
 #: erpnext/buying/doctype/purchase_order/purchase_order.py:621
 msgid "updated delivered quantity for item {0} to {1}"
-msgstr ""
+msgstr "已将物料 {0} 的已交付数量更新为 {1}"
 
 #: erpnext/accounts/report/budget_variance_report/budget_variance_report.js:9
 msgid "variance"
@@ -62806,7 +62807,7 @@ msgstr "{0}已启用基于付款条件的分配，请在付款参考部分为第
 
 #: erpnext/accounts/doctype/payment_reconciliation/payment_reconciliation.py:850
 msgid "{0} has been modified after you pulled it. Please pull it again."
-msgstr ""
+msgstr "{0} 在您获取后已被修改，请重新获取。"
 
 #: erpnext/setup/default_success_action.py:15
 msgid "{0} has been submitted successfully"
@@ -63814,3 +63815,19 @@ msgstr "主题"
 
 msgid "Completed"
 msgstr "已完成"
+
+msgid "Transaction"
+msgstr "交易"
+
+msgid "Weight"
+msgstr "权重"
+
+#. Label of the disabled (Check) field in DocType 'Account'
+#: erpnext/accounts/doctype/account/account.json
+msgid "Disable"
+msgstr "禁用"
+
+#. Label of the template_name (Data) field in DocType 'Payment Terms Template'
+#: erpnext/accounts/doctype/payment_terms_template/payment_terms_template.json
+msgid "Template Name"
+msgstr "模板名称"

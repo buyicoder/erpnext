@@ -68,6 +68,8 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("sync_asset_manifest.py", self.containerfile)
 		self.assertIn("assets/assets.json", self.containerfile)
 		self.assertIn("Asset manifest references missing files", self.build_script)
+		self.assertIn("Compiled ERPNext translations do not match", self.build_script)
+		self.assertIn('"Statement PDF Password": "对账单 PDF 密码"', self.build_script)
 		self.assertIn("this.print_format_control.get_value()", self.build_script)
 		self.assertIn("Refusing to build from a dirty worktree", self.build_script)
 

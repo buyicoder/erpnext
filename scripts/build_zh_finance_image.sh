@@ -22,6 +22,7 @@ docker run --rm --entrypoint sh "$image" -lc '
 	set -eu
 	/home/frappe/frappe-bench/env/bin/python - <<"PY"
 import json
+from gettext import GNUTranslations
 from pathlib import Path
 
 asset_root = Path("/home/frappe/frappe-bench/assets")
@@ -30,6 +31,22 @@ missing = [path for path in manifest.values() if isinstance(path, str) and path.
 if missing:
 	raise SystemExit("Asset manifest references missing files: " + ", ".join(missing))
 print(f"Verified {len(manifest)} asset manifest entries")
+
+expected_translations = {
+	"Statement PDF Password": "对账单 PDF 密码",
+	"Create User Automatically": "自动创建用户",
+	"Included fee is bigger than the withdrawal itself.": "已计入手续费不能大于支出金额。",
+}
+with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
+	translations = GNUTranslations(mo_file)
+mismatches = {
+	source: (translations.gettext(source), expected)
+	for source, expected in expected_translations.items()
+	if translations.gettext(source) != expected
+}
+if mismatches:
+	raise SystemExit(f"Compiled ERPNext translations do not match: {mismatches}")
+print(f"Verified {len(expected_translations)} compiled ERPNext translations")
 PY
 	grep -F "this.print_format_control.get_value()" /home/frappe/frappe-bench/apps/frappe/frappe/printing/page/print/print.js >/dev/null
 	test -s /home/frappe/frappe-bench/assets/locale/zh/LC_MESSAGES/erpnext.mo
