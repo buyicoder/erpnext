@@ -6,6 +6,8 @@ repo_root="$(git -C "$script_dir/.." rev-parse --show-toplevel)"
 image="${1:-buyicoder/erpnext-cn:v16.32.3-zh-finance}"
 source_commit="$(git -C "$repo_root" rev-parse HEAD)"
 
+"$repo_root/scripts/fetch_frappe_zh_baseline.sh"
+
 docker build \
 	--file "$repo_root/docker/zh-finance/Containerfile" \
 	--build-arg "SOURCE_COMMIT=$source_commit" \

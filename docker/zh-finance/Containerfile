@@ -5,7 +5,9 @@ LABEL org.opencontainers.image.revision="${SOURCE_COMMIT}"
 
 USER root
 COPY --chown=frappe:frappe erpnext/locale/zh.po /home/frappe/frappe-bench/apps/erpnext/erpnext/locale/zh.po
-COPY --chown=frappe:frappe localization/frappe/zh.po /home/frappe/frappe-bench/apps/frappe/frappe/locale/zh.po
+COPY --chown=frappe:frappe .build/frappe-v16.24.4-zh.po /tmp/frappe-zh-baseline.po
+COPY --chown=frappe:frappe localization/frappe/zh.po /tmp/frappe-zh-overrides.po
+COPY --chown=frappe:frappe scripts/merge_frappe_zh_catalog.py /tmp/merge_frappe_zh_catalog.py
 COPY --chown=frappe:frappe erpnext/public/js/erpnext.bundle.js /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/erpnext.bundle.js
 COPY --chown=frappe:frappe erpnext/public/js/zh_finance_overrides.js /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/zh_finance_overrides.js
 COPY --chown=frappe:frappe erpnext/public/js/zh_finance_format.mjs /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/zh_finance_format.mjs
@@ -16,7 +18,11 @@ COPY --chown=frappe:frappe erpnext/setup/china_defaults.py /home/frappe/frappe-b
 COPY --chown=frappe:frappe erpnext/setup/setup_wizard/operations/defaults_setup.py /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/setup_wizard/operations/defaults_setup.py
 
 USER frappe
-RUN cd /home/frappe/frappe-bench && \
+RUN /home/frappe/frappe-bench/env/bin/python /tmp/merge_frappe_zh_catalog.py \
+		--baseline /tmp/frappe-zh-baseline.po \
+		--overrides /tmp/frappe-zh-overrides.po \
+		--output /home/frappe/frappe-bench/apps/frappe/frappe/locale/zh.po && \
+	cd /home/frappe/frappe-bench && \
 	bench compile-po-to-mo --app frappe --locale zh --force && \
 	bench compile-po-to-mo --app erpnext --locale zh --force && \
 	bench build --app erpnext && \

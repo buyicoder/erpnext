@@ -16,6 +16,7 @@ __pycache__
 .vscode/
 .helix/
 node_modules/
+.build/
 .backportrc.json
 # Aider AI Chat
 .aider*
