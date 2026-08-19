@@ -86,6 +86,10 @@ CORE_ACCOUNTING_MASTER_DOCTYPES = {
 CORE_OPERATIONAL_MASTER_DOCTYPES = {
 	"Accounting Dimension",
 	"Activity Type",
+	"Asset",
+	"Asset Depreciation Schedule",
+	"Asset Movement",
+	"Asset Repair",
 	"Bank",
 	"Bank Clearance",
 	"Bank Statement Import",
@@ -617,6 +621,34 @@ class TestZhFinanceTranslations(TestCase):
 			"Auto create Serial and Batch Bundle for outward": "出库时自动创建序列号与批号",
 			"If enabled, the item rate won't adjust to the valuation rate during internal transfers, but accounting will still use the valuation rate. This will allow the user to specify a different rate for printing or taxation purposes.": "启用后，内部调拨的物料单价不会调整为成本价，但会计处理仍使用成本价。用户可因打印或税务需要指定不同单价。",
 			"If enabled, the system will allow negative stock entries for the batch. But, this may lead to incorrect valuation rates, so it is recommended to avoid using this option. The system will permit negative stock only when it is caused by backdated entries and will validate and block negative stock in all other cases.": "启用后，系统将允许该批次出现负库存。此设置可能导致成本价不准确，因此建议不要启用。系统仅在负库存由补录历史单据引起时允许过账，其他情况将校验并阻止。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+
+	def test_fixed_asset_lifecycle_uses_reviewed_chinese_terms(self):
+		translations = {
+			"<b>Cannot create asset.</b><br><br>You're trying to create <b>{0} asset(s)</b> from {2} {3}.<br>However, only <b>{1} item(s)</b> were purchased and <b>{4} asset(s)</b> already exist against {5}.": "<b>无法创建资产。</b><br><br>您正在尝试创建 <b>{0} 项资产</b>，来源为 {2} {3}。<br>但仅采购了 <b>{1} 个物料</b>，并且已有 <b>{4} 项资产</b>关联到 {5}。",
+			"Asset Type": "资产类型",
+			"Existing Asset": "现有资产",
+			"Composite Asset": "组合资产",
+			"Composite Component": "组合资产组件",
+			"Available for Use Date": "可使用日期",
+			"Ownership": "权属信息",
+			"Capitalize this asset before submitting.": "请在提交前将此资产资本化。",
+			"Please capitalize this asset before submitting.": "请在提交前将此资产资本化。",
+			"Row #{0}: Frequency of Depreciation must be greater than zero": "第 {0} 行：折旧频率必须大于零",
+			"Row #{0}: Total Number of Depreciations must be greater than zero": "第 {0} 行：折旧总次数必须大于零",
+			"Row {0}: Expected Value After Useful Life cannot be negative": "第 {0} 行：使用寿命结束后的预计价值不能为负数",
+			"Row #{0}: Expense account {1} is not valid for Purchase Invoice {2}. Only expense accounts from non-stock items are allowed.": "第 {0} 行：费用科目 {1} 不适用于采购发票 {2}。仅允许使用非库存物料的费用科目。",
+			"Sell Qty": "出售数量",
+			"Sell quantity must be greater than zero": "出售数量必须大于零",
+			"Sell quantity cannot exceed the asset quantity": "出售数量不能超过资产数量",
+			"The sell quantity is less than the total asset quantity. The remaining quantity will be split into a new asset. This action cannot be undone. <br><br><b>Do you want to continue?</b>": "出售数量小于资产总数量，剩余数量将拆分为一项新资产。此操作无法撤销。<br><br><b>是否继续？</b>",
+			"Transaction date can't be earlier than previous movement date": "业务日期不能早于上一次资产变动日期",
+			"The following Purchase Invoices are not submitted:": "以下采购发票尚未提交：",
+			"Row #{0}: Repair cost {1} exceeds available amount {2} for Purchase Invoice {3} and Account {4}": "第 {0} 行：维修费用 {1} 超过可用金额 {2}（采购发票 {3}，科目 {4}）",
+			"Row {0}: The entire expense amount for account {1} in {2} has already been allocated.": "第 {0} 行：科目 {1} 在 {2} 中的费用金额已全部分配。",
+			"{0} is in Draft. Submit it before creating the Asset.": "{0} 仍为草稿。请先提交，再创建资产。",
 		}
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
