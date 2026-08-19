@@ -63,6 +63,8 @@ CORE_BUSINESS_DOCTYPES = {
 	"Purchase Invoice",
 	"Purchase Order",
 	"Purchase Receipt",
+	"Quality Inspection",
+	"Quality Inspection Template",
 	"Request for Quotation",
 	"Sales Invoice",
 	"Sales Order",
@@ -792,6 +794,48 @@ class TestZhFinanceTranslations(TestCase):
 			"Row {0}: For Supplier {1}, Email Address is Required to send an email": "行号{0}：供应商{1}必须填写邮箱地址以发送邮件",
 			"Same supplier has been entered multiple times": "同一个供应商已多次输入",
 			"The Access to Request for Quotation From Portal is Disabled. To Allow Access, Enable it in Portal Settings.": "门户询价申请功能已禁用。如需启用，请在门户设置中开启",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+
+	def test_quality_inspection_uses_reviewed_chinese_terms(self):
+		translations = {
+			"Quality Inspection": "质量检验单",
+			"Quality Inspection Reading": "质量检验读数",
+			"Quality Inspection Template": "质量检验模板",
+			"Item Quality Inspection Parameter": "物料质量检验参数",
+			"Inspection Type": "检验类型",
+			"Inspected By": "检验人",
+			"Verified By": "复核人",
+			"Report Date": "检验日期",
+			"Sample Size": "抽检数量",
+			"Readings": "检验读数",
+			"Reading Value": "检验读数值",
+			"Reading 1": "检验读数 1",
+			"Reading 10": "检验读数 10",
+			"Manual Inspection": "人工检验",
+			"Numeric Inspection": "数值检验",
+			"Value Based Inspection": "按值检验",
+			"Acceptance Criteria Formula": "验收标准公式",
+			"Acceptance Criteria Value": "验收标准值",
+			"Formula Based Criteria": "公式判定",
+			"Applied on each reading.": "逐个检验读数应用。",
+			"Invalid Reading": "检验读数无效",
+			"Row #{0}: Reading {1} {2} is not a valid number in the {3} number format. Use {4} as the decimal separator.": "第 {0} 行：检验读数 {1} {2} 不符合 {3} 数字格式。请使用 {4} 作为小数分隔符。",
+			"Row #{0}: {1} is not a valid reading field. Please refer to the field description.": "第 {0} 行：{1} 不是有效的检验读数字段，请参阅字段说明。",
+			"Status set to rejected as there are one or more rejected readings.": "存在一项或多项不合格检验读数，质量检验单状态已设为不合格。",
+			"Set the status manually.": "手动设置检验状态。",
+			"'Inspection Required before Delivery' has disabled for the item {0}, no need to create the QI": "物料 {0} 未启用“交付前必须质量检验”，无需创建质量检验单",
+			"'Inspection Required before Purchase' has disabled for the item {0}, no need to create the QI": "物料 {0} 未启用“采购前必须质量检验”，无需创建质量检验单",
+			(
+				"Simple Python formula applied on Reading fields.<br> Numeric eg. 1: <b>reading_1 &gt; 0.2 and reading_1 &lt; 0.5</b><br>\n"
+				"Numeric eg. 2: <b>mean &gt; 3.5</b> (mean of populated fields)<br>\n"
+				'Value based eg.:  <b>reading_value in ("A", "B", "C")</b>'
+			): (
+				"在检验读数字段上应用简单 Python 公式。<br>数值示例 1：<b>reading_1 &gt; 0.2 and reading_1 &lt; 0.5</b><br>\n"
+				"数值示例 2：<b>mean &gt; 3.5</b>（已填写读数字段的平均值）<br>\n"
+				'按值判定示例：<b>reading_value in ("A", "B", "C")</b>'
+			),
 		}
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)

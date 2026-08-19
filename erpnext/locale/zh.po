@@ -312,11 +312,11 @@ msgstr "不能为非库存物料勾选'启用序列号管理'"
 
 #: erpnext/stock/doctype/quality_inspection/quality_inspection.py:151
 msgid "'Inspection Required before Delivery' has disabled for the item {0}, no need to create the QI"
-msgstr "物料{0}已禁用'发货前需质检'，无需创建质量检验单"
+msgstr "物料 {0} 未启用“交付前必须质量检验”，无需创建质量检验单"
 
 #: erpnext/stock/doctype/quality_inspection/quality_inspection.py:142
 msgid "'Inspection Required before Purchase' has disabled for the item {0}, no need to create the QI"
-msgstr "物料{0}已禁用'采购前需质检'，无需创建质量检验单"
+msgstr "物料 {0} 未启用“采购前必须质量检验”，无需创建质量检验单"
 
 #: erpnext/stock/report/stock_ledger/stock_ledger.py:688
 #: erpnext/stock/report/stock_ledger/stock_ledger.py:781
@@ -1293,7 +1293,7 @@ msgstr ""
 #: erpnext/stock/doctype/item_quality_inspection_parameter/item_quality_inspection_parameter.json
 #: erpnext/stock/doctype/quality_inspection_reading/quality_inspection_reading.json
 msgid "Acceptance Criteria Formula"
-msgstr "标准要求条件公式"
+msgstr "验收标准公式"
 
 #. Label of the value (Data) field in DocType 'Item Quality Inspection
 #. Parameter'
@@ -1301,7 +1301,7 @@ msgstr "标准要求条件公式"
 #: erpnext/stock/doctype/item_quality_inspection_parameter/item_quality_inspection_parameter.json
 #: erpnext/stock/doctype/quality_inspection_reading/quality_inspection_reading.json
 msgid "Acceptance Criteria Value"
-msgstr "标准要求"
+msgstr "验收标准值"
 
 #. Label of the qty (Float) field in DocType 'Purchase Invoice Item'
 #. Label of the qty (Float) field in DocType 'Subcontracting Receipt Item'
@@ -5325,7 +5325,7 @@ msgstr "已应用优惠码"
 #. Inspection Reading'
 #: erpnext/stock/doctype/quality_inspection_reading/quality_inspection_reading.json
 msgid "Applied on each reading."
-msgstr "适用于每个读数"
+msgstr "逐个检验读数应用。"
 
 #: erpnext/stock/doctype/putaway_rule/putaway_rule.py:197
 msgid "Applied putaway rules."
@@ -21511,7 +21511,7 @@ msgstr "外贸信息"
 #: erpnext/stock/doctype/item_quality_inspection_parameter/item_quality_inspection_parameter.json
 #: erpnext/stock/doctype/quality_inspection_reading/quality_inspection_reading.json
 msgid "Formula Based Criteria"
-msgstr "条件公式"
+msgstr "公式判定"
 
 #. Label of the calculation_formula (Code) field in DocType 'Financial Report
 #. Row'
@@ -25634,7 +25634,7 @@ msgstr "查询语句无效"
 
 #: erpnext/stock/doctype/quality_inspection/quality_inspection.py:325
 msgid "Invalid Reading"
-msgstr ""
+msgstr "检验读数无效"
 
 #: erpnext/selling/page/point_of_sale/pos_past_order_summary.js:202
 msgid "Invalid Return"
@@ -27671,7 +27671,7 @@ msgstr "物料价格"
 #: erpnext/stock/doctype/item_quality_inspection_parameter/item_quality_inspection_parameter.json
 #: erpnext/stock/doctype/quality_inspection_template/quality_inspection_template.json
 msgid "Item Quality Inspection Parameter"
-msgstr "物料质检参数"
+msgstr "物料质量检验参数"
 
 #. Label of the item_reference (Link) field in DocType 'Maintenance Schedule
 #. Detail'
@@ -30110,7 +30110,7 @@ msgstr "手动"
 #: erpnext/stock/doctype/quality_inspection/quality_inspection.json
 #: erpnext/stock/doctype/quality_inspection_reading/quality_inspection_reading.json
 msgid "Manual Inspection"
-msgstr "手工设置状态"
+msgstr "人工检验"
 
 #: erpnext/accounts/doctype/process_deferred_accounting/process_deferred_accounting.js:36
 msgid "Manual entry cannot be created! Disable automatic entry for deferred accounting in accounts settings and try again"
@@ -33420,7 +33420,7 @@ msgstr "数值"
 #. Inspection Reading'
 #: erpnext/stock/doctype/quality_inspection_reading/quality_inspection_reading.json
 msgid "Numeric Inspection"
-msgstr "检验数值"
+msgstr "数值检验"
 
 #. Label of the numeric_values (Check) field in DocType 'Item Attribute'
 #. Label of the numeric_values (Check) field in DocType 'Item Variant
@@ -42209,7 +42209,7 @@ msgstr "质量目标"
 #: erpnext/subcontracting/doctype/subcontracting_receipt_item/subcontracting_receipt_item.json
 #: erpnext/workspace_sidebar/quality.json erpnext/workspace_sidebar/stock.json
 msgid "Quality Inspection"
-msgstr "质检单"
+msgstr "质量检验单"
 
 #: erpnext/manufacturing/dashboard_fixtures.py:108
 msgid "Quality Inspection Analysis"
@@ -42232,7 +42232,7 @@ msgstr "质检参数组"
 #. Name of a DocType
 #: erpnext/stock/doctype/quality_inspection_reading/quality_inspection_reading.json
 msgid "Quality Inspection Reading"
-msgstr "质检结果"
+msgstr "质量检验读数"
 
 #. Label of the inspection_required (Check) field in DocType 'BOM'
 #. Label of the quality_inspection_required (Check) field in DocType 'BOM
@@ -42272,7 +42272,7 @@ msgstr "质检进度追踪表"
 #: erpnext/stock/workspace/stock/stock.json
 #: erpnext/workspace_sidebar/quality.json erpnext/workspace_sidebar/stock.json
 msgid "Quality Inspection Template"
-msgstr "质检模板"
+msgstr "质量检验模板"
 
 #. Label of the quality_inspection_template_name (Data) field in DocType
 #. 'Quality Inspection Template'
@@ -43326,63 +43326,63 @@ msgstr "查看使用文档"
 #. Label of the reading_1 (Data) field in DocType 'Quality Inspection Reading'
 #: erpnext/stock/doctype/quality_inspection_reading/quality_inspection_reading.json
 msgid "Reading 1"
-msgstr "检验结果1"
+msgstr "检验读数 1"
 
 #. Label of the reading_10 (Data) field in DocType 'Quality Inspection Reading'
 #: erpnext/stock/doctype/quality_inspection_reading/quality_inspection_reading.json
 msgid "Reading 10"
-msgstr "检验结果10"
+msgstr "检验读数 10"
 
 #. Label of the reading_2 (Data) field in DocType 'Quality Inspection Reading'
 #: erpnext/stock/doctype/quality_inspection_reading/quality_inspection_reading.json
 msgid "Reading 2"
-msgstr "检验结果2"
+msgstr "检验读数 2"
 
 #. Label of the reading_3 (Data) field in DocType 'Quality Inspection Reading'
 #: erpnext/stock/doctype/quality_inspection_reading/quality_inspection_reading.json
 msgid "Reading 3"
-msgstr "检验结果3"
+msgstr "检验读数 3"
 
 #. Label of the reading_4 (Data) field in DocType 'Quality Inspection Reading'
 #: erpnext/stock/doctype/quality_inspection_reading/quality_inspection_reading.json
 msgid "Reading 4"
-msgstr "检验结果4"
+msgstr "检验读数 4"
 
 #. Label of the reading_5 (Data) field in DocType 'Quality Inspection Reading'
 #: erpnext/stock/doctype/quality_inspection_reading/quality_inspection_reading.json
 msgid "Reading 5"
-msgstr "检验结果5"
+msgstr "检验读数 5"
 
 #. Label of the reading_6 (Data) field in DocType 'Quality Inspection Reading'
 #: erpnext/stock/doctype/quality_inspection_reading/quality_inspection_reading.json
 msgid "Reading 6"
-msgstr "检验结果6"
+msgstr "检验读数 6"
 
 #. Label of the reading_7 (Data) field in DocType 'Quality Inspection Reading'
 #: erpnext/stock/doctype/quality_inspection_reading/quality_inspection_reading.json
 msgid "Reading 7"
-msgstr "检验结果7"
+msgstr "检验读数 7"
 
 #. Label of the reading_8 (Data) field in DocType 'Quality Inspection Reading'
 #: erpnext/stock/doctype/quality_inspection_reading/quality_inspection_reading.json
 msgid "Reading 8"
-msgstr "检验结果8"
+msgstr "检验读数 8"
 
 #. Label of the reading_9 (Data) field in DocType 'Quality Inspection Reading'
 #: erpnext/stock/doctype/quality_inspection_reading/quality_inspection_reading.json
 msgid "Reading 9"
-msgstr "检验结果9"
+msgstr "检验读数 9"
 
 #. Label of the reading_value (Data) field in DocType 'Quality Inspection
 #. Reading'
 #: erpnext/stock/doctype/quality_inspection_reading/quality_inspection_reading.json
 msgid "Reading Value"
-msgstr "读数"
+msgstr "检验读数值"
 
 #. Label of the readings (Table) field in DocType 'Quality Inspection'
 #: erpnext/stock/doctype/quality_inspection/quality_inspection.json
 msgid "Readings"
-msgstr "检验结果"
+msgstr "检验读数"
 
 #: erpnext/setup/setup_wizard/data/industry_type.txt:40
 msgid "Real Estate"
@@ -44498,7 +44498,7 @@ msgstr "在使用BOM的所有其他BOM中替换BOM。 它将替换旧的 BOM 链
 #: erpnext/manufacturing/report/quality_inspection_summary/quality_inspection_summary.py:75
 #: erpnext/stock/doctype/quality_inspection/quality_inspection.json
 msgid "Report Date"
-msgstr "报表日期"
+msgstr "检验日期"
 
 #: erpnext/accounts/doctype/bank_statement_import/bank_statement_import.js:225
 msgid "Report Error"
@@ -46593,7 +46593,7 @@ msgstr "行＃{0}：单价必须与{1}：{2}（{3} / {4}）相同"
 
 #: erpnext/stock/doctype/quality_inspection/quality_inspection.py:316
 msgid "Row #{0}: Reading {1} {2} is not a valid number in the {3} number format. Use {4} as the decimal separator."
-msgstr ""
+msgstr "第 {0} 行：检验读数 {1} {2} 不符合 {3} 数字格式。请使用 {4} 作为小数分隔符。"
 
 #: erpnext/accounts/doctype/payment_entry/payment_entry.js:1251
 msgid "Row #{0}: Reference Document Type must be one of Purchase Order, Purchase Invoice or Journal Entry"
@@ -46804,7 +46804,7 @@ msgstr ""
 
 #: erpnext/stock/doctype/quality_inspection/quality_inspection.py:371
 msgid "Row #{0}: {1} is not a valid reading field. Please refer to the field description."
-msgstr "第 {0} 行：{1} 是无效的检测结果读数字段，详见公式字段底下的说明"
+msgstr "第 {0} 行：{1} 不是有效的检验读数字段，请参阅字段说明。"
 
 #: erpnext/accounts/doctype/opening_invoice_creation_tool/opening_invoice_creation_tool.py:131
 msgid "Row #{0}: {1} is required to create the Opening {2} Invoices"
@@ -48400,7 +48400,7 @@ msgstr "样品仓"
 #: erpnext/public/js/controllers/transaction.js:2882
 #: erpnext/stock/doctype/quality_inspection/quality_inspection.json
 msgid "Sample Size"
-msgstr "样本大小"
+msgstr "抽检数量"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:4489
 msgid "Sample quantity {0} cannot be more than received quantity {1}"
@@ -50349,7 +50349,7 @@ msgstr ""
 #. Inspection Reading'
 #: erpnext/stock/doctype/quality_inspection_reading/quality_inspection_reading.json
 msgid "Set the status manually."
-msgstr "手工设置状态"
+msgstr "手动设置检验状态。"
 
 #: erpnext/regional/italy/setup.py:231
 msgid "Set this if the customer is a Public Administration company."
@@ -51165,9 +51165,9 @@ msgstr "简单Python表达式，示例：territory != 'All Territories'"
 msgid "Simple Python formula applied on Reading fields.<br> Numeric eg. 1: <b>reading_1 &gt; 0.2 and reading_1 &lt; 0.5</b><br>\n"
 "Numeric eg. 2: <b>mean &gt; 3.5</b> (mean of populated fields)<br>\n"
 "Value based eg.:  <b>reading_value in (\"A\", \"B\", \"C\")</b>"
-msgstr "简单的 Python 公式应用于阅读字段。<br> 数字例如 1： <b>reading_1 &gt; 0.2 和 reading_1 &lt; 0.5</b><br>\n"
-"数字例如 2： <b>平均值 &gt; 3.5</b> (填充字段的平均值)<br>\n"
-"基于值例如：  <b>reading_value in (\"A\", \"B\", \"C\")</b>"
+msgstr "在检验读数字段上应用简单 Python 公式。<br>数值示例 1：<b>reading_1 &gt; 0.2 and reading_1 &lt; 0.5</b><br>\n"
+"数值示例 2：<b>mean &gt; 3.5</b>（已填写读数字段的平均值）<br>\n"
+"按值判定示例：<b>reading_value in (\"A\", \"B\", \"C\")</b>"
 
 #. Option for the 'Call Routing' (Select) field in DocType 'Incoming Call
 #. Settings'
@@ -51820,7 +51820,7 @@ msgstr "状态必须是{0}中的一个"
 
 #: erpnext/stock/doctype/quality_inspection/quality_inspection.py:283
 msgid "Status set to rejected as there are one or more rejected readings."
-msgstr "质检单状态因一个或多个检验项检验结果读数与标准要求不符已被改为拒绝"
+msgstr "存在一项或多项不合格检验读数，质量检验单状态已设为不合格。"
 
 #. Option for the 'Account Type' (Select) field in DocType 'Account'
 #. Label of a Desktop Icon
@@ -60018,7 +60018,7 @@ msgstr "折旧后金额"
 #. Inspection Reading'
 #: erpnext/stock/doctype/quality_inspection_reading/quality_inspection_reading.json
 msgid "Value Based Inspection"
-msgstr "检测结果"
+msgstr "按值检验"
 
 #. Label of the value_details_section (Section Break) field in DocType 'Asset
 #. Value Adjustment'
@@ -60251,7 +60251,7 @@ msgstr ""
 #. Label of the verified_by (Data) field in DocType 'Quality Inspection'
 #: erpnext/stock/doctype/quality_inspection/quality_inspection.json
 msgid "Verified By"
-msgstr "审批人"
+msgstr "复核人"
 
 #: erpnext/templates/emails/confirm_appointment.html:7
 #: erpnext/www/book_appointment/verify/index.html:4
