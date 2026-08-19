@@ -48,6 +48,7 @@ CORE_BUSINESS_DOCTYPES = {
 	"Item",
 	"Journal Entry",
 	"Job Card",
+	"Landed Cost Voucher",
 	"Material Request",
 	"Manufacturing Settings",
 	"Opportunity",
@@ -727,6 +728,35 @@ class TestZhFinanceTranslations(TestCase):
 			"Row #{0}: Item {1} in warehouse {2}: Available {3}, Needed {4}.": "第 {0} 行：物料 {1} 在仓库 {2} 中可用 {3}，需要 {4}。",
 			"Scheduler is inactive. Cannot enqueue job.": "调度器未启用，无法将任务加入队列。",
 			"Serial / Batch Bundle Missing": "缺少序列号与批号",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+
+	def test_landed_cost_allocation_uses_reviewed_chinese_terms(self):
+		translations = {
+			"Landed Cost Voucher": "到岸成本凭证",
+			"Landed Cost": "到岸成本",
+			"Landed Cost Item": "到岸成本明细",
+			"Applicable Charges": "分摊费用",
+			"Distribute Charges Based On": "费用分摊依据",
+			"Distribute Manually": "手动分摊",
+			"Charges are updated in Purchase Receipt against each item": "费用将按物料更新到采购入库中",
+			"Charges will be distributed proportionately based on item qty or amount, as per your selection": "费用将根据所选分摊依据，按物料数量或金额比例分摊。",
+			"Item valuation rate is recalculated considering landed cost voucher amount": "物料成本价将基于到岸成本凭证金额重新计算",
+			"Receipt Document": "入库单据",
+			"Receipt Document Type": "入库单据类型",
+			"Is Fixed Asset": "是否固定资产",
+			"Incorrect Account": "科目不正确",
+			"Incorrect Company": "公司不正确",
+			"Incorrect Reference Document (Purchase Receipt Item)": "关联单据不正确（采购入库明细）",
+			"Row {0}: Expense Account {1} is linked to company {2}. Please select an account belonging to company {3}.": "第 {0} 行：费用科目 {1} 关联到公司 {2}。请选择属于公司 {3} 的科目。",
+			"Row {0}: {1} {2} is linked to company {3}. Please select a document belonging to company {4}.": "第 {0} 行：{1} {2} 关联到公司 {3}。请选择属于公司 {4} 的单据。",
+			"Row {0}: {2} Item {1} does not exist in {2} {3}": "第 {0} 行：{2} 物料 {1} 不存在于 {2} {3} 中",
+			"Stock Ledger Entries and GL Entries are reposted for the selected Purchase Receipts": "将为所选采购入库重新过账物料凭证和会计凭证",
+			"Total Applicable Charges in Purchase Receipt Items table must be same as Total Taxes and Charges": "采购入库明细表中的适用费用合计必须等于税费合计",
+			"Total Landed Cost (Company Currency)": "到岸成本合计（本币）",
+			"Total Vendor Invoices Cost (Company Currency)": "供应商发票成本合计（本币）",
+			"Total {0} for all items is zero, may be you should change 'Distribute Charges Based On'": "所有物料的 {0} 合计为零，请考虑更改“费用分摊依据”",
 		}
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
