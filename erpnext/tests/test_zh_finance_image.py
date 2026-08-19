@@ -94,6 +94,8 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("input.dt-filter[title^='Filter based on ']", self.browser_overrides)
 		self.assertIn("#tree-level[aria-label='Tree Level']", self.browser_overrides)
 		self.assertIn("div[style*='text-align: right']", self.browser_overrides)
+		self.assertIn(".list-row-head [data-sort-by][title]", self.browser_overrides)
+		self.assertIn(".list-row .ellipsis[title]", self.browser_overrides)
 
 	def test_realtime_proxy_preserves_the_browser_origin(self):
 		self.assertIn("proxy_set_header Origin \\$frappe_socket_origin", self.containerfile)

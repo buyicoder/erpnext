@@ -74,6 +74,19 @@ export const localize_datatable_filter_title = (text, translate) => {
 export const localize_tree_level_label = (text, translate) =>
 	text === "Tree Level" ? translate(text) : text;
 
+export const localize_list_sort_title = (title, visible_label, translate) => {
+	if (!title || !visible_label) return title;
+	return translate("Click to sort by {0}", [visible_label.trim()]);
+};
+
+export const localize_list_value_title = (title, visible_value, translate) => {
+	const match = title?.match(/^(.+): (.+)$/);
+	if (!match) return title;
+	const localized_value = translate(match[2]);
+	if (localized_value === match[2] || localized_value !== visible_value.trim()) return title;
+	return `${match[1]}: ${localized_value}`;
+};
+
 const LOCALIZABLE_TIMELINE_VALUES = new Set(["To Deliver and Bill"]);
 
 export const localize_timeline_text = (text, translate) => {

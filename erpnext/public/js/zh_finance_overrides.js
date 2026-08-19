@@ -4,6 +4,8 @@ import {
 	localize_compact_cny_element,
 	localize_datatable_filter_title,
 	localize_login_activity_text,
+	localize_list_sort_title,
+	localize_list_value_title,
 	localize_awesomplete_status_text,
 	localize_timeline_element,
 	localize_tree_level_label,
@@ -36,6 +38,8 @@ if (frappe.boot.lang === "zh") {
 	const administrator_link_selector = 'a[href="/desk/user/Administrator"]';
 	const datatable_filter_selector = ".datatable input.dt-filter[title^='Filter based on ']";
 	const tree_level_selector = "#tree-level[aria-label='Tree Level']";
+	const list_sort_selector = ".list-row-head [data-sort-by][title]";
+	const list_value_title_selector = ".list-row .ellipsis[title]";
 	const localize_compact_cny = (root = document) => {
 		if (!root) return;
 		const elements = root.matches?.(cny_amount_selector)
@@ -103,12 +107,29 @@ if (frappe.boot.lang === "zh") {
 			);
 		});
 	};
+	const localize_list_titles = (root = document) => {
+		if (!root) return;
+		const sort_controls = root.matches?.(list_sort_selector)
+			? [root]
+			: root.querySelectorAll?.(list_sort_selector) || [];
+		sort_controls.forEach((element) => {
+			element.title = localize_list_sort_title(element.title, element.textContent, __);
+		});
+
+		const value_titles = root.matches?.(list_value_title_selector)
+			? [root]
+			: root.querySelectorAll?.(list_value_title_selector) || [];
+		value_titles.forEach((element) => {
+			element.title = localize_list_value_title(element.title, element.textContent, __);
+		});
+	};
 
 	localize_compact_cny();
 	localize_awesomplete_status();
 	localize_chart_dates();
 	localize_timeline();
 	localize_datatable_controls();
+	localize_list_titles();
 	new MutationObserver((mutations) => {
 		mutations.forEach((mutation) => {
 			if (mutation.type === "characterData") {
@@ -117,6 +138,7 @@ if (frappe.boot.lang === "zh") {
 				localize_chart_dates(mutation.target.parentElement);
 				localize_timeline(mutation.target.parentElement);
 				localize_datatable_controls(mutation.target.parentElement);
+				localize_list_titles(mutation.target.parentElement);
 				return;
 			}
 			mutation.addedNodes.forEach((node) => {
@@ -126,6 +148,7 @@ if (frappe.boot.lang === "zh") {
 					localize_chart_dates(node.parentElement);
 					localize_timeline(node.parentElement);
 					localize_datatable_controls(node.parentElement);
+					localize_list_titles(node.parentElement);
 					return;
 				}
 				if (node.nodeType !== Node.ELEMENT_NODE) return;
@@ -134,6 +157,7 @@ if (frappe.boot.lang === "zh") {
 				localize_chart_dates(node);
 				localize_timeline(node);
 				localize_datatable_controls(node);
+				localize_list_titles(node);
 			});
 		});
 	}).observe(document.body, {
