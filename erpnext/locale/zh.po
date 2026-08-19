@@ -13498,7 +13498,7 @@ msgstr "创建发票"
 #: erpnext/selling/onboarding_step/create_item/create_item.json
 #: erpnext/stock/onboarding_step/create_item/create_item.json
 msgid "Create Item"
-msgstr ""
+msgstr "创建物料"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.js:199
 msgid "Create Job Card"
@@ -13639,7 +13639,7 @@ msgstr "创建采购订单"
 #. Label of an action in the Onboarding Step 'Create Purchase Receipt'
 #: erpnext/stock/onboarding_step/create_purchase_receipt/create_purchase_receipt.json
 msgid "Create Purchase Receipt"
-msgstr ""
+msgstr "创建采购入库单"
 
 #: erpnext/utilities/activation.py:88
 msgid "Create Quotation"
@@ -13759,7 +13759,7 @@ msgstr "创建工时表"
 #. Label of an action in the Onboarding Step 'Create Transfer Entry'
 #: erpnext/stock/onboarding_step/create_transfer_entry/create_transfer_entry.json
 msgid "Create Transfer Entry"
-msgstr ""
+msgstr "创建调拨单"
 
 #: erpnext/setup/doctype/employee/employee.js:50
 #: erpnext/setup/doctype/employee/employee.js:52
@@ -13794,7 +13794,7 @@ msgstr "创建多规格物料"
 #. Label of an action in the Onboarding Step 'Setup Warehouse'
 #: erpnext/stock/onboarding_step/setup_warehouse/setup_warehouse.json
 msgid "Create Warehouses"
-msgstr ""
+msgstr "创建仓库"
 
 #. Title of an Onboarding Step
 #. Label of an action in the Onboarding Step 'Create Work Order'
@@ -45763,7 +45763,7 @@ msgstr ""
 #. Label of an action in the Onboarding Step 'Review Stock Settings'
 #: erpnext/stock/onboarding_step/review_stock_settings/review_stock_settings.json
 msgid "Review Stock Settings"
-msgstr ""
+msgstr "检查库存设置"
 
 #. Title of an Onboarding Step
 #. Label of an action in the Onboarding Step 'Review System Settings'
@@ -47544,7 +47544,7 @@ msgstr "销售"
 
 #: erpnext/stock/doctype/item/item_list.js:28
 msgid "Sales & Purchase"
-msgstr ""
+msgstr "采销"
 
 #: erpnext/setup/doctype/company/company.py:652
 msgid "Sales Account"
@@ -52402,7 +52402,7 @@ msgstr "库存设置"
 #. Title of the Module Onboarding 'Stock Onboarding'
 #: erpnext/stock/module_onboarding/stock_onboarding/stock_onboarding.json
 msgid "Stock Setup"
-msgstr ""
+msgstr "库存功能引导"
 
 #. Label of the stock_summary_tab (Tab Break) field in DocType 'Plant Floor'
 #. Label of the stock_summary (HTML) field in DocType 'Plant Floor'
@@ -60365,7 +60365,7 @@ msgstr ""
 #: erpnext/stock/onboarding_step/view_stock_balance_report/view_stock_balance_report.json
 #: erpnext/stock/report/stock_ledger/stock_ledger.js:139
 msgid "View Stock Balance"
-msgstr ""
+msgstr "查看库存余额"
 
 #. Title of an Onboarding Step
 #. Label of an action in the Onboarding Step 'View Stock Balance Report'
@@ -63513,3 +63513,43 @@ msgstr "合计"
 
 msgid "Filter based on"
 msgstr "筛选条件"
+
+# Stock workspace and list view overrides
+msgid "Brand"
+msgstr "品牌"
+
+msgid "Warehouse"
+msgstr "仓库"
+
+msgid "List View"
+msgstr "列表视图"
+
+msgid "Saved Filters"
+msgstr "已保存的筛选条件"
+
+msgid "Add"
+msgstr "新建"
+
+msgid "Filters"
+msgstr "筛选"
+
+msgid "Clear all filters"
+msgstr "清除全部筛选条件"
+
+msgid "Created On"
+msgstr "创建时间"
+
+msgid "Select All"
+msgstr "全选"
+
+msgid "Status"
+msgstr "状态"
+
+msgid "Item Type"
+msgstr "物料类型"
+
+msgid "Liked by me"
+msgstr "我收藏的"
+
+msgid "Enabled"
+msgstr "已启用"

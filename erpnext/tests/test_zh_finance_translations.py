@@ -42,6 +42,20 @@ class TestZhFinanceTranslations(TestCase):
 			"Due Date": "到期日",
 			"Today": "今天",
 			"Total": "合计",
+			"Stock Setup": "库存功能引导",
+			"Create Warehouses": "创建仓库",
+			"Create Item": "创建物料",
+			"Create Purchase Receipt": "创建采购入库单",
+			"Create Transfer Entry": "创建调拨单",
+			"View Stock Balance": "查看库存余额",
+			"Review Stock Settings": "检查库存设置",
+			"Brand": "品牌",
+			"Warehouse": "仓库",
+			"List View": "列表视图",
+			"Saved Filters": "已保存的筛选条件",
+			"Created On": "创建时间",
+			"Item Type": "物料类型",
+			"Sales & Purchase": "采销",
 		}
 
 		for source, translation in translations.items():
