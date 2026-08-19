@@ -35,3 +35,56 @@ class TestChinaDefaults(TestCase):
 			self.assertFalse(china_defaults.ensure_china_address_template())
 
 		custom_template.save.assert_not_called()
+
+	def test_existing_site_preferences_are_preserved_unless_forced(self):
+		system_settings = MagicMock(
+			language="zh",
+			time_zone="Asia/Urumqi",
+			date_format="dd/mm/yyyy",
+			currency_precision="4",
+		)
+		global_defaults = MagicMock(country="China", default_currency="CNY")
+		with (
+			patch.object(
+				china_defaults.frappe,
+				"get_single",
+				side_effect=[system_settings, global_defaults],
+			),
+			patch.object(china_defaults, "ensure_china_address_template"),
+			patch.object(china_defaults.frappe, "clear_cache"),
+		):
+			china_defaults.apply_china_defaults()
+
+		system_settings.update.assert_not_called()
+		system_settings.save.assert_not_called()
+		global_defaults.update.assert_not_called()
+		global_defaults.save.assert_not_called()
+
+	def test_setup_can_force_china_defaults(self):
+		system_settings = MagicMock(time_zone="Asia/Urumqi")
+		global_defaults = MagicMock(country="Singapore", default_currency="SGD")
+		with (
+			patch.object(
+				china_defaults.frappe,
+				"get_single",
+				side_effect=[system_settings, global_defaults],
+			),
+			patch.object(china_defaults, "ensure_china_address_template"),
+			patch.object(china_defaults.frappe, "clear_cache"),
+		):
+			china_defaults.apply_china_defaults(force=True)
+
+		system_settings.update.assert_called_once_with(CHINA_SYSTEM_DEFAULTS)
+		global_defaults.update.assert_called_once_with({"country": "China", "default_currency": "CNY"})
+
+	def test_current_managed_address_template_is_a_noop(self):
+		template = MagicMock(template=CHINA_ADDRESS_TEMPLATE, is_default=1)
+		fake_db = MagicMock()
+		fake_db.exists.return_value = True
+		with (
+			patch.object(china_defaults.frappe, "db", fake_db),
+			patch.object(china_defaults.frappe, "get_doc", return_value=template),
+		):
+			self.assertFalse(china_defaults.ensure_china_address_template())
+
+		template.save.assert_not_called()

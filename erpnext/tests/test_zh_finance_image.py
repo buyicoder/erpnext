@@ -70,7 +70,15 @@ class TestZhFinanceImage(TestCase):
 
 	def test_local_deploy_clears_runtime_translation_cache(self):
 		self.assertIn("up -d --force-recreate", self.deploy_script)
+		self.assertIn("for attempt in {1..30}", self.deploy_script)
+		self.assertIn("timeout 5s bench --site '${site_name}' execute frappe.utils.now", self.deploy_script)
+		self.assertIn("bench --site '${site_name}' execute frappe.utils.now", self.deploy_script)
+		self.assertIn("Local ERPNext did not become ready", self.deploy_script)
 		self.assertIn("bench --site '${site_name}' migrate", self.deploy_script)
+		self.assertIn(
+			"bench --site '${site_name}' execute erpnext.setup.china_defaults.apply_china_defaults",
+			self.deploy_script,
+		)
 		self.assertIn("bench --site '${site_name}' execute frappe.reload_doc", self.deploy_script)
 		self.assertIn("pos_invoice_with_item_image", self.deploy_script)
 		self.assertIn("sales_invoice_with_item_image", self.deploy_script)

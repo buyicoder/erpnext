@@ -2120,7 +2120,7 @@ msgstr "会计期间与{0}重叠"
 #. 'Company'
 #: erpnext/setup/doctype/company/company.json
 msgid "Accounting entries are frozen up to this date. Only users with the specified role can create or modify entries before this date."
-msgstr ""
+msgstr "截至该日期的会计分录均已冻结；只有拥有指定角色的用户才能创建或修改该日期之前的分录。"
 
 #. Label of the applicable_on_account (Link) field in DocType 'Applicable On
 #. Account'
@@ -2226,7 +2226,7 @@ msgstr "应收/应付报表性能优化"
 #. 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Accounts Receivable / Payable remarks length"
-msgstr ""
+msgstr "应收/应付备注长度"
 
 #. Label of the accounts_receivable_credit (Link) field in DocType 'Invoice
 #. Discounting'
@@ -2436,7 +2436,7 @@ msgstr ""
 #. Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Action if same rate is not maintained throughout internal transaction"
-msgstr ""
+msgstr "内部交易未保持相同单价时的处理方式"
 
 #. Label of the maintain_same_rate_action (Select) field in DocType 'Selling
 #. Settings'
@@ -4571,7 +4571,7 @@ msgstr "可使用的辅助核算"
 #. Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Allowed DocTypes"
-msgstr ""
+msgstr "允许的单据类型"
 
 #. Group in Supplier's connections
 #. Group in Customer's connections
@@ -6612,7 +6612,7 @@ msgstr "后台已启动自动对账"
 #. 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Auto Reconciliation job trigger"
-msgstr ""
+msgstr "自动对账任务触发方式"
 
 #: erpnext/accounts/doctype/process_payment_reconciliation/process_payment_reconciliation.py:153
 #: erpnext/accounts/doctype/process_payment_reconciliation/process_payment_reconciliation.py:201
@@ -6770,7 +6770,7 @@ msgstr "自动处理递延会计分录"
 #: banking/src/components/features/Settings/Preferences.tsx:84
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Automatically run rules on unreconciled transactions"
-msgstr ""
+msgstr "对未对账交易自动运行规则"
 
 #: erpnext/setup/setup_wizard/data/industry_type.txt:7
 msgid "Automotive"
@@ -8777,7 +8777,7 @@ msgstr "临时冻结供应商"
 #. 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Block a new Sales Invoice when the customer's overdue amount exceeds the Overdue Limit set on the customer."
-msgstr ""
+msgstr "当客户逾期金额超过客户资料中设置的逾期额度时，禁止新建销售发票。"
 
 #. Description of the 'Is Frozen' (Check) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
@@ -8844,7 +8844,7 @@ msgstr "预约登记"
 #. DocType 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Book Asset Depreciation entry automatically"
-msgstr ""
+msgstr "自动登记资产折旧分录"
 
 #. Label of the book_deferred_entries_based_on (Select) field in DocType
 #. 'Accounts Settings'
@@ -8866,13 +8866,13 @@ msgstr "预约登记"
 #. DocType 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Book deferred entries via Journal Entry"
-msgstr ""
+msgstr "通过日记账分录登记递延项目"
 
 #. Label of the book_tax_discount_loss (Check) field in DocType 'Accounts
 #. Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Book tax loss on early payment discount"
-msgstr ""
+msgstr "登记提前付款折扣产生的税额损失"
 
 #. Option for the 'Status' (Select) field in DocType 'Shipment'
 #: erpnext/stock/doctype/shipment/shipment.json
@@ -10427,7 +10427,7 @@ msgstr "不允许更改所选客户的客户组。"
 #. 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Changing the account in any transaction of the DocTypes listed below will trigger a repost. To prevent reposting, remove the relevant DocType from the list."
-msgstr ""
+msgstr "修改下列单据类型中任何交易的科目都会触发重新过账；如需禁止重新过账，请从列表中移除相应单据类型。"
 
 #: erpnext/stock/doctype/item/item.js:16
 msgid "Changing the valuation method to Moving Average will affect new transactions. If backdated entries are added, earlier FIFO-based entries will be reposted, which may change closing balances."
@@ -10551,9 +10551,9 @@ msgstr "如不需从工单触发工单发料，请勾选"
 #. Description of the 'Not Applicable' (Check) field in DocType 'Item Tax
 #. Template Detail'
 #: erpnext/accounts/doctype/item_tax_template_detail/item_tax_template_detail.json
-#, python-format
+#, no-python-format
 msgid "Check if this tax is not applicable to items (distinct from 0% rate)"
-msgstr ""
+msgstr "勾选表示此税种不适用于该物料（不同于 0% 税率）"
 
 #: erpnext/accounts/doctype/journal_entry_template/journal_entry_template.py:58
 msgid "Check row {0} for account {1}: Party Type is only allowed for Receivable or Payable accounts"
@@ -16121,7 +16121,7 @@ msgstr "默认应收科目"
 #. Label of the default_sales_contact (Link) field in DocType 'Company'
 #: erpnext/setup/doctype/company/company.json
 msgid "Default Sales Contact"
-msgstr ""
+msgstr "默认销售联系人"
 
 #. Label of the sales_uom (Link) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
@@ -16170,7 +16170,7 @@ msgstr "默认库存单位"
 #. Label of the valuation_method (Select) field in DocType 'Company'
 #: erpnext/setup/doctype/company/company.json
 msgid "Default Stock Valuation Method"
-msgstr ""
+msgstr "默认库存计价方法"
 
 #. Label of the default_supplier (Link) field in DocType 'Item Default'
 #: erpnext/stock/doctype/item_default/item_default.json
@@ -17128,7 +17128,7 @@ msgstr ""
 #. 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Determine Address Tax Category from"
-msgstr ""
+msgstr "税类判定所依据的地址"
 
 #. Description of the 'Tax Category' (Link) field in DocType 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
@@ -19234,7 +19234,7 @@ msgstr "勾选表示即使优先级为0也启用优先级规则"
 #. 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Enable this if you are experiencing issues with the new budget controller. Uses the older budget validation logic"
-msgstr ""
+msgstr "如果新版预算控制器出现问题，可启用此项以使用旧版预算校验逻辑。"
 
 #. Description of the 'Calculate daily depreciation using total days in
 #. depreciation period' (Check) field in DocType 'Accounts Settings'
@@ -20524,7 +20524,7 @@ msgstr "选物料清单底层物料（括子装配件）"
 #. DocType 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Fetch valuation rate for internal Transaction"
-msgstr ""
+msgstr "内部交易获取成本价"
 
 #. Description of the 'Price List' (Link) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
@@ -22203,7 +22203,7 @@ msgstr "会计总账"
 #. Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "General Ledger remarks length"
-msgstr ""
+msgstr "总账备注长度"
 
 #: erpnext/accounts/report/general_ledger/general_ledger.py:829
 msgid "General Ledger requires {0} to be synced to DuckDB"
@@ -23754,7 +23754,7 @@ msgstr "如勾选，则为POS交易中的找零自动生成日记账凭证"
 #. (Check) field in DocType 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "If enabled, rule matching algorithm will run every hour"
-msgstr ""
+msgstr "启用后，规则匹配算法将每小时运行一次。"
 
 #. Description of the 'Grant Commission' (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
@@ -29718,7 +29718,7 @@ msgstr "允许库存"
 #. DocType 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Maintain same rate throughout internal Transaction"
-msgstr ""
+msgstr "内部交易全程保持相同单价"
 
 #. Label of the maintain_same_sales_rate (Check) field in DocType 'Selling
 #. Settings'
@@ -30549,7 +30549,7 @@ msgstr ""
 #. Label of the transfer_match_days (Int) field in DocType 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Match transfers within 'N' days"
-msgstr ""
+msgstr "匹配 N 天内的转账"
 
 #. Option for the 'Reconciliation Type' (Select) field in DocType 'Bank
 #. Transaction Payments'
@@ -33374,7 +33374,7 @@ msgstr "发票日与付款到期日之间的账期天数"
 #. 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Number of days to consider for matching transfers across bank accounts"
-msgstr ""
+msgstr "跨银行账户匹配转账时纳入考虑的天数"
 
 #: banking/src/components/features/Settings/Preferences.tsx:58
 #: banking/src/components/features/Settings/Preferences.tsx:148
@@ -34962,7 +34962,7 @@ msgstr ""
 #. Label of the pcv_job_timeout (Int) field in DocType 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "PCV Job Timeout (seconds)"
-msgstr ""
+msgstr "期末结账凭证任务超时（秒）"
 
 #: erpnext/accounts/doctype/process_period_closing_voucher/process_period_closing_voucher.js:35
 msgid "PCV Paused"
@@ -36772,7 +36772,7 @@ msgstr "无法针对以下类型创建付款请求：{0}"
 #. in DocType 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Payment Requests made from Sales / Purchase Invoice will be put in Draft explicitly"
-msgstr ""
+msgstr "由销售发票或采购发票创建的付款请求将明确保存为草稿。"
 
 #. Label of the payment_schedule (Data) field in DocType 'Overdue Payment'
 #. Label of the payment_schedule (Link) field in DocType 'Payment Reference'
@@ -39277,7 +39277,7 @@ msgstr "记账日期不能是未来的日期"
 #. 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Posting Date inheritance for exchange gain / loss"
-msgstr ""
+msgstr "汇兑损益过账日期继承规则"
 
 #: erpnext/public/js/controllers/transaction.js:1139
 msgid "Posting Date will change to today's date as Edit Posting Date and Time is unchecked. Are you sure want to proceed?"
@@ -43765,7 +43765,7 @@ msgstr "核销类型"
 #. Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Reconciliation queue size"
-msgstr ""
+msgstr "对账队列大小"
 
 #: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:931
 msgid "Reconciling"
@@ -45831,7 +45831,7 @@ msgstr "杆"
 #. 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Role Allowed to Bypass Over Billing Restriction"
-msgstr ""
+msgstr "允许绕过逾期超额开票限制的角色"
 
 #. Label of the role_allowed_to_over_deliver_receive (Link) field in DocType
 #. 'Stock Settings'
@@ -45843,7 +45843,7 @@ msgstr "允许超量出/入库的角色"
 #. Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Role Allowed to over bill "
-msgstr ""
+msgstr "允许超额开票的角色"
 
 #. Label of the credit_controller (Link) field in DocType 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
@@ -45854,7 +45854,7 @@ msgstr "允许绕过信用额度的角色"
 #. Period'
 #: erpnext/accounts/doctype/accounting_period/accounting_period.json
 msgid "Role allowed to bypass period restrictions."
-msgstr ""
+msgstr "允许绕过会计期间限制的角色。"
 
 #. Label of the role_allowed_to_create_edit_back_dated_transactions (Link)
 #. field in DocType 'Stock Settings'
@@ -45877,19 +45877,19 @@ msgstr ""
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Role allowed to override stop action"
-msgstr ""
+msgstr "允许覆盖停止操作的角色"
 
 #. Label of the role_to_notify_on_depreciation_failure (Link) field in DocType
 #. 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Role to Notify on Depreciation Failure"
-msgstr ""
+msgstr "折旧失败时通知的角色"
 
 #. Label of the role_allowed_for_frozen_entries (Link) field in DocType
 #. 'Company'
 #: erpnext/setup/doctype/company/company.json
 msgid "Roles Allowed to Set and Edit Frozen Account Entries"
-msgstr ""
+msgstr "允许设置和编辑冻结会计分录的角色"
 
 #. Label of the root (Link) field in DocType 'Bisect Nodes'
 #: erpnext/accounts/doctype/bisect_nodes/bisect_nodes.json
@@ -52040,7 +52040,7 @@ msgstr "物料移动{0}不提交"
 #. 'Company'
 #: erpnext/setup/doctype/company/company.json
 msgid "Stock Expense"
-msgstr ""
+msgstr "库存费用"
 
 #. Label of the stock_expense_section (Section Break) field in DocType
 #. 'Accounts Settings'
@@ -56472,7 +56472,7 @@ msgstr "时间线"
 #. 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Timeout (in seconds) for each background job enqueued by Process Period Closing Voucher"
-msgstr ""
+msgstr "处理期末结账凭证时，每个后台任务的超时时间（秒）"
 
 #: erpnext/manufacturing/doctype/workstation/workstation_job_card.html:36
 #: erpnext/public/js/projects/timer.js:5
@@ -59530,13 +59530,13 @@ msgstr "购物车适用"
 #. Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Use legacy Budget Controller"
-msgstr ""
+msgstr "使用旧版预算控制器"
 
 #. Label of the use_legacy_controller_for_pcv (Check) field in DocType
 #. 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Use legacy controller for Period Closing Voucher"
-msgstr ""
+msgstr "期末结账凭证使用旧版控制器"
 
 #. Label of the fallback_to_default_price_list (Check) field in DocType
 #. 'Selling Settings'
@@ -59677,13 +59677,13 @@ msgstr "此角色的用户可超订单数量容差出入库"
 #. field in DocType 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Users with this role can still submit invoices for customers who have crossed their Overdue Limit."
-msgstr ""
+msgstr "拥有此角色的用户即使客户已超过逾期额度，仍可提交销售发票。"
 
 #. Description of the 'Role to Notify on Depreciation Failure' (Link) field in
 #. DocType 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Users with this role will be notified if the asset depreciation gets failed"
-msgstr ""
+msgstr "资产折旧失败时将通知拥有此角色的用户。"
 
 #: erpnext/stock/doctype/stock_settings/stock_settings.js:103
 msgid "Using negative stock disables FIFO/Moving average valuation when inventory is negative."

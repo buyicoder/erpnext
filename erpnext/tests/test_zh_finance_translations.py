@@ -50,16 +50,29 @@ CORE_BUSINESS_DOCTYPES = {
 	"Supplier",
 }
 
+CHINA_COMPLIANCE_DOCTYPES = {
+	"Accounting Period",
+	"Accounts Settings",
+	"Company",
+	"Item Tax Template",
+	"Period Closing Voucher",
+	"Purchase Taxes and Charges Template",
+	"Sales Taxes and Charges Template",
+	"Tax Category",
+}
+
 # These are literal field descriptions, not printf templates. Babel infers the
 # leading "% o" as a printf placeholder even though Frappe never interpolates it.
 BABEL_LITERAL_PERCENT_MESSAGES = {
 	"% of materials billed against this Sales Order",
 	"% of materials delivered against this Sales Order",
+	"Check if this tax is not applicable to items (distinct from 0% rate)",
 }
 
 
 class TestZhFinanceTranslations(TestCase):
 	def setUp(self):
+		self.maxDiff = None
 		po_path = Path(__file__).parents[1] / "locale" / "zh.po"
 		self.catalog = read_po(BytesIO(po_path.read_bytes()), locale="zh")
 		repo_root = Path(__file__).parents[2]
@@ -196,7 +209,7 @@ class TestZhFinanceTranslations(TestCase):
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
 
-	def test_every_core_business_doctype_field_has_a_translation_owner(self):
+	def test_every_core_and_compliance_doctype_field_has_a_translation_owner(self):
 		doctype_root = Path(__file__).parents[1]
 		documents = {}
 		for path in sorted(doctype_root.glob("**/doctype/*/*.json")):
@@ -204,8 +217,9 @@ class TestZhFinanceTranslations(TestCase):
 			if isinstance(data, dict) and data.get("name"):
 				documents[data["name"]] = (path, data)
 
-		target_doctypes = set(CORE_BUSINESS_DOCTYPES)
-		for doctype in CORE_BUSINESS_DOCTYPES:
+		root_doctypes = CORE_BUSINESS_DOCTYPES | CHINA_COMPLIANCE_DOCTYPES
+		target_doctypes = set(root_doctypes)
+		for doctype in root_doctypes:
 			_data = documents[doctype][1]
 			target_doctypes.update(
 				field["options"]
@@ -251,6 +265,26 @@ class TestZhFinanceTranslations(TestCase):
 							)
 
 		self.assertEqual(missing, [])
+
+	def test_china_compliance_controls_use_reviewed_terms(self):
+		translations = {
+			"Role allowed to bypass period restrictions.": "允许绕过会计期间限制的角色。",
+			"Accounting entries are frozen up to this date. Only users with the specified role can create or modify entries before this date.": "截至该日期的会计分录均已冻结；只有拥有指定角色的用户才能创建或修改该日期之前的分录。",
+			"Roles Allowed to Set and Edit Frozen Account Entries": "允许设置和编辑冻结会计分录的角色",
+			"Determine Address Tax Category from": "税类判定所依据的地址",
+			"Role Allowed to over bill ": "允许超额开票的角色",
+			"Role Allowed to Bypass Over Billing Restriction": "允许绕过逾期超额开票限制的角色",
+			"Use legacy controller for Period Closing Voucher": "期末结账凭证使用旧版控制器",
+			"PCV Job Timeout (seconds)": "期末结账凭证任务超时（秒）",
+			"Automatically run rules on unreconciled transactions": "对未对账交易自动运行规则",
+			"Action if same rate is not maintained throughout internal transaction": "内部交易未保持相同单价时的处理方式",
+			"Maintain same rate throughout internal Transaction": "内部交易全程保持相同单价",
+			"Fetch valuation rate for internal Transaction": "内部交易获取成本价",
+			"Check if this tax is not applicable to items (distinct from 0% rate)": "勾选表示此税种不适用于该物料（不同于 0% 税率）",
+		}
+
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
 
 	def test_core_transaction_forms_use_reviewed_chinese_terms(self):
 		translations = {

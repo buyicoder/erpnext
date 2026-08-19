@@ -29,7 +29,7 @@ def set_default_settings(args):
 	if args.get("country") == "China":
 		from erpnext.setup.china_defaults import apply_china_defaults
 
-		apply_china_defaults()
+		apply_china_defaults(force=True)
 
 	stock_settings = frappe.get_doc("Stock Settings")
 	stock_settings.item_naming_by = "Item Code"
