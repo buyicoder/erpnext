@@ -1,0 +1,265 @@
+// A restrained, enterprise-oriented Desk skin for Chinese finance teams.
+:root {
+	--cn-brand-50: #eef4ff;
+	--cn-brand-500: #3370ff;
+	--cn-brand-600: #245bdb;
+	--cn-ink-900: #172033;
+	--cn-ink-700: #3f4a60;
+	--cn-ink-500: #69758a;
+	--cn-surface: var(--neutral-white);
+	--cn-canvas: #f5f7fa;
+	--cn-border: #e5e9f0;
+	--cn-radius-sm: 6px;
+	--cn-radius-md: var(--border-radius-md);
+	--cn-shadow-sm: 0 1px 2px rgba(23, 32, 51, 0.04);
+	--cn-shadow-md: 0 8px 24px rgba(23, 32, 51, 0.07);
+}
+
+[data-theme="light"] {
+	--navbar-height: 56px;
+
+body {
+	--primary: var(--cn-brand-500);
+	--primary-color: var(--cn-brand-500);
+	--bg-color: var(--cn-canvas);
+	--card-bg: var(--cn-surface);
+	--text-color: var(--cn-ink-900);
+	--text-muted: var(--cn-ink-500);
+	--border-color: var(--cn-border);
+	background: var(--cn-canvas);
+	color: var(--cn-ink-900);
+	font-family: "PingFang SC", "Microsoft YaHei", Inter, -apple-system, BlinkMacSystemFont,
+		"Segoe UI", sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+// Keep the global frame quiet and information-dense.
+.navbar {
+	min-height: 56px;
+	background: rgba(255, 255, 255, 0.96) !important;
+	border-bottom: 1px solid var(--cn-border);
+	box-shadow: none !important;
+	backdrop-filter: blur(14px);
+
+	.navbar-brand {
+		font-weight: 700;
+		letter-spacing: 0.01em;
+	}
+
+	.nav-link {
+		color: var(--cn-ink-700);
+	}
+
+	.nav-link:hover {
+		color: var(--cn-brand-600);
+		background: var(--cn-brand-50);
+	}
+}
+
+.page-container,
+.layout-main,
+.layout-main-section-wrapper {
+	background: var(--cn-canvas);
+}
+
+.page-head {
+	background: rgba(245, 247, 250, 0.92);
+	border-bottom: 1px solid rgba(229, 233, 240, 0.85);
+	backdrop-filter: blur(10px);
+
+	.page-title .title-text {
+		color: var(--cn-ink-900);
+		font-weight: 650;
+		letter-spacing: -0.015em;
+	}
+}
+
+.desk-sidebar,
+.layout-side-section {
+	.sidebar-menu,
+	.standard-sidebar-section {
+		background: transparent;
+	}
+
+	.sidebar-item,
+	.desk-sidebar-item,
+	.standard-sidebar-item {
+		border-radius: var(--cn-radius-sm);
+		color: var(--cn-ink-700);
+		font-weight: 500;
+		transition: background 120ms ease, color 120ms ease;
+
+		&:hover {
+			background: #eef1f6;
+			color: var(--cn-ink-900);
+		}
+
+		&.selected,
+		&.active {
+			background: var(--cn-brand-50);
+			color: var(--cn-brand-600);
+			font-weight: 600;
+		}
+	}
+}
+
+	.layout-main-section,
+	.layout-main-section.frappe-card,
+	.form-layout,
+.widget,
+.dashboard-widget,
+.frappe-card,
+.modal-content,
+.dropdown-menu {
+	background: var(--cn-surface);
+	border: 1px solid var(--cn-border);
+	border-radius: var(--cn-radius-md);
+	box-shadow: var(--cn-shadow-sm);
+}
+
+.widget,
+.dashboard-widget,
+.frappe-card {
+	transition: border-color 140ms ease, box-shadow 140ms ease;
+
+	&:hover {
+		border-color: #d8deea;
+		box-shadow: var(--cn-shadow-md);
+	}
+}
+
+.widget-head,
+.section-head,
+.form-section .section-head {
+	color: var(--cn-ink-900);
+	font-weight: 650;
+}
+
+.btn {
+	min-height: 32px;
+	border-radius: var(--cn-radius-sm);
+	font-weight: 550;
+	box-shadow: none;
+	transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+
+	&:focus-visible {
+		box-shadow: var(--focus-default) !important;
+	}
+}
+
+.btn-primary,
+.btn-primary-dark {
+	background: var(--cn-brand-500) !important;
+	border-color: var(--cn-brand-500) !important;
+	color: #fff !important;
+
+	&:hover,
+	&:focus {
+		background: var(--cn-brand-600) !important;
+		border-color: var(--cn-brand-600) !important;
+	}
+}
+
+.btn-default,
+.btn-secondary {
+	background: #fff;
+	border-color: #dfe4ec;
+	color: var(--cn-ink-700);
+
+	&:hover {
+		background: #f7f8fa;
+		border-color: #cfd6e2;
+		color: var(--cn-ink-900);
+	}
+}
+
+.form-control,
+.input-with-feedback,
+.awesomplete > input,
+.search-bar .awesomplete input {
+	min-height: 34px;
+	background: #fff;
+	border: 1px solid #dfe4ec;
+	border-radius: var(--cn-radius-sm);
+	color: var(--cn-ink-900);
+	box-shadow: none;
+
+	&:hover {
+		border-color: #cbd3e0;
+	}
+
+	&:focus {
+		border-color: var(--cn-brand-500);
+		box-shadow: 0 0 0 3px rgba(51, 112, 255, 0.12);
+	}
+}
+
+.list-row,
+.list-row-head,
+.report-view .datatable .dt-row {
+	border-color: var(--cn-border);
+}
+
+.list-row {
+	transition: background 100ms ease;
+
+	&:hover {
+		background: #f7f9fc;
+	}
+}
+
+.list-row-head {
+	background: #f8f9fb;
+	color: var(--cn-ink-500);
+	font-weight: 600;
+}
+
+.indicator-pill,
+.badge {
+	border-radius: var(--border-radius-full);
+	font-weight: 600;
+	letter-spacing: 0;
+}
+
+.modal-content,
+.dropdown-menu {
+	box-shadow: var(--cn-shadow-md);
+}
+
+.modal-header,
+.modal-footer {
+	border-color: var(--cn-border);
+}
+
+.form-tabs-list {
+	border-color: var(--cn-border);
+
+	.nav-link {
+		color: var(--cn-ink-500);
+		font-weight: 550;
+	}
+
+	.nav-link.active {
+		color: var(--cn-brand-600);
+		border-bottom-color: var(--cn-brand-500);
+	}
+}
+
+@media (max-width: 768px) {
+	--navbar-height: 52px;
+
+	.navbar {
+		min-height: 52px;
+	}
+
+	.page-head {
+		background: var(--cn-canvas);
+	}
+
+	.form-control,
+	.input-with-feedback,
+	.btn {
+		min-height: 36px;
+	}
+}
+}
