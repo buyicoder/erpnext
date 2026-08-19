@@ -1141,7 +1141,7 @@ msgstr "创建物料移动所依赖的逻辑仓库。"
 
 #: erpnext/stock/serial_batch_bundle.py:1565
 msgid "A naming series conflict occurred while creating serial numbers. Please change the naming series for the item {0}."
-msgstr ""
+msgstr "创建序列号时发生命名规则冲突。请更改物料 {0} 的命名规则。"
 
 #: erpnext/templates/emails/confirm_appointment.html:2
 msgid "A new appointment has been created for you with {0}"
@@ -6798,7 +6798,7 @@ msgstr "可用数量"
 #. DocType 'Bin'
 #: erpnext/stock/doctype/bin/bin.json
 msgid "Available / Future Inventory"
-msgstr ""
+msgstr "可用库存／未来库存"
 
 #. Label of the actual_batch_qty (Float) field in DocType 'Delivery Note Item'
 #: erpnext/stock/doctype/delivery_note_item/delivery_note_item.json
@@ -8659,7 +8659,7 @@ msgstr "储位"
 
 #: erpnext/stock/doctype/bin/bin.js:16
 msgid "Bin Values Recalculated"
-msgstr ""
+msgstr "库存汇总值已重新计算"
 
 #. Label of the bio (Text Editor) field in DocType 'Employee'
 #: erpnext/setup/doctype/employee/employee.json
@@ -12451,7 +12451,7 @@ msgstr "耗用库存总价值"
 
 #: erpnext/stock/doctype/stock_entry_type/stock_entry_type.py:136
 msgid "Consumed quantity of item {0} exceeds transferred quantity."
-msgstr ""
+msgstr "物料 {0} 的消耗数量超过调拨数量。"
 
 #: erpnext/setup/setup_wizard/data/industry_type.txt:15
 msgid "Consumer Products"
@@ -18403,7 +18403,7 @@ msgstr "发现重复销售发票"
 
 #: erpnext/stock/serial_batch_bundle.py:1568
 msgid "Duplicate Serial Number Error"
-msgstr ""
+msgstr "序列号重复错误"
 
 #: erpnext/stock/doctype/stock_closing_entry/stock_closing_entry.py:123
 msgid "Duplicate Stock Closing Entry"
@@ -21995,7 +21995,7 @@ msgstr "履行条款和条件"
 
 #: erpnext/stock/doctype/shipment/shipment.js:275
 msgid "Full Name, Email or Phone/Mobile of the user are mandatory to continue."
-msgstr ""
+msgstr "必须填写用户的姓名、电子邮箱或电话／手机号码后才能继续。"
 
 #. Option for the 'Reference Type' (Select) field in DocType 'Journal Entry
 #. Account'
@@ -22126,7 +22126,7 @@ msgstr "全球贸易项目代码"
 #. Option for the 'Barcode Type' (Select) field in DocType 'Item Barcode'
 #: erpnext/stock/doctype/item_barcode/item_barcode.json
 msgid "GTIN-14"
-msgstr ""
+msgstr "GTIN-14"
 
 #. Label of the gain_loss (Currency) field in DocType 'Exchange Rate
 #. Revaluation Account'
@@ -27659,7 +27659,7 @@ msgstr "物料价格与库存"
 #: erpnext/stock/get_item_details.py:1143
 #: erpnext/stock/get_item_details.py:1167
 msgid "Item Price added for {0} in Price List - {1}"
-msgstr ""
+msgstr "已为 {0} 在价格表 {1} 中添加物料价格"
 
 #: erpnext/stock/doctype/item_price/item_price.py:140
 msgid "Item Price appears multiple times based on Price List, Supplier/Customer, Currency, Item, Batch, UOM, Qty, and Dates."
@@ -27909,7 +27909,7 @@ msgstr "物料重量"
 #. Name of a report
 #: erpnext/stock/report/item_where_used/item_where_used.json
 msgid "Item Where Used"
-msgstr ""
+msgstr "物料使用情况"
 
 #. Label of a Link in the Buying Workspace
 #. Name of a report
@@ -30069,7 +30069,7 @@ msgstr "必填会计维度"
 #. 'Inventory Dimension'
 #: erpnext/stock/doctype/inventory_dimension/inventory_dimension.json
 msgid "Mandatory Depends On (Backend)"
-msgstr ""
+msgstr "必填条件（后端）"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:1935
 msgid "Mandatory Field"
@@ -31065,6 +31065,10 @@ msgstr "最大值"
 msgid "Maximum discount percentage allowed when selling this item. For example, if set to 20 percent, a discount greater than 20 percent cannot be applied in sales transactions."
 msgstr "销售此物料时允许的最大折扣百分比。例如设为 20%，销售交易中不能使用超过 20% 的折扣。"
 
+#: erpnext/stock/doctype/item/item.json
+msgid "Maximum discount % allowed when selling this item. Eg: if set to 20%, a discount greater than 20% cannot be applied in sales transactions."
+msgstr "销售此物料时允许的最大折扣比例。例如设为 20%，销售交易不能应用超过 20% 的折扣。"
+
 #: erpnext/controllers/selling_controller.py:279
 msgid "Maximum discount for Item {0} is {1}%"
 msgstr "第{0}项的最大折扣为{1}％"
@@ -31984,7 +31988,7 @@ msgstr "需求分析"
 #. Name of a report
 #: erpnext/stock/report/negative_batch_report/negative_batch_report.json
 msgid "Negative Batch Report"
-msgstr ""
+msgstr "负库存批次报表"
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:633
 msgid "Negative Quantity is not allowed"
@@ -38306,7 +38310,7 @@ msgstr "请填写可用时段表后再启用预约安排。"
 
 #: erpnext/stock/doctype/shipment/shipment.js:277
 msgid "Please first set Full Name, Email and Phone for the user"
-msgstr ""
+msgstr "请先为用户设置姓名、电子邮箱和电话号码"
 
 #: erpnext/telephony/doctype/incoming_call_settings/incoming_call_settings.js:94
 msgid "Please fix overlapping time slots for {0}"
@@ -41750,7 +41754,7 @@ msgstr "仓库{1}中物料{0}的上架规则已存在"
 #. DocType 'Inventory Dimension'
 #: erpnext/stock/doctype/inventory_dimension/inventory_dimension.json
 msgid "Python expression evaluated on the server. Use doc.fieldname for the row and parent.fieldname for the parent document. When it evaluates to true the dimension becomes mandatory. Example: doc.t_warehouse and doc.qty > 0"
-msgstr ""
+msgstr "在服务器上计算的 Python 表达式。使用 doc.fieldname 引用当前行字段，使用 parent.fieldname 引用父单据字段。表达式结果为真时，该辅助核算项成为必填项。例如：doc.t_warehouse and doc.qty > 0"
 
 #: banking/src/components/features/BankReconciliation/BankRecDateFilter.tsx:41
 msgid "Q1"
@@ -42597,11 +42601,11 @@ msgstr "数量为必填项"
 
 #: erpnext/stock/dashboard/item_dashboard.js:285
 msgid "Quantity must be greater than zero"
-msgstr ""
+msgstr "数量必须大于零"
 
 #: erpnext/stock/dashboard/item_dashboard.js:290
 msgid "Quantity must be less than or equal to {0}"
-msgstr ""
+msgstr "数量必须小于或等于 {0}"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.js:1114
 #: erpnext/stock/doctype/pick_list/pick_list.js:214
@@ -43446,7 +43450,7 @@ msgstr "重新计算成本价"
 
 #: erpnext/stock/doctype/bin/bin.js:10
 msgid "Recalculate Values"
-msgstr ""
+msgstr "重新计算数值"
 
 #. Option for the 'Status' (Select) field in DocType 'Asset'
 #. Option for the 'Purpose' (Select) field in DocType 'Asset Movement'
@@ -45087,7 +45091,7 @@ msgstr "预留批次冲突"
 #. 'Bin'
 #: erpnext/stock/doctype/bin/bin.json
 msgid "Reserved Inventory"
-msgstr ""
+msgstr "已预留库存"
 
 #. Label of the reserved_qty (Float) field in DocType 'Bin'
 #. Label of the reserved_qty (Float) field in DocType 'Stock Reservation Entry'
@@ -50515,7 +50519,7 @@ msgstr "设置销售税"
 #. Title of an Onboarding Step
 #: erpnext/stock/onboarding_step/setup_warehouse/setup_warehouse.json
 msgid "Setup Warehouse"
-msgstr ""
+msgstr "设置仓库"
 
 #: erpnext/public/js/setup_wizard.js:120
 msgid "Setup your organization"
@@ -52075,7 +52079,7 @@ msgstr "存货费用"
 
 #: erpnext/stock/stock_ledger.py:80
 msgid "Stock Frozen"
-msgstr ""
+msgstr "库存已冻结"
 
 #: erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts.py:37
 #: erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts_with_account_number.py:60
@@ -52241,7 +52245,7 @@ msgstr "库存数量"
 #. Name of a report
 #: erpnext/stock/report/stock_qty_vs_batch_qty/stock_qty_vs_batch_qty.json
 msgid "Stock Qty vs Batch Qty"
-msgstr ""
+msgstr "库存数量与批次数量对比"
 
 #. Name of a report
 #: erpnext/stock/report/stock_qty_vs_serial_no_count/stock_qty_vs_serial_no_count.json
@@ -52689,7 +52693,7 @@ msgstr "物料 {0} 在仓库 {2} 中无可预留数量"
 
 #: erpnext/stock/doctype/stock_reservation_entry/stock_reservation_entry.py:1240
 msgid "Stock not available to reserve for the Item {0} in Warehouse {1}."
-msgstr ""
+msgstr "物料 {0} 在仓库 {1} 中没有可供预留的库存。"
 
 #: erpnext/selling/page/point_of_sale/pos_controller.js:826
 msgid "Stock quantity not enough for Item Code: {0} under warehouse {1}. Available quantity {2} {3}."
@@ -52701,7 +52705,7 @@ msgstr "早于{0}的库存事务已冻结"
 
 #: erpnext/stock/stock_ledger.py:74
 msgid "Stock transactions dated on or before {0} are frozen because the period is closed and the Stock Closing Entry {1} has been generated. To make changes, cancel the Period Closing Voucher first."
-msgstr ""
+msgstr "日期为 {0} 或更早的库存交易已冻结，因为期间已结账并生成库存结转分录 {1}。如需修改，请先取消期末结账凭证。"
 
 #. Description of the 'Freeze stocks older than (days)' (Int) field in DocType
 #. 'Stock Settings'
@@ -55737,7 +55741,7 @@ msgstr "股份不存在{0}"
 
 #: erpnext/stock/stock_ledger.py:866
 msgid "The stock for the item {0} in the {1} warehouse was negative on the {2}. You should create a positive entry {3} before the date {4} and time {5} to post the correct valuation rate. For more details, please read the <a href='https://docs.erpnext.com/docs/user/manual/en/stock-adjustment-cogs-with-negative-stock'>documentation<a>."
-msgstr ""
+msgstr "物料 {0} 在仓库 {1} 中的库存于 {2} 为负数。您应创建正数记录 {3}，并使其早于日期 {4}、时间 {5}，以便过账正确的成本价。详情请阅读<a href='https://docs.erpnext.com/docs/user/manual/en/stock-adjustment-cogs-with-negative-stock'>说明文档<a>。"
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:742
 msgid "The stock has been reserved for the following Items and Warehouses, un-reserve the same to {0} the Stock Reconciliation: <br /><br /> {1}"
@@ -62926,7 +62930,7 @@ msgstr "{0}不是物料{2}的属性{1}的有效值"
 
 #: erpnext/stock/utils.py:133
 msgid "{0} is not a valid {1} fieldname."
-msgstr ""
+msgstr "{0} 不是有效的 {1} 字段名。"
 
 #: erpnext/accounts/doctype/pricing_rule/pricing_rule.py:186
 msgid "{0} is not added in the table"
@@ -63031,7 +63035,7 @@ msgstr "任何仓库中均无法提供 {0} 个单位的物料 {1}，且该物料
 
 #: erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py:145
 msgid "{0} units of {1} are required in {2} with the inventory dimension: {3} on {4} {5} for {6} to complete the transaction."
-msgstr ""
+msgstr "需要 {0} 个 {1} 存放于 {2}，库存辅助核算为 {3}，日期 {4}、时间 {5}，供 {6} 完成交易。"
 
 #: erpnext/stock/stock_ledger.py:1744 erpnext/stock/stock_ledger.py:2259
 #: erpnext/stock/stock_ledger.py:2273

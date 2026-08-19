@@ -131,7 +131,7 @@ def get_stock_balance(
 			if field not in inventory_dimensions_fieldname:
 				frappe.throw(
 					_("{0} is not a valid {1} fieldname.").format(
-						frappe.bold(field), frappe.bold("Inventory Dimension")
+						frappe.bold(field), frappe.bold(_("Inventory Dimension"))
 					)
 				)
 			args[field] = value

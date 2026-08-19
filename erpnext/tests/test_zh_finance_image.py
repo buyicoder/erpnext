@@ -72,6 +72,7 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("company_letterhead_grey.html", self.containerfile)
 		self.assertIn("company_letterhead___grey.json", self.containerfile)
 		self.assertIn("erpnext/stock/doctype/item/item.json", self.containerfile)
+		self.assertIn("erpnext/stock/utils.py", self.containerfile)
 		self.assertIn("erpnext/setup/china_defaults.py", self.containerfile)
 		self.assertIn("erpnext/setup/setup_wizard/operations/defaults_setup.py", self.containerfile)
 		self.assertIn(
@@ -141,6 +142,8 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn('"Email Campaign Send Error": "邮件营销活动发送错误"', self.build_script)
 		self.assertIn('"Invalid Discount Amount": "折扣金额无效"', self.build_script)
 		self.assertIn('"Reserved Batch Conflict": "预留批次冲突"', self.build_script)
+		self.assertIn('"Stock Frozen": "库存已冻结"', self.build_script)
+		self.assertIn('"Duplicate Serial Number Error": "序列号重复错误"', self.build_script)
 		self.assertIn("this.print_format_control.get_value()", self.build_script)
 		self.assertIn("Banking HTML references missing assets", self.build_script)
 		self.assertIn("Banking entry bundle lacks translation readiness contract", self.build_script)

@@ -184,6 +184,7 @@ BABEL_LITERAL_PERCENT_MESSAGES = {
 	"Check if this tax is not applicable to items (distinct from 0% rate)",
 	"In this case, the amount will be calculated as 25% of the transaction amount. If the transaction amount is 200, then this will be calculated as 200 * 0.25 = 50.",
 	"{0}% of total invoice value will be given as discount.",
+	"Maximum discount % allowed when selling this item. Eg: if set to 20%, a discount greater than 20% cannot be applied in sales transactions.",
 }
 
 
@@ -464,6 +465,7 @@ class TestZhFinanceTranslations(TestCase):
 			"erpnext/buying/",
 			"erpnext/crm/",
 			"erpnext/controllers/",
+			"erpnext/stock/",
 		)
 		missing = []
 		for source_message in self.source_catalog:
@@ -630,6 +632,47 @@ class TestZhFinanceTranslations(TestCase):
 				any(message and message.string and "fuzzy" not in message.flags for message in messages),
 				source,
 			)
+
+	def test_stock_workflows_use_reviewed_chinese_terms(self):
+		translations = {
+			"A naming series conflict occurred while creating serial numbers. Please change the naming series for the item {0}.": "创建序列号时发生命名规则冲突。请更改物料 {0} 的命名规则。",
+			"Available / Future Inventory": "可用库存／未来库存",
+			"Bin Values Recalculated": "库存汇总值已重新计算",
+			"Consumed quantity of item {0} exceeds transferred quantity.": "物料 {0} 的消耗数量超过调拨数量。",
+			"Duplicate Serial Number Error": "序列号重复错误",
+			"Full Name, Email or Phone/Mobile of the user are mandatory to continue.": "必须填写用户的姓名、电子邮箱或电话／手机号码后才能继续。",
+			"GTIN-14": "GTIN-14",
+			"Item Price added for {0} in Price List - {1}": "已为 {0} 在价格表 {1} 中添加物料价格",
+			"Item Where Used": "物料使用情况",
+			"Mandatory Depends On (Backend)": "必填条件（后端）",
+			"Maximum discount % allowed when selling this item. Eg: if set to 20%, a discount greater than 20% cannot be applied in sales transactions.": "销售此物料时允许的最大折扣比例。例如设为 20%，销售交易不能应用超过 20% 的折扣。",
+			"Negative Batch Report": "负库存批次报表",
+			"Please first set Full Name, Email and Phone for the user": "请先为用户设置姓名、电子邮箱和电话号码",
+			"Python expression evaluated on the server. Use doc.fieldname for the row and parent.fieldname for the parent document. When it evaluates to true the dimension becomes mandatory. Example: doc.t_warehouse and doc.qty > 0": "在服务器上计算的 Python 表达式。使用 doc.fieldname 引用当前行字段，使用 parent.fieldname 引用父单据字段。表达式结果为真时，该辅助核算项成为必填项。例如：doc.t_warehouse and doc.qty > 0",
+			"Quantity must be greater than zero": "数量必须大于零",
+			"Quantity must be less than or equal to {0}": "数量必须小于或等于 {0}",
+			"Recalculate Values": "重新计算数值",
+			"Reserved Inventory": "已预留库存",
+			"Setup Warehouse": "设置仓库",
+			"Stock Frozen": "库存已冻结",
+			"Stock Qty vs Batch Qty": "库存数量与批次数量对比",
+			"Stock not available to reserve for the Item {0} in Warehouse {1}.": "物料 {0} 在仓库 {1} 中没有可供预留的库存。",
+			"Stock transactions dated on or before {0} are frozen because the period is closed and the Stock Closing Entry {1} has been generated. To make changes, cancel the Period Closing Voucher first.": "日期为 {0} 或更早的库存交易已冻结，因为期间已结账并生成库存结转分录 {1}。如需修改，请先取消期末结账凭证。",
+			"The stock for the item {0} in the {1} warehouse was negative on the {2}. You should create a positive entry {3} before the date {4} and time {5} to post the correct valuation rate. For more details, please read the <a href='https://docs.erpnext.com/docs/user/manual/en/stock-adjustment-cogs-with-negative-stock'>documentation<a>.": "物料 {0} 在仓库 {1} 中的库存于 {2} 为负数。您应创建正数记录 {3}，并使其早于日期 {4}、时间 {5}，以便过账正确的成本价。详情请阅读<a href='https://docs.erpnext.com/docs/user/manual/en/stock-adjustment-cogs-with-negative-stock'>说明文档<a>。",
+			"{0} is not a valid {1} fieldname.": "{0} 不是有效的 {1} 字段名。",
+			"{0} units of {1} are required in {2} with the inventory dimension: {3} on {4} {5} for {6} to complete the transaction.": "需要 {0} 个 {1} 存放于 {2}，库存辅助核算为 {3}，日期 {4}、时间 {5}，供 {6} 完成交易。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+	def test_stock_dynamic_validation_translates_inventory_dimension_label(self):
+		text = (Path(__file__).parents[2] / "erpnext/stock/utils.py").read_text()
+		self.assertIn('frappe.bold(_("Inventory Dimension"))', text)
+		messages = [self.catalog.get("Inventory Dimension"), self.merged_frappe_catalog.get("Inventory Dimension")]
+		self.assertTrue(
+			any(message and message.string and "fuzzy" not in message.flags for message in messages)
+		)
 
 	def test_accounts_workflows_use_reviewed_chinese_terms(self):
 		translations = {

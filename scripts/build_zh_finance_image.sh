@@ -63,6 +63,9 @@ expected_translations = {
 	"Invalid Discount Amount": "折扣金额无效",
 	"Reserved Batch Conflict": "预留批次冲突",
 	"Unit Price": "单价",
+	"Stock Frozen": "库存已冻结",
+	"Duplicate Serial Number Error": "序列号重复错误",
+	"Reserved Inventory": "已预留库存",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)
