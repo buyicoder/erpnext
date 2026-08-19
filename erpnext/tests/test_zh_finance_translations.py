@@ -12,6 +12,7 @@ class TestZhFinanceTranslations(TestCase):
 
 	def test_core_finance_journey_uses_reviewed_chinese_terms(self):
 		translations = {
+			"Completion percentage must be between 0 and 100": "完成百分比必须介于 0 和 100 之间",
 			"Accounting Onboarding": "会计功能引导",
 			"Custom Financial Statement": "自定义财务报表",
 			"Configure Chart of Accounts": "配置会计科目表",
@@ -97,6 +98,34 @@ class TestZhFinanceTranslations(TestCase):
 			"UTM Analytics": "营销来源分析",
 			"{0} {1} is blocked and on hold until {2}.": "{0} {1} 已被冻结，暂停至 {2}。",
 			"{0} {1} is blocked.": "{0} {1} 已被冻结。",
+		}
+
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+
+	def test_master_data_uses_reviewed_chinese_terms(self):
+		translations = {
+			"Alias": "别名",
+			"Allow purchase invoice creation without purchase order": "允许不经采购订单直接创建采购发票",
+			"Allow purchase invoice creation without purchase receipt": "允许不经采购入库单直接创建采购发票",
+			"Allow sales invoice creation without delivery note": "允许不经送货单直接创建销售发票",
+			"Allow sales invoice creation without sales order": "允许不经销售订单直接创建销售发票",
+			"Allowed to transact with": "允许交易的公司",
+			"Credit & Overdue Limits": "信用与逾期额度",
+			"Customer POS ID": "客户 POS 编号",
+			"Internal Customer Accounting": "内部客户核算",
+			"Invalid Customer Group": "无效的客户组",
+			"Overdue Limit Crossed": "已超过逾期额度",
+			"Determines which tax rules apply to this supplier": "确定适用于该供应商的税务规则",
+			"General information about your Supplier": "供应商基本信息",
+			"Internal Supplier Details": "供应商内部信息",
+			"Per-Company Accounts": "分公司核算科目",
+			"Primary Address Preview": "主要地址预览",
+			"RFQ and Purchase Order Settings": "询价与采购订单设置",
+			"Tax Identification": "税务识别信息",
+			"Used for inter-company transactions": "用于公司间交易",
+			"For project - {0}, update your status": "请更新项目 {0} 的状态",
+			"On hold": "已暂停",
 		}
 
 		for source, translation in translations.items():

@@ -146,8 +146,8 @@ msgid "% Complete Method"
 msgstr "完成百分比法"
 
 #: erpnext/projects/doctype/project/project.py:226
-msgid "% Complete must be between 0 and 100"
-msgstr ""
+msgid "Completion percentage must be between 0 and 100"
+msgstr "完成百分比必须介于 0 和 100 之间"
 
 #. Label of the percent_complete (Percent) field in DocType 'Project'
 #: erpnext/projects/doctype/project/project.json
@@ -3838,7 +3838,7 @@ msgstr "算法"
 #: erpnext/buying/doctype/supplier/supplier.json
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Alias"
-msgstr ""
+msgstr "别名"
 
 #: erpnext/accounts/doctype/chart_of_accounts_importer/chart_of_accounts_importer.js:165
 #: erpnext/accounts/doctype/chart_of_accounts_importer/chart_of_accounts_importer.js:185
@@ -4482,23 +4482,23 @@ msgstr ""
 #. field in DocType 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
 msgid "Allow purchase invoice creation without purchase order"
-msgstr ""
+msgstr "允许不经采购订单直接创建采购发票"
 
 #. Label of the allow_purchase_invoice_creation_without_purchase_receipt
 #. (Check) field in DocType 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
 msgid "Allow purchase invoice creation without purchase receipt"
-msgstr ""
+msgstr "允许不经采购入库单直接创建采购发票"
 
 #. Label of the dn_required (Check) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Allow sales invoice creation without delivery note"
-msgstr ""
+msgstr "允许不经送货单直接创建销售发票"
 
 #. Label of the so_required (Check) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Allow sales invoice creation without sales order"
-msgstr ""
+msgstr "允许不经销售订单直接创建销售发票"
 
 #. Description of the 'Zero-Quantity Line Items' (Section Break) field in
 #. DocType 'Selling Settings'
@@ -4608,7 +4608,7 @@ msgstr "主角色仅限'客户'与'供应商'，请选择其中一种"
 #: erpnext/buying/doctype/supplier/supplier.json
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Allowed to transact with"
-msgstr ""
+msgstr "允许交易的公司"
 
 #. Description of the 'Enable stock reservation' (Check) field in DocType
 #. 'Stock Settings'
@@ -14017,7 +14017,7 @@ msgstr "贷方"
 #: erpnext/selling/doctype/customer/customer.json
 #: erpnext/setup/doctype/customer_group/customer_group.json
 msgid "Credit & Overdue Limits"
-msgstr ""
+msgstr "信用与逾期额度"
 
 #: erpnext/accounts/report/general_ledger/general_ledger.py:744
 msgid "Credit (Transaction)"
@@ -15128,7 +15128,7 @@ msgstr "客户PO详细信息"
 #. Label of the customer_pos_id (Data) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Customer POS ID"
-msgstr ""
+msgstr "客户 POS 编号"
 
 #. Label of the portal_users (Table) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
@@ -17133,7 +17133,7 @@ msgstr ""
 #. Description of the 'Tax Category' (Link) field in DocType 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
 msgid "Determines which tax rules apply to this supplier"
-msgstr ""
+msgstr "确定适用于该供应商的税务规则"
 
 #. Option for the 'Fuel Type' (Select) field in DocType 'Vehicle'
 #: erpnext/setup/doctype/vehicle/vehicle.json
@@ -21397,7 +21397,7 @@ msgstr "工序{0}：数量（{1}）不得超过待处理数量（{2}）"
 
 #: erpnext/projects/doctype/project/project.js:208
 msgid "For project - {0}, update your status"
-msgstr ""
+msgstr "请更新项目 {0} 的状态"
 
 #. Description of the 'Parent Warehouse' (Link) field in DocType 'Master
 #. Production Schedule'
@@ -22228,7 +22228,7 @@ msgstr "总账与付款账不一致"
 #. Description of the 'Supplier Details' (Text) field in DocType 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
 msgid "General information about your Supplier"
-msgstr ""
+msgstr "供应商基本信息"
 
 #. Label of the generate_demand (Button) field in DocType 'Sales Forecast'
 #: erpnext/manufacturing/doctype/sales_forecast/sales_forecast.json
@@ -25350,7 +25350,7 @@ msgstr "内部"
 #. 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Internal Customer Accounting"
-msgstr ""
+msgstr "内部客户核算"
 
 #: erpnext/selling/doctype/customer/customer.py:265
 msgid "Internal Customer for company {0} already exists"
@@ -25376,7 +25376,7 @@ msgstr "关联方内部销售订单号必填"
 #. 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
 msgid "Internal Supplier Details"
-msgstr ""
+msgstr "供应商内部信息"
 
 #: erpnext/buying/doctype/supplier/supplier.py:185
 msgid "Internal Supplier for company {0} already exists"
@@ -25510,7 +25510,7 @@ msgstr "无效成本中心"
 
 #: erpnext/selling/doctype/customer/customer.py:380
 msgid "Invalid Customer Group"
-msgstr ""
+msgstr "无效的客户组"
 
 #: erpnext/selling/doctype/sales_order/sales_order.py:419
 msgid "Invalid Delivery Date"
@@ -33575,7 +33575,7 @@ msgstr "展开待生产物料表格行时，将显示'包含展开项'选项。�
 #: erpnext/projects/doctype/project/project.json
 #: erpnext/projects/doctype/project/project_list.js:8
 msgid "On hold"
-msgstr ""
+msgstr "已暂停"
 
 #. Description of the 'Excluded Fee' (Currency) field in DocType 'Bank
 #. Transaction'
@@ -34872,7 +34872,7 @@ msgstr ""
 
 #: erpnext/selling/doctype/customer/customer.py:708
 msgid "Overdue Limit Crossed"
-msgstr ""
+msgstr "已超过逾期额度"
 
 #: erpnext/selling/doctype/customer/customer.py:703
 msgid "Overdue Limit crossed for customer {0}. Overdue amount {1} exceeds the allowed limit {2}."
@@ -37187,7 +37187,7 @@ msgstr "每年"
 #. Label of the accounts (Table) field in DocType 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
 msgid "Per-Company Accounts"
-msgstr ""
+msgstr "分公司核算科目"
 
 #. Description of the 'PDF Tables' (JSON) field in DocType 'Bank Statement
 #. Import Log'
@@ -39970,7 +39970,7 @@ msgstr "首选地址信息"
 #. Label of the primary_address (Text Editor) field in DocType 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
 msgid "Primary Address Preview"
-msgstr ""
+msgstr "主要地址预览"
 
 #. Label of the primary_address_and_contact_detail_section (Section Break)
 #. field in DocType 'Supplier'
@@ -42784,7 +42784,7 @@ msgstr "报价金额"
 #. in DocType 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
 msgid "RFQ and Purchase Order Settings"
-msgstr ""
+msgstr "询价与采购订单设置"
 
 #: erpnext/buying/doctype/request_for_quotation/request_for_quotation.py:133
 msgid "RFQs are not allowed for {0} due to a scorecard standing of {1}"
@@ -54521,7 +54521,7 @@ msgstr "税务编号：{0}"
 #. Label of the taxation_section (Section Break) field in DocType 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
 msgid "Tax Identification"
-msgstr ""
+msgstr "税务识别信息"
 
 #. Label of a Card Break in the Invoicing Workspace
 #: erpnext/accounts/workspace/invoicing/invoicing.json
@@ -59554,7 +59554,7 @@ msgstr "用于生产计划"
 #. 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
 msgid "Used for inter-company transactions"
-msgstr ""
+msgstr "用于公司间交易"
 
 #. Description of the 'Expenses Added To Stock Contra Account' (Link) field in
 #. DocType 'Item Default'

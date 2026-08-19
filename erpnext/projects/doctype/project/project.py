@@ -223,7 +223,7 @@ class Project(Document):
 			if self.status == "Completed":
 				self.percent_complete = 100
 			elif flt(self.percent_complete) < 0 or flt(self.percent_complete) > 100:
-				frappe.throw(_("% Complete must be between 0 and 100"))
+				frappe.throw(_("Completion percentage must be between 0 and 100"))
 			return
 
 		total = frappe.db.count("Task", dict(project=self.name))
