@@ -6940,7 +6940,7 @@ msgstr "平均库龄"
 
 #: erpnext/projects/report/project_summary/project_summary.py:124
 msgid "Average Completion"
-msgstr "平均完成"
+msgstr "平均完成率"
 
 #. Option for the 'Based On' (Select) field in DocType 'Authorization Rule'
 #: erpnext/setup/doctype/authorization_rule/authorization_rule.json
@@ -12053,7 +12053,7 @@ msgstr "完工生产工单"
 
 #: erpnext/projects/report/project_summary/project_summary.py:73
 msgid "Completion"
-msgstr "完成%"
+msgstr "完成率（%）"
 
 #. Label of the completion_by (Date) field in DocType 'Quality Action
 #. Resolution'
@@ -13209,10 +13209,6 @@ msgstr "用于归集该物料采购费用的成本中心"
 msgid "Cost center used for tracking sales revenue for this item"
 msgstr "用于归集该物料销售收入的成本中心"
 
-#: erpnext/projects/report/project_wise_stock_tracking/project_wise_stock_tracking.py:41
-msgid "Cost of Delivered Items"
-msgstr "出货物料成本"
-
 #. Option for the 'Account Type' (Select) field in DocType 'Account'
 #. Label of the cost_of_good_sold_section (Section Break) field in DocType
 #. 'Item Default'
@@ -13230,7 +13226,7 @@ msgstr "物料表中的销售成本科目"
 
 #: erpnext/projects/report/project_wise_stock_tracking/project_wise_stock_tracking.py:40
 msgid "Cost of Issued Items"
-msgstr "已发料物料成本"
+msgstr "发出物料成本"
 
 #. Name of a report
 #: erpnext/manufacturing/report/cost_of_poor_quality_report/cost_of_poor_quality_report.json
@@ -16805,6 +16801,10 @@ msgstr "配送单"
 #: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.json
 msgid "Delivery User"
 msgstr "交付用户"
+
+#: erpnext/projects/report/project_wise_stock_tracking/project_wise_stock_tracking.py:41
+msgid "Delivered Item Net Amount"
+msgstr "交付物料销售净额"
 
 #. Label of the delivery_warehouse (Link) field in DocType 'Subcontracting
 #. Inward Order Item'
@@ -40713,7 +40713,7 @@ msgstr "项目合作邀请"
 
 #: erpnext/projects/report/project_wise_stock_tracking/project_wise_stock_tracking.py:38
 msgid "Project Id"
-msgstr "项目号"
+msgstr "项目编号"
 
 #: erpnext/public/js/setup_wizard.js:95
 msgid "Project Management"
@@ -40828,12 +40828,7 @@ msgstr "这些用户可在网站上查看该项目"
 #: erpnext/projects/workspace/projects/projects.json
 #: erpnext/workspace_sidebar/projects.json
 msgid "Project wise Stock Tracking"
-msgstr "项目库存消耗报表"
-
-#. Name of a report
-#: erpnext/projects/report/project_wise_stock_tracking/project_wise_stock_tracking.json
-msgid "Project wise Stock Tracking "
-msgstr "项目维度库存跟踪"
+msgstr "项目库存流转跟踪"
 
 #: erpnext/controllers/trends.py:538
 msgid "Project-wise data is not available for Quotation"
@@ -54370,7 +54365,7 @@ msgstr "已完成任务数"
 
 #: erpnext/projects/report/project_summary/project_summary.py:72
 msgid "Tasks Overdue"
-msgstr "过期任务数"
+msgstr "逾期任务数"
 
 #. Option for the 'Account Type' (Select) field in DocType 'Account'
 #. Label of the tax_type (Link) field in DocType 'Item Tax Template Detail'
@@ -57628,7 +57623,7 @@ msgstr "总目标"
 #: erpnext/projects/report/project_summary/project_summary.py:102
 #: erpnext/projects/report/project_summary/project_summary.py:130
 msgid "Total Tasks"
-msgstr "总任务数"
+msgstr "任务总数"
 
 #: erpnext/accounts/report/item_wise_sales_register/item_wise_sales_register.py:621
 #: erpnext/accounts/report/purchase_register/purchase_register.py:279

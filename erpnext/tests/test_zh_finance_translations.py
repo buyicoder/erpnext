@@ -983,6 +983,46 @@ class TestZhFinanceTranslations(TestCase):
 			"Billing Amount", "计费金额", context="Timesheet Billing Summary"
 		)
 
+	def test_project_management_reports_use_reviewed_chinese_terms(self):
+		translations = {
+			"Project Summary": "项目汇总",
+			"Total Tasks": "任务总数",
+			"Tasks Completed": "已完成任务数",
+			"Tasks Overdue": "逾期任务数",
+			"Completion": "完成率（%）",
+			"Average Completion": "平均完成率",
+			"Completed Tasks": "已完成任务",
+			"Overdue Tasks": "逾期任务",
+			"Daily Timesheet Summary": "每日工时单汇总",
+			"From Datetime": "开始时间",
+			"To Datetime": "结束时间",
+			"Project wise Stock Tracking": "项目库存流转跟踪",
+			"Project Id": "项目编号",
+			"Cost of Purchased Items": "采购物料成本",
+			"Cost of Issued Items": "发出物料成本",
+			"Delivered Item Net Amount": "交付物料销售净额",
+			"Estimated Cost": "预估成本",
+			"Project Start Date": "项目开始日期",
+			"Completion Date": "完成日期",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+
+		repo_root = Path(__file__).parents[2]
+		report_path = (
+			repo_root
+			/ "erpnext/projects/report/project_wise_stock_tracking/project_wise_stock_tracking.json"
+		)
+		report = json.loads(report_path.read_text())
+		self.assertEqual(report["report_name"], "Project wise Stock Tracking")
+
+		report_source = (
+			repo_root
+			/ "erpnext/projects/report/project_wise_stock_tracking/project_wise_stock_tracking.py"
+		).read_text()
+		self.assertIn('_("Estimated Cost") + ":Currency:120"', report_source)
+		self.assertNotIn('_("Project Value") + ":Currency:120"', report_source)
+
 	def test_stock_reposting_uses_reviewed_chinese_terms(self):
 		translations = {
 			"Current Index": "已处理项数",

@@ -10,7 +10,7 @@ def execute(filters=None):
 	proj_details = get_project_details()
 	pr_item_map = get_purchased_items_cost()
 	se_item_map = get_issued_items_cost()
-	dn_item_map = get_delivered_items_cost()
+	delivered_item_net_amount_map = get_delivered_items_net_amount()
 
 	data = []
 	for project in proj_details:
@@ -19,7 +19,7 @@ def execute(filters=None):
 				project.name,
 				pr_item_map.get(project.name, 0),
 				se_item_map.get(project.name, 0),
-				dn_item_map.get(project.name, 0),
+				delivered_item_net_amount_map.get(project.name, 0),
 				project.project_name,
 				project.status,
 				project.company,
@@ -38,12 +38,12 @@ def get_columns():
 		_("Project Id") + ":Link/Project:140",
 		_("Cost of Purchased Items") + ":Currency:160",
 		_("Cost of Issued Items") + ":Currency:160",
-		_("Cost of Delivered Items") + ":Currency:160",
+		_("Delivered Item Net Amount") + ":Currency:180",
 		_("Project Name") + "::120",
 		_("Project Status") + "::120",
 		_("Company") + ":Link/Company:100",
 		_("Customer") + ":Link/Customer:140",
-		_("Project Value") + ":Currency:120",
+		_("Estimated Cost") + ":Currency:120",
 		_("Project Start Date") + ":Date:120",
 		_("Completion Date") + ":Date:120",
 	]
@@ -88,7 +88,7 @@ def get_issued_items_cost():
 	return se_item_map
 
 
-def get_delivered_items_cost():
+def get_delivered_items_net_amount():
 	dn_items = frappe.db.sql(
 		"""select dn.project, sum(dn_item.base_net_amount) as amount
 		from `tabDelivery Note` dn, `tabDelivery Note Item` dn_item
@@ -106,11 +106,15 @@ def get_delivered_items_cost():
 		as_dict=1,
 	)
 
-	dn_item_map = {}
+	delivered_item_net_amount_map = {}
 	for item in dn_items:
-		dn_item_map.setdefault(item.project, item.amount)
+		delivered_item_net_amount_map[item.project] = (
+			delivered_item_net_amount_map.get(item.project, 0) + item.amount
+		)
 
 	for item in si_items:
-		dn_item_map.setdefault(item.project, item.amount)
+		delivered_item_net_amount_map[item.project] = (
+			delivered_item_net_amount_map.get(item.project, 0) + item.amount
+		)
 
-	return dn_item_map
+	return delivered_item_net_amount_map
