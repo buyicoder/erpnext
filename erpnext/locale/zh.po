@@ -138,7 +138,7 @@ msgstr "已出货%"
 #: erpnext/stock/doctype/delivery_note/delivery_note.json
 #: erpnext/stock/doctype/purchase_receipt/purchase_receipt.json
 msgid "% Amount Billed"
-msgstr "已开票%"
+msgstr "已开票金额比例（%）"
 
 #. Label of the per_billed (Percent) field in DocType 'Purchase Order'
 #: erpnext/buying/doctype/purchase_order/purchase_order.json
@@ -2499,15 +2499,15 @@ msgstr "活动"
 #: erpnext/projects/workspace/projects/projects.json
 #: erpnext/workspace_sidebar/projects.json
 msgid "Activity Cost"
-msgstr "作业成本"
+msgstr "活动成本"
 
 #: erpnext/projects/doctype/activity_cost/activity_cost.py:51
 msgid "Activity Cost exists for Employee {0} against Activity Type - {1}"
-msgstr "员工{0}的作业类型 -  {1}成本已存在"
+msgstr "员工 {0} 已存在活动类型 {1} 的活动成本"
 
 #: erpnext/projects/doctype/activity_type/activity_type.js:10
 msgid "Activity Cost per Employee"
-msgstr "员工作业成本"
+msgstr "员工活动成本"
 
 #. Label of the activity_type (Link) field in DocType 'Sales Invoice Timesheet'
 #. Label of the activity_type (Link) field in DocType 'Activity Cost'
@@ -2526,7 +2526,7 @@ msgstr "员工作业成本"
 #: erpnext/templates/pages/timelog_info.html:25
 #: erpnext/workspace_sidebar/projects.json
 msgid "Activity Type"
-msgstr "作业类型"
+msgstr "活动类型"
 
 #. Option for the 'Type' (Select) field in DocType 'Advance Taxes and Charges'
 #. Option for the 'Type' (Select) field in DocType 'Purchase Taxes and Charges'
@@ -2586,7 +2586,7 @@ msgstr "实际结束日期"
 #: erpnext/projects/doctype/project/project.json
 #: erpnext/projects/doctype/task/task.json
 msgid "Actual End Date (via Timesheet)"
-msgstr "实际结束日期（通过工时表）"
+msgstr "实际结束日期（通过工时单）"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.py:304
 msgid "Actual End Date cannot be before Actual Start Date"
@@ -2681,7 +2681,7 @@ msgstr "实际开始日期"
 #: erpnext/projects/doctype/project/project.json
 #: erpnext/projects/doctype/task/task.json
 msgid "Actual Start Date (via Timesheet)"
-msgstr "实际开始日期（通过工时表）"
+msgstr "实际开始日期（通过工时单）"
 
 #. Label of the actual_start_time (Datetime) field in DocType 'Work Order
 #. Operation'
@@ -2705,7 +2705,7 @@ msgstr "实际时间和成本"
 #: erpnext/projects/doctype/project/project.json
 #: erpnext/projects/doctype/task/task.json
 msgid "Actual Time in Hours (via Timesheet)"
-msgstr "实际工时（通过工时表）"
+msgstr "实际工时（通过工时单）"
 
 #: erpnext/accounts/doctype/payment_entry/payment_entry.js:1538
 #: erpnext/public/js/controllers/accounts.js:194
@@ -2885,7 +2885,7 @@ msgstr "添加供应商"
 
 #: erpnext/utilities/activation.py:124
 msgid "Add Timesheets"
-msgstr "添加工时表"
+msgstr "添加工时单"
 
 #. Label of the add_weekly_holidays (Section Break) field in DocType 'Holiday
 #. List'
@@ -8047,19 +8047,19 @@ msgstr "本位币应税金额"
 #. 'Timesheet'
 #: erpnext/projects/doctype/timesheet/timesheet.json
 msgid "Base Total Billable Amount"
-msgstr "基准可计费总额"
+msgstr "可计费金额合计（本币）"
 
 #. Label of the base_total_billed_amount (Currency) field in DocType
 #. 'Timesheet'
 #: erpnext/projects/doctype/timesheet/timesheet.json
 msgid "Base Total Billed Amount"
-msgstr "基准已开票总额"
+msgstr "已开票金额合计（本币）"
 
 #. Label of the base_total_costing_amount (Currency) field in DocType
 #. 'Timesheet'
 #: erpnext/projects/doctype/timesheet/timesheet.json
 msgid "Base Total Costing Amount"
-msgstr "基准成本总额"
+msgstr "成本金额合计（本币）"
 
 #: erpnext/manufacturing/report/exponential_smoothing_forecasting/exponential_smoothing_forecasting.js:46
 msgid "Based On Data ( in years )"
@@ -8546,6 +8546,18 @@ msgstr "账单地址不属于{0}"
 msgid "Billing Amount"
 msgstr "开票金额"
 
+#. Label of the billing_amount (Currency) and base_billing_amount (Currency)
+#. fields in DocType 'Timesheet Detail'
+#: erpnext/projects/doctype/timesheet_detail/timesheet_detail.json
+msgctxt "Timesheet Detail"
+msgid "Billing Amount"
+msgstr "计费金额"
+
+#: erpnext/projects/report/timesheet_billing_summary/timesheet_billing_summary.py:73
+msgctxt "Timesheet Billing Summary"
+msgid "Billing Amount"
+msgstr "计费金额"
+
 #. Label of the billing_city (Data) field in DocType 'Tax Rule'
 #: erpnext/accounts/doctype/tax_rule/tax_rule.json
 msgid "Billing City"
@@ -8575,7 +8587,7 @@ msgstr "发票日期"
 #. Label of the billing_details (Section Break) field in DocType 'Timesheet'
 #: erpnext/projects/doctype/timesheet/timesheet.json
 msgid "Billing Details"
-msgstr "开票信息"
+msgstr "计费信息"
 
 #. Label of the billing_email (Data) field in DocType 'Process Statement Of
 #. Accounts Customer'
@@ -8590,7 +8602,7 @@ msgstr "账单邮箱"
 #: erpnext/projects/doctype/timesheet_detail/timesheet_detail.json
 #: erpnext/projects/report/timesheet_billing_summary/timesheet_billing_summary.py:67
 msgid "Billing Hours"
-msgstr "开票工时"
+msgstr "计费工时"
 
 #. Label of the billing_interval (Select) field in DocType 'Subscription Plan'
 #: erpnext/accounts/doctype/subscription_plan/subscription_plan.json
@@ -8618,7 +8630,7 @@ msgstr "订阅计划中的计费周期必须为月以遵循日历月份"
 #: erpnext/projects/doctype/activity_cost/activity_cost.json
 #: erpnext/projects/doctype/timesheet_detail/timesheet_detail.json
 msgid "Billing Rate"
-msgstr "开票单价"
+msgstr "计费单价"
 
 #. Label of the billing_state (Data) field in DocType 'Tax Rule'
 #: erpnext/accounts/doctype/tax_rule/tax_rule.json
@@ -13262,7 +13274,7 @@ msgstr "成本核算"
 #. Detail'
 #: erpnext/projects/doctype/timesheet_detail/timesheet_detail.json
 msgid "Costing Amount"
-msgstr "成本"
+msgstr "成本金额"
 
 #. Label of the costing_detail (Section Break) field in DocType 'BOM Creator'
 #: erpnext/manufacturing/doctype/bom_creator/bom_creator.json
@@ -13276,7 +13288,7 @@ msgstr "成本核算信息"
 #: erpnext/projects/doctype/activity_cost/activity_cost.json
 #: erpnext/projects/doctype/timesheet_detail/timesheet_detail.json
 msgid "Costing Rate"
-msgstr "成本价"
+msgstr "成本单价"
 
 #. Label of the project_details (Section Break) field in DocType 'Project'
 #: erpnext/projects/doctype/project/project.json
@@ -13758,7 +13770,7 @@ msgstr "创建税费模板"
 #: erpnext/projects/onboarding_step/create_timesheet/create_timesheet.json
 #: erpnext/utilities/activation.py:128
 msgid "Create Timesheet"
-msgstr "创建工时表"
+msgstr "创建工时单"
 
 #. Title of an Onboarding Step
 #. Label of an action in the Onboarding Step 'Create Transfer Entry'
@@ -15357,7 +15369,7 @@ msgstr "每天发送"
 #: erpnext/projects/workspace/projects/projects.json
 #: erpnext/workspace_sidebar/projects.json
 msgid "Daily Timesheet Summary"
-msgstr "每日工时表汇总"
+msgstr "每日工时单汇总"
 
 #. Label of the daily_yield (Percent) field in DocType 'Item Lead Time'
 #: erpnext/stock/doctype/item_lead_time/item_lead_time.json
@@ -15825,7 +15837,7 @@ msgstr "默认科目"
 
 #: erpnext/projects/doctype/activity_cost/activity_cost.py:62
 msgid "Default Activity Cost exists for Activity Type - {0}"
-msgstr "作业类型 -  {0}的默认作业成本已存在"
+msgstr "活动类型 {0} 已存在默认活动成本"
 
 #. Label of the default_advance_account (Link) field in DocType 'Payment
 #. Reconciliation'
@@ -15884,7 +15896,7 @@ msgstr "默认银行科目"
 #. Label of the billing_rate (Currency) field in DocType 'Activity Type'
 #: erpnext/projects/doctype/activity_type/activity_type.json
 msgid "Default Billing Rate"
-msgstr "默认开票单价"
+msgstr "默认计费单价"
 
 #. Label of the buying_cost_center (Link) field in DocType 'Item Default'
 #: erpnext/stock/doctype/item_default/item_default.json
@@ -15939,7 +15951,7 @@ msgstr "默认销货成本科目"
 #. Label of the costing_rate (Currency) field in DocType 'Activity Type'
 #: erpnext/projects/doctype/activity_type/activity_type.json
 msgid "Default Costing Rate"
-msgstr "默认成本价"
+msgstr "默认成本单价"
 
 #. Label of the default_currency (Link) field in DocType 'Company'
 #. Label of the default_currency (Link) field in DocType 'Global Defaults'
@@ -17320,7 +17332,7 @@ msgstr "直接收入"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:365
 msgid "Direct return is not allowed for Timesheet."
-msgstr "工时表不允许直接退回。"
+msgstr "工时单不允许直接退回。"
 
 #. Label of the disable_capacity_planning (Check) field in DocType
 #. 'Manufacturing Settings'
@@ -18881,7 +18893,7 @@ msgstr "员工福利义务"
 #. Label of the employee_detail (Section Break) field in DocType 'Timesheet'
 #: erpnext/projects/doctype/timesheet/timesheet.json
 msgid "Employee Detail"
-msgstr "员工详细信息"
+msgstr "员工信息"
 
 #. Name of a DocType
 #: erpnext/setup/doctype/employee_education/employee_education.json
@@ -19283,7 +19295,7 @@ msgstr "启用销售佣金跟踪"
 #. DocType 'Projects Settings'
 #: erpnext/projects/doctype/projects_settings/projects_settings.json
 msgid "Enabling the check box will fetch timesheet on select of a Project in Sales Invoice"
-msgstr "勾选此复选框将在销售发票中选择项目时获取工时表"
+msgstr "勾选此复选框将在销售发票中选择项目时获取工时单"
 
 #. Description of the 'Enforce Time Logs' (Check) field in DocType
 #. 'Manufacturing Settings'
@@ -20512,7 +20524,7 @@ msgstr "选工时单"
 #. 'Projects Settings'
 #: erpnext/projects/doctype/projects_settings/projects_settings.json
 msgid "Fetch Timesheet in Sales Invoice"
-msgstr "允许在销售发票获取工时表"
+msgstr "允许在销售发票中获取工时单"
 
 #. Label of the fetch_from_parent (Select) field in DocType 'Inventory
 #. Dimension'
@@ -23329,7 +23341,7 @@ msgstr "金额为零时隐藏此行"
 #. Label of the hide_timesheets (Check) field in DocType 'Project User'
 #: erpnext/projects/doctype/project_user/project_user.json
 msgid "Hide timesheets"
-msgstr "隐藏工时表"
+msgstr "隐藏工时单"
 
 #. Description of the 'Priority' (Select) field in DocType 'Pricing Rule'
 #: erpnext/accounts/doctype/pricing_rule/pricing_rule.json
@@ -23480,7 +23492,7 @@ msgstr ""
 #. Label of the hours (Float) field in DocType 'Timesheet Detail'
 #: erpnext/projects/doctype/timesheet_detail/timesheet_detail.json
 msgid "Hrs"
-msgstr "时长(小时)"
+msgstr "工时（小时）"
 
 #: erpnext/setup/doctype/company/company.py:496
 msgid "Human Resources"
@@ -24708,7 +24720,7 @@ msgstr "包含委外物料"
 
 #: erpnext/projects/report/timesheet_billing_summary/timesheet_billing_summary.js:52
 msgid "Include Timesheets in Draft Status"
-msgstr "包含草稿状态工时表"
+msgstr "包含草稿状态的工时单"
 
 #: erpnext/stock/report/stock_balance/stock_balance.js:109
 #: erpnext/stock/report/stock_ledger/stock_ledger.js:108
@@ -25964,7 +25976,7 @@ msgstr "发票与账单"
 
 #: erpnext/projects/doctype/timesheet/timesheet.py:417
 msgid "Invoice can't be made for zero billing hour"
-msgstr "可开票时间为0，无法开具发票"
+msgstr "计费工时为零，无法创建发票"
 
 #: erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:1933
 msgid "Invoice is not blocked. Block the invoice to change the release date."
@@ -45440,7 +45452,7 @@ msgstr "恢复作业"
 
 #: erpnext/projects/doctype/timesheet/timesheet.js:66
 msgid "Resume Timer"
-msgstr "恢复计时"
+msgstr "继续计时"
 
 #: erpnext/setup/setup_wizard/data/industry_type.txt:41
 msgid "Retail & Wholesale"
@@ -46950,7 +46962,7 @@ msgstr "行号{0}：科目{1}与交易方类型{2}的科目类型不一致"
 
 #: erpnext/projects/doctype/timesheet/timesheet.py:164
 msgid "Row {0}: Activity Type is mandatory."
-msgstr "第{0}行：作业类型信息必填。"
+msgstr "第 {0} 行：必须填写活动类型。"
 
 #: erpnext/accounts/doctype/journal_entry/journal_entry.py:683
 msgid "Row {0}: Advance against Customer must be credit"
@@ -47059,12 +47071,12 @@ msgstr "行号{0}：供应商{1}必须填写邮箱地址以发送邮件"
 
 #: erpnext/projects/doctype/timesheet/timesheet.py:161
 msgid "Row {0}: From Time and To Time is mandatory."
-msgstr "行{0}：开始和结束时间必填。"
+msgstr "第 {0} 行：必须填写开始时间和结束时间。"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.py:326
 #: erpnext/projects/doctype/timesheet/timesheet.py:225
 msgid "Row {0}: From Time and To Time of {1} is overlapping with {2}"
-msgstr "行{0}：{1} 与 {2} 的开始与结束时间有重叠"
+msgstr "第 {0} 行：{1} 的起止时间与 {2} 重叠"
 
 #: erpnext/controllers/stock_controller.py:1739
 msgid "Row {0}: From Warehouse is mandatory for internal transfers"
@@ -47076,7 +47088,7 @@ msgstr "第{0}行：开始时间必须早于结束时间"
 
 #: erpnext/projects/doctype/timesheet/timesheet.py:167
 msgid "Row {0}: Hours value must be greater than zero."
-msgstr "第{0}行：时长(小时)须大于零。"
+msgstr "第 {0} 行：工时必须大于零。"
 
 #: erpnext/accounts/doctype/journal_entry/journal_entry.py:802
 msgid "Row {0}: Invalid reference {1}"
@@ -47168,7 +47180,7 @@ msgstr "第{0}行：请在付款方式{1}上设置正确的代码"
 
 #: erpnext/projects/doctype/timesheet_detail/timesheet_detail.py:114
 msgid "Row {0}: Project must be same as the one set in the Timesheet: {1}."
-msgstr "行号{0}：项目必须与工时表{1}中设置的一致"
+msgstr "第 {0} 行：项目必须与工时单中设置的项目 {1} 一致。"
 
 #: erpnext/stock/doctype/landed_cost_voucher/landed_cost_voucher.py:152
 msgid "Row {0}: Purchase Invoice {1} has no stock impact."
@@ -47712,7 +47724,7 @@ msgstr "销售发票参考"
 #. Name of a DocType
 #: erpnext/accounts/doctype/sales_invoice_timesheet/sales_invoice_timesheet.json
 msgid "Sales Invoice Timesheet"
-msgstr "销售发票工时表"
+msgstr "销售发票工时单"
 
 #. Label of the sales_invoices (Table) field in DocType 'POS Closing Entry'
 #: erpnext/accounts/doctype/pos_closing_entry/pos_closing_entry.json
@@ -56136,7 +56148,7 @@ msgstr "以上数据面板信息基于物料移动。详见{0}信息"
 
 #: erpnext/projects/doctype/project/project_dashboard.py:7
 msgid "This is based on the Time Sheets created against this project"
-msgstr "基于项目工时表"
+msgstr "基于为该项目创建的工时单"
 
 #: erpnext/setup/doctype/sales_person/sales_person_dashboard.py:7
 msgid "This is based on transactions against this Sales Person. See timeline below for details"
@@ -56417,7 +56429,7 @@ msgstr "需求时间(分)"
 #. Label of the time_sheet (Link) field in DocType 'Sales Invoice Timesheet'
 #: erpnext/accounts/doctype/sales_invoice_timesheet/sales_invoice_timesheet.json
 msgid "Time Sheet"
-msgstr "工时表"
+msgstr "工时单"
 
 #. Label of the time_sheet_list (Section Break) field in DocType 'POS Invoice'
 #. Label of the time_sheet_list (Section Break) field in DocType 'Sales
@@ -56425,7 +56437,7 @@ msgstr "工时表"
 #: erpnext/accounts/doctype/pos_invoice/pos_invoice.json
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.json
 msgid "Time Sheet List"
-msgstr "工时表清单"
+msgstr "工时单清单"
 
 #. Label of the timesheets (Table) field in DocType 'POS Invoice'
 #. Label of the timesheets (Table) field in DocType 'Sales Invoice'
@@ -56434,7 +56446,7 @@ msgstr "工时表清单"
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.json
 #: erpnext/projects/doctype/timesheet/timesheet.json
 msgid "Time Sheets"
-msgstr "工时表"
+msgstr "工时单"
 
 #: erpnext/selling/report/sales_order_analysis/sales_order_analysis.py:324
 msgid "Time Taken to Deliver"
@@ -56508,7 +56520,7 @@ msgstr "计时器超出了指定的小时数"
 #: erpnext/templates/pages/projects.html:65
 #: erpnext/workspace_sidebar/projects.json
 msgid "Timesheet"
-msgstr "工时表"
+msgstr "工时单"
 
 #. Name of a report
 #. Label of a Link in the Projects Workspace
@@ -56517,7 +56529,7 @@ msgstr "工时表"
 #: erpnext/projects/workspace/projects/projects.json
 #: erpnext/workspace_sidebar/projects.json
 msgid "Timesheet Billing Summary"
-msgstr "时间表计费摘要"
+msgstr "工时单计费汇总"
 
 #. Label of the timesheet_detail (Data) field in DocType 'Sales Invoice
 #. Timesheet'
@@ -56525,15 +56537,15 @@ msgstr "时间表计费摘要"
 #: erpnext/accounts/doctype/sales_invoice_timesheet/sales_invoice_timesheet.json
 #: erpnext/projects/doctype/timesheet_detail/timesheet_detail.json
 msgid "Timesheet Detail"
-msgstr "工时表明细"
+msgstr "工时单明细"
 
 #: erpnext/config/projects.py:55
 msgid "Timesheet for tasks."
-msgstr "任务工时表。"
+msgstr "任务工时单。"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:948
 msgid "Timesheet {0} cannot be invoiced in its current state"
-msgstr "工时表 {0} 当前状态无法开票"
+msgstr "工时单 {0} 当前状态无法开票"
 
 #. Label of the timesheet_sb (Section Break) field in DocType 'Projects
 #. Settings'
@@ -56541,11 +56553,11 @@ msgstr "工时表 {0} 当前状态无法开票"
 #: erpnext/projects/doctype/timesheet/timesheet.py:572
 #: erpnext/templates/pages/projects.html:60
 msgid "Timesheets"
-msgstr "工时表"
+msgstr "工时单"
 
 #: erpnext/utilities/activation.py:125
 msgid "Timesheets help keep track of time, cost and billing for activities done by your team"
-msgstr "时间表有助于跟踪您的团队所做活动的时间、成本和计费"
+msgstr "工时单用于跟踪团队活动的工时、成本和计费"
 
 #. Label of the timeslots_section (Section Break) field in DocType
 #. 'Communication Medium'
@@ -56775,7 +56787,7 @@ msgstr "结束时间"
 
 #: erpnext/projects/doctype/timesheet_detail/timesheet_detail.py:108
 msgid "To Time cannot be before from date"
-msgstr "到时间不能早于日期"
+msgstr "结束时间不能早于开始时间"
 
 #. Description of the 'Referral Code' (Data) field in DocType 'Sales Partner'
 #: erpnext/setup/doctype/sales_partner/sales_partner.json
@@ -57113,24 +57125,24 @@ msgstr "总资产成本"
 #. Label of the total_billable_amount (Currency) field in DocType 'Timesheet'
 #: erpnext/projects/doctype/timesheet/timesheet.json
 msgid "Total Billable Amount"
-msgstr "总可开票金额"
+msgstr "可计费金额合计"
 
 #. Label of the total_billable_amount (Currency) field in DocType 'Project'
 #. Label of the total_billing_amount (Currency) field in DocType 'Task'
 #: erpnext/projects/doctype/project/project.json
 #: erpnext/projects/doctype/task/task.json
 msgid "Total Billable Amount (via Timesheet)"
-msgstr "总可开票金额（工时表）"
+msgstr "可计费金额合计（通过工时单）"
 
 #. Label of the total_billable_hours (Float) field in DocType 'Timesheet'
 #: erpnext/projects/doctype/timesheet/timesheet.json
 msgid "Total Billable Hours"
-msgstr "总计费工时"
+msgstr "可计费工时合计"
 
 #. Label of the total_billed_amount (Currency) field in DocType 'Timesheet'
 #: erpnext/projects/doctype/timesheet/timesheet.json
 msgid "Total Billed Amount"
-msgstr "总已开票金额"
+msgstr "已开票金额合计"
 
 #. Label of the total_billed_amount (Currency) field in DocType 'Project'
 #: erpnext/projects/doctype/project/project.json
@@ -57140,7 +57152,7 @@ msgstr "总已开票金额（销售发票）"
 #. Label of the total_billed_hours (Float) field in DocType 'Timesheet'
 #: erpnext/projects/doctype/timesheet/timesheet.json
 msgid "Total Billed Hours"
-msgstr "总已开票工时"
+msgstr "已开票工时合计"
 
 #. Label of the total_billing_amount (Currency) field in DocType 'POS Invoice'
 #. Label of the total_billing_amount (Currency) field in DocType 'Sales
@@ -57216,14 +57228,14 @@ msgstr "总成本(本币)"
 #. Label of the total_costing_amount (Currency) field in DocType 'Timesheet'
 #: erpnext/projects/doctype/timesheet/timesheet.json
 msgid "Total Costing Amount"
-msgstr "总成本"
+msgstr "成本金额合计"
 
 #. Label of the total_costing_amount (Currency) field in DocType 'Project'
 #. Label of the total_costing_amount (Currency) field in DocType 'Task'
 #: erpnext/projects/doctype/project/project.json
 #: erpnext/projects/doctype/task/task.json
 msgid "Total Costing Amount (via Timesheet)"
-msgstr "总成本（工时表）"
+msgstr "成本金额合计（通过工时单）"
 
 #. Label of the total_credit (Currency) field in DocType 'Journal Entry'
 #: banking/src/components/features/BankReconciliation/BankEntryModalContent.tsx:764
@@ -57776,7 +57788,7 @@ msgstr "总重量（千克）"
 #: erpnext/manufacturing/doctype/workstation/workstation.json
 #: erpnext/projects/doctype/timesheet/timesheet.json
 msgid "Total Working Hours"
-msgstr "总工时"
+msgstr "工作工时合计"
 
 #. Label of the total_workstation_time (Int) field in DocType 'Item Lead Time'
 #: erpnext/stock/doctype/item_lead_time/item_lead_time.json
@@ -58471,7 +58483,7 @@ msgstr "此模板生成的财务报表类型"
 
 #: erpnext/config/projects.py:61
 msgid "Types of activities for Time Logs"
-msgstr "工时记录作业类型"
+msgstr "工时记录的活动类型"
 
 #. Label of a Link in the Financial Reports Workspace
 #. Name of a report
@@ -60988,7 +61000,7 @@ msgstr "如果由采购订单生成的采购发票或采购入库单修改了物
 
 #: erpnext/projects/doctype/timesheet_detail/timesheet_detail.py:134
 msgid "Warning - Row {0}: Billing Hours are more than Actual Hours"
-msgstr "警告 - 第{0}行：计费工时超过实际工时"
+msgstr "警告：第 {0} 行的计费工时超过实际工时"
 
 #: erpnext/stock/stock_ledger.py:876
 msgid "Warning on Negative Stock"

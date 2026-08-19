@@ -70,7 +70,7 @@ def get_columns(filters, group_fieldname=None):
 				"width": 150,
 			},
 			{
-				"label": _("Billing Amount"),
+				"label": _("Billing Amount", context="Timesheet Billing Summary"),
 				"fieldtype": "Currency",
 				"fieldname": "billing_amount",
 				"width": 150,

@@ -75,6 +75,9 @@ CORE_BUSINESS_DOCTYPES = {
 	"Supplier",
 	"Supplier Quotation",
 	"Batch",
+	"Timesheet",
+	"Activity Cost",
+	"Activity Type",
 	"Work Order",
 }
 
@@ -918,6 +921,68 @@ class TestZhFinanceTranslations(TestCase):
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
 
+	def test_project_timesheet_and_activity_cost_uses_reviewed_chinese_terms(self):
+		translations = {
+			"Timesheet": "工时单",
+			"Timesheet Detail": "工时单明细",
+			"Timesheets": "工时单",
+			"Activity Type": "活动类型",
+			"Activity Cost": "活动成本",
+			"Activity Cost per Employee": "员工活动成本",
+			"Types of activities for Time Logs": "工时记录的活动类型",
+			"Activity Cost exists for Employee {0} against Activity Type - {1}": "员工 {0} 已存在活动类型 {1} 的活动成本",
+			"Default Activity Cost exists for Activity Type - {0}": "活动类型 {0} 已存在默认活动成本",
+			"Default Billing Rate": "默认计费单价",
+			"Default Costing Rate": "默认成本单价",
+			"Billing Details": "计费信息",
+			"Billing Hours": "计费工时",
+			"Billing Rate": "计费单价",
+			"Costing Rate": "成本单价",
+			"Costing Amount": "成本金额",
+			"Total Billable Hours": "可计费工时合计",
+			"Total Billable Amount": "可计费金额合计",
+			"Total Billed Hours": "已开票工时合计",
+			"Total Billed Amount": "已开票金额合计",
+			"Total Costing Amount": "成本金额合计",
+			"Total Working Hours": "工作工时合计",
+			"Base Total Billable Amount": "可计费金额合计（本币）",
+			"Base Total Billed Amount": "已开票金额合计（本币）",
+			"Base Total Costing Amount": "成本金额合计（本币）",
+			"% Amount Billed": "已开票金额比例（%）",
+			"Hrs": "工时（小时）",
+			"Resume Timer": "继续计时",
+			"Time Sheet": "工时单",
+			"Time Sheet List": "工时单清单",
+			"Timesheet Billing Summary": "工时单计费汇总",
+			"Create Timesheet": "创建工时单",
+			"Add Timesheets": "添加工时单",
+			"Daily Timesheet Summary": "每日工时单汇总",
+			"Fetch Timesheet in Sales Invoice": "允许在销售发票中获取工时单",
+			"Enabling the check box will fetch timesheet on select of a Project in Sales Invoice": "勾选此复选框将在销售发票中选择项目时获取工时单",
+			"Include Timesheets in Draft Status": "包含草稿状态的工时单",
+			"Hide timesheets": "隐藏工时单",
+			"Sales Invoice Timesheet": "销售发票工时单",
+			"Timesheet {0} cannot be invoiced in its current state": "工时单 {0} 当前状态无法开票",
+			"Total Billable Amount (via Timesheet)": "可计费金额合计（通过工时单）",
+			"Total Costing Amount (via Timesheet)": "成本金额合计（通过工时单）",
+			"To Time cannot be before from date": "结束时间不能早于开始时间",
+			"Invoice can't be made for zero billing hour": "计费工时为零，无法创建发票",
+			"Invoice already created for all billing hours": "所有可开票工时均已开票",
+			"Row {0}: Activity Type is mandatory.": "第 {0} 行：必须填写活动类型。",
+			"Row {0}: From Time and To Time is mandatory.": "第 {0} 行：必须填写开始时间和结束时间。",
+			"Row {0}: From Time and To Time of {1} is overlapping with {2}": "第 {0} 行：{1} 的起止时间与 {2} 重叠",
+			"Row {0}: Hours value must be greater than zero.": "第 {0} 行：工时必须大于零。",
+			"Row {0}: Project must be same as the one set in the Timesheet: {1}.": "第 {0} 行：项目必须与工时单中设置的项目 {1} 一致。",
+			"Warning - Row {0}: Billing Hours are more than Actual Hours": "警告：第 {0} 行的计费工时超过实际工时",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+		self._assert_translation("Billing Amount", "开票金额")
+		self._assert_translation("Billing Amount", "计费金额", context="Timesheet Detail")
+		self._assert_translation(
+			"Billing Amount", "计费金额", context="Timesheet Billing Summary"
+		)
+
 	def test_stock_reposting_uses_reviewed_chinese_terms(self):
 		translations = {
 			"Current Index": "已处理项数",
@@ -1190,7 +1255,7 @@ class TestZhFinanceTranslations(TestCase):
 			"Source warehouse required for stock item {0}": "库存物料 {0} 必须填写发料仓",
 			"Supplier Required": "必须填写供应商",
 			"Supplier is required for all selected Items": "所有选中物料都必须填写供应商",
-			"Timesheet {0} cannot be invoiced in its current state": "工时表 {0} 当前状态无法开票",
+			"Timesheet {0} cannot be invoiced in its current state": "工时单 {0} 当前状态无法开票",
 			"UTM Analytics": "营销来源分析",
 			"{0} {1} is blocked and on hold until {2}.": "{0} {1} 已被冻结，暂停至 {2}。",
 			"{0} {1} is blocked.": "{0} {1} 已被冻结。",
@@ -1396,9 +1461,9 @@ class TestZhFinanceTranslations(TestCase):
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
 
-	def _assert_translation(self, source, translation):
-		with self.subTest(source=source):
-			message = self.catalog.get(source)
+	def _assert_translation(self, source, translation, context=None):
+		with self.subTest(source=source, context=context):
+			message = self.catalog.get(source, context=context)
 			self.assertIsNotNone(message)
 			self.assertNotIn("fuzzy", message.flags)
 			self.assertEqual(message.string, translation)
