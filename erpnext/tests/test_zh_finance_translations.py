@@ -68,10 +68,13 @@ CORE_BUSINESS_DOCTYPES = {
 	"Request for Quotation",
 	"Sales Invoice",
 	"Sales Order",
+	"Serial and Batch Bundle",
+	"Serial No",
 	"Stock Reconciliation",
 	"Stock Entry",
 	"Supplier",
 	"Supplier Quotation",
+	"Batch",
 	"Work Order",
 }
 
@@ -849,7 +852,7 @@ class TestZhFinanceTranslations(TestCase):
 			"Current Qty": "账面数量",
 			"Current Amount": "账面金额",
 			"Current Valuation Rate": "账面成本价",
-			"Current Serial / Batch Bundle": "账面序列号与批号",
+			"Current Serial / Batch Bundle": "账面序列号与批号组合",
 			"Quantity Difference": "数量差异",
 			"Amount Difference": "金额差异",
 			"Allow Zero Valuation Rate": "允许成本价为零",
@@ -859,7 +862,7 @@ class TestZhFinanceTranslations(TestCase):
 			"Please enter Serial No": "请输入序列号",
 			"Please specify either Quantity or Valuation Rate or both": "请填写实盘数量、成本价，或同时填写两者",
 			"Reconcile All Serial Nos / Batches": "盘点全部序列号与批号",
-			"Serial / Batch Bundle": "序列号与批号",
+			"Serial / Batch Bundle": "序列号与批号组合",
 			"Add Serial / Batch No": "添加序列号与批号",
 			"Row # {0}: Please add Serial and Batch Bundle for Item {1}": "第 {0} 行：请为物料 {1} 添加序列号与批号",
 			"Row #{0}: Item {1} is not a Serialized/Batched Item. It cannot have a Serial No/Batch No against it.": "第 {0} 行：物料 {1} 未启用序列号或批号管理，不能为其设置序列号或批号。",
@@ -872,6 +875,45 @@ class TestZhFinanceTranslations(TestCase):
 			"Valuation rate for customer provided items has been set to zero.": "客户提供物料的成本价已设为零。",
 			"The stock has been reserved for the following Items and Warehouses, un-reserve the same to {0} the Stock Reconciliation: <br /><br /> {1}": "以下物料与仓库的库存已被预留。请先取消预留，再{0}库存盘点调整：<br /><br />{1}",
 			"{0} units are reserved for Item {1} in Warehouse {2}, please un-reserve the same to {3} the Stock Reconciliation.": "已预留 {0} 个单位的物料 {1}（仓库 {2}）。请先取消预留，再{3}库存盘点调整。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+
+	def test_serial_batch_and_expiry_tracking_uses_reviewed_chinese_terms(self):
+		translations = {
+			"Serial No": "序列号",
+			"Batch": "批号",
+			"Batch No": "批号",
+			"Serial and Batch Bundle": "序列号与批号组合",
+			"Serial and Batch Entry": "序列号与批号明细",
+			"Serial and Batch Nos": "序列号与批号",
+			"Serial and Batch Bundle created": "已创建序列号与批号组合",
+			"Serial and Batch Bundle updated": "已更新序列号与批号组合",
+			"Serial and Batch No for Item Disabled": "物料未启用序列号与批号",
+			"Inward": "入库",
+			"Outward": "出库",
+			"Type of Transaction": "出入库类型",
+			"Batch Expiry Date": "批号到期日",
+			"Expiry Date": "到期日",
+			"Shelf Life in Days": "保质期（天）",
+			"Parent Batch": "上级批号",
+			"Use Batch-wise Valuation": "按批号计算成本价",
+			"No stock available for this batch.": "此批号没有可用库存。",
+			"If enabled, the system will allow negative stock entries for this batch, overriding the 'Allow negative stock for Batch' setting in Stock Settings. This may lead to incorrect valuation rates, so it is recommended to avoid using this option.": "启用后，系统将允许此批号出现负库存，并覆盖库存设置中的“允许批次负库存”。这可能导致成本价不准确，因此建议不要启用。",
+			"At Row {0}: In Serial and Batch Bundle {1} must have docstatus as 1 and not 0": "第 {0} 行：序列号与批号组合 {1} 必须为已提交状态，不能为草稿状态",
+			"Serial and Batch Bundle {0} is submitted and its entries cannot be modified.": "序列号与批号组合 {0} 已提交，其明细不能修改。",
+			"Serial Nos {0} are already Delivered. You cannot use them again in Manufacture / Repack entry.": "序列号 {0} 已交付，不能再次用于生产或重新包装单据。",
+			"Item Code cannot be changed for Serial No.": "序列号对应的物料编码不能更改。",
+			"Warehouse cannot be changed for Serial No.": "序列号所在仓库不能直接更改。",
+			"View Ledger": "查看库存台账",
+			"View Ledgers": "查看库存台账",
+			"AMC Expiry Date": "年度维保合同到期日",
+			"Under AMC": "在年度维保合同期内",
+			"Out of AMC": "已超出年度维保合同期限",
+			"Warranty / AMC Details": "保修与年度维保合同信息",
+			"{0} is not a CSV file.": "{0} 不是 CSV 文件。",
+			"You cannot outward following {0} as either they are Delivered, Inactive or located in a different warehouse.": "以下 {0} 无法出库，因为它们已交付、已停用或位于其他仓库。",
+			"You can't process the serial number {0} as it has already been used in the SABB {1}. {2} if you want to inward same serial number multiple times then enabled 'Allow existing Serial No to be Manufactured/Received again' in the {3}": "无法处理序列号 {0}，因为它已用于序列号与批号组合 {1}。{2} 如需多次入库同一序列号，请在 {3} 中启用“允许再次生产或接收现有序列号”。",
 		}
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)

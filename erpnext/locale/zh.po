@@ -25,7 +25,12 @@ msgid "\n"
 "\t\t\tIf it is not possible to make an adjustment entry, please enable 'Allow Negative Stock for Batch' in the batch {0} or in the Stock Settings to proceed.\n"
 "\t\t\tHowever, enabling this setting may lead to negative stock in the system.\n"
 "\t\t\tSo please ensure the stock levels are adjusted as soon as possible to maintain the correct valuation rate."
-msgstr ""
+msgstr "\n"
+"\t\t\t批号 {0} 对应的物料 {1} 在仓库 {2}{3} 中出现负库存。\n"
+"\t\t\t请补充 {4} 个单位的库存数量后再继续此单据。\n"
+"\t\t\t若无法创建库存调整单，请在批号 {0} 或库存设置中启用“允许批次负库存”后继续。\n"
+"\t\t\t启用此设置可能导致系统出现负库存。\n"
+"\t\t\t请尽快调整库存数量，以保持成本价准确。"
 
 #. Label of the column_break_32 (Column Break) field in DocType 'Email Digest'
 #: erpnext/setup/doctype/email_digest/email_digest.json
@@ -1214,7 +1219,7 @@ msgstr "年度维护合同到期（序列号）"
 #: erpnext/stock/doctype/serial_no/serial_no.json
 #: erpnext/support/doctype/warranty_claim/warranty_claim.json
 msgid "AMC Expiry Date"
-msgstr "年底维保合同到期日"
+msgstr "年度维保合同到期日"
 
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/financial_reports.json
@@ -6331,7 +6336,7 @@ msgstr "行{0}：物料{2}的拣货数量{1}超过仓库{4}的可用库存{3}"
 
 #: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py:1552
 msgid "At Row {0}: In Serial and Batch Bundle {1} must have docstatus as 1 and not 0"
-msgstr ""
+msgstr "第 {0} 行：序列号与批号组合 {1} 必须为已提交状态，不能为草稿状态"
 
 #: erpnext/accounts/doctype/exchange_rate_revaluation/exchange_rate_revaluation.py:84
 msgid "At least one account with exchange gain or loss is required"
@@ -8143,7 +8148,7 @@ msgstr "批号信息"
 #: erpnext/stock/doctype/batch/batch.py:216
 #: erpnext/stock/report/serial_no_and_batch_traceability/serial_no_and_batch_traceability.py:469
 msgid "Batch Expiry Date"
-msgstr "批次有效期"
+msgstr "批号到期日"
 
 #. Label of the batch_id (Data) field in DocType 'Batch'
 #: erpnext/stock/doctype/batch/batch.json
@@ -14492,7 +14497,7 @@ msgstr "流动比率"
 #. Reconciliation Item'
 #: erpnext/stock/doctype/stock_reconciliation_item/stock_reconciliation_item.json
 msgid "Current Serial / Batch Bundle"
-msgstr "账面序列号与批号"
+msgstr "账面序列号与批号组合"
 
 #. Label of the current_serial_no (Long Text) field in DocType 'Stock
 #. Reconciliation Item'
@@ -17863,7 +17868,7 @@ msgstr "从顶边的距离"
 #. Description of a DocType
 #: erpnext/stock/doctype/serial_no/serial_no.json
 msgid "Distinct unit of an Item"
-msgstr "物料的单位"
+msgstr "可单独追踪的物料单位"
 
 #. Label of the distribute_additional_costs_based_on (Select) field in DocType
 #. 'Subcontracting Order'
@@ -20225,7 +20230,7 @@ msgstr "过期(按天计算)"
 #: erpnext/stock/doctype/batch/batch.json
 #: erpnext/stock/report/available_batch_report/available_batch_report.py:58
 msgid "Expiry Date"
-msgstr "失效日期"
+msgstr "到期日"
 
 #: erpnext/stock/doctype/batch/batch.py:218
 msgid "Expiry Date Mandatory"
@@ -23807,7 +23812,7 @@ msgstr "启用后，系统将允许该批次出现负库存。此设置可能导
 #. 'Batch'
 #: erpnext/stock/doctype/batch/batch.json
 msgid "If enabled, the system will allow negative stock entries for this batch, overriding the 'Allow negative stock for Batch' setting in Stock Settings. This may lead to incorrect valuation rates, so it is recommended to avoid using this option."
-msgstr ""
+msgstr "启用后，系统将允许此批号出现负库存，并覆盖库存设置中的“允许批次负库存”。这可能导致成本价不准确，因此建议不要启用。"
 
 #. Description of the 'Allow UOM with conversion rate defined in Item' (Check)
 #. field in DocType 'Stock Settings'
@@ -26025,7 +26030,7 @@ msgstr "发票功能"
 #: erpnext/stock/doctype/inventory_dimension/inventory_dimension.json
 #: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.json
 msgid "Inward"
-msgstr "收款"
+msgstr "入库"
 
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/subcontracting.json
@@ -27150,7 +27155,7 @@ msgstr "物料编码 > 物料组 > 品牌"
 
 #: erpnext/stock/doctype/serial_no/serial_no.py:83
 msgid "Item Code cannot be changed for Serial No."
-msgstr "物料号不能因序列号改变"
+msgstr "序列号对应的物料编码不能更改。"
 
 #: erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:461
 msgid "Item Code required at Row No {0}"
@@ -32970,7 +32975,7 @@ msgstr ""
 
 #: erpnext/stock/doctype/batch/batch.js:77
 msgid "No stock available for this batch."
-msgstr ""
+msgstr "此批号没有可用库存。"
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:815
 msgid "No stock ledger entries were created. Please set the quantity or valuation rate for the items properly and try again."
@@ -34656,7 +34661,7 @@ msgstr "发出金额"
 #: erpnext/stock/doctype/serial_no/serial_no.json
 #: erpnext/support/doctype/warranty_claim/warranty_claim.json
 msgid "Out of AMC"
-msgstr "年度维保合同失效日"
+msgstr "已超出年度维保合同期限"
 
 #. Option for the 'Status' (Select) field in DocType 'Asset'
 #: erpnext/assets/doctype/asset/asset.json
@@ -34778,7 +34783,7 @@ msgstr "未付{0}不能小于零（ {1} ）"
 #: erpnext/stock/doctype/inventory_dimension/inventory_dimension.json
 #: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.json
 msgid "Outward"
-msgstr "付款"
+msgstr "出库"
 
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/subcontracting.json
@@ -35589,7 +35594,7 @@ msgstr "上级科目缺失"
 #. Label of the parent_batch (Link) field in DocType 'Batch'
 #: erpnext/stock/doctype/batch/batch.json
 msgid "Parent Batch"
-msgstr "父批"
+msgstr "上级批号"
 
 #. Label of the parent_company (Link) field in DocType 'Company'
 #: erpnext/setup/doctype/company/company.json
@@ -37970,7 +37975,7 @@ msgstr "有工艺路线与启用计件成本两个勾选字段必须二选一"
 
 #: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py:150
 msgid "Please check the 'Activate Serial and Batch No for Item' checkbox in the {0} to make Serial and Batch Bundle for the item."
-msgstr ""
+msgstr "请在 {0} 中勾选“为物料启用序列号与批号”，以便为该物料创建序列号与批号。"
 
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.py:585
 msgid "Please check the error message and take necessary actions to fix the error and then restart the reposting again."
@@ -49444,7 +49449,7 @@ msgstr "序列号 / 批号"
 #: erpnext/stock/doctype/stock_reconciliation_item/stock_reconciliation_item.json
 #: erpnext/subcontracting/doctype/subcontracting_receipt_supplied_item/subcontracting_receipt_supplied_item.json
 msgid "Serial / Batch Bundle"
-msgstr "序列号与批号"
+msgstr "序列号与批号组合"
 
 #: erpnext/accounts/doctype/pos_invoice/pos_invoice.py:488
 msgid "Serial / Batch Bundle Missing"
@@ -49729,7 +49734,7 @@ msgstr "序列号已在库存预留条目中预留，继续操作前需取消预
 
 #: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py:385
 msgid "Serial Nos {0} are already Delivered. You cannot use them again in Manufacture / Repack entry."
-msgstr ""
+msgstr "序列号 {0} 已交付，不能再次用于生产或重新包装单据。"
 
 #. Label of the serial_no_series (Data) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
@@ -49802,7 +49807,7 @@ msgstr "序列号与批号"
 #: erpnext/subcontracting/doctype/subcontracting_receipt_item/subcontracting_receipt_item.json
 #: erpnext/workspace_sidebar/stock.json
 msgid "Serial and Batch Bundle"
-msgstr "序列号与批号"
+msgstr "序列号与批号组合"
 
 #: erpnext/stock/doctype/item/item.py:1132
 msgid "Serial and Batch Bundle Exists"
@@ -49810,11 +49815,11 @@ msgstr "序列号与批次组合已存在"
 
 #: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py:2303
 msgid "Serial and Batch Bundle created"
-msgstr "序列号批次组合已创建"
+msgstr "已创建序列号与批号组合"
 
 #: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py:2399
 msgid "Serial and Batch Bundle updated"
-msgstr "序列号批次组合已更新"
+msgstr "已更新序列号与批号组合"
 
 #: erpnext/controllers/stock_controller.py:251
 msgid "Serial and Batch Bundle {0} is already used in {1} {2}."
@@ -49826,7 +49831,7 @@ msgstr "序列号和批次捆绑{0}未提交"
 
 #: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py:2373
 msgid "Serial and Batch Bundle {0} is submitted and its entries cannot be modified."
-msgstr ""
+msgstr "序列号与批号组合 {0} 已提交，其明细不能修改。"
 
 #. Label of the section_break_45 (Section Break) field in DocType
 #. 'Subcontracting Receipt Item'
@@ -49850,11 +49855,11 @@ msgstr "序列号与批号"
 
 #: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py:153
 msgid "Serial and Batch No for Item Disabled"
-msgstr ""
+msgstr "物料未启用序列号与批号"
 
 #: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.js:53
 msgid "Serial and Batch Nos"
-msgstr "序列号批次号"
+msgstr "序列号与批号"
 
 #. Description of the 'Auto reserve Serial and Batch Nos' (Check) field in
 #. DocType 'Stock Settings'
@@ -50584,7 +50589,7 @@ msgstr "保质期天数"
 
 #: erpnext/stock/doctype/batch/batch.py:214
 msgid "Shelf Life in Days"
-msgstr "保质期(天)"
+msgstr "保质期（天）"
 
 #. Label of the shift (Link) field in DocType 'Depreciation Schedule'
 #: erpnext/assets/doctype/asset/asset.js:404
@@ -58447,7 +58452,7 @@ msgstr "付款类型"
 #: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.json
 #: erpnext/stock/doctype/serial_and_batch_entry/serial_and_batch_entry.json
 msgid "Type of Transaction"
-msgstr "库存变动类型(收/发)"
+msgstr "出入库类型"
 
 #: banking/src/components/features/BankReconciliation/Rules/RuleForm.tsx:195
 msgid "Type of check"
@@ -58813,7 +58818,7 @@ msgstr "未关闭的财年利润/损失"
 #: erpnext/stock/doctype/serial_no/serial_no.json
 #: erpnext/support/doctype/warranty_claim/warranty_claim.json
 msgid "Under AMC"
-msgstr "有年度维保养合同"
+msgstr "在年度维保合同期内"
 
 #. Option for the 'Level' (Select) field in DocType 'Employee Education'
 #: erpnext/setup/doctype/employee_education/employee_education.json
@@ -59402,7 +59407,7 @@ msgstr ""
 #. Label of the use_batchwise_valuation (Check) field in DocType 'Batch'
 #: erpnext/stock/doctype/batch/batch.json
 msgid "Use Batch-wise Valuation"
-msgstr "按批号计算成本"
+msgstr "按批号计算成本价"
 
 #. Label of the use_csv_sniffer (Check) field in DocType 'Bank Statement
 #. Import'
@@ -60334,11 +60339,11 @@ msgstr "查看（销售）线索"
 #: erpnext/accounts/doctype/account/account_tree.js:274
 #: erpnext/stock/doctype/batch/batch.js:18
 msgid "View Ledger"
-msgstr "查看总账"
+msgstr "查看库存台账"
 
 #: erpnext/stock/doctype/serial_no/serial_no.js:32
 msgid "View Ledgers"
-msgstr "查看台账"
+msgstr "查看库存台账"
 
 #: erpnext/manufacturing/doctype/master_production_schedule/master_production_schedule.js:65
 msgid "View MRP"
@@ -60827,7 +60832,7 @@ msgstr "此仓库已有物料凭证，无法删除。"
 
 #: erpnext/stock/doctype/serial_no/serial_no.py:85
 msgid "Warehouse cannot be changed for Serial No."
-msgstr "仓库不能为序列号变更"
+msgstr "序列号所在仓库不能直接更改。"
 
 #: erpnext/controllers/sales_and_purchase_return.py:160
 msgid "Warehouse is mandatory"
@@ -61030,7 +61035,7 @@ msgstr "质量保证"
 #. No'
 #: erpnext/stock/doctype/serial_no/serial_no.json
 msgid "Warranty / AMC Details"
-msgstr "年度维保合同信息"
+msgstr "保修与年度维保合同信息"
 
 #. Label of the warranty_amc_status (Select) field in DocType 'Warranty Claim'
 #: erpnext/support/doctype/warranty_claim/warranty_claim.json
@@ -62048,7 +62053,7 @@ msgstr "因生产工单已关闭，生产任务单不能再变更"
 
 #: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py:230
 msgid "You can't process the serial number {0} as it has already been used in the SABB {1}. {2} if you want to inward same serial number multiple times then enabled 'Allow existing Serial No to be Manufactured/Received again' in the {3}"
-msgstr "无法处理序列号{0}，因其已在序列和批次凭证{1}中使用。如需多次入库相同序列号，请在{3}启用'允许重复生产/接收现有序列号'"
+msgstr "无法处理序列号 {0}，因为它已用于序列号与批号组合 {1}。{2} 如需多次入库同一序列号，请在 {3} 中启用“允许再次生产或接收现有序列号”。"
 
 #: erpnext/accounts/doctype/loyalty_program/loyalty_program.py:192
 msgid "You can't redeem Loyalty Points having more value than the Total Amount."
@@ -62088,7 +62093,7 @@ msgstr "您无法同时启用“{0}”和“{1}”设置。"
 
 #: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py:168
 msgid "You cannot outward following {0} as either they are Delivered, Inactive or located in a different warehouse."
-msgstr "您无法追踪 {0} ，因为它们要么已交付，要么处于非活动状态，要么位于不同的仓库中。"
+msgstr "以下 {0} 无法出库，因为它们已交付、已停用或位于其他仓库。"
 
 #: erpnext/selling/page/point_of_sale/pos_payment.js:625
 msgid "You cannot redeem more than {0}."
@@ -62315,7 +62320,7 @@ msgstr "按完工数量百分比"
 
 #: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py:1705
 msgid "as of {0}"
-msgstr ""
+msgstr "截至 {0}"
 
 #: erpnext/www/book_appointment/index.html:43
 msgid "at"
@@ -62890,7 +62895,7 @@ msgstr "{0}是必填项。{1}和{2}的货币转换记录可能还未生成。"
 
 #: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py:1929
 msgid "{0} is not a CSV file."
-msgstr ""
+msgstr "{0} 不是 CSV 文件。"
 
 #: erpnext/selling/doctype/customer/customer.py:245
 msgid "{0} is not a company bank account"
