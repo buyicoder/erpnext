@@ -405,7 +405,7 @@ class BuyingController(SubcontractingController):
 			)
 
 	def set_total_in_words(self):
-		from frappe.utils import money_in_words
+		from erpnext.setup.china_money import money_in_words
 
 		if self.meta.get_field("base_in_words"):
 			if self.meta.get_field("base_rounded_total") and not self.is_rounded_total_disabled():

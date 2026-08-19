@@ -193,7 +193,7 @@ class SellingController(StockController):
 				self.calculate_taxes_and_totals()
 
 	def set_total_in_words(self):
-		from frappe.utils import money_in_words
+		from erpnext.setup.china_money import money_in_words
 
 		if self.meta.get_field("base_in_words"):
 			base_amount = abs(

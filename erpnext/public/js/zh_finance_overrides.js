@@ -11,7 +11,13 @@ if (frappe.boot.lang === "zh") {
 		Reports: "报表",
 	});
 
-	const cny_amount_selector = ".number, .list-row-container .filterable div";
+	const cny_amount_selector = [
+		".number",
+		".list-row-container .filterable div",
+		"[data-fieldtype='Currency'] .static-area div",
+		".frappe-control[data-fieldtype='Currency'] .control-value",
+		".summary-value",
+	].join(", ");
 	const awesomplete_status_selector = ".awesomplete [role='status']";
 	const chart_date_selector = ".chart-container svg text";
 	const localize_compact_cny = (root = document) => {
