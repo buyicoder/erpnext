@@ -8,6 +8,7 @@ import {
 	localize_compact_cny_element,
 	localize_datatable_filter_title,
 	localize_login_activity_text,
+	localize_list_filter_title,
 	localize_list_sort_title,
 	localize_list_value_title,
 	localize_awesomplete_status_text,
@@ -52,6 +53,15 @@ test("localizes list sorting and translated-value tooltips", () => {
 	assert.equal(localize_list_value_title("付款类型: Receive", "收款", translate), "付款类型: 收款");
 	assert.equal(localize_list_value_title("客户: Grant Plastics Ltd.", "Grant Plastics Ltd.", translate), "客户: Grant Plastics Ltd.");
 	assert.equal(localize_list_value_title("付款类型: Receive", "其他值", translate), "付款类型: Receive");
+});
+
+test("localizes singular and plural applied-filter tooltips", () => {
+	const translate = (message, values = []) =>
+		message === "{0} Filters Applied" ? `已应用 ${values[0]} 个筛选条件` : message;
+
+	assert.equal(localize_list_filter_title("1 Filter Applied", translate), "已应用 1 个筛选条件");
+	assert.equal(localize_list_filter_title("3 Filters Applied", translate), "已应用 3 个筛选条件");
+	assert.equal(localize_list_filter_title("Filter Applied", translate), "Filter Applied");
 });
 
 test("localizes nested CNY text without replacing its wrapper", () => {

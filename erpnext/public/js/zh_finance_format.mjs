@@ -79,6 +79,11 @@ export const localize_list_sort_title = (title, visible_label, translate) => {
 	return translate("Click to sort by {0}", [visible_label.trim()]);
 };
 
+export const localize_list_filter_title = (title, translate) => {
+	const match = title?.match(/^(\d+) Filters? Applied$/);
+	return match ? translate("{0} Filters Applied", [match[1]]) : title;
+};
+
 export const localize_list_value_title = (title, visible_value, translate) => {
 	const match = title?.match(/^(.+): (.+)$/);
 	if (!match) return title;

@@ -4,6 +4,7 @@ import {
 	localize_compact_cny_element,
 	localize_datatable_filter_title,
 	localize_login_activity_text,
+	localize_list_filter_title,
 	localize_list_sort_title,
 	localize_list_value_title,
 	localize_awesomplete_status_text,
@@ -42,6 +43,7 @@ if (frappe.boot.lang === "zh") {
 	const datatable_filter_selector = ".datatable input.dt-filter[title^='Filter based on ']";
 	const tree_level_selector = "#tree-level[aria-label='Tree Level']";
 	const list_sort_selector = ".list-row-head [data-sort-by][title]";
+	const list_filter_selector = ".filter-button[title$='Filter Applied'], .filter-button[title$='Filters Applied']";
 	const list_value_title_selector = ".list-row .ellipsis[title]";
 	const localize_compact_cny = (root = document) => {
 		if (!root) return;
@@ -120,6 +122,13 @@ if (frappe.boot.lang === "zh") {
 	};
 	const localize_list_titles = (root = document) => {
 		if (!root) return;
+		const filter_controls = root.matches?.(list_filter_selector)
+			? [root]
+			: root.querySelectorAll?.(list_filter_selector) || [];
+		filter_controls.forEach((element) => {
+			element.title = localize_list_filter_title(element.title, __);
+		});
+
 		const sort_controls = root.matches?.(list_sort_selector)
 			? [root]
 			: root.querySelectorAll?.(list_sort_selector) || [];
