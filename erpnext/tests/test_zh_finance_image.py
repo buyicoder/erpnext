@@ -31,6 +31,8 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("frappe-v16.24.4-zh.po", self.containerfile)
 		self.assertIn("localization/frappe/zh.po", self.containerfile)
 		self.assertIn("localization/frappe/realtime_utils.js", self.containerfile)
+		self.assertIn("apps/frappe/realtime/utils.js", self.containerfile)
+		self.assertNotIn("apps/frappe/frappe/realtime/utils.js", self.containerfile)
 		self.assertIn("merge_frappe_zh_catalog.py", self.containerfile)
 		self.assertIn("frappe.mo", self.containerfile)
 

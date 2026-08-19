@@ -7,7 +7,7 @@ USER root
 COPY --chown=frappe:frappe erpnext/locale/zh.po /home/frappe/frappe-bench/apps/erpnext/erpnext/locale/zh.po
 COPY --chown=frappe:frappe .build/frappe-v16.24.4-zh.po /tmp/frappe-zh-baseline.po
 COPY --chown=frappe:frappe localization/frappe/zh.po /tmp/frappe-zh-overrides.po
-COPY --chown=frappe:frappe localization/frappe/realtime_utils.js /home/frappe/frappe-bench/apps/frappe/frappe/realtime/utils.js
+COPY --chown=frappe:frappe localization/frappe/realtime_utils.js /home/frappe/frappe-bench/apps/frappe/realtime/utils.js
 COPY --chown=frappe:frappe scripts/merge_frappe_zh_catalog.py /tmp/merge_frappe_zh_catalog.py
 COPY --chown=frappe:frappe erpnext/public/js/erpnext.bundle.js /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/erpnext.bundle.js
 COPY --chown=frappe:frappe erpnext/public/js/zh_finance_overrides.js /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/zh_finance_overrides.js
