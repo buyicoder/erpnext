@@ -2,6 +2,9 @@ from unittest import TestCase
 
 from scripts.patch_frappe_print_page import (
 	DEFAULT_FORMAT,
+	DEFAULT_LETTER_HEAD,
+	GET_LETTER_HEAD,
+	LETTER_HEAD_SETUP,
 	SELECTED_FORMAT,
 	SELECTOR_SETUP,
 	patch_text,
@@ -10,7 +13,18 @@ from scripts.patch_frappe_print_page import (
 
 class TestPatchFrappePrintPage(TestCase):
 	def test_default_format_uses_link_control_translation_path(self):
-		patched = patch_text(f"{SELECTOR_SETUP}\n{DEFAULT_FORMAT}\n{SELECTED_FORMAT}")
+		patched = patch_text(
+			"\n".join(
+				(
+					SELECTOR_SETUP,
+					DEFAULT_FORMAT,
+					SELECTED_FORMAT,
+					LETTER_HEAD_SETUP,
+					DEFAULT_LETTER_HEAD,
+					GET_LETTER_HEAD,
+				)
+			)
+		)
 
 		self.assertIn("this.print_format_control = this.add_sidebar_item", patched)
 		self.assertIn("this.print_format_selector = this.print_format_control.$input", patched)
@@ -21,6 +35,9 @@ class TestPatchFrappePrintPage(TestCase):
 		)
 		self.assertNotIn("this.print_format_selector.val(this.frm.meta.default_print_format", patched)
 		self.assertIn('return this.print_format_control.get_value() || "Standard"', patched)
+		self.assertIn("this.letterhead_control = this.add_sidebar_item", patched)
+		self.assertIn("return this.letterhead_control.set_value(message.name)", patched)
+		self.assertIn('return this.letterhead_control.get_value() || __("No Letterhead")', patched)
 
 	def test_patch_fails_when_pinned_source_changes(self):
 		with self.assertRaisesRegex(ValueError, "no longer matches"):

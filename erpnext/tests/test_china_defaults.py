@@ -4,6 +4,7 @@ from unittest.mock import MagicMock, patch
 from erpnext.setup import china_defaults
 from erpnext.setup.china_defaults import (
 	CHINA_ADDRESS_TEMPLATE,
+	CHINA_LETTER_HEAD_TRANSLATIONS,
 	CHINA_PRINT_FORMAT_TRANSLATIONS,
 	CHINA_SYSTEM_DEFAULTS,
 )
@@ -56,6 +57,7 @@ class TestChinaDefaults(TestCase):
 			),
 			patch.object(china_defaults, "ensure_china_address_template"),
 			patch.object(china_defaults, "ensure_china_print_format_labels"),
+			patch.object(china_defaults, "ensure_china_letter_head_labels"),
 			patch.object(china_defaults.frappe, "clear_cache"),
 		):
 			china_defaults.apply_china_defaults()
@@ -76,6 +78,7 @@ class TestChinaDefaults(TestCase):
 			),
 			patch.object(china_defaults, "ensure_china_address_template"),
 			patch.object(china_defaults, "ensure_china_print_format_labels"),
+			patch.object(china_defaults, "ensure_china_letter_head_labels"),
 			patch.object(china_defaults.frappe, "clear_cache"),
 		):
 			china_defaults.apply_china_defaults(force=True)
@@ -105,6 +108,7 @@ class TestChinaDefaults(TestCase):
 			"采购订单（标准）",
 		)
 		self.assertEqual(len(CHINA_PRINT_FORMAT_TRANSLATIONS), 15)
+		self.assertEqual(CHINA_LETTER_HEAD_TRANSLATIONS["Company Letterhead - Grey"], "公司抬头（灰色）")
 
 	def test_custom_print_format_translation_is_preserved(self):
 		record = MagicMock(
@@ -169,6 +173,7 @@ class TestChinaDefaults(TestCase):
 			patch.object(china_defaults.frappe, "get_single", side_effect=[MagicMock(), MagicMock()]),
 			patch.object(china_defaults, "ensure_china_address_template", return_value=True),
 			patch.object(china_defaults, "ensure_china_print_format_labels", return_value=True),
+			patch.object(china_defaults, "ensure_china_letter_head_labels", return_value=True),
 			patch.object(china_defaults.frappe, "clear_cache") as clear_cache,
 		):
 			china_defaults.apply_china_defaults(clear_cache=False)

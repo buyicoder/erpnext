@@ -32,6 +32,10 @@ CHINA_PRINT_FORMAT_TRANSLATIONS = {
 	"Request for Quotation with Item Image": "询价单（含物料图片）",
 }
 
+CHINA_LETTER_HEAD_TRANSLATIONS = {
+	"Company Letterhead - Grey": "公司抬头（灰色）",
+}
+
 UPSTREAM_CHINA_ADDRESS_TEMPLATE = """{{ address_line1 }}<br>
 {% if address_line2 %}{{ address_line2 }}<br>{% endif -%}
 {{ city }}<br>
@@ -70,8 +74,15 @@ def apply_china_defaults(force=False, clear_cache=True):
 		global_defaults.save(ignore_permissions=True)
 	address_template_changed = ensure_china_address_template()
 	print_format_labels_changed = ensure_china_print_format_labels(force=force)
+	letter_head_labels_changed = ensure_china_letter_head_labels(force=force)
 
-	if clear_cache and (changed or global_defaults_changed or address_template_changed or print_format_labels_changed):
+	if clear_cache and (
+		changed
+		or global_defaults_changed
+		or address_template_changed
+		or print_format_labels_changed
+		or letter_head_labels_changed
+	):
 		frappe.clear_cache()
 	return CHINA_SYSTEM_DEFAULTS
 
@@ -112,21 +123,30 @@ def ensure_china_address_template(force=False):
 
 def ensure_china_print_format_labels(force=False):
 	"""Translate print-format display labels while preserving their stable record names."""
+	return _ensure_translated_doctype_labels("Print Format", CHINA_PRINT_FORMAT_TRANSLATIONS, force)
+
+
+def ensure_china_letter_head_labels(force=False):
+	"""Translate letter-head display labels while preserving their stable record names."""
+	return _ensure_translated_doctype_labels("Letter Head", CHINA_LETTER_HEAD_TRANSLATIONS, force)
+
+
+def _ensure_translated_doctype_labels(doctype, translations, force=False):
 	changed = False
 	explicit_setting = frappe.db.get_value(
 		"Property Setter",
 		{
-			"doc_type": "Print Format",
+			"doc_type": doctype,
 			"doctype_or_field": "DocType",
 			"property": "translated_doctype",
 		},
 		"value",
 	)
 	should_enable_translation = explicit_setting != "0" or force
-	if should_enable_translation and not frappe.get_meta("Print Format").translated_doctype:
+	if should_enable_translation and not frappe.get_meta(doctype).translated_doctype:
 		frappe.make_property_setter(
 			{
-				"doctype": "Print Format",
+				"doctype": doctype,
 				"doctype_or_field": "DocType",
 				"property": "translated_doctype",
 				"value": "1",
@@ -137,13 +157,13 @@ def ensure_china_print_format_labels(force=False):
 
 	records = frappe.get_all(
 		"Translation",
-		filters={"language": "zh", "source_text": ["in", list(CHINA_PRINT_FORMAT_TRANSLATIONS)]},
+		filters={"language": "zh", "source_text": ["in", list(translations)]},
 		fields=["name", "source_text", "context", "translated_text"],
 		limit_page_length=0,
 	)
 	existing = {record.source_text: record for record in records if not record.context}
 
-	for source, translated in CHINA_PRINT_FORMAT_TRANSLATIONS.items():
+	for source, translated in translations.items():
 		record = existing.get(source)
 		if record:
 			if record.translated_text == translated:
