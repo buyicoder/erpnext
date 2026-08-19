@@ -13755,7 +13755,7 @@ msgstr "创建任务"
 #. Title of an Onboarding Step
 #: erpnext/projects/onboarding_step/create_tasks/create_tasks.json
 msgid "Create Tasks"
-msgstr ""
+msgstr "创建任务"
 
 #: erpnext/setup/doctype/company/company.js:168
 msgid "Create Tax Template"
@@ -35700,11 +35700,11 @@ msgstr "父任务"
 
 #: erpnext/projects/doctype/task/task.py:171
 msgid "Parent Task {0} is not a Template Task"
-msgstr "上级任务{0}非模板任务"
+msgstr "父任务 {0} 不是模板任务"
 
 #: erpnext/projects/doctype/task/task.py:194
 msgid "Parent Task {0} must be a Group Task"
-msgstr ""
+msgstr "父任务 {0} 必须为任务组"
 
 #. Label of the parent_territory (Link) field in DocType 'Territory'
 #: erpnext/setup/doctype/territory/territory.json
@@ -40699,9 +40699,9 @@ msgid "Profitability Analysis"
 msgstr "盈利能力分析"
 
 #: erpnext/projects/doctype/task/task.py:157
-#, python-format
+#, no-python-format
 msgid "Progress % for a task cannot be more than 100."
-msgstr "为任务进度百分比不能超过100个。"
+msgstr "任务进度不能超过 100%。"
 
 #: erpnext/projects/report/delayed_tasks_summary/delayed_tasks_summary.py:116
 msgid "Progress (%)"
@@ -61991,7 +61991,7 @@ msgstr "您没有权限设定冻结值"
 
 #: erpnext/projects/doctype/task/task.py:317
 msgid "You are not permitted to create a Task for Project {0}"
-msgstr ""
+msgstr "您没有权限为项目 {0} 创建任务"
 
 #: erpnext/stock/doctype/pick_list/pick_list.py:546
 msgid "You are picking more than required quantity for the item {0}. Check if there is any other pick list created for the sales order {1}."

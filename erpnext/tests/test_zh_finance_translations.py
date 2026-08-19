@@ -60,6 +60,7 @@ CORE_BUSINESS_DOCTYPES = {
 	"POS Opening Entry",
 	"POS Profile",
 	"Project",
+	"Project Update",
 	"Purchase Invoice",
 	"Purchase Order",
 	"Purchase Receipt",
@@ -76,6 +77,7 @@ CORE_BUSINESS_DOCTYPES = {
 	"Supplier Quotation",
 	"Batch",
 	"Timesheet",
+	"Task",
 	"Activity Cost",
 	"Activity Type",
 	"Work Order",
@@ -178,6 +180,7 @@ BABEL_LITERAL_PERCENT_MESSAGES = {
 	"Row #{0}: Process Loss Percentage should be less than 100% for {1} Item {2}",
 	"% of materials billed against this Sales Order",
 	"% of materials delivered against this Sales Order",
+	"Progress % for a task cannot be more than 100.",
 	"Check if this tax is not applicable to items (distinct from 0% rate)",
 	"In this case, the amount will be calculated as 25% of the transaction amount. If the transaction amount is 200, then this will be calculated as 200 * 0.25 = 50.",
 	"{0}% of total invoice value will be given as discount.",
@@ -1022,6 +1025,17 @@ class TestZhFinanceTranslations(TestCase):
 		).read_text()
 		self.assertIn('_("Estimated Cost") + ":Currency:120"', report_source)
 		self.assertNotIn('_("Project Value") + ":Currency:120"', report_source)
+
+	def test_project_task_journey_has_no_known_empty_chinese_messages(self):
+		translations = {
+			"Create Tasks": "创建任务",
+			"Parent Task {0} is not a Template Task": "父任务 {0} 不是模板任务",
+			"Parent Task {0} must be a Group Task": "父任务 {0} 必须为任务组",
+			"Progress % for a task cannot be more than 100.": "任务进度不能超过 100%。",
+			"You are not permitted to create a Task for Project {0}": "您没有权限为项目 {0} 创建任务",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
 
 	def test_stock_reposting_uses_reviewed_chinese_terms(self):
 		translations = {
