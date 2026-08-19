@@ -1094,7 +1094,7 @@ class ProductionPlan(Document):
 				+ "<br><br>"
 			)
 			message += _("If you still want to proceed, please disable '{0}' checkbox.").format(
-				self.meta.get_field("skip_available_sub_assembly_item").label
+				_(self.meta.get_field("skip_available_sub_assembly_item").label)
 			)
 
 			frappe.msgprint(message, title=_("Note"))
@@ -1842,7 +1842,7 @@ def get_items_for_material_requests(doc, warehouses=None, get_parent_warehouse_d
 
 	if not mr_items:
 		to_enable = frappe.bold(
-			frappe.get_meta("Production Plan").get_field("ignore_existing_ordered_qty").label
+			_(frappe.get_meta("Production Plan").get_field("ignore_existing_ordered_qty").label)
 		)
 		warehouse = frappe.bold(doc.get("for_warehouse"))
 		message = (

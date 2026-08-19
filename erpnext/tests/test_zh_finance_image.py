@@ -74,6 +74,7 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("company_letterhead___grey.json", self.containerfile)
 		self.assertIn("erpnext/stock/doctype/item/item.json", self.containerfile)
 		self.assertIn("erpnext/stock/utils.py", self.containerfile)
+		self.assertIn("erpnext/manufacturing/doctype/production_plan/production_plan.py", self.containerfile)
 		self.assertIn("erpnext/setup/china_defaults.py", self.containerfile)
 		self.assertIn("erpnext/setup/setup_wizard/operations/defaults_setup.py", self.containerfile)
 		self.assertIn(
@@ -149,6 +150,8 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn('"Select Company Address": "选择公司地址"', self.build_script)
 		self.assertIn('"Invite Users": "邀请用户"', self.build_script)
 		self.assertIn('"Use Posting Datetime for Naming Documents": "使用记账日期时间生成单据编号"', self.build_script)
+		self.assertIn('"BOM Stock Analysis": "物料清单库存分析"', self.build_script)
+		self.assertIn('"Subcontracting Setup": "委外设置"', self.build_script)
 		self.assertIn("this.print_format_control.get_value()", self.build_script)
 		self.assertIn("Banking HTML references missing assets", self.build_script)
 		self.assertIn("Banking entry bundle lacks translation readiness contract", self.build_script)

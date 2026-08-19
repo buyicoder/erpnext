@@ -72,6 +72,9 @@ expected_translations = {
 	"Invite Users": "邀请用户",
 	"Use Posting Datetime for Naming Documents": "使用记账日期时间生成单据编号",
 	"Creating demo data": "正在创建演示数据",
+	"BOM Stock Analysis": "物料清单库存分析",
+	"Subcontracting Setup": "委外设置",
+	"Stock Reservation Entries created": "已创建库存预留单",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)

@@ -468,6 +468,8 @@ class TestZhFinanceTranslations(TestCase):
 			"erpnext/stock/",
 			"erpnext/public/",
 			"erpnext/setup/",
+			"erpnext/manufacturing/",
+			"erpnext/subcontracting/",
 		)
 		missing = []
 		for source_message in self.source_catalog:
@@ -757,6 +759,73 @@ class TestZhFinanceTranslations(TestCase):
 		whitespace = self.source_catalog.get("  ")
 		self.assertIsNotNone(whitespace)
 		self.assertFalse(whitespace.id.strip())
+
+	def test_manufacturing_workflows_use_reviewed_chinese_terms(self):
+		translations = {
+			"BOM Stock Analysis": "物料清单库存分析",
+			"FG Items to Make": "成品生产数量",
+			"From BOM No": "来源物料清单编号",
+			"If you still want to proceed, please disable '{0}' checkbox.": "如仍要继续，请取消勾选“{0}”。",
+			"Main Item Code": "主物料编码",
+			"Maximum Producible Items": "最大可生产数量",
+			"Method {0} is not allowed to be run on a Job Card.": "生产任务单不允许执行方法 {0}。",
+			"Please set actual demand or sales forecast to generate Material Requirements Planning Report.": "请设置实际需求或销售预测，以生成物料需求计划报表。",
+			"Show availability of exploded items": "显示展开后物料的可用库存",
+			"Sub Assembly Item Reference": "子装配件物料引用",
+			"Sub assembly item references are missing. Please fetch the sub assemblies and raw materials again.": "缺少子装配件物料引用。请重新获取子装配件和原材料。",
+			"The Company {0} of Sales Forecast {1} does not match with the Company {2} of Master Production Schedule {3}.": "公司 {0} 的销售预测 {1} 与公司 {2} 的主生产计划 {3} 不一致。",
+			"Warehouse is required to get producible FG Items": "必须选择仓库才能获取可生产成品",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+	def test_production_plan_messages_translate_dynamic_field_labels(self):
+		text = (
+			Path(__file__).parents[2]
+			/ "erpnext/manufacturing/doctype/production_plan/production_plan.py"
+		).read_text()
+		self.assertIn('_(self.meta.get_field("skip_available_sub_assembly_item").label)', text)
+		self.assertIn(
+			'_(frappe.get_meta("Production Plan").get_field("ignore_existing_ordered_qty").label)',
+			text,
+		)
+		for source in ("Consider Projected Qty in Calculation", "Consider Projected Qty in Calculation (RM)"):
+			messages = [self.catalog.get(source), self.merged_frappe_catalog.get(source)]
+			self.assertTrue(
+				any(message and message.string and "fuzzy" not in message.flags for message in messages),
+				source,
+			)
+
+	def test_subcontracting_workflows_use_reviewed_chinese_terms(self):
+		translations = {
+			'<span class="h4"><b>Subcontracting Inward and Outward</b></span>': '<span class="h4"><b>委外入库与出库</b></span>',
+			"Additional {0} {1} of item {2} required as per BOM to complete this transaction": "要完成此交易，根据物料清单还需要 {0} {1} 的物料 {2}",
+			"Create Service Item": "创建服务物料",
+			"Create Subcontracted Item": "创建委外物料",
+			"Create Subcontracting Order": "创建委外订单",
+			"Create Subcontracting PO": "创建委外采购",
+			"Create Subcontracting Purchase Order": "创建委外采购",
+			"Creating Return of Components ...": "正在创建退回原材料单据……",
+			"Get Secondary Items": "获取副产品",
+			"Getting Secondary Items": "正在获取副产品",
+			"Job Worker Currency": "委外供应商币种",
+			"Learn Subcontracting": "了解委外加工",
+			"Qty (As per BOM)": "数量（按物料清单）",
+			"Quantity is mandatory for the selected items.": "所选物料必须填写数量。",
+			"Row #{0}: Finished Good reference is mandatory for Secondary Item {1}.": "第 {0} 行：副产品 {1} 必须关联成品。",
+			"Row #{0}: Rejected Qty cannot be set for Secondary Item {1}.": "第 {0} 行：副产品 {1} 不能设置拒收数量。",
+			"Row #{0}: Secondary Item Qty cannot be zero": "第 {0} 行：副产品数量不能为零",
+			"Secondary Items Cost Per Qty": "每单位副产品成本",
+			"Secondary Items Generated": "已生成副产品",
+			"Select Items to Receive": "选择待收物料",
+			"Stock Reservation Entries created": "已创建库存预留单",
+			"Subcontracting Inward Order Secondary Item": "委外入库订单副产品",
+			"Subcontracting Setup": "委外设置",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
 
 	def test_accounts_workflows_use_reviewed_chinese_terms(self):
 		translations = {

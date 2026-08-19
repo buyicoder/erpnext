@@ -964,7 +964,7 @@ msgstr "<span class=\"h4\"><b>报表与基础资料</b></span>"
 #. Header text in the Subcontracting Workspace
 #: erpnext/subcontracting/workspace/subcontracting/subcontracting.json
 msgid "<span class=\"h4\"><b>Subcontracting Inward and Outward</b></span>"
-msgstr ""
+msgstr "<span class=\"h4\"><b>委外入库与出库</b></span>"
 
 #. Header text in the ERPNext Settings Workspace
 #: erpnext/setup/workspace/erpnext_settings/erpnext_settings.json
@@ -3246,7 +3246,7 @@ msgstr "额外调拨数量{0}不得超过{1}。要修复此问题，请提高制
 
 #: erpnext/subcontracting/doctype/subcontracting_receipt/subcontracting_receipt.py:635
 msgid "Additional {0} {1} of item {2} required as per BOM to complete this transaction"
-msgstr ""
+msgstr "要完成此交易，根据物料清单还需要 {0} {1} 的物料 {2}"
 
 #. Label of the address_and_contact_tab (Tab Break) field in DocType 'Dunning'
 #. Label of the contact_and_address_tab (Tab Break) field in DocType 'POS
@@ -7257,7 +7257,7 @@ msgstr "物料清单副产品引用"
 #. Name of a report
 #: erpnext/manufacturing/report/bom_stock_analysis/bom_stock_analysis.json
 msgid "BOM Stock Analysis"
-msgstr ""
+msgstr "物料清单库存分析"
 
 #. Label of the tab_2_tab (Tab Break) field in DocType 'BOM Creator'
 #: erpnext/manufacturing/doctype/bom_creator/bom_creator.json
@@ -13709,7 +13709,7 @@ msgstr "创建销售订单以帮助您规划工作并按时出货"
 #. Label of an action in the Onboarding Step 'Create Service Item'
 #: erpnext/subcontracting/onboarding_step/create_service_item/create_service_item.json
 msgid "Create Service Item"
-msgstr ""
+msgstr "创建服务物料"
 
 #: erpnext/stock/dashboard/item_dashboard.js:283
 #: erpnext/stock/doctype/material_request/material_request.js:649
@@ -13720,23 +13720,23 @@ msgstr "新建物料移动"
 #. Label of an action in the Onboarding Step 'Create Subcontracted Item'
 #: erpnext/subcontracting/onboarding_step/create_subcontracted_item/create_subcontracted_item.json
 msgid "Create Subcontracted Item"
-msgstr ""
+msgstr "创建委外物料"
 
 #. Title of an Onboarding Step
 #. Label of an action in the Onboarding Step 'Create Subcontracting Order'
 #: erpnext/subcontracting/onboarding_step/create_subcontracting_order/create_subcontracting_order.json
 msgid "Create Subcontracting Order"
-msgstr ""
+msgstr "创建委外订单"
 
 #. Title of an Onboarding Step
 #: erpnext/subcontracting/onboarding_step/create_subcontracting_po/create_subcontracting_po.json
 msgid "Create Subcontracting PO"
-msgstr ""
+msgstr "创建委外采购"
 
 #. Label of an action in the Onboarding Step 'Create Subcontracting PO'
 #: erpnext/subcontracting/onboarding_step/create_subcontracting_po/create_subcontracting_po.json
 msgid "Create Subcontracting Purchase Order"
-msgstr ""
+msgstr "创建委外采购"
 
 #. Title of an Onboarding Step
 #: erpnext/buying/onboarding_step/create_supplier/create_supplier.json
@@ -13940,7 +13940,7 @@ msgstr "正在创建采购收货单..."
 
 #: erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.js:604
 msgid "Creating Return of Components ..."
-msgstr ""
+msgstr "正在创建退回原材料单据……"
 
 #: erpnext/accounts/doctype/opening_invoice_creation_tool/opening_invoice_creation_tool.js:66
 msgid "Creating Sales Invoices ..."
@@ -20308,7 +20308,7 @@ msgstr "产成品/半成品物料"
 
 #: erpnext/manufacturing/report/bom_stock_analysis/bom_stock_analysis.js:21
 msgid "FG Items to Make"
-msgstr ""
+msgstr "成品生产数量"
 
 #. Option for the 'Default Stock Valuation Method' (Select) field in DocType
 #. 'Company'
@@ -21645,7 +21645,7 @@ msgstr "基于物料清单"
 #: erpnext/manufacturing/report/bom_stock_analysis/bom_stock_analysis.py:105
 #: erpnext/manufacturing/report/bom_stock_analysis/bom_stock_analysis.py:169
 msgid "From BOM No"
-msgstr ""
+msgstr "来源物料清单编号"
 
 #. Label of the from_company (Data) field in DocType 'Warranty Claim'
 #: erpnext/support/doctype/warranty_claim/warranty_claim.json
@@ -22510,7 +22510,7 @@ msgstr "获取销售订单"
 #. Receipt'
 #: erpnext/subcontracting/doctype/subcontracting_receipt/subcontracting_receipt.json
 msgid "Get Secondary Items"
-msgstr ""
+msgstr "获取副产品"
 
 #. Label of the get_started_sections (Code) field in DocType 'Support Settings'
 #: erpnext/support/doctype/support_settings/support_settings.json
@@ -22563,7 +22563,7 @@ msgstr "获取站点来源"
 
 #: erpnext/subcontracting/doctype/subcontracting_receipt/subcontracting_receipt.js:196
 msgid "Getting Secondary Items"
-msgstr ""
+msgstr "正在获取副产品"
 
 #. Option for the 'Coupon Type' (Select) field in DocType 'Coupon Code'
 #: erpnext/accounts/doctype/coupon_code/coupon_code.json
@@ -24063,7 +24063,7 @@ msgstr "可以手工勾选匹配，否则按时间先后自动匹配"
 
 #: erpnext/manufacturing/doctype/production_plan/production_plan.py:1096
 msgid "If you still want to proceed, please disable '{0}' checkbox."
-msgstr ""
+msgstr "如仍要继续，请取消勾选“{0}”。"
 
 #: erpnext/manufacturing/doctype/production_plan/production_plan.py:1854
 msgid "If you still want to proceed, please enable {0}."
@@ -28465,7 +28465,7 @@ msgstr "委外联系人"
 #. Order'
 #: erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.json
 msgid "Job Worker Currency"
-msgstr ""
+msgstr "委外供应商币种"
 
 #. Label of the supplier_delivery_note (Data) field in DocType 'Subcontracting
 #. Receipt'
@@ -29077,7 +29077,7 @@ msgstr "了解资产管理"
 #. Label of an action in the Onboarding Step 'Learn Subcontracting'
 #: erpnext/subcontracting/onboarding_step/learn_subcontracting/learn_subcontracting.json
 msgid "Learn Subcontracting"
-msgstr ""
+msgstr "了解委外加工"
 
 #. Description of the 'Enable Common Party Accounting' (Check) field in DocType
 #. 'Accounts Settings'
@@ -29720,7 +29720,7 @@ msgstr "主成本中心{0}不能输入子表"
 #. Item'
 #: erpnext/manufacturing/doctype/material_request_plan_item/material_request_plan_item.json
 msgid "Main Item Code"
-msgstr ""
+msgstr "主物料编码"
 
 #: erpnext/assets/doctype/asset/asset.js:143
 msgid "Maintain Asset"
@@ -31036,7 +31036,7 @@ msgstr "最大付款金额"
 #: erpnext/manufacturing/report/bom_stock_analysis/bom_stock_analysis.py:82
 #: erpnext/manufacturing/report/bom_stock_analysis/bom_stock_analysis.py:151
 msgid "Maximum Producible Items"
-msgstr ""
+msgstr "最大可生产数量"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:4507
 msgid "Maximum Samples - {0} can be retained for Batch {1} and Item {2}."
@@ -31206,7 +31206,7 @@ msgstr "米/秒"
 
 #: erpnext/manufacturing/doctype/workstation/workstation.py:547
 msgid "Method {0} is not allowed to be run on a Job Card."
-msgstr ""
+msgstr "生产任务单不允许执行方法 {0}。"
 
 #. Name of a UOM
 #: erpnext/setup/setup_wizard/data/uom_data.json
@@ -38889,7 +38889,7 @@ msgstr "请在仓库{0}中设置科目"
 
 #: erpnext/manufacturing/doctype/master_production_schedule/master_production_schedule.js:68
 msgid "Please set actual demand or sales forecast to generate Material Requirements Planning Report."
-msgstr ""
+msgstr "请设置实际需求或销售预测，以生成物料需求计划报表。"
 
 #: erpnext/regional/italy/utils.py:227
 #, python-format
@@ -41869,7 +41869,7 @@ msgstr "数量"
 #. Item'
 #: erpnext/subcontracting/doctype/subcontracting_receipt_item/subcontracting_receipt_item.json
 msgid "Qty (As per BOM)"
-msgstr ""
+msgstr "数量（按物料清单）"
 
 #. Label of the company_total_stock (Float) field in DocType 'Sales Invoice
 #. Item'
@@ -42593,7 +42593,7 @@ msgstr "物料 {0} 的数量必须大于零且不能超过 {1}"
 
 #: erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.js:564
 msgid "Quantity is mandatory for the selected items."
-msgstr ""
+msgstr "所选物料必须填写数量。"
 
 #: erpnext/manufacturing/doctype/plant_floor/plant_floor.js:274
 msgid "Quantity is required"
@@ -46401,7 +46401,7 @@ msgstr "行号#{0}：产成品必须为{1}"
 
 #: erpnext/subcontracting/doctype/subcontracting_receipt/subcontracting_receipt.py:586
 msgid "Row #{0}: Finished Good reference is mandatory for Secondary Item {1}."
-msgstr ""
+msgstr "第 {0} 行：副产品 {1} 必须关联成品。"
 
 #: erpnext/controllers/subcontracting_inward_controller.py:170
 #: erpnext/controllers/subcontracting_inward_controller.py:294
@@ -46621,7 +46621,7 @@ msgstr "行号#{0}：参考单据类型必须为销售订单、销售发票、�
 
 #: erpnext/subcontracting/doctype/subcontracting_receipt/subcontracting_receipt.py:579
 msgid "Row #{0}: Rejected Qty cannot be set for Secondary Item {1}."
-msgstr ""
+msgstr "第 {0} 行：副产品 {1} 不能设置拒收数量。"
 
 #: erpnext/controllers/subcontracting_controller.py:119
 msgid "Row #{0}: Rejected Warehouse is mandatory for the rejected Item {1}"
@@ -46645,7 +46645,7 @@ msgstr "第{0}行：物料{1}的退货数量不得大于可退数量"
 
 #: erpnext/subcontracting/doctype/subcontracting_receipt/subcontracting_receipt.py:574
 msgid "Row #{0}: Secondary Item Qty cannot be zero"
-msgstr ""
+msgstr "第 {0} 行：副产品数量不能为零"
 
 #: erpnext/controllers/selling_controller.py:297
 msgid "Row #{0}: Selling rate for item {1} is lower than its {2}.\n"
@@ -48773,13 +48773,13 @@ msgstr "副产品成本（本币）"
 #. 'Subcontracting Receipt Item'
 #: erpnext/subcontracting/doctype/subcontracting_receipt_item/subcontracting_receipt_item.json
 msgid "Secondary Items Cost Per Qty"
-msgstr ""
+msgstr "每单位副产品成本"
 
 #. Label of the scrap_items_generated_section (Section Break) field in DocType
 #. 'Subcontracting Inward Order'
 #: erpnext/subcontracting/doctype/subcontracting_inward_order/subcontracting_inward_order.json
 msgid "Secondary Items Generated"
-msgstr ""
+msgstr "已生成副产品"
 
 #. Label of the secondary_party (Dynamic Link) field in DocType 'Party Link'
 #: erpnext/accounts/doctype/party_link/party_link.json
@@ -48950,7 +48950,7 @@ msgstr "选择待生产成品"
 
 #: erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.js:500
 msgid "Select Items to Receive"
-msgstr ""
+msgstr "选择待收物料"
 
 #: erpnext/selling/doctype/sales_order/sales_order_list.js:87
 msgid "Select Items up to Delivery Date"
@@ -51034,7 +51034,7 @@ msgstr "显示仓库级库存"
 
 #: erpnext/manufacturing/report/bom_stock_analysis/bom_stock_analysis.js:26
 msgid "Show availability of exploded items"
-msgstr ""
+msgstr "显示展开后物料的可用库存"
 
 #. Label of the show_balance_in_coa (Check) field in DocType 'Accounts
 #. Settings'
@@ -52353,7 +52353,7 @@ msgstr "库存预留单已创建"
 
 #: erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.py:412
 msgid "Stock Reservation Entries created"
-msgstr ""
+msgstr "已创建库存预留单"
 
 #. Name of a DocType
 #: erpnext/public/js/stock_reservation.js:309
@@ -52783,7 +52783,7 @@ msgstr "子装配件物料号"
 #. Request Plan Item'
 #: erpnext/manufacturing/doctype/material_request_plan_item/material_request_plan_item.json
 msgid "Sub Assembly Item Reference"
-msgstr ""
+msgstr "子装配件物料引用"
 
 #: erpnext/public/js/bom_configurator/bom_configurator.bundle.js:438
 msgid "Sub Assembly Item is mandatory"
@@ -52825,7 +52825,7 @@ msgstr "子流程"
 
 #: erpnext/manufacturing/doctype/production_plan/production_plan.py:628
 msgid "Sub assembly item references are missing. Please fetch the sub assemblies and raw materials again."
-msgstr ""
+msgstr "缺少子装配件物料引用。请重新获取子装配件和原材料。"
 
 #: erpnext/manufacturing/report/bom_operations_time/bom_operations_time.py:127
 msgid "Sub-assembly BOM Count"
@@ -53019,7 +53019,7 @@ msgstr "外包收货订单收货物料"
 #. Name of a DocType
 #: erpnext/subcontracting/doctype/subcontracting_inward_order_secondary_item/subcontracting_inward_order_secondary_item.json
 msgid "Subcontracting Inward Order Secondary Item"
-msgstr ""
+msgstr "委外入库订单副产品"
 
 #. Name of a DocType
 #: erpnext/subcontracting/doctype/subcontracting_inward_order_service_item/subcontracting_inward_order_service_item.json
@@ -53161,7 +53161,7 @@ msgstr "委外设置"
 #. Title of the Module Onboarding 'Subcontracting Onboarding'
 #: erpnext/subcontracting/module_onboarding/subcontracting_onboarding/subcontracting_onboarding.json
 msgid "Subcontracting Setup"
-msgstr ""
+msgstr "委外设置"
 
 #. Label of the subdivision (Autocomplete) field in DocType 'Holiday List'
 #: erpnext/setup/doctype/holiday_list/holiday_list.json
@@ -55316,7 +55316,7 @@ msgstr "活动'{0}'已存在于{1}'{2}'中"
 
 #: erpnext/manufacturing/doctype/master_production_schedule/master_production_schedule.py:74
 msgid "The Company {0} of Sales Forecast {1} does not match with the Company {2} of Master Production Schedule {3}."
-msgstr ""
+msgstr "公司 {0} 的销售预测 {1} 与公司 {2} 的主生产计划 {3} 不一致。"
 
 #: erpnext/support/doctype/service_level_agreement/service_level_agreement.py:206
 msgid "The Document Type {0} must have a Status field to configure Service Level Agreement"
@@ -60851,7 +60851,7 @@ msgstr "仓库信息必填"
 
 #: erpnext/manufacturing/report/bom_stock_analysis/bom_stock_analysis.py:286
 msgid "Warehouse is required to get producible FG Items"
-msgstr ""
+msgstr "必须选择仓库才能获取可生产成品"
 
 #: erpnext/stock/doctype/warehouse/warehouse.py:241
 msgid "Warehouse not found against the account {0}"
