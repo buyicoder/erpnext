@@ -131,6 +131,19 @@ class TestZhFinanceTranslations(TestCase):
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
 
+	def test_customer_supplier_and_project_catalogs_have_no_empty_messages(self):
+		targets = ("customer", "supplier", "project")
+		for target in targets:
+			empty_messages = [
+				message.id
+				for message in self.catalog
+				if message.id
+				and not message.string
+				and not isinstance(message.id, tuple)
+				and any(f"/doctype/{target}/" in filename for filename, _ in message.locations)
+			]
+			self.assertEqual(empty_messages, [], f"Untranslated {target} messages")
+
 	def _assert_translation(self, source, translation):
 		with self.subTest(source=source):
 			message = self.catalog.get(source)

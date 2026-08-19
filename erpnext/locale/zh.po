@@ -1361,7 +1361,7 @@ msgstr "根据物料清单{0}，库存交易缺少物料'{1}'"
 #. Description of the 'Customer Numbers' (Table) field in DocType 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
 msgid "Account / customer numbers assigned to your companies by this supplier (for reconciliation on their statements)"
-msgstr ""
+msgstr "供应商分配给本公司各主体的账户号或客户编号，用于与供应商对账单核对。"
 
 #. Name of a report
 #: erpnext/accounts/report/account_balance/account_balance.json
@@ -4005,7 +4005,7 @@ msgstr "包括及以上的所有通信均应移至新问题中"
 #. Description of the 'Billing Currency' (Link) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "All invoices and orders for this customer will be created in this currency."
-msgstr ""
+msgstr "该客户的所有发票和订单均使用此币种。"
 
 #: erpnext/manufacturing/doctype/production_plan/production_plan.py:971
 msgid "All items are already requested"
@@ -8782,12 +8782,12 @@ msgstr ""
 #. Description of the 'Is Frozen' (Check) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Blocks all further accounting entries on this customer's account. Only users with the frozen-entries role can override.\n"
-msgstr ""
+msgstr "冻结后将禁止在该客户账户上继续生成会计分录，只有具备“冻结分录”角色的用户可以越权处理。\n"
 
 #. Description of the 'Disabled' (Check) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Blocks this customer from being used on any new transaction."
-msgstr ""
+msgstr "停用后，该客户不能用于任何新交易。"
 
 #. Label of the blog_subscriber (Check) field in DocType 'Lead'
 #: erpnext/crm/doctype/lead/lead.json
@@ -9982,7 +9982,7 @@ msgstr "无法获取链接令牌，查看错误日志"
 
 #: erpnext/selling/doctype/customer/customer.py:379
 msgid "Cannot select a Group type Customer Group. Please select a non-group Customer Group."
-msgstr ""
+msgstr "不能选择分组类型的客户组，请选择非分组客户组。"
 
 #: erpnext/accounts/doctype/payment_entry/payment_entry.js:1516
 #: erpnext/accounts/doctype/payment_entry/payment_entry.js:1694
@@ -10747,7 +10747,7 @@ msgstr "归类为"
 #. Description of the 'Market Segment' (Link) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Classify the type of market this customer belongs to, used for sales analysis and targeting."
-msgstr ""
+msgstr "标记客户所属市场类型，用于销售分析和客户定位。"
 
 #. Label of the more_information (Text Editor) field in DocType 'Bank
 #. Guarantee'
@@ -11164,7 +11164,7 @@ msgstr "销售佣金"
 #. 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Commission paid to the Sales Partner on transactions with this customer."
-msgstr ""
+msgstr "与该客户发生交易时支付给销售合作伙伴的佣金比例。"
 
 #. Name of a DocType
 #. Label of the common_code (Data) field in DocType 'Common Code'
@@ -12689,7 +12689,7 @@ msgstr ""
 #. Description of the 'Tax Category' (Link) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Controls which tax template is auto-applied when this customer is selected on a transaction."
-msgstr ""
+msgstr "在交易中选择该客户时，控制自动应用的税费模板。"
 
 #. Label of the conversion_factor (Float) field in DocType 'Loyalty Program'
 #. Label of the conversion_factor (Float) field in DocType 'Purchase Order Item
@@ -14528,7 +14528,7 @@ msgstr "当前成本价"
 #. Description of the 'Loyalty Program Tier' (Data) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Current tier based on accumulated points. Updated automatically on each invoice."
-msgstr ""
+msgstr "根据累计积分确定的当前等级，每次开票后自动更新。"
 
 #: erpnext/selling/report/sales_analytics/sales_analytics.js:90
 msgid "Curves"
@@ -16354,7 +16354,7 @@ msgstr ""
 #. 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Defines when payment is due (e.g. Net 30, 50% advance). Applied automatically on invoices for this customer."
-msgstr ""
+msgstr "定义付款到期条件（如月结 30 天、预付 50%），自动应用于该客户的发票。"
 
 #. Name of a UOM
 #: erpnext/setup/setup_wizard/data/uom_data.json
@@ -17414,7 +17414,7 @@ msgstr "因{}为内部调拨，已禁用定价规则"
 #. Description of the 'Disabled' (Check) field in DocType 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
 msgid "Disabled suppliers are hidden from selection in new transactions but remain in historical records"
-msgstr ""
+msgstr "停用的供应商不会出现在新交易的选择列表中，但历史记录仍会保留。"
 
 #: erpnext/controllers/accounts_controller.py:950
 msgid "Disabled tax included prices since this {} is an internal transfer"
@@ -19261,7 +19261,7 @@ msgstr "启用后将在每个{0}应用SLA"
 #. Description of the 'Is Transporter' (Check) field in DocType 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
 msgid "Enable to make this supplier selectable as a transporter on Delivery Notes and Stock Entries"
-msgstr ""
+msgstr "启用后，可在送货单和库存单据中将该供应商选为承运商。"
 
 #. Description of the 'Retain Sample' (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
@@ -20529,7 +20529,7 @@ msgstr ""
 #. Description of the 'Price List' (Link) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Fetched automatically on sales orders and invoices for this customer."
-msgstr ""
+msgstr "在该客户的销售订单和发票中自动带出。"
 
 #: erpnext/selling/page/point_of_sale/pos_item_details.js:457
 msgid "Fetched only {0} available serial numbers."
@@ -21919,7 +21919,7 @@ msgstr "已冻结？"
 #. Description of the 'Is Frozen' (Check) field in DocType 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
 msgid "Frozen suppliers block ledger entries until unfrozen. Use this to temporarily lock accounting activity without disabling the supplier."
-msgstr ""
+msgstr "供应商被冻结后将禁止生成账簿分录，直至解除冻结。可用于临时锁定核算活动而无需停用供应商。"
 
 #. Label of the fuel_type (Select) field in DocType 'Vehicle'
 #: erpnext/setup/doctype/vehicle/vehicle.json
@@ -23930,7 +23930,7 @@ msgstr "若所选定价规则针对'费率'设置，其将覆盖价格表。定�
 #. Description of the 'Default Accounts' (Table) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "If set, accounting entries for this customer will post to these accounts instead of the company default."
-msgstr ""
+msgstr "设置后，该客户的会计分录将记入这些科目，而非公司默认科目。"
 
 #. Description of the 'Fixed Outgoing Email Account' (Link) field in DocType
 #. 'Buying Settings'
@@ -25421,7 +25421,7 @@ msgstr "内部工作经历"
 #. Description of the 'Customer Details' (Text) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Internal notes about this customer. Not visible on transactions or the portal."
-msgstr ""
+msgstr "关于该客户的内部备注，不会显示在交易单据或客户门户中。"
 
 #: erpnext/controllers/stock_controller.py:1744
 msgid "Internal transfers can only be done in company's default currency"
@@ -29637,7 +29637,7 @@ msgstr "积分类型"
 #. Description of the 'Loyalty Program' (Link) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Loyalty scheme this customer earns points under. Auto-assigned if a matching program exists."
-msgstr ""
+msgstr "该客户累计积分所适用的会员计划；如有匹配计划，系统将自动分配。"
 
 #. Label of the mps (Link) field in DocType 'Purchase Order'
 #. Label of the mps (Link) field in DocType 'Work Order'
@@ -30477,7 +30477,7 @@ msgstr ""
 #. 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Mark if this customer represents an internal company. Enables inter-company transactions."
-msgstr ""
+msgstr "如该客户代表集团内部公司，请勾选此项，以启用公司间交易。"
 
 #. Label of the market_segment (Link) field in DocType 'Lead'
 #. Name of a DocType
@@ -33398,7 +33398,7 @@ msgstr "新成本中心号，添加为成本中心名前缀"
 #. Description of the 'Supplier Numbers' (Table) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Numbers this customer uses to identify your company in their own system."
-msgstr ""
+msgstr "客户在其系统中用于识别本公司的编号。"
 
 #. Label of the numeric (Check) field in DocType 'Item Quality Inspection
 #. Parameter'
@@ -34876,7 +34876,7 @@ msgstr "已超过逾期额度"
 
 #: erpnext/selling/doctype/customer/customer.py:703
 msgid "Overdue Limit crossed for customer {0}. Overdue amount {1} exceeds the allowed limit {2}."
-msgstr ""
+msgstr "客户 {0} 已超过逾期额度：逾期金额 {1} 超出允许额度 {2}。"
 
 #. Name of a DocType
 #: erpnext/accounts/doctype/overdue_payment/overdue_payment.json
@@ -34929,7 +34929,7 @@ msgstr "超销售和工单数量控制"
 #. 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
 msgid "Override the default payable / advance accounts on a per-company basis. Leave blank to use each company's defaults from Company settings."
-msgstr ""
+msgstr "按公司分别覆盖默认应付或预付款科目；留空则使用各公司设置中的默认科目。"
 
 #. Option for the 'Permanent Address Is' (Select) field in DocType 'Employee'
 #. Option for the 'Current Address Is' (Select) field in DocType 'Employee'
@@ -39422,7 +39422,7 @@ msgstr "售前"
 #. Description of the 'Company Bank Account' (Link) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Pre-filled on payment entries for this customer. Must be a company account."
-msgstr ""
+msgstr "为该客户创建收付款单时自动带出，且必须为公司账户。"
 
 #: erpnext/setup/setup_wizard/operations/install_fixtures.py:310
 msgid "Preference"
@@ -49159,7 +49159,7 @@ msgstr "选择日期和时区"
 #. 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Select the group first to filter the applicable withholding categories below."
-msgstr ""
+msgstr "请先选择客户组，以筛选下方适用的代扣税类别。"
 
 #: erpnext/public/js/setup_wizard.js:89
 msgid "Select the modules that you plan to implement"
@@ -51531,7 +51531,7 @@ msgstr ""
 #. Description of the 'Sales Team' (Table) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Split commission credit across multiple sales persons."
-msgstr ""
+msgstr "将佣金业绩分摊给多名销售人员。"
 
 #: erpnext/accounts/doctype/payment_entry/payment_entry.py:2480
 msgid "Splitting {0} {1} into {2} rows as per Payment Terms"
@@ -53940,7 +53940,7 @@ msgstr "在{1}中找不到供应商{0}"
 #. Description of the 'Tax ID' (Data) field in DocType 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
 msgid "Supplier's tax identification number (e.g. PAN, VAT, GST)"
-msgstr ""
+msgstr "供应商纳税识别号（如 PAN、VAT、GST）"
 
 #: erpnext/stock/report/item_wise_consumption/item_wise_consumption.py:67
 msgid "Supplier(s)"
@@ -54088,7 +54088,7 @@ msgstr "系统将通知增减数量或金额"
 #. 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
 msgid "TDS / withholding tax category applied when paying this supplier"
-msgstr ""
+msgstr "向该供应商付款时适用的代扣税类别"
 
 #. Name of a report
 #. Label of a Workspace Sidebar Item
@@ -54109,7 +54109,7 @@ msgstr "应付TDS"
 #. 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "TDS/TCS is calculated at the rate defined here on every payment from this customer."
-msgstr ""
+msgstr "收到该客户每笔付款时，均按此处定义的税率计算代扣代缴税。"
 
 #. Description of a DocType
 #: erpnext/stock/doctype/item_website_specification/item_website_specification.json
@@ -58113,7 +58113,7 @@ msgstr "该公司已有业务交易，科目表导入仅限尚无业务交易的
 #. 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Transactions are blocked when the outstanding balance exceeds the credit limit. When Restrict Customer Over Billing is enabled, new invoices are also blocked when the customer's overdue amount exceeds the Overdue Limit."
-msgstr ""
+msgstr "未结余额超过信用额度时将禁止交易。启用“限制客户超额开票”后，客户逾期金额超过逾期额度时也将禁止新建发票。"
 
 #: banking/src/components/features/BankStatementImporter/CSV/StatementDetails.tsx:239
 msgid "Transactions to be imported into the system"
@@ -59577,7 +59577,7 @@ msgstr "用于在保存商品时创建包含估值率的期初库存条目。"
 #. 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
 msgid "Used to pick the correct rate row inside the Tax Withholding Category for this supplier (e.g. Company vs Individual rates)"
-msgstr ""
+msgstr "用于在代扣税类别中为该供应商选择正确的税率行（如企业税率或个人税率）。"
 
 #. Description of the 'Account Category' (Link) field in DocType 'Account'
 #: erpnext/accounts/doctype/account/account.json
@@ -59659,7 +59659,7 @@ msgstr ""
 #. Description of the 'Portal Users' (Tab Break) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Users listed here can log into the customer portal to view their orders, invoices, and deliveries."
-msgstr ""
+msgstr "此处列出的用户可登录客户门户，查看订单、发票和交付记录。"
 
 #. Description of the 'Role Allowed to over bill ' (Link) field in DocType
 #. 'Accounts Settings'
@@ -61310,7 +61310,7 @@ msgstr ""
 #. Description of the 'Block Supplier' (Check) field in DocType 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
 msgid "When enabled, transactions with this supplier will be blocked based on the Hold Type below"
-msgstr ""
+msgstr "启用后，将根据下方的暂停类型限制与该供应商的交易。"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:417
 msgid "When there are multiple finished goods ({0}) in a Repack stock entry, the basic rate for all finished goods must be set manually. To set rate manually, enable the checkbox 'Set Basic Rate Manually' in the respective finished good row."
