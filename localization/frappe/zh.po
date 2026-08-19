@@ -1181,3 +1181,375 @@ msgstr "会话已过期，请重新登录后继续。"
 
 msgid "{0} records will be exported"
 msgstr "将导出 {0} 条记录"
+
+msgid "Add to ToDo"
+msgstr "添加到待办"
+
+msgid "Allow Guests to Upload Files"
+msgstr "允许访客上传文件"
+
+msgid "Allowed File Extensions"
+msgstr "允许的文件扩展名"
+
+msgid "Attach Files"
+msgstr "添加文件"
+
+msgid "Attached File"
+msgstr "已附加文件"
+
+msgid "Attachment Settings"
+msgstr "附件设置"
+
+msgid "Auto Email Report"
+msgstr "自动邮件报表"
+
+msgid "Calendar Name"
+msgstr "日历名称"
+
+msgid "Calendar View"
+msgstr "日历视图"
+
+msgid "Cannot access file path {0}"
+msgstr "无法访问文件路径 {0}"
+
+msgid "Cannot attach a folder to a document"
+msgstr "不能将文件夹附加到单据"
+
+msgid "Cannot delete Home and Attachments folders"
+msgstr "不能删除首页和附件文件夹"
+
+msgid "Click on a file to select it."
+msgstr "单击文件进行选择。"
+
+msgid "Contact Email"
+msgstr "联系人邮箱"
+
+msgid "Copy File URL"
+msgstr "复制文件地址"
+
+msgid "Could not connect to outgoing email server"
+msgstr "无法连接发件服务器"
+
+msgid "Default Email Template"
+msgstr "默认邮件模板"
+
+msgid "Default Workspace"
+msgstr "默认工作区"
+
+msgid "Don't Send Emails"
+msgstr "不发送邮件"
+
+msgid "Email Account"
+msgstr "邮件账户"
+
+msgid "Email Account Disabled."
+msgstr "邮件账户已停用。"
+
+msgid "Email Account Name"
+msgstr "邮件账户名称"
+
+msgid "Email Address"
+msgstr "电子邮箱地址"
+
+msgid "Email Addresses"
+msgstr "电子邮箱地址"
+
+msgid "Email Domain"
+msgstr "邮件域名"
+
+msgid "Email Group"
+msgstr "邮件组"
+
+msgid "Email Group Member"
+msgstr "邮件组成员"
+
+msgid "Email Inbox"
+msgstr "收件箱"
+
+msgid "Email Queue"
+msgstr "邮件队列"
+
+msgid "Email Queue Recipient"
+msgstr "邮件队列收件人"
+
+msgid "Email Retry Limit"
+msgstr "邮件重试次数"
+
+msgid "Email Rule"
+msgstr "邮件规则"
+
+msgid "Email Sent At"
+msgstr "邮件发送时间"
+
+msgid "Email Settings"
+msgstr "邮件设置"
+
+msgid "Email Signature"
+msgstr "邮件签名"
+
+msgid "Email Status"
+msgstr "邮件状态"
+
+msgid "Email Template"
+msgstr "邮件模板"
+
+msgid "Email To"
+msgstr "收件人"
+
+msgid "Email is required."
+msgstr "必须填写电子邮箱。"
+
+msgid "Emails"
+msgstr "邮件"
+
+msgid "Enter Email Recipient(s) in the To, CC, or BCC fields"
+msgstr "请在收件人、抄送或密送字段中填写邮件地址"
+
+msgid "Enter folder name"
+msgstr "输入文件夹名称"
+
+msgid "Event"
+msgstr "日程"
+
+msgid "Event Category"
+msgstr "日程类别"
+
+msgid "Event Frequency"
+msgstr "日程频率"
+
+msgid "Event Participants"
+msgstr "参与人"
+
+msgid "Event Reminders"
+msgstr "日程提醒"
+
+msgid "Event Type"
+msgstr "日程类型"
+
+msgid "Events"
+msgstr "日程"
+
+msgid "File"
+msgstr "文件"
+
+msgid "File Information"
+msgstr "文件信息"
+
+msgid "File Name"
+msgstr "文件名"
+
+msgid "File Size"
+msgstr "文件大小"
+
+msgid "File Storage"
+msgstr "文件存储"
+
+msgid "File Type"
+msgstr "文件类型"
+
+msgid "File URL"
+msgstr "文件地址"
+
+msgid "File not attached"
+msgstr "未附加文件"
+
+msgid "File size exceeded the maximum allowed size of {0} MB"
+msgstr "文件大小超过上限 {0} MB"
+
+msgid "File too big"
+msgstr "文件过大"
+
+msgid "File type of {0} is not allowed"
+msgstr "不允许上传 {0} 类型的文件"
+
+msgid "Filename"
+msgstr "文件名"
+
+msgid "Files"
+msgstr "文件"
+
+msgid "Folder"
+msgstr "文件夹"
+
+msgid "Folder Name"
+msgstr "文件夹名称"
+
+msgid "Folder {0} is not empty"
+msgstr "文件夹 {0} 非空"
+
+msgid "Go to Workspace"
+msgstr "前往工作区"
+
+msgid "Max File Size (MB)"
+msgstr "最大文件大小（MB）"
+
+msgid "My Workspaces"
+msgstr "我的工作区"
+
+msgid "New Email"
+msgstr "新建邮件"
+
+msgid "New Email Account"
+msgstr "新建邮件账户"
+
+msgid "New Event"
+msgstr "新建日程"
+
+msgid "New Folder"
+msgstr "新建文件夹"
+
+msgid "New Workspace"
+msgstr "新建工作区"
+
+msgid "No Email Account"
+msgstr "没有邮件账户"
+
+msgid "No Emails"
+msgstr "没有邮件"
+
+msgid "No Upcoming Events"
+msgstr "没有即将开始的日程"
+
+msgid "No file attached"
+msgstr "未附加文件"
+
+msgid "Notify by Email"
+msgstr "通过邮件通知"
+
+msgid "Only System Managers can make this file public."
+msgstr "只有系统管理员可以将此文件设为公开。"
+
+msgid "Pending Emails"
+msgstr "待发送邮件"
+
+msgid "Please add a subject to your email"
+msgstr "请填写邮件主题"
+
+msgid "Please attach a file first."
+msgstr "请先添加文件。"
+
+msgid "Please enter a valid email address."
+msgstr "请输入有效的电子邮箱地址。"
+
+msgid "Please select a file first."
+msgstr "请先选择文件。"
+
+msgid "Please select a file or url"
+msgstr "请选择文件或填写地址"
+
+msgid "Please set Email Address"
+msgstr "请设置电子邮箱地址"
+
+msgid "Primary Email"
+msgstr "主要邮箱"
+
+msgid "Private Files (MB)"
+msgstr "私有文件（MB）"
+
+msgid "Profile"
+msgstr "个人资料"
+
+msgid "Profile Picture"
+msgstr "头像"
+
+msgid "Profile updated successfully."
+msgstr "个人资料更新成功。"
+
+msgid "Public Files (MB)"
+msgstr "公开文件（MB）"
+
+msgid "Pull Emails"
+msgstr "收取邮件"
+
+msgid "Pulling emails..."
+msgstr "正在收取邮件……"
+
+msgid "Reminder"
+msgstr "提醒"
+
+msgid "Reminder cannot be created in past."
+msgstr "不能创建过去时间的提醒。"
+
+msgid "Reminder set at {0}"
+msgstr "提醒时间已设为 {0}"
+
+msgid "Repeat this Event"
+msgstr "重复此日程"
+
+msgid "Search by filename or extension"
+msgstr "按文件名或扩展名搜索"
+
+msgid "Select Workspace"
+msgstr "选择工作区"
+
+msgid "Select or drag across time slots to create a new event."
+msgstr "选择或拖动时间段以创建新日程。"
+
+msgid "Send Welcome Email"
+msgstr "发送欢迎邮件"
+
+msgid "Server error during upload. The file might be corrupted."
+msgstr "上传时发生服务器错误，文件可能已损坏。"
+
+msgid "Show Calendar"
+msgstr "显示日历"
+
+msgid "Size exceeds the maximum allowed file size."
+msgstr "文件大小超过允许的上限。"
+
+msgid "Sync Calendar"
+msgstr "同步日历"
+
+msgid "ToDo"
+msgstr "待办"
+
+msgid "Unable to update event"
+msgstr "无法更新日程"
+
+msgid "Upload file"
+msgstr "上传文件"
+
+msgid "Upload {0} files"
+msgstr "上传 {0} 个文件"
+
+msgid "Update Profile"
+msgstr "更新个人资料"
+
+msgid "User Email"
+msgstr "用户邮箱"
+
+msgid "View File"
+msgstr "查看文件"
+
+msgid "Welcome email sent"
+msgstr "欢迎邮件已发送"
+
+msgid "Workspace"
+msgstr "工作区"
+
+msgid "Workspace Manager"
+msgstr "工作区管理员"
+
+msgid "Workspace Sidebar"
+msgstr "工作区侧栏"
+
+msgid "Workspace added to desktop"
+msgstr "工作区已添加到工作台"
+
+msgid "Workspace {0} created"
+msgstr "工作区 {0} 已创建"
+
+msgid "Workspaces"
+msgstr "工作区"
+
+msgid "You do not have permission to access this file"
+msgstr "您无权访问此文件"
+
+msgid "You need the Workspace Manager role to edit this workspace."
+msgstr "需要工作区管理员角色才能编辑此工作区。"
+
+msgid "Your email address"
+msgstr "您的电子邮箱地址"
+
+msgid "← Back to upload files"
+msgstr "← 返回文件上传"
