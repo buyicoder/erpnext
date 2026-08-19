@@ -5462,7 +5462,7 @@ msgstr "服务水平基于解决时间"
 #. 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Apply discounts and margins on products"
-msgstr ""
+msgstr "对物料应用折扣和毛利设置"
 
 #. Label of the apply_restriction_on_values (Check) field in DocType
 #. 'Accounting Dimension Filter'
@@ -6763,7 +6763,7 @@ msgstr "自动过账平衡会计凭证"
 #. in DocType 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Automatically process deferred Accounting entry"
-msgstr ""
+msgstr "自动处理递延会计分录"
 
 #. Label of the automatically_run_rules_on_unreconciled_transactions (Check)
 #. field in DocType 'Accounts Settings'
@@ -8889,7 +8889,7 @@ msgstr "已入账固定资产"
 #. 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Books Purchase Expense and Expenses Added To Stock account pairs against stock value. On enabling this, the accounts become mandatory in Company or Item Defaults for Purchase Receipt, Purchase Invoice, Stock Entry, Stock Reconciliation and Landed Cost Voucher"
-msgstr ""
+msgstr "按库存价值生成采购费用及计入库存费用的配对分录。启用后，采购收货、采购发票、库存调拨、库存盘点和到岸成本凭证必须在公司或物料默认值中配置相应科目。"
 
 #: erpnext/accounts/general_ledger.py:849
 msgid "Books have been closed till the period ending on {0}"
@@ -9336,7 +9336,7 @@ msgstr "抄送至"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/accounts_setup.json
 msgid "COA Importer"
-msgstr ""
+msgstr "科目表导入工具"
 
 #. Option for the 'Barcode Type' (Select) field in DocType 'Item Barcode'
 #: erpnext/stock/doctype/item_barcode/item_barcode.json
@@ -12294,7 +12294,7 @@ msgstr "合并财务报表"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/financial_reports.json
 msgid "Consolidated Report"
-msgstr ""
+msgstr "合并财务报表"
 
 #. Label of the consolidated_invoice (Link) field in DocType 'POS Invoice'
 #. Label of the consolidated_invoice (Link) field in DocType 'POS Invoice Merge
@@ -15013,7 +15013,7 @@ msgstr "客户采购订单号"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/financial_reports.json
 msgid "Customer Ledger"
-msgstr ""
+msgstr "客户明细账"
 
 #. Name of a report
 #. Label of a Link in the Financial Reports Workspace
@@ -19167,7 +19167,7 @@ msgstr ""
 #. 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Enable cost center, projects and other custom accounting dimensions"
-msgstr ""
+msgstr "启用成本中心、项目及其他自定义辅助核算维度"
 
 #. Label of the enable_cutoff_date_on_bulk_delivery_note_creation (Check) field
 #. in DocType 'Selling Settings'
@@ -20333,7 +20333,7 @@ msgstr "先进先出/后进先出队列"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/accounts_setup.json
 msgid "FX Revaluation"
-msgstr ""
+msgstr "汇兑损益重估"
 
 #. Name of a UOM
 #: erpnext/setup/setup_wizard/data/uom_data.json
@@ -33980,7 +33980,7 @@ msgstr "待处理发票明细"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/accounts_setup.json
 msgid "Opening Invoice Tool"
-msgstr ""
+msgstr "期初发票工具"
 
 #: erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:1722
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:2044
@@ -44125,7 +44125,7 @@ msgstr "区域性"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/financial_reports.json
 msgid "Registers"
-msgstr ""
+msgstr "分类账"
 
 #. Label of the registration_details (Code) field in DocType 'Company'
 #: erpnext/setup/doctype/company/company.json
@@ -53695,7 +53695,7 @@ msgstr "供应商交期（天）"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/financial_reports.json
 msgid "Supplier Ledger"
-msgstr ""
+msgstr "供应商明细账"
 
 #. Name of a report
 #. Label of a Link in the Financial Reports Workspace
@@ -63394,4 +63394,39 @@ msgstr "分享"
 
 msgid "Skip All"
 msgstr "全部跳过"
+
+
+# Chinese finance localization overrides
+msgid "Account"
+msgstr "科目"
+
+msgid "Actions"
+msgstr "操作"
+
+msgid "Begin typing for results."
+msgstr "输入关键词搜索。"
+
+msgid "Date Range"
+msgstr "日期范围"
+
+msgid "Monthly"
+msgstr "月度"
+
+msgid "Project"
+msgstr "项目"
+
+msgid "Quarterly"
+msgstr "季度"
+
+msgid "Report View"
+msgstr "报表视图"
+
+msgid "Yearly"
+msgstr "年度"
+
+msgid "{0}% completed"
+msgstr "已完成 {0}%"
+
+msgid "{0}/{1} steps completed"
+msgstr "已完成 {0}/{1} 项"
 
