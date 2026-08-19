@@ -954,7 +954,7 @@ msgstr "<span class=\"h4\"><b>主数据 &amp; 报表</b></span>"
 #: erpnext/setup/workspace/home/home.json
 #: erpnext/support/workspace/support/support.json
 msgid "<span class=\"h4\"><b>Reports &amp; Masters</b></span>"
-msgstr "<span class=\"h4\"><b>报告 &amp; 大师</b></span>"
+msgstr "<span class=\"h4\"><b>报表与基础资料</b></span>"
 
 #. Header text in the Subcontracting Workspace
 #: erpnext/subcontracting/workspace/subcontracting/subcontracting.json
@@ -11996,7 +11996,7 @@ msgstr "完成工序"
 #. Label of a chart in the Projects Workspace
 #: erpnext/projects/workspace/projects/projects.json
 msgid "Completed Projects"
-msgstr ""
+msgstr "已完成项目"
 
 #. Label of the completed_qty (Float) field in DocType 'Job Card Operation'
 #. Label of the completed_qty (Float) field in DocType 'Job Card Time Log'
@@ -13611,7 +13611,7 @@ msgstr "创建打印格式"
 #. Label of an action in the Onboarding Step 'Create Project'
 #: erpnext/projects/onboarding_step/create_project/create_project.json
 msgid "Create Project"
-msgstr ""
+msgstr "创建项目"
 
 #: erpnext/crm/doctype/lead/lead_list.js:8
 msgid "Create Prospect"
@@ -33017,7 +33017,7 @@ msgstr "本工作站允许的并行作业卡数量。例如：2表示该工作�
 #. Label of a number card in the Projects Workspace
 #: erpnext/projects/workspace/projects/projects.json
 msgid "Non Completed Tasks"
-msgstr ""
+msgstr "未完成任务"
 
 #. Name of a DocType
 #. Label of a Link in the Quality Workspace
@@ -40886,7 +40886,7 @@ msgstr "项目设置"
 #. Title of the Module Onboarding 'Projects Onboarding'
 #: erpnext/projects/module_onboarding/projects_onboarding/projects_onboarding.json
 msgid "Projects Setup"
-msgstr ""
+msgstr "项目快速入门"
 
 #. Name of a role
 #: erpnext/projects/doctype/activity_cost/activity_cost.json
@@ -60344,7 +60344,7 @@ msgstr "立即查看"
 #. Description of a report in the Onboarding Step 'View Project Summary'
 #: erpnext/projects/onboarding_step/view_project_summary/view_project_summary.json
 msgid "View Project Summary"
-msgstr ""
+msgstr "查看项目概览"
 
 #. Title of an Onboarding Step
 #. Label of an action in the Onboarding Step 'View Purchase Order Analysis'
@@ -63578,6 +63578,9 @@ msgstr "显示 {0} 条，共 {1} 条"
 
 msgid "Document has been submitted"
 msgstr "单据已提交"
+
+msgid "Delivered"
+msgstr "已交付"
 
 msgid "Dashboards"
 msgstr "仪表板"

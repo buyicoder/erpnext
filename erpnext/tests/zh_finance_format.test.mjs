@@ -3,6 +3,7 @@ import test from "node:test";
 
 import {
 	format_compact_cny_text,
+	format_month_year_text,
 	localize_awesomplete_status_text,
 } from "../public/js/zh_finance_format.mjs";
 
@@ -13,6 +14,12 @@ test("uses Chinese yuan, ten-thousand and hundred-million units", () => {
 	assert.equal(format_compact_cny_text("CNY 1 B"), "¥10.00亿");
 	assert.equal(format_compact_cny_text("CNY 229,000.00"), "¥22.90万");
 	assert.equal(format_compact_cny_text("CNY 363.00"), "¥363.00");
+});
+
+test("uses Chinese year-month order for chart labels", () => {
+	assert.equal(format_month_year_text("Aug 2026"), "2026年8月");
+	assert.equal(format_month_year_text("Jan 2025"), "2025年1月");
+	assert.equal(format_month_year_text("月度"), "月度");
 });
 
 test("preserves values outside the compact CNY contract", () => {

@@ -38,3 +38,24 @@ export const localize_awesomplete_status_text = (text) => {
 
 	return text;
 };
+
+const MONTHS = {
+	Jan: 1,
+	Feb: 2,
+	Mar: 3,
+	Apr: 4,
+	May: 5,
+	Jun: 6,
+	Jul: 7,
+	Aug: 8,
+	Sep: 9,
+	Oct: 10,
+	Nov: 11,
+	Dec: 12,
+};
+
+export const format_month_year_text = (text) => {
+	const match = text.trim().match(/^([A-Z][a-z]{2})\s+(\d{4})$/);
+	if (!match || !MONTHS[match[1]]) return text;
+	return `${match[2]}年${MONTHS[match[1]]}月`;
+};

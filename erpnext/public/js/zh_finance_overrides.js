@@ -1,5 +1,6 @@
 import {
 	format_compact_cny_text,
+	format_month_year_text,
 	localize_awesomplete_status_text,
 } from "./zh_finance_format.mjs";
 
@@ -12,12 +13,21 @@ if (frappe.boot.lang === "zh") {
 
 	const cny_amount_selector = ".number, .list-row-container .filterable div";
 	const awesomplete_status_selector = ".awesomplete [role='status']";
+	const chart_date_selector = ".chart-container svg text";
 	const localize_compact_cny = (root = document) => {
 		const elements = root.matches?.(cny_amount_selector)
 			? [root]
 			: root.querySelectorAll?.(cny_amount_selector) || [];
 		elements.forEach((element) => {
 			element.textContent = format_compact_cny_text(element.textContent);
+		});
+	};
+	const localize_chart_dates = (root = document) => {
+		const elements = root.matches?.(chart_date_selector)
+			? [root]
+			: root.querySelectorAll?.(chart_date_selector) || [];
+		elements.forEach((element) => {
+			element.textContent = format_month_year_text(element.textContent);
 		});
 	};
 	const localize_awesomplete_status = (root = document) => {
@@ -32,16 +42,19 @@ if (frappe.boot.lang === "zh") {
 
 	localize_compact_cny();
 	localize_awesomplete_status();
+	localize_chart_dates();
 	new MutationObserver((mutations) => {
 		mutations.forEach((mutation) => {
 			if (mutation.type === "characterData") {
 				localize_awesomplete_status(mutation.target.parentElement);
+				localize_chart_dates(mutation.target.parentElement);
 				return;
 			}
 			mutation.addedNodes.forEach((node) => {
 				if (node.nodeType !== Node.ELEMENT_NODE) return;
 				localize_compact_cny(node);
 				localize_awesomplete_status(node);
+				localize_chart_dates(node);
 			});
 		});
 	}).observe(document.body, {
