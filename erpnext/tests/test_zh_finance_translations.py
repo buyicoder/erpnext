@@ -41,6 +41,8 @@ FRAPPE_OWNED_WORKSPACE_LABELS = {
 }
 
 CORE_BUSINESS_DOCTYPES = {
+	"BOM",
+	"BOM Creator",
 	"Customer",
 	"Delivery Note",
 	"Item",
@@ -144,6 +146,8 @@ CHINA_COMPLIANCE_DOCTYPES = {
 # leading "% o" as a printf placeholder even though Frappe never interpolates it.
 BABEL_LITERAL_PERCENT_MESSAGES = {
 	"% of materials delivered against this Pick List",
+	"% Finished Item Quantity",
+	"Row #{0}: Process Loss Percentage should be less than 100% for {1} Item {2}",
 	"% of materials billed against this Sales Order",
 	"% of materials delivered against this Sales Order",
 	"Check if this tax is not applicable to items (distinct from 0% rate)",
@@ -725,6 +729,34 @@ class TestZhFinanceTranslations(TestCase):
 			"Quality Inspection {0} is not submitted for the item: {1}": "质检单 {0} 尚未针对物料 {1} 提交",
 			"Quality Inspection {0} is rejected for the item: {1}": "质检单 {0} 针对物料 {1} 的检验未通过",
 			"The completed quantity {0} of an operation {1} cannot be greater than the completed quantity {2} of a previous operation {3}.": "完成数量 {0}（工序 {1}）不能大于完成数量 {2}（上一道工序 {3}）。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+
+	def test_bom_configuration_uses_reviewed_chinese_terms(self):
+		translations = {
+			"BOM Configuration": "物料清单配置",
+			"Components": "组件",
+			"Consume Components": "组件消耗",
+			"The final item that will be produced using this BOM.": "使用此物料清单最终生产的物料。",
+			"Quantity (Output Qty)": "数量（产出数量）",
+			"How many units of the final product this BOM makes.": "此物料清单可生产的最终产品数量。",
+			"Unit Of Measure": "计量单位",
+			"Cost Allocation": "成本分摊",
+			"% Cost Allocation": "成本分摊比例（%）",
+			"Cost Allocation %": "成本分摊比例（%）",
+			"Cost Allocation / Process Loss": "成本分摊 / 制程损耗",
+			"Cost allocation between finished goods and secondary items should equal 100%": "产成品和副产品之间的成本分摊比例合计必须等于 100%",
+			"Secondary Items Cost": "副产品成本",
+			"Secondary Items Cost (Company Currency)": "副产品成本（本币）",
+			"Is Phantom BOM": "虚拟物料清单",
+			"Is Phantom Item": "虚拟物料",
+			"Phantom Item": "虚拟物料",
+			"Non-phantom BOM cannot be created for non-stock item {0}.": "不能为非库存物料 {0} 创建非虚拟物料清单。",
+			"Phantom BOM cannot be created for stock item {0}.": "不能为库存物料 {0} 创建虚拟物料清单。",
+			"Users can make manufacture entry against Job Cards": "用户可根据生产任务单创建生产入库单",
+			"Controls how raw materials are consumed during the ‘Manufacture’ stock entry.": "控制在“生产入库”物料移动中如何消耗原材料。",
+			"If you want to run operations in parallel, keep the same sequence ID for them.": "如需并行执行多道工序，请为它们设置相同的顺序编号。",
 		}
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)

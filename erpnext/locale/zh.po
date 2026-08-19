@@ -157,7 +157,7 @@ msgstr "已完成%"
 #. Label of the cost_allocation_per (Percent) field in DocType 'BOM'
 #: erpnext/manufacturing/doctype/bom/bom.json
 msgid "% Cost Allocation"
-msgstr ""
+msgstr "成本分摊比例（%）"
 
 #. Label of the per_delivered (Percent) field in DocType 'Pick List'
 #. Label of the per_delivered (Percent) field in DocType 'Subcontracting Inward
@@ -170,7 +170,7 @@ msgstr "已交付%"
 #: erpnext/manufacturing/doctype/bom/bom.js:1026
 #, python-format
 msgid "% Finished Item Quantity"
-msgstr "产成品完成率"
+msgstr "产成品数量占比（%）"
 
 #. Label of the per_installed (Percent) field in DocType 'Delivery Note'
 #: erpnext/stock/doctype/delivery_note/delivery_note.json
@@ -7086,7 +7086,7 @@ msgstr "物料清单组件"
 #. Label of the bom_conf_tab (Tab Break) field in DocType 'BOM'
 #: erpnext/manufacturing/doctype/bom/bom.json
 msgid "BOM Configuration"
-msgstr ""
+msgstr "物料清单配置"
 
 #. Label of the bom_created (Check) field in DocType 'BOM Creator Item'
 #: erpnext/manufacturing/doctype/bom_creator_item/bom_creator_item.json
@@ -7112,7 +7112,7 @@ msgstr "物料清单创建工具明细"
 #: erpnext/manufacturing/doctype/bom_creator/bom_creator.py:392
 #: erpnext/manufacturing/doctype/bom_creator/bom_creator.py:535
 msgid "BOM Creator Item with name {0} does not exist"
-msgstr ""
+msgstr "名为 {0} 的物料清单创建器物料不存在"
 
 #. Label of the bom_detail_no (Data) field in DocType 'Purchase Order Item
 #. Supplied'
@@ -8009,7 +8009,7 @@ msgstr "找零金额（本币）"
 #. Label of the base_cost (Currency) field in DocType 'BOM Secondary Item'
 #: erpnext/manufacturing/doctype/bom_secondary_item/bom_secondary_item.json
 msgid "Base Cost (Company Currency)"
-msgstr ""
+msgstr "基础成本（本币）"
 
 #. Label of the base_cost_per_unit (Float) field in DocType 'BOM Operation'
 #: erpnext/manufacturing/doctype/bom_operation/bom_operation.json
@@ -12079,7 +12079,7 @@ msgstr "组件名称"
 #. Label of the items (Table) field in DocType 'BOM'
 #: erpnext/manufacturing/doctype/bom/bom.json
 msgid "Components"
-msgstr ""
+msgstr "组件"
 
 #. Option for the 'Asset Type' (Select) field in DocType 'Asset'
 #: erpnext/assets/doctype/asset/asset.json
@@ -12341,7 +12341,7 @@ msgstr "消耗品"
 #. 'BOM'
 #: erpnext/manufacturing/doctype/bom/bom.json
 msgid "Consume Components"
-msgstr ""
+msgstr "组件消耗"
 
 #. Option for the 'Status' (Select) field in DocType 'Serial No'
 #: erpnext/stock/doctype/serial_no/serial_no.json
@@ -12684,7 +12684,7 @@ msgstr "历史库存交易控制"
 #. Description of the 'Based On' (Select) field in DocType 'BOM'
 #: erpnext/manufacturing/doctype/bom/bom.json
 msgid "Controls how raw materials are consumed during the ‘Manufacture’ stock entry."
-msgstr ""
+msgstr "控制在“生产入库”物料移动中如何消耗原材料。"
 
 #. Description of the 'Tax Category' (Link) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
@@ -12884,19 +12884,19 @@ msgstr "成本"
 #. Label of the cost_allocation (Currency) field in DocType 'BOM'
 #: erpnext/manufacturing/doctype/bom/bom.json
 msgid "Cost Allocation"
-msgstr ""
+msgstr "成本分摊"
 
 #. Label of the cost_allocation_per (Percent) field in DocType 'BOM Secondary
 #. Item'
 #: erpnext/manufacturing/doctype/bom_secondary_item/bom_secondary_item.json
 msgid "Cost Allocation %"
-msgstr ""
+msgstr "成本分摊比例（%）"
 
 #. Label of the cost_allocation__process_loss_section (Section Break) field in
 #. DocType 'BOM'
 #: erpnext/manufacturing/doctype/bom/bom.json
 msgid "Cost Allocation / Process Loss"
-msgstr ""
+msgstr "成本分摊 / 制程损耗"
 
 #. Label of the cost_center (Link) field in DocType 'Account Closing Balance'
 #. Label of the cost_center (Link) field in DocType 'Advance Taxes and Charges'
@@ -13173,7 +13173,7 @@ msgstr "单位成本"
 
 #: erpnext/manufacturing/doctype/bom/bom.py:442
 msgid "Cost allocation between finished goods and secondary items should equal 100%"
-msgstr ""
+msgstr "产成品和副产品之间的成本分摊比例合计必须等于 100%"
 
 #. Title of an incoterm
 #: erpnext/setup/doctype/incoterm/incoterms.csv:8
@@ -18356,7 +18356,7 @@ msgstr "重复物料组"
 
 #: erpnext/manufacturing/doctype/bom_creator/bom_creator.py:102
 msgid "Duplicate Item Under Same Parent"
-msgstr ""
+msgstr "同一父物料下存在重复物料"
 
 #: erpnext/manufacturing/doctype/workstation/workstation.py:80
 #: erpnext/manufacturing/doctype/workstation_type/workstation_type.py:37
@@ -21389,7 +21389,7 @@ msgstr "对历史序列号，不从序列号获取入库单价，而是根据入
 
 #: erpnext/manufacturing/doctype/bom/bom.py:368
 msgid "For operation {0} at row {1}, please add raw materials or set a BOM against it."
-msgstr ""
+msgstr "工序 {0}（第 {1} 行）：请添加原材料或为其设置物料清单。"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.py:2922
 msgid "For operation {0}: Quantity ({1}) can not be greater than pending quantity({2})"
@@ -23446,7 +23446,7 @@ msgstr "频率？"
 #. Description of the 'Quantity (Output Qty)' (Float) field in DocType 'BOM'
 #: erpnext/manufacturing/doctype/bom/bom.json
 msgid "How many units of the final product this BOM makes."
-msgstr ""
+msgstr "此物料清单可生产的最终产品数量。"
 
 #. Label of the project_update_frequency (Select) field in DocType 'Buying
 #. Settings'
@@ -24055,7 +24055,7 @@ msgstr "请勾选{0}后继续"
 #. Description of the 'Sequence ID' (Int) field in DocType 'BOM Operation'
 #: erpnext/manufacturing/doctype/bom_operation/bom_operation.json
 msgid "If you want to run operations in parallel, keep the same sequence ID for them."
-msgstr ""
+msgstr "如需并行执行多道工序，请为它们设置相同的顺序编号。"
 
 #: erpnext/accounts/doctype/pricing_rule/utils.py:378
 msgid "If you {0} {1} quantities of the item {2}, the scheme {3} will be applied on the item."
@@ -26296,7 +26296,7 @@ msgstr "是内部供应商"
 #. Label of the is_legacy (Check) field in DocType 'BOM Secondary Item'
 #: erpnext/manufacturing/doctype/bom_secondary_item/bom_secondary_item.json
 msgid "Is Legacy"
-msgstr ""
+msgstr "旧版数据"
 
 #. Label of the is_legacy_scrap_item (Check) field in DocType 'Stock Entry
 #. Detail'
@@ -26381,7 +26381,7 @@ msgstr "是期末结账凭证"
 #: erpnext/manufacturing/doctype/bom/bom.json
 #: erpnext/manufacturing/doctype/bom_creator/bom_creator.js:68
 msgid "Is Phantom BOM"
-msgstr ""
+msgstr "虚拟物料清单"
 
 #. Label of the is_phantom (Check) field in DocType 'BOM Creator'
 #. Label of the is_phantom_item (Check) field in DocType 'BOM Creator Item'
@@ -26391,7 +26391,7 @@ msgstr ""
 #: erpnext/manufacturing/doctype/bom_item/bom_item.json
 #: erpnext/manufacturing/report/bom_explorer/bom_explorer.py:68
 msgid "Is Phantom Item"
-msgstr ""
+msgstr "虚拟物料"
 
 #. Label of the po_required (Select) field in DocType 'Buying Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
@@ -28019,7 +28019,7 @@ msgstr "采购订单中未找到名称为 {0} 的物料"
 
 #: erpnext/manufacturing/doctype/bom_creator/bom_creator.py:99
 msgid "Item {0} added multiple times under the same parent item {1} at rows {2} and {3}"
-msgstr ""
+msgstr "物料 {0} 在同一父物料 {1} 下被重复添加，位于第 {2} 行和第 {3} 行"
 
 #: erpnext/manufacturing/doctype/bom_creator/bom_creator.py:119
 msgid "Item {0} cannot be added as a sub-assembly of itself"
@@ -33062,7 +33062,7 @@ msgstr "非零值"
 #: erpnext/manufacturing/doctype/bom_creator/bom_creator.js:117
 #: erpnext/manufacturing/doctype/bom_creator/bom_creator.py:113
 msgid "Non-phantom BOM cannot be created for non-stock item {0}."
-msgstr ""
+msgstr "不能为非库存物料 {0} 创建非虚拟物料清单。"
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:564
 msgid "None of the items have any change in quantity or value."
@@ -33710,7 +33710,7 @@ msgstr "应用未计入手续费时，存入金额和支出金额只能有一项
 
 #: erpnext/manufacturing/doctype/bom/bom.py:330
 msgid "Only one operation can have 'Is Final Finished Good' checked when 'Track Semi Finished Goods' is enabled."
-msgstr ""
+msgstr "启用“跟踪半成品”时，只能有一道工序勾选“为最终产成品”。"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1683
 msgid "Only one {0} entry can be created against the Work Order {1}"
@@ -37451,12 +37451,12 @@ msgstr "汽油"
 #: erpnext/manufacturing/doctype/bom_creator/bom_creator.js:113
 #: erpnext/manufacturing/doctype/bom_creator/bom_creator.py:110
 msgid "Phantom BOM cannot be created for stock item {0}."
-msgstr ""
+msgstr "不能为库存物料 {0} 创建虚拟物料清单。"
 
 #: erpnext/manufacturing/doctype/bom/bom_item_preview.html:16
 #: erpnext/public/js/bom_configurator/bom_configurator.bundle.js:329
 msgid "Phantom Item"
-msgstr "虚拟项目"
+msgstr "虚拟物料"
 
 #: erpnext/public/js/bom_configurator/bom_configurator.bundle.js:438
 msgid "Phantom Item is mandatory"
@@ -37884,7 +37884,7 @@ msgstr "请添加付款方式和期初余额明细"
 
 #: erpnext/manufacturing/doctype/bom/bom.js:39
 msgid "Please add Operations first."
-msgstr ""
+msgstr "请先添加工序。"
 
 #: erpnext/buying/doctype/request_for_quotation/request_for_quotation.py:214
 msgid "Please add Request for Quotation to the sidebar in Portal Settings."
@@ -42488,7 +42488,7 @@ msgstr "数量（A - B）"
 #. Label of the quantity (Float) field in DocType 'BOM'
 #: erpnext/manufacturing/doctype/bom/bom.json
 msgid "Quantity (Output Qty)"
-msgstr ""
+msgstr "数量（产出数量）"
 
 #: erpnext/selling/page/point_of_sale/pos_item_selector.js:118
 msgid "Quantity Available"
@@ -46372,7 +46372,7 @@ msgstr "行号#{0}：服务项{1}未指定产成品"
 
 #: erpnext/manufacturing/doctype/bom/bom.py:339
 msgid "Row #{0}: Finished Good Item {1} cannot be added in the Secondary Items table."
-msgstr ""
+msgstr "第 {0} 行：产成品 {1} 不能添加到副产品表格中。"
 
 #: erpnext/buying/doctype/purchase_order/purchase_order.py:355
 #: erpnext/selling/doctype/sales_order/sales_order.py:292
@@ -46537,7 +46537,7 @@ msgstr "行号#{0}：请更新物料行的递延收入/费用科目或公司主�
 #: erpnext/manufacturing/doctype/bom/bom.py:346
 #, python-format
 msgid "Row #{0}: Process Loss Percentage should be less than 100% for {1} Item {2}"
-msgstr ""
+msgstr "第 {0} 行：{1} 物料 {2} 的制程损耗比例应小于 100%"
 
 #: erpnext/public/js/utils/barcode_scanner.js:433
 msgid "Row #{0}: Qty increased by {1}"
@@ -47103,7 +47103,7 @@ msgstr "行号{0}：物料{1}数量不可超过可用数量"
 
 #: erpnext/manufacturing/doctype/bom/bom.py:1245
 msgid "Row {0}: Operation time should be greater than 0 for operation {1}"
-msgstr ""
+msgstr "第 {0} 行：工序 {1} 的作业时间必须大于 0"
 
 #: erpnext/stock/doctype/delivery_note/delivery_note.py:597
 msgid "Row {0}: Packed Qty must be equal to {1} Qty."
@@ -48746,12 +48746,12 @@ msgstr "副产品（按生产入库单）"
 #. Label of the secondary_items_cost (Currency) field in DocType 'BOM'
 #: erpnext/manufacturing/doctype/bom/bom.json
 msgid "Secondary Items Cost"
-msgstr ""
+msgstr "副产品成本"
 
 #. Label of the base_secondary_items_cost (Currency) field in DocType 'BOM'
 #: erpnext/manufacturing/doctype/bom/bom.json
 msgid "Secondary Items Cost (Company Currency)"
-msgstr ""
+msgstr "副产品成本（本币）"
 
 #. Label of the secondary_items_cost_per_qty (Currency) field in DocType
 #. 'Subcontracting Receipt Item'
@@ -51181,7 +51181,7 @@ msgstr "由于产成品{1}存在{0}单位的加工损耗，应在物料表中将
 
 #: erpnext/manufacturing/doctype/bom/bom.py:323
 msgid "Since you have enabled 'Track Semi Finished Goods', at least one operation must have 'Is Final Finished Good' checked. For that set the FG / Semi FG Item as {0} against an operation."
-msgstr ""
+msgstr "已启用“跟踪半成品”，因此至少一道工序必须勾选“为最终产成品”。请在该工序中将产成品 / 半成品设为 {0}。"
 
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.py:133
 msgid "Since {0} are Serial No/Batch No items, you cannot enable 'Recreate Stock Ledgers' in Repost Item Valuation."
@@ -55478,7 +55478,7 @@ msgstr ""
 #. Description of the 'Item to Manufacture' (Link) field in DocType 'BOM'
 #: erpnext/manufacturing/doctype/bom/bom.json
 msgid "The final item that will be produced using this BOM."
-msgstr ""
+msgstr "使用此物料清单最终生产的物料。"
 
 #: erpnext/accounts/notification/notification_for_new_fiscal_year/notification_for_new_fiscal_year.html:40
 msgid "The fiscal year has been automatically created in a Disabled state to maintain consistency with the previous fiscal year's status."
@@ -58868,7 +58868,7 @@ msgstr "单位"
 #. Label of the uom (Link) field in DocType 'BOM'
 #: erpnext/manufacturing/doctype/bom/bom.json
 msgid "Unit Of Measure"
-msgstr ""
+msgstr "计量单位"
 
 #: erpnext/controllers/accounts_controller.py:4162
 msgid "Unit Price"
@@ -59663,7 +59663,7 @@ msgstr "勾选后采购发票与采购入库的价差会自动(追溯)结转到�
 #. 'BOM'
 #: erpnext/manufacturing/doctype/bom/bom.json
 msgid "Users can make manufacture entry against Job Cards"
-msgstr ""
+msgstr "用户可根据生产任务单创建生产入库单"
 
 #. Description of the 'Portal Users' (Tab Break) field in DocType 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
