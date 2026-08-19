@@ -35,6 +35,11 @@ class TestZhFrappeTranslations(TestCase):
 			"No Results found": "未找到结果",
 			"Begin typing for results.": "输入关键词搜索。",
 			"Framework": "系统管理",
+			"Filter based on {0}": "按 {0} 筛选",
+			"Last Edited By You": "最后由你编辑",
+			"Last Edited By {0}": "最后由 {0} 编辑",
+			"Created By You": "由你创建",
+			"Created By {0}": "由 {0} 创建",
 		}
 		for source, translation in expected.items():
 			with self.subTest(source=source):

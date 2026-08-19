@@ -13,6 +13,8 @@ COPY --chown=frappe:frappe scripts/merge_frappe_zh_catalog.py /tmp/merge_frappe_
 COPY --chown=frappe:frappe erpnext/public/js/erpnext.bundle.js /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/erpnext.bundle.js
 COPY --chown=frappe:frappe erpnext/public/js/zh_finance_overrides.js /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/zh_finance_overrides.js
 COPY --chown=frappe:frappe erpnext/public/js/zh_finance_format.mjs /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/zh_finance_format.mjs
+COPY --chown=frappe:frappe erpnext/public/scss/modern-cn-theme.scss /home/frappe/frappe-bench/apps/erpnext/erpnext/public/scss/modern-cn-theme.scss
+COPY --chown=frappe:frappe erpnext/public/scss/erpnext.bundle.scss /home/frappe/frappe-bench/apps/erpnext/erpnext/public/scss/erpnext.bundle.scss
 COPY --chown=frappe:frappe erpnext/accounts/report/accounts_receivable/accounts_receivable.js /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/report/accounts_receivable/accounts_receivable.js
 COPY --chown=frappe:frappe erpnext/accounts/doctype/journal_entry/journal_entry.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/journal_entry/journal_entry.py
 COPY --chown=frappe:frappe erpnext/accounts/doctype/payment_entry/payment_entry.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.py
@@ -43,8 +45,12 @@ RUN /home/frappe/frappe-bench/env/bin/python /tmp/merge_frappe_zh_catalog.py \
 	bench compile-po-to-mo --app erpnext --locale zh --force && \
 	bench build --app erpnext && \
 	js_bundle="$(basename "$(find assets/erpnext/dist/js -name 'erpnext.bundle.*.js' -type f | head -1)")" && \
+	css_bundle="$(basename "$(find assets/erpnext/dist/css -name 'erpnext.bundle.*.css' -type f | head -1)")" && \
 	sed -i -E \
 		"s#erpnext/dist/js/erpnext\\.bundle\\.[A-Z0-9_-]+\\.js#erpnext/dist/js/${js_bundle}#" \
+		assets/assets.json && \
+	sed -i -E \
+		"s#erpnext/dist/css/erpnext\.bundle\.[A-Z0-9_-]+\.css#erpnext/dist/css/${css_bundle}#" \
 		assets/assets.json && \
 	mkdir -p assets/locale/zh/LC_MESSAGES && \
 	cp sites/assets/locale/zh/LC_MESSAGES/frappe.mo assets/locale/zh/LC_MESSAGES/frappe.mo && \

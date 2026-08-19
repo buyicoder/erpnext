@@ -263,3 +263,47 @@ body {
 	}
 }
 }
+
+// Quill exposes its picker and link labels through hard-coded CSS generated
+// content, so gettext cannot localize them. Keep these overrides scoped to a
+// Chinese document instead of mutating editor content or third-party code.
+html[lang="zh"] {
+	.ql-snow .ql-picker.ql-header {
+		.ql-picker-label::before,
+		.ql-picker-item::before {
+			content: "正文";
+		}
+
+		@for $level from 1 through 6 {
+			.ql-picker-label[data-value="#{$level}"]::before,
+			.ql-picker-item[data-value="#{$level}"]::before {
+				content: "标题 #{$level}";
+			}
+		}
+	}
+
+	.ql-table {
+		.ql-picker-label::before {
+			content: "表格";
+		}
+
+		.ql-picker-options {
+			[data-value="insert-table"]::before { content: "插入表格"; }
+			[data-value="insert-row-above"]::before { content: "在上方插入行"; }
+			[data-value="insert-row-below"]::before { content: "在下方插入行"; }
+			[data-value="insert-column-right"]::before { content: "在右侧插入列"; }
+			[data-value="insert-column-left"]::before { content: "在左侧插入列"; }
+			[data-value="delete-row"]::before { content: "删除行"; }
+			[data-value="delete-column"]::before { content: "删除列"; }
+			[data-value="delete-table"]::before { content: "删除表格"; }
+		}
+	}
+
+	.ql-snow .ql-tooltip::before { content: "访问链接："; }
+	.ql-snow .ql-tooltip[data-mode="link"]::before { content: "输入链接："; }
+	.ql-snow .ql-tooltip[data-mode="formula"]::before { content: "输入公式："; }
+	.ql-snow .ql-tooltip[data-mode="video"]::before { content: "输入视频地址："; }
+	.ql-snow .ql-tooltip a.ql-action::after { content: "编辑"; }
+	.ql-snow .ql-tooltip.ql-editing a.ql-action::after { content: "保存"; }
+	.ql-snow .ql-tooltip a.ql-remove::before { content: "移除"; }
+}

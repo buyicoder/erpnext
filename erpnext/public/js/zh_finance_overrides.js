@@ -15,6 +15,7 @@ if (frappe.boot.lang === "zh") {
 		".number",
 		".list-row-container .filterable div",
 		"[data-fieldtype='Currency'] .static-area div",
+		".datatable .dt-cell__content > div",
 		".control-value",
 		".summary-value",
 	].join(", ");
@@ -26,6 +27,7 @@ if (frappe.boot.lang === "zh") {
 			? [root]
 			: root.querySelectorAll?.(cny_amount_selector) || [];
 		elements.forEach((element) => {
+			if (!element.textContent.trimStart().startsWith("CNY ")) return;
 			const localized = format_compact_cny_text(element.textContent);
 			if (localized !== element.textContent) element.textContent = localized;
 		});

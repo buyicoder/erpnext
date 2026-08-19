@@ -36,3 +36,21 @@ class TestModernChinaTheme(TestCase):
 		self.assertIn("&:focus-visible", theme)
 		self.assertIn("box-shadow: var(--focus-default) !important", theme)
 		self.assertNotIn("overflow: hidden", theme)
+
+	def test_chinese_quill_toolbar_does_not_expose_english_pseudo_labels(self):
+		theme = (self.scss_root / "modern-cn-theme.scss").read_text()
+
+		for translation in (
+			'content: "正文"',
+			'content: "标题 #{$level}"',
+			'content: "表格"',
+			'content: "插入表格"',
+			'content: "访问链接："',
+			'content: "输入链接："',
+			'content: "输入公式："',
+			'content: "输入视频地址："',
+			'content: "编辑"',
+			'content: "保存"',
+			'content: "移除"',
+		):
+			self.assertIn(translation, theme)

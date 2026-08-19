@@ -3433,7 +3433,7 @@ msgstr "预付款"
 #. Label of the advance_paid (Currency) field in DocType 'Purchase Order'
 #: erpnext/buying/doctype/purchase_order/purchase_order.json
 msgid "Advance Paid (Company Currency)"
-msgstr ""
+msgstr "已付预付款（本位币）"
 
 #: erpnext/buying/doctype/purchase_order/purchase_order_list.js:75
 #: erpnext/selling/doctype/sales_order/sales_order_list.js:122

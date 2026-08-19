@@ -321,6 +321,21 @@ msgstr "创建第一条{0}"
 msgid "Created By"
 msgstr "创建人"
 
+msgid "Created By You"
+msgstr "由你创建"
+
+msgid "Created By {0}"
+msgstr "由 {0} 创建"
+
+msgid "Last Edited By You"
+msgstr "最后由你编辑"
+
+msgid "Last Edited By {0}"
+msgstr "最后由 {0} 编辑"
+
+msgid "Filter based on {0}"
+msgstr "按 {0} 筛选"
+
 msgid "Created On"
 msgstr "创建时间"
 

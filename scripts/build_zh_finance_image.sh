@@ -17,7 +17,9 @@ docker build \
 docker run --rm --entrypoint sh "$image" -lc '
 	set -eu
 	expected_bundle="$(basename "$(find /home/frappe/frappe-bench/assets/erpnext/dist/js -name "erpnext.bundle.*.js" -type f | head -1)")"
+	expected_css_bundle="$(basename "$(find /home/frappe/frappe-bench/assets/erpnext/dist/css -name "erpnext.bundle.*.css" -type f | head -1)")"
 	grep -F "erpnext/dist/js/${expected_bundle}" /home/frappe/frappe-bench/assets/assets.json >/dev/null
+	grep -F "erpnext/dist/css/${expected_css_bundle}" /home/frappe/frappe-bench/assets/assets.json >/dev/null
 	test -s /home/frappe/frappe-bench/assets/locale/zh/LC_MESSAGES/erpnext.mo
 '
 

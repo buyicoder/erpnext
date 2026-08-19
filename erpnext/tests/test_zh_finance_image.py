@@ -19,6 +19,8 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("bench compile-po-to-mo --app frappe --locale zh --force", self.containerfile)
 		self.assertIn("bench build --app erpnext", self.containerfile)
 		self.assertIn("erpnext/public/js/zh_finance_format.mjs", self.containerfile)
+		self.assertIn("erpnext/public/scss/modern-cn-theme.scss", self.containerfile)
+		self.assertIn("erpnext/public/scss/erpnext.bundle.scss", self.containerfile)
 		self.assertIn("erpnext/projects/doctype/project/project.py", self.containerfile)
 		self.assertIn("erpnext/setup/china_money.py", self.containerfile)
 		self.assertIn("erpnext/hooks.py", self.containerfile)
@@ -50,8 +52,11 @@ class TestZhFinanceImage(TestCase):
 
 	def test_image_manifest_points_to_the_built_bundle(self):
 		self.assertIn("js_bundle=", self.containerfile)
+		self.assertIn("css_bundle=", self.containerfile)
 		self.assertIn("assets/assets.json", self.containerfile)
 		self.assertIn("erpnext/dist/js/${js_bundle}", self.containerfile)
+		self.assertIn("erpnext/dist/css/${css_bundle}", self.containerfile)
+		self.assertIn("expected_css_bundle=", self.build_script)
 
 	def test_realtime_proxy_preserves_the_browser_origin(self):
 		self.assertIn("proxy_set_header Origin \\$frappe_socket_origin", self.containerfile)
