@@ -34957,7 +34957,7 @@ msgstr "永久账户号码"
 #. Voucher'
 #: erpnext/accounts/doctype/process_period_closing_voucher/process_period_closing_voucher.json
 msgid "PCV"
-msgstr ""
+msgstr "期末结账凭证（PCV）"
 
 #. Label of the pcv_job_timeout (Int) field in DocType 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
@@ -54743,7 +54743,7 @@ msgstr "税务细节表已作为字符串从项目主中获取并存储在此字
 #. DocType 'Tax Withholding Category'
 #: erpnext/accounts/doctype/tax_withholding_category/tax_withholding_category.json
 msgid "Tax withheld only for amount exceeding cumulative threshold"
-msgstr ""
+msgstr "仅对超过累计起征额的部分代扣税款"
 
 #. Label of the taxable_amount (Currency) field in DocType 'Item Wise Tax
 #. Detail'
@@ -61283,13 +61283,20 @@ msgstr "选择父仓库时，系统将对关联子仓库执行预计数量检查
 #. 'Tax Withholding Category'
 #: erpnext/accounts/doctype/tax_withholding_category/tax_withholding_category.json
 msgid "When checked, only cumulative threshold will be applied"
-msgstr ""
+msgstr "勾选后，仅应用累计起征额"
 
 #. Description of the 'Disable Cumulative Threshold' (Check) field in DocType
 #. 'Tax Withholding Category'
 #: erpnext/accounts/doctype/tax_withholding_category/tax_withholding_category.json
 msgid "When checked, only transaction threshold will be applied for transaction individually"
-msgstr ""
+msgstr "勾选后，仅对每笔交易单独应用单笔起征额"
+
+#. Option for the 'Status' (Select) field in DocType 'Process Period Closing Voucher'
+#. Option for the 'Status' (Select) field in DocType 'Process Period Closing Voucher Detail'
+#: erpnext/accounts/doctype/process_period_closing_voucher/process_period_closing_voucher.json
+#: erpnext/accounts/doctype/process_period_closing_voucher_detail/process_period_closing_voucher_detail.json
+msgid "Running"
+msgstr "运行中"
 
 #. Description of the 'Use Posting Datetime for Naming Documents' (Check) field
 #. in DocType 'Global Defaults'

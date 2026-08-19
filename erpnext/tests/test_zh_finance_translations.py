@@ -2,9 +2,12 @@ import json
 from io import BytesIO
 from pathlib import Path
 from string import Formatter
+from tempfile import TemporaryDirectory
 from unittest import TestCase
 
 from babel.messages.pofile import read_po
+
+from scripts.merge_frappe_zh_catalog import merge_catalogs
 
 
 FRAPPE_OWNED_WORKSPACE_LABELS = {
@@ -51,14 +54,26 @@ CORE_BUSINESS_DOCTYPES = {
 }
 
 CHINA_COMPLIANCE_DOCTYPES = {
+	"Account Closing Balance",
 	"Accounting Period",
 	"Accounts Settings",
+	"Advance Taxes and Charges",
+	"Cashier Closing",
 	"Company",
 	"Item Tax Template",
+	"POS Closing Entry",
 	"Period Closing Voucher",
+	"Process Period Closing Voucher",
 	"Purchase Taxes and Charges Template",
 	"Sales Taxes and Charges Template",
+	"Stock Closing Balance",
+	"Stock Closing Entry",
 	"Tax Category",
+	"Tax Rule",
+	"Tax Withholding Category",
+	"Tax Withholding Entry",
+	"Tax Withholding Group",
+	"Tax Withholding Rate",
 }
 
 # These are literal field descriptions, not printf templates. Babel infers the
@@ -71,18 +86,21 @@ BABEL_LITERAL_PERCENT_MESSAGES = {
 
 
 class TestZhFinanceTranslations(TestCase):
-	def setUp(self):
-		self.maxDiff = None
+	maxDiff = None
+
+	@classmethod
+	def setUpClass(cls):
 		po_path = Path(__file__).parents[1] / "locale" / "zh.po"
-		self.catalog = read_po(BytesIO(po_path.read_bytes()), locale="zh")
+		cls.catalog = read_po(BytesIO(po_path.read_bytes()), locale="zh")
 		repo_root = Path(__file__).parents[2]
-		self.frappe_catalogs = [
-			read_po(BytesIO((repo_root / path).read_bytes()), locale="zh")
-			for path in (
-				".build/frappe-v16.24.4-zh.po",
-				"localization/frappe/zh.po",
+		with TemporaryDirectory() as temporary_directory:
+			merged_path = Path(temporary_directory) / "frappe-zh-merged.po"
+			merge_catalogs(
+				repo_root / ".build/frappe-v16.24.4-zh.po",
+				repo_root / "localization/frappe/zh.po",
+				merged_path,
 			)
-		]
+			cls.merged_frappe_catalog = read_po(BytesIO(merged_path.read_bytes()), locale="zh")
 
 	def test_core_finance_journey_uses_reviewed_chinese_terms(self):
 		translations = {
@@ -209,6 +227,39 @@ class TestZhFinanceTranslations(TestCase):
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
 
+	def test_security_and_audit_navigation_uses_reviewed_frappe_terms(self):
+		translations = {
+			"Roles & Permissions": "角色与权限",
+			"Security Settings": "安全设置",
+			"Simultaneous Sessions": "并发会话数",
+			"Restrict IP": "限制IP",
+			"API Access": "API 访问",
+			"API Key": "API 密钥",
+			"API Secret": "API 密钥",
+			"Generate Keys": "生成密钥",
+			"User Permission": "用户权限",
+			"Apply To All Document Types": "应用于所有文档类型",
+			"Applicable For": "适用于",
+			"Hide Descendants": "隐藏下层节点",
+			"Set Role For": "设置角色",
+			"Allow Roles": "允许的角色",
+			"Enable Prepared Report": "启用预生成报表",
+			"Access Log": "访问记录",
+			"Activity Log": "用户操作日志",
+			"Reference Document": "源单据",
+			"Log Data": "日志数据",
+			"Show Report": "查看报表",
+			"Show Document": "显示文档",
+			"IP Address": "IP地址",
+			"Impersonate": "用其它用户身份登录",
+			"Version": "版本",
+			"Document Name": "单据名称",
+			"Navigation Buttons": "导航按钮",
+		}
+
+		for source, translation in translations.items():
+			self._assert_frappe_translation(source, translation)
+
 	def test_every_core_and_compliance_doctype_field_has_a_translation_owner(self):
 		doctype_root = Path(__file__).parents[1]
 		documents = {}
@@ -218,14 +269,7 @@ class TestZhFinanceTranslations(TestCase):
 				documents[data["name"]] = (path, data)
 
 		root_doctypes = CORE_BUSINESS_DOCTYPES | CHINA_COMPLIANCE_DOCTYPES
-		target_doctypes = set(root_doctypes)
-		for doctype in root_doctypes:
-			_data = documents[doctype][1]
-			target_doctypes.update(
-				field["options"]
-				for field in _data.get("fields", [])
-				if field.get("fieldtype") in {"Table", "Table MultiSelect"} and field.get("options") in documents
-			)
+		target_doctypes = self._doctype_closure(documents, root_doctypes)
 
 		missing = []
 		select_option_allowlist = {"GTIN-14"}
@@ -236,11 +280,9 @@ class TestZhFinanceTranslations(TestCase):
 					source = field.get(key)
 					if not isinstance(source, str) or not source.strip():
 						continue
-					candidates = (source, source.strip())
 					messages = [
-						catalog.get(candidate)
-						for catalog in (self.catalog, *self.frappe_catalogs)
-						for candidate in candidates
+						catalog.get(source)
+						for catalog in (self.catalog, self.merged_frappe_catalog)
 					]
 					if not any(
 						message and message.string and "fuzzy" not in message.flags and self._message_is_valid(message)
@@ -254,7 +296,7 @@ class TestZhFinanceTranslations(TestCase):
 						if not source or source in select_option_allowlist:
 							continue
 						messages = [
-							catalog.get(source) for catalog in (self.catalog, *self.frappe_catalogs)
+							catalog.get(source) for catalog in (self.catalog, self.merged_frappe_catalog)
 						]
 						if not any(
 							message and message.string and "fuzzy" not in message.flags and self._message_is_valid(message)
@@ -265,6 +307,15 @@ class TestZhFinanceTranslations(TestCase):
 							)
 
 		self.assertEqual(missing, [])
+
+	def test_doctype_inventory_follows_nested_child_tables(self):
+		documents = {
+			"Root": (None, {"fields": [{"fieldtype": "Table", "options": "Child"}]}),
+			"Child": (None, {"fields": [{"fieldtype": "Table", "options": "Grandchild"}]}),
+			"Grandchild": (None, {"fields": []}),
+		}
+
+		self.assertEqual(self._doctype_closure(documents, {"Root"}), {"Root", "Child", "Grandchild"})
 
 	def test_china_compliance_controls_use_reviewed_terms(self):
 		translations = {
@@ -281,6 +332,11 @@ class TestZhFinanceTranslations(TestCase):
 			"Maintain same rate throughout internal Transaction": "内部交易全程保持相同单价",
 			"Fetch valuation rate for internal Transaction": "内部交易获取成本价",
 			"Check if this tax is not applicable to items (distinct from 0% rate)": "勾选表示此税种不适用于该物料（不同于 0% 税率）",
+			"PCV": "期末结账凭证（PCV）",
+			"Running": "运行中",
+			"Tax withheld only for amount exceeding cumulative threshold": "仅对超过累计起征额的部分代扣税款",
+			"When checked, only cumulative threshold will be applied": "勾选后，仅应用累计起征额",
+			"When checked, only transaction threshold will be applied for transaction individually": "勾选后，仅对每笔交易单独应用单笔起征额",
 		}
 
 		for source, translation in translations.items():
@@ -440,6 +496,31 @@ class TestZhFinanceTranslations(TestCase):
 				self._format_fields(source),
 				self._format_fields(translation),
 			)
+
+	def _assert_frappe_translation(self, source, translation):
+		with self.subTest(source=source):
+			message = self.merged_frappe_catalog.get(source)
+			self.assertIsNotNone(message)
+			self.assertNotIn("fuzzy", message.flags)
+			self.assertEqual(message.string, translation)
+			self.assertTrue(self._message_is_valid(message), [str(error) for error in message.check()])
+
+	@staticmethod
+	def _doctype_closure(documents, roots):
+		targets = set()
+		pending = list(roots)
+		while pending:
+			doctype = pending.pop()
+			if doctype in targets:
+				continue
+			targets.add(doctype)
+			pending.extend(
+				field["options"]
+				for field in documents[doctype][1].get("fields", [])
+				if field.get("fieldtype") in {"Table", "Table MultiSelect"}
+				and field.get("options") in documents
+			)
+		return targets
 
 	@staticmethod
 	def _format_fields(value):

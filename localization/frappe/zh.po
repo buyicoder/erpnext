@@ -1592,3 +1592,6 @@ msgstr "输入关键词搜索。"
 
 msgid "Framework"
 msgstr "系统管理"
+
+msgid "Navigation Buttons"
+msgstr "导航按钮"
