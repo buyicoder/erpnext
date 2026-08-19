@@ -67,6 +67,10 @@ class TestZhFinanceTranslations(TestCase):
 			"Add {0}": "新建{0}",
 			"Click to sort by {0}": "点击按{0}排序",
 			"{0} of {1}": "显示 {0} 条，共 {1} 条",
+			"Title": "标题",
+			"Pending": "待处理",
+			"Date": "日期",
+			"descending": "降序",
 		}
 
 		for source, translation in translations.items():

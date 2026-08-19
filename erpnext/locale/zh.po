@@ -63581,3 +63581,18 @@ msgstr "单据已提交"
 
 msgid "Dashboards"
 msgstr "仪表板"
+
+msgid "Title"
+msgstr "标题"
+
+msgid "Pending"
+msgstr "待处理"
+
+msgid "Date"
+msgstr "日期"
+
+msgid "descending"
+msgstr "降序"
+
+msgid "Menu"
+msgstr "菜单"
