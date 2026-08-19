@@ -5,6 +5,8 @@ import test from "node:test"
 import { fileURLToPath } from "node:url"
 import ts from "typescript"
 
+import { extractTranslationKeys } from "../scripts/extract-translation-keys.mjs"
+
 const sourceRoot = fileURLToPath(new URL("../src/", import.meta.url))
 const keyboardLabels = new Set(["B", "Ctrl", "G", "I", "P", "R", "S", "Z"])
 const technicalExamples = new Set(["transaction_amount * 0.25"])
@@ -50,4 +52,11 @@ test("visible banking copy goes through the translation helper", () => {
   }
 
   assert.deepEqual(untranslated, [])
+})
+
+test("translation key inventory matches the TypeScript source", () => {
+  const inventory = JSON.parse(
+    readFileSync(fileURLToPath(new URL("../translation-keys.json", import.meta.url)), "utf8"),
+  )
+  assert.deepEqual(inventory, extractTranslationKeys(sourceRoot))
 })

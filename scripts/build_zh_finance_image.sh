@@ -37,6 +37,9 @@ expected_translations = {
 	"Statement PDF Password": "对账单 PDF 密码",
 	"Create User Automatically": "自动创建用户",
 	"Included fee is bigger than the withdrawal itself.": "已计入手续费不能大于支出金额。",
+	"Matching Rules": "匹配规则",
+	"No bank statements imported yet": "尚未导入银行对账单",
+	"Record Payment": "记录收付款",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)

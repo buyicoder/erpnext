@@ -10,6 +10,7 @@ from unittest import TestCase
 from babel.messages.pofile import read_po
 
 from scripts.merge_frappe_zh_catalog import merge_catalogs
+from scripts.merge_erpnext_zh_banking import merge_banking_catalog
 
 
 FRAPPE_OWNED_WORKSPACE_LABELS = {
@@ -132,6 +133,7 @@ BABEL_LITERAL_PERCENT_MESSAGES = {
 	"% of materials billed against this Sales Order",
 	"% of materials delivered against this Sales Order",
 	"Check if this tax is not applicable to items (distinct from 0% rate)",
+	"In this case, the amount will be calculated as 25% of the transaction amount. If the transaction amount is 200, then this will be calculated as 200 * 0.25 = 50.",
 	"{0}% of total invoice value will be given as discount.",
 }
 
@@ -145,6 +147,15 @@ class TestZhFinanceTranslations(TestCase):
 		cls.catalog = read_po(BytesIO(po_path.read_bytes()), locale="zh")
 		repo_root = Path(__file__).parents[2]
 		with TemporaryDirectory() as temporary_directory:
+			merged_erpnext_path = Path(temporary_directory) / "erpnext-zh-merged.po"
+			merge_banking_catalog(
+				po_path,
+				repo_root / "localization/erpnext/zh_banking.json",
+				merged_erpnext_path,
+			)
+			cls.merged_erpnext_catalog = read_po(
+				BytesIO(merged_erpnext_path.read_bytes()), locale="zh"
+			)
 			merged_path = Path(temporary_directory) / "frappe-zh-merged.po"
 			merge_catalogs(
 				repo_root / ".build/frappe-v16.24.4-zh.po",
@@ -152,6 +163,28 @@ class TestZhFinanceTranslations(TestCase):
 				merged_path,
 			)
 			cls.merged_frappe_catalog = read_po(BytesIO(merged_path.read_bytes()), locale="zh")
+
+	def test_every_banking_translation_key_has_a_runtime_owner(self):
+		repo_root = Path(__file__).parents[2]
+		keys = json.loads((repo_root / "banking/translation-keys.json").read_text())
+		technical_literals = {"0.00"}
+		missing = []
+		for source in keys:
+			if source in technical_literals:
+				continue
+			messages = [
+				self.merged_erpnext_catalog.get(source),
+				self.merged_frappe_catalog.get(source),
+			]
+			if not any(
+				message
+				and message.string
+				and "fuzzy" not in message.flags
+				and self._message_is_valid(message)
+				for message in messages
+			):
+				missing.append(source)
+		self.assertEqual(missing, [])
 
 	def test_core_finance_journey_uses_reviewed_chinese_terms(self):
 		translations = {
