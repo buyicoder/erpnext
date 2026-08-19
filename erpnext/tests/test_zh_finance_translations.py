@@ -102,7 +102,9 @@ CORE_OPERATIONAL_MASTER_DOCTYPES = {
 	"Sales Person",
 	"Selling Settings",
 	"Shipping Rule",
+	"Stock Reposting Settings",
 	"Stock Settings",
+	"Repost Item Valuation",
 	"Task Type",
 	"Territory",
 }
@@ -599,6 +601,28 @@ class TestZhFinanceTranslations(TestCase):
 			"Auto create Serial and Batch Bundle for outward": "出库时自动创建序列号与批号",
 			"If enabled, the item rate won't adjust to the valuation rate during internal transfers, but accounting will still use the valuation rate. This will allow the user to specify a different rate for printing or taxation purposes.": "启用后，内部调拨的物料单价不会调整为成本价，但会计处理仍使用成本价。用户可因打印或税务需要指定不同单价。",
 			"If enabled, the system will allow negative stock entries for the batch. But, this may lead to incorrect valuation rates, so it is recommended to avoid using this option. The system will permit negative stock only when it is caused by backdated entries and will validate and block negative stock in all other cases.": "启用后，系统将允许该批次出现负库存。此设置可能导致成本价不准确，因此建议不要启用。系统仅在负库存由补录历史单据引起时允许过账，其他情况将校验并阻止。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+
+	def test_stock_reposting_uses_reviewed_chinese_terms(self):
+		translations = {
+			"Current Index": "已处理项数",
+			"Auto Reposting of Incorrect Valuation": "自动修复成本价错误",
+			"Auto Repost Incorrect Valuation Entries (Weekly)": "每周自动重新过账成本价错误记录",
+			"Enable Parallel Reposting": "启用并行重新过账",
+			"Enable Separate Reposting for GL": "对会计总账单独重新过账",
+			"Recalculate Valuation Rate": "重新计算成本价",
+			"Repost Only Accounting Ledgers": "仅重新过账会计凭证",
+			"Stock Ledgers won’t be reposted.": "物料凭证不会重新过账。",
+			"Reposting Item and Warehouse": "正在重新过账物料与仓库",
+			"Reposting Vouchers Progress": "凭证重新过账进度",
+			"Incorrect Stock Asset Account in {0}": "{0} 中的库存资产科目不正确",
+			"Posting date is required": "必须填写过账日期",
+			"Only works for Purchase Receipt, Purchase Invoice and Stock Entry": "仅适用于采购入库、采购发票和物料移动",
+			"Restart Failed Entries": "重新启动失败记录",
+			"No account set": "未设置科目",
+			"If enabled, a weekly scheduler scans the Stock Ledger Variance for item-warehouses with incorrect valuation in the current financial year and auto-creates Item & Warehouse based reposts to fix them.": "启用后，每周调度任务将扫描当前会计年度的物料凭证差异报表，找出成本价错误的物料与仓库组合，并自动创建重新过账任务进行修复。",
 		}
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)

@@ -6629,13 +6629,13 @@ msgstr "自动重复明细"
 #. 'Stock Reposting Settings'
 #: erpnext/stock/doctype/stock_reposting_settings/stock_reposting_settings.json
 msgid "Auto Repost Incorrect Valuation Entries (Weekly)"
-msgstr ""
+msgstr "每周自动重新过账成本价错误记录"
 
 #. Label of the auto_reposting_section (Section Break) field in DocType 'Stock
 #. Reposting Settings'
 #: erpnext/stock/doctype/stock_reposting_settings/stock_reposting_settings.json
 msgid "Auto Reposting of Incorrect Valuation"
-msgstr ""
+msgstr "自动修复成本价错误"
 
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.py:208
 msgid "Auto Tax Settings Error"
@@ -17967,7 +17967,7 @@ msgstr "不使用按批次计价"
 #. DocType 'Stock Reposting Settings'
 #: erpnext/stock/doctype/stock_reposting_settings/stock_reposting_settings.json
 msgid "Do not fetch incoming rate from Serial No"
-msgstr ""
+msgstr "不从序列号获取入库单价"
 
 #. Option for the 'Maps To' (Select) field in DocType 'Bank Statement Import
 #. Log Column Map'
@@ -19108,7 +19108,7 @@ msgstr ""
 #. Reposting Settings'
 #: erpnext/stock/doctype/stock_reposting_settings/stock_reposting_settings.json
 msgid "Enable Parallel Reposting"
-msgstr ""
+msgstr "启用并行重新过账"
 
 #. Label of the enable_perpetual_inventory (Check) field in DocType 'Company'
 #: erpnext/setup/doctype/company/company.json
@@ -19125,7 +19125,7 @@ msgstr "非库存物料采购入库启用暂估费用记账"
 #. 'Stock Reposting Settings'
 #: erpnext/stock/doctype/stock_reposting_settings/stock_reposting_settings.json
 msgid "Enable Separate Reposting for GL"
-msgstr ""
+msgstr "对会计总账单独重新过账"
 
 #: erpnext/stock/report/stock_ledger/stock_ledger.js:122
 msgid "Enable Serial / Batch Bundle"
@@ -21385,7 +21385,7 @@ msgstr "物料{0}的税率必须为正数。允许负数需在{2}启用{1}"
 #. in DocType 'Stock Reposting Settings'
 #: erpnext/stock/doctype/stock_reposting_settings/stock_reposting_settings.json
 msgid "For legacy serial nos, do not fetch incoming rate from serial no and calculate it based on the inward transaction"
-msgstr ""
+msgstr "对历史序列号，不从序列号获取入库单价，而是根据入库交易计算"
 
 #: erpnext/manufacturing/doctype/bom/bom.py:368
 msgid "For operation {0} at row {1}, please add raw materials or set a BOM against it."
@@ -23706,7 +23706,7 @@ msgstr "启用后，每封邮件将附带此单据的打印件"
 #. (Check) field in DocType 'Stock Reposting Settings'
 #: erpnext/stock/doctype/stock_reposting_settings/stock_reposting_settings.json
 msgid "If enabled, a weekly scheduler scans the Stock Ledger Variance for item-warehouses with incorrect valuation in the current financial year and auto-creates Item & Warehouse based reposts to fix them."
-msgstr ""
+msgstr "启用后，每周调度任务将扫描当前会计年度的物料凭证差异报表，找出成本价错误的物料与仓库组合，并自动创建重新过账任务进行修复。"
 
 #. Description of the 'Enable discount accounting for selling' (Check) field in
 #. DocType 'Selling Settings'
@@ -24908,7 +24908,7 @@ msgstr "序列及批次包错误"
 
 #: erpnext/stock/doctype/stock_reposting_settings/stock_reposting_settings.py:301
 msgid "Incorrect Stock Asset Account in {0}"
-msgstr ""
+msgstr "{0} 中的库存资产科目不正确"
 
 #. Name of a report
 #: erpnext/stock/report/incorrect_stock_value_report/incorrect_stock_value_report.json
@@ -29135,7 +29135,7 @@ msgstr "账"
 #. Label of the vouchers_posted (Int) field in DocType 'Repost Item Valuation'
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.json
 msgid "Ledgers Posted"
-msgstr ""
+msgstr "已过账凭证数"
 
 #. Label of the left_child (Link) field in DocType 'Bisect Nodes'
 #: erpnext/accounts/doctype/bisect_nodes/bisect_nodes.json
@@ -32664,7 +32664,7 @@ msgstr "无待创建的生产工单"
 
 #: erpnext/stock/doctype/stock_reposting_settings/stock_reposting_settings.py:296
 msgid "No account set"
-msgstr ""
+msgstr "未设置科目"
 
 #: erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:822
 #: erpnext/subcontracting/doctype/subcontracting_receipt/subcontracting_receipt.py:905
@@ -32826,7 +32826,7 @@ msgstr "没有相互作用"
 #. Valuation'
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.json
 msgid "No of Items to Repost"
-msgstr ""
+msgstr "待重新过账物料数"
 
 #. Label of the no_of_months_exp (Int) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
@@ -32842,7 +32842,7 @@ msgstr "月数（收)"
 #. Reposting Settings'
 #: erpnext/stock/doctype/stock_reposting_settings/stock_reposting_settings.json
 msgid "No of Parallel Reposting (Per Item)"
-msgstr ""
+msgstr "每个物料的并行重新过账数"
 
 #. Label of the no_of_shares (Int) field in DocType 'Share Balance'
 #. Label of the no_of_shares (Int) field in DocType 'Share Transfer'
@@ -33743,7 +33743,7 @@ msgstr "限0到1之间，如0.04，0.09\n"
 #. 'Repost Item Valuation'
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.json
 msgid "Only works for Purchase Receipt, Purchase Invoice and Stock Entry"
-msgstr ""
+msgstr "仅适用于采购入库、采购发票和物料移动"
 
 #: erpnext/accounts/doctype/unreconcile_payment/unreconcile_payment.py:43
 msgid "Only {0} are supported"
@@ -39360,7 +39360,7 @@ msgstr ""
 
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.py:100
 msgid "Posting date is required"
-msgstr ""
+msgstr "必须填写过账日期"
 
 #: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:901
 msgid "Posting date matches the selected transaction"
@@ -43430,7 +43430,7 @@ msgstr "重新计算入/出库成本价"
 #. Item Valuation'
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.json
 msgid "Recalculate Valuation Rate"
-msgstr ""
+msgstr "重新计算成本价"
 
 #: erpnext/stock/doctype/bin/bin.js:10
 msgid "Recalculate Values"
@@ -44594,13 +44594,13 @@ msgstr "物料成本价追溯调整"
 
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.py:377
 msgid "Repost Item Valuation restarted for selected failed records."
-msgstr ""
+msgstr "已重新启动所选失败记录的物料成本价追溯调整。"
 
 #. Label of the repost_only_accounting_ledgers (Check) field in DocType 'Repost
 #. Item Valuation'
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.json
 msgid "Repost Only Accounting Ledgers"
-msgstr ""
+msgstr "仅重新过账会计凭证"
 
 #. Name of a DocType
 #. Label of a Workspace Sidebar Item
@@ -44648,7 +44648,7 @@ msgstr "追溯调整数据文件"
 #. Item Valuation'
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.json
 msgid "Reposting Item and Warehouse"
-msgstr ""
+msgstr "正在重新过账物料与仓库"
 
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.js:140
 msgid "Reposting Progress"
@@ -44658,7 +44658,7 @@ msgstr "重新过账进度"
 #. Valuation'
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.json
 msgid "Reposting Reference"
-msgstr ""
+msgstr "重新过账参考单据"
 
 #. Label of the reposting_status_section (Section Break) field in DocType
 #. 'Repost Accounting Ledger Items'
@@ -44670,11 +44670,11 @@ msgstr "重新过账状态"
 #. field in DocType 'Repost Item Valuation'
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.json
 msgid "Reposting Vouchers"
-msgstr ""
+msgstr "正在重新过账凭证"
 
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.js:158
 msgid "Reposting Vouchers Progress"
-msgstr ""
+msgstr "凭证重新过账进度"
 
 #: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:216
 msgid "Reposting can be started only for submitted document."
@@ -44691,11 +44691,11 @@ msgstr "已创建重新过账条目：{0}"
 
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.js:132
 msgid "Reposting for Item-Wh Completed {0}%"
-msgstr ""
+msgstr "物料与仓库重新过账已完成 {0}%"
 
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.js:150
 msgid "Reposting for Vouchers Completed {0}%"
-msgstr ""
+msgstr "凭证重新过账已完成 {0}%"
 
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.js:118
 msgid "Reposting has been started in the background."
@@ -45364,7 +45364,7 @@ msgstr "重新开始"
 
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation_list.js:23
 msgid "Restart Failed Entries"
-msgstr ""
+msgstr "重新启动失败记录"
 
 #: erpnext/accounts/doctype/subscription/subscription.js:54
 msgid "Restart Subscription"
@@ -51189,7 +51189,7 @@ msgstr "由于{0}为序列号/批次号物料，您无法在重新计算物料�
 
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.py:113
 msgid "Since {0} has 'Update Stock' disabled, you cannot create repost item valuation against it"
-msgstr ""
+msgstr "由于 {0} 未启用“更新库存”，无法对其创建物料成本价追溯调整"
 
 #. Option for the 'Marital Status' (Select) field in DocType 'Employee'
 #: erpnext/setup/doctype/employee/employee.json
@@ -52122,7 +52122,7 @@ msgstr "物料凭证差异报表"
 #. 'Repost Item Valuation'
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.json
 msgid "Stock Ledgers won’t be reposted."
-msgstr ""
+msgstr "物料凭证不会重新过账。"
 
 #. Label of the stock_levels_section (Section Break) field in DocType 'Item'
 #: erpnext/stock/doctype/batch/batch.js:81 erpnext/stock/doctype/item/item.json
@@ -52636,7 +52636,7 @@ msgstr "库存与生产"
 
 #: erpnext/stock/doctype/stock_reposting_settings/stock_reposting_settings.py:303
 msgid "Stock and accounting values could not be reconciled by reposting for {0}."
-msgstr ""
+msgstr "无法通过重新过账对齐 {0} 的库存与会计数值。"
 
 #: erpnext/stock/doctype/stock_reservation_entry/stock_reservation_entry.py:255
 msgid "Stock cannot be reserved in group warehouse {0}."
@@ -55803,7 +55803,7 @@ msgstr "现有物料{1}已使用此属性值{0}。"
 
 #: erpnext/stock/doctype/stock_reposting_settings/stock_reposting_settings.py:307
 msgid "The warehouse account(s) below are not of type 'Stock'. Please set a correct Stock asset account on the warehouse (Account Type must be 'Stock'):"
-msgstr ""
+msgstr "以下仓库科目不是“库存”类型。请为仓库设置正确的库存资产科目（科目类型必须为“库存”）："
 
 #: erpnext/manufacturing/doctype/work_order/work_order.js:1269
 msgid "The warehouse where you store finished Items before they are shipped."
@@ -57370,7 +57370,7 @@ msgstr "总到岸成本（公司货币）"
 #. Label of the total_vouchers (Int) field in DocType 'Repost Item Valuation'
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.json
 msgid "Total Ledgers"
-msgstr ""
+msgstr "凭证总数"
 
 #: erpnext/accounts/report/balance_sheet/balance_sheet.py:229
 msgid "Total Liability"
@@ -63935,3 +63935,7 @@ msgstr "请输入{0}名称。"
 #: erpnext/buying/doctype/purchase_order/purchase_order.js
 msgid "Splitting {0} units of {1}"
 msgstr "正在按 {0} 个单位拆分 {1}"
+
+# Reviewed stock reposting localization
+msgid "Current Index"
+msgstr "已处理项数"
