@@ -12,6 +12,7 @@ class TestZhFinanceImage(TestCase):
 	def test_image_compiles_translations_and_frontend_assets(self):
 		self.assertIn("bench compile-po-to-mo --app erpnext --locale zh --force", self.containerfile)
 		self.assertIn("bench build --app erpnext", self.containerfile)
+		self.assertIn("erpnext/public/js/zh_finance_format.mjs", self.containerfile)
 
 	def test_image_manifest_points_to_the_built_bundle(self):
 		self.assertIn("js_bundle=", self.containerfile)
