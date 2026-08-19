@@ -45,6 +45,7 @@ doctype_js = {
 doctype_list_js = {
 	"Activity Log": "public/js/zh_audit_list.js",
 	"Access Log": "public/js/zh_audit_list.js",
+	"User": "public/js/zh_audit_list.js",
 	"Code List": [
 		"edi/doctype/code_list/code_list_import.js",
 	],

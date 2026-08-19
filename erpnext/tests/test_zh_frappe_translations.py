@@ -42,6 +42,7 @@ class TestZhFrappeTranslations(TestCase):
 			"Created By {0}": "由 {0} 创建",
 			"System User": "系统用户",
 			"Website User": "网站用户",
+			"Audits": "审计",
 		}
 		for source, translation in expected.items():
 			with self.subTest(source=source):

@@ -76,6 +76,7 @@ class TestZhFinanceImage(TestCase):
 		hooks = (self.repo_root / "erpnext" / "hooks.py").read_text()
 		self.assertIn('"Activity Log": "public/js/zh_audit_list.js"', hooks)
 		self.assertIn('"Access Log": "public/js/zh_audit_list.js"', hooks)
+		self.assertIn('"User": "public/js/zh_audit_list.js"', hooks)
 
 	def test_realtime_proxy_preserves_the_browser_origin(self):
 		self.assertIn("proxy_set_header Origin \\$frappe_socket_origin", self.containerfile)

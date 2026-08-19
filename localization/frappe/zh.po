@@ -1601,3 +1601,6 @@ msgstr "系统用户"
 
 msgid "Website User"
 msgstr "网站用户"
+
+msgid "Audits"
+msgstr "审计"

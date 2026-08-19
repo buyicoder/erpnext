@@ -12,6 +12,7 @@ const translations = {
 	"{0} logged in": "{0}已登录",
 	Administrator: "管理员",
 	"Sales Invoice": "销售发票",
+	"System User": "系统用户",
 };
 
 const translate = (message, values = []) =>
@@ -75,6 +76,15 @@ test("loads Access Log hook without requiring Activity Log settings", () => {
 		accessSettings.formatters.export_from("Sales Invoice", {}, {}),
 		"销售发票",
 	);
+});
+
+test("localizes User type without requiring either audit list", () => {
+	const existingFormatter = (value) => `native:${value}`;
+	const userSettings = { formatters: { full_name: existingFormatter } };
+
+	assert.doesNotThrow(() => runHook("zh", { User: userSettings }));
+	assert.equal(userSettings.formatters.full_name, existingFormatter);
+	assert.equal(userSettings.formatters.user_type("System User", {}, {}), "系统用户");
 });
 
 test("does not modify native list settings outside Chinese locale", () => {
