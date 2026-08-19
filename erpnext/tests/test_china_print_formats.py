@@ -4,6 +4,8 @@ from unittest import TestCase
 
 
 PRINT_FORMAT_ROOT = Path(__file__).parents[1] / "accounts" / "print_format"
+LETTERHEAD_ROOT = Path(__file__).parents[1] / "accounts" / "letter_head"
+LETTERHEAD_TEMPLATE_ROOT = Path(__file__).parents[1] / "accounts" / "letterhead"
 
 
 class TestChinaPrintFormats(TestCase):
@@ -63,3 +65,13 @@ class TestChinaPrintFormats(TestCase):
 				self.assertIn("@media screen and (max-width: 600px)", html)
 				self.assertIn(".info-table > tbody > tr > td", html)
 				self.assertEqual(html.count("table.highlight-bg tr"), 1)
+
+	def test_default_company_letterhead_localizes_document_type(self):
+		letterhead = json.loads(
+			(LETTERHEAD_ROOT / "company_letterhead___grey/company_letterhead___grey.json").read_text()
+		)
+		template = (LETTERHEAD_TEMPLATE_ROOT / "company_letterhead_grey.html").read_text()
+
+		for content in (letterhead["content"], template):
+			self.assertIn("{{ _(doc.doctype) }}", content)
+			self.assertNotIn("{{ doc.doctype }}", content)

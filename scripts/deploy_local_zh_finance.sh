@@ -36,6 +36,7 @@ docker exec "${project_name}-backend-1" bash -lc \
 	bench --site '${site_name}' execute frappe.reload_doc --kwargs '{\"module\":\"accounts\",\"dt\":\"print_format\",\"dn\":\"pos_invoice_with_item_image\",\"force\":True}' && \
 	bench --site '${site_name}' execute frappe.reload_doc --kwargs '{\"module\":\"accounts\",\"dt\":\"print_format\",\"dn\":\"sales_invoice_with_item_image\",\"force\":True}' && \
 	bench --site '${site_name}' execute frappe.reload_doc --kwargs '{\"module\":\"accounts\",\"dt\":\"print_format\",\"dn\":\"cheque_printing_format\",\"force\":True}' && \
+	bench --site '${site_name}' execute frappe.reload_doc --kwargs '{\"module\":\"accounts\",\"dt\":\"letter_head\",\"dn\":\"company_letterhead___grey\",\"force\":True}' && \
 	bench --site '${site_name}' clear-cache"
 
 printf 'Deployed %s, applied China defaults, migrated, and cleared translation cache for site %s\n' \
