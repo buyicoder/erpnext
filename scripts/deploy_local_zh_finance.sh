@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+compose_dir="${COMPOSE_DIR:-$(cd "${repo_dir}/../erpnext-frappe-docker" && pwd)}"
+project_name="${COMPOSE_PROJECT_NAME:-erpnext-cn}"
+site_name="${SITE_NAME:-frontend}"
+
+docker compose \
+	-p "${project_name}" \
+	-f "${compose_dir}/pwd.yml" \
+	-f "${compose_dir}/compose.cn-image.yaml" \
+	up -d --force-recreate
+
+docker exec "${project_name}-backend-1" bash -lc \
+	"cd /home/frappe/frappe-bench && bench --site '${site_name}' clear-cache"
+
+printf 'Deployed %s and cleared translation cache for site %s\n' \
+	"${project_name}" "${site_name}"
