@@ -45,6 +45,7 @@ class TestZhFrappeTranslations(TestCase):
 			"Audits": "审计",
 			"Customize Quick Filters": "自定义快捷筛选条件",
 			"Open Link": "打开链接",
+			"Current Series": "当前编号",
 		}
 		for source, translation in expected.items():
 			with self.subTest(source=source):

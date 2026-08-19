@@ -1610,3 +1610,6 @@ msgstr "自定义快捷筛选条件"
 
 msgid "Open Link"
 msgstr "打开链接"
+
+msgid "Current Series"
+msgstr "当前编号"

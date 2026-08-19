@@ -470,6 +470,7 @@ class TestZhFinanceTranslations(TestCase):
 			"Navigation Buttons": "导航按钮",
 			"Customize Quick Filters": "自定义快捷筛选条件",
 			"Open Link": "打开链接",
+			"Current Series": "当前编号",
 		}
 
 		for source, translation in translations.items():
