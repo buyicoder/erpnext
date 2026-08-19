@@ -40,4 +40,4 @@
 <p>{{ _("The fiscal year has been automatically created in a Disabled state to maintain consistency with the previous fiscal year's status.") }}</p>
 {% endif %}
 
-<p>{{ _("Please review the {0} configuration and complete any required financial setup activities.").format(frappe.utils.get_link_to_form("Fiscal Year", doc.name, frappe.bold("Fiscal Year"))) }}</p>
+<p>{{ _("Please review the {0} configuration and complete any required financial setup activities.").format(frappe.utils.get_link_to_form("Fiscal Year", doc.name, frappe.bold(_("Fiscal Year")))) }}</p>

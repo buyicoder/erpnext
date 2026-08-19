@@ -263,7 +263,7 @@ class FinancialReportEngine:
 		# Way to implement this would be using calculated rows with formulas.
 		supported_views = ("Report", "Growth")
 		if (view := filters.get("selected_view")) and view not in supported_views:
-			frappe.msgprint(_("{0} view is currently unsupported in Custom Financial Report.").format(view))
+			frappe.msgprint(_("{0} view is currently unsupported in Custom Financial Report.").format(_(view)))
 
 	def _initialize_context(self, filters: dict[str, Any]) -> ReportContext:
 		template_name = filters.get("report_template")

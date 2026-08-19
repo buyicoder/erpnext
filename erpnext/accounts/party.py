@@ -1110,7 +1110,7 @@ def validate_party_currency_before_merging(party_type, old_party, new_party):
 				_(
 					"Cannot merge {0} '{1}' into '{2}' as both have existing accounting entries in different currencies for company '{3}'."
 				).format(
-					party_type,
+					_(party_type),
 					old_party,
 					new_party,
 					company.name,

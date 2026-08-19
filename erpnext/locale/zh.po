@@ -1082,7 +1082,7 @@ msgstr "装箱单仅可为草稿状态的交货单创建"
 
 #: erpnext/accounts/general_ledger.py:829
 msgid "A Period Closing Voucher is already submitted and an Opening Entry can no longer be created. {0} to learn more."
-msgstr ""
+msgstr "期末结账凭证已提交，无法再创建开账凭证。请查看 {0} 了解详情。"
 
 #. Description of a DocType
 #: erpnext/stock/doctype/price_list/price_list.json
@@ -1120,7 +1120,7 @@ msgstr "已禁用的套件不能用于交易。"
 
 #: erpnext/accounts/doctype/exchange_rate_revaluation/exchange_rate_revaluation.py:636
 msgid "A draft reverse journal for {0} has been created: {1}"
-msgstr ""
+msgstr "已为 {0} 创建草稿冲销日记账凭证：{1}"
 
 #: erpnext/stock/doctype/delivery_trip/delivery_trip.py:59
 msgid "A driver must be set to submit."
@@ -1149,7 +1149,7 @@ msgstr "已为您创建与{0}的新预约"
 
 #: erpnext/accounts/notification/notification_for_new_fiscal_year/notification_for_new_fiscal_year.html:3
 msgid "A new fiscal year has been automatically created."
-msgstr ""
+msgstr "已自动创建新会计年度。"
 
 #. Description of the 'Inspection Required before Delivery' (Check) field in
 #. DocType 'Item'
@@ -6373,7 +6373,7 @@ msgstr "类型为 {0} 的库存单至少必须包含一项原材料。"
 
 #: erpnext/accounts/doctype/financial_report_template/financial_report_template.js:27
 msgid "At least one row is required for a financial report template"
-msgstr ""
+msgstr "财务报表模板至少需要一行。"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1002
 msgid "At least one warehouse is mandatory"
@@ -8832,13 +8832,13 @@ msgstr "正文和结束文本帮助"
 #. Label of the bold_text (Check) field in DocType 'Financial Report Row'
 #: erpnext/accounts/doctype/financial_report_row/financial_report_row.json
 msgid "Bold Text"
-msgstr ""
+msgstr "粗体文字"
 
 #. Description of the 'Bold Text' (Check) field in DocType 'Financial Report
 #. Row'
 #: erpnext/accounts/doctype/financial_report_row/financial_report_row.json
 msgid "Bold text for emphasis (totals, major headings)"
-msgstr ""
+msgstr "使用粗体强调（合计、主要标题）"
 
 #: erpnext/accounts/doctype/payment_entry/payment_entry.py:287
 msgid "Book Advance Payments as Liability option is chosen. Paid From account changed from {0} to {1}."
@@ -9957,7 +9957,7 @@ msgstr ""
 
 #: erpnext/accounts/party.py:1110
 msgid "Cannot merge {0} '{1}' into '{2}' as both have existing accounting entries in different currencies for company '{3}'."
-msgstr ""
+msgstr "无法将 {0}“{1}”合并到“{2}”，因为两者在公司“{3}”中已有不同币种的会计分录。"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.py:647
 msgid "Cannot produce more Item {0} than Sales Order quantity {1} {2}"
@@ -10574,11 +10574,11 @@ msgstr "勾选表示此税种不适用于该物料（不同于 0% 税率）"
 
 #: erpnext/accounts/doctype/journal_entry_template/journal_entry_template.py:58
 msgid "Check row {0} for account {1}: Party Type is only allowed for Receivable or Payable accounts"
-msgstr ""
+msgstr "请检查第 {0} 行的科目 {1}：仅应收或应付科目可设置往来类型。"
 
 #: erpnext/accounts/doctype/journal_entry_template/journal_entry_template.py:65
 msgid "Check row {0} for account {1}: Party is only allowed if Party Type is set"
-msgstr ""
+msgstr "请检查第 {0} 行的科目 {1}：设置往来类型后才能选择往来单位。"
 
 #. Description of the 'Must be Whole Number' (Check) field in DocType 'UOM'
 #: erpnext/setup/doctype/uom/uom.json
@@ -11065,7 +11065,7 @@ msgstr "编码列表"
 #. Report Row'
 #: erpnext/accounts/doctype/financial_report_row/financial_report_row.json
 msgid "Code to reference this line in formulas (e.g., REV100, EXP200, ASSET100)"
-msgstr ""
+msgstr "在公式中引用此行的代码（例如 REV100、EXP200、ASSET100）"
 
 #: erpnext/setup/setup_wizard/data/marketing_source.txt:4
 msgid "Cold Calling"
@@ -11099,7 +11099,7 @@ msgstr "积分规则等级"
 #. Description of the 'Color' (Color) field in DocType 'Financial Report Row'
 #: erpnext/accounts/doctype/financial_report_row/financial_report_row.json
 msgid "Color to highlight values (e.g., red for exceptions)"
-msgstr ""
+msgstr "用于突出显示数值的颜色（例如异常项使用红色）"
 
 #: erpnext/setup/setup_wizard/operations/install_fixtures.py:283
 msgid "Colour"
@@ -17091,7 +17091,7 @@ msgstr "内容说明"
 #. Template'
 #: erpnext/accounts/doctype/financial_report_template/financial_report_template.json
 msgid "Descriptive name for your template (e.g., 'Standard P&L', 'Detailed Balance Sheet')"
-msgstr ""
+msgstr "模板的描述性名称（例如“标准利润表”、“详细资产负债表”）"
 
 #: erpnext/setup/setup_wizard/data/designation.txt:14
 msgid "Designer"
@@ -17404,7 +17404,7 @@ msgstr "禁用最近采购单价"
 #. Template'
 #: erpnext/accounts/doctype/financial_report_template/financial_report_template.json
 msgid "Disable template to prevent use in reports"
-msgstr ""
+msgstr "禁用模板，防止其用于报表。"
 
 #: erpnext/accounts/general_ledger.py:151
 msgid "Disabled Account Selected"
@@ -18427,7 +18427,7 @@ msgstr "在物料组中有重复物料组"
 
 #: erpnext/accounts/doctype/dunning_type/dunning_type.py:133
 msgid "Duplicate languages found on Dunning Letter Text. Keep only one of them."
-msgstr ""
+msgstr "催款信文本中存在重复语言，请每种语言仅保留一条。"
 
 #: erpnext/projects/doctype/project/project.js:186
 msgid "Duplicate project has been created"
@@ -23487,7 +23487,7 @@ msgstr "此行的数据获取方式"
 #. Row'
 #: erpnext/accounts/doctype/financial_report_row/financial_report_row.json
 msgid "How to format and present values in the financial report (only if different from column fieldtype)"
-msgstr ""
+msgstr "财务报表中数值的格式和展示方式（仅在与列字段类型不同时设置）"
 
 #. Label of the hours (Float) field in DocType 'Timesheet Detail'
 #: erpnext/projects/doctype/timesheet_detail/timesheet_detail.json
@@ -23866,7 +23866,7 @@ msgstr "如果勾选，仅用于验证用户手动设置的折扣、上浮、赠
 #. Report Row'
 #: erpnext/accounts/doctype/financial_report_row/financial_report_row.json
 msgid "If enabled, this row's values will be displayed on financial charts"
-msgstr ""
+msgstr "启用后，此行数值将显示在财务图表中。"
 
 #. Description of the 'Confirm before resetting posting date' (Check) field in
 #. DocType 'Accounts Settings'
@@ -23924,11 +23924,11 @@ msgstr "请选择以下方式中的一种之后"
 
 #: erpnext/accounts/doctype/opening_invoice_creation_tool/opening_invoice_creation_tool.js:201
 msgid "If party does not exist, create it using the Customer Name field."
-msgstr ""
+msgstr "如果往来单位不存在，则使用客户名称字段创建。"
 
 #: erpnext/accounts/doctype/opening_invoice_creation_tool/opening_invoice_creation_tool.js:202
 msgid "If party does not exist, create it using the Supplier Name field."
-msgstr ""
+msgstr "如果往来单位不存在，则使用供应商名称字段创建。"
 
 #. Description of the 'Free Item Rate' (Currency) field in DocType 'Pricing
 #. Rule'
@@ -25014,7 +25014,7 @@ msgstr "缩进层级"
 #. Row'
 #: erpnext/accounts/doctype/financial_report_row/financial_report_row.json
 msgid "Indentation level: 0 = Main heading, 1 = Sub-category, 2 = Individual accounts, etc."
-msgstr ""
+msgstr "缩进级别：0 = 主标题，1 = 子类别，2 = 明细科目，依此类推。"
 
 #. Description of the 'Delivery Note' (Link) field in DocType 'Packing Slip'
 #: erpnext/stock/doctype/packing_slip/packing_slip.json
@@ -26712,13 +26712,13 @@ msgstr "总金额为零时无法按金额分摊费用，请将'费用分摊基�
 #. Label of the italic_text (Check) field in DocType 'Financial Report Row'
 #: erpnext/accounts/doctype/financial_report_row/financial_report_row.json
 msgid "Italic Text"
-msgstr ""
+msgstr "斜体文字"
 
 #. Description of the 'Italic Text' (Check) field in DocType 'Financial Report
 #. Row'
 #: erpnext/accounts/doctype/financial_report_row/financial_report_row.json
 msgid "Italic text for subtotals or notes"
-msgstr ""
+msgstr "小计或备注使用斜体文字"
 
 #. Label of the item_code (Link) field in DocType 'POS Invoice Item'
 #. Label of the item_code (Link) field in DocType 'Purchase Invoice Item'
@@ -32538,7 +32538,7 @@ msgstr "下次邮件发送时间："
 
 #: erpnext/accounts/doctype/financial_report_template/financial_report_template.js:155
 msgid "No <strong>Account Data</strong> row found"
-msgstr ""
+msgstr "未找到<strong>科目数据</strong>行。"
 
 #: erpnext/setup/doctype/company/test_company.py:93
 msgid "No Account matched these filters: {}"
@@ -33945,7 +33945,7 @@ msgstr "期初余额"
 #. Report Row'
 #: erpnext/accounts/doctype/financial_report_row/financial_report_row.json
 msgid "Opening Balance = Start of period, Closing Balance = End of period, Period Movement = Net change during period"
-msgstr ""
+msgstr "期初余额 = 期间开始时余额，期末余额 = 期间结束时余额，本期变动 = 期间净变动额"
 
 #. Label of the balance_details (Table) field in DocType 'POS Opening Entry'
 #: erpnext/accounts/doctype/pos_opening_entry/pos_opening_entry.json
@@ -36065,7 +36065,7 @@ msgstr "往来单位iban(银行对账)"
 #. Tool Item'
 #: erpnext/accounts/doctype/opening_invoice_creation_tool_item/opening_invoice_creation_tool_item.json
 msgid "Party ID"
-msgstr ""
+msgstr "往来单位编号"
 
 #. Label of the section_break_7 (Section Break) field in DocType 'Pricing Rule'
 #. Label of the section_break_8 (Section Break) field in DocType 'Promotional
@@ -38375,7 +38375,7 @@ msgstr ""
 
 #: erpnext/accounts/notification/notification_for_new_fiscal_year/notification_for_new_fiscal_year.html:43
 msgid "Please review the {0} configuration and complete any required financial setup activities."
-msgstr ""
+msgstr "请检查 {0} 配置，并完成必要的财务设置。"
 
 #: erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.js:12
 #: erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.js:28
@@ -45700,7 +45700,7 @@ msgstr "预先收到的收入（例如年度订阅费）会暂存于此，并随
 
 #: erpnext/accounts/doctype/exchange_rate_revaluation/exchange_rate_revaluation.js:39
 msgid "Reversal Journal Entries"
-msgstr ""
+msgstr "冲销日记账凭证"
 
 #. Label of the reversal_of (Link) field in DocType 'Journal Entry'
 #: erpnext/accounts/doctype/journal_entry/journal_entry.json
@@ -45722,11 +45722,11 @@ msgstr "金额符号取反"
 
 #: erpnext/accounts/doctype/exchange_rate_revaluation/exchange_rate_revaluation.py:628
 msgid "Reverse {0} already available in draft status: {1}"
-msgstr ""
+msgstr "已有草稿状态的冲销{0}：{1}"
 
 #: erpnext/accounts/doctype/exchange_rate_revaluation/exchange_rate_revaluation.js:118
 msgid "Reversing Journals..."
-msgstr ""
+msgstr "正在冲销日记账凭证……"
 
 #. Label of the review (Link) field in DocType 'Quality Action'
 #. Group in Quality Goal's connections
@@ -46804,7 +46804,7 @@ msgstr "行号#{0}：必须为物料{1}选择资产"
 
 #: erpnext/accounts/doctype/opening_invoice_creation_tool/opening_invoice_creation_tool.py:142
 msgid "Row #{0}: {1} account is not of type {2}"
-msgstr ""
+msgstr "第 {0} 行：{1} 科目不是 {2} 类型。"
 
 #: erpnext/public/js/controllers/buying.js:265
 msgid "Row #{0}: {1} can not be negative for item {2}"
@@ -50510,7 +50510,7 @@ msgstr "设置销售税"
 #. Title of an Onboarding Step
 #: erpnext/accounts/onboarding_step/setup_sales_taxes/setup_sales_taxes.json
 msgid "Setup Sales taxes"
-msgstr ""
+msgstr "设置销售税"
 
 #. Title of an Onboarding Step
 #: erpnext/stock/onboarding_step/setup_warehouse/setup_warehouse.json
@@ -55287,7 +55287,7 @@ msgstr "特斯拉"
 #. Row'
 #: erpnext/accounts/doctype/financial_report_row/financial_report_row.json
 msgid "Text displayed on the financial statement (e.g., 'Total Revenue', 'Cash and Cash Equivalents')"
-msgstr ""
+msgstr "财务报表上显示的文字（例如“营业收入合计”、“货币资金”）"
 
 #: erpnext/stock/doctype/packing_slip/packing_slip.py:91
 msgid "The 'From Package No.' field must neither be empty nor it's value less than 1."
@@ -55494,7 +55494,7 @@ msgstr "使用此物料清单最终生产的物料。"
 
 #: erpnext/accounts/notification/notification_for_new_fiscal_year/notification_for_new_fiscal_year.html:40
 msgid "The fiscal year has been automatically created in a Disabled state to maintain consistency with the previous fiscal year's status."
-msgstr ""
+msgstr "为与上一会计年度的状态保持一致，新会计年度已自动创建为禁用状态。"
 
 #: erpnext/accounts/doctype/share_transfer/share_transfer.py:240
 msgid "The folio numbers are not matching"
@@ -58416,7 +58416,7 @@ msgstr "请调整搜索内容或筛选条件。"
 
 #: erpnext/accounts/doctype/bank_reconciliation_tool/bank_reconciliation_tool.js:90
 msgid "Try the {0} for a better experience."
-msgstr ""
+msgstr "建议使用 {0} 以获得更好的操作体验。"
 
 #: erpnext/accounts/report/financial_ratios/financial_ratios.js:55
 #: erpnext/accounts/report/financial_ratios/financial_ratios.py:200
@@ -59338,7 +59338,7 @@ msgstr "由生产任务单工时记录表自动更新(分钟)"
 
 #: erpnext/accounts/doctype/account_category/account_category.py:55
 msgid "Updated {0} Financial Report Row(s) with new category name"
-msgstr ""
+msgstr "已使用新类别名称更新 {0} 个财务报表行。"
 
 #: erpnext/projects/doctype/project/project.js:137
 msgid "Updating Costing and Billing fields against this Project..."
@@ -59409,7 +59409,7 @@ msgstr "使用'后台重新过账'按钮触发后台任务。仅当单据处于�
 #. Report Row'
 #: erpnext/accounts/doctype/financial_report_row/financial_report_row.json
 msgid "Use <strong>Python</strong> filters to get Accounts"
-msgstr ""
+msgstr "使用 <strong>Python</strong> 筛选条件获取科目"
 
 #. Label of the use_batchwise_valuation (Check) field in DocType 'Batch'
 #: erpnext/stock/doctype/batch/batch.json
@@ -59631,7 +59631,7 @@ msgstr "用户解决时间"
 
 #: erpnext/accounts/party.py:439
 msgid "User don't have permissions to select/read this account."
-msgstr ""
+msgstr "用户无权选择或读取此科目。"
 
 #: erpnext/accounts/doctype/pricing_rule/utils.py:596
 msgid "User has not applied rule on the invoice {0}"
@@ -62403,13 +62403,13 @@ msgstr "字段名称"
 #. Exchange Settings'
 #: erpnext/accounts/doctype/currency_exchange_settings/currency_exchange_settings.json
 msgid "frankfurter.dev"
-msgstr ""
+msgstr "frankfurter.dev"
 
 #. Option for the 'Service Provider' (Select) field in DocType 'Currency
 #. Exchange Settings'
 #: erpnext/accounts/doctype/currency_exchange_settings/currency_exchange_settings.json
 msgid "frankfurter.dev - v2"
-msgstr ""
+msgstr "frankfurter.dev - v2"
 
 #: erpnext/templates/form_grid/item_grid.html:66
 #: erpnext/templates/form_grid/item_grid.html:80
@@ -62801,11 +62801,11 @@ msgstr ""
 
 #: erpnext/accounts/doctype/dunning_type/dunning_type.py:100
 msgid "{0} doesn't belong to Company {1}. Please select a Cost Center that belongs to Company {1}."
-msgstr ""
+msgstr "{0} 不属于公司 {1}。请选择属于公司 {1} 的成本中心。"
 
 #: erpnext/accounts/doctype/dunning_type/dunning_type.py:57
 msgid "{0} doesn't belong to Company {1}. Please select an Income Account that belongs to Company {1}."
-msgstr ""
+msgstr "{0} 不属于公司 {1}。请选择属于公司 {1} 的收入科目。"
 
 #: erpnext/accounts/doctype/item_tax_template/item_tax_template.py:74
 msgid "{0} entered twice in Item Tax"
@@ -62847,11 +62847,11 @@ msgstr "{0} 是子表，将随其父单据自动删除"
 
 #: erpnext/accounts/doctype/dunning_type/dunning_type.py:114
 msgid "{0} is a group Cost Center. Please select a non-group Cost Center."
-msgstr ""
+msgstr "{0} 是成本中心组。请选择非组成本中心。"
 
 #: erpnext/accounts/doctype/dunning_type/dunning_type.py:78
 msgid "{0} is a group account. Please select a non-group Income Account."
-msgstr ""
+msgstr "{0} 是组科目。请选择非组收入科目。"
 
 #: erpnext/accounts/doctype/pos_profile/pos_profile.py:94
 msgid "{0} is a mandatory Accounting Dimension. <br>Please set a value for {0} in Accounting Dimensions section."
@@ -62873,11 +62873,11 @@ msgstr "{0}被临时冻结，所以此交易无法继续"
 
 #: erpnext/accounts/doctype/dunning_type/dunning_type.py:64
 msgid "{0} is disabled. Please select a valid Income Account."
-msgstr ""
+msgstr "{0} 已禁用。请选择有效的收入科目。"
 
 #: erpnext/accounts/doctype/dunning_type/dunning_type.py:107
 msgid "{0} is disabled. Please select an enabled Cost Center."
-msgstr ""
+msgstr "{0} 已禁用。请选择已启用的成本中心。"
 
 #: erpnext/assets/doctype/asset/asset.py:509
 msgid "{0} is in Draft. Submit it before creating the Asset."
@@ -62934,7 +62934,7 @@ msgstr "表中未添加{0}"
 
 #: erpnext/accounts/doctype/dunning_type/dunning_type.py:71
 msgid "{0} is not an Income Account. Please select a valid Income Account."
-msgstr ""
+msgstr "{0} 不是收入科目。请选择有效的收入科目。"
 
 #: erpnext/support/doctype/service_level_agreement/service_level_agreement.py:146
 msgid "{0} is not enabled in {1}"
@@ -62982,7 +62982,7 @@ msgstr "待退回 {0} 个物料"
 
 #: erpnext/accounts/doctype/dunning_type/dunning_type.py:144
 msgid "{0} languages are marked as default languages. Please select only one of them."
-msgstr ""
+msgstr "{0} 种语言被标记为默认语言。请仅保留一种默认语言。"
 
 #: erpnext/controllers/sales_and_purchase_return.py:236
 msgid "{0} must be negative in return document"
@@ -63060,7 +63060,7 @@ msgstr "新建了{0}个多规格物料。"
 
 #: erpnext/accounts/doctype/financial_report_template/financial_report_engine.py:266
 msgid "{0} view is currently unsupported in Custom Financial Report."
-msgstr ""
+msgstr "自定义财务报表当前不支持“{0}”视图。"
 
 #: erpnext/stock/doctype/material_request/material_request.py:732
 msgid "{0} was set to today for items whose requested date has passed"

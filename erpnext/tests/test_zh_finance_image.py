@@ -51,6 +51,13 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("erpnext/controllers/buying_controller.py", self.containerfile)
 		self.assertIn("erpnext/accounts/doctype/payment_entry/payment_entry.py", self.containerfile)
 		self.assertIn("erpnext/accounts/doctype/journal_entry/journal_entry.py", self.containerfile)
+		self.assertIn("erpnext/accounts/doctype/exchange_rate_revaluation/exchange_rate_revaluation.py", self.containerfile)
+		self.assertIn("erpnext/accounts/doctype/bank_reconciliation_tool/bank_reconciliation_tool.js", self.containerfile)
+		self.assertIn("erpnext/accounts/doctype/opening_invoice_creation_tool/opening_invoice_creation_tool.py", self.containerfile)
+		self.assertIn("erpnext/accounts/doctype/financial_report_template/financial_report_engine.py", self.containerfile)
+		self.assertIn("erpnext/accounts/notification/notification_for_new_fiscal_year/notification_for_new_fiscal_year.html", self.containerfile)
+		self.assertIn("erpnext/accounts/notification/notification_for_new_fiscal_year/notification_for_new_fiscal_year.json", self.containerfile)
+		self.assertIn("erpnext/accounts/party.py", self.containerfile)
 		self.assertIn("pos_invoice_with_item_image.json", self.containerfile)
 		self.assertIn("sales_invoice_with_item_image.json", self.containerfile)
 		self.assertIn("cheque_printing_format.json", self.containerfile)
@@ -59,6 +66,10 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("erpnext/stock/doctype/item/item.json", self.containerfile)
 		self.assertIn("erpnext/setup/china_defaults.py", self.containerfile)
 		self.assertIn("erpnext/setup/setup_wizard/operations/defaults_setup.py", self.containerfile)
+		self.assertIn(
+			'\\\"module\\\":\\\"accounts\\\",\\\"dt\\\":\\\"notification\\\",\\\"dn\\\":\\\"notification_for_new_fiscal_year\\\",\\\"force\\\":True',
+			self.deploy_script,
+		)
 		self.assertIn("AS banking-builder", self.containerfile)
 		self.assertIn("COPY banking/ ./", self.containerfile)
 		self.assertIn("yarn test:localization && mkdir -p /erpnext/www && yarn build", self.containerfile)
@@ -116,6 +127,8 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("Compiled ERPNext translations do not match", self.build_script)
 		self.assertIn('"Statement PDF Password": "对账单 PDF 密码"', self.build_script)
 		self.assertIn('"Matching Rules": "匹配规则"', self.build_script)
+		self.assertIn('"A new fiscal year has been automatically created.": "已自动创建新会计年度。"', self.build_script)
+		self.assertIn('"No <strong>Account Data</strong> row found": "未找到<strong>科目数据</strong>行。"', self.build_script)
 		self.assertIn("this.print_format_control.get_value()", self.build_script)
 		self.assertIn("Banking HTML references missing assets", self.build_script)
 		self.assertIn("Banking entry bundle lacks translation readiness contract", self.build_script)

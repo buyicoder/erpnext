@@ -622,7 +622,7 @@ class ExchangeRateRevaluation(Document):
 				pluck="name",
 				as_list=1,
 			):
-				part = "journals are" if len(drafts) > 1 else "journal is"
+				part = _("Journal Entries") if len(drafts) > 1 else _("Journal Entry")
 				doc_links = ", ".join(["{}".format(get_link_to_form("Journal Entry", x)) for x in drafts])
 				frappe.throw(
 					msg=_("Reverse {0} already available in draft status: {1}").format(part, doc_links),

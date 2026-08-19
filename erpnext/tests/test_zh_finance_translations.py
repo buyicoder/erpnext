@@ -194,6 +194,8 @@ class TestZhFinanceTranslations(TestCase):
 	def setUpClass(cls):
 		po_path = Path(__file__).parents[1] / "locale" / "zh.po"
 		cls.catalog = read_po(BytesIO(po_path.read_bytes()), locale="zh")
+		pot_path = Path(__file__).parents[1] / "locale" / "main.pot"
+		cls.source_catalog = read_po(BytesIO(pot_path.read_bytes()), locale="en")
 		repo_root = Path(__file__).parents[2]
 		frappe_baseline_path = repo_root / ".build/frappe-v16.24.4-zh.po"
 		frappe_runtime_pot_path = repo_root / ".build/frappe-v16.31.0-main.pot"
@@ -455,12 +457,17 @@ class TestZhFinanceTranslations(TestCase):
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
 
-	def test_selling_and_buying_source_locations_have_chinese_translations(self):
-		prefixes = ("erpnext/selling/", "erpnext/buying/")
+	def test_core_finance_source_locations_have_chinese_translations(self):
+		prefixes = ("erpnext/accounts/", "erpnext/selling/", "erpnext/buying/")
 		missing = []
-		for message in self.catalog:
-			locations = [path for path, _line in message.locations if path.startswith(prefixes)]
+		for source_message in self.source_catalog:
+			locations = [path for path, _line in source_message.locations if path.startswith(prefixes)]
 			if not locations:
+				continue
+			source_id = source_message.id[0] if isinstance(source_message.id, tuple) else source_message.id
+			message = self.catalog.get(source_id, context=source_message.context)
+			if message is None:
+				missing.append(f"{','.join(locations)}:{source_message.context or ''}:{source_id}")
 				continue
 			translations = message.string if isinstance(message.string, tuple) else (message.string,)
 			if (
@@ -471,6 +478,122 @@ class TestZhFinanceTranslations(TestCase):
 				missing.append(f"{','.join(locations)}:{message.context or ''}:{message.id}")
 
 		self.assertEqual(missing, [])
+
+	def test_accounts_workflows_use_reviewed_chinese_terms(self):
+		translations = {
+			"A Period Closing Voucher is already submitted and an Opening Entry can no longer be created. {0} to learn more.": "期末结账凭证已提交，无法再创建开账凭证。请查看 {0} 了解详情。",
+			"A draft reverse journal for {0} has been created: {1}": "已为 {0} 创建草稿冲销日记账凭证：{1}",
+			"A new fiscal year has been automatically created.": "已自动创建新会计年度。",
+			"At least one row is required for a financial report template": "财务报表模板至少需要一行。",
+			"Bold Text": "粗体文字",
+			"Bold text for emphasis (totals, major headings)": "使用粗体强调（合计、主要标题）",
+			"Cannot merge {0} '{1}' into '{2}' as both have existing accounting entries in different currencies for company '{3}'.": "无法将 {0}“{1}”合并到“{2}”，因为两者在公司“{3}”中已有不同币种的会计分录。",
+			"Check row {0} for account {1}: Party Type is only allowed for Receivable or Payable accounts": "请检查第 {0} 行的科目 {1}：仅应收或应付科目可设置往来类型。",
+			"Check row {0} for account {1}: Party is only allowed if Party Type is set": "请检查第 {0} 行的科目 {1}：设置往来类型后才能选择往来单位。",
+			"Code to reference this line in formulas (e.g., REV100, EXP200, ASSET100)": "在公式中引用此行的代码（例如 REV100、EXP200、ASSET100）",
+			"Color to highlight values (e.g., red for exceptions)": "用于突出显示数值的颜色（例如异常项使用红色）",
+			"Descriptive name for your template (e.g., 'Standard P&L', 'Detailed Balance Sheet')": "模板的描述性名称（例如“标准利润表”、“详细资产负债表”）",
+			"Disable template to prevent use in reports": "禁用模板，防止其用于报表。",
+			"Duplicate languages found on Dunning Letter Text. Keep only one of them.": "催款信文本中存在重复语言，请每种语言仅保留一条。",
+			"How to format and present values in the financial report (only if different from column fieldtype)": "财务报表中数值的格式和展示方式（仅在与列字段类型不同时设置）",
+			"If enabled, this row's values will be displayed on financial charts": "启用后，此行数值将显示在财务图表中。",
+			"If party does not exist, create it using the Customer Name field.": "如果往来单位不存在，则使用客户名称字段创建。",
+			"If party does not exist, create it using the Supplier Name field.": "如果往来单位不存在，则使用供应商名称字段创建。",
+			"Indentation level: 0 = Main heading, 1 = Sub-category, 2 = Individual accounts, etc.": "缩进级别：0 = 主标题，1 = 子类别，2 = 明细科目，依此类推。",
+			"Italic Text": "斜体文字",
+			"Italic text for subtotals or notes": "小计或备注使用斜体文字",
+			"No <strong>Account Data</strong> row found": "未找到<strong>科目数据</strong>行。",
+			"Opening Balance = Start of period, Closing Balance = End of period, Period Movement = Net change during period": "期初余额 = 期间开始时余额，期末余额 = 期间结束时余额，本期变动 = 期间净变动额",
+			"Party ID": "往来单位编号",
+			"Please review the {0} configuration and complete any required financial setup activities.": "请检查 {0} 配置，并完成必要的财务设置。",
+			"Reversal Journal Entries": "冲销日记账凭证",
+			"Reverse {0} already available in draft status: {1}": "已有草稿状态的冲销{0}：{1}",
+			"Reversing Journals...": "正在冲销日记账凭证……",
+			"Row #{0}: {1} account is not of type {2}": "第 {0} 行：{1} 科目不是 {2} 类型。",
+			"Setup Sales taxes": "设置销售税",
+			"Text displayed on the financial statement (e.g., 'Total Revenue', 'Cash and Cash Equivalents')": "财务报表上显示的文字（例如“营业收入合计”、“货币资金”）",
+			"The fiscal year has been automatically created in a Disabled state to maintain consistency with the previous fiscal year's status.": "为与上一会计年度的状态保持一致，新会计年度已自动创建为禁用状态。",
+			"Try the {0} for a better experience.": "建议使用 {0} 以获得更好的操作体验。",
+			"Updated {0} Financial Report Row(s) with new category name": "已使用新类别名称更新 {0} 个财务报表行。",
+			"Use <strong>Python</strong> filters to get Accounts": "使用 <strong>Python</strong> 筛选条件获取科目",
+			"User don't have permissions to select/read this account.": "用户无权选择或读取此科目。",
+			"frankfurter.dev": "frankfurter.dev",
+			"frankfurter.dev - v2": "frankfurter.dev - v2",
+			"{0} doesn't belong to Company {1}. Please select a Cost Center that belongs to Company {1}.": "{0} 不属于公司 {1}。请选择属于公司 {1} 的成本中心。",
+			"{0} doesn't belong to Company {1}. Please select an Income Account that belongs to Company {1}.": "{0} 不属于公司 {1}。请选择属于公司 {1} 的收入科目。",
+			"{0} is a group Cost Center. Please select a non-group Cost Center.": "{0} 是成本中心组。请选择非组成本中心。",
+			"{0} is a group account. Please select a non-group Income Account.": "{0} 是组科目。请选择非组收入科目。",
+			"{0} is disabled. Please select a valid Income Account.": "{0} 已禁用。请选择有效的收入科目。",
+			"{0} is disabled. Please select an enabled Cost Center.": "{0} 已禁用。请选择已启用的成本中心。",
+			"{0} is not an Income Account. Please select a valid Income Account.": "{0} 不是收入科目。请选择有效的收入科目。",
+			"{0} languages are marked as default languages. Please select only one of them.": "{0} 种语言被标记为默认语言。请仅保留一种默认语言。",
+			"{0} view is currently unsupported in Custom Financial Report.": "自定义财务报表当前不支持“{0}”视图。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+	def test_accounts_dynamic_messages_translate_visible_arguments(self):
+		repo_root = Path(__file__).parents[2]
+		contracts = {
+			"erpnext/accounts/doctype/exchange_rate_revaluation/exchange_rate_revaluation.py": [
+				'part = _("Journal Entries") if len(drafts) > 1 else _("Journal Entry")',
+			],
+			"erpnext/accounts/doctype/bank_reconciliation_tool/bank_reconciliation_tool.js": [
+				'`<a href=\'/banking\'>${__("Banking")}</a>`',
+			],
+			"erpnext/accounts/party.py": ["_(party_type),"],
+			"erpnext/accounts/doctype/opening_invoice_creation_tool/opening_invoice_creation_tool.py": [
+				'row.idx, row.temporary_opening_account, _("Temporary")',
+			],
+			"erpnext/accounts/notification/notification_for_new_fiscal_year/notification_for_new_fiscal_year.html": [
+				'frappe.bold(_("Fiscal Year"))',
+			],
+			"erpnext/accounts/doctype/financial_report_template/financial_report_engine.py": [
+				'.format(_(view))',
+			],
+		}
+		for relative_path, snippets in contracts.items():
+			text = (repo_root / relative_path).read_text()
+			for snippet in snippets:
+				self.assertIn(snippet, text, relative_path)
+
+		dynamic_examples = {
+			"Journal Entry": "日记账凭证",
+			"Journal Entries": "日记账凭证",
+			"Banking": "银行",
+			"Customer": "客户",
+			"Supplier": "供应商",
+			"Temporary": "临时",
+			"Fiscal Year": "财年",
+			"Margin": "利润空间",
+		}
+		for source, translation in dynamic_examples.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+		self.assertEqual(
+			self.catalog.get("Reverse {0} already available in draft status: {1}").string.format(
+				self.catalog.get("Journal Entry").string, "ACC-JV-0001"
+			),
+			"已有草稿状态的冲销日记账凭证：ACC-JV-0001",
+		)
+		self.assertEqual(
+			self.catalog.get("{0} view is currently unsupported in Custom Financial Report.").string.format(
+				self.catalog.get("Margin").string
+			),
+			"自定义财务报表当前不支持“利润空间”视图。",
+		)
+
+		notification_path = (
+			repo_root
+			/ "erpnext/accounts/notification/notification_for_new_fiscal_year/notification_for_new_fiscal_year.json"
+		)
+		notification_message = json.loads(notification_path.read_text())["message"]
+		self.assertIn('frappe.bold(_("Fiscal Year"))', notification_message)
+		self.assertNotIn('frappe.bold("Fiscal Year")', notification_message)
+		notification_subject = json.loads(notification_path.read_text())["subject"]
+		self.assertEqual(notification_subject, '{{ _("New Fiscal Year - {0}").format(doc.name) }}')
 
 	def test_core_business_report_gettext_messages_are_translated(self):
 		erpnext_root = Path(__file__).parents[1]

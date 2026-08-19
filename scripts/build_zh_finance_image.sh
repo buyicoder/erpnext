@@ -54,6 +54,9 @@ expected_translations = {
 	"Matching Rules": "匹配规则",
 	"No bank statements imported yet": "尚未导入银行对账单",
 	"Record Payment": "记录收付款",
+	"A new fiscal year has been automatically created.": "已自动创建新会计年度。",
+	"No <strong>Account Data</strong> row found": "未找到<strong>科目数据</strong>行。",
+	"Reverse {0} already available in draft status: {1}": "已有草稿状态的冲销{0}：{1}",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)

@@ -140,7 +140,7 @@ class OpeningInvoiceCreationTool(Document):
 		if account_type != "Temporary":
 			frappe.throw(
 				_("Row #{0}: {1} account is not of type {2}").format(
-					row.idx, row.temporary_opening_account, "Temporary"
+					row.idx, row.temporary_opening_account, _("Temporary")
 				)
 			)
 
