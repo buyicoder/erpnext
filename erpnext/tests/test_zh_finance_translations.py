@@ -102,6 +102,7 @@ CORE_OPERATIONAL_MASTER_DOCTYPES = {
 	"Sales Person",
 	"Selling Settings",
 	"Shipping Rule",
+	"Stock Settings",
 	"Task Type",
 	"Territory",
 }
@@ -577,6 +578,30 @@ class TestZhFinanceTranslations(TestCase):
 				missing.append(f"catalog:{message.id}")
 
 		self.assertEqual(missing, [])
+
+	def test_stock_settings_uses_reviewed_chinese_terms(self):
+		translations = {
+			"Allow negative stock": "允许负库存",
+			"Allow negative stock for Batch": "允许批次负库存",
+			"Enable stock reservation": "启用库存预留",
+			"Auto reserve Stock for Sales Order on Purchase": "采购入库时自动为销售订单预留库存",
+			"Allow internal transfers at user-defined rate": "允许内部调拨使用用户指定单价",
+			"Do not use Batch-wise Valuation": "不使用按批次计价",
+			"Stock frozen up to": "库存冻结截止日期",
+			"Role allowed to edit frozen stock": "允许编辑已冻结库存的角色",
+			"Raise Material Request when stock reaches re-order level": "库存达到再订购水平时生成物料需求",
+			"Action if Quality Inspection is rejected": "质量检验不合格时的处理方式",
+			"Over Picking Allowance (%)": "超量拣货允许比例（%）",
+			"Warehouse Defaults": "仓库默认设置",
+			"Internal Transfer Rules": "内部调拨规则",
+			"Quantity Tolerance": "数量容差",
+			"Allow to edit stock UOM qty for Stock Entry": "允许在物料移动中编辑库存单位数量",
+			"Auto create Serial and Batch Bundle for outward": "出库时自动创建序列号与批号",
+			"If enabled, the item rate won't adjust to the valuation rate during internal transfers, but accounting will still use the valuation rate. This will allow the user to specify a different rate for printing or taxation purposes.": "启用后，内部调拨的物料单价不会调整为成本价，但会计处理仍使用成本价。用户可因打印或税务需要指定不同单价。",
+			"If enabled, the system will allow negative stock entries for the batch. But, this may lead to incorrect valuation rates, so it is recommended to avoid using this option. The system will permit negative stock only when it is caused by backdated entries and will validate and block negative stock in all other cases.": "启用后，系统将允许该批次出现负库存。此设置可能导致成本价不准确，因此建议不要启用。系统仅在负库存由补录历史单据引起时允许过账，其他情况将校验并阻止。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
 
 	def test_doctype_inventory_follows_nested_child_tables(self):
 		documents = {

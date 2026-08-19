@@ -2418,13 +2418,13 @@ msgstr "累计费用超出年度预算时的处理措施"
 #. DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Action if Quality Inspection is not submitted"
-msgstr ""
+msgstr "质量检验未提交时的处理方式"
 
 #. Label of the action_if_quality_inspection_is_rejected (Select) field in
 #. DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Action if Quality Inspection is rejected"
-msgstr ""
+msgstr "质量检验不合格时的处理方式"
 
 #. Label of the maintain_same_rate_action (Select) field in DocType 'Buying
 #. Settings'
@@ -3557,7 +3557,7 @@ msgstr "航天"
 
 #: erpnext/stock/doctype/stock_settings/stock_settings.js:79
 msgid "After save, please refresh the page to apply the changes."
-msgstr ""
+msgstr "保存后请刷新页面以应用更改。"
 
 #. Label of the against (Text) field in DocType 'GL Entry'
 #: erpnext/accounts/doctype/gl_entry/gl_entry.json
@@ -4362,7 +4362,7 @@ msgstr "允许零数量供应商报价"
 #. DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Allow UOM with conversion rate defined in Item"
-msgstr ""
+msgstr "允许使用物料中已定义换算率的计量单位"
 
 #. Label of the allow_discount_change (Check) field in DocType 'POS Profile'
 #: erpnext/accounts/doctype/pos_profile/pos_profile.json
@@ -4432,7 +4432,7 @@ msgstr "允许现有序列号重新生产及入库"
 #. DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Allow internal transfers at user-defined rate"
-msgstr ""
+msgstr "允许内部调拨使用用户指定单价"
 
 #. Description of the 'Allow Continuous Material Consumption' (Check) field in
 #. DocType 'Manufacturing Settings'
@@ -4464,19 +4464,19 @@ msgstr "允许物料使用负单价"
 #. Label of the allow_negative_stock (Check) field in DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Allow negative stock"
-msgstr ""
+msgstr "允许负库存"
 
 #. Label of the allow_negative_stock_for_batch (Check) field in DocType 'Stock
 #. Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Allow negative stock for Batch"
-msgstr ""
+msgstr "允许批次负库存"
 
 #. Label of the allow_partial_reservation (Check) field in DocType 'Stock
 #. Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Allow partial reservation"
-msgstr ""
+msgstr "允许部分预留"
 
 #. Label of the allow_purchase_invoice_creation_without_purchase_order (Check)
 #. field in DocType 'Supplier'
@@ -4536,25 +4536,25 @@ msgstr "允许此物料用于销售交易。"
 #. DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Allow to edit stock UOM qty for Purchase documents"
-msgstr ""
+msgstr "允许在采购单据中编辑库存单位数量"
 
 #. Label of the allow_to_edit_stock_uom_qty_for_sales (Check) field in DocType
 #. 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Allow to edit stock UOM qty for Sales documents"
-msgstr ""
+msgstr "允许在销售单据中编辑库存单位数量"
 
 #. Label of the allow_to_edit_stock_uom_qty_for_stock_entry (Check) field in
 #. DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Allow to edit stock UOM qty for Stock Entry"
-msgstr ""
+msgstr "允许在物料移动中编辑库存单位数量"
 
 #. Label of the allow_to_make_quality_inspection_after_purchase_or_delivery
 #. (Check) field in DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Allow to make Quality Inspection after Purchase / Delivery"
-msgstr ""
+msgstr "允许在采购入库或交付后进行质量检验"
 
 #. Description of the 'Allow Excess Material Transfer' (Check) field in DocType
 #. 'Manufacturing Settings'
@@ -5106,7 +5106,7 @@ msgstr ""
 #. Request' (Check) field in DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "An email will be sent to notify the User with the role 'Purchase Manager' when an automatic Material Request is created."
-msgstr ""
+msgstr "自动创建物料需求时，系统将通过邮件通知具有“采购经理”角色的用户。"
 
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.py:581
 msgid "An error has been appeared while reposting item valuation via {0}"
@@ -6661,7 +6661,7 @@ msgstr "自动创建采购入库单"
 #. in DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Auto create Serial and Batch Bundle for outward"
-msgstr ""
+msgstr "出库时自动创建序列号与批号"
 
 #. Label of the auto_create_subcontracting_order (Check) field in DocType
 #. 'Buying Settings'
@@ -6678,7 +6678,7 @@ msgstr "采购时自动创建资产"
 #. 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Auto insert Item Price if missing"
-msgstr ""
+msgstr "缺少物料价格时自动新增"
 
 #. Description of the 'Enable Automatic Party Matching' (Check) field in
 #. DocType 'Accounts Settings'
@@ -6706,18 +6706,18 @@ msgstr "自动重复单据已更新"
 #. Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Auto reserve Serial and Batch Nos"
-msgstr ""
+msgstr "自动预留序列号和批次号"
 
 #. Label of the auto_reserve_stock_for_sales_order_on_purchase (Check) field in
 #. DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Auto reserve Stock for Sales Order on Purchase"
-msgstr ""
+msgstr "采购入库时自动为销售订单预留库存"
 
 #. Label of the auto_reserve_stock (Check) field in DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Auto reserve stock"
-msgstr ""
+msgstr "自动预留库存"
 
 #. Description of the 'Write Off Limit' (Currency) field in DocType 'POS
 #. Profile'
@@ -8167,7 +8167,7 @@ msgstr "物料批号到期状态"
 #. Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Batch Item settings"
-msgstr ""
+msgstr "批次物料设置"
 
 #. Label of the batch_no (Link) field in DocType 'POS Invoice Item'
 #. Label of the batch_no (Link) field in DocType 'Purchase Invoice Item'
@@ -9891,7 +9891,7 @@ msgstr ""
 
 #: erpnext/stock/doctype/stock_settings/stock_settings.py:153
 msgid "Cannot disable Serial and Batch No for Item, as there are existing records for serial / batch."
-msgstr ""
+msgstr "该物料已有序列号或批次记录，不能关闭序列号和批次号。"
 
 #: erpnext/setup/doctype/company/company.py:564
 msgid "Cannot disable perpetual inventory, as there are existing Stock Ledger Entries for the company {0}. Please cancel the stock transactions first and try again."
@@ -9899,7 +9899,7 @@ msgstr "无法停用永续盘存制，因公司{0}存在库存分类账记录。
 
 #: erpnext/stock/doctype/stock_settings/stock_settings.py:134
 msgid "Cannot disable {0} as it may lead to incorrect stock valuation."
-msgstr ""
+msgstr "不能关闭 {0}，否则可能导致库存计价错误。"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.py:858
 msgid "Cannot disassemble more than produced quantity."
@@ -12778,7 +12778,7 @@ msgstr "单据货币与公司本位币相同时，汇率必须为1.00"
 #. Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Convert Item description to clean HTML in transactions"
-msgstr ""
+msgstr "在交易单据中将物料描述转换为清理后的 HTML"
 
 #: erpnext/accounts/doctype/account/account.js:124
 #: erpnext/accounts/doctype/cost_center/cost_center.js:123
@@ -17369,7 +17369,7 @@ msgstr "禁用小数精度尾差"
 #. 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Disable Serial No and Batch selector"
-msgstr ""
+msgstr "禁用序列号和批次选择器"
 
 #. Label of the disable_transaction_threshold (Check) field in DocType 'Tax
 #. Withholding Category'
@@ -17810,7 +17810,7 @@ msgstr "发货设置"
 #. DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Display & Data Formatting"
-msgstr ""
+msgstr "显示与数据格式"
 
 #. Label of the display_name (Data) field in DocType 'Financial Report Row'
 #: erpnext/accounts/doctype/financial_report_row/financial_report_row.json
@@ -17961,7 +17961,7 @@ msgstr "不展开"
 
 #: erpnext/stock/doctype/stock_settings/stock_settings.py:135
 msgid "Do Not Use Batchwise Valuation"
-msgstr ""
+msgstr "不使用按批次计价"
 
 #. Label of the do_not_fetch_incoming_rate_from_serial_no (Check) field in
 #. DocType 'Stock Reposting Settings'
@@ -17985,7 +17985,7 @@ msgstr "不要在货币旁显示货币代号，例如$等。"
 #. field in DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Do not update Serial / Batch on creation of auto bundle"
-msgstr ""
+msgstr "自动创建组合时不更新序列号或批次"
 
 #. Label of the do_not_update_variants (Check) field in DocType 'Item Variant
 #. Settings'
@@ -17997,7 +17997,7 @@ msgstr "不在保存时更新多规格物料"
 #. Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Do not use Batch-wise Valuation"
-msgstr ""
+msgstr "不使用按批次计价"
 
 #: erpnext/assets/doctype/asset/asset.js:973
 msgid "Do you really want to restore this scrapped asset?"
@@ -19223,7 +19223,7 @@ msgstr ""
 #. Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Enable stock reservation"
-msgstr ""
+msgstr "启用库存预留"
 
 #. Description of the 'Has Priority' (Check) field in DocType 'Pricing Rule'
 #: erpnext/accounts/doctype/pricing_rule/pricing_rule.json
@@ -21591,7 +21591,7 @@ msgstr "定价规则{0}价格/产品折扣选了产品，需维护免费物料�
 #. Label of the stock_frozen_upto_days (Int) field in DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Freeze stocks older than (days)"
-msgstr ""
+msgstr "冻结超过指定天数的库存交易"
 
 #: erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts.py:107
 #: erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts_with_account_number.py:185
@@ -23165,7 +23165,7 @@ msgstr "有多种规格"
 #. Label of the use_naming_series (Check) field in DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Have default Naming Series for Batch ID?"
-msgstr ""
+msgstr "为批次编号设置默认编号规则？"
 
 #: erpnext/setup/setup_wizard/data/designation.txt:19
 msgid "Head of Marketing and Sales"
@@ -23789,19 +23789,19 @@ msgstr "如勾选合并后的发票禁用小数精度尾差"
 #. field in DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "If enabled, the item rate won't adjust to the valuation rate during internal transfers, but accounting will still use the valuation rate. This will allow the user to specify a different rate for printing or taxation purposes."
-msgstr ""
+msgstr "启用后，内部调拨的物料单价不会调整为成本价，但会计处理仍使用成本价。用户可因打印或税务需要指定不同单价。"
 
 #. Description of the 'Validate Material Transfer warehouses' (Check) field in
 #. DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "If enabled, the source and target warehouse in the Material Transfer Stock Entry must be different else an error will be thrown. If inventory dimensions are present, same source and target warehouse can be allowed but atleast any one of the inventory dimension fields must be different."
-msgstr ""
+msgstr "启用后，物料调拨库存单的源仓库和目标仓库必须不同，否则报错。如果使用了库存维度，可允许源仓库与目标仓库相同，但至少一个库存维度字段必须不同。"
 
 #. Description of the 'Allow negative stock for Batch' (Check) field in DocType
 #. 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "If enabled, the system will allow negative stock entries for the batch. But, this may lead to incorrect valuation rates, so it is recommended to avoid using this option. The system will permit negative stock only when it is caused by backdated entries and will validate and block negative stock in all other cases."
-msgstr ""
+msgstr "启用后，系统将允许该批次出现负库存。此设置可能导致成本价不准确，因此建议不要启用。系统仅在负库存由补录历史单据引起时允许过账，其他情况将校验并阻止。"
 
 #. Description of the 'Allow Negative Stock for Batch' (Check) field in DocType
 #. 'Batch'
@@ -23861,7 +23861,7 @@ msgstr "若启用，在相关交易中将过账日期重置为当前日期前，
 #. DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "If enabled, users must enter Serial No. / Batch data manually instead of using the selector dialog."
-msgstr ""
+msgstr "启用后，用户必须手工录入序列号或批次数据，不再使用选择对话框。"
 
 #. Description of the 'Variant Of' (Link) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
@@ -25407,7 +25407,7 @@ msgstr "缺少内部调拨参考"
 #. DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Internal Transfer Rules"
-msgstr ""
+msgstr "内部调拨规则"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice_dashboard.py:37
 msgid "Internal Transfers"
@@ -31977,7 +31977,7 @@ msgstr "不能是负数"
 #. Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Negative Stock"
-msgstr ""
+msgstr "负库存"
 
 #: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py:1724
 #: erpnext/stock/serial_batch_bundle.py:1634
@@ -33321,7 +33321,7 @@ msgstr "通过邮件通知"
 #. Label of the reorder_email_notify (Check) field in DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Notify by email on creation of automatic Material Request"
-msgstr ""
+msgstr "自动创建物料需求时发送邮件通知"
 
 #. Description of the 'Notify Via Email' (Check) field in DocType 'Appointment
 #. Booking Settings'
@@ -34814,7 +34814,7 @@ msgstr "超订容差（%）"
 #. Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Over Picking Allowance (%)"
-msgstr ""
+msgstr "超量拣货允许比例（%）"
 
 #: erpnext/controllers/stock_controller.py:1914
 msgid "Over Receipt"
@@ -42504,7 +42504,7 @@ msgstr "数量差异"
 #. Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Quantity Tolerance"
-msgstr ""
+msgstr "数量容差"
 
 #. Label of the section_break_19 (Section Break) field in DocType 'Pricing
 #. Rule'
@@ -42801,7 +42801,7 @@ msgstr "由于评分卡的当前评级为{1}，使用向{0}询价"
 #. Label of the auto_indent (Check) field in DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Raise Material Request when stock reaches re-order level"
-msgstr ""
+msgstr "库存达到再订购水平时生成物料需求"
 
 #. Label of the complaint_raised_by (Data) field in DocType 'Warranty Claim'
 #: erpnext/support/doctype/warranty_claim/warranty_claim.json
@@ -45868,12 +45868,12 @@ msgstr "允许绕过会计期间限制的角色。"
 #. field in DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Role allowed to create/edit back-dated transactions"
-msgstr ""
+msgstr "允许创建或编辑补录交易的角色"
 
 #. Label of the stock_auth_role (Link) field in DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Role allowed to edit frozen stock"
-msgstr ""
+msgstr "允许编辑已冻结库存的角色"
 
 #. Label of the role_to_override_stop_action (Link) field in DocType 'Accounts
 #. Settings'
@@ -49464,7 +49464,7 @@ msgstr "序列号/批号"
 #. Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Serial Item settings"
-msgstr ""
+msgstr "序列号物料设置"
 
 #. Label of the serial_no (Text) field in DocType 'POS Invoice Item'
 #. Label of the serial_no (Text) field in DocType 'Purchase Invoice Item'
@@ -51029,7 +51029,7 @@ msgstr "在科目表中显示余额"
 #. Label of the show_barcode_field (Check) field in DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Show barcode field in stock transactions"
-msgstr ""
+msgstr "在库存单据中显示条码字段"
 
 #: erpnext/manufacturing/report/material_requirements_planning_report/material_requirements_planning_report.js:88
 msgid "Show in Bucket View"
@@ -52665,7 +52665,7 @@ msgstr "旧科目下已有库存分录。更改科目可能导致仓库结存与
 #. Label of the stock_frozen_upto (Date) field in DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Stock frozen up to"
-msgstr ""
+msgstr "库存冻结截止日期"
 
 #: erpnext/stock/doctype/stock_reservation_entry/stock_reservation_entry.py:1133
 msgid "Stock has been unreserved for work order {0}."
@@ -56028,7 +56028,7 @@ msgstr "本资产类别标记为不可折旧。请停用折旧计算或选择其
 #. Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "This can be enabled at specific Item level as well"
-msgstr ""
+msgstr "也可在具体物料上单独启用"
 
 #: banking/src/pages/BankStatementImporter.tsx:190
 msgid "This can contain \"CR\"/\"DR\" values or positive/negative values. You could also have a separate column for CR/DR."
@@ -56214,7 +56214,7 @@ msgstr "勾选此选项可编辑'过账日期'和'过账时间'字段"
 #. level' (Check) field in DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "This option is useful if you want to ensure a constant supply of raw materials/products and avoid shortage. A Material Request will be raised automatically when stock reached the re-order level defined in the Item form."
-msgstr ""
+msgstr "此选项用于保持原材料或产品的稳定供应并避免缺货。库存达到物料档案中设定的再订购水平时，系统将自动生成物料需求。"
 
 #: banking/src/components/features/BankReconciliation/IncorrectlyClearedEntries.tsx:180
 msgid "This report shows all entries in the system where the <strong>clearance date is before the posting date</strong> which is incorrect."
@@ -56327,7 +56327,7 @@ msgstr "将追加到多规格物料。例如，如果你的英文简称为“SM�
 #. in DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "This will be applied if no naming series is configured in Item master"
-msgstr ""
+msgstr "物料档案未配置编号规则时将使用此设置"
 
 #: banking/src/components/features/BankReconciliation/TransferModalContent.tsx:346
 msgid "This will be auto-populated if not set."
@@ -58679,7 +58679,7 @@ msgstr "请为第{0}行输入单位换算系数"
 #. 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "UOM Defaults"
-msgstr ""
+msgstr "计量单位默认设置"
 
 #. Label of the uom_name (Data) field in DocType 'UOM'
 #: erpnext/setup/doctype/uom/uom.json
@@ -59255,7 +59255,7 @@ msgstr "更新本单未付金额"
 #. Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Update Price List based on"
-msgstr ""
+msgstr "价目表更新依据"
 
 #: erpnext/accounts/doctype/cheque_print_template/cheque_print_template.js:11
 msgid "Update Print Format"
@@ -59290,7 +59290,7 @@ msgstr "更新类型"
 #. Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Update existing Price List Rate"
-msgstr ""
+msgstr "更新已有价目表单价"
 
 #. Label of the update_latest_price_in_all_boms (Button) field in DocType 'BOM
 #. Update Tool'
@@ -59473,7 +59473,7 @@ msgstr ""
 #. Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Use Serial / Batch fields"
-msgstr ""
+msgstr "使用序列号或批次字段"
 
 #. Label of the use_serial_batch_fields (Check) field in DocType 'POS Invoice
 #. Item'
@@ -59830,7 +59830,7 @@ msgstr "工单发料与耗用时强制按物料清单标准用量"
 #. 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Validate Material Transfer warehouses"
-msgstr ""
+msgstr "校验物料调拨仓库"
 
 #. Label of the validate_negative_stock (Check) field in DocType 'Inventory
 #. Dimension'
@@ -60750,7 +60750,7 @@ msgstr "仓库联系方式"
 #. 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Warehouse Defaults"
-msgstr ""
+msgstr "仓库默认设置"
 
 #. Label of the warehouse_detail (Section Break) field in DocType 'Warehouse'
 #: erpnext/stock/doctype/warehouse/warehouse.json
