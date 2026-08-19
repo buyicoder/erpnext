@@ -12,7 +12,8 @@ if (frappe.boot.lang === "zh") {
 
 			const amount_in_ten_thousands =
 				Number.parseFloat(match[1].replaceAll(",", "")) * compact_cny_units[match[2]];
-			element.textContent = `¥${amount_in_ten_thousands.toFixed(2)}万`;
+			const rounded_amount = Math.round((amount_in_ten_thousands + Number.EPSILON) * 100) / 100;
+			element.textContent = `¥${rounded_amount.toFixed(2)}万`;
 		});
 	};
 
