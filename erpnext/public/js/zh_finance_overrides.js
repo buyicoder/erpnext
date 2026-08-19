@@ -21,6 +21,7 @@ if (frappe.boot.lang === "zh") {
 	const awesomplete_status_selector = ".awesomplete [role='status']";
 	const chart_date_selector = ".chart-container svg text";
 	const localize_compact_cny = (root = document) => {
+		if (!root) return;
 		const elements = root.matches?.(cny_amount_selector)
 			? [root]
 			: root.querySelectorAll?.(cny_amount_selector) || [];
@@ -30,6 +31,7 @@ if (frappe.boot.lang === "zh") {
 		});
 	};
 	const localize_chart_dates = (root = document) => {
+		if (!root) return;
 		const elements = root.matches?.(chart_date_selector)
 			? [root]
 			: root.querySelectorAll?.(chart_date_selector) || [];
