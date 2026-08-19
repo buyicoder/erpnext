@@ -222,10 +222,53 @@ class TestZhFinanceTranslations(TestCase):
 			"Item Wise Consumption": "按物料统计用量",
 			"Stock Value by Item Group": "按物料组统计库存价值",
 			"ERPNext Settings": "ERPNext 设置",
+			"Assets Setup": "资产功能引导",
+			"Learn Asset": "了解资产管理",
+			"Create Asset Category": "创建资产类别",
+			"Create Asset Item": "创建资产物料",
+			"Create Asset Location": "创建资产地点",
+			"Create Existing Asset": "录入现有资产",
+			"Manufacturing Setup": "生产功能引导",
+			"Create Raw Material": "创建原材料",
+			"Create Raw Materials": "创建原材料",
+			"Create Finished Good": "创建成品",
+			"Create Finished Goods": "创建成品",
+			"Create Operation": "创建工序",
+			"Create Operations": "创建工序",
+			"Create Bill of Materials": "创建物料清单",
+			"Create Work Order": "创建生产工单",
+			"View Work Order Summary": "查看工单进度追踪表",
+			"View Work Order Summary Report": "查看工单进度追踪表",
+			"Work Order Summary Report": "工单进度追踪表",
+			"Review Manufacturing Settings": "检查生产设置",
 		}
 
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
+
+	def test_asset_and_manufacturing_onboarding_has_no_untranslated_visible_copy(self):
+		erpnext_root = Path(__file__).parents[1]
+		roots = (
+			erpnext_root / "assets/module_onboarding",
+			erpnext_root / "assets/onboarding_step",
+			erpnext_root / "manufacturing/module_onboarding",
+			erpnext_root / "manufacturing/onboarding_step",
+		)
+		visible_keys = ("title", "action_label", "report_description")
+		missing = []
+
+		for root in roots:
+			for path in sorted(root.glob("**/*.json")):
+				data = json.loads(path.read_text())
+				for key in visible_keys:
+					source = data.get(key)
+					if not isinstance(source, str) or not source.strip():
+						continue
+					message = self.catalog.get(source)
+					if not message or not message.string or "fuzzy" in message.flags:
+						missing.append(f"{path.relative_to(erpnext_root)}:{key}:{source}")
+
+		self.assertEqual(missing, [])
 
 	def test_security_and_audit_navigation_uses_reviewed_frappe_terms(self):
 		translations = {

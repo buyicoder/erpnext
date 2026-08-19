@@ -6287,7 +6287,7 @@ msgstr "资产"
 #. Title of the Module Onboarding 'Asset Onboarding'
 #: erpnext/assets/module_onboarding/asset_onboarding/asset_onboarding.json
 msgid "Assets Setup"
-msgstr ""
+msgstr "资产功能引导"
 
 #: erpnext/controllers/buying_controller.py:1130
 msgid "Assets not created for {item_code}. You will have to create asset manually."
@@ -13403,19 +13403,19 @@ msgstr "贷方"
 #. Label of an action in the Onboarding Step 'Create Asset Category'
 #: erpnext/assets/onboarding_step/create_asset_category/create_asset_category.json
 msgid "Create Asset Category"
-msgstr ""
+msgstr "创建资产类别"
 
 #. Title of an Onboarding Step
 #. Label of an action in the Onboarding Step 'Create Asset Item'
 #: erpnext/assets/onboarding_step/create_asset_item/create_asset_item.json
 msgid "Create Asset Item"
-msgstr ""
+msgstr "创建资产物料"
 
 #. Title of an Onboarding Step
 #. Label of an action in the Onboarding Step 'Create Asset Location'
 #: erpnext/assets/onboarding_step/create_asset_location/create_asset_location.json
 msgid "Create Asset Location"
-msgstr ""
+msgstr "创建资产地点"
 
 #: banking/src/components/features/BankReconciliation/Rules/RuleForm.tsx:278
 msgid "Create Bank Entry against"
@@ -13426,7 +13426,7 @@ msgstr ""
 #: erpnext/manufacturing/onboarding_step/create_bill_of_materials/create_bill_of_materials.json
 #: erpnext/subcontracting/onboarding_step/create_bill_of_materials/create_bill_of_materials.json
 msgid "Create Bill of Materials"
-msgstr ""
+msgstr "创建物料清单"
 
 #. Label of the create_chart_of_accounts_based_on (Select) field in DocType
 #. 'Company'
@@ -13467,17 +13467,17 @@ msgstr "创建员工记录"
 #. Label of an action in the Onboarding Step 'Create Existing Asset'
 #: erpnext/assets/onboarding_step/create_existing_asset/create_existing_asset.json
 msgid "Create Existing Asset"
-msgstr ""
+msgstr "录入现有资产"
 
 #. Label of an action in the Onboarding Step 'Create Finished Goods'
 #: erpnext/manufacturing/onboarding_step/create_finished_goods/create_finished_goods.json
 msgid "Create Finished Good"
-msgstr ""
+msgstr "创建成品"
 
 #. Title of an Onboarding Step
 #: erpnext/manufacturing/onboarding_step/create_finished_goods/create_finished_goods.json
 msgid "Create Finished Goods"
-msgstr ""
+msgstr "创建成品"
 
 #. Label of the is_grouped_asset (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
@@ -13569,12 +13569,12 @@ msgstr ""
 #. Label of an action in the Onboarding Step 'Create Operations'
 #: erpnext/manufacturing/onboarding_step/create_operations/create_operations.json
 msgid "Create Operation"
-msgstr ""
+msgstr "创建工序"
 
 #. Title of an Onboarding Step
 #: erpnext/manufacturing/onboarding_step/create_operations/create_operations.json
 msgid "Create Operations"
-msgstr ""
+msgstr "创建工序"
 
 #: erpnext/crm/doctype/lead/lead.js:161
 msgid "Create Opportunity"
@@ -13649,13 +13649,13 @@ msgstr "创建报价"
 #: erpnext/manufacturing/onboarding_step/create_raw_materials/create_raw_materials.json
 #: erpnext/subcontracting/onboarding_step/create_raw_materials/create_raw_materials.json
 msgid "Create Raw Material"
-msgstr ""
+msgstr "创建原材料"
 
 #. Title of an Onboarding Step
 #: erpnext/manufacturing/onboarding_step/create_raw_materials/create_raw_materials.json
 #: erpnext/subcontracting/onboarding_step/create_raw_materials/create_raw_materials.json
 msgid "Create Raw Materials"
-msgstr ""
+msgstr "创建原材料"
 
 #. Label of the create_receiver_list (Button) field in DocType 'SMS Center'
 #: erpnext/selling/doctype/sms_center/sms_center.json
@@ -13800,7 +13800,7 @@ msgstr "创建仓库"
 #. Label of an action in the Onboarding Step 'Create Work Order'
 #: erpnext/manufacturing/onboarding_step/create_work_order/create_work_order.json
 msgid "Create Work Order"
-msgstr ""
+msgstr "创建生产工单"
 
 #: erpnext/manufacturing/doctype/plant_floor/plant_floor.js:10
 msgid "Create Workstation"
@@ -29054,7 +29054,7 @@ msgstr "信息帮助你的业务，你所有的联系人和更添加为您的线
 #. Label of an action in the Onboarding Step 'Learn Asset'
 #: erpnext/assets/onboarding_step/learn_asset/learn_asset.json
 msgid "Learn Asset"
-msgstr ""
+msgstr "了解资产管理"
 
 #. Title of an Onboarding Step
 #. Label of an action in the Onboarding Step 'Learn Subcontracting'
@@ -30326,7 +30326,7 @@ msgstr "生产设置"
 #. Title of the Module Onboarding 'Manufacturing Onboarding'
 #: erpnext/manufacturing/module_onboarding/manufacturing_onboarding/manufacturing_onboarding.json
 msgid "Manufacturing Setup"
-msgstr ""
+msgstr "生产功能引导"
 
 #. Label of the manufacturing_time_in_mins (Int) field in DocType 'Item Lead
 #. Time'
@@ -45751,7 +45751,7 @@ msgstr "评论日期"
 #. Label of an action in the Onboarding Step 'Review Manufacturing Settings'
 #: erpnext/manufacturing/onboarding_step/review_manufacturing_settings/review_manufacturing_settings.json
 msgid "Review Manufacturing Settings"
-msgstr ""
+msgstr "检查生产设置"
 
 #. Title of an Onboarding Step
 #. Label of an action in the Onboarding Step 'Review Selling Settings'
@@ -60386,12 +60386,12 @@ msgstr "视图类型"
 #. Label of an action in the Onboarding Step 'View Work Order Summary Report'
 #: erpnext/manufacturing/onboarding_step/view_work_order_summary_report/view_work_order_summary_report.json
 msgid "View Work Order Summary"
-msgstr ""
+msgstr "查看工单进度追踪表"
 
 #. Title of an Onboarding Step
 #: erpnext/manufacturing/onboarding_step/view_work_order_summary_report/view_work_order_summary_report.json
 msgid "View Work Order Summary Report"
-msgstr ""
+msgstr "查看工单进度追踪表"
 
 #: banking/src/components/features/Settings/KeyboardShortcuts.tsx:55
 msgid "View all reconciliation actions taken in this session"
@@ -61597,7 +61597,7 @@ msgstr "工单进度追踪表"
 #. Report'
 #: erpnext/manufacturing/onboarding_step/view_work_order_summary_report/view_work_order_summary_report.json
 msgid "Work Order Summary Report"
-msgstr ""
+msgstr "工单进度追踪表"
 
 #: erpnext/stock/doctype/material_request/material_request.py:1075
 msgid "Work Order cannot be created for following reason: <br> {0}"
