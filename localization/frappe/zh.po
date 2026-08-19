@@ -1553,3 +1553,21 @@ msgstr "您的电子邮箱地址"
 
 msgid "← Back to upload files"
 msgstr "← 返回文件上传"
+
+msgid "Add"
+msgstr "新建"
+
+msgid "{0} Filters Applied"
+msgstr "已应用 {0} 个筛选条件"
+
+msgid "Clear all filters"
+msgstr "清除全部筛选条件"
+
+msgid "descending"
+msgstr "降序"
+
+msgid "Completed"
+msgstr "已完成"
+
+msgid "Document has been submitted"
+msgstr "单据已提交"

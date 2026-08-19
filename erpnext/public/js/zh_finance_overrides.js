@@ -6,14 +6,24 @@ if (frappe.boot.lang === "zh") {
 		Reports: "报表",
 	});
 
-	const localize_compact_cny = () => {
-		document.querySelectorAll(".number").forEach((element) => {
+	const cny_amount_selector = ".number, .list-row-container .filterable div";
+	const localize_compact_cny = (root = document) => {
+		const elements = root.matches?.(cny_amount_selector)
+			? [root]
+			: root.querySelectorAll?.(cny_amount_selector) || [];
+		elements.forEach((element) => {
 			element.textContent = format_compact_cny_text(element.textContent);
 		});
 	};
 
 	localize_compact_cny();
-	new MutationObserver(localize_compact_cny).observe(document.body, {
+	new MutationObserver((mutations) => {
+		mutations.forEach((mutation) => {
+			mutation.addedNodes.forEach((node) => {
+				if (node.nodeType === Node.ELEMENT_NODE) localize_compact_cny(node);
+			});
+		});
+	}).observe(document.body, {
 		childList: true,
 		subtree: true,
 	});
