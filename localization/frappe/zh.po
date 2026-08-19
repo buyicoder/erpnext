@@ -194,3 +194,243 @@ msgstr "警告"
 
 msgid "Yes"
 msgstr "是"
+
+msgid "Add"
+msgstr "新增"
+
+msgid "Add Attachment"
+msgstr "添加附件"
+
+msgid "Add a Filter"
+msgstr "新增筛选条件"
+
+msgid "Advanced Search"
+msgstr "高级搜索"
+
+msgid "All"
+msgstr "全部"
+
+msgid "Amend"
+msgstr "修订"
+
+msgid "Apply Filters"
+msgstr "应用筛选"
+
+msgid "Archive"
+msgstr "归档"
+
+msgid "Assign"
+msgstr "分配"
+
+msgid "Assign To"
+msgstr "分配给"
+
+msgid "Assign a user"
+msgstr "分配用户"
+
+msgid "Assign to me"
+msgstr "分配给我"
+
+msgid "Assigning..."
+msgstr "正在分配……"
+
+msgid "Assignments"
+msgstr "任务分配"
+
+msgid "Attachments"
+msgstr "附件"
+
+msgid "Back"
+msgstr "返回"
+
+msgid "Bulk Edit"
+msgstr "批量编辑"
+
+msgid "Cancel All"
+msgstr "全部取消"
+
+msgid "Cancelled"
+msgstr "已取消"
+
+msgid "Cancelling"
+msgstr "正在取消"
+
+msgid "Cannot cancel {0}."
+msgstr "无法取消{0}。"
+
+msgid "Cannot delete {0}"
+msgstr "无法删除{0}"
+
+msgid "Cannot submit {0}."
+msgstr "无法提交{0}。"
+
+msgid "Cannot update {0}"
+msgstr "无法更新{0}"
+
+msgid "Clear All"
+msgstr "全部清除"
+
+msgid "Clear Assignment"
+msgstr "清除分配"
+
+msgid "Clear Filters"
+msgstr "清除筛选"
+
+msgid "Clear all filters"
+msgstr "清除全部筛选"
+
+msgid "Collapse All"
+msgstr "全部折叠"
+
+msgid "Comments"
+msgstr "评论"
+
+msgid "Complete By"
+msgstr "完成期限"
+
+msgid "Compose Email"
+msgstr "撰写邮件"
+
+msgid "Connections"
+msgstr "关联记录"
+
+msgid "Count"
+msgstr "数量"
+
+msgid "Create"
+msgstr "创建"
+
+msgid "Create New"
+msgstr "新建"
+
+msgid "Create Saved Filter"
+msgstr "创建已保存筛选"
+
+msgid "Create a Reminder"
+msgstr "创建提醒"
+
+msgid "Create a new document"
+msgstr "新建单据"
+
+msgid "Create a new {0}"
+msgstr "新建{0}"
+
+msgid "Create your first {0}"
+msgstr "创建第一条{0}"
+
+msgid "Created By"
+msgstr "创建人"
+
+msgid "Created On"
+msgstr "创建时间"
+
+msgid "Current status"
+msgstr "当前状态"
+
+msgid "Customize"
+msgstr "自定义"
+
+msgid "Customize Form"
+msgstr "自定义表单"
+
+msgid "Date"
+msgstr "日期"
+
+msgid "Delete all"
+msgstr "全部删除"
+
+msgid "Delete comment?"
+msgstr "是否删除评论？"
+
+msgid "Delete row"
+msgstr "删除行"
+
+msgid "Description"
+msgstr "说明"
+
+msgid "Details"
+msgstr "详细信息"
+
+msgid "Disabled"
+msgstr "已停用"
+
+msgid "Discard"
+msgstr "放弃更改"
+
+msgid "Dismiss"
+msgstr "关闭"
+
+msgid "Document"
+msgstr "单据"
+
+msgid "Document Name"
+msgstr "单据名称"
+
+msgid "Documents"
+msgstr "单据"
+
+msgid "Done"
+msgstr "完成"
+
+msgid "Download PDF"
+msgstr "下载 PDF"
+
+msgid "Download Report"
+msgstr "下载报表"
+
+msgid "Draft"
+msgstr "草稿"
+
+msgid "Drag and drop files here or upload from"
+msgstr "将文件拖放到此处，或从以下位置上传"
+
+msgid "Drop files here"
+msgstr "将文件拖放到此处"
+
+msgid "Duplicate row"
+msgstr "复制行"
+
+msgid "Edit Filters"
+msgstr "编辑筛选条件"
+
+msgid "Edit Full Form"
+msgstr "编辑完整表单"
+
+msgid "Edit row"
+msgstr "编辑行"
+
+msgid "Email Sent"
+msgstr "邮件已发送"
+
+msgid "Enter Value"
+msgstr "输入值"
+
+msgid "Everyone"
+msgstr "所有人"
+
+msgid "Expand All"
+msgstr "全部展开"
+
+msgid "Fields"
+msgstr "字段"
+
+msgid "File Manager"
+msgstr "文件管理"
+
+msgid "File upload failed."
+msgstr "文件上传失败。"
+
+msgid "Filters"
+msgstr "筛选条件"
+
+msgid "Filters saved"
+msgstr "筛选条件已保存"
+
+msgid "First"
+msgstr "首页"
+
+msgid "Follow"
+msgstr "关注"
+
+msgid "From"
+msgstr "来自"
