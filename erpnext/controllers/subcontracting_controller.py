@@ -182,7 +182,7 @@ class SubcontractingController(StockController):
 					if not item.get(order_item_field):
 						frappe.throw(
 							_("Row {0}: Item {1} must be linked to a {2}.").format(
-								item.idx, item.item_name, order_item_doctype
+								item.idx, item.item_name, _(order_item_doctype)
 							)
 						)
 

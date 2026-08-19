@@ -60,6 +60,9 @@ expected_translations = {
 	"Appointment Booking Portal Settings": "预约门户设置",
 	"Email Campaign Send Error": "邮件营销活动发送错误",
 	"Verification Token": "验证令牌",
+	"Invalid Discount Amount": "折扣金额无效",
+	"Reserved Batch Conflict": "预留批次冲突",
+	"Unit Price": "单价",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)

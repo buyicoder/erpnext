@@ -68,7 +68,9 @@ def validate_filters(filters):
 	if filters.get("period_based_on") and filters.period_based_on not in ["bill_date", "posting_date"]:
 		frappe.throw(
 			msg=_("{0} can be either {1} or {2}.").format(
-				frappe.bold("Period based On"), frappe.bold("Posting Date"), frappe.bold("Billing Date")
+				frappe.bold(_("Period based On")),
+				frappe.bold(_("Posting Date")),
+				frappe.bold(_("Billing Date")),
 			),
 			title=_("Invalid Filter"),
 		)

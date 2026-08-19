@@ -1496,7 +1496,7 @@ class StockController(AccountsController):
 				continue
 
 			vouchers = ", ".join(
-				f"{frappe.bold(voucher_type)} {frappe.bold(voucher_no)}"
+				f"{frappe.bold(_(voucher_type))} {frappe.bold(voucher_no)}"
 				for voucher_type, voucher_no in dict.fromkeys(
 					(row.voucher_type, row.voucher_no) for row in reservations[(batch_no, warehouse)]
 				)
@@ -1508,7 +1508,7 @@ class StockController(AccountsController):
 					frappe.bold(batch_no),
 					vouchers,
 					frappe.bold(warehouse),
-					frappe.bold(self.doctype),
+					frappe.bold(_(self.doctype)),
 					frappe.bold(self.name),
 				),
 				title=_("Reserved Batch Conflict"),

@@ -458,7 +458,13 @@ class TestZhFinanceTranslations(TestCase):
 			self._assert_translation(source, translation)
 
 	def test_core_business_source_locations_have_chinese_translations(self):
-		prefixes = ("erpnext/accounts/", "erpnext/selling/", "erpnext/buying/", "erpnext/crm/")
+		prefixes = (
+			"erpnext/accounts/",
+			"erpnext/selling/",
+			"erpnext/buying/",
+			"erpnext/crm/",
+			"erpnext/controllers/",
+		)
 		missing = []
 		for source_message in self.source_catalog:
 			locations = [path for path, _line in source_message.locations if path.startswith(prefixes)]
@@ -546,6 +552,79 @@ class TestZhFinanceTranslations(TestCase):
 				self.assertIn(snippet, text, relative_path)
 
 		for source in ("Lead", "Contact", "Email Group", "Monday"):
+			messages = [self.catalog.get(source), self.merged_frappe_catalog.get(source)]
+			self.assertTrue(
+				any(message and message.string and "fuzzy" not in message.flags for message in messages),
+				source,
+			)
+
+	def test_transaction_controllers_use_reviewed_chinese_terms(self):
+		translations = {
+			"Additional Discount Amount ({discount_amount}) cannot exceed the total before such discount ({total_before_discount})": "附加折扣金额（{discount_amount}）不能超过折扣前合计（{total_before_discount}）",
+			"Cannot delete an item which has been ordered": "不能删除已下单的物料",
+			"Cannot find a default warehouse for item {0}. Please select one in the Update Items dialog, or set a default in the Item Master or in Stock Settings.": "未找到物料 {0} 的默认仓库。请在“更新物料”对话框中选择仓库，或在物料主数据或库存设置中设置默认仓库。",
+			"Cannot reduce quantity than ordered or purchased quantity": "数量不能低于已下单或已采购的数量",
+			"Cannot update rate as item {0} is already ordered or purchased against this quotation": "物料 {0} 已基于此报价下单或采购，不能更新单价",
+			"Company Address is missing. You don't have permission to create an Address. Please contact your System Manager.": "缺少公司地址，并且您无权创建地址。请联系系统管理员。",
+			"Expenses Added To Stock for Item {0}": "计入物料 {0} 库存成本的费用",
+			"Invalid Discount Amount": "折扣金额无效",
+			"Item Wise Tax Details do not match with Taxes and Charges at the following rows:": "以下行的物料税费明细与税费不一致：",
+			"Please select at least one attribute value": "请至少选择一个属性值",
+			"Please set {0} in Company {1} or in the Item Defaults of Item {2}": "请将 {0} 配置在公司 {1} 或物料 {2} 的物料默认设置中",
+			"Reserved Batch Conflict": "预留批次冲突",
+			"Row #{0}: Cannot cancel this Manufacturing Stock Entry as quantity of Secondary Item {1} produced cannot be less than quantity delivered.": "第 {0} 行：不能取消此生产物料移动，因为已生产的副产品 {1} 数量不能少于已交付数量。",
+			"Row #{0}: Cannot delete item {1} which is already ordered against this Sales Order.": "第 {0} 行：物料 {1} 已基于此销售订单下单，不能删除。",
+			"Row #{0}: Item {1} has zero rate but '{2}' is not enabled.": "第 {0} 行：物料 {1} 的单价为零，但未启用“{2}”。",
+			"Row #{0}: Warehouse {1} does not match with the warehouse {2} in Serial and Batch Bundle {3}.": "第 {0} 行：仓库 {1} 与仓库 {2} 不一致，序列号与批号组合编号为 {3}。",
+			"Row #{0}: {1} is mandatory for the Inventory Dimension {2}.": "第 {0} 行：{1} 是库存辅助核算 {2} 的必填项。",
+			"Row #{0}:Quantity for Item {1} cannot be zero.": "第 {0} 行：物料 {1} 的数量不能为零。",
+			"Row {0}: Cannot sell item {1} from Sample Retention Warehouse {2}": "第 {0} 行：不能销售物料 {1}，其来源为样品仓 {2}",
+			"Row {0}: Item {1} must be linked to a {2}.": "第 {0} 行：物料 {1} 必须关联到{2}。",
+			"The batch {0} is reserved for {1} in the warehouse {2} and the remaining quantity is not enough to cover the reservations. So, cannot proceed with the {3} {4}.": "批次 {0} 已为 {1} 在仓库 {2} 中预留，剩余数量不足以满足预留需求，因此不能继续处理{3} {4}。",
+			"The following cancelled repost entries exist for <b>{0}</b>:<br><br>{1}<br><br>Kindly delete these entries before continuing.": "<b>{0}</b> 存在以下已取消的重新过账记录：<br><br>{1}<br><br>请删除这些记录后再继续。",
+			"The outstanding amount {0} in {1} is lesser than {2}. Updating the outstanding to this invoice.": "未结金额 {0} 在 {1} 中小于 {2}，正在将未结金额更新到此发票。",
+			'To allow over ordering, update "Over Order Allowance" in Buying Settings.': "如需允许超量订购，请在采购设置中更新“超订容差（%）”。",
+			"Unit Price": "单价",
+			"We can see {0} is made against {1}. If you want {1}'s outstanding to be updated, uncheck the '{2}' checkbox.": "{0} 是基于 {1} 创建的。如需更新 {1} 的未结金额，请取消勾选“{2}”。",
+			"You can use {0} to reconcile against {1} later.": "您可以稍后使用 {0} 与 {1} 进行核销。",
+			"You don't have permission to create a Company Address. Please contact your System Manager.": "您无权创建公司地址。请联系系统管理员。",
+			"You don't have permission to update Company details. Please contact your System Manager.": "您无权更新公司信息。请联系系统管理员。",
+			"You don't have permission to update this document. Please contact your System Manager.": "您无权更新此单据。请联系系统管理员。",
+			"{0} can be either {1} or {2}.": "{0} 只能是 {1} 或 {2}。",
+			"{0} does not belong to the Company {1}.": "{0} 不属于公司 {1}。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+	def test_transaction_controller_dynamic_messages_translate_visible_types_and_labels(self):
+		repo_root = Path(__file__).parents[2]
+		contracts = {
+			"erpnext/controllers/stock_controller.py": [
+				"frappe.bold(_(voucher_type))",
+				"frappe.bold(_(self.doctype))",
+			],
+			"erpnext/controllers/subcontracting_controller.py": ["item.idx, item.item_name, _(order_item_doctype)"],
+			"erpnext/controllers/trends.py": [
+				'frappe.bold(_("Period based On"))',
+				'frappe.bold(_("Posting Date"))',
+				'frappe.bold(_("Billing Date"))',
+			],
+		}
+		for relative_path, snippets in contracts.items():
+			text = (repo_root / relative_path).read_text()
+			for snippet in snippets:
+				self.assertIn(snippet, text, relative_path)
+
+		for source in (
+			"Stock Reservation Entry",
+			"Sales Order",
+			"Purchase Order Item",
+			"Sales Order Item",
+			"Period based On",
+			"Posting Date",
+			"Billing Date",
+		):
 			messages = [self.catalog.get(source), self.merged_frappe_catalog.get(source)]
 			self.assertTrue(
 				any(message and message.string and "fuzzy" not in message.flags for message in messages),
