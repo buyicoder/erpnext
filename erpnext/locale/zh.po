@@ -19129,7 +19129,7 @@ msgstr ""
 
 #: erpnext/stock/report/stock_ledger/stock_ledger.js:122
 msgid "Enable Serial / Batch Bundle"
-msgstr ""
+msgstr "启用序列号/批次组合"
 
 #. Label of the enable_subscription (Check) field in DocType 'Accounts
 #. Settings'
@@ -38610,7 +38610,7 @@ msgstr "请选择一个值{0} quotation_to {1}"
 
 #: erpnext/stock/report/stock_qty_vs_serial_no_count/stock_qty_vs_serial_no_count.js:9
 msgid "Please select a warehouse first."
-msgstr ""
+msgstr "请先选择仓库。"
 
 #: erpnext/assets/doctype/asset_repair/asset_repair.js:203
 msgid "Please select an item code before setting the warehouse."
@@ -38634,7 +38634,7 @@ msgstr "请至少选择一行进行修复"
 
 #: erpnext/stock/report/stock_qty_vs_batch_qty/stock_qty_vs_batch_qty.js:51
 msgid "Please select at least one row with difference value"
-msgstr ""
+msgstr "请至少选择一条存在差异的记录"
 
 #: erpnext/public/js/controllers/transaction.js:586
 msgid "Please select at least one schedule."
@@ -50852,7 +50852,7 @@ msgstr "显示下属公司合计值"
 
 #: erpnext/stock/report/stock_balance/stock_balance.js:115
 msgid "Show Alternate UOM Balance"
-msgstr ""
+msgstr "显示辅助单位余额"
 
 #: erpnext/accounts/report/general_ledger/general_ledger.js:199
 msgid "Show Cancelled Entries"
@@ -54032,7 +54032,7 @@ msgstr "立即同步"
 
 #: erpnext/stock/report/stock_qty_vs_serial_no_count/stock_qty_vs_serial_no_count.js:6
 msgid "Sync Serial No Status"
-msgstr ""
+msgstr "同步序列号状态"
 
 #: erpnext/erpnext_integrations/doctype/plaid_settings/plaid_settings.js:36
 msgid "Sync Started"
@@ -56336,7 +56336,7 @@ msgstr "这将限制用户访问其他员工记录"
 
 #: erpnext/stock/report/stock_qty_vs_serial_no_count/stock_qty_vs_serial_no_count.js:16
 msgid "This will update the warehouse and status of Serial Nos counted in {0} to match the stock ledger. Continue?"
-msgstr ""
+msgstr "这将更新 {0} 中已盘点序列号的仓库和状态，使其与库存明细账一致。是否继续？"
 
 #: erpnext/controllers/selling_controller.py:886
 msgid "This {} will be treated as material transfer."
@@ -59158,7 +59158,7 @@ msgstr "通过后台程序基于原材料最新成本价/标价/采购价自动�
 
 #: erpnext/stock/report/stock_qty_vs_batch_qty/stock_qty_vs_batch_qty.js:32
 msgid "Update Batch Qty"
-msgstr ""
+msgstr "更新批次数量"
 
 #. Label of the update_billed_amount_in_delivery_note (Check) field in DocType
 #. 'POS Invoice'
@@ -60377,7 +60377,7 @@ msgstr ""
 
 #: erpnext/stock/report/stock_balance/stock_balance.js:162
 msgid "View Stock Ledger"
-msgstr ""
+msgstr "查看库存明细账"
 
 #: erpnext/selling/report/customer_acquisition_and_loyalty/customer_acquisition_and_loyalty.js:8
 msgid "View Type"
@@ -63664,3 +63664,74 @@ msgstr "变体"
 #. Option for the 'Percent Complete Method' field in DocType 'Project'
 msgid "Task Progress"
 msgstr "任务进度"
+msgid "From Date"
+msgstr "开始日期"
+
+msgid "To Date"
+msgstr "结束日期"
+
+msgid "Group By"
+msgstr "分组方式"
+
+msgid "Start Date"
+msgstr "开始日期"
+
+msgid "End Date"
+msgstr "结束日期"
+
+msgid "Show unclosed fiscal year"
+msgstr "显示未结账会计年度"
+
+msgid "Period"
+msgstr "期间"
+
+msgid "Report"
+msgstr "报表"
+
+msgid "Owner"
+msgstr "所有者"
+
+msgid "Incoming"
+msgstr "收款"
+
+msgid "Outgoing"
+msgstr "付款"
+
+msgid "Based On"
+msgstr "依据"
+
+msgid "Items"
+msgstr "物料"
+
+msgid "Include Disabled"
+msgstr "包括已禁用项"
+
+msgid "Value"
+msgstr "数值"
+
+msgid "Range"
+msgstr "统计周期"
+
+msgid "Weekly"
+msgstr "每周"
+
+msgid "Section"
+msgstr "查看内容"
+
+msgid "Select"
+msgstr "选择"
+
+msgid "All"
+msgstr "全部"
+
+msgid "Document Type"
+msgstr "单据类型"
+
+msgid "Doctype"
+msgstr "单据类型"
+
+msgid "Is Active"
+msgstr "是否启用"
+
+msgid "Priority"
+msgstr "优先级"

@@ -1,4 +1,5 @@
 import json
+import re
 from io import BytesIO
 from pathlib import Path
 from string import Formatter
@@ -268,6 +269,29 @@ class TestZhFinanceTranslations(TestCase):
 					message = self.catalog.get(source)
 					if not message or not message.string or "fuzzy" in message.flags:
 						missing.append(f"{path.relative_to(erpnext_root)}:{key}:{source}")
+
+		self.assertEqual(missing, [])
+
+	def test_core_business_report_gettext_messages_are_translated(self):
+		erpnext_root = Path(__file__).parents[1]
+		roots = (
+			erpnext_root / "accounts/report",
+			erpnext_root / "buying/report",
+			erpnext_root / "projects/report",
+			erpnext_root / "selling/report",
+			erpnext_root / "stock/report",
+		)
+		message_pattern = re.compile(r'''__\(\s*["']([^"']+)["']''')
+		missing = []
+
+		for root in roots:
+			for path in sorted(root.glob("**/*.js")):
+				source = re.sub(r"/\*.*?\*/", "", path.read_text(), flags=re.DOTALL)
+				source = "\n".join(line for line in source.splitlines() if not line.lstrip().startswith("//"))
+				for message_id in message_pattern.findall(source):
+					message = self.catalog.get(message_id)
+					if not message or not message.string or "fuzzy" in message.flags or message.check():
+						missing.append(f"{path.relative_to(erpnext_root)}:{message_id}")
 
 		self.assertEqual(missing, [])
 
