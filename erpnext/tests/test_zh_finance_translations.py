@@ -799,16 +799,18 @@ class TestZhFinanceTranslations(TestCase):
 
 	def test_subcontracting_workflows_use_reviewed_chinese_terms(self):
 		translations = {
-			'<span class="h4"><b>Subcontracting Inward and Outward</b></span>': '<span class="h4"><b>委外入库与出库</b></span>',
+			'<span class="h4"><b>Subcontracting Inward and Outward</b></span>': '<span class="h4"><b>受托加工与委外加工</b></span>',
+			"All linked Sales Orders must be subcontracted.": "所有关联的销售订单必须为受托加工订单。",
 			"Additional {0} {1} of item {2} required as per BOM to complete this transaction": "要完成此交易，根据物料清单还需要 {0} {1} 的物料 {2}",
 			"Create Service Item": "创建服务物料",
 			"Create Subcontracted Item": "创建委外物料",
 			"Create Subcontracting Order": "创建委外订单",
-			"Create Subcontracting PO": "创建委外采购",
-			"Create Subcontracting Purchase Order": "创建委外采购",
+			"Create Subcontracting PO": "创建委外采购订单",
+			"Create Subcontracting Purchase Order": "创建委外采购订单",
 			"Creating Return of Components ...": "正在创建退回原材料单据……",
 			"Get Secondary Items": "获取副产品",
 			"Getting Secondary Items": "正在获取副产品",
+			"Has Subcontracted": "已受托加工",
 			"Job Worker Currency": "委外供应商币种",
 			"Learn Subcontracting": "了解委外加工",
 			"Qty (As per BOM)": "数量（按物料清单）",
@@ -820,12 +822,43 @@ class TestZhFinanceTranslations(TestCase):
 			"Secondary Items Generated": "已生成副产品",
 			"Select Items to Receive": "选择待收物料",
 			"Stock Reservation Entries created": "已创建库存预留单",
-			"Subcontracting Inward Order Secondary Item": "委外入库订单副产品",
+			"Subcontract BOM": "委外物料清单",
+			"Subcontracted Purchase Order": "委外采购订单",
+			"Subcontracting Inward Order": "受托加工订单",
+			"Subcontracting Inward Order Secondary Item": "受托加工订单副产品",
+			"Subcontracting Purchase Order": "委外采购订单",
+			"Subcontracting Sales Order": "受托加工销售订单",
+			"Subcontracting Delivery": "受托加工交付",
 			"Subcontracting Setup": "委外设置",
 		}
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
 			self._assert_erpnext_runtime_translation(source, translation)
+
+	def test_subcontracting_vocabulary_rejects_legacy_ambiguous_terms(self):
+		forbidden_terms = ("外包", "外协", "分包")
+		allowed_terms = ("委外", "受托加工")
+		violations = []
+
+		for message in self.catalog:
+			sources = message.id if isinstance(message.id, tuple) else (message.id,)
+			if not any(
+				isinstance(source, str) and re.search(r"sub[- ]?contract", source, re.IGNORECASE)
+				for source in sources
+			):
+				continue
+
+			translations = message.string if isinstance(message.string, tuple) else (message.string,)
+			if "fuzzy" in message.flags or not translations or any(not translation for translation in translations):
+				violations.append(f"{message.id} => missing or fuzzy translation")
+				continue
+			for translation in translations:
+				if any(term in translation for term in forbidden_terms):
+					violations.append(f"{message.id} => {translation}")
+				elif not any(term in translation for term in allowed_terms):
+					violations.append(f"{message.id} => missing approved terminology: {translation}")
+
+		self.assertEqual(violations, [])
 
 	def test_accounts_workflows_use_reviewed_chinese_terms(self):
 		translations = {
@@ -1832,7 +1865,7 @@ class TestZhFinanceTranslations(TestCase):
 			"Budget Variance": "预算差异",
 			"Deduction Certificate": "低税率扣除证明",
 			"Feedback Template": "反馈模板",
-			"Inward Order": "委外入库订单",
+			"Inward Order": "受托加工订单",
 			"Item-wise sales Register": "物料销售台账",
 			"Items To Be Received": "待收货委外成品",
 			"Manufactured Items Value": "完工物料价值",
@@ -1841,7 +1874,7 @@ class TestZhFinanceTranslations(TestCase):
 			"Outward Order": "委外发料订单",
 			"Quality Inspections": "质检单",
 			"Reconciliation Statement": "银行对账单",
-			"Subcontracting Inward Order Count": "委外入库订单数量",
+			"Subcontracting Inward Order Count": "受托加工订单数量",
 			"Subcontracting Outward Order": "委外发料订单",
 			"Subcontracting Outward Order Count": "委外发料订单数量",
 			"Tax Template": "税费模板",

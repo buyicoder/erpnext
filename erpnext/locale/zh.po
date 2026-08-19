@@ -62,7 +62,7 @@ msgstr "是否子表"
 #. Label of the is_subcontracted (Check) field in DocType 'Job Card'
 #: erpnext/manufacturing/doctype/job_card/job_card.json
 msgid " Is Subcontracted"
-msgstr "是否外协"
+msgstr "是否委外"
 
 #: erpnext/public/js/bom_configurator/bom_configurator.bundle.js:204
 msgid " Item"
@@ -964,7 +964,7 @@ msgstr "<span class=\"h4\"><b>报表与基础资料</b></span>"
 #. Header text in the Subcontracting Workspace
 #: erpnext/subcontracting/workspace/subcontracting/subcontracting.json
 msgid "<span class=\"h4\"><b>Subcontracting Inward and Outward</b></span>"
-msgstr "<span class=\"h4\"><b>委外入库与出库</b></span>"
+msgstr "<span class=\"h4\"><b>受托加工与委外加工</b></span>"
 
 #. Header text in the ERPNext Settings Workspace
 #: erpnext/setup/workspace/erpnext_settings/erpnext_settings.json
@@ -4034,11 +4034,11 @@ msgstr "本单据所有物料均已关联质检单"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:1292
 msgid "All items must be linked to a Sales Order or Subcontracting Inward Order for this Sales Invoice."
-msgstr "本销售发票中的所有物料必须关联至销售订单或外包收货订单。"
+msgstr "本销售发票中的所有物料必须关联至销售订单或受托加工订单。"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:1303
 msgid "All linked Sales Orders must be subcontracted."
-msgstr "所有关联的销售订单必须为外包订单。"
+msgstr "所有关联的销售订单必须为受托加工订单。"
 
 #: erpnext/stock/doctype/pick_list/pick_list.py:1608
 msgid "All picked items have already been transferred against this Pick List"
@@ -9793,7 +9793,7 @@ msgstr "物料价值重估未完成，无法取消交易"
 
 #: erpnext/controllers/subcontracting_inward_controller.py:592
 msgid "Cannot cancel this Manufacturing Stock Entry as quantity of Finished Good produced cannot be less than quantity delivered in the linked Subcontracting Inward Order."
-msgstr "无法取消本生产库存凭证，因产成品数量不得少于关联外包收货订单中的已交付数量。"
+msgstr "无法取消本生产库存凭证，因产成品数量不得少于关联受托加工订单中的已交付数量。"
 
 #: erpnext/accounts/doctype/journal_entry/journal_entry.py:584
 msgid "Cannot cancel this document as it is linked with the submitted Asset Value Adjustment <b>{0}</b>. Please cancel the Asset Value Adjustment to continue."
@@ -13731,12 +13731,12 @@ msgstr "创建委外订单"
 #. Title of an Onboarding Step
 #: erpnext/subcontracting/onboarding_step/create_subcontracting_po/create_subcontracting_po.json
 msgid "Create Subcontracting PO"
-msgstr "创建委外采购"
+msgstr "创建委外采购订单"
 
 #. Label of an action in the Onboarding Step 'Create Subcontracting PO'
 #: erpnext/subcontracting/onboarding_step/create_subcontracting_po/create_subcontracting_po.json
 msgid "Create Subcontracting Purchase Order"
-msgstr "创建委外采购"
+msgstr "创建委外采购订单"
 
 #. Title of an Onboarding Step
 #: erpnext/buying/onboarding_step/create_supplier/create_supplier.json
@@ -13952,15 +13952,15 @@ msgstr "正在创建库存凭证"
 
 #: erpnext/selling/doctype/sales_order/sales_order.js:1856
 msgid "Creating Subcontracting Inward Order ..."
-msgstr "正在创建外包收货订单..."
+msgstr "正在创建受托加工订单..."
 
 #: erpnext/buying/doctype/purchase_order/purchase_order.js:521
 msgid "Creating Subcontracting Order ..."
-msgstr "正在创建外协订单..."
+msgstr "正在创建委外订单..."
 
 #: erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.js:693
 msgid "Creating Subcontracting Receipt ..."
-msgstr "正在创建外协收货单..."
+msgstr "正在创建委外入库..."
 
 #: erpnext/setup/doctype/employee/employee.js:85
 msgid "Creating User..."
@@ -20884,7 +20884,7 @@ msgstr "产成品物料{0}数量不可为零"
 
 #: erpnext/controllers/accounts_controller.py:4055
 msgid "Finished Good Item {0} must be a sub-contracted item"
-msgstr "产成品物料{0}必须为外协物料"
+msgstr "产成品物料{0}必须为委外物料"
 
 #. Label of the fg_item_qty (Float) field in DocType 'Purchase Order Item'
 #. Label of the fg_item_qty (Float) field in DocType 'Sales Order Item'
@@ -20925,7 +20925,7 @@ msgstr "产成品{0}必须为库存物料"
 
 #: erpnext/subcontracting/doctype/subcontracting_bom/subcontracting_bom.py:55
 msgid "Finished Good {0} must be a sub-contracted item."
-msgstr "产成品{0}必须为外协物料"
+msgstr "产成品{0}必须为委外物料"
 
 #: erpnext/selling/doctype/sales_order/sales_order.js:1437
 #: erpnext/setup/doctype/company/company.py:389
@@ -23153,7 +23153,7 @@ msgstr "启用序列号管理"
 #. Label of the has_subcontracted (Check) field in DocType 'Sales Invoice'
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.json
 msgid "Has Subcontracted"
-msgstr "已外包"
+msgstr "已受托加工"
 
 #. Label of the has_unit_price_items (Check) field in DocType 'Purchase Order'
 #. Label of the has_unit_price_items (Check) field in DocType 'Request for
@@ -23782,7 +23782,7 @@ msgstr "启用后，此物料销售额将计入销售人员和销售合作伙伴
 #. in DocType 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "If enabled, system will allow user to deliver the entire quantity of the finished goods produced against the Subcontracting Inward Order. If disabled, system will allow delivery of only the ordered quantity."
-msgstr "若启用，系统将允许用户交付针对外包收货订单生产的全部产成品数量。若禁用，系统仅允许交付订购数量。"
+msgstr "若启用，系统将允许用户交付针对受托加工订单生产的全部产成品数量。若禁用，系统仅允许交付订购数量。"
 
 #. Description of the 'Set incoming rate as zero for expired Batch' (Check)
 #. field in DocType 'Selling Settings'
@@ -26047,7 +26047,7 @@ msgstr "入库"
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/subcontracting.json
 msgid "Inward Order"
-msgstr "委外入库订单"
+msgstr "受托加工订单"
 
 #. Label of the is_account_payable (Check) field in DocType 'Cheque Print
 #. Template'
@@ -26525,7 +26525,7 @@ msgstr "委外"
 #. Label of the is_sub_contracted_item (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Is Subcontracted Item"
-msgstr "是否为外包物料"
+msgstr "是否为委外物料"
 
 #. Label of the is_tax_withholding_account (Check) field in DocType 'Advance
 #. Taxes and Charges'
@@ -28118,7 +28118,7 @@ msgstr "物料{0}不允许库存"
 
 #: erpnext/manufacturing/doctype/production_plan/production_plan.py:958
 msgid "Item {0} is not a subcontracted item"
-msgstr "物料{0}非外协物料"
+msgstr "物料{0}不是委外物料"
 
 #: erpnext/stock/doctype/item/item.py:853
 msgid "Item {0} is not a template item."
@@ -28256,11 +28256,11 @@ msgstr "物料和定价"
 
 #: erpnext/controllers/accounts_controller.py:4294
 msgid "Items cannot be updated as Subcontracting Inward Order(s) exist against this Subcontracted Sales Order."
-msgstr "因存在针对此外包销售订单的外包收货订单，物料无法更新。"
+msgstr "因存在针对此受托加工销售订单的受托加工订单，物料无法更新。"
 
 #: erpnext/controllers/accounts_controller.py:4287
 msgid "Items cannot be updated as Subcontracting Order is created against the Purchase Order {0}."
-msgstr "因已针对采购订单{0}创建外协订单，物料不可更新"
+msgstr "因已针对采购订单{0}创建委外订单，物料不可更新"
 
 #: erpnext/selling/doctype/sales_order/sales_order.js:1479
 msgid "Items for Raw Material Request"
@@ -30008,7 +30008,7 @@ msgstr "创建物料移动"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.js:368
 msgid "Make Subcontracting PO"
-msgstr "创建外协采购订单"
+msgstr "创建委外采购订单"
 
 #: erpnext/manufacturing/doctype/workstation/workstation.js:427
 msgid "Make Transfer Entry"
@@ -30392,11 +30392,11 @@ msgstr "生产用户"
 
 #: erpnext/subcontracting/doctype/subcontracting_inward_order/subcontracting_inward_order.js:106
 msgid "Mapping Subcontracting Inward Order ..."
-msgstr "正在映射外包收货订单..."
+msgstr "正在映射受托加工订单..."
 
 #: erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.js:153
 msgid "Mapping Subcontracting Order ..."
-msgstr "正在映射外协订单..."
+msgstr "正在映射委外订单..."
 
 #: erpnext/public/js/utils.js:1110
 msgid "Mapping {0} ..."
@@ -33750,7 +33750,7 @@ msgstr "仅显示这些物料组中的物料"
 #. Description of the 'Customer' (Link) field in DocType 'Warehouse'
 #: erpnext/stock/doctype/warehouse/warehouse.json
 msgid "Only to be used for Subcontracting Inward."
-msgstr "仅用于外包收货"
+msgstr "仅用于受托加工"
 
 #. Description of the 'Rounding Loss Allowance' (Float) field in DocType
 #. 'Exchange Rate Revaluation'
@@ -41405,7 +41405,7 @@ msgstr "采购订单外发物料"
 
 #: erpnext/subcontracting/doctype/subcontracting_receipt/subcontracting_receipt.py:1020
 msgid "Purchase Order Item reference is missing in Subcontracting Receipt {0}"
-msgstr "分包收货单{0}中缺少采购订单项引用"
+msgstr "委外入库{0}中缺少采购订单项引用"
 
 #: erpnext/setup/doctype/email_digest/templates/default.html:186
 msgid "Purchase Order Items not received on time"
@@ -46211,7 +46211,7 @@ msgstr "第{0}行：资产{1}已售出。"
 
 #: erpnext/buying/doctype/purchase_order/purchase_order.py:337
 msgid "Row #{0}: BOM is not specified for subcontracting item {0}"
-msgstr "行号#{0}：外协物料{0}未指定物料清单（BOM）"
+msgstr "第 {0} 行：委外物料 {0} 未指定物料清单"
 
 #: erpnext/selling/doctype/sales_order/sales_order.py:302
 msgid "Row #{0}: BOM not found for FG Item {1}"
@@ -46223,7 +46223,7 @@ msgstr "第 {0} 行：批号 {1} 已被选择"
 
 #: erpnext/controllers/subcontracting_inward_controller.py:435
 msgid "Row #{0}: Batch No(s) {1} is not a part of the linked Subcontracting Inward Order. Please select valid Batch No(s)."
-msgstr "第{0}行：批次号{1}不属于关联的外包收货订单。请选择有效的批次号。"
+msgstr "第{0}行：批次号{1}不属于关联的受托加工订单。请选择有效的批次号。"
 
 #: erpnext/accounts/doctype/payment_entry/payment_entry.py:884
 msgid "Row #{0}: Cannot allocate more than {1} against payment term {2}"
@@ -46239,7 +46239,7 @@ msgstr "第 {0} 行：不能取消此生产物料移动，因为已生产的副�
 
 #: erpnext/controllers/subcontracting_inward_controller.py:483
 msgid "Row #{0}: Cannot cancel this Stock Entry as returned quantity cannot be greater than delivered quantity for Item {1} in the linked Subcontracting Inward Order"
-msgstr "第{0}行：无法取消本库存凭证，因关联外包收货订单中物料{1}的退货数量不得大于交付数量"
+msgstr "第{0}行：无法取消本库存凭证，因关联受托加工订单中物料{1}的退货数量不得大于交付数量"
 
 #: erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.py:78
 msgid "Row #{0}: Cannot create entry with different taxable AND withholding document links."
@@ -46315,13 +46315,13 @@ msgstr "行号#{0}：累计阈值不能小于单笔交易阈值"
 
 #: erpnext/controllers/subcontracting_inward_controller.py:90
 msgid "Row #{0}: Customer Provided Item {1} against Subcontracting Inward Order Item {2} ({3}) cannot be added multiple times."
-msgstr "第{0}行：针对外包收货订单物料{2}（{3}）的客户提供物料{1}不可重复添加。"
+msgstr "第{0}行：针对受托加工订单物料{2}（{3}）的客户提供物料{1}不可重复添加。"
 
 #: erpnext/controllers/subcontracting_inward_controller.py:178
 #: erpnext/controllers/subcontracting_inward_controller.py:304
 #: erpnext/controllers/subcontracting_inward_controller.py:352
 msgid "Row #{0}: Customer Provided Item {1} cannot be added multiple times in the Subcontracting Inward process."
-msgstr "第{0}行：客户提供物料{1}在外包收货流程中不可重复添加。"
+msgstr "第{0}行：客户提供物料{1}在受托加工流程中不可重复添加。"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.py:431
 msgid "Row #{0}: Customer Provided Item {1} cannot be added multiple times."
@@ -46329,19 +46329,19 @@ msgstr "第{0}行：客户提供物料{1}不可重复添加。"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.py:456
 msgid "Row #{0}: Customer Provided Item {1} does not exist in the Required Items table linked to the Subcontracting Inward Order."
-msgstr "第{0}行：客户提供物料{1}不存在于关联外包收货订单的所需物料表中。"
+msgstr "第{0}行：客户提供物料{1}不存在于关联受托加工订单的所需物料表中。"
 
 #: erpnext/controllers/subcontracting_inward_controller.py:288
 msgid "Row #{0}: Customer Provided Item {1} exceeds quantity available through Subcontracting Inward Order"
-msgstr "第{0}行：客户提供物料{1}超出外包收货订单可用数量"
+msgstr "第{0}行：客户提供物料{1}超出受托加工订单可用数量"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.py:444
 msgid "Row #{0}: Customer Provided Item {1} has insufficient quantity in the Subcontracting Inward Order. Available quantity is {2}."
-msgstr "第{0}行：外包收货订单中客户提供物料{1}数量不足。可用数量为{2}。"
+msgstr "第{0}行：受托加工订单中客户提供物料{1}数量不足。可用数量为{2}。"
 
 #: erpnext/controllers/subcontracting_inward_controller.py:315
 msgid "Row #{0}: Customer Provided Item {1} is not a part of Subcontracting Inward Order {2}"
-msgstr "第{0}行：客户提供物料{1}不属于外包收货订单{2}"
+msgstr "第{0}行：客户提供物料{1}不属于受托加工订单{2}"
 
 #: erpnext/controllers/subcontracting_inward_controller.py:220
 #: erpnext/controllers/subcontracting_inward_controller.py:363
@@ -46393,7 +46393,7 @@ msgstr "第 {0} 行：产成品 {1} 不能添加到副产品表格中。"
 #: erpnext/buying/doctype/purchase_order/purchase_order.py:355
 #: erpnext/selling/doctype/sales_order/sales_order.py:292
 msgid "Row #{0}: Finished Good Item {1} must be a sub-contracted item"
-msgstr "行号#{0}：产成品{1}必须为外协物料"
+msgstr "第 {0} 行：产成品 {1} 必须为委外物料"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:656
 msgid "Row #{0}: Finished Good must be {1}"
@@ -46467,7 +46467,7 @@ msgstr "第 {0} 行：物料 {1} 未启用序列号或批号管理，不能为�
 #: erpnext/controllers/subcontracting_inward_controller.py:115
 #: erpnext/controllers/subcontracting_inward_controller.py:496
 msgid "Row #{0}: Item {1} is not a part of Subcontracting Inward Order {2}"
-msgstr "第{0}行：物料{1}不属于外包收货订单{2}"
+msgstr "第{0}行：物料{1}不属于受托加工订单{2}"
 
 #: erpnext/assets/doctype/asset_capitalization/asset_capitalization.py:273
 msgid "Row #{0}: Item {1} is not a service item"
@@ -46524,7 +46524,7 @@ msgstr "第{0}行生产工单{3}成品数量{2}工序{1}未完成。请在生产
 #: erpnext/controllers/subcontracting_inward_controller.py:208
 #: erpnext/controllers/subcontracting_inward_controller.py:342
 msgid "Row #{0}: Overconsumption of Customer Provided Item {1} against Work Order {2} is not allowed in the Subcontracting Inward process."
-msgstr "第{0}行：外包收货流程中不允许超额消耗工作订单{2}对应的客户提供物料{1}。"
+msgstr "第{0}行：受托加工流程中不允许超额消耗工作订单{2}对应的客户提供物料{1}。"
 
 #: erpnext/manufacturing/doctype/production_plan/production_plan.py:1055
 msgid "Row #{0}: Please select Item Code in Assembly Items"
@@ -46594,7 +46594,7 @@ msgstr "第 {0} 行：物料 {1} 的数量必须大于 0"
 
 #: erpnext/controllers/subcontracting_inward_controller.py:537
 msgid "Row #{0}: Quantity of Item {1} cannot be more than {2} {3} against Subcontracting Inward Order {4}"
-msgstr "第{0}行：针对外包收货订单{4}，物料{1}的数量不得超过{2}{3}"
+msgstr "第{0}行：针对受托加工订单{4}，物料{1}的数量不得超过{2}{3}"
 
 #: erpnext/stock/doctype/stock_reservation_entry/stock_reservation_entry.py:1703
 msgid "Row #{0}: Quantity to reserve for the Item {1} should be greater than 0."
@@ -46675,7 +46675,7 @@ msgstr "第 {0} 行：序列号 {1} 已被选择"
 
 #: erpnext/controllers/subcontracting_inward_controller.py:424
 msgid "Row #{0}: Serial No(s) {1} are not a part of the linked Subcontracting Inward Order. Please select valid Serial No(s)."
-msgstr "第{0}行：序列号{1}不属于关联的外包收货订单。请选择有效的序列号。"
+msgstr "第{0}行：序列号{1}不属于关联的受托加工订单。请选择有效的序列号。"
 
 #: erpnext/controllers/accounts_controller.py:669
 msgid "Row #{0}: Service End Date cannot be before Invoice Posting Date"
@@ -46699,7 +46699,7 @@ msgstr "第{0}行：因已启用“追踪半成品”，物料清单{1}不可用
 
 #: erpnext/controllers/subcontracting_inward_controller.py:403
 msgid "Row #{0}: Source Warehouse must be same as Customer Warehouse {1} from the linked Subcontracting Inward Order"
-msgstr "第{0}行：源仓库必须与关联外包收货订单中的客户仓库{1}相同"
+msgstr "第{0}行：源仓库必须与关联受托加工订单中的客户仓库{1}相同"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.py:465
 msgid "Row #{0}: Source Warehouse {1} for item {2} cannot be a customer warehouse."
@@ -46764,7 +46764,7 @@ msgstr "第{0}行：物料{3}的库存数量{1}（{2}）不得超过{4}"
 
 #: erpnext/controllers/subcontracting_inward_controller.py:397
 msgid "Row #{0}: Target Warehouse must be same as Customer Warehouse {1} from the linked Subcontracting Inward Order"
-msgstr "第{0}行：目标仓库必须与关联外包收货订单中的客户仓库{1}相同"
+msgstr "第{0}行：目标仓库必须与关联受托加工订单中的客户仓库{1}相同"
 
 #: erpnext/controllers/stock_controller.py:371
 msgid "Row #{0}: The batch {1} has already expired."
@@ -46840,7 +46840,7 @@ msgstr "请为第 {1} 行的物料{0}输入仓库信息"
 
 #: erpnext/controllers/buying_controller.py:315
 msgid "Row #{idx}: Cannot select Supplier Warehouse while suppling raw materials to subcontractor."
-msgstr "行号#{idx}：外协供料时不可选择供应商仓库"
+msgstr "第 {idx} 行：向委外供应商提供原材料时不能选择供应商仓库"
 
 #: erpnext/controllers/buying_controller.py:671
 msgid "Row #{idx}: Item rate has been updated as per valuation rate since its an internal stock transfer."
@@ -47107,7 +47107,7 @@ msgstr "行号{0}：物料{1}必须为库存物料"
 
 #: erpnext/controllers/subcontracting_controller.py:167
 msgid "Row {0}: Item {1} must be a subcontracted item."
-msgstr "行号{0}：物料{1}必须为外协物料"
+msgstr "第 {0} 行：物料 {1} 必须为委外物料"
 
 #: erpnext/controllers/subcontracting_controller.py:184
 msgid "Row {0}: Item {1} must be linked to a {2}."
@@ -47219,7 +47219,7 @@ msgstr "行号{0}：折旧已处理后不可变更班次"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:2004
 msgid "Row {0}: Subcontracted Item is mandatory for the raw material {1}"
-msgstr "行号{0}：原材料{1}必须关联外协物料"
+msgstr "第 {0} 行：委外物料是原材料 {1} 的必填项"
 
 #: erpnext/controllers/stock_controller.py:1730
 msgid "Row {0}: Target Warehouse is mandatory for internal transfers"
@@ -51440,7 +51440,7 @@ msgstr "物料{0}必须指定来源仓库。"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.py:379
 msgid "Source Warehouse {0} must be same as Customer Warehouse {1} in the Subcontracting Inward Order."
-msgstr "源仓库{0}必须与外包收货订单中的客户仓库{1}相同。"
+msgstr "源仓库{0}必须与受托加工订单中的客户仓库{1}相同。"
 
 #: erpnext/assets/doctype/asset_movement/asset_movement.py:85
 msgid "Source and Target Location cannot be same"
@@ -52847,7 +52847,7 @@ msgstr "委外"
 #. 'Purchase Receipt Item'
 #: erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json
 msgid "Subcontract BOM"
-msgstr "外协物料清单"
+msgstr "委外物料清单"
 
 #: erpnext/buying/report/subcontract_order_summary/subcontract_order_summary.js:36
 #: erpnext/buying/report/subcontract_order_summary/subcontract_order_summary.py:128
@@ -52892,7 +52892,7 @@ msgstr "待入库委外成品"
 
 #: erpnext/stock/doctype/material_request/material_request.js:227
 msgid "Subcontracted Purchase Order"
-msgstr "外协采购订单"
+msgstr "委外采购订单"
 
 #. Label of the subcontracted_qty (Float) field in DocType 'Purchase Order
 #. Item'
@@ -52900,7 +52900,7 @@ msgstr "外协采购订单"
 #: erpnext/buying/doctype/purchase_order_item/purchase_order_item.json
 #: erpnext/selling/doctype/sales_order_item/sales_order_item.json
 msgid "Subcontracted Quantity"
-msgstr "外协数量"
+msgstr "委外数量"
 
 #. Name of a report
 #. Label of a Link in the Buying Workspace
@@ -52950,7 +52950,7 @@ msgstr "委外物料清单"
 #: erpnext/subcontracting/doctype/subcontracting_inward_order_item/subcontracting_inward_order_item.json
 #: erpnext/subcontracting/doctype/subcontracting_order_item/subcontracting_order_item.json
 msgid "Subcontracting Conversion Factor"
-msgstr "外协转换系数"
+msgstr "委外转换系数"
 
 #. Option for the 'Purpose' (Select) field in DocType 'Stock Entry'
 #. Option for the 'Purpose' (Select) field in DocType 'Stock Entry Type'
@@ -52963,18 +52963,18 @@ msgstr "外协转换系数"
 #: erpnext/subcontracting/workspace/subcontracting/subcontracting.json
 #: erpnext/workspace_sidebar/subcontracting.json
 msgid "Subcontracting Delivery"
-msgstr "外包交货"
+msgstr "受托加工交付"
 
 #: erpnext/stock/report/item_where_used/item_where_used.py:360
 msgid "Subcontracting Finished Good"
-msgstr "外协成品"
+msgstr "委外成品"
 
 #. Label of the subcontracting_inward_tab (Tab Break) field in DocType 'Selling
 #. Settings'
 #: erpnext/selling/doctype/sales_order/sales_order_dashboard.py:33
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Subcontracting Inward"
-msgstr "外包收货"
+msgstr "受托加工"
 
 #. Label of the subcontracting_inward_order (Link) field in DocType 'Work
 #. Order'
@@ -52996,12 +52996,12 @@ msgstr "外包收货"
 #: erpnext/subcontracting/workspace/subcontracting/subcontracting.json
 #: erpnext/workspace_sidebar/subcontracting.json
 msgid "Subcontracting Inward Order"
-msgstr "外包收货订单"
+msgstr "受托加工订单"
 
 #. Label of a number card in the Subcontracting Workspace
 #: erpnext/subcontracting/workspace/subcontracting/subcontracting.json
 msgid "Subcontracting Inward Order Count"
-msgstr "委外入库订单数量"
+msgstr "受托加工订单数量"
 
 #. Label of the subcontracting_inward_order_item (Data) field in DocType 'Work
 #. Order'
@@ -53009,22 +53009,22 @@ msgstr "委外入库订单数量"
 #: erpnext/manufacturing/doctype/work_order/work_order.json
 #: erpnext/subcontracting/doctype/subcontracting_inward_order_item/subcontracting_inward_order_item.json
 msgid "Subcontracting Inward Order Item"
-msgstr "外包收货订单物料"
+msgstr "受托加工订单物料"
 
 #. Name of a DocType
 #: erpnext/subcontracting/doctype/subcontracting_inward_order_received_item/subcontracting_inward_order_received_item.json
 msgid "Subcontracting Inward Order Received Item"
-msgstr "外包收货订单收货物料"
+msgstr "受托加工订单收货物料"
 
 #. Name of a DocType
 #: erpnext/subcontracting/doctype/subcontracting_inward_order_secondary_item/subcontracting_inward_order_secondary_item.json
 msgid "Subcontracting Inward Order Secondary Item"
-msgstr "委外入库订单副产品"
+msgstr "受托加工订单副产品"
 
 #. Name of a DocType
 #: erpnext/subcontracting/doctype/subcontracting_inward_order_service_item/subcontracting_inward_order_service_item.json
 msgid "Subcontracting Inward Order Service Item"
-msgstr "外包收货订单服务物料"
+msgstr "受托加工订单服务物料"
 
 #. Label of a Link in the Manufacturing Workspace
 #. Label of the subcontracting_order (Link) field in DocType 'Stock Entry'
@@ -53077,7 +53077,7 @@ msgstr "委外订单原材料明细"
 
 #: erpnext/buying/doctype/purchase_order/purchase_order.py:977
 msgid "Subcontracting Order {0} created."
-msgstr "外协订单{0}已创建"
+msgstr "委外订单{0}已创建"
 
 #. Label of a chart in the Subcontracting Workspace
 #. Label of a Card Break in the Subcontracting Workspace
@@ -53094,7 +53094,7 @@ msgstr "委外发料订单数量"
 #. Label of the purchase_order (Link) field in DocType 'Subcontracting Order'
 #: erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.json
 msgid "Subcontracting Purchase Order"
-msgstr "委外采购"
+msgstr "委外采购订单"
 
 #. Label of a Link in the Manufacturing Workspace
 #. Option for the 'Receipt Document Type' (Select) field in DocType 'Landed
@@ -53141,17 +53141,17 @@ msgstr "委外入库原材料明细"
 #: erpnext/stock/doctype/stock_entry/stock_entry.json
 #: erpnext/stock/doctype/stock_entry_type/stock_entry_type.json
 msgid "Subcontracting Return"
-msgstr "外包退货"
+msgstr "委外退货"
 
 #. Label of the sales_order (Link) field in DocType 'Subcontracting Inward
 #. Order'
 #: erpnext/subcontracting/doctype/subcontracting_inward_order/subcontracting_inward_order.json
 msgid "Subcontracting Sales Order"
-msgstr "外包销售订单"
+msgstr "受托加工销售订单"
 
 #: erpnext/stock/report/item_where_used/item_where_used.py:334
 msgid "Subcontracting Service Item"
-msgstr "外协服务物料"
+msgstr "委外服务物料"
 
 #. Label of the subcontract (Tab Break) field in DocType 'Buying Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
@@ -54294,7 +54294,7 @@ msgstr "目标仓库预留错误"
 
 #: erpnext/controllers/subcontracting_inward_controller.py:232
 msgid "Target Warehouse for Finished Good must be same as Finished Good Warehouse {1} in Work Order {2} linked to the Subcontracting Inward Order."
-msgstr "产成品的目标仓库必须与关联外包收货订单的工作订单{2}中的产成品仓库{1}相同。"
+msgstr "产成品的目标仓库必须与关联受托加工订单的工作订单{2}中的产成品仓库{1}相同。"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.py:924
 msgid "Target Warehouse is required before Submit"
@@ -54306,7 +54306,7 @@ msgstr "部分物料设置了目标仓库，但客户不是内部客户"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.py:395
 msgid "Target Warehouse {0} must be same as Delivery Warehouse {1} in the Subcontracting Inward Order Item."
-msgstr "目标仓库{0}必须与外包收货订单物料中的交货仓库{1}相同。"
+msgstr "目标仓库{0}必须与受托加工订单物料中的交货仓库{1}相同。"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:972
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:978
@@ -56012,11 +56012,11 @@ msgstr "此付款单已与 {0} 完成核销。取消单据将自动撤销核销�
 
 #: erpnext/buying/doctype/purchase_order/purchase_order.py:986
 msgid "This Purchase Order has been fully subcontracted."
-msgstr "本采购订单已完全外包。"
+msgstr "本采购订单已全部生成委外单据。"
 
 #: erpnext/selling/doctype/sales_order/sales_order.py:2069
 msgid "This Sales Order has been fully subcontracted."
-msgstr "本销售订单已完全外包。"
+msgstr "本销售订单已全部生成受托加工单据。"
 
 #: erpnext/setup/doctype/email_digest/email_digest.py:179
 msgid "This Week's Summary"
@@ -56814,7 +56814,7 @@ msgstr "要添加操作，请勾选“包含操作”复选框。"
 
 #: erpnext/manufacturing/doctype/production_plan/production_plan.js:739
 msgid "To add subcontracted Item's raw materials if include exploded items is disabled."
-msgstr "如果禁用包含爆炸项，则添加分包项的原材料。"
+msgstr "未启用展开物料时，添加委外物料的原材料。"
 
 #: erpnext/controllers/status_updater.py:495
 msgid "To allow over billing, update \"Over Billing Allowance\" in Accounts Settings or the Item."
@@ -61023,7 +61023,7 @@ msgstr "警告：物料需求数量低于最小起订量"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.py:1630
 msgid "Warning: Quantity exceeds maximum producible quantity based on quantity of raw materials received through the Subcontracting Inward Order {0}."
-msgstr "警告：数量超过基于外包收货订单{0}接收的原材料数量的最大可生产数量。"
+msgstr "警告：数量超过基于受托加工订单{0}接收的原材料数量的最大可生产数量。"
 
 #: erpnext/selling/doctype/sales_order/sales_order.py:349
 msgid "Warning: Sales Order {0} already exists against Customer's Purchase Order {1}"
@@ -63343,7 +63343,7 @@ msgstr "{doctype}{name}已取消或关闭"
 
 #: erpnext/controllers/buying_controller.py:723
 msgid "{field_label} is mandatory for sub-contracted {doctype}."
-msgstr "外协{doctype}必须填写{field_label}"
+msgstr "委外{doctype}必须填写{field_label}"
 
 #: erpnext/controllers/stock_controller.py:2383
 msgid "{item_name}'s Sample Size ({sample_size}) cannot be greater than the Accepted Quantity ({accepted_quantity})"

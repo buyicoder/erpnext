@@ -74,6 +74,10 @@ expected_translations = {
 	"Creating demo data": "正在创建演示数据",
 	"BOM Stock Analysis": "物料清单库存分析",
 	"Subcontracting Setup": "委外设置",
+	"Subcontracting Inward Order": "受托加工订单",
+	"Subcontracting Delivery": "受托加工交付",
+	"Subcontracted Purchase Order": "委外采购订单",
+	"Subcontract BOM": "委外物料清单",
 	"Stock Reservation Entries created": "已创建库存预留单",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
