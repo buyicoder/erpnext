@@ -84,6 +84,7 @@ CORE_OPERATIONAL_MASTER_DOCTYPES = {
 	"Bank Transaction",
 	"Branch",
 	"Brand",
+	"Buying Settings",
 	"Department",
 	"Dunning",
 	"Employee",
@@ -99,6 +100,7 @@ CORE_OPERATIONAL_MASTER_DOCTYPES = {
 	"Promotional Scheme",
 	"Sales Partner",
 	"Sales Person",
+	"Selling Settings",
 	"Shipping Rule",
 	"Task Type",
 	"Territory",
@@ -740,6 +742,30 @@ class TestZhFinanceTranslations(TestCase):
 			"Used for inter-company transactions": "用于公司间交易",
 			"For project - {0}, update your status": "请更新项目 {0} 的状态",
 			"On hold": "已暂停",
+		}
+
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+
+	def test_buying_and_selling_settings_use_reviewed_chinese_terms(self):
+		translations = {
+			"Action if same rate is not maintained": "未保持相同单价时的处理方式",
+			"Action if same rate is not maintained throughout sales cycle": "销售全流程未保持相同单价时的处理方式",
+			"Allow Sales Order creation for expired Quotation": "允许从已过期报价单创建销售订单",
+			"Allow editing Price List rate in transactions": "允许在交易单据中修改价目表单价",
+			"Allow multiple Sales Orders against a customer's Purchase Order": "允许同一客户采购订单对应多张销售订单",
+			"Backflush raw materials of subcontract based on": "委外原材料倒冲依据",
+			"Bill for rejected quantity in Purchase Invoice": "采购发票包含拒收数量",
+			"Blanket Orders": "框架订单",
+			"Disable last purchase rate": "禁用最近采购单价",
+			"Enable discount accounting for selling": "启用销售折扣核算",
+			"Is Delivery Note required to create Sales Invoice?": "创建销售发票前是否必须有送货单？",
+			"Is Purchase Order required for Purchase Invoice & Receipt creation?": "创建采购发票和采购入库单前是否必须有采购订单？",
+			"Maintain same rate throughout sales cycle": "销售全流程保持相同单价",
+			"Maintain same rate throughout the purchase  cycle": "采购全流程保持相同单价",
+			"Over Order Allowance (%)": "超订容差（%）",
+			"Validate selling price for Item against purchase or valuation rate": "根据采购单价或估值单价校验物料销售单价",
+			"Zero-Quantity Line Items": "零数量明细行",
 		}
 
 		for source, translation in translations.items():

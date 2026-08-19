@@ -2430,7 +2430,7 @@ msgstr ""
 #. Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "Action if same rate is not maintained"
-msgstr ""
+msgstr "未保持相同单价时的处理方式"
 
 #. Label of the maintain_same_rate_action (Select) field in DocType 'Accounts
 #. Settings'
@@ -2442,7 +2442,7 @@ msgstr "内部交易未保持相同单价时的处理方式"
 #. Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Action if same rate is not maintained throughout sales cycle"
-msgstr ""
+msgstr "销售全流程未保持相同单价时的处理方式"
 
 #. Label of the action_on_new_invoice (Select) field in DocType 'POS Profile'
 #: erpnext/accounts/doctype/pos_profile/pos_profile.json
@@ -3526,7 +3526,7 @@ msgstr "仅获取关联了订单的预付款"
 #. Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Advanced Features"
-msgstr ""
+msgstr "高级功能"
 
 #. Label of the advanced_filtering (Check) field in DocType 'Financial Report
 #. Row'
@@ -4240,7 +4240,7 @@ msgstr "允许在交易中物料号重复"
 #. Label of the allow_multiple_items (Check) field in DocType 'Buying Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "Allow Item to be added multiple times in a transaction"
-msgstr ""
+msgstr "允许同一物料在单据中重复添加"
 
 #. Label of the allow_lead_duplication_based_on_emails (Check) field in DocType
 #. 'CRM Settings'
@@ -4305,7 +4305,7 @@ msgstr "允许零数量采购订单"
 #. Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Allow Quotation with zero quantity"
-msgstr ""
+msgstr "允许报价单包含零数量物料"
 
 #. Label of the allow_rename_attribute_value (Check) field in DocType 'Item
 #. Variant Settings'
@@ -4339,13 +4339,13 @@ msgstr "允许销售"
 #. in DocType 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Allow Sales Order creation for expired Quotation"
-msgstr ""
+msgstr "允许从已过期报价单创建销售订单"
 
 #. Label of the allow_zero_qty_in_sales_order (Check) field in DocType 'Selling
 #. Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Allow Sales Order with zero quantity"
-msgstr ""
+msgstr "允许销售订单包含零数量物料"
 
 #. Label of the allow_stale (Check) field in DocType 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
@@ -4414,13 +4414,13 @@ msgstr "成本价为0"
 #. 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Allow delivery of overproduced quantity"
-msgstr ""
+msgstr "允许交付超产数量"
 
 #. Label of the editable_price_list_rate (Check) field in DocType 'Selling
 #. Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Allow editing Price List rate in transactions"
-msgstr ""
+msgstr "允许在交易单据中修改价目表单价"
 
 #. Label of the allow_existing_serial_no (Check) field in DocType 'Stock
 #. Settings'
@@ -4450,7 +4450,7 @@ msgstr "允许单方账户开具多币种发票"
 #. 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Allow multiple Sales Orders against a customer's Purchase Order"
-msgstr ""
+msgstr "允许同一客户采购订单对应多张销售订单"
 
 #. Label of the allow_negative_rates_for_items (Check) field in DocType 'Buying
 #. Settings'
@@ -4459,7 +4459,7 @@ msgstr ""
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Allow negative rates for Items"
-msgstr ""
+msgstr "允许物料使用负单价"
 
 #. Label of the allow_negative_stock (Check) field in DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
@@ -4504,13 +4504,13 @@ msgstr "允许不经销售订单直接创建销售发票"
 #. DocType 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Allow sales transactions with zero quantities if the rate is fixed but the quantities are not. e.g. Rate Contracts"
-msgstr ""
+msgstr "当单价已确定但数量尚未确定时，允许零数量销售交易，例如单价合同。"
 
 #. Label of the allow_multiple_items (Check) field in DocType 'Selling
 #. Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Allow same Item to be added multiple times in a transaction"
-msgstr ""
+msgstr "允许同一物料在单据中重复添加"
 
 #. Description of the 'Allow Negative Stock' (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
@@ -6655,7 +6655,7 @@ msgstr "在上述天数之后自动关闭已回复商机"
 #. Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "Auto create Purchase Receipt"
-msgstr ""
+msgstr "自动创建采购入库单"
 
 #. Label of the auto_create_serial_and_batch_bundle_for_outward (Check) field
 #. in DocType 'Stock Settings'
@@ -6667,7 +6667,7 @@ msgstr ""
 #. 'Buying Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "Auto create Subcontracting Order"
-msgstr ""
+msgstr "自动创建委外加工订单"
 
 #. Label of the auto_create_assets (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
@@ -7402,7 +7402,7 @@ msgstr "从车间仓耗用原材料"
 #. in DocType 'Buying Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "Backflush raw materials of subcontract based on"
-msgstr ""
+msgstr "委外原材料倒冲依据"
 
 #. Label of the balance (Currency) field in DocType 'Bank Account Balance'
 #. Option for the 'Maps To' (Select) field in DocType 'Bank Statement Import
@@ -8416,7 +8416,7 @@ msgstr "发票号"
 #. DocType 'Buying Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "Bill for rejected quantity in Purchase Invoice"
-msgstr ""
+msgstr "采购发票包含拒收数量"
 
 #. Label of a Card Break in the Manufacturing Workspace
 #. Label of a Link in the Manufacturing Workspace
@@ -8759,7 +8759,7 @@ msgstr "框架订单单价"
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Blanket Orders"
-msgstr ""
+msgstr "框架订单"
 
 #: erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:109
 #: erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:269
@@ -9419,7 +9419,7 @@ msgstr "计算预计到达时间"
 #. Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Calculate Product Bundle price based on child Item's rates"
-msgstr ""
+msgstr "根据子物料单价计算产品组合价格"
 
 #. Description of the 'Hidden Line (Internal Use Only)' (Check) field in
 #. DocType 'Financial Report Row'
@@ -12150,7 +12150,7 @@ msgstr "配置产品组装"
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Configure Series"
-msgstr ""
+msgstr "配置编号规则"
 
 #: banking/src/components/features/BankReconciliation/MatchFilters.tsx:21
 #: banking/src/components/features/BankReconciliation/MatchFilters.tsx:27
@@ -16501,7 +16501,7 @@ msgstr "标记直发交付"
 #. Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Deliver secondary Items"
-msgstr ""
+msgstr "交付副产品"
 
 #: erpnext/stock/report/item_wise_consumption/item_wise_consumption.py:64
 msgid "Delivered Amount"
@@ -17381,7 +17381,7 @@ msgstr "停用单笔起征点"
 #. Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "Disable last purchase rate"
-msgstr ""
+msgstr "禁用最近采购单价"
 
 #. Description of the 'Disabled' (Check) field in DocType 'Financial Report
 #. Template'
@@ -18119,7 +18119,7 @@ msgstr "不重新计算税额"
 #. DocType 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Don't reserve Sales Order qty on sales return"
-msgstr ""
+msgstr "销售退货时不预留销售订单数量"
 
 #. Label of the doors (Int) field in DocType 'Vehicle'
 #: erpnext/setup/doctype/vehicle/vehicle.json
@@ -19146,12 +19146,12 @@ msgstr "在发票中跟踪订阅"
 #. Label of the enable_utm (Check) field in DocType 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Enable UTM"
-msgstr ""
+msgstr "启用营销来源追踪"
 
 #. Description of the 'Enable UTM' (Check) field in DocType 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Enable Urchin Tracking Module parameters in Quotation, Sales Order, Sales Invoice, POS Invoice, Lead,  and Delivery Note."
-msgstr ""
+msgstr "在报价单、销售订单、销售发票、POS 发票、销售线索和送货单中启用 UTM 营销来源参数。"
 
 #. Label of the enable_youtube_tracking (Check) field in DocType 'Video
 #. Settings'
@@ -19173,13 +19173,13 @@ msgstr "启用成本中心、项目及其他自定义辅助核算维度"
 #. in DocType 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Enable cut-off date on creating bulk Delivery Notes"
-msgstr ""
+msgstr "批量创建送货单时启用截止日期"
 
 #. Label of the enable_discount_accounting (Check) field in DocType 'Selling
 #. Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Enable discount accounting for selling"
-msgstr ""
+msgstr "启用销售折扣核算"
 
 #. Description of the 'Delivered by Supplier (Drop Ship)' (Check) field in
 #. DocType 'Item'
@@ -19246,13 +19246,13 @@ msgstr "勾选此选项按天折旧将基于折旧期间总天数"
 #. 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Enable this option to permit the use of negative rates for items in sales transactions. This setting is useful for applying substantial discounts, processing refunds or returns, and handling special promotional pricing."
-msgstr ""
+msgstr "启用后，销售交易中的物料可使用负单价，适用于大额折扣、退款或退货以及特殊促销定价。"
 
 #. Description of the 'Validate selling price for Item against purchase or
 #. valuation rate' (Check) field in DocType 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Enable this to block transactions where the selling price is less than the purchase or valuation rate"
-msgstr ""
+msgstr "启用后，当销售单价低于采购单价或估值单价时阻止交易"
 
 #: erpnext/support/doctype/service_level_agreement/service_level_agreement.js:34
 msgid "Enable to apply SLA on every {0}"
@@ -19272,7 +19272,7 @@ msgstr "启用后从每个批次留取少量样品，供后续检验分析。"
 #. 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Enable tracking sales commissions"
-msgstr ""
+msgstr "启用销售佣金跟踪"
 
 #. Description of the 'Fetch Timesheet in Sales Invoice' (Check) field in
 #. DocType 'Projects Settings'
@@ -19317,7 +19317,7 @@ msgid "Enabling this will do the following:\n"
 "<li>Calculate the prices of all <a href=\"/desk/product-bundle\" rel=\"noopener noreferrer\">Product Bundles</a> in the Items table, based on the prices of its child Items, specified in the Packed/Bundle Items table. </li>\n"
 "</ul>\n"
 "Note: If this is enabled, updating the rate of the Product Bundle in the Items table will not change its price. It will get reset to the price based on its Child Items on saving the doc."
-msgstr ""
+msgstr "启用后将执行以下操作：\n<ul style=\"padding-left:16px\">\n<li>允许编辑所有包装物料/组合物料表中的单价列。</li>\n<li>根据包装物料/组合物料表中各子物料的单价，计算物料表中所有<a href=\"/desk/product-bundle\" rel=\"noopener noreferrer\">产品组合</a>的价格。</li>\n</ul>\n注意：启用后，在物料表中修改产品组合的单价不会改变其最终价格；保存单据时，系统会按子物料单价重新计算。"
 
 #. Label of the encashment_date (Date) field in DocType 'Employee'
 #: erpnext/setup/doctype/employee/employee.json
@@ -23294,7 +23294,7 @@ msgstr "隐藏货币符号"
 #. Label of the hide_tax_id (Check) field in DocType 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Hide Customer's Tax ID from sales transactions"
-msgstr ""
+msgstr "在销售交易中隐藏客户纳税人识别号"
 
 #. Label of the hide_when_empty (Check) field in DocType 'Financial Report Row'
 #: erpnext/accounts/doctype/financial_report_row/financial_report_row.json
@@ -23452,13 +23452,13 @@ msgstr ""
 #. Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "How often should project be updated of Total Purchase Cost ?"
-msgstr ""
+msgstr "项目采购总成本多久更新一次？"
 
 #. Label of the sales_update_frequency (Select) field in DocType 'Selling
 #. Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "How often should sales data be updated in Company/Project?"
-msgstr ""
+msgstr "公司和项目的销售数据多久更新一次？"
 
 #. Description of the 'Data Source' (Select) field in DocType 'Financial Report
 #. Row'
@@ -23771,13 +23771,13 @@ msgstr "若启用，系统将允许用户交付针对外包收货订单生产的
 #. field in DocType 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "If enabled, system will set incoming rate as zero for stand-alone credit notes with expired batch item."
-msgstr ""
+msgstr "启用后，对于包含已过期批次物料的独立贷项通知单，系统会将入库单价设为零。"
 
 #. Description of the 'Deliver secondary Items' (Check) field in DocType
 #. 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "If enabled, the Secondary Items generated against a Finished Good will also be added in the Stock Entry when delivering that Finished Good."
-msgstr ""
+msgstr "启用后，交付产成品时，该产成品对应生成的副产品也会加入库存单。"
 
 #. Description of the 'Disable Rounded Total' (Check) field in DocType 'POS
 #. Profile'
@@ -23893,7 +23893,7 @@ msgstr "若多个定价规则持续生效，系统将要求用户手动设置优
 #. field in DocType 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "If no Item Price is found for an item in the Price List set in the transaction, prices from the Default Price List will be fetched."
-msgstr ""
+msgstr "如果在交易所用价目表中找不到物料价格，系统将从默认价目表获取价格。"
 
 #. Description of the 'Automatically add taxes from Taxes and Charges Template'
 #. (Check) field in DocType 'Accounts Settings'
@@ -26176,7 +26176,7 @@ msgstr "是否默认语言"
 #. Label of the dn_required (Select) field in DocType 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Is Delivery Note required to create Sales Invoice?"
-msgstr ""
+msgstr "创建销售发票前是否必须有送货单？"
 
 #. Label of the is_discounted (Check) field in DocType 'POS Invoice'
 #. Label of the is_discounted (Check) field in DocType 'Sales Invoice'
@@ -26396,12 +26396,12 @@ msgstr ""
 #. Label of the po_required (Select) field in DocType 'Buying Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "Is Purchase Order required for Purchase Invoice & Receipt creation?"
-msgstr ""
+msgstr "创建采购发票和采购入库单前是否必须有采购订单？"
 
 #. Label of the pr_required (Select) field in DocType 'Buying Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "Is Purchase Receipt required for Purchase Invoice creation?"
-msgstr ""
+msgstr "创建采购发票前是否必须有采购入库单？"
 
 #. Label of the is_debit_note (Check) field in DocType 'Sales Invoice'
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.json
@@ -26463,7 +26463,7 @@ msgstr "规则是否已执行"
 #. Label of the so_required (Select) field in DocType 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Is Sales Order required to create Sales Invoice/Delivery Note?"
-msgstr ""
+msgstr "创建销售发票或送货单前是否必须有销售订单？"
 
 #. Label of the is_short_year (Check) field in DocType 'Fiscal Year'
 #: erpnext/accounts/doctype/fiscal_year/fiscal_year.json
@@ -29724,12 +29724,12 @@ msgstr "内部交易全程保持相同单价"
 #. Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Maintain same rate throughout sales cycle"
-msgstr ""
+msgstr "销售全流程保持相同单价"
 
 #. Label of the maintain_same_rate (Check) field in DocType 'Buying Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "Maintain same rate throughout the purchase  cycle"
-msgstr ""
+msgstr "采购全流程保持相同单价"
 
 #. Group in Asset's connections
 #. Label of a Card Break in the Assets Workspace
@@ -30026,7 +30026,7 @@ msgstr "管理成本"
 #. DocType 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Manage sales partner's and sales team's commissions"
-msgstr ""
+msgstr "管理销售合作伙伴和销售团队的佣金"
 
 #: erpnext/utilities/activation.py:95
 msgid "Manage your orders"
@@ -31737,7 +31737,7 @@ msgstr "超过/不足12个月"
 #. field in DocType 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Most Customers have a unique Tax ID that is fetched into selling transactions. Enable this setting if you do not want Customer Tax IDs to appear in sales transactions."
-msgstr ""
+msgstr "通常每个客户都有唯一的纳税人识别号，系统会将其带入销售交易。若不希望在销售交易中显示客户纳税人识别号，请启用此设置。"
 
 #: erpnext/setup/setup_wizard/data/industry_type.txt:32
 msgid "Motion Picture & Video"
@@ -31923,7 +31923,7 @@ msgstr "命名规则为必填项"
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Naming Series options"
-msgstr ""
+msgstr "编号规则选项"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:950
 msgid "Naming series '{0}' for DocType '{1}' does not contain standard '.' or '{{' separator. Using fallback extraction."
@@ -34808,7 +34808,7 @@ msgstr "超量出/入库比率(%)"
 #. Label of the over_order_allowance (Float) field in DocType 'Buying Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "Over Order Allowance (%)"
-msgstr ""
+msgstr "超订容差（%）"
 
 #. Label of the over_picking_allowance (Percent) field in DocType 'Stock
 #. Settings'
@@ -39515,13 +39515,13 @@ msgstr "预防性维护(保养)"
 #. field in DocType 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Prevents the automatic reservation of stock quantities from sales orders when processing sales returns."
-msgstr ""
+msgstr "处理销售退货时，防止系统自动按销售订单数量预留库存。"
 
 #. Description of the 'Disable last purchase rate' (Check) field in DocType
 #. 'Buying Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "Prevents the system from automatically using the rate from the last purchase transaction when creating new purchase orders or transactions."
-msgstr ""
+msgstr "新建采购订单或采购交易时，防止系统自动使用最近一次采购单价。"
 
 #. Label of the preview (Button) field in DocType 'Request for Quotation'
 #: erpnext/buying/doctype/request_for_quotation/request_for_quotation.js:267
@@ -41245,7 +41245,7 @@ msgstr "采购发票明细"
 #. DocType 'Buying Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "Purchase Invoice Settings"
-msgstr ""
+msgstr "采购发票设置"
 
 #. Name of a report
 #. Label of a Link in the Financial Reports Workspace
@@ -43288,7 +43288,7 @@ msgstr "发往客户的原材料"
 #. in DocType 'Buying Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "Raw materials consumed qty will be validated based on FG BOM required qty"
-msgstr ""
+msgstr "按产成品物料清单的需求数量校验原材料耗用数量"
 
 #: banking/src/components/features/BankStatementImporter/PDF/PDFTableEditor.tsx:194
 msgid "Re-extracting"
@@ -50318,7 +50318,7 @@ msgstr "选择从主单据带出的关联字段"
 #. 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Set incoming rate as zero for expired Batch"
-msgstr ""
+msgstr "将已过期批次的入库单价设为零"
 
 #: erpnext/manufacturing/doctype/bom/bom.js:1028
 msgid "Set quantity of process loss item:"
@@ -50369,7 +50369,7 @@ msgstr ""
 #. DocType 'Buying Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "Set valuation rate for rejected Materials"
-msgstr ""
+msgstr "为拒收物料设置估值单价"
 
 #: erpnext/assets/doctype/asset/asset.py:902
 msgid "Set {0} in asset category {1} for company {2}"
@@ -51068,7 +51068,7 @@ msgstr "仅显示即将到期的条款"
 #. Label of the show_pay_button (Check) field in DocType 'Buying Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "Show pay button in Purchase Order portal"
-msgstr ""
+msgstr "在采购订单门户中显示付款按钮"
 
 #: erpnext/stock/utils.py:567
 msgid "Show pending entries"
@@ -53582,7 +53582,7 @@ msgstr "供应商联系人"
 #. 'Buying Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "Supplier Defaults"
-msgstr ""
+msgstr "供应商默认设置"
 
 #. Label of the supplier_delivery_note (Data) field in DocType 'Purchase
 #. Receipt'
@@ -55542,7 +55542,7 @@ msgstr "已创建以下{0}：{1}"
 #. Company/Project?' (Select) field in DocType 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "The frequency at which project progress and company transaction details will be updated. Set it to daily or monthly if you post a lot of transactions."
-msgstr ""
+msgstr "更新项目进度和公司交易明细的频率。如果交易量较大，建议设为每天或每月。"
 
 #. Description of the 'Gross Weight' (Float) field in DocType 'Packing Slip'
 #: erpnext/stock/doctype/packing_slip/packing_slip.json
@@ -55635,7 +55635,7 @@ msgstr "计划{0}中的支付网关账户与此收付款申请中的支付网关
 #. 'Buying Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "The percentage by which you are allowed to order more on a Purchase Order than the quantity requested on the originating Material Request. For example, if the Material Request has 100 units and the allowance is 10%, you can order up to 110 units"
-msgstr ""
+msgstr "采购订单允许超过原物料需求单数量的百分比。例如，物料需求单为 100 个、容差为 10% 时，最多可订购 110 个。"
 
 #. Description of the 'Over Billing Allowance (%)' (Currency) field in DocType
 #. 'Accounts Settings'
@@ -56018,7 +56018,7 @@ msgstr "此操作将取消此账户与将ERPNext与您的银行账户集成的�
 #. (Check) field in DocType 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "This allows creation of sales orders from quotations that have passed their expiration date, providing flexibility in processing orders despite outdated quotes."
-msgstr ""
+msgstr "允许从已过有效期的报价单创建销售订单，以便在报价过期后仍可灵活处理订单。"
 
 #: erpnext/assets/doctype/asset/asset.py:435
 msgid "This asset category is marked as non-depreciable. Please disable depreciation calculation or choose a different category."
@@ -59551,7 +59551,7 @@ msgstr "期末结账凭证使用旧版控制器"
 #. 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Use prices from Default Price List as fallback"
-msgstr ""
+msgstr "找不到价格时使用默认价目表"
 
 #. Description of the 'Sales Order Date' (Date) field in DocType 'Sales Order
 #. Item'
@@ -59853,13 +59853,13 @@ msgstr "保存时检查库存"
 #. Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "Validate consumed quantity (as per BOM)"
-msgstr ""
+msgstr "按物料清单校验耗用数量"
 
 #. Label of the validate_selling_price (Check) field in DocType 'Selling
 #. Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Validate selling price for Item against purchase or valuation rate"
-msgstr ""
+msgstr "根据采购单价或估值单价校验物料销售单价"
 
 #. Label of the validity_details_section (Section Break) field in DocType
 #. 'Lower Deduction Certificate'
@@ -60973,13 +60973,13 @@ msgstr "创建新询价时弹出警告信息"
 #. in DocType 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Warn or stop if Item rate is changed in Delivery Notes and Sales Invoices generated from a Sales Order."
-msgstr ""
+msgstr "如果由销售订单生成的送货单或销售发票修改了物料单价，则发出警告或阻止提交。"
 
 #. Description of the 'Maintain same rate throughout the purchase  cycle'
 #. (Check) field in DocType 'Buying Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "Warn or stop if Item rate is changed in Purchase Invoice or Purchase Receipt generated from a Purchase Order."
-msgstr ""
+msgstr "如果由采购订单生成的采购发票或采购入库单修改了物料单价，则发出警告或阻止提交。"
 
 #: erpnext/projects/doctype/timesheet_detail/timesheet_detail.py:134
 msgid "Warning - Row {0}: Billing Hours are more than Actual Hours"
@@ -61321,7 +61321,7 @@ msgstr "创建物料时填写此字段值，将自动在后台创建物料价格
 #. (Check) field in DocType 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "When enabled, it adds a cutoff date filter to Delivery Notes created in bulk from Sales Orders. This allows you to process orders only with a transaction date up to the specified cutoff date, which is useful for period-end processing and batch fulfillment."
-msgstr ""
+msgstr "启用后，从销售订单批量创建送货单时会增加截止日期筛选，只处理交易日期不晚于指定截止日期的订单，适用于期末处理和批量履约。"
 
 #. Description of the 'Block Supplier' (Check) field in DocType 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
@@ -62278,7 +62278,7 @@ msgstr "零数量"
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Zero-Quantity Line Items"
-msgstr ""
+msgstr "零数量明细行"
 
 #. Label of the zip_file (Attach) field in DocType 'Import Supplier Invoice'
 #: erpnext/regional/doctype/import_supplier_invoice/import_supplier_invoice.json
