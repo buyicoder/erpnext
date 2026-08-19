@@ -34,11 +34,42 @@ FRAPPE_OWNED_WORKSPACE_LABELS = {
 	"User",
 }
 
+CORE_BUSINESS_DOCTYPES = {
+	"Customer",
+	"Delivery Note",
+	"Item",
+	"Journal Entry",
+	"Payment Entry",
+	"Project",
+	"Purchase Invoice",
+	"Purchase Order",
+	"Purchase Receipt",
+	"Sales Invoice",
+	"Sales Order",
+	"Stock Entry",
+	"Supplier",
+}
+
+# These are literal field descriptions, not printf templates. Babel infers the
+# leading "% o" as a printf placeholder even though Frappe never interpolates it.
+BABEL_LITERAL_PERCENT_MESSAGES = {
+	"% of materials billed against this Sales Order",
+	"% of materials delivered against this Sales Order",
+}
+
 
 class TestZhFinanceTranslations(TestCase):
 	def setUp(self):
 		po_path = Path(__file__).parents[1] / "locale" / "zh.po"
 		self.catalog = read_po(BytesIO(po_path.read_bytes()), locale="zh")
+		repo_root = Path(__file__).parents[2]
+		self.frappe_catalogs = [
+			read_po(BytesIO((repo_root / path).read_bytes()), locale="zh")
+			for path in (
+				".build/frappe-v16.24.4-zh.po",
+				"localization/frappe/zh.po",
+			)
+		]
 
 	def test_core_finance_journey_uses_reviewed_chinese_terms(self):
 		translations = {
@@ -62,6 +93,47 @@ class TestZhFinanceTranslations(TestCase):
 			"Tree Level": "树形层级",
 			"Filter based on {0}": "按 {0} 筛选",
 			"Advance Paid (Company Currency)": "已付预付款（本位币）",
+			"Series": "编号规则",
+			"References": "关联资料",
+			"Margin": "利润空间",
+			"Automation": "自动化",
+			"Variants": "变体",
+			"Partially Billed": "部分开票",
+			"Task Progress": "任务进度",
+			"Co-Product": "联产品",
+			"By-Product": "副产品",
+			"Scrap": "废料",
+			"Additional Finished Good": "额外成品",
+			"% of materials billed against this Sales Order": "销售订单中已开票物料的百分比",
+			"% of materials delivered against this Sales Order": "销售订单中已交付物料的百分比",
+			"Source Stock Entry (Manufacture)": "来源生产入库单",
+			"Overdue Limit": "逾期额度",
+			"New Sales Invoices are blocked when the customer's overdue amount exceeds this. Requires 'Restrict Customer Over Billing' in Accounts Settings.": "客户逾期金额超过此额度时，将禁止新建销售发票。需在会计设置中启用“限制客户超额开票”。",
+			"Bypass credit limit check at sales order": "销售订单跳过信用额度检查",
+			"Enter the Item Code that this customer uses at their end. This will be shown in Sales Orders for the customer's reference.": "填写客户使用的物料编码；该编码会显示在销售订单中供客户核对。",
+			"Default price list for buying or selling this item": "该物料采购或销售时默认使用的价格表",
+			"Cost center used for tracking purchase expenses for this item": "用于归集该物料采购费用的成本中心",
+			"This supplier will be auto-selected in new purchase transactions": "新建采购单据时将自动选择此供应商",
+			"Account where the cost of this item will be debited on purchase": "采购该物料时用于借记成本的科目",
+			"Cost center used for tracking sales revenue for this item": "用于归集该物料销售收入的成本中心",
+			"Account where revenue from selling this item will be credited": "销售该物料时用于贷记收入的科目",
+			"Provisional liability account used for service items before invoice is received": "服务类物料在收到发票前使用的暂估负债科目",
+			"Account where cost of goods sold will be posted when this item is sold": "销售该物料时结转销售成本所使用的科目",
+			"Expenses Added To Stock Account": "计入存货的费用科目",
+			"Account to track value added to stock via Stock Entry, Stock Reconciliation or Landed Cost Voucher": "用于核算通过库存单、库存盘点或到岸成本单计入存货价值的科目",
+			"Expenses Added To Stock Contra Account": "计入存货费用的对方科目",
+			"Used to balance the books when recording expenses added to stock": "记录计入存货的费用时用于平衡账务的对方科目",
+			"Stock account where inventory value for this item will be tracked": "用于核算该物料库存价值的存货科目",
+			"Check Availability in Warehouse": "检查仓库可用量",
+			"Has Operating Cost": "包含运营成本",
+			"Delivered by Supplier": "由供应商交付",
+			"Allocate Full Amount to Stock Items": "全部分摊至库存物料",
+			"If checked, the entire amount (e.g. Freight) is allocated to the valuation of stock & asset items only. If unchecked, the amount is distributed across all items and the portion belonging to non-stock items is not added to valuation.": "勾选后，全部金额（如运费）仅分摊至库存物料和资产物料的估值；未勾选时，金额按全部物料分摊，其中非库存物料对应的部分不计入估值。",
+			"BOM Secondary Item": "物料清单副产品",
+			"Is Legacy Scrap Item": "旧版废料物料",
+			"Transaction from which tax is withheld": "发生税款扣缴的来源交易",
+			"Transaction for which tax is withheld": "被扣缴税款所对应的交易",
+			"Created By Migration": "由数据迁移创建",
 			"Execution Time: {0} sec": "执行用时：{0} 秒",
 			"Home": "首页",
 			"Dashboard": "仪表板",
@@ -123,6 +195,62 @@ class TestZhFinanceTranslations(TestCase):
 
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
+
+	def test_every_core_business_doctype_field_has_a_translation_owner(self):
+		doctype_root = Path(__file__).parents[1]
+		documents = {}
+		for path in sorted(doctype_root.glob("**/doctype/*/*.json")):
+			data = json.loads(path.read_text())
+			if isinstance(data, dict) and data.get("name"):
+				documents[data["name"]] = (path, data)
+
+		target_doctypes = set(CORE_BUSINESS_DOCTYPES)
+		for doctype in CORE_BUSINESS_DOCTYPES:
+			_data = documents[doctype][1]
+			target_doctypes.update(
+				field["options"]
+				for field in _data.get("fields", [])
+				if field.get("fieldtype") in {"Table", "Table MultiSelect"} and field.get("options") in documents
+			)
+
+		missing = []
+		select_option_allowlist = {"GTIN-14"}
+		for doctype in sorted(target_doctypes):
+			path, data = documents[doctype]
+			for field in data.get("fields", []):
+				for key in ("label", "description"):
+					source = field.get(key)
+					if not isinstance(source, str) or not source.strip():
+						continue
+					candidates = (source, source.strip())
+					messages = [
+						catalog.get(candidate)
+						for catalog in (self.catalog, *self.frappe_catalogs)
+						for candidate in candidates
+					]
+					if not any(
+						message and message.string and "fuzzy" not in message.flags and self._message_is_valid(message)
+						for message in messages
+					):
+						missing.append(f"{path.relative_to(doctype_root)}:{field.get('fieldname')}:{key}:{source.strip()}")
+
+				if field.get("fieldtype") == "Select" and field.get("fieldname") != "naming_series":
+					for source in field.get("options", "").splitlines():
+						source = source.strip()
+						if not source or source in select_option_allowlist:
+							continue
+						messages = [
+							catalog.get(source) for catalog in (self.catalog, *self.frappe_catalogs)
+						]
+						if not any(
+							message and message.string and "fuzzy" not in message.flags and self._message_is_valid(message)
+							for message in messages
+						):
+							missing.append(
+								f"{path.relative_to(doctype_root)}:{field.get('fieldname')}:option:{source}"
+							)
+
+		self.assertEqual(missing, [])
 
 	def test_core_transaction_forms_use_reviewed_chinese_terms(self):
 		translations = {
@@ -273,7 +401,7 @@ class TestZhFinanceTranslations(TestCase):
 			self.assertIsNotNone(message)
 			self.assertNotIn("fuzzy", message.flags)
 			self.assertEqual(message.string, translation)
-			self.assertEqual(message.check(), [])
+			self.assertTrue(self._message_is_valid(message), [str(error) for error in message.check()])
 			self.assertEqual(
 				self._format_fields(source),
 				self._format_fields(translation),
@@ -282,3 +410,7 @@ class TestZhFinanceTranslations(TestCase):
 	@staticmethod
 	def _format_fields(value):
 		return [field for _, field, _, _ in Formatter().parse(value) if field]
+
+	@staticmethod
+	def _message_is_valid(message):
+		return message.id in BABEL_LITERAL_PERCENT_MESSAGES or not message.check()

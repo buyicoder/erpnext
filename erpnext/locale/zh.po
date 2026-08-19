@@ -256,9 +256,9 @@ msgstr "已退货%"
 #. Description of the '% Amount Billed' (Percent) field in DocType 'Sales
 #. Order'
 #: erpnext/selling/doctype/sales_order/sales_order.json
-#, python-format
+#, no-python-format
 msgid "% of materials billed against this Sales Order"
-msgstr "此销售订单%的物料已开票。"
+msgstr "销售订单中已开票物料的百分比"
 
 #. Description of the '% Delivered' (Percent) field in DocType 'Pick List'
 #: erpnext/stock/doctype/pick_list/pick_list.json
@@ -268,9 +268,9 @@ msgstr "本拣配清单的物料交付百分比"
 
 #. Description of the '%  Delivered' (Percent) field in DocType 'Sales Order'
 #: erpnext/selling/doctype/sales_order/sales_order.json
-#, python-format
+#, no-python-format
 msgid "% of materials delivered against this Sales Order"
-msgstr "此销售订单% 的物料已出货。"
+msgstr "销售订单中已交付物料的百分比"
 
 #: erpnext/controllers/accounts_controller.py:2419
 msgid "'Account' in the Accounting section of Customer {0}"
@@ -1621,25 +1621,25 @@ msgstr "用于记录此商品额外采购费用（例如运费或关税）的账
 #. 'Item Default'
 #: erpnext/stock/doctype/item_default/item_default.json
 msgid "Account to track value added to stock via Stock Entry, Stock Reconciliation or Landed Cost Voucher"
-msgstr ""
+msgstr "用于核算通过库存单、库存盘点或到岸成本单计入存货价值的科目"
 
 #. Description of the 'Default COGS Account' (Link) field in DocType 'Item
 #. Default'
 #: erpnext/stock/doctype/item_default/item_default.json
 msgid "Account where cost of goods sold will be posted when this item is sold"
-msgstr ""
+msgstr "销售该物料时结转销售成本所使用的科目"
 
 #. Description of the 'Default Income Account' (Link) field in DocType 'Item
 #. Default'
 #: erpnext/stock/doctype/item_default/item_default.json
 msgid "Account where revenue from selling this item will be credited"
-msgstr ""
+msgstr "销售该物料时用于贷记收入的科目"
 
 #. Description of the 'Default Expense Account' (Link) field in DocType 'Item
 #. Default'
 #: erpnext/stock/doctype/item_default/item_default.json
 msgid "Account where the cost of this item will be debited on purchase"
-msgstr ""
+msgstr "采购该物料时用于借记成本的科目"
 
 #: erpnext/accounts/doctype/account/account.py:458
 msgid "Account with child nodes cannot be converted to ledger"
@@ -3163,7 +3163,7 @@ msgstr "额外折扣百分比"
 #: erpnext/subcontracting/doctype/subcontracting_inward_order_secondary_item/subcontracting_inward_order_secondary_item.json
 #: erpnext/subcontracting/doctype/subcontracting_receipt_item/subcontracting_receipt_item.json
 msgid "Additional Finished Good"
-msgstr ""
+msgstr "额外成品"
 
 #. Label of the addtional_info (Section Break) field in DocType 'Journal Entry'
 #. Label of the additional_info_section (Section Break) field in DocType
@@ -4076,7 +4076,7 @@ msgstr "自动分配预付（先进先出）"
 #. 'Purchase Taxes and Charges'
 #: erpnext/accounts/doctype/purchase_taxes_and_charges/purchase_taxes_and_charges.json
 msgid "Allocate Full Amount to Stock Items"
-msgstr ""
+msgstr "全部分摊至库存物料"
 
 #: erpnext/accounts/doctype/payment_entry/payment_entry.js:928
 msgid "Allocate Payment Amount"
@@ -7241,7 +7241,7 @@ msgstr "物料用途查询(用在哪个物料清单中)"
 #: erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json
 #: erpnext/stock/report/item_where_used/item_where_used.py:209
 msgid "BOM Secondary Item"
-msgstr ""
+msgstr "物料清单副产品"
 
 #. Label of the bom_secondary_item (Data) field in DocType 'Job Card Secondary
 #. Item'
@@ -9315,7 +9315,7 @@ msgstr "默认供应商名称按输入显示。若要通过<a href='https://docs
 #: erpnext/subcontracting/doctype/subcontracting_inward_order_secondary_item/subcontracting_inward_order_secondary_item.json
 #: erpnext/subcontracting/doctype/subcontracting_receipt_item/subcontracting_receipt_item.json
 msgid "By-Product"
-msgstr ""
+msgstr "副产品"
 
 #: erpnext/selling/report/customer_credit_balance/customer_credit_balance.py:68
 msgid "Bypass credit check at Sales Order"
@@ -9325,7 +9325,7 @@ msgstr "销售订单不检查信用额度"
 #. Credit Limit'
 #: erpnext/selling/doctype/customer_credit_limit/customer_credit_limit.json
 msgid "Bypass credit limit check at sales order"
-msgstr ""
+msgstr "销售订单跳过信用额度检查"
 
 #. Label of the cc_to (Table MultiSelect) field in DocType 'Process Statement
 #. Of Accounts'
@@ -10529,7 +10529,7 @@ msgstr "车架号"
 #. Label of the warehouse_group (Link) field in DocType 'Item Reorder'
 #: erpnext/stock/doctype/item_reorder/item_reorder.json
 msgid "Check Availability in Warehouse"
-msgstr ""
+msgstr "检查仓库可用量"
 
 #. Label of the check_supplier_invoice_uniqueness (Check) field in DocType
 #. 'Accounts Settings'
@@ -11035,7 +11035,7 @@ msgstr ""
 #: erpnext/subcontracting/doctype/subcontracting_inward_order_secondary_item/subcontracting_inward_order_secondary_item.json
 #: erpnext/subcontracting/doctype/subcontracting_receipt_item/subcontracting_receipt_item.json
 msgid "Co-Product"
-msgstr ""
+msgstr "联产品"
 
 #. Name of a DocType
 #. Label of the code_list (Link) field in DocType 'Common Code'
@@ -13184,13 +13184,13 @@ msgstr "成本加运费"
 #. 'Item Default'
 #: erpnext/stock/doctype/item_default/item_default.json
 msgid "Cost center used for tracking purchase expenses for this item"
-msgstr ""
+msgstr "用于归集该物料采购费用的成本中心"
 
 #. Description of the 'Default Selling Cost Center' (Link) field in DocType
 #. 'Item Default'
 #: erpnext/stock/doctype/item_default/item_default.json
 msgid "Cost center used for tracking sales revenue for this item"
-msgstr ""
+msgstr "用于归集该物料销售收入的成本中心"
 
 #: erpnext/projects/report/project_wise_stock_tracking/project_wise_stock_tracking.py:41
 msgid "Cost of Delivered Items"
@@ -13859,7 +13859,7 @@ msgstr "是否创建{0}{1}？"
 #. Entry'
 #: erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.json
 msgid "Created By Migration"
-msgstr ""
+msgstr "由数据迁移创建"
 
 #. Label of the created_through_portal (Check) field in DocType 'Appointment'
 #: erpnext/crm/doctype/appointment/appointment.json
@@ -16252,7 +16252,7 @@ msgstr "选择此模式后，默认科目将在POS发票中自动更新。"
 #. Default'
 #: erpnext/stock/doctype/item_default/item_default.json
 msgid "Default price list for buying or selling this item"
-msgstr ""
+msgstr "该物料采购或销售时默认使用的价格表"
 
 #. Description of a DocType
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
@@ -16581,7 +16581,7 @@ msgstr "已出货数量"
 #. Invoice Item'
 #: erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json
 msgid "Delivered by Supplier"
-msgstr ""
+msgstr "由供应商交付"
 
 #. Label of the delivered_by_supplier (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
@@ -19493,7 +19493,7 @@ msgstr "提交前输入银行保函编号"
 #. Description of the 'Ref Code' (Data) field in DocType 'Item Customer Detail'
 #: erpnext/stock/doctype/item_customer_detail/item_customer_detail.json
 msgid "Enter the Item Code that this customer uses at their end. This will be shown in Sales Orders for the customer's reference."
-msgstr ""
+msgstr "填写客户使用的物料编码；该编码会显示在销售订单中供客户核对。"
 
 #: erpnext/manufacturing/doctype/routing/routing.js:98
 msgid "Enter the Operation, the table will fetch the Operation details like Hourly Rate, Workstation automatically.\n\n"
@@ -20161,7 +20161,7 @@ msgstr "费用"
 #: erpnext/setup/doctype/company/company.json
 #: erpnext/stock/doctype/item_default/item_default.json
 msgid "Expenses Added To Stock Account"
-msgstr ""
+msgstr "计入存货的费用科目"
 
 #. Label of the expenses_added_to_stock_contra_account (Link) field in DocType
 #. 'Company'
@@ -20170,7 +20170,7 @@ msgstr ""
 #: erpnext/setup/doctype/company/company.json
 #: erpnext/stock/doctype/item_default/item_default.json
 msgid "Expenses Added To Stock Contra Account"
-msgstr ""
+msgstr "计入存货费用的对方科目"
 
 #: erpnext/controllers/stock_controller.py:934
 msgid "Expenses Added To Stock for Item {0}"
@@ -23105,7 +23105,7 @@ msgstr "已扫条码"
 #. and Charges'
 #: erpnext/stock/doctype/landed_cost_taxes_and_charges/landed_cost_taxes_and_charges.json
 msgid "Has Operating Cost"
-msgstr ""
+msgstr "包含运营成本"
 
 #. Label of the has_print_format (Check) field in DocType 'Cheque Print
 #. Template'
@@ -23632,7 +23632,7 @@ msgstr "如勾选，拣货单提交时不自动更新拣货数量"
 #. DocType 'Purchase Taxes and Charges'
 #: erpnext/accounts/doctype/purchase_taxes_and_charges/purchase_taxes_and_charges.json
 msgid "If checked, the entire amount (e.g. Freight) is allocated to the valuation of stock & asset items only. If unchecked, the amount is distributed across all items and the portion belonging to non-stock items is not added to valuation."
-msgstr ""
+msgstr "勾选后，全部金额（如运费）仅分摊至库存物料和资产物料的估值；未勾选时，金额按全部物料分摊，其中非库存物料对应的部分不计入估值。"
 
 #. Description of the 'Considered In Paid Amount' (Check) field in DocType
 #. 'Purchase Taxes and Charges'
@@ -26305,7 +26305,7 @@ msgstr ""
 #: erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json
 #: erpnext/subcontracting/doctype/subcontracting_receipt_item/subcontracting_receipt_item.json
 msgid "Is Legacy Scrap Item"
-msgstr ""
+msgstr "旧版废料物料"
 
 #. Label of the is_mandatory (Check) field in DocType 'Applicable On Account'
 #: erpnext/accounts/doctype/applicable_on_account/applicable_on_account.json
@@ -32428,7 +32428,7 @@ msgstr "新销售发票"
 #. Credit Limit'
 #: erpnext/selling/doctype/customer_credit_limit/customer_credit_limit.json
 msgid "New Sales Invoices are blocked when the customer's overdue amount exceeds this. Requires 'Restrict Customer Over Billing' in Accounts Settings."
-msgstr ""
+msgstr "客户逾期金额超过此额度时，将禁止新建销售发票。需在会计设置中启用“限制客户超额开票”。"
 
 #. Label of the sales_order (Check) field in DocType 'Email Digest'
 #: erpnext/setup/doctype/email_digest/email_digest.json
@@ -34868,7 +34868,7 @@ msgstr "逾期天数"
 #. Credit Limit'
 #: erpnext/selling/doctype/customer_credit_limit/customer_credit_limit.json
 msgid "Overdue Limit"
-msgstr ""
+msgstr "逾期额度"
 
 #: erpnext/selling/doctype/customer/customer.py:708
 msgid "Overdue Limit Crossed"
@@ -35736,7 +35736,7 @@ msgstr "可保留部分库存。例如：若销售订单为100单位，可用库
 #: erpnext/stock/doctype/delivery_note/delivery_note.json
 #: erpnext/stock/doctype/delivery_note/delivery_note_list.js:24
 msgid "Partially Billed"
-msgstr ""
+msgstr "部分开票"
 
 #. Option for the 'Completion Status' (Select) field in DocType 'Maintenance
 #. Schedule Detail'
@@ -41039,7 +41039,7 @@ msgstr "利润/(亏损）（贷方）"
 #. DocType 'Item Default'
 #: erpnext/stock/doctype/item_default/item_default.json
 msgid "Provisional liability account used for service items before invoice is received"
-msgstr ""
+msgstr "服务类物料在收到发票前使用的暂估负债科目"
 
 #. Name of a UOM
 #: erpnext/setup/setup_wizard/data/uom_data.json
@@ -48627,7 +48627,7 @@ msgstr "得分排名"
 #: erpnext/subcontracting/doctype/subcontracting_inward_order_secondary_item/subcontracting_inward_order_secondary_item.json
 #: erpnext/subcontracting/doctype/subcontracting_receipt_item/subcontracting_receipt_item.json
 msgid "Scrap"
-msgstr ""
+msgstr "废料"
 
 #: erpnext/assets/doctype/asset/asset.js:176
 msgid "Scrap Asset"
@@ -51350,7 +51350,7 @@ msgstr ""
 #. Label of the source_stock_entry (Link) field in DocType 'Stock Entry'
 #: erpnext/stock/doctype/stock_entry/stock_entry.json
 msgid "Source Stock Entry (Manufacture)"
-msgstr ""
+msgstr "来源生产入库单"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1033
 msgid "Source Stock Entry {0} belongs to Work Order {1}, not {2}. Please use a manufacture entry from the same Work Order."
@@ -52614,7 +52614,7 @@ msgstr "按物料组统计库存价值"
 #. Default'
 #: erpnext/stock/doctype/item_default/item_default.json
 msgid "Stock account where inventory value for this item will be tracked"
-msgstr ""
+msgstr "用于核算该物料库存价值的存货科目"
 
 #. Name of a report
 #: erpnext/stock/report/stock_and_account_value_comparison/stock_and_account_value_comparison.json
@@ -56280,7 +56280,7 @@ msgstr ""
 #. Description of the 'Default Supplier' (Link) field in DocType 'Item Default'
 #: erpnext/stock/doctype/item_default/item_default.json
 msgid "This supplier will be auto-selected in new purchase transactions"
-msgstr ""
+msgstr "新建采购单据时将自动选择此供应商"
 
 #: erpnext/stock/doctype/delivery_note/delivery_note.js:502
 msgid "This table is used to set details about the 'Item', 'Qty', 'Basic Rate', etc."
@@ -58054,13 +58054,13 @@ msgstr ""
 #. Withholding Entry'
 #: erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.json
 msgid "Transaction for which tax is withheld"
-msgstr ""
+msgstr "被扣缴税款所对应的交易"
 
 #. Description of the 'Deducted From' (Section Break) field in DocType 'Tax
 #. Withholding Entry'
 #: erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.json
 msgid "Transaction from which tax is withheld"
-msgstr ""
+msgstr "发生税款扣缴的来源交易"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.py:863
 msgid "Transaction not allowed against stopped Work Order {0}"
@@ -59560,7 +59560,7 @@ msgstr "用于公司间交易"
 #. DocType 'Item Default'
 #: erpnext/stock/doctype/item_default/item_default.json
 msgid "Used to balance the books when recording expenses added to stock"
-msgstr ""
+msgstr "记录计入存货的费用时用于平衡账务的对方科目"
 
 #. Description of the 'Purchase Expense Contra Account' (Link) field in DocType
 #. 'Item Default'
@@ -63638,3 +63638,22 @@ msgstr "金额大写："
 
 msgid "Grand Total:"
 msgstr "价税合计："
+
+msgid "Series"
+msgstr "编号规则"
+
+msgid "References"
+msgstr "关联资料"
+
+msgid "Margin"
+msgstr "利润空间"
+
+msgid "Automation"
+msgstr "自动化"
+
+msgid "Variants"
+msgstr "变体"
+
+#. Option for the 'Percent Complete Method' field in DocType 'Project'
+msgid "Task Progress"
+msgstr "任务进度"
