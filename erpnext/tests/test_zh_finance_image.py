@@ -46,6 +46,9 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("assets/assets.json", self.containerfile)
 		self.assertIn("erpnext/dist/js/${js_bundle}", self.containerfile)
 
+	def test_realtime_proxy_preserves_the_browser_origin(self):
+		self.assertIn("proxy_set_header Origin \\$http_origin", self.containerfile)
+
 	def test_local_deploy_clears_runtime_translation_cache(self):
 		self.assertIn("up -d --force-recreate", self.deploy_script)
 		self.assertIn("bench --site '${site_name}' clear-cache", self.deploy_script)

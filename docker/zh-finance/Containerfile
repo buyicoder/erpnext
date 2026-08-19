@@ -21,6 +21,9 @@ COPY --chown=frappe:frappe erpnext/projects/doctype/project/project.py /home/fra
 COPY --chown=frappe:frappe erpnext/stock/doctype/item/item.json /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json
 COPY --chown=frappe:frappe erpnext/setup/china_defaults.py /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/china_defaults.py
 COPY --chown=frappe:frappe erpnext/setup/setup_wizard/operations/defaults_setup.py /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/setup_wizard/operations/defaults_setup.py
+RUN sed -i \
+	's#proxy_set_header Origin \$proxy_x_forwarded_proto://${FRAPPE_SITE_NAME_HEADER};#proxy_set_header Origin \$http_origin;#' \
+	/templates/nginx/frappe.conf.template
 
 USER frappe
 RUN /home/frappe/frappe-bench/env/bin/python /tmp/merge_frappe_zh_catalog.py \
