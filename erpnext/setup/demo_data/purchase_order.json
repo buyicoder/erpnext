@@ -1,7 +1,7 @@
 [
     {
         "conversion_rate": 1.0,
-        "supplier": "Zuckerman Security Ltd.",
+        "supplier": "祖克曼安防有限公司",
         "doctype": "Purchase Order",
         "update_stock": 1,
         "disable_rounded_total": 1,
@@ -18,7 +18,7 @@
     },
     {
         "conversion_rate": 1.0,
-        "supplier": "MA Inc.",
+        "supplier": "MA实业有限公司",
         "doctype": "Purchase Order",
         "update_stock": 1,
         "disable_rounded_total": 1,
@@ -35,7 +35,7 @@
     },
     {
         "conversion_rate": 1.0,
-        "supplier": "Summit Traders Ltd.",
+        "supplier": "山峰贸易有限公司",
         "doctype": "Purchase Order",
         "update_stock": 1,
         "disable_rounded_total": 1,
@@ -52,7 +52,7 @@
     },
     {
         "conversion_rate": 1.0,
-        "supplier": "Zuckerman Security Ltd.",
+        "supplier": "祖克曼安防有限公司",
         "doctype": "Purchase Order",
         "update_stock": 1,
         "disable_rounded_total": 1,
@@ -69,7 +69,7 @@
     },
     {
         "conversion_rate": 1.0,
-        "supplier": "MA Inc.",
+        "supplier": "MA实业有限公司",
         "doctype": "Purchase Order",
         "update_stock": 1,
         "disable_rounded_total": 1,
@@ -86,7 +86,7 @@
     },
     {
         "conversion_rate": 1.0,
-        "supplier": "Summit Traders Ltd.",
+        "supplier": "山峰贸易有限公司",
         "doctype": "Purchase Order",
         "update_stock": 1,
         "disable_rounded_total": 1,
@@ -103,7 +103,7 @@
     },
     {
         "conversion_rate": 1.0,
-        "supplier": "Zuckerman Security Ltd.",
+        "supplier": "祖克曼安防有限公司",
         "doctype": "Purchase Order",
         "update_stock": 1,
         "disable_rounded_total": 1,
@@ -120,7 +120,7 @@
     },
     {
         "conversion_rate": 1.0,
-        "supplier": "MA Inc.",
+        "supplier": "MA实业有限公司",
         "doctype": "Purchase Order",
         "update_stock": 1,
         "disable_rounded_total": 1,
@@ -137,7 +137,7 @@
     },
     {
         "conversion_rate": 1.0,
-        "supplier": "Summit Traders Ltd.",
+        "supplier": "山峰贸易有限公司",
         "doctype": "Purchase Order",
         "update_stock": 1,
         "disable_rounded_total": 1,
@@ -154,7 +154,7 @@
     },
     {
         "conversion_rate": 1.0,
-        "supplier": "Zuckerman Security Ltd.",
+        "supplier": "祖克曼安防有限公司",
         "doctype": "Purchase Order",
         "update_stock": 1,
         "disable_rounded_total": 1,

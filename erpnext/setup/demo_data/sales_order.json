@@ -1,7 +1,7 @@
 [
     {
         "conversion_rate": 1.0,
-        "customer": "Grant Plastics Ltd.",
+        "customer": "格兰特塑料有限公司",
         "doctype": "Sales Order",
         "update_stock": 1,
         "disable_rounded_total": 1,
@@ -18,7 +18,7 @@
     },
     {
         "conversion_rate": 1.0,
-        "customer": "West View Software Ltd.",
+        "customer": "西景软件有限公司",
         "doctype": "Sales Order",
         "update_stock": 1,
         "disable_rounded_total": 1,
@@ -43,7 +43,7 @@
     },
     {
         "conversion_rate": 1.0,
-        "customer": "West View Software Ltd.",
+        "customer": "西景软件有限公司",
         "doctype": "Sales Order",
         "update_stock": 1,
         "disable_rounded_total": 1,
@@ -76,7 +76,7 @@
     },
     {
         "conversion_rate": 1.0,
-        "customer": "Palmer Productions Ltd.",
+        "customer": "帕尔默制造有限公司",
         "doctype": "Sales Order",
         "update_stock": 1,
         "disable_rounded_total": 1,
@@ -93,7 +93,7 @@
     },
     {
         "conversion_rate": 1.0,
-        "customer": "Grant Plastics Ltd.",
+        "customer": "格兰特塑料有限公司",
         "doctype": "Sales Order",
         "update_stock": 1,
         "disable_rounded_total": 1,

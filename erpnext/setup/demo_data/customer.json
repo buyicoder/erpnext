@@ -1,17 +1,17 @@
 [
     {
         "doctype": "Customer",
-        "customer_group": "Demo Customer Group",
-        "customer_name": "Grant Plastics Ltd."
+        "customer_group": "演示客户组",
+        "customer_name": "格兰特塑料有限公司"
     },
     {
         "doctype": "Customer",
-        "customer_group": "Demo Customer Group",
-        "customer_name": "West View Software Ltd."
+        "customer_group": "演示客户组",
+        "customer_name": "西景软件有限公司"
     },
     {
         "doctype": "Customer",
-        "customer_group": "Demo Customer Group",
-        "customer_name": "Palmer Productions Ltd."
+        "customer_group": "演示客户组",
+        "customer_name": "帕尔默制造有限公司"
     }
 ]

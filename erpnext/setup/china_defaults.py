@@ -1,4 +1,5 @@
 import frappe
+from frappe.utils.global_search import rebuild_for_doctype
 
 
 CHINA_SYSTEM_DEFAULTS = {
@@ -34,6 +35,35 @@ CHINA_PRINT_FORMAT_TRANSLATIONS = {
 
 CHINA_LETTER_HEAD_TRANSLATIONS = {
 	"Company Letterhead - Grey": "公司抬头（灰色）",
+}
+
+CHINA_DEMO_RECORD_NAMES = {
+	"Item Group": {"Demo Item Group": "演示物料组"},
+	"Customer Group": {"Demo Customer Group": "演示客户组"},
+	"Supplier Group": {"Demo Supplier Group": "演示供应商组"},
+	"Customer": {
+		"Grant Plastics Ltd.": "格兰特塑料有限公司",
+		"West View Software Ltd.": "西景软件有限公司",
+		"Palmer Productions Ltd.": "帕尔默制造有限公司",
+	},
+	"Supplier": {
+		"Zuckerman Security Ltd.": "祖克曼安防有限公司",
+		"MA Inc.": "MA实业有限公司",
+		"Summit Traders Ltd.": "山峰贸易有限公司",
+	},
+}
+
+CHINA_DEMO_ITEM_NAMES = {
+	"SKU001": ("T-shirt", "T恤"),
+	"SKU002": ("Laptop", "笔记本电脑"),
+	"SKU003": ("Book", "图书"),
+	"SKU004": ("Smartphone", "智能手机"),
+	"SKU005": ("Sneakers", "运动鞋"),
+	"SKU006": ("Coffee Mug", "咖啡杯"),
+	"SKU007": ("Television", "电视机"),
+	"SKU008": ("Backpack", "双肩包"),
+	"SKU009": ("Headphones", "耳机"),
+	"SKU010": ("Camera", "相机"),
 }
 
 UPSTREAM_CHINA_ADDRESS_TEMPLATE = """{{ address_line1 }}<br>
@@ -85,6 +115,47 @@ def apply_china_defaults(force=False, clear_cache=True):
 	):
 		frappe.clear_cache()
 	return CHINA_SYSTEM_DEFAULTS
+
+
+def localize_bundled_demo_data():
+	"""Localize the records created by ERPNext's demo-data loader."""
+	if not frappe.db.get_single_value("Global Defaults", "demo_company"):
+		return False
+
+	changed = False
+	item_names_changed = False
+	for doctype, names in CHINA_DEMO_RECORD_NAMES.items():
+		for old_name, new_name in names.items():
+			if not frappe.db.exists(doctype, old_name) or frappe.db.exists(doctype, new_name):
+				continue
+			if doctype == "Customer" and frappe.db.get_value(doctype, old_name, "customer_group") not in {
+				"Demo Customer Group",
+				"演示客户组",
+			}:
+				continue
+			if doctype == "Supplier" and frappe.db.get_value(doctype, old_name, "supplier_group") not in {
+				"Demo Supplier Group",
+				"演示供应商组",
+			}:
+				continue
+			frappe.rename_doc(doctype, old_name, new_name, show_alert=False)
+			changed = True
+
+	for item_code, (old_name, new_name) in CHINA_DEMO_ITEM_NAMES.items():
+		item = frappe.db.get_value("Item", item_code, ["item_name", "item_group"], as_dict=True)
+		if not item or item.item_name != old_name or item.item_group not in {
+			"Demo Item Group",
+			"演示物料组",
+		}:
+			continue
+		frappe.db.set_value("Item", item_code, "item_name", new_name, update_modified=False)
+		changed = True
+		item_names_changed = True
+
+	if item_names_changed:
+		rebuild_for_doctype("Item")
+
+	return changed
 
 
 def _apply_defaults(doc, defaults, force=False):

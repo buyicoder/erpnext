@@ -1,17 +1,17 @@
 [
     {
         "doctype": "Supplier",
-        "supplier_group": "Demo Supplier Group",
-        "supplier_name": "Zuckerman Security Ltd."
+        "supplier_group": "演示供应商组",
+        "supplier_name": "祖克曼安防有限公司"
     },
     {
         "doctype": "Supplier",
-        "supplier_group": "Demo Supplier Group",
-        "supplier_name": "MA Inc."
+        "supplier_group": "演示供应商组",
+        "supplier_name": "MA实业有限公司"
     },
     {
         "doctype": "Supplier",
-        "supplier_group": "Demo Supplier Group",
-        "supplier_name": "Summit Traders Ltd."
+        "supplier_group": "演示供应商组",
+        "supplier_name": "山峰贸易有限公司"
     }
 ]

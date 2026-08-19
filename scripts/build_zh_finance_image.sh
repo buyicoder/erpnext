@@ -47,6 +47,47 @@ if missing:
 	raise SystemExit("Asset manifest references missing files: " + ", ".join(missing))
 print(f"Verified {len(manifest)} asset manifest entries")
 
+demo_root = Path("/home/frappe/frappe-bench/apps/erpnext/erpnext/setup/demo_data")
+demo_items = json.loads((demo_root / "item.json").read_text())
+demo_customers = json.loads((demo_root / "customer.json").read_text())
+demo_suppliers = json.loads((demo_root / "supplier.json").read_text())
+demo_item_groups = json.loads((demo_root / "item_group.json").read_text())
+demo_customer_groups = json.loads((demo_root / "customer_group.json").read_text())
+demo_supplier_groups = json.loads((demo_root / "supplier_group.json").read_text())
+demo_sales_orders = json.loads((demo_root / "sales_order.json").read_text())
+demo_purchase_orders = json.loads((demo_root / "purchase_order.json").read_text())
+if demo_items[0]["item_name"] != "T恤" or demo_items[-1]["item_name"] != "相机":
+	raise SystemExit("Bundled item demo data is not localized")
+if {row["customer_name"] for row in demo_customers} != {
+	"格兰特塑料有限公司",
+	"西景软件有限公司",
+	"帕尔默制造有限公司",
+}:
+	raise SystemExit("Bundled customer demo data is not localized")
+item_codes = {row["item_code"] for row in demo_items}
+customer_names = {row["customer_name"] for row in demo_customers}
+supplier_names = {row["supplier_name"] for row in demo_suppliers}
+item_groups = {row["item_group_name"] for row in demo_item_groups}
+customer_groups = {row["customer_group_name"] for row in demo_customer_groups}
+supplier_groups = {row["supplier_group_name"] for row in demo_supplier_groups}
+if not all(row["item_group"] in item_groups for row in demo_items):
+	raise SystemExit("Bundled item demo groups are inconsistent")
+if not all(row["customer_group"] in customer_groups for row in demo_customers):
+	raise SystemExit("Bundled customer demo groups are inconsistent")
+if not all(row["supplier_group"] in supplier_groups for row in demo_suppliers):
+	raise SystemExit("Bundled supplier demo groups are inconsistent")
+if not all(order["customer"] in customer_names for order in demo_sales_orders):
+	raise SystemExit("Bundled sales-order demo customers are inconsistent")
+if not all(order["supplier"] in supplier_names for order in demo_purchase_orders):
+	raise SystemExit("Bundled purchase-order demo suppliers are inconsistent")
+if not all(
+	row["item_code"] in item_codes
+	for order in demo_sales_orders + demo_purchase_orders
+	for row in order["items"]
+):
+	raise SystemExit("Bundled transaction demo items are inconsistent")
+print("Verified bundled Chinese demo data")
+
 expected_translations = {
 	"Statement PDF Password": "对账单 PDF 密码",
 	"Create User Automatically": "自动创建用户",

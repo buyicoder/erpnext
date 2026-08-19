@@ -61,6 +61,14 @@ COPY --chown=frappe:frappe erpnext/stock/doctype/item/item.json /home/frappe/fra
 COPY --chown=frappe:frappe erpnext/stock/utils.py /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/utils.py
 COPY --chown=frappe:frappe erpnext/manufacturing/doctype/production_plan/production_plan.py /home/frappe/frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.py
 COPY --chown=frappe:frappe erpnext/setup/china_defaults.py /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/china_defaults.py
+COPY --chown=frappe:frappe erpnext/setup/demo_data/customer.json /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/demo_data/customer.json
+COPY --chown=frappe:frappe erpnext/setup/demo_data/customer_group.json /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/demo_data/customer_group.json
+COPY --chown=frappe:frappe erpnext/setup/demo_data/item.json /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/demo_data/item.json
+COPY --chown=frappe:frappe erpnext/setup/demo_data/item_group.json /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/demo_data/item_group.json
+COPY --chown=frappe:frappe erpnext/setup/demo_data/purchase_order.json /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/demo_data/purchase_order.json
+COPY --chown=frappe:frappe erpnext/setup/demo_data/sales_order.json /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/demo_data/sales_order.json
+COPY --chown=frappe:frappe erpnext/setup/demo_data/supplier.json /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/demo_data/supplier.json
+COPY --chown=frappe:frappe erpnext/setup/demo_data/supplier_group.json /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/demo_data/supplier_group.json
 COPY --chown=frappe:frappe erpnext/setup/setup_wizard/operations/defaults_setup.py /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/setup_wizard/operations/defaults_setup.py
 RUN sed -i \
 	's#proxy_set_header Origin \$proxy_x_forwarded_proto://${FRAPPE_SITE_NAME_HEADER};#proxy_set_header Origin \$frappe_socket_origin;#' \

@@ -76,6 +76,16 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("erpnext/stock/utils.py", self.containerfile)
 		self.assertIn("erpnext/manufacturing/doctype/production_plan/production_plan.py", self.containerfile)
 		self.assertIn("erpnext/setup/china_defaults.py", self.containerfile)
+		self.assertIn("erpnext/setup/demo_data/customer.json", self.containerfile)
+		self.assertIn("erpnext/setup/demo_data/customer_group.json", self.containerfile)
+		self.assertIn("erpnext/setup/demo_data/item.json", self.containerfile)
+		self.assertIn("erpnext/setup/demo_data/item_group.json", self.containerfile)
+		self.assertIn("erpnext/setup/demo_data/purchase_order.json", self.containerfile)
+		self.assertIn("erpnext/setup/demo_data/sales_order.json", self.containerfile)
+		self.assertIn("erpnext/setup/demo_data/supplier.json", self.containerfile)
+		self.assertIn("erpnext/setup/demo_data/supplier_group.json", self.containerfile)
+		self.assertIn("localize_bundled_demo_data", self.deploy_script)
+		self.assertIn("Verified bundled Chinese demo data", self.build_script)
 		self.assertIn("erpnext/setup/setup_wizard/operations/defaults_setup.py", self.containerfile)
 		self.assertIn(
 			'\\\"module\\\":\\\"accounts\\\",\\\"dt\\\":\\\"notification\\\",\\\"dn\\\":\\\"notification_for_new_fiscal_year\\\",\\\"force\\\":True',
