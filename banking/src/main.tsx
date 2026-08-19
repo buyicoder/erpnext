@@ -5,6 +5,21 @@ import App from './App.tsx'
 import './lib/namespace'
 import { DirectionProvider } from './components/ui/direction.tsx'
 
+function renderApp(layoutDirection: 'ltr' | 'rtl') {
+  createRoot(document.getElementById('root') as HTMLElement).render(
+    <StrictMode>
+      <DirectionProvider dir={layoutDirection}>
+        <App />
+      </DirectionProvider>
+    </StrictMode>,
+  )
+}
+
+async function startProductionApp() {
+  await window.frappe?._translations_loaded
+  window.frappe.model.sync(window.frappe.boot.docs)
+  renderApp(window.frappe?.boot?.layout_direction ?? 'ltr')
+}
 
 if (import.meta.env.DEV) {
   fetch('/api/method/erpnext.www.banking.get_context_for_dev', {
@@ -18,25 +33,10 @@ if (import.meta.env.DEV) {
 
     // Set document direction to rtl
     document.dir = values.message.layout_direction;
-    //@ts-expect-error - frappe will be available
-    frappe.model.sync(frappe.boot.docs);
-    createRoot(document.getElementById('root') as HTMLElement).render(
-      <StrictMode>
-        <DirectionProvider dir={values.message.layout_direction}>
-          <App />
-        </DirectionProvider>
-      </StrictMode>,
-    )
+    window.frappe.model.sync(window.frappe.boot.docs);
+    renderApp(values.message.layout_direction)
 
   })
 } else {
-  //@ts-expect-error - frappe will be available
-  frappe.model.sync(frappe.boot.docs);
-  createRoot(document.getElementById('root') as HTMLElement).render(
-    <StrictMode>
-      <DirectionProvider dir={window.frappe?.boot?.layout_direction ?? 'ltr'}>
-        <App />
-      </DirectionProvider>
-    </StrictMode>,
-  )
+  void startProductionApp()
 }
