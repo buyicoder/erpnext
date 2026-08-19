@@ -30,6 +30,7 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("erpnext/setup/setup_wizard/operations/defaults_setup.py", self.containerfile)
 		self.assertIn("frappe-v16.24.4-zh.po", self.containerfile)
 		self.assertIn("localization/frappe/zh.po", self.containerfile)
+		self.assertIn("localization/frappe/realtime_utils.js", self.containerfile)
 		self.assertIn("merge_frappe_zh_catalog.py", self.containerfile)
 		self.assertIn("frappe.mo", self.containerfile)
 
@@ -50,6 +51,11 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("proxy_set_header Origin \\$frappe_socket_origin", self.containerfile)
 		self.assertIn("default $http_origin", self.containerfile)
 		self.assertIn('"" $scheme://$http_host', self.containerfile)
+		realtime_utils = (
+			self.repo_root / "localization" / "frappe" / "realtime_utils.js"
+		).read_text()
+		self.assertIn('["localhost", "127.0.0.1"]', realtime_utils)
+		self.assertIn('"http://backend:8000"', realtime_utils)
 
 	def test_local_deploy_clears_runtime_translation_cache(self):
 		self.assertIn("up -d --force-recreate", self.deploy_script)
