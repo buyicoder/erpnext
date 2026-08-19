@@ -264,7 +264,7 @@ msgstr "销售订单中已开票物料的百分比"
 #: erpnext/stock/doctype/pick_list/pick_list.json
 #, python-format
 msgid "% of materials delivered against this Pick List"
-msgstr "本拣配清单的物料交付百分比"
+msgstr "本拣货单的物料交付百分比"
 
 #. Description of the '%  Delivered' (Percent) field in DocType 'Sales Order'
 #: erpnext/selling/doctype/sales_order/sales_order.json
@@ -1160,7 +1160,7 @@ msgstr "为此物料生成采购入库单前，必须完成质量检验。"
 
 #: erpnext/stock/doctype/material_request/material_request.js:476
 msgid "A separate Purchase Order is created for each Supplier."
-msgstr ""
+msgstr "每个供应商将分别创建一张采购订单。"
 
 #: erpnext/accounts/doctype/sales_taxes_and_charges_template/sales_taxes_and_charges_template.py:96
 msgid "A template with tax category {0} already exists. Only one template is allowed with each tax category"
@@ -4037,7 +4037,7 @@ msgstr "所有关联的销售订单必须为外包订单。"
 
 #: erpnext/stock/doctype/pick_list/pick_list.py:1608
 msgid "All picked items have already been transferred against this Pick List"
-msgstr ""
+msgstr "此拣货单中的所有已拣物料均已调拨"
 
 #. Description of the 'Carry Forward Communication and Comments' (Check) field
 #. in DocType 'CRM Settings'
@@ -6559,7 +6559,7 @@ msgstr "自动创建"
 #. Request'
 #: erpnext/stock/doctype/material_request/material_request.json
 msgid "Auto Created (Reorder)"
-msgstr ""
+msgstr "自动创建（再订购）"
 
 #. Label of the auto_created_serial_and_batch_bundle (Check) field in DocType
 #. 'Stock Ledger Entry'
@@ -9861,7 +9861,7 @@ msgstr "无法停用或取消BOM，因为它被其他BOM引用。"
 
 #: erpnext/crm/doctype/opportunity/opportunity.py:292
 msgid "Cannot declare as Lost because an active Quotation exists."
-msgstr ""
+msgstr "存在有效报价单，无法将此商机标记为未成交。"
 
 #: erpnext/accounts/doctype/purchase_taxes_and_charges_template/purchase_taxes_and_charges_template.js:16
 #: erpnext/accounts/doctype/purchase_taxes_and_charges_template/purchase_taxes_and_charges_template.js:26
@@ -23955,7 +23955,7 @@ msgstr "如在交易中允许物料成本价为0，请在明细行中勾选允�
 #. Request Item'
 #: erpnext/stock/doctype/material_request_item/material_request_item.json
 msgid "If the reorder check is set at the Group warehouse level, the available quantity becomes the sum of the projected quantities of all its child warehouses."
-msgstr ""
+msgstr "若在仓库组层级设置再订购检查，可用数量将按其所有子仓库的预计数量汇总计算。"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.js:1300
 msgid "If the selected BOM has Operations mentioned in it, the system will fetch all Operations from BOM, these values can be changed."
@@ -27992,7 +27992,7 @@ msgstr "因勾选了成本价为0，物料 {0} 的单价已设置为0"
 
 #: erpnext/stock/doctype/material_request/material_request.py:239
 msgid "Item rates have been updated based on the selected Buying Price List {0}"
-msgstr ""
+msgstr "已根据所选采购价格表 {0} 更新物料单价"
 
 #. Label of the item (Link) field in DocType 'BOM'
 #. Label of the finished_good (Link) field in DocType 'Job Card'
@@ -28027,7 +28027,7 @@ msgstr "物料{0}不能作为自身的子装配件添加"
 
 #: erpnext/stock/doctype/material_request/material_request.py:694
 msgid "Item {0} cannot be ordered more than once"
-msgstr ""
+msgstr "物料 {0} 不能重复下单"
 
 #: erpnext/manufacturing/doctype/blanket_order/blanket_order.py:197
 msgid "Item {0} cannot be ordered more than {1} against Blanket Order {2}."
@@ -31538,7 +31538,7 @@ msgstr "缺少序列号包"
 
 #: erpnext/stock/doctype/pick_list/pick_list.py:176
 msgid "Missing Warehouse"
-msgstr ""
+msgstr "缺少仓库"
 
 #: erpnext/stock/doctype/delivery_trip/delivery_trip.js:156
 msgid "Missing email template for dispatch. Please set one in Delivery Settings."
@@ -35827,7 +35827,7 @@ msgstr "部分已预留"
 #: erpnext/manufacturing/doctype/job_card/job_card.json
 #: erpnext/stock/doctype/pick_list/pick_list.json
 msgid "Partially Transferred"
-msgstr ""
+msgstr "部分已调拨"
 
 #. Option for the 'Status' (Select) field in DocType 'Stock Reservation Entry'
 #: erpnext/stock/doctype/stock_reservation_entry/stock_reservation_entry.json
@@ -40826,7 +40826,7 @@ msgstr "无项目数据，无法报价"
 #. Item'
 #: erpnext/stock/doctype/material_request_item/material_request_item.json
 msgid "Projected On Hand"
-msgstr ""
+msgstr "预计在手库存"
 
 #. Label of the projected_qty (Float) field in DocType 'Material Request Plan
 #. Item'
@@ -42568,12 +42568,12 @@ msgstr "物料{1}的数量不能超过{0}"
 
 #: erpnext/stock/doctype/material_request/material_request.py:704
 msgid "Quantity for Item {0} must be greater than zero and cannot exceed {1}"
-msgstr ""
+msgstr "物料 {0} 的数量必须大于零且不能超过 {1}"
 
 #: erpnext/stock/doctype/material_request/material_request.js:564
 msgctxt "<b>${pending_qty}</b>"
 msgid "Quantity for Item {0} must be greater than zero and cannot exceed {1}"
-msgstr ""
+msgstr "物料 {0} 的数量必须大于零且不能超过 {1}"
 
 #: erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.js:564
 msgid "Quantity is mandatory for the selected items."
@@ -46574,7 +46574,7 @@ msgstr "行号#{0}：物料{1}数量不能为零"
 
 #: erpnext/crm/doctype/opportunity/opportunity.py:152
 msgid "Row #{0}: Quantity must be greater than 0 for Item {1}"
-msgstr ""
+msgstr "第 {0} 行：物料 {1} 的数量必须大于 0"
 
 #: erpnext/controllers/subcontracting_inward_controller.py:537
 msgid "Row #{0}: Quantity of Item {1} cannot be more than {2} {3} against Subcontracting Inward Order {4}"
@@ -47243,11 +47243,11 @@ msgstr "第 {0} 行：物料 {1} 来源于拣货单 {2}，必须勾选“更新�
 
 #: erpnext/stock/doctype/pick_list/pick_list.py:175
 msgid "Row {0}: Warehouse is required"
-msgstr ""
+msgstr "第 {0} 行：必须填写仓库"
 
 #: erpnext/stock/doctype/pick_list/pick_list.py:184
 msgid "Row {0}: Warehouse {1} is linked to company {2}. Please select a warehouse belonging to company {3}."
-msgstr ""
+msgstr "第 {0} 行：仓库 {1} 关联的公司为 {2}。请选择属于公司 {3} 的仓库。"
 
 #: erpnext/manufacturing/doctype/bom/bom.py:1239
 #: erpnext/manufacturing/doctype/work_order/work_order.py:494
@@ -48991,7 +48991,7 @@ msgstr "选择供应商地址"
 
 #: erpnext/stock/doctype/material_request/material_request.js:448
 msgid "Select Supplier for Items"
-msgstr ""
+msgstr "为物料选择供应商"
 
 #: erpnext/stock/doctype/batch/batch.js:150
 msgid "Select Target Warehouse"
@@ -49045,7 +49045,7 @@ msgstr "选择供应商"
 #: erpnext/stock/doctype/material_request/material_request.js:552
 #: erpnext/stock/doctype/material_request/material_request.py:699
 msgid "Select a Supplier for Item {0}"
-msgstr ""
+msgstr "请为物料 {0} 选择供应商"
 
 #: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:49
 msgid "Select a bank account to reconcile"
@@ -49086,7 +49086,7 @@ msgstr "从每组中选择一个物料用于销售订单。"
 #: erpnext/stock/doctype/material_request/material_request.js:539
 #: erpnext/stock/doctype/material_request/material_request.py:680
 msgid "Select at least one Item"
-msgstr ""
+msgstr "请至少选择一个物料"
 
 #: erpnext/stock/doctype/item/item.js:944
 msgid "Select at least one attribute value."
@@ -50238,7 +50238,7 @@ msgstr "设置供应商"
 
 #: erpnext/stock/doctype/material_request/material_request.js:455
 msgid "Set Supplier for All Items"
-msgstr ""
+msgstr "为所有物料设置供应商"
 
 #. Label of the set_target_warehouse (Link) field in DocType 'Sales Invoice'
 #. Label of the set_warehouse (Link) field in DocType 'Purchase Order'
@@ -58241,7 +58241,7 @@ msgstr "已发料数量"
 #. Label of the transferred_qty (Float) field in DocType 'Pick List Item'
 #: erpnext/stock/doctype/pick_list_item/pick_list_item.json
 msgid "Transferred Qty (in Stock UOM)"
-msgstr ""
+msgstr "已调拨数量（库存单位）"
 
 #: erpnext/buying/report/subcontracted_raw_materials_to_be_transferred/subcontracted_raw_materials_to_be_transferred.py:39
 msgid "Transferred Quantity"
@@ -63015,7 +63015,7 @@ msgstr "物料 {1} 缺货数量 {0}"
 
 #: erpnext/stock/doctype/pick_list/pick_list.py:1113
 msgid "{0} units of Item {1} is not available in any of the warehouses. Other Pick Lists exist for this item."
-msgstr ""
+msgstr "任何仓库中均无法提供 {0} 个单位的物料 {1}，且该物料还存在其他拣货单。"
 
 #: erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py:145
 msgid "{0} units of {1} are required in {2} with the inventory dimension: {3} on {4} {5} for {6} to complete the transaction."
@@ -63052,7 +63052,7 @@ msgstr ""
 
 #: erpnext/stock/doctype/material_request/material_request.py:732
 msgid "{0} was set to today for items whose requested date has passed"
-msgstr ""
+msgstr "对请求日期已过期的物料，已将 {0} 设为今天"
 
 #: erpnext/accounts/doctype/payment_term/payment_term.js:19
 msgid "{0} will be given as discount."

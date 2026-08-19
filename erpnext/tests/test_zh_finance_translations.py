@@ -45,7 +45,10 @@ CORE_BUSINESS_DOCTYPES = {
 	"Delivery Note",
 	"Item",
 	"Journal Entry",
+	"Material Request",
+	"Opportunity",
 	"Payment Entry",
+	"Pick List",
 	"Project",
 	"Purchase Invoice",
 	"Purchase Order",
@@ -137,6 +140,7 @@ CHINA_COMPLIANCE_DOCTYPES = {
 # These are literal field descriptions, not printf templates. Babel infers the
 # leading "% o" as a printf placeholder even though Frappe never interpolates it.
 BABEL_LITERAL_PERCENT_MESSAGES = {
+	"% of materials delivered against this Pick List",
 	"% of materials billed against this Sales Order",
 	"% of materials delivered against this Sales Order",
 	"Check if this tax is not applicable to items (distinct from 0% rate)",
@@ -662,6 +666,34 @@ class TestZhFinanceTranslations(TestCase):
 			"Total distribution percent must equal 100 (currently {0})": "分配比例合计必须等于 100（当前为 {0}）",
 			"{0} Budget for Account {1} against {2} {3} is {4}. It is already exceeded by {5}.": "{0}预算中，科目 {1} 针对 {2} {3} 的预算为 {4}，已超支 {5}。",
 			"{0} Budget for Account {1} against {2} {3} is {4}. It will be exceeded by {5}.": "{0}预算中，科目 {1} 针对 {2} {3} 的预算为 {4}，本次操作将超支 {5}。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+
+	def test_material_planning_and_picking_use_reviewed_chinese_terms(self):
+		translations = {
+			"Auto Created (Reorder)": "自动创建（再订购）",
+			"Projected On Hand": "预计在手库存",
+			"If the reorder check is set at the Group warehouse level, the available quantity becomes the sum of the projected quantities of all its child warehouses.": "若在仓库组层级设置再订购检查，可用数量将按其所有子仓库的预计数量汇总计算。",
+			"A separate Purchase Order is created for each Supplier.": "每个供应商将分别创建一张采购订单。",
+			"Item rates have been updated based on the selected Buying Price List {0}": "已根据所选采购价格表 {0} 更新物料单价",
+			"Item {0} cannot be ordered more than once": "物料 {0} 不能重复下单",
+			"Select Supplier for Items": "为物料选择供应商",
+			"Select a Supplier for Item {0}": "请为物料 {0} 选择供应商",
+			"Select at least one Item": "请至少选择一个物料",
+			"Set Supplier for All Items": "为所有物料设置供应商",
+			"{0} was set to today for items whose requested date has passed": "对请求日期已过期的物料，已将 {0} 设为今天",
+			"Partially Transferred": "部分已调拨",
+			"Transferred Qty (in Stock UOM)": "已调拨数量（库存单位）",
+			"% of materials delivered against this Pick List": "本拣货单的物料交付百分比",
+			"All picked items have already been transferred against this Pick List": "此拣货单中的所有已拣物料均已调拨",
+			"Missing Warehouse": "缺少仓库",
+			"Row {0}: Warehouse is required": "第 {0} 行：必须填写仓库",
+			"Row {0}: Warehouse {1} is linked to company {2}. Please select a warehouse belonging to company {3}.": "第 {0} 行：仓库 {1} 关联的公司为 {2}。请选择属于公司 {3} 的仓库。",
+			"Quantity for Item {0} must be greater than zero and cannot exceed {1}": "物料 {0} 的数量必须大于零且不能超过 {1}",
+			"{0} units of Item {1} is not available in any of the warehouses. Other Pick Lists exist for this item.": "任何仓库中均无法提供 {0} 个单位的物料 {1}，且该物料还存在其他拣货单。",
+			"Cannot declare as Lost because an active Quotation exists.": "存在有效报价单，无法将此商机标记为未成交。",
+			"Row #{0}: Quantity must be greater than 0 for Item {1}": "第 {0} 行：物料 {1} 的数量必须大于 0",
 		}
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
