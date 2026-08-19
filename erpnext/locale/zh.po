@@ -635,7 +635,7 @@ msgstr "对象{0}的<b>起始时间</b>不能晚于<b>结束时间</b>"
 
 #: erpnext/accounts/doctype/pos_invoice/pos_invoice.py:433
 msgid "<b>Row #{0}:</b> Bundle {1} in warehouse {2} has insufficient packed items:<br><div style='margin-top: 15px;'><ul style='line-height: 0.8;'>{3}</ul></div>"
-msgstr ""
+msgstr "<b>第 {0} 行：</b>套件 {1} 在仓库 {2} 中的套件明细库存不足：<br><div style='margin-top: 15px;'><ul style='line-height: 0.8;'>{3}</ul></div>"
 
 #. Content of the 'Help Text' (HTML) field in DocType 'Process Statement Of
 #. Accounts'
@@ -823,7 +823,7 @@ msgstr "{0}"
 
 #: erpnext/accounts/doctype/pos_invoice/pos_invoice.py:424
 msgid "<li>Packed Item {0}: Required {1}, Available {2}</li>"
-msgstr ""
+msgstr "<li>套件明细 {0}：需要 {1}，可用 {2}</li>"
 
 #: erpnext/accounts/doctype/bank_clearance/bank_clearance.py:121
 msgid "<li>Payment document required for row(s): {0}</li>"
@@ -1585,7 +1585,7 @@ msgstr "科目所属公司与规则所属公司不一致。"
 #: erpnext/accounts/doctype/pos_profile/pos_profile.json
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.json
 msgid "Account for Change Amount"
-msgstr "零钱科目"
+msgstr "找零科目"
 
 #: erpnext/accounts/doctype/budget/budget.py:150
 msgid "Account is mandatory"
@@ -4652,7 +4652,7 @@ msgstr "物料{0}已存在"
 
 #: erpnext/accounts/doctype/pos_profile/pos_profile.py:132
 msgid "Already set default in pos profile {0} for user {1}, kindly disabled default"
-msgstr "已经在用户{1}的pos配置文件{0}中设置了默认值，请禁用默认值"
+msgstr "POS 配置方案 {0} 已设为用户 {1} 的默认方案，请先取消其默认设置"
 
 #: erpnext/stock/doctype/item/item.js:20
 msgid "Also you can't switch back to FIFO after setting the valuation method to Moving Average for this item."
@@ -6352,7 +6352,7 @@ msgstr "退货单据中至少需要录入一项负数量物料"
 #: erpnext/accounts/doctype/pos_invoice/pos_invoice.py:531
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:568
 msgid "At least one mode of payment is required for POS invoice."
-msgstr "需要为POS发票定义至少付款模式"
+msgstr "POS 发票必须至少设置一种付款方式。"
 
 #: erpnext/setup/doctype/terms_and_conditions/terms_and_conditions.py:35
 msgid "At least one of the Applicable Modules should be selected"
@@ -9756,7 +9756,7 @@ msgstr "无法取消资产折旧计划{0}，因其存在草稿状态的日记账
 
 #: erpnext/accounts/doctype/pos_closing_entry/pos_closing_entry.py:247
 msgid "Cannot cancel POS Closing Entry"
-msgstr "无法取消POS结账凭证。"
+msgstr "无法取消 POS 交班结算"
 
 #: erpnext/stock/doctype/stock_reservation_entry/stock_reservation_entry.py:140
 msgid "Cannot cancel Stock Reservation Entry {0}, as it has used in the work order {1}. Please cancel the work order first or unreserved the stock"
@@ -10227,7 +10227,7 @@ msgstr "现金/银行科目"
 #: erpnext/accounts/report/pos_register/pos_register.py:123
 #: erpnext/accounts/report/pos_register/pos_register.py:195
 msgid "Cashier"
-msgstr "出纳员"
+msgstr "收银员"
 
 #. Name of a DocType
 #: erpnext/accounts/doctype/cashier_closing/cashier_closing.json
@@ -10241,7 +10241,7 @@ msgstr "收银员结算付款"
 
 #: erpnext/accounts/doctype/pos_opening_entry/pos_opening_entry.py:77
 msgid "Cashier is currently assigned to another POS."
-msgstr "收银员当前已分配至其他POS终端。"
+msgstr "该收银员当前已分配到另一台 POS。"
 
 #. Label of the catch_all (Link) field in DocType 'Communication Medium'
 #: erpnext/communication/doctype/communication_medium/communication_medium.json
@@ -10942,7 +10942,7 @@ msgstr "关闭科目{0}的类型必须是负债/权益"
 #. Detail'
 #: erpnext/accounts/doctype/pos_closing_entry_detail/pos_closing_entry_detail.json
 msgid "Closing Amount"
-msgstr "结账金额"
+msgstr "实际金额"
 
 #. Label of the bank_statement_closing_balance (Currency) field in DocType
 #. 'Bank Reconciliation Tool'
@@ -11934,7 +11934,7 @@ msgstr "公司{}尚未存在，税务设置已中止"
 
 #: erpnext/accounts/doctype/pos_invoice/pos_invoice.py:575
 msgid "Company {} does not match with POS Profile Company {}"
-msgstr "公司{}与POS配置公司{}不匹配"
+msgstr "公司 {} 与 POS 配置方案中的公司 {} 不一致"
 
 #. Name of a DocType
 #. Label of the competitor (Link) field in DocType 'Competitor Detail'
@@ -19955,7 +19955,7 @@ msgstr "预期金额"
 #. Detail'
 #: erpnext/accounts/doctype/pos_closing_entry_detail/pos_closing_entry_detail.json
 msgid "Expected Amount"
-msgstr "预期金额"
+msgstr "应有金额"
 
 #: erpnext/manufacturing/report/production_planning_report/production_planning_report.py:429
 msgid "Expected Arrival Date"
@@ -25203,7 +25203,7 @@ msgstr "批次库存不足"
 
 #: erpnext/accounts/doctype/pos_invoice/pos_invoice.py:441
 msgid "Insufficient Stock for Product Bundle Items"
-msgstr ""
+msgstr "套件物料库存不足"
 
 #. Label of the insurance_section (Section Break) field in DocType 'Asset'
 #: erpnext/assets/doctype/asset/asset.json
@@ -32595,7 +32595,7 @@ msgstr "未找到待核销发票"
 
 #: erpnext/accounts/doctype/pos_invoice/pos_invoice.py:670
 msgid "No POS Profile found. Please create a New POS Profile first"
-msgstr "未找到POS配置，请先创建新POS配置"
+msgstr "未找到 POS 配置方案，请先新建 POS 配置方案"
 
 #: erpnext/accounts/doctype/journal_entry/journal_entry.py:1593
 #: erpnext/accounts/doctype/journal_entry/journal_entry.py:1653
@@ -33880,7 +33880,7 @@ msgstr "期初"
 #: erpnext/accounts/doctype/pos_profile/pos_profile.json
 #: erpnext/workspace_sidebar/accounts_setup.json
 msgid "Opening & Closing"
-msgstr "POS机交接班"
+msgstr "POS 开班与交班"
 
 #: erpnext/accounts/report/consolidated_trial_balance/consolidated_trial_balance.py:417
 #: erpnext/accounts/report/trial_balance/trial_balance.py:516
@@ -33914,7 +33914,7 @@ msgstr "已提折旧"
 #: erpnext/accounts/doctype/pos_opening_entry_detail/pos_opening_entry_detail.json
 #: erpnext/selling/page/point_of_sale/pos_controller.js:41
 msgid "Opening Amount"
-msgstr "起始金额"
+msgstr "开班金额"
 
 #. Option for the 'Balance Type' (Select) field in DocType 'Financial Report
 #. Row'
@@ -33934,7 +33934,7 @@ msgstr ""
 #: erpnext/accounts/doctype/pos_opening_entry/pos_opening_entry.json
 #: erpnext/selling/page/point_of_sale/pos_controller.js:81
 msgid "Opening Balance Details"
-msgstr "起始余额明细"
+msgstr "开班金额明细"
 
 #: erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts.py:192
 #: erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts_with_account_number.py:343
@@ -35037,7 +35037,7 @@ msgstr "POS已关闭"
 #: erpnext/selling/workspace/selling/selling.json
 #: erpnext/workspace_sidebar/selling.json
 msgid "POS Closing Entry"
-msgstr "POS机接班"
+msgstr "POS 交班结算"
 
 #. Name of a DocType
 #: erpnext/accounts/doctype/pos_closing_entry_detail/pos_closing_entry_detail.json
@@ -35051,17 +35051,17 @@ msgstr "销售点结算分录税费"
 
 #: erpnext/accounts/doctype/pos_closing_entry/pos_closing_entry.js:18
 msgid "POS Closing Failed"
-msgstr "销售点结算失败"
+msgstr "POS 交班结算失败"
 
 #: erpnext/accounts/doctype/pos_closing_entry/pos_closing_entry.js:40
 msgid "POS Closing failed while running in a background process. You can resolve the {0} and retry the process again."
-msgstr "后台进程运行期间销售点结算失败。请解决{0}后重试"
+msgstr "后台执行 POS 交班结算时失败。请处理 {0} 后重试。"
 
 #. Label of the pos_configurations_tab (Tab Break) field in DocType 'POS
 #. Profile'
 #: erpnext/accounts/doctype/pos_profile/pos_profile.json
 msgid "POS Configurations"
-msgstr ""
+msgstr "POS 配置"
 
 #. Name of a DocType
 #: erpnext/accounts/doctype/pos_customer_group/pos_customer_group.json
@@ -35086,7 +35086,7 @@ msgstr "POS机字段"
 #: erpnext/accounts/report/pos_register/pos_register.py:174
 #: erpnext/workspace_sidebar/selling.json
 msgid "POS Invoice"
-msgstr "POS发票"
+msgstr "POS 发票"
 
 #. Name of a DocType
 #. Label of the pos_invoice_item (Data) field in DocType 'POS Invoice Item'
@@ -35101,7 +35101,7 @@ msgstr "销售点发票项"
 #: erpnext/accounts/doctype/pos_invoice_merge_log/pos_invoice_merge_log.json
 #: erpnext/workspace_sidebar/selling.json
 msgid "POS Invoice Merge Log"
-msgstr "销售点发票合并日志"
+msgstr "POS 发票合并日志"
 
 #. Name of a DocType
 #: erpnext/accounts/doctype/pos_invoice_reference/pos_invoice_reference.json
@@ -35127,7 +35127,7 @@ msgstr "销售点发票应勾选字段{0}"
 #. Label of the pos_invoices (Table) field in DocType 'POS Invoice Merge Log'
 #: erpnext/accounts/doctype/pos_invoice_merge_log/pos_invoice_merge_log.json
 msgid "POS Invoices"
-msgstr "销售点发票"
+msgstr "POS 发票"
 
 #: erpnext/accounts/doctype/pos_closing_entry/pos_closing_entry.py:86
 msgid "POS Invoices can't be added when Sales Invoice is enabled"
@@ -35145,7 +35145,7 @@ msgstr "销售点发票将在后台进程解除合并"
 #. Profile'
 #: erpnext/accounts/doctype/pos_profile/pos_profile.json
 msgid "POS Item Details"
-msgstr ""
+msgstr "POS 物料详情"
 
 #. Name of a DocType
 #: erpnext/accounts/doctype/pos_item_group/pos_item_group.json
@@ -35156,7 +35156,7 @@ msgstr "POS物料组"
 #. Profile'
 #: erpnext/accounts/doctype/pos_profile/pos_profile.json
 msgid "POS Item Selector"
-msgstr ""
+msgstr "POS 物料选择"
 
 #. Label of the pos_opening_entry (Link) field in DocType 'POS Closing Entry'
 #. Name of a DocType
@@ -35167,7 +35167,7 @@ msgstr ""
 #: erpnext/selling/workspace/selling/selling.json
 #: erpnext/workspace_sidebar/selling.json
 msgid "POS Opening Entry"
-msgstr "POS机交班"
+msgstr "POS 开班登记"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:1255
 msgid "POS Opening Entry - {0} is outdated. Please close the POS and create a new POS Opening Entry."
@@ -35175,7 +35175,7 @@ msgstr "POS期初凭证 - {0}已过期。请关闭POS并创建新的POS期初凭
 
 #: erpnext/accounts/doctype/pos_opening_entry/pos_opening_entry.py:121
 msgid "POS Opening Entry Cancellation Error"
-msgstr "POS期初凭证取消错误"
+msgstr "POS 开班登记取消失败"
 
 #: erpnext/selling/page/point_of_sale/pos_controller.js:174
 msgid "POS Opening Entry Cancelled"
@@ -35188,7 +35188,7 @@ msgstr "销售点期初分录明细"
 
 #: erpnext/accounts/doctype/pos_opening_entry/pos_opening_entry.py:67
 msgid "POS Opening Entry Exists"
-msgstr "POS期初凭证已存在"
+msgstr "POS 开班登记已存在"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:1240
 msgid "POS Opening Entry Missing"
@@ -35196,7 +35196,7 @@ msgstr "POS期初凭证缺失"
 
 #: erpnext/accounts/doctype/pos_opening_entry/pos_opening_entry.py:122
 msgid "POS Opening Entry cannot be cancelled as unconsolidated Invoices exists."
-msgstr "因存在未合并发票，无法取消POS期初凭证"
+msgstr "仍有未合并的发票，无法取消 POS 开班登记。"
 
 #: erpnext/selling/page/point_of_sale/pos_controller.js:180
 msgid "POS Opening Entry has been cancelled. Please refresh the page."
@@ -35224,7 +35224,7 @@ msgstr "销售点付款方式"
 #: erpnext/selling/page/point_of_sale/pos_controller.js:71
 #: erpnext/workspace_sidebar/selling.json
 msgid "POS Profile"
-msgstr "POS设置"
+msgstr "POS 配置方案"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:1248
 msgid "POS Profile - {0} has multiple open POS Opening Entries. Please close or cancel the existing entries before proceeding."
@@ -35232,7 +35232,7 @@ msgstr "POS配置 - {0}存在多个未结POS期初凭证。请先关闭或取消
 
 #: erpnext/accounts/doctype/pos_closing_entry/pos_closing_entry.py:248
 msgid "POS Profile - {0} is currently open. Please close the POS or cancel the existing POS Opening Entry before cancelling this POS Closing Entry."
-msgstr "POS配置 - {0}当前处于开启状态。请先关闭POS或取消现有POS期初凭证，再取消本POS结账凭证"
+msgstr "POS 配置方案 {0} 当前仍在开班。请先完成 POS 交班，或取消现有 POS 开班登记，再取消本次 POS 交班结算。"
 
 #. Name of a DocType
 #: erpnext/accounts/doctype/pos_profile_user/pos_profile_user.json
@@ -35242,7 +35242,7 @@ msgstr "POS配置文件用户"
 #: erpnext/accounts/doctype/pos_closing_entry/pos_closing_entry.py:122
 #: erpnext/accounts/doctype/pos_closing_entry/pos_closing_entry.py:187
 msgid "POS Profile doesn't match {}"
-msgstr "销售点配置不匹配{}"
+msgstr "POS 配置方案与 {} 不匹配"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:1208
 msgid "POS Profile is mandatory to mark this invoice as POS Transaction."
@@ -35254,7 +35254,7 @@ msgstr "需销售点配置以创建销售点分录"
 
 #: erpnext/accounts/doctype/pos_profile/pos_profile.py:113
 msgid "POS Profile {0} cannot be disabled as there are ongoing POS sessions."
-msgstr ""
+msgstr "POS 配置方案 {0} 仍有进行中的收银班次，无法停用。"
 
 #: erpnext/accounts/doctype/mode_of_payment/mode_of_payment.py:63
 msgid "POS Profile {} contains Mode of Payment {}. Please remove them to disable this mode."
@@ -35262,15 +35262,15 @@ msgstr "销售点配置{}包含付款方式{}。请移除以禁用该方式"
 
 #: erpnext/accounts/doctype/pos_opening_entry/pos_opening_entry.py:58
 msgid "POS Profile {} does not belong to company {}"
-msgstr "POS设置 {} 不属于 {}"
+msgstr "POS 配置方案 {} 不属于公司 {}"
 
 #: erpnext/accounts/doctype/pos_opening_entry/pos_opening_entry.py:47
 msgid "POS Profile {} does not exist."
-msgstr "POS设置 {} 不存在。"
+msgstr "POS 配置方案 {} 不存在。"
 
 #: erpnext/accounts/doctype/pos_opening_entry/pos_opening_entry.py:54
 msgid "POS Profile {} is disabled."
-msgstr "POS设置 {} 已禁用。"
+msgstr "POS 配置方案 {} 已停用。"
 
 #. Name of a report
 #: erpnext/accounts/report/pos_register/pos_register.json
@@ -35297,7 +35297,7 @@ msgstr "POS设置"
 #. Label of the pos_invoices (Table) field in DocType 'POS Closing Entry'
 #: erpnext/accounts/doctype/pos_closing_entry/pos_closing_entry.json
 msgid "POS Transactions"
-msgstr "销售点交易"
+msgstr "POS 交易"
 
 #: erpnext/selling/page/point_of_sale/pos_controller.js:178
 msgid "POS has been closed at {0}. Please refresh the page."
@@ -36952,7 +36952,7 @@ msgstr "付款金额不可小于等于0"
 
 #: erpnext/accounts/doctype/pos_profile/pos_profile.py:175
 msgid "Payment methods are mandatory. Please add at least one payment method."
-msgstr "必须设置付款方式，请至少添加一种"
+msgstr "必须设置付款方式，请至少添加一种付款方式。"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:3104
 msgid "Payment methods refreshed. Please review before proceeding."
@@ -38107,7 +38107,7 @@ msgstr "请输入<b>差异账户</b>或为公司{0}设置默认<b>库存调整�
 #: erpnext/accounts/doctype/pos_invoice/pos_invoice.py:555
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:1339
 msgid "Please enter Account for Change Amount"
-msgstr "请输入零钱科目"
+msgstr "请填写找零科目"
 
 #: erpnext/setup/doctype/authorization_rule/authorization_rule.py:75
 msgid "Please enter Approving Role or Approving User"
@@ -38430,7 +38430,7 @@ msgstr "请为资产保养日志选择完成日期"
 #: erpnext/maintenance/doctype/maintenance_visit/maintenance_visit.js:84
 #: erpnext/maintenance/doctype/maintenance_visit/maintenance_visit.js:125
 msgid "Please select Customer first"
-msgstr "请先选择公司"
+msgstr "请先选择客户"
 
 #: erpnext/setup/doctype/company/company.py:538
 msgid "Please select Existing Company for creating Chart of Accounts"
@@ -46430,7 +46430,7 @@ msgstr "第 {0} 行：物料 {1} 已拣货，请从拣货单创建库存预留�
 
 #: erpnext/accounts/doctype/pos_invoice/pos_invoice.py:449
 msgid "Row #{0}: Item {1} has no stock in warehouse {2}."
-msgstr ""
+msgstr "第 {0} 行：物料 {1} 在仓库 {2} 中没有库存。"
 
 #: erpnext/controllers/stock_controller.py:203
 msgid "Row #{0}: Item {1} has zero rate but '{2}' is not enabled."
@@ -46438,7 +46438,7 @@ msgstr ""
 
 #: erpnext/accounts/doctype/pos_invoice/pos_invoice.py:456
 msgid "Row #{0}: Item {1} in warehouse {2}: Available {3}, Needed {4}."
-msgstr ""
+msgstr "第 {0} 行：物料 {1} 在仓库 {2} 中可用 {3}，需要 {4}。"
 
 #: erpnext/controllers/subcontracting_inward_controller.py:65
 msgid "Row #{0}: Item {1} is not a Customer Provided Item."
@@ -48550,7 +48550,7 @@ msgstr "调度程序处于非活动状态。现在无法触发作业。"
 
 #: erpnext/accounts/doctype/pos_invoice_merge_log/pos_invoice_merge_log.py:681
 msgid "Scheduler is inactive. Cannot enqueue job."
-msgstr "调度器处于非活动状态。无法在队列工作。"
+msgstr "调度器未启用，无法将任务加入队列。"
 
 #: erpnext/accounts/doctype/ledger_merge/ledger_merge.py:39
 msgid "Scheduler is inactive. Cannot merge accounts."
@@ -49199,7 +49199,7 @@ msgstr "设置客户首选联系人后，可以使用手机号过滤客户"
 
 #: erpnext/accounts/doctype/pos_closing_entry/pos_closing_entry.py:77
 msgid "Selected POS Opening Entry should be open."
-msgstr "选定的POS期初条目应为开启状态。"
+msgstr "所选 POS 开班登记必须处于开班状态。"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:2632
 msgid "Selected Price List should have buying and selling fields checked."
@@ -49448,7 +49448,7 @@ msgstr "序列号/批号"
 
 #: erpnext/accounts/doctype/pos_invoice/pos_invoice.py:488
 msgid "Serial / Batch Bundle Missing"
-msgstr "缺少序列号/批次组合"
+msgstr "缺少序列号与批号"
 
 #. Label of the serial_no_and_batch_no_tab (Section Break) field in DocType
 #. 'Serial and Batch Bundle'
@@ -59651,7 +59651,7 @@ msgstr "因用户 {0} 没有关联的员工主数据，已移除了员工角色"
 
 #: erpnext/accounts/doctype/pos_opening_entry/pos_opening_entry.py:62
 msgid "User {} is disabled. Please select valid user/cashier"
-msgstr "用户{}已禁用，请选择有效用户/收银员"
+msgstr "用户 {} 已停用，请选择有效的用户或收银员"
 
 #. Description of the 'Set Landed Cost Based on Purchase Invoice Rate' (Check)
 #. field in DocType 'Buying Settings'
@@ -62020,7 +62020,7 @@ msgstr "您只能按此顺序兑换最多{0}个积分。"
 
 #: erpnext/accounts/doctype/pos_profile/pos_profile.py:182
 msgid "You can only select one mode of payment as default"
-msgstr "只能选择一个支付方式作为默认"
+msgstr "只能将一种付款方式设为默认"
 
 #: erpnext/selling/page/point_of_sale/pos_payment.js:595
 msgid "You can redeem upto {0}."
@@ -62205,7 +62205,7 @@ msgstr "添加物料前需先选择客户"
 
 #: erpnext/accounts/doctype/pos_invoice/pos_invoice.py:279
 msgid "You need to cancel POS Closing Entry {} to be able to cancel this document."
-msgstr "需先取消POS结算单{}才能取消此单据"
+msgstr "必须先取消 POS 交班结算 {}，才能取消此单据。"
 
 #: erpnext/controllers/accounts_controller.py:3255
 msgid "You selected the account group {1} as {2} Account in row {0}. Please select a single account."
@@ -62942,7 +62942,7 @@ msgstr "{0}被临时冻结至{1}"
 
 #: erpnext/accounts/doctype/pos_opening_entry/pos_opening_entry.py:68
 msgid "{0} is open. Close the POS or cancel the existing POS Opening Entry to create a new POS Opening Entry."
-msgstr "{0}处于开启状态。请关闭POS或取消现有POS期初凭证以创建新的POS期初凭证。"
+msgstr "{0} 仍在开班。请先完成 POS 交班，或取消现有 POS 开班登记，再创建新的 POS 开班登记。"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.js:537
 msgid "{0} items disassembled"

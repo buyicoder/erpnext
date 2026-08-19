@@ -53,6 +53,11 @@ CORE_BUSINESS_DOCTYPES = {
 	"Opportunity",
 	"Payment Entry",
 	"Pick List",
+	"POS Closing Entry",
+	"POS Invoice",
+	"POS Invoice Merge Log",
+	"POS Opening Entry",
+	"POS Profile",
 	"Project",
 	"Purchase Invoice",
 	"Purchase Order",
@@ -684,6 +689,44 @@ class TestZhFinanceTranslations(TestCase):
 			"Task Assignee Email": "任务负责人邮箱",
 			"Start date should be less than end date for task {0}": "任务 {0} 的开始日期必须早于结束日期",
 			"Please enter Item Code to get Batch Number": "请输入物料编码以获取批号",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+
+	def test_pos_shift_and_cash_control_use_reviewed_chinese_terms(self):
+		translations = {
+			"POS Profile": "POS 配置方案",
+			"POS Configurations": "POS 配置",
+			"POS Item Selector": "POS 物料选择",
+			"POS Item Details": "POS 物料详情",
+			"POS Opening Entry": "POS 开班登记",
+			"POS Closing Entry": "POS 交班结算",
+			"Opening & Closing": "POS 开班与交班",
+			"Cashier": "收银员",
+			"Opening Amount": "开班金额",
+			"Opening Balance Details": "开班金额明细",
+			"Expected Amount": "应有金额",
+			"Closing Amount": "实际金额",
+			"Account for Change Amount": "找零科目",
+			"Please enter Account for Change Amount": "请填写找零科目",
+			"POS Invoice": "POS 发票",
+			"POS Invoice Merge Log": "POS 发票合并日志",
+			"POS Transactions": "POS 交易",
+			"At least one mode of payment is required for POS invoice.": "POS 发票必须至少设置一种付款方式。",
+			"Payment methods are mandatory. Please add at least one payment method.": "必须设置付款方式，请至少添加一种付款方式。",
+			"You can only select one mode of payment as default": "只能将一种付款方式设为默认",
+			"POS Profile {0} cannot be disabled as there are ongoing POS sessions.": "POS 配置方案 {0} 仍有进行中的收银班次，无法停用。",
+			"POS Profile - {0} is currently open. Please close the POS or cancel the existing POS Opening Entry before cancelling this POS Closing Entry.": "POS 配置方案 {0} 当前仍在开班。请先完成 POS 交班，或取消现有 POS 开班登记，再取消本次 POS 交班结算。",
+			"POS Opening Entry cannot be cancelled as unconsolidated Invoices exists.": "仍有未合并的发票，无法取消 POS 开班登记。",
+			"Selected POS Opening Entry should be open.": "所选 POS 开班登记必须处于开班状态。",
+			"{0} is open. Close the POS or cancel the existing POS Opening Entry to create a new POS Opening Entry.": "{0} 仍在开班。请先完成 POS 交班，或取消现有 POS 开班登记，再创建新的 POS 开班登记。",
+			"You need to cancel POS Closing Entry {} to be able to cancel this document.": "必须先取消 POS 交班结算 {}，才能取消此单据。",
+			"Please select Customer first": "请先选择客户",
+			"Insufficient Stock for Product Bundle Items": "套件物料库存不足",
+			"Row #{0}: Item {1} has no stock in warehouse {2}.": "第 {0} 行：物料 {1} 在仓库 {2} 中没有库存。",
+			"Row #{0}: Item {1} in warehouse {2}: Available {3}, Needed {4}.": "第 {0} 行：物料 {1} 在仓库 {2} 中可用 {3}，需要 {4}。",
+			"Scheduler is inactive. Cannot enqueue job.": "调度器未启用，无法将任务加入队列。",
+			"Serial / Batch Bundle Missing": "缺少序列号与批号",
 		}
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
