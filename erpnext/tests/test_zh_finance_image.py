@@ -13,6 +13,9 @@ class TestZhFinanceImage(TestCase):
 		self.fetch_script = (
 			self.repo_root / "scripts" / "fetch_frappe_zh_baseline.sh"
 		).read_text()
+		self.browser_overrides = (
+			self.repo_root / "erpnext" / "public" / "js" / "zh_finance_overrides.js"
+		).read_text()
 
 	def test_image_compiles_translations_and_frontend_assets(self):
 		self.assertIn("bench compile-po-to-mo --app erpnext --locale zh --force", self.containerfile)
@@ -57,6 +60,16 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("erpnext/dist/js/${js_bundle}", self.containerfile)
 		self.assertIn("erpnext/dist/css/${css_bundle}", self.containerfile)
 		self.assertIn("expected_css_bundle=", self.build_script)
+
+	def test_chart_month_localization_is_scoped_to_the_x_axis(self):
+		self.assertIn(
+			'const chart_date_selector = ".chart-container svg .x.axis text";',
+			self.browser_overrides,
+		)
+		self.assertNotIn(
+			'const chart_date_selector = ".chart-container svg text";',
+			self.browser_overrides,
+		)
 
 	def test_realtime_proxy_preserves_the_browser_origin(self):
 		self.assertIn("proxy_set_header Origin \\$frappe_socket_origin", self.containerfile)

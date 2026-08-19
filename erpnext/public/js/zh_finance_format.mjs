@@ -55,7 +55,13 @@ const MONTHS = {
 };
 
 export const format_month_year_text = (text) => {
-	const match = text.trim().match(/^([A-Z][a-z]{2})\s+(\d{4})$/);
-	if (!match || !MONTHS[match[1]]) return text;
+	const normalized = text.trim();
+	const month_label = normalized.match(/^([A-Z][a-z]{2})(\s+\([^)]*\))?$/);
+	if (month_label && Object.hasOwn(MONTHS, month_label[1])) {
+		return `${MONTHS[month_label[1]]}月${month_label[2] || ""}`;
+	}
+
+	const match = normalized.match(/^([A-Z][a-z]{2})\s+(\d{4})$/);
+	if (!match || !Object.hasOwn(MONTHS, match[1])) return text;
 	return `${match[2]}年${MONTHS[match[1]]}月`;
 };

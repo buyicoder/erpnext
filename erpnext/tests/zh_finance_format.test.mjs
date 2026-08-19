@@ -24,7 +24,26 @@ test("formats report-cell CNY amounts without compact units", () => {
 test("uses Chinese year-month order for chart labels", () => {
 	assert.equal(format_month_year_text("Aug 2026"), "2026年8月");
 	assert.equal(format_month_year_text("Jan 2025"), "2025年1月");
+	[
+		"Jan",
+		"Feb",
+		"Mar",
+		"Apr",
+		"May",
+		"Jun",
+		"Jul",
+		"Aug",
+		"Sep",
+		"Oct",
+		"Nov",
+		"Dec",
+	].forEach((month, index) => {
+		assert.equal(format_month_year_text(month), `${index + 1}月`);
+	});
+	assert.equal(format_month_year_text("Jan (金额)"), "1月 (金额)");
 	assert.equal(format_month_year_text("月度"), "月度");
+	assert.equal(format_month_year_text("Jan sales"), "Jan sales");
+	assert.equal(format_month_year_text("constructor"), "constructor");
 });
 
 test("preserves values outside the compact CNY contract", () => {

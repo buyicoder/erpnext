@@ -20,7 +20,7 @@ if (frappe.boot.lang === "zh") {
 		".summary-value",
 	].join(", ");
 	const awesomplete_status_selector = ".awesomplete [role='status']";
-	const chart_date_selector = ".chart-container svg text";
+	const chart_date_selector = ".chart-container svg .x.axis text";
 	const localize_compact_cny = (root = document) => {
 		if (!root) return;
 		const elements = root.matches?.(cny_amount_selector)
