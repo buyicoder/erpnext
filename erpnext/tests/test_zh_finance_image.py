@@ -1,5 +1,9 @@
+import json
 from pathlib import Path
+from tempfile import TemporaryDirectory
 from unittest import TestCase
+
+from scripts.sync_asset_manifest import sync_manifest
 
 
 class TestZhFinanceImage(TestCase):
@@ -48,6 +52,7 @@ class TestZhFinanceImage(TestCase):
 		self.assertNotIn("apps/frappe/frappe/realtime/utils.js", self.containerfile)
 		self.assertIn("merge_frappe_zh_catalog.py", self.containerfile)
 		self.assertIn("patch_frappe_print_page.py", self.containerfile)
+		self.assertIn("sync_asset_manifest.py", self.containerfile)
 		self.assertIn("/tmp/patch_frappe_print_page.py", self.containerfile)
 		self.assertIn("frappe.mo", self.containerfile)
 
@@ -60,15 +65,37 @@ class TestZhFinanceImage(TestCase):
 		)
 
 	def test_image_manifest_points_to_the_built_bundle(self):
-		self.assertIn("js_bundle=", self.containerfile)
-		self.assertIn("css_bundle=", self.containerfile)
+		self.assertIn("sync_asset_manifest.py", self.containerfile)
 		self.assertIn("assets/assets.json", self.containerfile)
-		self.assertIn("erpnext/dist/js/${js_bundle}", self.containerfile)
-		self.assertIn("erpnext/dist/css/${css_bundle}", self.containerfile)
-		self.assertIn("expected_css_bundle=", self.build_script)
-		self.assertIn("expected_desk_bundle=", self.build_script)
+		self.assertIn("Asset manifest references missing files", self.build_script)
 		self.assertIn("this.print_format_control.get_value()", self.build_script)
 		self.assertIn("Refusing to build from a dirty worktree", self.build_script)
+
+	def test_asset_manifest_syncs_every_built_bundle(self):
+		with TemporaryDirectory() as temporary_directory:
+			asset_root = Path(temporary_directory)
+			(asset_root / "frappe/dist/css").mkdir(parents=True)
+			(asset_root / "erpnext/dist/js").mkdir(parents=True)
+			(asset_root / "frappe/dist/css/desk.bundle.NEW123.css").write_text("desk")
+			(asset_root / "erpnext/dist/js/erpnext.bundle.NEW456.js").write_text("erpnext")
+			manifest_path = asset_root / "assets.json"
+			manifest_path.write_text(
+				json.dumps(
+					{
+						"desk.bundle.css": "/assets/frappe/dist/css/desk.bundle.OLD.css",
+						"erpnext.bundle.js": "/assets/erpnext/dist/js/erpnext.bundle.OLD.js",
+					}
+				)
+			)
+
+			self.assertEqual(sync_manifest(asset_root, manifest_path), 2)
+			manifest = json.loads(manifest_path.read_text())
+			self.assertEqual(
+				manifest["desk.bundle.css"], "/assets/frappe/dist/css/desk.bundle.NEW123.css"
+			)
+			self.assertEqual(
+				manifest["erpnext.bundle.js"], "/assets/erpnext/dist/js/erpnext.bundle.NEW456.js"
+			)
 
 	def test_chart_month_localization_is_scoped_to_the_x_axis(self):
 		self.assertIn(

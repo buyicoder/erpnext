@@ -20,12 +20,17 @@ docker build \
 
 docker run --rm --entrypoint sh "$image" -lc '
 	set -eu
-	expected_bundle="$(basename "$(find /home/frappe/frappe-bench/assets/erpnext/dist/js -name "erpnext.bundle.*.js" -type f | head -1)")"
-	expected_css_bundle="$(basename "$(find /home/frappe/frappe-bench/assets/erpnext/dist/css -name "erpnext.bundle.*.css" -type f | head -1)")"
-	expected_desk_bundle="$(basename "$(find /home/frappe/frappe-bench/assets/frappe/dist/js -name "desk.bundle.*.js" -type f | head -1)")"
-	grep -F "erpnext/dist/js/${expected_bundle}" /home/frappe/frappe-bench/assets/assets.json >/dev/null
-	grep -F "erpnext/dist/css/${expected_css_bundle}" /home/frappe/frappe-bench/assets/assets.json >/dev/null
-	grep -F "frappe/dist/js/${expected_desk_bundle}" /home/frappe/frappe-bench/assets/assets.json >/dev/null
+	/home/frappe/frappe-bench/env/bin/python - <<"PY"
+import json
+from pathlib import Path
+
+asset_root = Path("/home/frappe/frappe-bench/assets")
+manifest = json.loads((asset_root / "assets.json").read_text())
+missing = [path for path in manifest.values() if isinstance(path, str) and path.startswith("/assets/") and not (asset_root / path.removeprefix("/assets/")).is_file()]
+if missing:
+	raise SystemExit("Asset manifest references missing files: " + ", ".join(missing))
+print(f"Verified {len(manifest)} asset manifest entries")
+PY
 	grep -F "this.print_format_control.get_value()" /home/frappe/frappe-bench/apps/frappe/frappe/printing/page/print/print.js >/dev/null
 	test -s /home/frappe/frappe-bench/assets/locale/zh/LC_MESSAGES/erpnext.mo
 '
