@@ -4660,7 +4660,7 @@ msgstr "本物料设置为移动平均计价法后不可切换回先进先出法
 
 #: erpnext/stock/report/stock_balance/stock_balance.py:640
 msgid "Alt UOM"
-msgstr ""
+msgstr "辅助单位"
 
 #: erpnext/manufacturing/doctype/bom/bom.js:291
 #: erpnext/manufacturing/doctype/work_order/work_order.js:158
@@ -4672,7 +4672,7 @@ msgstr "替代物料"
 
 #: erpnext/stock/report/item_where_used/item_where_used.py:425
 msgid "Alternative For Item"
-msgstr ""
+msgstr "替代物料"
 
 #. Label of the alternative_item_code (Link) field in DocType 'Item
 #. Alternative'
@@ -7081,7 +7081,7 @@ msgstr "物料清单比对工具"
 
 #: erpnext/stock/report/item_where_used/item_where_used.py:174
 msgid "BOM Component"
-msgstr ""
+msgstr "物料清单组件"
 
 #. Label of the bom_conf_tab (Tab Break) field in DocType 'BOM'
 #: erpnext/manufacturing/doctype/bom/bom.json
@@ -7220,7 +7220,7 @@ msgstr "工艺时间"
 
 #: erpnext/stock/report/item_where_used/item_where_used.py:244
 msgid "BOM Output"
-msgstr ""
+msgstr "物料清单产出"
 
 #: erpnext/stock/report/item_prices/item_prices.py:60
 msgid "BOM Rate"
@@ -7448,7 +7448,7 @@ msgstr "结余数量"
 
 #: erpnext/stock/report/stock_balance/stock_balance.py:631
 msgid "Balance Qty (Alt UOM)"
-msgstr ""
+msgstr "结余数量（辅助单位）"
 
 #: erpnext/stock/page/warehouse_capacity_summary/warehouse_capacity_summary.js:71
 msgid "Balance Qty (Stock)"
@@ -7494,7 +7494,7 @@ msgstr "资产负债表汇总"
 
 #: erpnext/accounts/report/balance_sheet/balance_sheet.py:284
 msgid "Balance Sheet requires {0} to be synced to DuckDB"
-msgstr ""
+msgstr "资产负债表要求先将 {0} 同步到 DuckDB"
 
 #: erpnext/stock/page/warehouse_capacity_summary/warehouse_capacity_summary_header.html:13
 msgid "Balance Stock Qty"
@@ -8280,7 +8280,7 @@ msgstr "批号数量"
 
 #: erpnext/stock/report/stock_qty_vs_batch_qty/stock_qty_vs_batch_qty.py:126
 msgid "Batch Qty updated successfully"
-msgstr ""
+msgstr "批次数量更新成功"
 
 #: erpnext/stock/doctype/batch/batch.py:176
 msgid "Batch Qty updated to {0}"
@@ -18073,7 +18073,7 @@ msgstr ""
 
 #: erpnext/stock/report/negative_batch_report/negative_batch_report.py:78
 msgid "Document No"
-msgstr ""
+msgstr "单据编号"
 
 #. Label of the document_type (Link) field in DocType 'Subscription Invoice'
 #: erpnext/accounts/doctype/subscription_invoice/subscription_invoice.json
@@ -22207,7 +22207,7 @@ msgstr "总账备注长度"
 
 #: erpnext/accounts/report/general_ledger/general_ledger.py:829
 msgid "General Ledger requires {0} to be synced to DuckDB"
-msgstr ""
+msgstr "会计总账要求先将 {0} 同步到 DuckDB"
 
 #. Label of the gs (Section Break) field in DocType 'Item Group'
 #: erpnext/setup/doctype/item_group/item_group.json
@@ -22780,7 +22780,7 @@ msgstr "总计（本币）"
 
 #: erpnext/accounts/report/tax_withholding_details/tax_withholding_details.py:250
 msgid "Grand Total (Transaction Currency)"
-msgstr ""
+msgstr "总计（交易币种）"
 
 #: erpnext/accounts/doctype/payment_request/payment_request.py:126
 msgid "Grand Total must match sum of Payment References"
@@ -25543,7 +25543,7 @@ msgstr "无效单据类型"
 
 #: erpnext/selling/report/sales_analytics/sales_analytics.py:529
 msgid "Invalid Document Type {0}"
-msgstr ""
+msgstr "单据类型 {0} 无效"
 
 #: erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:207
 msgid "Invalid File Type"
@@ -25664,7 +25664,7 @@ msgstr ""
 
 #: erpnext/selling/report/sales_analytics/sales_analytics.py:507
 msgid "Invalid Tree Type {0}"
-msgstr ""
+msgstr "树形类型 {0} 无效"
 
 #: erpnext/edi/doctype/code_list/code_list_import.py:37
 msgid "Invalid Upload"
@@ -25732,11 +25732,11 @@ msgstr "搜索查询无效"
 
 #: erpnext/accounts/report/inactive_sales_items/inactive_sales_items.py:99
 msgid "Invalid value {0} for 'Based On'"
-msgstr ""
+msgstr "“依据”的值 {0} 无效"
 
 #: erpnext/selling/report/inactive_customers/inactive_customers.py:20
 msgid "Invalid value {0} for 'Doctype'"
-msgstr ""
+msgstr "“单据类型”的值 {0} 无效"
 
 #: erpnext/accounts/doctype/payment_ledger_entry/payment_ledger_entry.py:109
 #: erpnext/accounts/doctype/payment_ledger_entry/payment_ledger_entry.py:119
@@ -29123,7 +29123,7 @@ msgstr "合并科目"
 
 #: erpnext/stock/report/stock_and_account_value_comparison/stock_and_account_value_comparison.py:151
 msgid "Ledger Type"
-msgstr ""
+msgstr "明细账类型"
 
 #. Label of a Card Break in the Financial Reports Workspace
 #. Label of a Workspace Sidebar Item
@@ -33180,7 +33180,7 @@ msgstr "无权创建采购订单"
 
 #: erpnext/stock/report/stock_qty_vs_serial_no_count/stock_qty_vs_serial_no_count.py:94
 msgid "Not permitted to update Serial No"
-msgstr ""
+msgstr "无权更新序列号"
 
 #: erpnext/manufacturing/doctype/bom_update_log/bom_update_log_list.js:21
 msgid "Note: Automatic log deletion only applies to logs of type <i>Update Cost</i>"
@@ -38553,7 +38553,7 @@ msgstr ""
 
 #: erpnext/selling/report/sales_partner_commission_summary/sales_partner_commission_summary.py:53
 msgid "Please select a company."
-msgstr ""
+msgstr "请选择公司。"
 
 #: erpnext/setup/doctype/holiday_list/holiday_list.py:89
 msgid "Please select a country"
@@ -39542,7 +39542,7 @@ msgstr ""
 
 #: erpnext/stock/report/negative_batch_report/negative_batch_report.py:54
 msgid "Previous Qty"
-msgstr ""
+msgstr "上次数量"
 
 #. Label of the previous_work_experience (Section Break) field in DocType
 #. 'Employee'
@@ -40407,7 +40407,7 @@ msgstr "套件余额"
 
 #: erpnext/stock/report/item_where_used/item_where_used.py:274
 msgid "Product Bundle Component"
-msgstr ""
+msgstr "产品组合组件"
 
 #. Label of the product_bundle_help (HTML) field in DocType 'POS Invoice'
 #. Label of the product_bundle_help (HTML) field in DocType 'Sales Invoice'
@@ -40432,7 +40432,7 @@ msgstr "套件物料"
 
 #: erpnext/stock/report/item_where_used/item_where_used.py:303
 msgid "Product Bundle Parent"
-msgstr ""
+msgstr "产品组合父项"
 
 #. Label of the product_discount_scheme_section (Section Break) field in
 #. DocType 'Pricing Rule'
@@ -40642,7 +40642,7 @@ msgstr "损益表"
 
 #: erpnext/accounts/report/profit_and_loss_statement/profit_and_loss_statement.py:215
 msgid "Profit and Loss Statement requires {0} to be synced to DuckDB"
-msgstr ""
+msgstr "利润表要求先将 {0} 同步到 DuckDB"
 
 #. Label of the heading_cppb (Heading) field in DocType 'Bisect Accounting
 #. Statements'
@@ -44211,7 +44211,7 @@ msgstr "关联单据"
 
 #: erpnext/stock/report/item_where_used/item_where_used.py:50
 msgid "Related Item"
-msgstr ""
+msgstr "关联物料"
 
 #. Label of the relation (Data) field in DocType 'Employee'
 #: erpnext/setup/doctype/employee/employee.json
@@ -45640,7 +45640,7 @@ msgstr "退货数量(库存单位)"
 
 #: erpnext/buying/report/subcontracted_raw_materials_to_be_transferred/subcontracted_raw_materials_to_be_transferred.py:44
 msgid "Returned Quantity"
-msgstr ""
+msgstr "退回数量"
 
 #: erpnext/accounts/doctype/currency_exchange_settings/currency_exchange_settings.py:109
 msgid "Returned exchange rate is neither integer not float."
@@ -49634,7 +49634,7 @@ msgstr "序列号是物料{0}的必须项"
 
 #: erpnext/stock/report/stock_qty_vs_serial_no_count/stock_qty_vs_serial_no_count.py:111
 msgid "Serial No status sync has been queued. Reload the report after a few minutes."
-msgstr ""
+msgstr "序列号状态同步已加入队列，请几分钟后重新加载报表。"
 
 #: erpnext/public/js/utils/serial_no_batch_selector.js:603
 msgid "Serial No {0} already exists"
@@ -52943,7 +52943,7 @@ msgstr "外包交货"
 
 #: erpnext/stock/report/item_where_used/item_where_used.py:360
 msgid "Subcontracting Finished Good"
-msgstr ""
+msgstr "外协成品"
 
 #. Label of the subcontracting_inward_tab (Tab Break) field in DocType 'Selling
 #. Settings'
@@ -53127,7 +53127,7 @@ msgstr "外包销售订单"
 
 #: erpnext/stock/report/item_where_used/item_where_used.py:334
 msgid "Subcontracting Service Item"
-msgstr ""
+msgstr "外协服务物料"
 
 #. Label of the subcontract (Tab Break) field in DocType 'Buying Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
@@ -57999,7 +57999,7 @@ msgstr "交易名称"
 
 #: erpnext/stock/report/negative_batch_report/negative_batch_report.py:60
 msgid "Transaction Qty"
-msgstr ""
+msgstr "交易数量"
 
 #. Label of the transaction_settings_section (Tab Break) field in DocType
 #. 'Buying Settings'
@@ -60857,7 +60857,7 @@ msgstr "仓库{0}不属于公司{1}"
 #: erpnext/stock/doctype/warehouse/warehouse.py:288
 #: erpnext/stock/report/stock_qty_vs_serial_no_count/stock_qty_vs_serial_no_count.py:99
 msgid "Warehouse {0} does not exist"
-msgstr ""
+msgstr "仓库 {0} 不存在"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.py:321
 msgid "Warehouse {0} is not allowed for Sales Order {1}, it should be {2}"
@@ -62897,7 +62897,7 @@ msgstr "{0}不是库存物料"
 
 #: erpnext/accounts/report/budget_variance_report/budget_variance_report.py:413
 msgid "{0} is not a valid Accounting Dimension."
-msgstr ""
+msgstr "{0} 不是有效的会计维度。"
 
 #: erpnext/controllers/item_variant.py:251
 msgid "{0} is not a valid Value for Attribute {1} of Item {2}."
@@ -63266,7 +63266,7 @@ msgstr "{0}，在工序 {2} 前请先完成工序 {1}"
 
 #: erpnext/selling/report/sales_person_wise_transaction_summary/sales_person_wise_transaction_summary.py:61
 msgid "{0}, {1} or {2} are the only allowed options."
-msgstr ""
+msgstr "仅允许选择 {0}、{1} 或 {2}。"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:534
 msgid "{0}: Child table (auto-deleted with parent)"
@@ -63298,7 +63298,7 @@ msgstr "{0}: {1}不属于公司{2}"
 
 #: erpnext/accounts/report/accounts_receivable/accounts_receivable.py:1364
 msgid "{0}: {1} does not exist"
-msgstr ""
+msgstr "{0}：{1} 不存在"
 
 #: erpnext/setup/doctype/company/company.py:282
 msgid "{0}: {1} is a group account."
@@ -63664,6 +63664,7 @@ msgstr "变体"
 #. Option for the 'Percent Complete Method' field in DocType 'Project'
 msgid "Task Progress"
 msgstr "任务进度"
+
 msgid "From Date"
 msgstr "开始日期"
 
@@ -63735,3 +63736,81 @@ msgstr "是否启用"
 
 msgid "Priority"
 msgstr "优先级"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "Description"
+msgstr "描述"
+
+msgid "Reference Date"
+msgstr "参考日期"
+
+msgid "{0} is mandatory"
+msgstr "{0} 为必填项"
+
+msgid "Reference"
+msgstr "关联资料"
+
+msgid "Totals"
+msgstr "合计"
+
+msgid "Please set filters"
+msgstr "请设置筛选条件"
+
+msgid "Reference Type"
+msgstr "关联类型"
+
+msgid "Document"
+msgstr "单据"
+
+msgid "Row"
+msgstr "行"
+
+msgid "Default"
+msgstr "默认"
+
+msgid "Active"
+msgstr "启用"
+
+msgid "Disabled"
+msgstr "禁用"
+
+msgid "Details"
+msgstr "详情"
+
+msgid "Shipping Address"
+msgstr "收货地址"
+
+msgid "Expires On"
+msgstr "到期时间"
+
+msgid "Value Change"
+msgstr "价值变动"
+
+msgid "Type"
+msgstr "类型"
+
+msgid "Year"
+msgstr "年"
+
+msgid "Month"
+msgstr "月"
+
+msgid "Address"
+msgstr "地址"
+
+msgid "Contact"
+msgstr "联系人"
+
+msgid "Delayed"
+msgstr "延期"
+
+msgid "Task"
+msgstr "任务"
+
+msgid "Subject"
+msgstr "主题"
+
+msgid "Completed"
+msgstr "已完成"

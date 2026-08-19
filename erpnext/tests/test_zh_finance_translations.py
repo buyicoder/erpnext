@@ -1,3 +1,4 @@
+import ast
 import json
 import re
 from io import BytesIO
@@ -289,6 +290,37 @@ class TestZhFinanceTranslations(TestCase):
 				source = re.sub(r"/\*.*?\*/", "", path.read_text(), flags=re.DOTALL)
 				source = "\n".join(line for line in source.splitlines() if not line.lstrip().startswith("//"))
 				for message_id in message_pattern.findall(source):
+					message = self.catalog.get(message_id)
+					if not message or not message.string or "fuzzy" in message.flags or message.check():
+						missing.append(f"{path.relative_to(erpnext_root)}:{message_id}")
+
+		self.assertEqual(missing, [])
+
+	def test_core_business_report_server_messages_are_translated(self):
+		erpnext_root = Path(__file__).parents[1]
+		roots = (
+			erpnext_root / "accounts/report",
+			erpnext_root / "buying/report",
+			erpnext_root / "projects/report",
+			erpnext_root / "selling/report",
+			erpnext_root / "stock/report",
+		)
+		missing = []
+
+		for root in roots:
+			for path in sorted(root.glob("**/*.py")):
+				tree = ast.parse(path.read_text())
+				for node in ast.walk(tree):
+					if not (
+						isinstance(node, ast.Call)
+						and isinstance(node.func, ast.Name)
+						and node.func.id == "_"
+						and node.args
+						and isinstance(node.args[0], ast.Constant)
+						and isinstance(node.args[0].value, str)
+					):
+						continue
+					message_id = node.args[0].value
 					message = self.catalog.get(message_id)
 					if not message or not message.string or "fuzzy" in message.flags or message.check():
 						missing.append(f"{path.relative_to(erpnext_root)}:{message_id}")
