@@ -1116,7 +1116,7 @@ msgstr "客户须有主联络邮箱"
 #. Description of the 'Disabled' (Check) field in DocType 'Product Bundle'
 #: erpnext/selling/doctype/product_bundle/product_bundle.json
 msgid "A disabled Product Bundle cannot be selected in transactions."
-msgstr ""
+msgstr "已禁用的套件不能用于交易。"
 
 #: erpnext/accounts/doctype/exchange_rate_revaluation/exchange_rate_revaluation.py:636
 msgid "A draft reverse journal for {0} has been created: {1}"
@@ -13741,7 +13741,7 @@ msgstr ""
 #. Title of an Onboarding Step
 #: erpnext/buying/onboarding_step/create_supplier/create_supplier.json
 msgid "Create Supplier"
-msgstr ""
+msgstr "创建供应商"
 
 #: erpnext/buying/doctype/request_for_quotation/request_for_quotation.js:181
 msgid "Create Supplier Quotation"
@@ -13851,7 +13851,7 @@ msgstr "创建客户报价"
 #. Label of an action in the Onboarding Step 'Create Delivery Note'
 #: erpnext/selling/onboarding_step/create_delivery_note/create_delivery_note.json
 msgid "Create delivery note"
-msgstr ""
+msgstr "创建销售出库"
 
 #. Label of the create_pr_in_draft_status (Check) field in DocType 'Accounts
 #. Settings'
@@ -28268,7 +28268,7 @@ msgstr "用于物料需求的物料号"
 
 #: erpnext/selling/page/point_of_sale/pos_item_selector.js:110
 msgid "Items not found."
-msgstr ""
+msgstr "未找到物料。"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1527
 msgid "Items rate has been updated to zero as Allow Zero Valuation Rate is checked for the following items: {0}"
@@ -33622,7 +33622,7 @@ msgstr "机器压力测试"
 #. Title of the Module Onboarding 'Stock Onboarding'
 #: erpnext/selling/module_onboarding/stock_onboarding/stock_onboarding.json
 msgid "Onboarding for Stock!"
-msgstr ""
+msgstr "库存功能引导"
 
 #. Description of the 'Release Date' (Date) field in DocType 'Purchase Invoice'
 #: erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json
@@ -42504,7 +42504,7 @@ msgstr "数量（产出数量）"
 
 #: erpnext/selling/page/point_of_sale/pos_item_selector.js:118
 msgid "Quantity Available"
-msgstr ""
+msgstr "可用数量"
 
 #. Label of the quantity_difference (Read Only) field in DocType 'Stock
 #. Reconciliation Item'
@@ -60394,7 +60394,7 @@ msgstr "查看库存余额"
 #: erpnext/selling/onboarding_step/view_stock_balance_report/view_stock_balance_report.json
 #: erpnext/stock/onboarding_step/view_stock_balance_report/view_stock_balance_report.json
 msgid "View Stock Balance Report"
-msgstr ""
+msgstr "查看库存余额报表"
 
 #: erpnext/stock/report/stock_balance/stock_balance.js:162
 msgid "View Stock Ledger"

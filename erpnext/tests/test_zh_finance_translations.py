@@ -414,13 +414,17 @@ class TestZhFinanceTranslations(TestCase):
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
 
-	def test_asset_and_manufacturing_onboarding_has_no_untranslated_visible_copy(self):
+	def test_core_onboarding_has_no_untranslated_visible_copy(self):
 		erpnext_root = Path(__file__).parents[1]
 		roots = (
 			erpnext_root / "assets/module_onboarding",
 			erpnext_root / "assets/onboarding_step",
+			erpnext_root / "buying/module_onboarding",
+			erpnext_root / "buying/onboarding_step",
 			erpnext_root / "manufacturing/module_onboarding",
 			erpnext_root / "manufacturing/onboarding_step",
+			erpnext_root / "selling/module_onboarding",
+			erpnext_root / "selling/onboarding_step",
 		)
 		visible_keys = ("title", "action_label", "report_description")
 		missing = []
@@ -435,6 +439,36 @@ class TestZhFinanceTranslations(TestCase):
 					message = self.catalog.get(source)
 					if not message or not message.string or "fuzzy" in message.flags:
 						missing.append(f"{path.relative_to(erpnext_root)}:{key}:{source}")
+
+		self.assertEqual(missing, [])
+
+	def test_selling_and_buying_entry_points_use_reviewed_chinese_terms(self):
+		translations = {
+			"A disabled Product Bundle cannot be selected in transactions.": "已禁用的套件不能用于交易。",
+			"Create delivery note": "创建销售出库",
+			"Items not found.": "未找到物料。",
+			"Onboarding for Stock!": "库存功能引导",
+			"Quantity Available": "可用数量",
+			"View Stock Balance Report": "查看库存余额报表",
+			"Create Supplier": "创建供应商",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+
+	def test_selling_and_buying_source_locations_have_chinese_translations(self):
+		prefixes = ("erpnext/selling/", "erpnext/buying/")
+		missing = []
+		for message in self.catalog:
+			locations = [path for path, _line in message.locations if path.startswith(prefixes)]
+			if not locations:
+				continue
+			translations = message.string if isinstance(message.string, tuple) else (message.string,)
+			if (
+				any(not translation for translation in translations)
+				or "fuzzy" in message.flags
+				or not self._message_is_valid(message)
+			):
+				missing.append(f"{','.join(locations)}:{message.context or ''}:{message.id}")
 
 		self.assertEqual(missing, [])
 
