@@ -22,7 +22,10 @@ COPY --chown=frappe:frappe erpnext/stock/doctype/item/item.json /home/frappe/fra
 COPY --chown=frappe:frappe erpnext/setup/china_defaults.py /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/china_defaults.py
 COPY --chown=frappe:frappe erpnext/setup/setup_wizard/operations/defaults_setup.py /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/setup_wizard/operations/defaults_setup.py
 RUN sed -i \
-	's#proxy_set_header Origin \$proxy_x_forwarded_proto://${FRAPPE_SITE_NAME_HEADER};#proxy_set_header Origin \$http_origin;#' \
+	's#proxy_set_header Origin \$proxy_x_forwarded_proto://${FRAPPE_SITE_NAME_HEADER};#proxy_set_header Origin \$frappe_socket_origin;#' \
+	/templates/nginx/frappe.conf.template && \
+	sed -i \
+	'/^server {/i map $http_origin $frappe_socket_origin {\n\tdefault $http_origin;\n\t"" $scheme://$http_host;\n}\n' \
 	/templates/nginx/frappe.conf.template
 
 USER frappe
