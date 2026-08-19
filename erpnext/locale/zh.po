@@ -1203,7 +1203,7 @@ msgstr "ACC-PINV-.YYYY.-"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:88
 msgid "ALL records will be deleted (entire DocType cleared)"
-msgstr ""
+msgstr "将删除全部记录（清空整个单据类型）"
 
 #: erpnext/stock/report/serial_no_and_batch_traceability/serial_no_and_batch_traceability.py:552
 msgid "AMC Expiry (Serial)"
@@ -9736,7 +9736,7 @@ msgstr "不允许在已关闭财年更新会计凭证"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:204
 msgid "Cannot add child table {0} to deletion list. Child tables are automatically deleted with their parent DocTypes."
-msgstr ""
+msgstr "无法将子表 {0} 添加到删除清单。子表会随父单据类型自动删除。"
 
 #: erpnext/stock/doctype/stock_reservation_entry/stock_reservation_entry.py:226
 msgid "Cannot amend {0} {1}, please create a new one instead."
@@ -9883,11 +9883,11 @@ msgstr ""
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:197
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:796
 msgid "Cannot delete protected core DocType: {0}"
-msgstr ""
+msgstr "无法删除受保护的核心单据类型：{0}"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:213
 msgid "Cannot delete virtual DocType: {0}. Virtual DocTypes do not have database tables."
-msgstr ""
+msgstr "无法删除虚拟单据类型：{0}。虚拟单据类型没有数据库表。"
 
 #: erpnext/stock/doctype/stock_settings/stock_settings.py:153
 msgid "Cannot disable Serial and Batch No for Item, as there are existing records for serial / batch."
@@ -10019,7 +10019,7 @@ msgstr "无法设置允许字段<b>{0}</b>复制到多规格物料"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:266
 msgid "Cannot start deletion. Another deletion {0} is already queued/running. Please wait for it to complete."
-msgstr ""
+msgstr "无法开始删除。另一个删除任务 {0} 已排队或正在运行，请等待其完成。"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.py:874
 msgid "Cannot submit Job Card {0} while it is On Hold. Please resume and complete the job before submission."
@@ -10683,7 +10683,7 @@ msgstr "首席技术官"
 #. Deletion Record To Delete'
 #: erpnext/setup/doctype/transaction_deletion_record_to_delete/transaction_deletion_record_to_delete.json
 msgid "Child DocTypes"
-msgstr ""
+msgstr "子单据类型"
 
 #. Label of the child_docname (Data) field in DocType 'Pricing Rule Detail'
 #: erpnext/accounts/doctype/pricing_rule_detail/pricing_rule_detail.json
@@ -10699,7 +10699,7 @@ msgstr "子行引用"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:207
 msgid "Child Table Not Allowed"
-msgstr ""
+msgstr "不允许单独删除子表"
 
 #: erpnext/projects/doctype/task/task.py:332
 msgid "Child Task exists for this Task. You can not delete this Task."
@@ -10713,7 +10713,7 @@ msgstr "子节点只可创建在组类节点下"
 #. 'Transaction Deletion Record To Delete'
 #: erpnext/setup/doctype/transaction_deletion_record_to_delete/transaction_deletion_record_to_delete.json
 msgid "Child tables that will also be deleted"
-msgstr ""
+msgstr "将一并删除的子表"
 
 #: erpnext/stock/doctype/warehouse/warehouse.py:103
 msgid "Child warehouse exists for this warehouse. You can not delete this warehouse."
@@ -11813,7 +11813,7 @@ msgstr "公司邮箱"
 #. Record To Delete'
 #: erpnext/setup/doctype/transaction_deletion_record_to_delete/transaction_deletion_record_to_delete.json
 msgid "Company Field"
-msgstr ""
+msgstr "公司字段"
 
 #. Label of the company_logo (Attach Image) field in DocType 'Company'
 #: erpnext/public/js/print.js:80 erpnext/setup/doctype/company/company.json
@@ -11874,7 +11874,7 @@ msgstr ""
 #. Deletion Record To Delete'
 #: erpnext/setup/doctype/transaction_deletion_record_to_delete/transaction_deletion_record_to_delete.json
 msgid "Company link field name used for filtering (optional - leave empty to delete all records)"
-msgstr ""
+msgstr "用于按公司筛选的链接字段名（可选；留空将删除全部记录）"
 
 #: erpnext/setup/doctype/company/company.js:234
 msgid "Company name not same"
@@ -16481,11 +16481,11 @@ msgstr "国家{0}不能被删除"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:216
 msgid "Deletion process restarted"
-msgstr ""
+msgstr "删除流程已重新启动"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:97
 msgid "Deletion will start automatically after submission."
-msgstr ""
+msgstr "提交后将自动开始删除。"
 
 #. Label of the delimiter_options (Data) field in DocType 'Bank Statement
 #. Import'
@@ -18035,31 +18035,31 @@ msgstr "DocType 可以是其中之一 {0}"
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:182
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:456
 msgid "DocType {0} does not exist"
-msgstr ""
+msgstr "单据类型 {0} 不存在"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:295
 msgid "DocType {0} with company field '{1}' is already in the list"
-msgstr ""
+msgstr "单据类型 {0}（公司字段为“{1}”）已在清单中"
 
 #. Label of the doctypes_to_delete (Table) field in DocType 'Transaction
 #. Deletion Record'
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.json
 msgid "DocTypes To Delete"
-msgstr ""
+msgstr "待删除单据类型"
 
 #. Description of the 'Excluded DocTypes' (Table) field in DocType 'Transaction
 #. Deletion Record'
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.json
 msgid "DocTypes that will NOT be deleted."
-msgstr ""
+msgstr "不会删除的单据类型。"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:84
 msgid "DocTypes with a company field:"
-msgstr ""
+msgstr "含公司字段的单据类型："
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:88
 msgid "DocTypes without a company field:"
-msgstr ""
+msgstr "不含公司字段的单据类型："
 
 #: erpnext/templates/pages/search_help.py:22
 msgid "Docs Search"
@@ -18069,7 +18069,7 @@ msgstr "单据搜索"
 #. Record To Delete'
 #: erpnext/setup/doctype/transaction_deletion_record_to_delete/transaction_deletion_record_to_delete.json
 msgid "Document Count"
-msgstr ""
+msgstr "单据数量"
 
 #: erpnext/stock/report/negative_batch_report/negative_batch_report.py:78
 msgid "Document No"
@@ -18340,7 +18340,7 @@ msgstr "重复客户组"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:190
 msgid "Duplicate DocType"
-msgstr ""
+msgstr "重复的单据类型"
 
 #: erpnext/setup/doctype/authorization_rule/authorization_rule.py:71
 msgid "Duplicate Entry. Please check Authorization Rule {0}"
@@ -18402,7 +18402,7 @@ msgstr "物料号{0}和制造商{1}重复输入"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:189
 msgid "Duplicate entry: {0}{1}"
-msgstr ""
+msgstr "重复项：{0}{1}"
 
 #: erpnext/accounts/doctype/pos_profile/pos_profile.py:164
 msgid "Duplicate item group found in the item group table"
@@ -18970,7 +18970,7 @@ msgstr "空"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:768
 msgid "Empty To Delete List"
-msgstr ""
+msgstr "待删除清单为空"
 
 #. Name of a UOM
 #: erpnext/setup/setup_wizard/data/uom_data.json
@@ -19603,7 +19603,7 @@ msgstr "评估标准公式时出错"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:267
 msgid "Error getting details for {0}: {1}"
-msgstr ""
+msgstr "获取 {0} 的详情时出错：{1}"
 
 #: erpnext/accounts/doctype/bank_transaction/bank_transaction.py:320
 msgid "Error in party matching for Bank Transaction {0}"
@@ -20554,7 +20554,7 @@ msgstr "获取中..."
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:224
 msgid "Field '{0}' is not a valid Company link field for DocType {1}"
-msgstr ""
+msgstr "字段“{0}”不是单据类型 {1} 的有效公司链接字段"
 
 #. Label of the field_mapping_section (Section Break) field in DocType
 #. 'Inventory Dimension'
@@ -20584,15 +20584,15 @@ msgstr "字段将仅在创建时复制。"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:1080
 msgid "File does not belong to this Transaction Deletion Record"
-msgstr ""
+msgstr "该文件不属于当前业务交易删除记录"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:1074
 msgid "File not found"
-msgstr ""
+msgstr "未找到文件"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:1088
 msgid "File not found on server"
-msgstr ""
+msgstr "服务器上未找到该文件"
 
 #. Label of the file_to_rename (Attach) field in DocType 'Rename Tool'
 #: erpnext/utilities/doctype/rename_tool/rename_tool.json
@@ -22266,11 +22266,11 @@ msgstr "生成库存结算分录"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:112
 msgid "Generate To Delete List"
-msgstr ""
+msgstr "生成待删除清单"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:483
 msgid "Generate To Delete list first"
-msgstr ""
+msgstr "请先生成待删除清单"
 
 #. Description of a DocType
 #: erpnext/stock/doctype/packing_slip/packing_slip.json
@@ -23514,7 +23514,7 @@ msgstr "IBAN"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:93
 msgid "IMPORTANT: Create a backup before proceeding!"
-msgstr ""
+msgstr "重要：继续前务必创建备份！"
 
 #. Name of a report
 #: erpnext/regional/report/irs_1099/irs_1099.json
@@ -24275,7 +24275,7 @@ msgstr "导入成功"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:575
 msgid "Import Summary"
-msgstr ""
+msgstr "导入摘要"
 
 #. Label of a Link in the Buying Workspace
 #. Name of a DocType
@@ -24315,7 +24315,7 @@ msgstr ""
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:192
 msgid "Imported {0} DocTypes"
-msgstr ""
+msgstr "已导入 {0} 个单据类型"
 
 #: erpnext/edi/doctype/code_list/code_list_import.py:36
 msgid "Importing Code Lists from remote URLs is not allowed."
@@ -25488,7 +25488,7 @@ msgstr "无效框架订单对所选客户和物料无效"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:509
 msgid "Invalid CSV format. Expected column: doctype_name"
-msgstr ""
+msgstr "CSV 格式无效，必须包含 doctype_name 列"
 
 #: erpnext/quality_management/doctype/quality_procedure/quality_procedure.py:72
 msgid "Invalid Child Procedure"
@@ -25496,7 +25496,7 @@ msgstr "无效子流程"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:227
 msgid "Invalid Company Field"
-msgstr ""
+msgstr "无效的公司字段"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:2418
 msgid "Invalid Company for Inter Company Transaction."
@@ -25696,7 +25696,7 @@ msgstr "无效的借方/贷方公式：{0}"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:1069
 msgid "Invalid file URL"
-msgstr ""
+msgstr "无效的文件地址"
 
 #: erpnext/accounts/doctype/financial_report_template/financial_report_template.js:87
 msgid "Invalid filter formula. Please check the syntax."
@@ -31822,7 +31822,7 @@ msgstr "多个多规格物料"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:244
 msgid "Multiple company fields available: {0}. Please select manually."
-msgstr ""
+msgstr "可用的公司字段有多个：{0}。请手动选择。"
 
 #: erpnext/controllers/accounts_controller.py:1338
 msgid "Multiple fiscal years exist for the date {0}. Please set company in Fiscal Year"
@@ -31927,7 +31927,7 @@ msgstr "编号规则选项"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:950
 msgid "Naming series '{0}' for DocType '{1}' does not contain standard '.' or '{{' separator. Using fallback extraction."
-msgstr ""
+msgstr "命名规则“{0}”（单据类型“{1}”）不包含标准分隔符“.”或“{{”，将使用备用解析方式。"
 
 #. Name of a UOM
 #: erpnext/setup/setup_wizard/data/uom_data.json
@@ -32551,7 +32551,7 @@ msgstr "没有为客户{}选择销售出库"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:767
 msgid "No DocTypes in To Delete list. Please generate or import the list before submitting."
-msgstr ""
+msgstr "待删除清单中没有单据类型。请在提交前生成或导入清单。"
 
 #: erpnext/public/js/utils/ledger_preview.js:64
 msgid "No Impact on Accounting Ledger"
@@ -32962,7 +32962,7 @@ msgstr ""
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:152
 msgid "No rows with zero document count found"
-msgstr ""
+msgstr "未找到单据数量为零的行"
 
 #: banking/src/components/features/Settings/Rules/RuleList.tsx:201
 msgid "No rules setup yet"
@@ -33654,7 +33654,7 @@ msgstr "仅支持CSV和Excel文件格式导入数据，请检查上传文件格�
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:1083
 msgid "Only CSV files are allowed"
-msgstr ""
+msgstr "仅允许使用 CSV 文件"
 
 #. Label of the tax_on_excess_amount (Check) field in DocType 'Tax Withholding
 #. Category'
@@ -38301,11 +38301,11 @@ msgstr "请修复{0}的时间段重叠"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:272
 msgid "Please generate To Delete list before submitting"
-msgstr ""
+msgstr "请在提交前生成待删除清单"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:70
 msgid "Please generate the To Delete list before submitting"
-msgstr ""
+msgstr "请在提交前生成待删除清单"
 
 #: erpnext/accounts/doctype/chart_of_accounts_importer/chart_of_accounts_importer.py:67
 msgid "Please import accounts against parent company or enable {} in company master."
@@ -40325,7 +40325,7 @@ msgstr "处理XML文件"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:188
 msgid "Processing import..."
-msgstr ""
+msgstr "正在处理导入……"
 
 #: erpnext/buying/doctype/supplier/supplier_dashboard.py:10
 msgid "Procurement"
@@ -41014,7 +41014,7 @@ msgstr "有跟进未转化线索"
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:198
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:797
 msgid "Protected DocType"
-msgstr ""
+msgstr "受保护的单据类型"
 
 #. Description of the 'Company Email' (Data) field in DocType 'Employee'
 #: erpnext/setup/doctype/employee/employee.json
@@ -44347,7 +44347,7 @@ msgstr "移除物料表中的父行号"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:140
 msgid "Remove Zero Counts"
-msgstr ""
+msgstr "移除数量为零的项"
 
 #: erpnext/stock/doctype/landed_cost_voucher/landed_cost_voucher.js:21
 msgid "Remove item if charges is not applicable to that item"
@@ -44359,7 +44359,7 @@ msgstr "已移除数量或金额没有任何变化的物料行"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:161
 msgid "Removed {0} rows with zero document count. Please save to persist changes."
-msgstr ""
+msgstr "已移除 {0} 个单据数量为零的行。请保存以持久化此更改。"
 
 #: erpnext/accounts/doctype/exchange_rate_revaluation/exchange_rate_revaluation.py:87
 msgid "Removing rows without exchange gain or loss"
@@ -51238,7 +51238,7 @@ msgstr "不进行工单发料"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:574
 msgid "Skipped {0} DocType(s):<br>{1}"
-msgstr ""
+msgstr "已跳过 {0} 个单据类型：<br>{1}"
 
 #. Label of the customer_skype (Data) field in DocType 'Appointment'
 #: erpnext/crm/doctype/appointment/appointment.json
@@ -56608,7 +56608,7 @@ msgstr "结束时间"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:118
 msgid "To Delete list generated with {0} DocTypes"
-msgstr ""
+msgstr "待删除清单已生成，共包含 {0} 个单据类型"
 
 #. Option for the 'Sales Order Status' (Select) field in DocType 'Production
 #. Plan'
@@ -57960,15 +57960,15 @@ msgstr "业务交易删除记录明细"
 #. Name of a DocType
 #: erpnext/setup/doctype/transaction_deletion_record_to_delete/transaction_deletion_record_to_delete.json
 msgid "Transaction Deletion Record To Delete"
-msgstr ""
+msgstr "业务交易删除记录待删除项"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:1114
 msgid "Transaction Deletion Record {0} is already running. {1}"
-msgstr ""
+msgstr "业务交易删除记录 {0} 正在运行。{1}"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:1133
 msgid "Transaction Deletion Record {0} is currently deleting {1}. Cannot save documents until deletion completes."
-msgstr ""
+msgstr "业务交易删除记录 {0} 正在删除 {1}。删除完成前无法保存单据。"
 
 #. Label of the transaction_details_section (Section Break) field in DocType
 #. 'GL Entry'
@@ -58747,7 +58747,7 @@ msgstr "无法重新过账会计台账"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:477
 msgid "Unable to fetch DocType details. Please contact system administrator."
-msgstr ""
+msgstr "无法获取单据类型详情，请联系系统管理员。"
 
 #: erpnext/setup/utils.py:149
 msgid "Unable to find exchange rate for {0} to {1} for key date {2}. Please create a Currency Exchange record manually"
@@ -58853,7 +58853,7 @@ msgstr ""
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:949
 msgid "Unexpected Naming Series Pattern"
-msgstr ""
+msgstr "非预期的命名规则格式"
 
 #. Option for the 'Fulfilment Status' (Select) field in DocType 'Contract'
 #: erpnext/crm/doctype/contract/contract.json
@@ -60442,7 +60442,7 @@ msgstr "Vimeo的"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:216
 msgid "Virtual DocType"
-msgstr ""
+msgstr "虚拟单据类型"
 
 #: erpnext/templates/pages/help.html:46
 msgid "Visit the forums"
@@ -61015,7 +61015,7 @@ msgstr "警告：已经有销售订单{0}关联了客户采购订单号{1}"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:75
 msgid "Warning: This action cannot be undone!"
-msgstr ""
+msgstr "警告：此操作无法撤销！"
 
 #: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py:77
 msgid "Warnings"
@@ -61268,7 +61268,7 @@ msgstr ""
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:82
 msgid "What will be deleted:"
-msgstr ""
+msgstr "将删除以下内容："
 
 #. Label of the whatsapp_no (Data) field in DocType 'Lead'
 #. Label of the whatsapp (Data) field in DocType 'Opportunity'
@@ -62831,7 +62831,7 @@ msgstr "{1}行中的{0}"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:463
 msgid "{0} is a child table and will be deleted automatically with its parent"
-msgstr ""
+msgstr "{0} 是子表，将随其父单据自动删除"
 
 #: erpnext/accounts/doctype/dunning_type/dunning_type.py:114
 msgid "{0} is a group Cost Center. Please select a non-group Cost Center."
@@ -63279,19 +63279,19 @@ msgstr "仅允许选择 {0}、{1} 或 {2}。"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:534
 msgid "{0}: Child table (auto-deleted with parent)"
-msgstr ""
+msgstr "{0}：子表（随父单据自动删除）"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:529
 msgid "{0}: Not found"
-msgstr ""
+msgstr "{0}：未找到"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:525
 msgid "{0}: Protected DocType"
-msgstr ""
+msgstr "{0}：受保护的单据类型"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:539
 msgid "{0}: Virtual DocType (no database table)"
-msgstr ""
+msgstr "{0}：虚拟单据类型（无数据库表）"
 
 #: erpnext/stock/doctype/item/item.js:890
 msgid "{0}: remove invalid value(s) {1}"

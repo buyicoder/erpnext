@@ -119,6 +119,7 @@ CORE_OPERATIONAL_MASTER_DOCTYPES = {
 	"Repost Accounting Ledger",
 	"Task Type",
 	"Territory",
+	"Transaction Deletion Record",
 }
 
 CHINA_COMPLIANCE_DOCTYPES = {
@@ -709,6 +710,36 @@ class TestZhFinanceTranslations(TestCase):
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
 			self._assert_erpnext_runtime_translation(source, translation)
+
+	def test_transaction_deletion_uses_reviewed_safety_terms(self):
+		translations = {
+			"IMPORTANT: Create a backup before proceeding!": "重要：继续前务必创建备份！",
+			"Warning: This action cannot be undone!": "警告：此操作无法撤销！",
+			"What will be deleted:": "将删除以下内容：",
+			"ALL records will be deleted (entire DocType cleared)": "将删除全部记录（清空整个单据类型）",
+			"DocTypes To Delete": "待删除单据类型",
+			"DocTypes that will NOT be deleted.": "不会删除的单据类型。",
+			"Company Field": "公司字段",
+			"Company link field name used for filtering (optional - leave empty to delete all records)": "用于按公司筛选的链接字段名（可选；留空将删除全部记录）",
+			"Cannot delete protected core DocType: {0}": "无法删除受保护的核心单据类型：{0}",
+			"Cannot delete virtual DocType: {0}. Virtual DocTypes do not have database tables.": "无法删除虚拟单据类型：{0}。虚拟单据类型没有数据库表。",
+			"Cannot add child table {0} to deletion list. Child tables are automatically deleted with their parent DocTypes.": "无法将子表 {0} 添加到删除清单。子表会随父单据类型自动删除。",
+			"Child tables that will also be deleted": "将一并删除的子表",
+			"Cannot start deletion. Another deletion {0} is already queued/running. Please wait for it to complete.": "无法开始删除。另一个删除任务 {0} 已排队或正在运行，请等待其完成。",
+			"Transaction Deletion Record {0} is currently deleting {1}. Cannot save documents until deletion completes.": "业务交易删除记录 {0} 正在删除 {1}。删除完成前无法保存单据。",
+			"Deletion will start automatically after submission.": "提交后将自动开始删除。",
+			"No DocTypes in To Delete list. Please generate or import the list before submitting.": "待删除清单中没有单据类型。请在提交前生成或导入清单。",
+			"Invalid CSV format. Expected column: doctype_name": "CSV 格式无效，必须包含 doctype_name 列",
+			"Only CSV files are allowed": "仅允许使用 CSV 文件",
+			"File does not belong to this Transaction Deletion Record": "该文件不属于当前业务交易删除记录",
+			"Field '{0}' is not a valid Company link field for DocType {1}": "字段“{0}”不是单据类型 {1} 的有效公司链接字段",
+			"Multiple company fields available: {0}. Please select manually.": "可用的公司字段有多个：{0}。请手动选择。",
+			"{0}: Protected DocType": "{0}：受保护的单据类型",
+			"{0}: Virtual DocType (no database table)": "{0}：虚拟单据类型（无数据库表）",
+			"{0}: Child table (auto-deleted with parent)": "{0}：子表（随父单据自动删除）",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
 
 	def test_material_planning_and_picking_use_reviewed_chinese_terms(self):
 		translations = {
