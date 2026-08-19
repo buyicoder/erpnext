@@ -797,3 +797,387 @@ msgstr "用户权限创建成功"
 
 msgid "User is mandatory for Share"
 msgstr "共享时必须选择用户"
+
+msgid "Account"
+msgstr "账户"
+
+msgid "Active Sessions"
+msgstr "活动会话"
+
+msgid "Allow Consecutive Login Attempts"
+msgstr "允许连续登录尝试次数"
+
+msgid "Allow Import (via Data Import Tool)"
+msgstr "允许通过数据导入工具导入"
+
+msgid "Allow Login After Fail"
+msgstr "登录失败后允许再次登录的等待时间"
+
+msgid "Allow Login using Mobile Number"
+msgstr "允许使用手机号登录"
+
+msgid "Allow Login using User Name"
+msgstr "允许使用用户名登录"
+
+msgid "Allow only one session per user"
+msgstr "每个用户仅允许一个会话"
+
+msgid "Awaiting Password"
+msgstr "等待设置密码"
+
+msgid "Bulk PDF Export"
+msgstr "批量导出 PDF"
+
+msgid "Cancel Import"
+msgstr "取消导入"
+
+msgid "Change Password"
+msgstr "修改密码"
+
+msgid "Completed By User"
+msgstr "完成人"
+
+msgid "Confirm New Password"
+msgstr "确认新密码"
+
+msgid "Create Account"
+msgstr "创建账户"
+
+msgid "Create or Edit Workflow"
+msgstr "创建或编辑审批流"
+
+msgid "Create your workflow visually using the Workflow Builder."
+msgstr "使用审批流设计器以可视化方式创建审批流。"
+
+msgid "Data Export"
+msgstr "数据导出"
+
+msgid "Data Import"
+msgstr "数据导入"
+
+msgid "Data Import Log"
+msgstr "数据导入日志"
+
+msgid "Data Import Template"
+msgstr "数据导入模板"
+
+msgid "Defines workflow states and rules for a document."
+msgstr "定义单据的审批状态和流转规则。"
+
+msgid "Delete Account"
+msgstr "删除账户"
+
+msgid "Document Type is not importable"
+msgstr "此单据类型不允许导入"
+
+msgid "Don't Import"
+msgstr "不导入"
+
+msgid "Enable Password Policy"
+msgstr "启用密码策略"
+
+msgid "Enter your password"
+msgstr "请输入密码"
+
+msgid "Export 1 record"
+msgstr "导出 1 条记录"
+
+msgid "Export Data"
+msgstr "导出数据"
+
+msgid "Export Errored Rows"
+msgstr "导出错误行"
+
+msgid "Export Type"
+msgstr "导出类型"
+
+msgid "Export {0} records"
+msgstr "导出 {0} 条记录"
+
+msgid "Failed Login Attempts"
+msgstr "登录失败次数"
+
+msgid "Failed to change password."
+msgstr "密码修改失败。"
+
+msgid "Force User to Reset Password"
+msgstr "强制用户重置密码"
+
+msgid "Forgot Password?"
+msgstr "忘记密码？"
+
+msgid "Generate Random Password"
+msgstr "生成随机密码"
+
+msgid "Go to Workflow"
+msgstr "前往审批流"
+
+msgid "Import File"
+msgstr "导入文件"
+
+msgid "Import File Errors and Warnings"
+msgstr "导入文件错误与警告"
+
+msgid "Import Log"
+msgstr "导入日志"
+
+msgid "Import Preview"
+msgstr "导入预览"
+
+msgid "Import Progress"
+msgstr "导入进度"
+
+msgid "Import Type"
+msgstr "导入类型"
+
+msgid "Import Warnings"
+msgstr "导入警告"
+
+msgid "Import from Google Sheets"
+msgstr "从 Google 表格导入"
+
+msgid "Import template should be of type .csv, .xlsx or .xls"
+msgstr "导入模板必须为 .csv、.xlsx 或 .xls 格式"
+
+msgid "Import template should contain a Header and atleast one row."
+msgstr "导入模板必须包含表头和至少一行数据。"
+
+msgid "Import timed out, please re-try."
+msgstr "导入超时，请重试。"
+
+msgid "Importing {0} is not allowed."
+msgstr "不允许导入 {0}。"
+
+msgid "Importing {0} of {1}"
+msgstr "正在导入第 {0} 条，共 {1} 条"
+
+msgid "Incorrect User or Password"
+msgstr "用户名或密码错误"
+
+msgid "Invalid Login Token"
+msgstr "无效的登录令牌"
+
+msgid "Invalid Password"
+msgstr "密码无效"
+
+msgid "Invalid username or password"
+msgstr "用户名或密码错误"
+
+msgid "Last Login"
+msgstr "上次登录时间"
+
+msgid "Login"
+msgstr "登录"
+
+msgid "Login Activity"
+msgstr "登录活动"
+
+msgid "Login After"
+msgstr "允许登录开始时间"
+
+msgid "Login Before"
+msgstr "允许登录截止时间"
+
+msgid "Login Failed please try again"
+msgstr "登录失败，请重试"
+
+msgid "Login Methods"
+msgstr "登录方式"
+
+msgid "Login Page"
+msgstr "登录页面"
+
+msgid "Login Required"
+msgstr "需要登录"
+
+msgid "Login session expired, refresh page to retry"
+msgstr "登录会话已过期，请刷新页面后重试"
+
+msgid "Login with Email Link"
+msgstr "使用邮件链接登录"
+
+msgid "Login with LDAP"
+msgstr "使用 LDAP 登录"
+
+msgid "Login with password"
+msgstr "使用密码登录"
+
+msgid "Logout All Sessions"
+msgstr "退出所有会话"
+
+msgid "My Account"
+msgstr "我的账户"
+
+msgid "New Password"
+msgstr "新密码"
+
+msgid "No Active Sessions"
+msgstr "没有活动会话"
+
+msgid "No data to export"
+msgstr "没有可导出的数据"
+
+msgid "No records will be exported"
+msgstr "没有记录会被导出"
+
+msgid "Old Password"
+msgstr "原密码"
+
+msgid "Only CSV and Excel formats are supported for export"
+msgstr "仅支持导出 CSV 和 Excel 格式"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Password Reset"
+msgstr "重置密码"
+
+msgid "Password changed successfully."
+msgstr "密码修改成功。"
+
+msgid "Password is required."
+msgstr "必须填写密码。"
+
+msgid "Password requirements not met"
+msgstr "密码不符合安全要求"
+
+msgid "Passwords do not match"
+msgstr "两次输入的密码不一致"
+
+msgid "Please enter the password"
+msgstr "请输入密码"
+
+msgid "Please enter your new password."
+msgstr "请输入新密码。"
+
+msgid "Please enter your old password."
+msgstr "请输入原密码。"
+
+msgid "Reset Password"
+msgstr "重置密码"
+
+msgid "Reset your password"
+msgstr "重置您的密码"
+
+msgid "Session Defaults"
+msgstr "会话默认值"
+
+msgid "Session Defaults Saved"
+msgstr "会话默认值已保存"
+
+msgid "Session Expired"
+msgstr "会话已过期"
+
+msgid "Sessions"
+msgstr "会话"
+
+msgid "Set New Password"
+msgstr "设置新密码"
+
+msgid "Set Password"
+msgstr "设置密码"
+
+msgid "Start Import"
+msgstr "开始导入"
+
+msgid "Submit After Import"
+msgstr "导入后提交"
+
+msgid "Successfully imported {0}"
+msgstr "已成功导入 {0}"
+
+msgid "Successfully imported {0} out of {1} records."
+msgstr "已成功导入 {1} 条记录中的 {0} 条。"
+
+msgid "System Settings"
+msgstr "系统设置"
+
+msgid "System Users"
+msgstr "系统用户"
+
+msgid "Update Password"
+msgstr "更新密码"
+
+msgid "User Details"
+msgstr "用户详情"
+
+msgid "User Group"
+msgstr "用户组"
+
+msgid "User ID"
+msgstr "用户编号"
+
+msgid "User Menu"
+msgstr "用户菜单"
+
+msgid "User Name"
+msgstr "用户名"
+
+msgid "User Role"
+msgstr "用户角色"
+
+msgid "User Type"
+msgstr "用户类型"
+
+msgid "User is disabled"
+msgstr "用户已停用"
+
+msgid "Username"
+msgstr "用户名"
+
+msgid "Users"
+msgstr "用户"
+
+msgid "Verify Password"
+msgstr "验证密码"
+
+msgid "Workflow"
+msgstr "审批流"
+
+msgid "Workflow Action"
+msgstr "审批操作"
+
+msgid "Workflow Action Name"
+msgstr "审批操作名称"
+
+msgid "Workflow Builder"
+msgstr "审批流设计器"
+
+msgid "Workflow Details"
+msgstr "审批流详情"
+
+msgid "Workflow Document State"
+msgstr "审批流单据状态"
+
+msgid "Workflow Evaluation Error"
+msgstr "审批流计算错误"
+
+msgid "Workflow Name"
+msgstr "审批流名称"
+
+msgid "Workflow State"
+msgstr "审批状态"
+
+msgid "Workflow State Field"
+msgstr "审批状态字段"
+
+msgid "Workflow State not set"
+msgstr "未设置审批状态"
+
+msgid "Workflow State transition not allowed from {0} to {1}"
+msgstr "不允许从审批状态 {0} 流转到 {1}"
+
+msgid "Workflow Status"
+msgstr "审批流状态"
+
+msgid "Workflow Transition"
+msgstr "审批流转"
+
+msgid "Workflow updated successfully"
+msgstr "审批流更新成功"
+
+msgid "Your session has expired, please login again to continue."
+msgstr "会话已过期，请重新登录后继续。"
+
+msgid "{0} records will be exported"
+msgstr "将导出 {0} 条记录"
