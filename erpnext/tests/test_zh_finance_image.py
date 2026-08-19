@@ -20,6 +20,7 @@ class TestZhFinanceImage(TestCase):
 	def test_image_compiles_translations_and_frontend_assets(self):
 		self.assertIn("bench compile-po-to-mo --app erpnext --locale zh --force", self.containerfile)
 		self.assertIn("bench compile-po-to-mo --app frappe --locale zh --force", self.containerfile)
+		self.assertIn("bench build --app frappe", self.containerfile)
 		self.assertIn("bench build --app erpnext", self.containerfile)
 		self.assertIn("erpnext/public/js/zh_finance_format.mjs", self.containerfile)
 		self.assertIn("erpnext/public/js/zh_audit_list.js", self.containerfile)
@@ -46,6 +47,8 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("apps/frappe/realtime/utils.js", self.containerfile)
 		self.assertNotIn("apps/frappe/frappe/realtime/utils.js", self.containerfile)
 		self.assertIn("merge_frappe_zh_catalog.py", self.containerfile)
+		self.assertIn("patch_frappe_print_page.py", self.containerfile)
+		self.assertIn("/tmp/patch_frappe_print_page.py", self.containerfile)
 		self.assertIn("frappe.mo", self.containerfile)
 
 	def test_frappe_catalog_uses_a_pinned_verified_official_baseline(self):
@@ -63,6 +66,9 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("erpnext/dist/js/${js_bundle}", self.containerfile)
 		self.assertIn("erpnext/dist/css/${css_bundle}", self.containerfile)
 		self.assertIn("expected_css_bundle=", self.build_script)
+		self.assertIn("expected_desk_bundle=", self.build_script)
+		self.assertIn("this.print_format_control.get_value()", self.build_script)
+		self.assertIn("Refusing to build from a dirty worktree", self.build_script)
 
 	def test_chart_month_localization_is_scoped_to_the_x_axis(self):
 		self.assertIn(
