@@ -37676,7 +37676,7 @@ msgstr "Plaid密钥"
 #: erpnext/erpnext_integrations/doctype/plaid_settings/plaid_settings.json
 #: erpnext/workspace_sidebar/banking.json
 msgid "Plaid Settings"
-msgstr "格子设置"
+msgstr "Plaid 设置"
 
 #: erpnext/erpnext_integrations/doctype/plaid_settings/plaid_settings.py:227
 msgid "Plaid transactions sync error"
@@ -63452,3 +63452,52 @@ msgstr "比较时请使用 >5、<10 或 =324；范围请使用 5:10（表示 5 �
 
 msgid "Execution Time: {0} sec"
 msgstr "执行用时：{0} 秒"
+
+# Desk navigation and invoicing workspace overrides
+msgid "Home"
+msgstr "首页"
+
+msgid "Dashboard"
+msgstr "仪表板"
+
+msgid "Desktop"
+msgstr "工作台"
+
+msgid "Workspaces"
+msgstr "工作区"
+
+msgid "Website"
+msgstr "网站"
+
+msgid "Display"
+msgstr "显示"
+
+msgid "Session Defaults"
+msgstr "会话默认值"
+
+msgid "Reload"
+msgstr "重新加载"
+
+msgid "Help"
+msgstr "帮助"
+
+msgid "Logout"
+msgstr "退出登录"
+
+msgid "Documentation"
+msgstr "使用文档"
+
+msgid "Frappe School"
+msgstr "Frappe 学堂"
+
+msgid "About"
+msgstr "关于"
+
+msgid "Keyboard Shortcuts"
+msgstr "键盘快捷键"
+
+msgid "System Health"
+msgstr "系统健康状态"
+
+msgid "Frappe Support"
+msgstr "Frappe 技术支持"

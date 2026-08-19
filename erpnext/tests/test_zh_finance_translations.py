@@ -31,6 +31,14 @@ class TestZhFinanceTranslations(TestCase):
 			"Tree Level": "树形层级",
 			"Filter based on {0}": "按 {0} 筛选",
 			"Execution Time: {0} sec": "执行用时：{0} 秒",
+			"Home": "首页",
+			"Dashboard": "仪表板",
+			"Desktop": "工作台",
+			"Workspaces": "工作区",
+			"Session Defaults": "会话默认值",
+			"Logout": "退出登录",
+			"Keyboard Shortcuts": "键盘快捷键",
+			"Plaid Settings": "Plaid 设置",
 		}
 
 		for source, translation in translations.items():
