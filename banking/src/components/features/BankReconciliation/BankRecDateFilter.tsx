@@ -150,7 +150,7 @@ const BankRecDateFilter = () => {
             <PopoverContent className="w-84 p-1" align='start'>
                 <Command>
 
-                    <CommandInput placeholder="e.g. Last 3 weeks" onValueChange={setValue} value={value} />
+                    <CommandInput placeholder={_("e.g. Last 3 weeks")} onValueChange={setValue} value={value} />
                     <CommandList className='max-h-fit'>
                         <CommandEmpty className='text-start p-2 hover:bg-surface-gray-1'>
                             <EmptyState onSelect={handleTimePeriodChange} value={value} />

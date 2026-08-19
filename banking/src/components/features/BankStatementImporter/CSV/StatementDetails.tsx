@@ -149,7 +149,7 @@ const StatementDetails = ({ data }: Props) => {
                         <TableRow>
                             <TableHead>{_("Account")}</TableHead>
                             <TableCell>
-                                <span title="GL Account" className="text-sm">{bank?.account}</span>
+                                <span title={_("GL Account")} className="text-sm">{bank?.account}</span>
                             </TableCell>
                         </TableRow>
                         <TableRow>

@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync } from "node:fs"
+import { readdirSync, readFileSync, writeFileSync } from "node:fs"
 import { join } from "node:path"
 import { fileURLToPath } from "node:url"
 import ts from "typescript"
@@ -39,5 +39,7 @@ export function extractTranslationKeys(sourceRoot) {
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
-  process.stdout.write(`${JSON.stringify(extractTranslationKeys(process.argv[2]), null, 2)}\n`)
+  const output = `${JSON.stringify(extractTranslationKeys(process.argv[2]), null, 2)}\n`
+  if (process.argv[3]) writeFileSync(process.argv[3], output)
+  else process.stdout.write(output)
 }

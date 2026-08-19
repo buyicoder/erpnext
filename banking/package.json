@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build --base=/assets/erpnext/banking/ && yarn copy-html-entry",
 		"test:localization": "node --test tests/*.test.mjs",
+    "i18n:inventory": "node scripts/extract-translation-keys.mjs src translation-keys.json",
     "lint": "eslint .",
     "preview": "vite preview",
     "copy-html-entry": "cp ../erpnext/public/banking/index.html ../erpnext/www/banking.html"

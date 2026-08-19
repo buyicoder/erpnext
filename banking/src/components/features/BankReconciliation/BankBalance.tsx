@@ -138,7 +138,7 @@ const ReconcileProgress = () => {
                 value={progress}
                 max={100}
                 size="md"
-                label="Progress"
+                label={_("Progress")}
                 hint
                 hintText={`${reconciledCount} / ${totalCount} ${_("reconciled")}`} />
         </div>

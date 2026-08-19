@@ -27,15 +27,19 @@ const IncorrectlyClearedEntries = () => {
     if (!companyID || !bankAccount || !dates) {
         const missingFields = []
         if (!companyID) {
-            missingFields.push('Company')
+            missingFields.push(_("Company"))
         }
         if (!bankAccount) {
-            missingFields.push('Bank Account')
+            missingFields.push(_("Bank Account"))
         }
         if (!dates) {
-            missingFields.push('Dates')
+            missingFields.push(_("Dates"))
         }
-        return <MissingFiltersBanner text={`Please select ${missingFields.join(', ')} to view the incorrectly cleared entries.`} />
+        return (
+            <MissingFiltersBanner
+                text={_("Please select {0} to view the incorrectly cleared entries.", [missingFields.join(", ")])}
+            />
+        )
     }
 
     return <IncorrectlyClearedEntriesView />
