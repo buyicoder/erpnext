@@ -13,7 +13,12 @@ docker compose \
 	up -d --force-recreate
 
 docker exec "${project_name}-backend-1" bash -lc \
-	"cd /home/frappe/frappe-bench && bench --site '${site_name}' clear-cache"
+	"cd /home/frappe/frappe-bench && \
+	bench --site '${site_name}' migrate && \
+	bench --site '${site_name}' execute frappe.reload_doc --kwargs '{\"module\":\"accounts\",\"dt\":\"print_format\",\"dn\":\"pos_invoice_with_item_image\",\"force\":True}' && \
+	bench --site '${site_name}' execute frappe.reload_doc --kwargs '{\"module\":\"accounts\",\"dt\":\"print_format\",\"dn\":\"sales_invoice_with_item_image\",\"force\":True}' && \
+	bench --site '${site_name}' execute frappe.reload_doc --kwargs '{\"module\":\"accounts\",\"dt\":\"print_format\",\"dn\":\"cheque_printing_format\",\"force\":True}' && \
+	bench --site '${site_name}' clear-cache"
 
-printf 'Deployed %s and cleared translation cache for site %s\n' \
+printf 'Deployed %s, migrated, and cleared translation cache for site %s\n' \
 	"${project_name}" "${site_name}"

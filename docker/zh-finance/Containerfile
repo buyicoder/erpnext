@@ -5,6 +5,7 @@ LABEL org.opencontainers.image.revision="${SOURCE_COMMIT}"
 
 USER root
 COPY --chown=frappe:frappe erpnext/locale/zh.po /home/frappe/frappe-bench/apps/erpnext/erpnext/locale/zh.po
+COPY --chown=frappe:frappe erpnext/hooks.py /home/frappe/frappe-bench/apps/erpnext/erpnext/hooks.py
 COPY --chown=frappe:frappe .build/frappe-v16.24.4-zh.po /tmp/frappe-zh-baseline.po
 COPY --chown=frappe:frappe localization/frappe/zh.po /tmp/frappe-zh-overrides.po
 COPY --chown=frappe:frappe localization/frappe/realtime_utils.js /home/frappe/frappe-bench/apps/frappe/realtime/utils.js
@@ -15,6 +16,9 @@ COPY --chown=frappe:frappe erpnext/public/js/zh_finance_format.mjs /home/frappe/
 COPY --chown=frappe:frappe erpnext/accounts/report/accounts_receivable/accounts_receivable.js /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/report/accounts_receivable/accounts_receivable.js
 COPY --chown=frappe:frappe erpnext/accounts/doctype/journal_entry/journal_entry.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/journal_entry/journal_entry.py
 COPY --chown=frappe:frappe erpnext/accounts/doctype/payment_entry/payment_entry.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.py
+COPY --chown=frappe:frappe erpnext/accounts/print_format/pos_invoice_with_item_image/pos_invoice_with_item_image.json /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/print_format/pos_invoice_with_item_image/pos_invoice_with_item_image.json
+COPY --chown=frappe:frappe erpnext/accounts/print_format/sales_invoice_with_item_image/sales_invoice_with_item_image.json /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/print_format/sales_invoice_with_item_image/sales_invoice_with_item_image.json
+COPY --chown=frappe:frappe erpnext/accounts/print_format/cheque_printing_format/cheque_printing_format.json /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/print_format/cheque_printing_format/cheque_printing_format.json
 COPY --chown=frappe:frappe erpnext/controllers/buying_controller.py /home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/buying_controller.py
 COPY --chown=frappe:frappe erpnext/controllers/selling_controller.py /home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/selling_controller.py
 COPY --chown=frappe:frappe erpnext/setup/china_money.py /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/china_money.py

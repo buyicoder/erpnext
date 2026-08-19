@@ -89,6 +89,19 @@ class TestZhFinanceTranslations(TestCase):
 
 	def test_core_transaction_forms_use_reviewed_chinese_terms(self):
 		translations = {
+			"Customer Name:": "客户名称：",
+			"Bill to:": "账单地址：",
+			"Invoice Number:": "发票编号：",
+			"Invoice Date:": "开票日期：",
+			"Payment Due Date:": "付款到期日：",
+			"Prepared By": "制单人",
+			"Authorised Signatory": "授权签字人",
+			"Received Payment as Above": "已收到上述款项",
+			"A/C Payee": "仅限收款人入账",
+			"Row No.": "序号",
+			"Sub Total:": "小计：",
+			"In Words:": "金额大写：",
+			"Grand Total:": "价税合计：",
 			"Amount {0} {1} adjusted against {2} {3}": "金额 {0} {1} 已冲抵 {2} {3}",
 			"Amount {0} {1} as adjustment to {2}": "金额 {0} {1} 作为对 {2} 的调整",
 			"Consider for Tax Withholding ": "计入代扣税计算",

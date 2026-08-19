@@ -63599,3 +63599,42 @@ msgstr "降序"
 
 msgid "Menu"
 msgstr "菜单"
+
+msgid "Customer Name:"
+msgstr "客户名称："
+
+msgid "Bill to:"
+msgstr "账单地址："
+
+msgid "Invoice Number:"
+msgstr "发票编号："
+
+msgid "Invoice Date:"
+msgstr "开票日期："
+
+msgid "Payment Due Date:"
+msgstr "付款到期日："
+
+msgid "Prepared By"
+msgstr "制单人"
+
+msgid "Authorised Signatory"
+msgstr "授权签字人"
+
+msgid "Received Payment as Above"
+msgstr "已收到上述款项"
+
+msgid "A/C Payee"
+msgstr "仅限收款人入账"
+
+msgid "Row No."
+msgstr "序号"
+
+msgid "Sub Total:"
+msgstr "小计："
+
+msgid "In Words:"
+msgstr "金额大写："
+
+msgid "Grand Total:"
+msgstr "价税合计："
