@@ -824,7 +824,7 @@ msgstr "<li>以下行{0}的清算日期必须晚于支票日期：</li>"
 
 #: erpnext/controllers/accounts_controller.py:2302
 msgid "<li>Item {0} in row(s) {1} billed more than {2}</li>"
-msgstr "{0}"
+msgstr "<li>物料 {0} 在第 {1} 行的开票金额超过 {2}</li>"
 
 #: erpnext/accounts/doctype/pos_invoice/pos_invoice.py:424
 msgid "<li>Packed Item {0}: Required {1}, Available {2}</li>"
@@ -1183,7 +1183,7 @@ msgstr "已验证的预约不能恢复为“未验证”状态。"
 #. Option for the 'Blood Group' (Select) field in DocType 'Employee'
 #: erpnext/setup/doctype/employee/employee.json
 msgid "A+"
-msgstr "A +"
+msgstr "A+"
 
 #. Option for the 'Blood Group' (Select) field in DocType 'Employee'
 #: erpnext/setup/doctype/employee/employee.json
@@ -1193,7 +1193,7 @@ msgstr "A-"
 #. Option for the 'Blood Group' (Select) field in DocType 'Employee'
 #: erpnext/setup/doctype/employee/employee.json
 msgid "AB+"
-msgstr "AB +"
+msgstr "AB+"
 
 #. Option for the 'Blood Group' (Select) field in DocType 'Employee'
 #: erpnext/setup/doctype/employee/employee.json
@@ -5578,11 +5578,11 @@ msgstr "不能在节假日安排预约。"
 
 #: erpnext/www/book_appointment/verify/index.py:28
 msgid "Appointment has been closed. Please book the appointment again."
-msgstr ""
+msgstr "预约已关闭，请重新预约。"
 
 #: erpnext/www/book_appointment/verify/index.py:33
 msgid "Appointment is already verified."
-msgstr ""
+msgstr "预约已经验证。"
 
 #: erpnext/crm/doctype/appointment/appointment.py:116
 msgid "Appointment must be scheduled within the available slot timings."
@@ -7002,7 +7002,7 @@ msgstr "平均销售价"
 #. Option for the 'Blood Group' (Select) field in DocType 'Employee'
 #: erpnext/setup/doctype/employee/employee.json
 msgid "B+"
-msgstr "B +"
+msgstr "B+"
 
 #. Option for the 'Blood Group' (Select) field in DocType 'Employee'
 #: erpnext/setup/doctype/employee/employee.json
@@ -7140,7 +7140,7 @@ msgstr "物料清单号"
 #. Name of a report
 #: erpnext/manufacturing/report/bom_explorer/bom_explorer.json
 msgid "BOM Explorer"
-msgstr "BOM Explorer"
+msgstr "物料清单浏览器"
 
 #. Name of a DocType
 #: erpnext/manufacturing/doctype/bom_explosion_item/bom_explosion_item.json
@@ -11943,7 +11943,7 @@ msgstr "公司{0}被多次添加"
 
 #: erpnext/regional/doctype/south_africa_vat_settings/south_africa_vat_settings.py:33
 msgid "Company {0} is not in South Africa."
-msgstr ""
+msgstr "公司 {0} 不在南非。"
 
 #: erpnext/setup/setup_wizard/operations/taxes_setup.py:14
 msgid "Company {} does not exist yet. Taxes setup aborted."
@@ -16284,7 +16284,7 @@ msgstr "默认：10分钟"
 
 #: erpnext/setup/setup_wizard/data/industry_type.txt:17
 msgid "Defense"
-msgstr "Defense"
+msgstr "国防"
 
 #. Label of the deferred_accounting_section (Section Break) field in DocType
 #. 'Company'
@@ -21211,7 +21211,7 @@ msgstr "聚焦搜索框"
 #. Label of the folio_no (Data) field in DocType 'Shareholder'
 #: erpnext/accounts/doctype/shareholder/shareholder.json
 msgid "Folio no."
-msgstr "Folio no。"
+msgstr "登记册编号"
 
 #. Label of the follow_calendar_months (Check) field in DocType 'Subscription'
 #: erpnext/accounts/doctype/subscription/subscription.json
@@ -24336,7 +24336,7 @@ msgstr "已导入 {0} 个单据类型"
 
 #: erpnext/edi/doctype/code_list/code_list_import.py:36
 msgid "Importing Code Lists from remote URLs is not allowed."
-msgstr ""
+msgstr "不允许从远程网址导入代码列表。"
 
 #: erpnext/edi/doctype/common_code/common_code.py:111
 msgid "Importing Common Codes"
@@ -25685,7 +25685,7 @@ msgstr "树形类型 {0} 无效"
 
 #: erpnext/edi/doctype/code_list/code_list_import.py:37
 msgid "Invalid Upload"
-msgstr ""
+msgstr "上传内容无效"
 
 #: erpnext/controllers/item_variant.py:255
 msgid "Invalid Value"
@@ -28321,7 +28321,7 @@ msgstr "建议的物料重订货点"
 #. Option for the 'Barcode Type' (Select) field in DocType 'Item Barcode'
 #: erpnext/stock/doctype/item_barcode/item_barcode.json
 msgid "JAN"
-msgstr "01"
+msgstr "JAN"
 
 #. Label of the production_capacity (Int) field in DocType 'Workstation'
 #: erpnext/manufacturing/doctype/workstation/workstation.json
@@ -29447,7 +29447,7 @@ msgstr "物料的销售价和采购价"
 #: erpnext/setup/doctype/sales_partner/sales_partner.json
 #: erpnext/stock/doctype/manufacturer/manufacturer.json
 msgid "Logo"
-msgstr "Logo"
+msgstr "标志"
 
 #: erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts.py:183
 #: erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts_with_account_number.py:318
@@ -32779,7 +32779,7 @@ msgstr ""
 
 #: erpnext/edi/doctype/code_list/code_list_import.py:73
 msgid "No file uploaded or URL provided."
-msgstr ""
+msgstr "未上传文件，也未提供网址。"
 
 #: banking/src/components/features/ActionLog/ActionLogDialogBody.tsx:236
 msgid "No invoice linked"
@@ -33458,7 +33458,7 @@ msgstr "XML文件中未设置编号"
 #. Option for the 'Blood Group' (Select) field in DocType 'Employee'
 #: erpnext/setup/doctype/employee/employee.json
 msgid "O+"
-msgstr "O +"
+msgstr "O+"
 
 #. Option for the 'Blood Group' (Select) field in DocType 'Employee'
 #: erpnext/setup/doctype/employee/employee.json
@@ -38826,12 +38826,12 @@ msgstr "请为联系人设置电子邮件/电话"
 #: erpnext/regional/italy/utils.py:257
 #, python-format
 msgid "Please set Fiscal Code for the customer '%s'"
-msgstr "请为客户&#39;％s&#39;设置财务代码"
+msgstr "请为客户“%s”设置税务代码"
 
 #: erpnext/regional/italy/utils.py:265
 #, python-format
 msgid "Please set Fiscal Code for the public administration '%s'"
-msgstr "请为公共管理&#39;％s&#39;设置财政代码"
+msgstr "请为公共管理机构“%s”设置税务代码"
 
 #: erpnext/assets/doctype/asset/depreciation.py:737
 msgid "Please set Fixed Asset Account in Asset Category {0}"
@@ -38853,7 +38853,7 @@ msgstr "请设置根类型"
 #: erpnext/regional/italy/utils.py:272
 #, python-format
 msgid "Please set Tax ID for the customer '%s'"
-msgstr "请为客户&#39;％s&#39;设置税号"
+msgstr "请为客户“%s”设置税号"
 
 #: erpnext/accounts/doctype/exchange_rate_revaluation/exchange_rate_revaluation.py:364
 msgid "Please set Unrealized Exchange Gain/Loss Account in Company {0}"
@@ -38894,7 +38894,7 @@ msgstr "请设置实际需求或销售预测，以生成物料需求计划报表
 #: erpnext/regional/italy/utils.py:227
 #, python-format
 msgid "Please set an Address on the Company '%s'"
-msgstr "请在公司&#39;％s&#39;上设置地址"
+msgstr "请为公司“%s”设置地址"
 
 #: erpnext/controllers/stock_controller.py:1056
 msgid "Please set an Expense Account in the Items table"
@@ -40241,7 +40241,7 @@ msgstr "制程损耗数量"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.js:288
 msgid "Process Loss Quantity"
-msgstr "加工损耗量"
+msgstr "制程损耗数量"
 
 #. Name of a report
 #: erpnext/manufacturing/report/process_loss_report/process_loss_report.json
@@ -45829,7 +45829,7 @@ msgstr "已取消修订"
 #: erpnext/accounts/doctype/account/account.json
 #: erpnext/setup/doctype/company/company.json
 msgid "Rgt"
-msgstr "RGT"
+msgstr "Rgt"
 
 #. Label of the right_child (Link) field in DocType 'Bisect Nodes'
 #: erpnext/accounts/doctype/bisect_nodes/bisect_nodes.json
@@ -50375,7 +50375,7 @@ msgstr "如果客户是公共管理公司，请设置此项。"
 #. Settings'
 #: erpnext/support/doctype/support_settings/support_settings.json
 msgid "Set this value to 0 to disable the feature."
-msgstr ""
+msgstr "将此值设为 0 可停用该功能。"
 
 #: banking/src/components/features/Settings/MatchingRules.tsx:37
 msgid "Set up rules to automatically classify transactions. Drag and drop rules to reorder their priority."
@@ -51744,7 +51744,7 @@ msgstr "任务 {0} 的开始日期必须早于结束日期"
 
 #: erpnext/utilities/bulk_transaction.py:44
 msgid "Started a background job to create {1} {0}. {2}"
-msgstr ""
+msgstr "已启动后台任务，将创建 {1} 个{0}。{2}"
 
 #. Label of the date_dist_from_left_edge (Float) field in DocType 'Cheque Print
 #. Template'
@@ -55420,11 +55420,11 @@ msgstr "截至 {2}，存货资产科目的期末余额 {0} 与库存余额报表
 
 #: erpnext/regional/report/vat_audit_report/vat_audit_report.py:43
 msgid "The company {0} is not in South Africa. VAT Audit Report is only available for companies in South Africa."
-msgstr ""
+msgstr "公司 {0} 不在南非。增值税审计报表仅适用于南非公司。"
 
 #: erpnext/regional/report/uae_vat_201/uae_vat_201.py:21
 msgid "The company {0} is not in United Arab Emirates. UAE VAT 201 report is only available for companies in United Arab Emirates."
-msgstr ""
+msgstr "公司 {0} 不在阿拉伯联合酋长国。阿联酋 VAT 201 报表仅适用于阿联酋公司。"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.py:1379
 msgid "The completed quantity {0} of an operation {1} cannot be greater than the completed quantity {2} of a previous operation {3}."
@@ -55783,7 +55783,7 @@ msgstr "物料申请{1}中物料{3}的发放/转移数量{0}不能超过申请�
 
 #: erpnext/edi/doctype/code_list/code_list_import.py:43
 msgid "The uploaded file could not be parsed as a genericode XML document."
-msgstr ""
+msgstr "无法将上传的文件解析为 genericode XML 文档。"
 
 #: erpnext/accounts/doctype/bank_statement_import/bank_statement_import.py:178
 msgid "The uploaded file does not appear to be in valid MT940 format."
@@ -56060,7 +56060,7 @@ msgstr "物料{4}{0} 超出订单允许量 {1}。你在对同一个{2}做另一�
 
 #: erpnext/templates/emails/appointment_confirmed.html:6
 msgid "This email was sent from {0}"
-msgstr ""
+msgstr "此邮件由 {0} 发送"
 
 #: erpnext/stock/doctype/delivery_note/delivery_note.js:496
 msgid "This field is used to set the 'Customer'."
@@ -56206,7 +56206,7 @@ msgstr "该物料筛选器已应用于{0}"
 
 #: erpnext/templates/emails/confirm_appointment.html:4
 msgid "This link is valid for {0} minutes"
-msgstr ""
+msgstr "此链接在 {0} 分钟内有效"
 
 #: erpnext/www/banking.py:35
 msgid "This method is only meant for developer mode"
@@ -56220,7 +56220,7 @@ msgstr "此模块计划弃用，将在版本 17 中完全移除，请改用 <a h
 #. Header text in the Support Workspace
 #: erpnext/support/workspace/support/support.json
 msgid "This module is scheduled for deprecation and will be completely removed in version 17, please use <a href=\"https://frappe.io/helpdesk\">Frappe Helpdesk</a> instead."
-msgstr ""
+msgstr "此模块计划弃用，并将在版本 17 中完全移除，请改用 <a href=\"https://frappe.io/helpdesk\">Frappe Helpdesk</a>。"
 
 #: erpnext/stock/doctype/delivery_note/delivery_note.js:509
 msgid "This option can be checked to edit the 'Posting Date' and 'Posting Time' fields."
@@ -56327,7 +56327,7 @@ msgstr "无匹配通用代码时使用此值"
 
 #: erpnext/www/book_appointment/verify/index.py:18
 msgid "This verification link is invalid. Please book the appointment again."
-msgstr ""
+msgstr "此验证链接无效，请重新预约。"
 
 #: banking/src/components/features/Settings/Preferences.tsx:86
 msgid "This will automatically run transaction matching rules on unreconciled transactions every hour."
@@ -60262,7 +60262,7 @@ msgstr "验证失败，请检查链接"
 
 #: erpnext/www/book_appointment/verify/index.py:38
 msgid "Verification link has expired."
-msgstr ""
+msgstr "验证链接已过期。"
 
 #. Label of the verified_by (Data) field in DocType 'Quality Inspection'
 #: erpnext/stock/doctype/quality_inspection/quality_inspection.json
@@ -61121,7 +61121,7 @@ msgstr "{0} 是基于 {1} 创建的。如需更新 {1} 的未结金额，请取�
 
 #: erpnext/templates/emails/appointment_confirmed.html:3
 msgid "We look forward to meeting you"
-msgstr ""
+msgstr "期待与您见面"
 
 #: banking/src/pages/BankStatementImporter.tsx:169
 msgid "We support uploading CSV, XLSX, XLS and PDF files. Please make sure the file contains the correct columns."
@@ -62243,7 +62243,7 @@ msgstr "您的姓名（必填）"
 
 #: erpnext/templates/emails/appointment_confirmed.html:2
 msgid "Your email has been verified and your appointment has been confirmed for {0}"
-msgstr ""
+msgstr "您的邮箱已验证，预约时间已确认为 {0}"
 
 #: erpnext/www/book_appointment/verify/index.html:11
 msgid "Your email has been verified and your appointment has been scheduled"
@@ -62261,7 +62261,7 @@ msgstr "您的客服工单"
 #. Label of the youtube_video_id (Data) field in DocType 'Video'
 #: erpnext/utilities/doctype/video/video.json
 msgid "Youtube ID"
-msgstr "YouTube ID"
+msgstr "YouTube 标识"
 
 #. Label of the youtube_tracking_section (Section Break) field in DocType
 #. 'Video'
@@ -62561,7 +62561,7 @@ msgstr "已返还"
 #: erpnext/setup/doctype/territory/territory.json
 #: erpnext/stock/doctype/warehouse/warehouse.json
 msgid "rgt"
-msgstr "RGT"
+msgstr "rgt"
 
 #. Option for the 'Plaid Environment' (Select) field in DocType 'Plaid
 #. Settings'
@@ -62781,7 +62781,7 @@ msgstr "{0}已创建"
 
 #: erpnext/utilities/bulk_transaction.py:31
 msgid "{0} creation for the following records will be skipped."
-msgstr ""
+msgstr "将跳过为以下记录创建{0}。"
 
 #: erpnext/setup/doctype/company/company.py:295
 msgid "{0} currency must be same as company's default currency. Please select another account."
@@ -62823,7 +62823,7 @@ msgstr "{0}在物料税{1}中重复输入"
 #: erpnext/accounts/utils.py:136
 #: erpnext/projects/doctype/activity_cost/activity_cost.py:40
 msgid "{0} for {1}"
-msgstr "{0} {1}"
+msgstr "{0}（{1}）"
 
 #: erpnext/accounts/doctype/payment_entry/payment_entry.py:455
 msgid "{0} has Payment Term based allocation enabled. Select a Payment Term for Row #{1} in Payment References section"
@@ -63080,7 +63080,7 @@ msgstr "{0}将被设置为后续扫描物料中的{1}"
 
 #: erpnext/manufacturing/doctype/job_card/job_card.py:1037
 msgid "{0} {1}"
-msgstr "{0}{1}"
+msgstr "{0} {1}"
 
 #: erpnext/public/js/utils/serial_no_batch_selector.js:265
 msgid "{0} {1} Manually"
@@ -63960,3 +63960,102 @@ msgstr "已处理项数"
 #: erpnext/assets/doctype/asset_maintenance_log/asset_maintenance_log.json
 msgid "Task Name"
 msgstr "任务名称"
+
+# Current-source completeness additions
+#: erpnext/accounts/doctype/chart_of_accounts_importer/chart_of_accounts_importer.py
+msgid "Accounts cannot be removed, as user doesn't have access to all the accounts of {0}"
+msgstr "无法移除科目，因为用户无权访问 {0} 的全部科目"
+
+#: erpnext/accounts/doctype/cheque_print_template/cheque_print_template.json
+msgid "A4"
+msgstr "A4"
+
+#: erpnext/accounts/doctype/coupon_code/coupon_code.json
+msgid "Used"
+msgstr "已使用"
+
+#: erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.json
+msgid "Body"
+msgstr "正文"
+
+#: erpnext/assets/doctype/asset/asset.js
+#: erpnext/stock/doctype/item/item_prices.html
+msgid "No."
+msgstr "编号"
+
+#: erpnext/crm/doctype/prospect_opportunity/prospect_opportunity.json
+msgid "Stage"
+msgstr "阶段"
+
+#: erpnext/edi/doctype/code_list/code_list.json
+#: erpnext/utilities/doctype/video/video.json
+msgid "URL"
+msgstr "URL"
+
+#: erpnext/manufacturing/doctype/bom/bom.py
+msgid "Row #{0}: FG / Semi FG Item is required for the operation {1} as 'Track Semi Finished Goods' is enabled."
+msgstr "第 {0} 行：已启用“追踪半成品”，因此工序 {1} 必须设置成品/半成品物料。"
+
+#: erpnext/manufacturing/doctype/bom/bom.py
+msgid "Row #{0}: The operation {1} has 'Is Final Finished Good' checked, so its FG / Semi FG Item must be {2}."
+msgstr "第 {0} 行：工序 {1} 已勾选“最终成品”，因此其成品/半成品物料必须为 {2}。"
+
+#: erpnext/manufacturing/doctype/job_card/job_card.js
+msgid "Qty to Manufacture in this Cycle"
+msgstr "本轮生产数量"
+
+#: erpnext/manufacturing/doctype/job_card/job_card.js
+msgid "Completed, Pending and Process Loss quantities must add up to this."
+msgstr "完成数量、待处理数量与制程损耗数量之和必须等于此数量。"
+
+#: erpnext/manufacturing/doctype/job_card/job_card.js
+msgid "Completed Quantity cannot be greater than {0}"
+msgstr "完成数量不能大于 {0}"
+
+#: erpnext/manufacturing/doctype/job_card/job_card.js
+msgid "Qty left for a later cycle or for another job card."
+msgstr "留待后续轮次或其他生产任务单处理的数量。"
+
+#: erpnext/manufacturing/doctype/job_card/job_card.js
+msgid "Qty scrapped in this cycle, nobody will produce it."
+msgstr "本轮已报废且不再生产的数量。"
+
+#: erpnext/manufacturing/doctype/job_card/job_card.js
+msgid "Process Loss Quantity cannot be greater than {0}"
+msgstr "制程损耗数量不能大于 {0}"
+
+#: erpnext/manufacturing/doctype/job_card/job_card.py
+msgid "Total Completed Qty ({0}), Process Loss Qty ({1}) and Pending Qty ({2}) must add up to the Qty to Manufacture ({3})."
+msgstr "完成数量（{0}）、制程损耗数量（{1}）与待处理数量（{2}）之和必须等于生产数量（{3}）。"
+
+#: erpnext/manufacturing/doctype/job_card/job_card.py
+msgid "Job Card {0}: As per the sequence of the operations in the work order {1}, submit the manufacturing entry for the operation {2} before the operation {3}."
+msgstr "生产任务单 {0}：请按生产工单 {1} 的工序顺序，先提交工序 {2} 的生产入库单，再处理工序 {3}。"
+
+#: erpnext/manufacturing/doctype/job_card/job_card.py
+msgid "The completed quantity {0} of an operation {1} cannot be greater than the manufactured quantity {2} of a previous operation {3}. Submit the manufacturing entry for the operation {3} first."
+msgstr "完成数量 {0}（工序 {1}）不能大于生产数量 {2}（上一工序 {3}）。请先提交工序 {3} 的生产入库单。"
+
+#: erpnext/manufacturing/doctype/job_card/job_card.py
+msgid "Completed Quantity ({0}), Pending Quantity ({1}) and Process Loss Quantity ({2}) must add up to the Qty to Manufacture ({3})."
+msgstr "完成数量（{0}）、待处理数量（{1}）与制程损耗数量（{2}）之和必须等于生产数量（{3}）。"
+
+#: erpnext/setup/doctype/company/company.js
+msgid "Manage"
+msgstr "管理"
+
+#: erpnext/setup/setup_wizard/data/uom_data.json
+msgid "Slug"
+msgstr "Slug"
+
+#: erpnext/stock/doctype/stock_entry/stock_entry.py
+msgid "The Job Card {0} has only {1} left to produce, but this entry books {2} ({3} finished goods and {4} process loss). Cancel or update its other manufacture entries first."
+msgstr "生产任务单 {0} 仅剩 {1} 待生产，但本单据登记了 {2}（成品 {3}、制程损耗 {4}）。请先取消或更新该任务单的其他生产入库单。"
+
+#: erpnext/support/doctype/support_search_source/support_search_source.json
+msgid "API"
+msgstr "API"
+
+#: erpnext/templates/pages/projects.html
+msgid "Modified By"
+msgstr "修改人"

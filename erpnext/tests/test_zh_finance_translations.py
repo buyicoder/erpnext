@@ -1,5 +1,6 @@
 import ast
 import json
+import os
 import re
 from io import BytesIO
 from pathlib import Path
@@ -187,6 +188,73 @@ BABEL_LITERAL_PERCENT_MESSAGES = {
 	"Maximum discount % allowed when selling this item. Eg: if set to 20%, a discount greater than 20% cannot be applied in sales transactions.",
 }
 
+ERPNext_IDENTITY_TRANSLATION_ALLOWLIST = {
+	"0-30",
+	"1-10",
+	"1000+",
+	"11-50",
+	"1{0}",
+	"201-500",
+	"30-60",
+	"501-1000",
+	"51-200",
+	"60-90",
+	"<0",
+	'<div class="text-muted text-center">{0}</div>',
+	'<div id="stock-levels-placeholder"></div>',
+	'<div id=\\"item-prices-container\\"></div>',
+	"<li>{}</li>",
+	"A - B",
+	"A - C",
+	"A4",
+	"A+",
+	"A-",
+	"AB-",
+	"AB+",
+	"ACC-PINV-.YYYY.-",
+	"API",
+	"B-",
+	"B+",
+	"D - E",
+	"DFS",
+	"EAN",
+	"EAN-13",
+	"EAN-8",
+	"ERPNext",
+	"Frappe CRM",
+	"G - D",
+	"GTIN-14",
+	"H - F",
+	"I - J",
+	"I - K",
+	"IBAN",
+	"IRS 1099",
+	"ISBN-10",
+	"ISBN-13",
+	"Lft",
+	"JAN",
+	"O-",
+	"O+",
+	"POS",
+	"Rgt",
+	"Sazhen",
+	"Skype ID",
+	"Slug",
+	"UPC-A",
+	"URL",
+	"WhatsApp",
+	"frankfurter.dev",
+	"frankfurter.dev - v2",
+	"rgt",
+	"{0}%",
+	"{0} {1}",
+	"{}",
+}
+
+ERPNext_APPROVED_NON_CJK_TRANSLATIONS = {
+	"{0} for {1}": "{0}（{1}）",
+}
+
 
 class TestZhFinanceTranslations(TestCase):
 	maxDiff = None
@@ -242,6 +310,108 @@ class TestZhFinanceTranslations(TestCase):
 			):
 				missing.append(source)
 		self.assertEqual(missing, [])
+
+	def test_every_erpnext_source_message_has_a_chinese_runtime_owner(self):
+		from babel.messages.extract import extract_from_dir
+		from frappe.gettext.translate import PYTHON_KEYWORDS, get_method_map
+
+		repo_root = Path(__file__).parents[2]
+		erpnext_source_root = repo_root / "erpnext"
+		method_map = get_method_map("erpnext")
+		method_map.extend(get_method_map("frappe"))
+
+		def include_directory(path):
+			name = os.path.basename(path)
+			return not name.startswith(".") and name not in {"__pycache__", "locale", "node_modules"}
+
+		source_messages = {}
+		for filename, line, message_id, _comments, context in extract_from_dir(
+			erpnext_source_root,
+			method_map,
+			directory_filter=include_directory,
+			keywords=PYTHON_KEYWORDS,
+		):
+			if (
+				message_id
+				and not (isinstance(message_id, str) and not message_id.strip())
+			):
+				source_messages.setdefault((message_id, context), []).append(
+					(f"erpnext/{filename}", line)
+				)
+
+		missing = []
+		for (message_id, context), locations in source_messages.items():
+			owners = [
+				self.merged_erpnext_catalog.get(message_id, context=context),
+				self.merged_frappe_catalog.get(message_id, context=context),
+			]
+			if not any(self._is_usable_translation(message, message_id) for message in owners):
+				missing.append(
+					{
+						"id": message_id,
+						"context": context,
+						"locations": locations,
+					}
+				)
+		self.assertEqual(missing, [])
+
+	def test_remaining_erpnext_source_messages_use_reviewed_chinese(self):
+		translations = {
+			"<li>Item {0} in row(s) {1} billed more than {2}</li>": "<li>物料 {0} 在第 {1} 行的开票金额超过 {2}</li>",
+			"Accounts cannot be removed, as user doesn't have access to all the accounts of {0}": "无法移除科目，因为用户无权访问 {0} 的全部科目",
+			"Appointment has been closed. Please book the appointment again.": "预约已关闭，请重新预约。",
+			"Appointment is already verified.": "预约已经验证。",
+			"BOM Explorer": "物料清单浏览器",
+			"Body": "正文",
+			"Completed Quantity ({0}), Pending Quantity ({1}) and Process Loss Quantity ({2}) must add up to the Qty to Manufacture ({3}).": "完成数量（{0}）、待处理数量（{1}）与制程损耗数量（{2}）之和必须等于生产数量（{3}）。",
+			"Completed Quantity cannot be greater than {0}": "完成数量不能大于 {0}",
+			"Completed, Pending and Process Loss quantities must add up to this.": "完成数量、待处理数量与制程损耗数量之和必须等于此数量。",
+			"Company {0} is not in South Africa.": "公司 {0} 不在南非。",
+			"Defense": "国防",
+			"Importing Code Lists from remote URLs is not allowed.": "不允许从远程网址导入代码列表。",
+			"Invalid Upload": "上传内容无效",
+			"Folio no.": "登记册编号",
+			"Job Card {0}: As per the sequence of the operations in the work order {1}, submit the manufacturing entry for the operation {2} before the operation {3}.": "生产任务单 {0}：请按生产工单 {1} 的工序顺序，先提交工序 {2} 的生产入库单，再处理工序 {3}。",
+			"Logo": "标志",
+			"Manage": "管理",
+			"Modified By": "修改人",
+			"No.": "编号",
+			"No file uploaded or URL provided.": "未上传文件，也未提供网址。",
+			"Please set Fiscal Code for the customer '%s'": "请为客户“%s”设置税务代码",
+			"Please set Fiscal Code for the public administration '%s'": "请为公共管理机构“%s”设置税务代码",
+			"Please set Tax ID for the customer '%s'": "请为客户“%s”设置税号",
+			"Please set an Address on the Company '%s'": "请为公司“%s”设置地址",
+			"Process Loss Quantity": "制程损耗数量",
+			"Process Loss Quantity cannot be greater than {0}": "制程损耗数量不能大于 {0}",
+			"Qty left for a later cycle or for another job card.": "留待后续轮次或其他生产任务单处理的数量。",
+			"Qty scrapped in this cycle, nobody will produce it.": "本轮已报废且不再生产的数量。",
+			"Qty to Manufacture in this Cycle": "本轮生产数量",
+			"Row #{0}: FG / Semi FG Item is required for the operation {1} as 'Track Semi Finished Goods' is enabled.": "第 {0} 行：已启用“追踪半成品”，因此工序 {1} 必须设置成品/半成品物料。",
+			"Row #{0}: The operation {1} has 'Is Final Finished Good' checked, so its FG / Semi FG Item must be {2}.": "第 {0} 行：工序 {1} 已勾选“最终成品”，因此其成品/半成品物料必须为 {2}。",
+			"Set this value to 0 to disable the feature.": "将此值设为 0 可停用该功能。",
+			"Started a background job to create {1} {0}. {2}": "已启动后台任务，将创建 {1} 个{0}。{2}",
+			"The company {0} is not in South Africa. VAT Audit Report is only available for companies in South Africa.": "公司 {0} 不在南非。增值税审计报表仅适用于南非公司。",
+			"The company {0} is not in United Arab Emirates. UAE VAT 201 report is only available for companies in United Arab Emirates.": "公司 {0} 不在阿拉伯联合酋长国。阿联酋 VAT 201 报表仅适用于阿联酋公司。",
+			"The uploaded file could not be parsed as a genericode XML document.": "无法将上传的文件解析为 genericode XML 文档。",
+			"The Job Card {0} has only {1} left to produce, but this entry books {2} ({3} finished goods and {4} process loss). Cancel or update its other manufacture entries first.": "生产任务单 {0} 仅剩 {1} 待生产，但本单据登记了 {2}（成品 {3}、制程损耗 {4}）。请先取消或更新该任务单的其他生产入库单。",
+			"The completed quantity {0} of an operation {1} cannot be greater than the manufactured quantity {2} of a previous operation {3}. Submit the manufacturing entry for the operation {3} first.": "完成数量 {0}（工序 {1}）不能大于生产数量 {2}（上一工序 {3}）。请先提交工序 {3} 的生产入库单。",
+			"This email was sent from {0}": "此邮件由 {0} 发送",
+			"This link is valid for {0} minutes": "此链接在 {0} 分钟内有效",
+			"This module is scheduled for deprecation and will be completely removed in version 17, please use <a href=\"https://frappe.io/helpdesk\">Frappe Helpdesk</a> instead.": "此模块计划弃用，并将在版本 17 中完全移除，请改用 <a href=\"https://frappe.io/helpdesk\">Frappe Helpdesk</a>。",
+			"This verification link is invalid. Please book the appointment again.": "此验证链接无效，请重新预约。",
+			"Verification link has expired.": "验证链接已过期。",
+			"Stage": "阶段",
+			"Total Completed Qty ({0}), Process Loss Qty ({1}) and Pending Qty ({2}) must add up to the Qty to Manufacture ({3}).": "完成数量（{0}）、制程损耗数量（{1}）与待处理数量（{2}）之和必须等于生产数量（{3}）。",
+			"Used": "已使用",
+			"We look forward to meeting you": "期待与您见面",
+			"Youtube ID": "YouTube 标识",
+			"{0} for {1}": "{0}（{1}）",
+			"Your email has been verified and your appointment has been confirmed for {0}": "您的邮箱已验证，预约时间已确认为 {0}",
+			"{0} creation for the following records will be skipped.": "将跳过为以下记录创建{0}。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
 
 	def test_reviewed_core_visible_sinks_use_translation_helpers(self):
 		repo_root = Path(__file__).parents[2]
@@ -2105,3 +2275,16 @@ class TestZhFinanceTranslations(TestCase):
 	@staticmethod
 	def _message_is_valid(message):
 		return message.id in BABEL_LITERAL_PERCENT_MESSAGES or not message.check()
+
+	@classmethod
+	def _is_usable_translation(cls, message, source):
+		if not message or "fuzzy" in message.flags or not cls._message_is_valid(message):
+			return False
+		translations = message.string if isinstance(message.string, (list, tuple)) else [message.string]
+		if not translations or not all(translations):
+			return False
+		if source in ERPNext_IDENTITY_TRANSLATION_ALLOWLIST:
+			return all(translation == source for translation in translations)
+		if source in ERPNext_APPROVED_NON_CJK_TRANSLATIONS:
+			return translations == [ERPNext_APPROVED_NON_CJK_TRANSLATIONS[source]]
+		return all(re.search(r"[\u3400-\u9fff]", translation) for translation in translations)
