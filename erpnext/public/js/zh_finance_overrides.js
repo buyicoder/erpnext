@@ -2,6 +2,7 @@ import { format_compact_cny_text } from "./zh_finance_format.mjs";
 
 if (frappe.boot.lang === "zh") {
 	Object.assign(frappe._messages, {
+		"Begin typing for results.": "输入关键词搜索。",
 		Masters: "基础资料",
 		Reports: "报表",
 	});
