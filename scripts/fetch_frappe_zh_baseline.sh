@@ -3,25 +3,42 @@ set -euo pipefail
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 repo_root="$(git -C "$script_dir/.." rev-parse --show-toplevel)"
-output="$repo_root/.build/frappe-v16.24.4-zh.po"
-expected_sha="b0d107adf4e064622b03aefed46e5d3a06c6daae05cca0a4d5d07fb1e5fef586"
-source_url="https://raw.githubusercontent.com/frappe/frappe/v16.24.4/frappe/locale/zh.po"
+source "$script_dir/frappe_zh_baseline.conf"
+translation_output="$repo_root/.build/frappe-v${FRAPPE_ZH_BASELINE_VERSION}-zh.po"
+runtime_pot_output="$repo_root/.build/frappe-v${FRAPPE_RUNTIME_VERSION}-main.pot"
 
-mkdir -p "$(dirname "$output")"
+mkdir -p "$repo_root/.build"
 
-if [[ -f "$output" ]] && [[ "$(shasum -a 256 "$output" | awk '{print $1}')" == "$expected_sha" ]]; then
-	printf '%s\n' "Using verified Frappe zh baseline: $output"
-	exit 0
-fi
+fetch_verified() {
+	local source_url="$1"
+	local output="$2"
+	local expected_sha="$3"
+	local label="$4"
 
-temporary="${output}.tmp"
-trap 'rm -f "$temporary"' EXIT
-curl --fail --location --silent --show-error "$source_url" --output "$temporary"
-actual_sha="$(shasum -a 256 "$temporary" | awk '{print $1}')"
-if [[ "$actual_sha" != "$expected_sha" ]]; then
-	printf 'Frappe zh baseline checksum mismatch: expected %s, got %s\n' "$expected_sha" "$actual_sha" >&2
-	exit 1
-fi
+	if [[ -f "$output" ]] && [[ "$(shasum -a 256 "$output" | awk '{print $1}')" == "$expected_sha" ]]; then
+		printf '%s\n' "Using verified $label: $output"
+		return
+	fi
 
-mv "$temporary" "$output"
-printf '%s\n' "Downloaded verified Frappe zh baseline: $output"
+	local temporary="${output}.tmp"
+	curl --fail --location --silent --show-error "$source_url" --output "$temporary"
+	local actual_sha
+	actual_sha="$(shasum -a 256 "$temporary" | awk '{print $1}')"
+	if [[ "$actual_sha" != "$expected_sha" ]]; then
+		printf '%s checksum mismatch: expected %s, got %s\n' "$label" "$expected_sha" "$actual_sha" >&2
+		return 1
+	fi
+	mv "$temporary" "$output"
+	printf '%s\n' "Downloaded verified $label: $output"
+}
+
+fetch_verified \
+	"https://raw.githubusercontent.com/frappe/frappe/v${FRAPPE_ZH_BASELINE_VERSION}/frappe/locale/zh.po" \
+	"$translation_output" \
+	"$FRAPPE_ZH_BASELINE_SHA256" \
+	"Frappe zh baseline"
+fetch_verified \
+	"https://raw.githubusercontent.com/frappe/frappe/v${FRAPPE_RUNTIME_VERSION}/frappe/locale/main.pot" \
+	"$runtime_pot_output" \
+	"$FRAPPE_RUNTIME_POT_SHA256" \
+	"Frappe runtime source catalog"

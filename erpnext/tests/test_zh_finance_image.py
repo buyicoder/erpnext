@@ -17,6 +17,12 @@ class TestZhFinanceImage(TestCase):
 		self.fetch_script = (
 			self.repo_root / "scripts" / "fetch_frappe_zh_baseline.sh"
 		).read_text()
+		self.baseline_config = (
+			self.repo_root / "scripts" / "frappe_zh_baseline.conf"
+		).read_text()
+		self.runtime_i18n_validator = (
+			self.repo_root / "scripts" / "validate_frappe_runtime_i18n.py"
+		).read_text()
 		self.browser_overrides = (
 			self.repo_root / "erpnext" / "public" / "js" / "zh_finance_overrides.js"
 		).read_text()
@@ -77,11 +83,23 @@ class TestZhFinanceImage(TestCase):
 
 	def test_frappe_catalog_uses_a_pinned_verified_official_baseline(self):
 		self.assertIn("fetch_frappe_zh_baseline.sh", self.build_script)
-		self.assertIn("frappe/frappe/v16.24.4/frappe/locale/zh.po", self.fetch_script)
+		self.assertIn('source "$script_dir/frappe_zh_baseline.conf"', self.fetch_script)
+		self.assertIn("FRAPPE_ZH_BASELINE_VERSION=16.24.4", self.baseline_config)
+		self.assertIn("FRAPPE_RUNTIME_VERSION=16.31.0", self.baseline_config)
 		self.assertIn(
-			"b0d107adf4e064622b03aefed46e5d3a06c6daae05cca0a4d5d07fb1e5fef586",
-			self.fetch_script,
+			"FRAPPE_ZH_BASELINE_SHA256=b0d107adf4e064622b03aefed46e5d3a06c6daae05cca0a4d5d07fb1e5fef586",
+			self.baseline_config,
 		)
+		self.assertIn(
+			"FRAPPE_RUNTIME_POT_SHA256=85b83712b6c5e7ceeaa34648acf4443971974e873f3c1c677e614c581749744f",
+			self.baseline_config,
+		)
+		self.assertIn("frappe/locale/main.pot", self.fetch_script)
+		self.assertIn("frappe.__version__ != expected_frappe_version", self.build_script)
+		self.assertIn("Compiled Frappe translations do not match", self.build_script)
+		self.assertIn("validate_frappe_runtime_i18n.py", self.containerfile)
+		self.assertIn("validate_frappe_runtime_i18n.py", self.build_script)
+		self.assertIn("frappe/public/js", self.runtime_i18n_validator)
 
 	def test_image_manifest_points_to_the_built_bundle(self):
 		self.assertIn("sync_asset_manifest.py", self.containerfile)

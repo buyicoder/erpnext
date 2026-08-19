@@ -19,6 +19,7 @@ COPY --chown=frappe:frappe .build/frappe-v16.24.4-zh.po /tmp/frappe-zh-baseline.
 COPY --chown=frappe:frappe localization/frappe/zh.po /tmp/frappe-zh-overrides.po
 COPY --chown=frappe:frappe localization/frappe/realtime_utils.js /home/frappe/frappe-bench/apps/frappe/realtime/utils.js
 COPY --chown=frappe:frappe scripts/merge_frappe_zh_catalog.py /tmp/merge_frappe_zh_catalog.py
+COPY --chown=frappe:frappe scripts/validate_frappe_runtime_i18n.py /tmp/validate_frappe_runtime_i18n.py
 COPY --chown=frappe:frappe scripts/merge_erpnext_zh_banking.py /tmp/merge_erpnext_zh_banking.py
 COPY --chown=frappe:frappe localization/erpnext/zh_banking.json /tmp/zh_banking.json
 COPY --chown=frappe:frappe scripts/patch_frappe_print_page.py /tmp/patch_frappe_print_page.py

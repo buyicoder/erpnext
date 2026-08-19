@@ -148,6 +148,11 @@ class TestZhFinanceTranslations(TestCase):
 		po_path = Path(__file__).parents[1] / "locale" / "zh.po"
 		cls.catalog = read_po(BytesIO(po_path.read_bytes()), locale="zh")
 		repo_root = Path(__file__).parents[2]
+		frappe_baseline_path = repo_root / ".build/frappe-v16.24.4-zh.po"
+		frappe_runtime_pot_path = repo_root / ".build/frappe-v16.31.0-main.pot"
+		cls.frappe_runtime_catalog = read_po(
+			BytesIO(frappe_runtime_pot_path.read_bytes()), locale="zh"
+		)
 		with TemporaryDirectory() as temporary_directory:
 			merged_erpnext_path = Path(temporary_directory) / "erpnext-zh-merged.po"
 			merge_banking_catalog(
@@ -160,7 +165,7 @@ class TestZhFinanceTranslations(TestCase):
 			)
 			merged_path = Path(temporary_directory) / "frappe-zh-merged.po"
 			merge_catalogs(
-				repo_root / ".build/frappe-v16.24.4-zh.po",
+				frappe_baseline_path,
 				repo_root / "localization/frappe/zh.po",
 				merged_path,
 			)
@@ -475,6 +480,24 @@ class TestZhFinanceTranslations(TestCase):
 
 		for source, translation in translations.items():
 			self._assert_frappe_translation(source, translation)
+
+	def test_every_frappe_public_javascript_message_has_a_translation_owner(self):
+		missing = []
+		for message in self.frappe_runtime_catalog:
+			if not message.id or not any(
+				location.startswith("frappe/public/js/") for location, _line in message.locations
+			):
+				continue
+			translated = self.merged_frappe_catalog.get(message.id, context=message.context)
+			if not (
+				translated
+				and translated.string
+				and "fuzzy" not in translated.flags
+				and self._message_is_valid(translated)
+			):
+				missing.append(message.id)
+
+		self.assertEqual(missing, [])
 
 	def test_every_core_and_compliance_doctype_field_has_a_translation_owner(self):
 		doctype_root = Path(__file__).parents[1]

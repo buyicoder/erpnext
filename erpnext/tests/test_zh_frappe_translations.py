@@ -46,9 +46,44 @@ class TestZhFrappeTranslations(TestCase):
 			"Customize Quick Filters": "自定义快捷筛选条件",
 			"Open Link": "打开链接",
 			"Current Series": "当前编号",
+			"Transaction": "单据类型",
+			"Please select a transaction.": "请选择单据类型。",
+			"All Results": "全部结果",
+			"Preferences": "偏好设置",
+			"Manage your preferences": "管理偏好设置",
+			"Copied {0} {1} to clipboard": "已将 {0} {1} 复制到剪贴板",
+			"Desktop": "工作台",
+			"DocType Missing": "缺少单据类型",
+			"Edit Sidebar": "编辑侧边栏",
+			"No rows selected": "未选择任何行",
+			"Not permitted. {0}.": "无权执行此操作。{0}。",
+			"Open in new tab": "在新标签页中打开",
+			"Please select a DocType in options before setting filters": "设置筛选条件前，请先在选项中选择单据类型",
+			"Saving Changes...": "正在保存更改……",
+			"Saving Sidebar": "正在保存侧边栏",
+			"XMLHttpRequest Error": "网络请求错误",
+			"esc": "Esc",
+			"to close": "关闭",
+			"to navigate": "导航",
+			"to select": "选择",
 		}
 		for source, translation in expected.items():
 			with self.subTest(source=source):
 				message = self.catalog.get(source)
+				self.assertNotIn("fuzzy", message.flags)
+				self.assertEqual(message.string, translation)
+
+	def test_contextual_number_fallback_is_not_mislabeled(self):
+		expected = {
+			("N/A", "Number not available"): "暂无数值",
+			("1 row from {0}", "User removed row from child table"): "从 {0} 移除 1 行",
+			("1 row to {0}", "User added row to child table"): "向 {0} 添加 1 行",
+			("{0} rows from {1}", "User removed rows from child table"): "从 {1} 移除 {0} 行",
+			("{0} rows to {1}", "User added rows to child table"): "向 {1} 添加 {0} 行",
+		}
+		for (source, context), translation in expected.items():
+			with self.subTest(source=source, context=context):
+				message = self.catalog.get(source, context=context)
+				self.assertIsNotNone(message)
 				self.assertNotIn("fuzzy", message.flags)
 				self.assertEqual(message.string, translation)

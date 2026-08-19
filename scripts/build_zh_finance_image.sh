@@ -3,6 +3,7 @@ set -euo pipefail
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 repo_root="$(git -C "$script_dir/.." rev-parse --show-toplevel)"
+source "$script_dir/frappe_zh_baseline.conf"
 image="${1:-buyicoder/erpnext-cn:v16.32.3-zh-finance}"
 if [[ -n "$(git -C "$repo_root" status --porcelain --untracked-files=all)" ]]; then
 	printf '%s\n' "Refusing to build from a dirty worktree; commit the release inputs first." >&2
@@ -20,11 +21,24 @@ docker build \
 
 docker run --rm --entrypoint sh "$image" -lc '
 	set -eu
-	/home/frappe/frappe-bench/env/bin/python - <<"PY"
+	FRAPPE_RUNTIME_VERSION="'"$FRAPPE_RUNTIME_VERSION"'" /home/frappe/frappe-bench/env/bin/python - <<"PY"
 import json
+import os
 import re
+import sys
 from gettext import GNUTranslations
 from pathlib import Path
+
+sys.path.insert(0, "/home/frappe/frappe-bench/apps/frappe")
+import frappe
+
+expected_frappe_version = os.environ["FRAPPE_RUNTIME_VERSION"]
+if frappe.__version__ != expected_frappe_version:
+	raise SystemExit(
+		f"Frappe runtime/catalog version mismatch: runtime={frappe.__version__}, "
+		f"catalog={expected_frappe_version}"
+	)
+print(f"Verified Frappe runtime/catalog version {expected_frappe_version}")
 
 asset_root = Path("/home/frappe/frappe-bench/assets")
 manifest = json.loads((asset_root / "assets.json").read_text())
@@ -52,6 +66,22 @@ if mismatches:
 	raise SystemExit(f"Compiled ERPNext translations do not match: {mismatches}")
 print(f"Verified {len(expected_translations)} compiled ERPNext translations")
 
+expected_frappe_translations = {
+	"Current Series": "当前编号",
+	"Create Saved Filter": "创建已保存筛选",
+	"No rows selected": "未选择任何行",
+}
+with (asset_root / "locale/zh/LC_MESSAGES/frappe.mo").open("rb") as mo_file:
+	frappe_translations = GNUTranslations(mo_file)
+frappe_mismatches = {
+	source: (frappe_translations.gettext(source), expected)
+	for source, expected in expected_frappe_translations.items()
+	if frappe_translations.gettext(source) != expected
+}
+if frappe_mismatches:
+	raise SystemExit(f"Compiled Frappe translations do not match: {frappe_mismatches}")
+print(f"Verified {len(expected_frappe_translations)} compiled Frappe translations")
+
 banking_html = Path("/home/frappe/frappe-bench/apps/erpnext/erpnext/www/banking.html").read_text()
 asset_paths = re.findall(r"(?:src|href)=\"(/assets/erpnext/banking/[^\"]+)\"", banking_html)
 if not asset_paths:
@@ -67,6 +97,9 @@ if "_translations_loaded" not in entry_file.read_text():
 	raise SystemExit(f"Banking entry bundle lacks translation readiness contract: {entry_paths[0]}")
 print(f"Verified {len(asset_paths)} Banking HTML asset references")
 PY
+	/home/frappe/frappe-bench/env/bin/python /tmp/validate_frappe_runtime_i18n.py \
+		--frappe-app /home/frappe/frappe-bench/apps/frappe \
+		--catalog /home/frappe/frappe-bench/apps/frappe/frappe/locale/zh.po
 	grep -F "this.print_format_control.get_value()" /home/frappe/frappe-bench/apps/frappe/frappe/printing/page/print/print.js >/dev/null
 	test -s /home/frappe/frappe-bench/assets/locale/zh/LC_MESSAGES/erpnext.mo
 	grep -F "{{ _(\"Banking\") }}" /home/frappe/frappe-bench/apps/erpnext/erpnext/www/banking.html >/dev/null
