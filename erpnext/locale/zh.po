@@ -9287,7 +9287,7 @@ msgstr "采购设置"
 #. Title of the Module Onboarding 'Buying Onboarding'
 #: erpnext/buying/module_onboarding/buying_onboarding/buying_onboarding.json
 msgid "Buying Setup"
-msgstr ""
+msgstr "采购功能引导"
 
 #. Label of the buying_and_selling_tab (Tab Break) field in DocType 'Company'
 #: erpnext/setup/doctype/company/company.json
@@ -13621,7 +13621,7 @@ msgstr "创建潜在客户"
 #. Label of an action in the Onboarding Step 'Create Purchase Invoice'
 #: erpnext/buying/onboarding_step/create_purchase_invoice/create_purchase_invoice.json
 msgid "Create Purchase Invoice"
-msgstr ""
+msgstr "创建采购发票"
 
 #. Title of an Onboarding Step
 #. Label of an action in the Onboarding Step 'Create Purchase Order'
@@ -13849,7 +13849,7 @@ msgstr "以草稿状态创建付款申请"
 #. Label of an action in the Onboarding Step 'Create Supplier'
 #: erpnext/buying/onboarding_step/create_supplier/create_supplier.json
 msgid "Create supplier"
-msgstr ""
+msgstr "创建供应商"
 
 #: erpnext/public/js/bulk_transaction_processing.js:14
 msgid "Create {0} {1} ?"
@@ -45735,7 +45735,7 @@ msgstr "检查会计设置"
 #. Label of an action in the Onboarding Step 'Review Buying Settings'
 #: erpnext/buying/onboarding_step/review_buying_settings/review_buying_settings.json
 msgid "Review Buying Settings"
-msgstr ""
+msgstr "检查采购设置"
 
 #. Title of an Onboarding Step
 #: erpnext/accounts/onboarding_step/chart_of_accounts/chart_of_accounts.json
@@ -60352,7 +60352,7 @@ msgstr ""
 #. Analysis'
 #: erpnext/buying/onboarding_step/view_purchase_order_analysis/view_purchase_order_analysis.json
 msgid "View Purchase Order Analysis"
-msgstr ""
+msgstr "查看采购订单分析"
 
 #. Title of an Onboarding Step
 #. Label of an action in the Onboarding Step 'View Sales Order Analysis'
@@ -63553,3 +63553,31 @@ msgstr "我收藏的"
 
 msgid "Enabled"
 msgstr "已启用"
+
+# Shared list and document status overrides
+msgid "Draft"
+msgstr "草稿"
+
+msgid "Submitted"
+msgstr "已提交"
+
+msgid "Cancelled"
+msgstr "已取消"
+
+msgid "Filter"
+msgstr "筛选"
+
+msgid "Add {0}"
+msgstr "新建{0}"
+
+msgid "Click to sort by {0}"
+msgstr "点击按{0}排序"
+
+msgid "{0} of {1}"
+msgstr "显示 {0} 条，共 {1} 条"
+
+msgid "Document has been submitted"
+msgstr "单据已提交"
+
+msgid "Dashboards"
+msgstr "仪表板"

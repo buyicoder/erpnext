@@ -56,6 +56,17 @@ class TestZhFinanceTranslations(TestCase):
 			"Created On": "创建时间",
 			"Item Type": "物料类型",
 			"Sales & Purchase": "采销",
+			"Buying Setup": "采购功能引导",
+			"Create supplier": "创建供应商",
+			"Create Purchase Invoice": "创建采购发票",
+			"View Purchase Order Analysis": "查看采购订单分析",
+			"Review Buying Settings": "检查采购设置",
+			"Draft": "草稿",
+			"Submitted": "已提交",
+			"Cancelled": "已取消",
+			"Add {0}": "新建{0}",
+			"Click to sort by {0}": "点击按{0}排序",
+			"{0} of {1}": "显示 {0} 条，共 {1} 条",
 		}
 
 		for source, translation in translations.items():
