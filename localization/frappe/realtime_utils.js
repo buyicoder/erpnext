@@ -8,7 +8,7 @@ function get_url(socket, path) {
 	let url = socket.request.headers.origin;
 	const hostname = url ? new URL(url).hostname : "";
 	if (["localhost", "127.0.0.1"].includes(hostname)) {
-		url = process.env.FRAPPE_INTERNAL_BACKEND_URL || "http://backend:8000";
+		url = process.env.FRAPPE_INTERNAL_BACKEND_URL || "http://frontend:8080";
 	} else if (conf.developer_mode) {
 		let [protocol, host] = url.split(":");
 		url = `${protocol}:${host}:${conf.webserver_port}`;

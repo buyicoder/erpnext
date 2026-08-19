@@ -55,7 +55,7 @@ class TestZhFinanceImage(TestCase):
 			self.repo_root / "localization" / "frappe" / "realtime_utils.js"
 		).read_text()
 		self.assertIn('["localhost", "127.0.0.1"]', realtime_utils)
-		self.assertIn('"http://backend:8000"', realtime_utils)
+		self.assertIn('"http://frontend:8080"', realtime_utils)
 
 	def test_local_deploy_clears_runtime_translation_cache(self):
 		self.assertIn("up -d --force-recreate", self.deploy_script)
