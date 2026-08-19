@@ -107,7 +107,7 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("Local ERPNext did not become ready", self.deploy_script)
 		self.assertIn("bench --site '${site_name}' migrate", self.deploy_script)
 		self.assertIn(
-			"bench --site '${site_name}' execute erpnext.setup.china_defaults.apply_china_defaults",
+			"bench --site '${site_name}' execute erpnext.setup.china_defaults.apply_china_defaults --kwargs '{\\\"clear_cache\\\":false}'",
 			self.deploy_script,
 		)
 		self.assertIn("bench --site '${site_name}' execute frappe.reload_doc", self.deploy_script)
