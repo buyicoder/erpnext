@@ -457,8 +457,8 @@ class TestZhFinanceTranslations(TestCase):
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
 
-	def test_core_finance_source_locations_have_chinese_translations(self):
-		prefixes = ("erpnext/accounts/", "erpnext/selling/", "erpnext/buying/")
+	def test_core_business_source_locations_have_chinese_translations(self):
+		prefixes = ("erpnext/accounts/", "erpnext/selling/", "erpnext/buying/", "erpnext/crm/")
 		missing = []
 		for source_message in self.source_catalog:
 			locations = [path for path, _line in source_message.locations if path.startswith(prefixes)]
@@ -478,6 +478,79 @@ class TestZhFinanceTranslations(TestCase):
 				missing.append(f"{','.join(locations)}:{message.context or ''}:{message.id}")
 
 		self.assertEqual(missing, [])
+
+	def test_crm_workflows_use_reviewed_chinese_terms(self):
+		translations = {
+			"'Verification Link Expiry Duration' must be between 15 to 60 minutes.": "“验证链接有效时长”必须设置为 15 至 60 分钟。",
+			"A verified appointment cannot be moved back to 'Unverified' status.": "已验证的预约不能恢复为“未验证”状态。",
+			"Action for Expired Unverified Appointments": "未验证预约过期后的处理方式",
+			"Advance Booking Days is mandatory for Appointment Scheduling.": "启用预约安排时必须设置可提前预约天数。",
+			"Allowed Users": "允许的用户",
+			"Allowed Users is not required as Frappe CRM is already installed on the site.": "本站点已安装 Frappe CRM，无需设置允许的用户。",
+			"Allowed Users is required for data synchronization from remote Frappe CRM site.": "从远程 Frappe CRM 站点同步数据时必须设置允许的用户。",
+			"An appointment booked through the portal can only be opened via email verification.": "通过门户预约后，必须完成邮件验证才能打开该预约。",
+			"Appointment Booking Portal Settings": "预约门户设置",
+			"Appointment Confirmed": "预约已确认",
+			"Appointment Scheduling": "预约安排",
+			"Appointment Scheduling needs to be enabled for Appointment Booking through portal.": "通过门户提供预约服务前，必须启用预约安排。",
+			"Appointment can only be scheduled up to {0} day(s) in advance.": "最多只能提前 {0} 天安排预约。",
+			"Appointment cannot be scheduled for a past time.": "不能将预约安排在过去的时间。",
+			"Appointment cannot be scheduled on a holiday.": "不能在节假日安排预约。",
+			"Appointment must be scheduled within the available slot timings.": "预约必须安排在可用时段内。",
+			"Appointments created manually cannot have 'Unverified' status.": "手动创建的预约不能设为“未验证”状态。",
+			"Campaign {0} not found": "未找到营销活动 {0}",
+			"Cannot enable Opportunity creation from Contact Us because the Contact Us form is disabled.": "“联系我们”表单已停用，无法启用由该表单创建商机。",
+			"Created through Portal": "通过门户创建",
+			"Delete Permanently": "永久删除",
+			"Email Campaign Error": "邮件营销活动错误",
+			"Email Campaign Send Error": "邮件营销活动发送错误",
+			"Email Verified": "邮件已验证",
+			"Enable Appointment Booking Through Portal": "启用门户预约",
+			"Enable Frappe CRM Data Synchronization": "启用 Frappe CRM 数据同步",
+			"Enable Opportunity Creation from Contact Us": "允许通过“联系我们”创建商机",
+			"Failed to send email for campaign {0} to {1}": "为营销活动 {0} 向 {1} 发送邮件失败",
+			"Frappe CRM Allowed User": "Frappe CRM 允许的用户",
+			"Frappe CRM data synchronization is not enabled on ERPNext. Contact System Manager of ERPNext.": "ERPNext 尚未启用 Frappe CRM 数据同步，请联系 ERPNext 系统管理员。",
+			"Holiday List - {0} is not valid for current date.": "节假日列表 {0} 当前未生效。",
+			"In Minutes (min: 15 mins, max: 60 mins)": "单位：分钟（最少 15 分钟，最多 60 分钟）",
+			"Mark as Closed": "标记为已关闭",
+			"No availability of slots are found. Please add on Appointment Booking Settings.": "未找到可用时段，请在预约设置中添加。",
+			"No email found for {0} {1}": "未找到{0} {1}的电子邮箱",
+			"No recipients found for campaign {0}": "未找到营销活动 {0} 的收件人",
+			"Please add a valid Holiday List on Appointment Booking Settings.": "请在预约设置中添加有效的节假日列表。",
+			"Please add atleast one user on Allowed Users to allow Data Synchronization from Frappe CRM site.": "请在允许的用户中至少添加一名用户，以便从 Frappe CRM 站点同步数据。",
+			"Please fill up the Availability of Slots table to enable Appointment Scheduling.": "请填写可用时段表后再启用预约安排。",
+			"Please select a Holiday List to enable Appointment Scheduling.": "请选择节假日列表后再启用预约安排。",
+			"User not allowed to synchronize data from Frappe CRM on ERPNext. Contact System Manager of ERPNext.": "该用户无权将 Frappe CRM 数据同步到 ERPNext，请联系 ERPNext 系统管理员。",
+			"Verification Link Expiry Duration": "验证链接有效时长",
+			"Verification Token": "验证令牌",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+	def test_crm_dynamic_messages_translate_visible_business_values(self):
+		repo_root = Path(__file__).parents[2]
+		contracts = {
+			"erpnext/crm/doctype/email_campaign/email_campaign.py": [
+				"self.campaign_name, _(self.email_campaign_for), self.recipient",
+				'.format(_(campaign_for), recipient)',
+			],
+			"erpnext/crm/doctype/appointment_booking_settings/appointment_booking_settings.py": [
+				"_(record.day_of_week)",
+			],
+		}
+		for relative_path, snippets in contracts.items():
+			text = (repo_root / relative_path).read_text()
+			for snippet in snippets:
+				self.assertIn(snippet, text, relative_path)
+
+		for source in ("Lead", "Contact", "Email Group", "Monday"):
+			messages = [self.catalog.get(source), self.merged_frappe_catalog.get(source)]
+			self.assertTrue(
+				any(message and message.string and "fuzzy" not in message.flags for message in messages),
+				source,
+			)
 
 	def test_accounts_workflows_use_reviewed_chinese_terms(self):
 		translations = {

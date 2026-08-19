@@ -57,6 +57,9 @@ expected_translations = {
 	"A new fiscal year has been automatically created.": "已自动创建新会计年度。",
 	"No <strong>Account Data</strong> row found": "未找到<strong>科目数据</strong>行。",
 	"Reverse {0} already available in draft status: {1}": "已有草稿状态的冲销{0}：{1}",
+	"Appointment Booking Portal Settings": "预约门户设置",
+	"Email Campaign Send Error": "邮件营销活动发送错误",
+	"Verification Token": "验证令牌",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)

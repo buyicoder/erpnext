@@ -58,6 +58,11 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("erpnext/accounts/notification/notification_for_new_fiscal_year/notification_for_new_fiscal_year.html", self.containerfile)
 		self.assertIn("erpnext/accounts/notification/notification_for_new_fiscal_year/notification_for_new_fiscal_year.json", self.containerfile)
 		self.assertIn("erpnext/accounts/party.py", self.containerfile)
+		self.assertIn("erpnext/crm/doctype/email_campaign/email_campaign.py", self.containerfile)
+		self.assertIn(
+			"erpnext/crm/doctype/appointment_booking_settings/appointment_booking_settings.py",
+			self.containerfile,
+		)
 		self.assertIn("pos_invoice_with_item_image.json", self.containerfile)
 		self.assertIn("sales_invoice_with_item_image.json", self.containerfile)
 		self.assertIn("cheque_printing_format.json", self.containerfile)
@@ -129,6 +134,8 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn('"Matching Rules": "匹配规则"', self.build_script)
 		self.assertIn('"A new fiscal year has been automatically created.": "已自动创建新会计年度。"', self.build_script)
 		self.assertIn('"No <strong>Account Data</strong> row found": "未找到<strong>科目数据</strong>行。"', self.build_script)
+		self.assertIn('"Appointment Booking Portal Settings": "预约门户设置"', self.build_script)
+		self.assertIn('"Email Campaign Send Error": "邮件营销活动发送错误"', self.build_script)
 		self.assertIn("this.print_format_control.get_value()", self.build_script)
 		self.assertIn("Banking HTML references missing assets", self.build_script)
 		self.assertIn("Banking entry bundle lacks translation readiness contract", self.build_script)

@@ -67,7 +67,7 @@ class AppointmentBookingSettings(Document):
 	def validate_from_and_to_time(self, from_time, to_time, record):
 		if from_time > to_time:
 			err_msg = _("<b>From Time</b> cannot be later than <b>To Time</b> for {0}").format(
-				record.day_of_week
+				_(record.day_of_week)
 			)
 			frappe.throw(_(err_msg))
 
