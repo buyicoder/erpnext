@@ -416,7 +416,7 @@ const CashPicker = ({ company, selectedAccount, setSelectedAccount }: { company:
                 <Banknote size='24px' />
             </div>
             <div className='flex flex-col gap-1'>
-                <span className='font-semibold text-sm'>Cash</span>
+                <span className='font-semibold text-sm'>{_("Cash")}</span>
                 <span className='text-xs text-ink-gray-5'>{data?.message?.default_cash_account}</span>
             </div>
         </button>

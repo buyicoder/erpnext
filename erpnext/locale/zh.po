@@ -7899,7 +7899,7 @@ msgstr "银行交易{0}已更新"
 
 #: banking/src/pages/BankReconciliation.tsx:118
 msgid "Bank Transactions"
-msgstr ""
+msgstr "银行流水"
 
 #: erpnext/setup/setup_wizard/operations/install_fixtures.py:587
 msgid "Bank account cannot be named as {0}"
@@ -12131,7 +12131,7 @@ msgstr ""
 
 #: banking/src/components/features/BankReconciliation/BankPicker.tsx:69
 msgid "Configure Bank Accounts"
-msgstr ""
+msgstr "配置银行账户"
 
 #. Label of an action in the Onboarding Step 'Review Chart of Accounts'
 #: erpnext/accounts/onboarding_step/chart_of_accounts/chart_of_accounts.json
@@ -14205,7 +14205,7 @@ msgstr "应付账款"
 #: banking/src/components/features/BankReconciliation/BankTransactionList.tsx:392
 #: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:264
 msgid "Credits"
-msgstr ""
+msgstr "收入"
 
 #. Label of the criteria (Table) field in DocType 'Supplier Scorecard Period'
 #: erpnext/buying/doctype/supplier_scorecard_period/supplier_scorecard_period.json
@@ -15717,7 +15717,7 @@ msgstr "借方/贷方"
 #: banking/src/components/features/BankReconciliation/BankTransactionList.tsx:391
 #: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:263
 msgid "Debits"
-msgstr ""
+msgstr "支出"
 
 #: erpnext/accounts/report/financial_ratios/financial_ratios.py:172
 msgid "Debt Equity Ratio"
@@ -20625,7 +20625,7 @@ msgstr "按参考日期过滤"
 #: banking/src/components/features/BankReconciliation/BankTransactionList.tsx:351
 #: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:217
 msgid "Filter by amount"
-msgstr ""
+msgstr "按金额筛选"
 
 #: erpnext/selling/page/point_of_sale/pos_past_order_list.js:70
 msgid "Filter by invoice status"
@@ -22071,7 +22071,7 @@ msgstr "G - D"
 #: banking/src/components/features/BankReconciliation/BankPicker.tsx:127
 #: banking/src/components/features/BankReconciliation/SelectedTransactionDetails.tsx:64
 msgid "GL Account"
-msgstr ""
+msgstr "总账科目"
 
 #: erpnext/accounts/report/accounts_receivable_summary/accounts_receivable_summary.py:170
 #: erpnext/accounts/report/general_and_payment_ledger_comparison/general_and_payment_ledger_comparison.py:250
@@ -22581,7 +22581,7 @@ msgstr ""
 
 #: banking/src/pages/BankReconciliation.tsx:96
 msgid "Go to Desktop"
-msgstr ""
+msgstr "返回工作台"
 
 #: erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.js:15
 msgid "Go to the <a href='/banking' target='_blank' style='text-decoration: underline;'>Banking module</a> to setup this rule."
@@ -24233,7 +24233,7 @@ msgstr "实施服务商"
 #: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:305
 #: banking/src/pages/BankStatementImporterContainer.tsx:28
 msgid "Import Bank Statement"
-msgstr ""
+msgstr "导入银行对账单"
 
 #. Description of a DocType
 #: erpnext/accounts/doctype/chart_of_accounts_importer/chart_of_accounts_importer.json
@@ -24303,7 +24303,7 @@ msgstr ""
 
 #: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:277
 msgid "Import your bank statement to get started."
-msgstr ""
+msgstr "请先导入银行对账单。"
 
 #: banking/src/components/features/BankStatementImporter/CSV/StatementDetails.tsx:115
 msgid "Import {0} transactions"
@@ -24931,7 +24931,7 @@ msgstr "总账分录发现错误数字，可能是选择了错误的科目。"
 
 #: banking/src/pages/BankReconciliation.tsx:120
 msgid "Incorrectly Cleared Entries"
-msgstr ""
+msgstr "清账日期异常分录"
 
 #: banking/src/components/features/BankReconciliation/IncorrectlyClearedEntries.tsx:202
 msgid "Incorrectly cleared entries as per the report."
@@ -25871,7 +25871,7 @@ msgstr "发票限额"
 #: banking/src/components/features/ActionLog/ActionLogDialogBody.tsx:246
 #: banking/src/components/features/BankReconciliation/RecordPaymentModalContent.tsx:683
 msgid "Invoice No"
-msgstr ""
+msgstr "发票编号"
 
 #. Label of the invoice_number (Data) field in DocType 'Opening Invoice
 #. Creation Tool Item'
@@ -28893,7 +28893,7 @@ msgstr "物料{0}在仓库{1}的最后库存交易发生于{2}"
 
 #: banking/src/components/features/BankReconciliation/BankPicker.tsx:128
 msgid "Last Synced Transaction"
-msgstr ""
+msgstr "最近同步流水"
 
 #: erpnext/setup/doctype/vehicle/vehicle.py:46
 msgid "Last carbon check date cannot be a future date"
@@ -30540,11 +30540,11 @@ msgstr ""
 
 #: banking/src/pages/BankReconciliation.tsx:116
 msgid "Match and Reconcile"
-msgstr ""
+msgstr "匹配并核销"
 
 #: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:62
 msgid "Match or Create"
-msgstr ""
+msgstr "匹配或新建单据"
 
 #. Label of the transfer_match_days (Int) field in DocType 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
@@ -30566,7 +30566,15 @@ msgstr "已匹配交易规则"
 
 #: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:368
 msgid "Matched by rule"
-msgstr ""
+msgstr "已按规则匹配"
+
+#: banking/src/components/features/BankReconciliation/Rules/RuleForm.tsx
+msgid "Bank GL Account"
+msgstr "银行总账科目"
+
+#: banking/src/components/features/BankStatementImporter/CSV/StatementDetails.tsx
+msgid "e.g."
+msgstr "例如"
 
 #: banking/src/components/features/Settings/SettingsDialogContent.tsx:32
 msgid "Matching Rules"
@@ -32693,7 +32701,7 @@ msgstr "仓库{1}中物料{0}无可用数量可预留"
 
 #: banking/src/components/features/BankReconciliation/BankPicker.tsx:63
 msgid "No bank accounts found"
-msgstr ""
+msgstr "未找到银行账户"
 
 #: banking/src/pages/BankStatementImporter.tsx:285
 msgid "No bank statements imported yet"
@@ -32945,7 +32953,7 @@ msgstr "无预留库存可取消预留"
 
 #: banking/src/components/common/LinkFieldCombobox.tsx:268
 msgid "No results found."
-msgstr "未找到匹配结果."
+msgstr "未找到匹配结果。"
 
 #: banking/src/components/features/BankReconciliation/BankClearanceSummary.tsx:225
 #: banking/src/components/features/BankReconciliation/IncorrectlyClearedEntries.tsx:208
@@ -32986,11 +32994,11 @@ msgstr ""
 
 #: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:276
 msgid "No transactions found for the given filters."
-msgstr ""
+msgstr "未找到符合筛选条件的流水。"
 
 #: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:276
 msgid "No unreconciled transactions found"
-msgstr ""
+msgstr "没有待核销流水"
 
 #: erpnext/templates/includes/macros.html:291
 #: erpnext/templates/includes/macros.html:324
@@ -43915,7 +43923,7 @@ msgstr "积分兑换日期"
 #: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:364
 #: banking/src/components/features/BankReconciliation/SelectedTransactionDetails.tsx:63
 msgid "Ref"
-msgstr ""
+msgstr "参考号"
 
 #. Label of the ref_code (Data) field in DocType 'Item Customer Detail'
 #: erpnext/stock/doctype/item_customer_detail/item_customer_detail.json
@@ -48688,7 +48696,7 @@ msgstr ""
 #: banking/src/components/features/BankReconciliation/BankTransactionList.tsx:338
 #: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:200
 msgid "Search transactions"
-msgstr ""
+msgstr "搜索银行流水"
 
 #: erpnext/stock/doctype/item/item.js:804
 msgid "Search values..."
@@ -49041,7 +49049,7 @@ msgstr ""
 
 #: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:49
 msgid "Select a bank account to reconcile"
-msgstr ""
+msgstr "请选择要核销的银行账户"
 
 #: erpnext/erpnext_integrations/doctype/plaid_settings/plaid_settings.js:161
 msgid "Select a company"
@@ -56262,7 +56270,7 @@ msgstr "因按班次分派{1}，固定资产{0}折旧计划已更新"
 
 #: banking/src/pages/BankReconciliation.tsx:90
 msgid "This screen is not supported on mobile devices."
-msgstr ""
+msgstr "该功能暂不支持移动端操作。"
 
 #. Description of the 'Dunning Letter' (Section Break) field in DocType
 #. 'Dunning Type'
@@ -58392,7 +58400,7 @@ msgstr "截取指定长度的摘要内容"
 
 #: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:277
 msgid "Try adjusting your search or filter criteria."
-msgstr ""
+msgstr "请调整搜索内容或筛选条件。"
 
 #: erpnext/accounts/doctype/bank_reconciliation_tool/bank_reconciliation_tool.js:90
 msgid "Try the {0} for a better experience."
@@ -58767,7 +58775,7 @@ msgstr "无法找到变量："
 #: banking/src/components/features/BankReconciliation/RecordPaymentModalContent.tsx:855
 #: banking/src/components/features/BankReconciliation/SelectedTransactionDetails.tsx:58
 msgid "Unallocated"
-msgstr ""
+msgstr "未分配"
 
 #. Label of the unallocated_amount (Currency) field in DocType 'Bank
 #. Transaction'
@@ -59022,7 +59030,7 @@ msgstr "未核销单据"
 
 #: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:57
 msgid "Unreconciled Transactions"
-msgstr ""
+msgstr "待核销流水"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.js:950
 #: erpnext/selling/doctype/sales_order/sales_order.js:122
@@ -62173,7 +62181,7 @@ msgstr "您在第行输入了重复的送货单"
 
 #: banking/src/components/features/BankReconciliation/BankPicker.tsx:64
 msgid "You have not added any bank accounts to your company."
-msgstr ""
+msgstr "当前公司尚未添加银行账户。"
 
 #: banking/src/components/features/ActionLog/ActionLogDialogBody.tsx:60
 msgid "You have not performed any reconciliations in this session yet."
@@ -63831,3 +63839,75 @@ msgstr "禁用"
 #: erpnext/accounts/doctype/payment_terms_template/payment_terms_template.json
 msgid "Template Name"
 msgstr "模板名称"
+
+#: banking/src/pages/ViewBankStatementImportLog.tsx
+msgid "Loading..."
+msgstr "正在加载……"
+
+#: banking/src/pages/BankStatementImporter.tsx
+msgid "Date/Transaction Date/Value Date"
+msgstr "日期/交易日期/记账日期"
+
+#: banking/src/pages/BankStatementImporter.tsx
+msgid "Withdrawal/Deposit"
+msgstr "支出/收入"
+
+#: banking/src/pages/BankStatementImporter.tsx
+msgid "Description/Particulars/Remarks/Narration/Detail"
+msgstr "摘要/用途/备注/附言/明细"
+
+#: banking/src/pages/BankStatementImporter.tsx
+msgid "Reference/Ref/Transaction ID/Cheque/Check"
+msgstr "参考号/交易编号/支票号"
+
+#: banking/src/components/features/BankReconciliation/BankTransactionUnreconcileModalBody.tsx
+msgid "The following documents will be cancelled:"
+msgstr "以下单据将被取消："
+
+#: banking/src/components/features/BankReconciliation/RecordPaymentModalContent.tsx
+msgid "Get Unpaid Invoices"
+msgstr "获取未结发票"
+
+#: banking/src/components/features/BankReconciliation/RecordPaymentModalContent.tsx
+msgid "Select Invoices"
+msgstr "选择发票"
+
+#: banking/src/components/features/BankReconciliation/RecordPaymentModalContent.tsx
+msgid "Unpaid invoices from {0} for {1}."
+msgstr "{0} 的未结发票，待分配金额为 {1}。"
+
+#: banking/src/components/features/BankReconciliation/RecordPaymentModalContent.tsx
+msgid "Other Charges / Deductions"
+msgstr "其他费用/扣减"
+
+#: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx
+msgid "Clear Filters"
+msgstr "清除筛选条件"
+
+#: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx
+msgid "or"
+msgstr "或"
+
+#: banking/src/components/features/BankReconciliation/BankBalance.tsx
+msgid "For more information, open the Bank Reconciliation Statement tab below."
+msgstr "如需查看更多信息，请打开下方的“银行对账单”页签。"
+
+#: banking/src/components/ui/breadcrumb.tsx
+msgid "More"
+msgstr "更多"
+
+#: banking/src/pages/BankReconciliation.tsx
+msgid "Beta"
+msgstr "测试版"
+
+#: banking/src/components/features/BankReconciliation/BankPicker.tsx
+msgid "Select {0}"
+msgstr "选择 {0}"
+
+#: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx
+msgid "result"
+msgstr "条结果"
+
+#: banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx
+msgid "results"
+msgstr "条结果"

@@ -266,7 +266,7 @@ const EmptyState = ({ onSelect, value }: { onSelect: (fromDate: string, toDate: 
                     </span>}
             </div> :
             <span className='text-sm text-ink-gray-5'>
-                No results found
+                {_("No results found.")}
             </span>
         }
     </div>

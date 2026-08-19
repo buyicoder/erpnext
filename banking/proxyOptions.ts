@@ -1,17 +1,19 @@
 import { readFileSync } from 'node:fs';
+import type { IncomingMessage } from 'node:http';
 
-const common_site_config = JSON.parse(
-	readFileSync(new URL('../../../sites/common_site_config.json', import.meta.url), 'utf8')
-) as { webserver_port: string | number };
-const { webserver_port } = common_site_config;
+export default function createProxyOptions() {
+	const { webserver_port } = JSON.parse(
+		readFileSync(new URL('../../../sites/common_site_config.json', import.meta.url), 'utf8')
+	) as { webserver_port: string | number };
 
-export default {
-	'^/(app|api|assets|files|private)': {
-		target: `http://127.0.0.1:${webserver_port}`,
-		ws: true,
-		router: function (req) {
-			const site_name = req.headers?.host?.split(':')[0];
-			return `http://${site_name ?? 'localhost'}:${webserver_port}`;
+	return {
+		'^/(app|api|assets|files|private)': {
+			target: `http://127.0.0.1:${webserver_port}`,
+			ws: true,
+			router: function (req: IncomingMessage) {
+				const site_name = req.headers?.host?.split(':')[0];
+				return `http://${site_name ?? 'localhost'}:${webserver_port}`;
+			}
 		}
-	}
-};
+	};
+}

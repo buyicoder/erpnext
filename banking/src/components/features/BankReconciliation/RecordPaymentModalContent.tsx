@@ -900,12 +900,12 @@ const GetUnpaidInvoicesButton = () => {
 
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
             {partyType && party && <DialogTrigger asChild>
-                <Button variant='outline' size='sm' type='button'>Get Unpaid Invoices</Button>
+                <Button variant='outline' size='sm' type='button'>{_("Get Unpaid Invoices")}</Button>
             </DialogTrigger>}
             <DialogContent className="min-w-[75vw]">
                 <DialogHeader>
-                    <DialogTitle>Select Invoices</DialogTitle>
-                    <DialogDescription>Unpaid invoices from {partyName} for {formatCurrency(amount)}.</DialogDescription>
+                    <DialogTitle>{_("Select Invoices")}</DialogTitle>
+                    <DialogDescription>{_("Unpaid invoices from {0} for {1}.", [partyName ?? "", formatCurrency(amount)])}</DialogDescription>
                 </DialogHeader>
                 <FetchInvoicesModal onClose={() => setIsOpen(false)} />
             </DialogContent>
@@ -1027,22 +1027,22 @@ const FetchInvoicesModal = ({ onClose }: { onClose: () => void }) => {
                         }} />
                     </TableHead>
                     <TableHead>
-                        Type
+                        {_("Type")}
                     </TableHead>
                     <TableHead>
-                        Name
+                        {_("Name")}
                     </TableHead>
                     <TableHead>
-                        Invoice No
+                        {_("Invoice No")}
                     </TableHead>
                     <TableHead>
-                        Due Date
+                        {_("Due Date")}
                     </TableHead>
                     <TableHead className="text-end">
-                        Grand Total
+                        {_("Grand Total")}
                     </TableHead>
                     <TableHead className="text-end">
-                        Outstanding
+                        {_("Outstanding")}
                     </TableHead>
                 </TableRow>
             </TableHeader>
@@ -1096,14 +1096,14 @@ const FetchInvoicesModal = ({ onClose }: { onClose: () => void }) => {
         </Table> : null}
         <div className="flex justify-between items-center sticky bottom-0 bg-surface-modal">
             <div className="flex gap-2">
-                <span className="text-ink-gray-5">Invoices: <span className="text-ink-gray-8 font-numeric font-medium">{selectedInvoices.length}</span></span> /
-                <span className="text-ink-gray-5">Total: <span className="text-ink-gray-8 font-numeric font-medium">{formatCurrency(selectedInvoices.reduce((acc, invoice) => acc + invoice.outstanding_amount, 0))}</span></span>
+                <span className="text-ink-gray-5">{_("Invoices")}: <span className="text-ink-gray-8 font-numeric font-medium">{selectedInvoices.length}</span></span> /
+                <span className="text-ink-gray-5">{_("Total")}: <span className="text-ink-gray-8 font-numeric font-medium">{formatCurrency(selectedInvoices.reduce((acc, invoice) => acc + invoice.outstanding_amount, 0))}</span></span>
             </div>
             <DialogFooter className="pt-2">
                 <DialogClose asChild>
-                    <Button variant='outline' size='md' disabled={allocateAmountToReferencesLoading}>Cancel</Button>
+                    <Button variant='outline' size='md' disabled={allocateAmountToReferencesLoading}>{_("Cancel")}</Button>
                 </DialogClose>
-                <Button onClick={onSelect} size='md' disabled={allocateAmountToReferencesLoading}>Select</Button>
+                <Button onClick={onSelect} size='md' disabled={allocateAmountToReferencesLoading}>{_("Select")}</Button>
             </DialogFooter>
         </div>
 
@@ -1163,7 +1163,7 @@ const OtherChargesSection = ({ currency }: { currency: string }) => {
 
     return <div className="flex flex-col gap-2">
         <div className="flex gap-2 items-center">
-            <H4 className="text-base">Other Charges / Deductions</H4>
+            <H4 className="text-base">{_("Other Charges / Deductions")}</H4>
             <TotalDeductions currency={currency} />
         </div>
         <Table>

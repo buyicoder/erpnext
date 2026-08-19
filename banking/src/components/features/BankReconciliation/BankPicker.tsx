@@ -106,7 +106,7 @@ const BankPickerItem = ({ bank }: { bank: SelectedBank }) => {
 
     return <div
         role="button"
-        title={`Select ${bank.account_name}`}
+        title={_("Select {0}", [bank.account_name])}
         onClick={onSelect}
         className={cn('rounded-md border border-outline-gray-1 max-w-60 min-w-60 p-2 overflow-hidden cursor-pointer',
             isSelected ? 'border-outline-gray-5 bg-surface-gray-1' : 'hover:bg-surface-gray-1'

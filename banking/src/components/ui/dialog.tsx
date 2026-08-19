@@ -4,6 +4,7 @@ import { Dialog as DialogPrimitive } from "radix-ui"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import _ from "@/lib/translate"
 
 function Dialog({
   ...props
@@ -71,7 +72,7 @@ function DialogContent({
             className="data-[state=open]:bg-surface-gray-1 data-[state=open]:text-ink-gray-8 absolute top-4 ltr:right-4 rtl:left-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
           >
             <XIcon className="w-4 h-4" />
-            <span className="sr-only">Close</span>
+            <span className="sr-only">{_("Close")}</span>
           </DialogPrimitive.Close>
         )}
       </DialogPrimitive.Content>
@@ -109,7 +110,7 @@ function DialogFooter({
       {children}
       {showCloseButton && (
         <DialogPrimitive.Close asChild>
-          <Button variant="outline">Close</Button>
+          <Button variant="outline">{_("Close")}</Button>
         </DialogPrimitive.Close>
       )}
     </div>

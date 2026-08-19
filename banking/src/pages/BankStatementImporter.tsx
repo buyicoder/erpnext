@@ -180,27 +180,27 @@ const StatementInstructions = () => {
                 </TableHeader>
                 <TableBody>
                     <TableRow>
-                        <TableCell>Date/Transaction Date/Value Date</TableCell>
+                        <TableCell>{_("Date/Transaction Date/Value Date")}</TableCell>
                         <TableCell>{_("Date")}</TableCell>
                         <TableCell className="text-ink-gray-5">{_("The date of the transaction")}</TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell>Amount</TableCell>
+                        <TableCell>{_("Amount")}</TableCell>
                         <TableCell>{_("Amount")}</TableCell>
                         <TableCell className="text-ink-gray-5">{_('This can contain "CR"/"DR" values or positive/negative values. You could also have a separate column for CR/DR.')}</TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell>Withdrawal/Deposit</TableCell>
+                        <TableCell>{_("Withdrawal/Deposit")}</TableCell>
                         <TableCell>{_("Withdrawal")}/{_("Deposit")}</TableCell>
                         <TableCell className="text-ink-gray-5">{_("The withdrawal or deposit amounts - only required if there's no amount column.")}</TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell>Description/Particulars/Remarks/Narration/Detail</TableCell>
+                        <TableCell>{_("Description/Particulars/Remarks/Narration/Detail")}</TableCell>
                         <TableCell>{_("Description")}</TableCell>
                         <TableCell className="text-ink-gray-5">{_("The description of the transaction")}</TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell>Reference/Ref/Transaction ID/Cheque/Check</TableCell>
+                        <TableCell>{_("Reference/Ref/Transaction ID/Cheque/Check")}</TableCell>
                         <TableCell>{_("Reference")}</TableCell>
                         <TableCell className="text-ink-gray-5">{_("The reference number of the transaction")}</TableCell>
                     </TableRow>
@@ -263,7 +263,7 @@ const StatementImportLog = () => {
                                 <TableCell><Badge theme={item.status === "Completed" ? "green" : "gray"}>{item.status}</Badge></TableCell>
                                 <TableCell>
                                     {item.start_date && item.end_date ? (
-                                        <span>{formatDate(item.start_date, 'Do MMM YYYY')} to {formatDate(item.end_date, 'Do MMM YYYY')}</span>
+                                        <span>{formatDate(item.start_date, 'Do MMM YYYY')} {_("to")} {formatDate(item.end_date, 'Do MMM YYYY')}</span>
                                     ) : (
                                         <span>-</span>
                                     )}

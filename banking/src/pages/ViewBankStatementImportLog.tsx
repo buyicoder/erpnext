@@ -27,7 +27,7 @@ const ViewBankStatementImportLog = () => {
     }
 
     if (isLoading) {
-        return <div>Loading...</div>
+        return <div>{_("Loading...")}</div>
     }
 
     if (error) {

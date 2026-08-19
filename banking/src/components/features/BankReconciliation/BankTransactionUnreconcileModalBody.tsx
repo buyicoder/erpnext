@@ -85,7 +85,7 @@ const BankTransactionUnreconcileModalBody = () => {
 				</Table>
 				<div className="py-4">
 					{vouchersWhichWillBeCancelled && vouchersWhichWillBeCancelled?.length > 0 && (
-						<span>The following documents will be <strong>cancelled</strong>:</span>
+						<span>{_("The following documents will be cancelled:")}</span>
 					)}
 					{vouchersWhichWillBeCancelled && vouchersWhichWillBeCancelled?.length > 0 && (
 						<ol className="ms-6 list-disc [&>li]:mt-2">

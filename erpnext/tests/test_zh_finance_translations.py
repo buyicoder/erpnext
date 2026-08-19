@@ -683,6 +683,63 @@ class TestZhFinanceTranslations(TestCase):
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
 
+	def test_banking_frontend_visible_copy_uses_the_translation_catalog(self):
+		translations = {
+			"Loading...": "正在加载……",
+			"Date/Transaction Date/Value Date": "日期/交易日期/记账日期",
+			"Withdrawal/Deposit": "支出/收入",
+			"Description/Particulars/Remarks/Narration/Detail": "摘要/用途/备注/附言/明细",
+			"Reference/Ref/Transaction ID/Cheque/Check": "参考号/交易编号/支票号",
+			"The following documents will be cancelled:": "以下单据将被取消：",
+			"Get Unpaid Invoices": "获取未结发票",
+			"Select Invoices": "选择发票",
+			"Unpaid invoices from {0} for {1}.": "{0} 的未结发票，待分配金额为 {1}。",
+			"Invoices": "发票",
+			"Other Charges / Deductions": "其他费用/扣减",
+			"Clear Filters": "清除筛选条件",
+			"or": "或",
+			"For more information, open the Bank Reconciliation Statement tab below.": "如需查看更多信息，请打开下方的“银行对账单”页签。",
+			"More": "更多",
+			"Banking": "银行",
+			"Beta": "测试版",
+			"This screen is not supported on mobile devices.": "该功能暂不支持移动端操作。",
+			"Go to Desktop": "返回工作台",
+			"Match and Reconcile": "匹配并核销",
+			"Bank Reconciliation Statement": "银行对账单",
+			"Bank Transactions": "银行流水",
+			"Bank Clearance Summary": "银行清账汇总表",
+			"Incorrectly Cleared Entries": "清账日期异常分录",
+			"No bank accounts found": "未找到银行账户",
+			"You have not added any bank accounts to your company.": "当前公司尚未添加银行账户。",
+			"Configure Bank Accounts": "配置银行账户",
+			"Select {0}": "选择 {0}",
+			"GL Account": "总账科目",
+			"Last Synced Transaction": "最近同步流水",
+			"Select a bank account to reconcile": "请选择要核销的银行账户",
+			"Unreconciled Transactions": "待核销流水",
+			"Match or Create": "匹配或新建单据",
+			"Search transactions": "搜索银行流水",
+			"Filter by amount": "按金额筛选",
+			"Debits": "支出",
+			"Credits": "收入",
+			"No transactions found for the given filters.": "未找到符合筛选条件的流水。",
+			"No unreconciled transactions found": "没有待核销流水",
+			"Try adjusting your search or filter criteria.": "请调整搜索内容或筛选条件。",
+			"Import your bank statement to get started.": "请先导入银行对账单。",
+			"Import Bank Statement": "导入银行对账单",
+			"result": "条结果",
+			"results": "条结果",
+			"Ref": "参考号",
+			"Matched by rule": "已按规则匹配",
+			"Unallocated": "未分配",
+			"No results found.": "未找到匹配结果。",
+			"Invoice No": "发票编号",
+			"Bank GL Account": "银行总账科目",
+			"e.g.": "例如",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+
 	def _assert_translation(self, source, translation):
 		with self.subTest(source=source):
 			message = self.catalog.get(source)

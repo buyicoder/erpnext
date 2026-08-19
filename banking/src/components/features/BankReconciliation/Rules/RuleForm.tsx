@@ -605,7 +605,7 @@ const ConfigureAccountsModalContent = () => {
                         </TableCell>
                         <TableCell className="align-top text-ink-gray-5">
                             <span className="px-2">
-                                Bank GL Account
+                                {_("Bank GL Account")}
                             </span>
                         </TableCell>
                         <TableCell className="align-top">

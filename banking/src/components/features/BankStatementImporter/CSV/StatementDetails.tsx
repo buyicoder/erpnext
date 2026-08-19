@@ -211,7 +211,7 @@ const StatementDetails = ({ data }: Props) => {
                                 </div>
                             </TableHead>
                             <TableCell>
-                                {dateFormat || data.date_format} (e.g.{" "}
+                                {dateFormat || data.date_format} ({_("e.g.")}{" "}
                                 {formatDate(new Date(), dateFormat || "YYYY-MM-DD")})
                             </TableCell>
                         </TableRow>
