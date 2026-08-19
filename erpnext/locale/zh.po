@@ -63424,9 +63424,6 @@ msgstr "报表视图"
 msgid "Yearly"
 msgstr "年度"
 
-msgid "{0}% completed"
-msgstr "已完成 {0}%"
-
 msgid "{0}/{1} steps completed"
 msgstr "已完成 {0}/{1} 项"
 
@@ -63437,4 +63434,3 @@ msgstr "已完成"
 
 msgid "steps completed"
 msgstr "项已完成"
-

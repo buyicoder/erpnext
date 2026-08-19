@@ -1,10 +1,14 @@
+from io import BytesIO
 from pathlib import Path
+from string import Formatter
 from unittest import TestCase
+
+from babel.messages.pofile import read_po
 
 class TestZhFinanceTranslations(TestCase):
 	def setUp(self):
-		catalog = (Path(__file__).parents[1] / "locale" / "zh.po").read_text()
-		self.catalog = catalog
+		po_path = Path(__file__).parents[1] / "locale" / "zh.po"
+		self.catalog = read_po(BytesIO(po_path.read_bytes()), locale="zh")
 
 	def test_core_finance_journey_uses_reviewed_chinese_terms(self):
 		translations = {
@@ -26,7 +30,15 @@ class TestZhFinanceTranslations(TestCase):
 
 		for source, translation in translations.items():
 			with self.subTest(source=source):
-				self.assertIn(
-					f'msgid "{source}"\nmsgstr "{translation}"',
-					self.catalog,
+				message = self.catalog.get(source)
+				self.assertIsNotNone(message)
+				self.assertNotIn("fuzzy", message.flags)
+				self.assertEqual(message.string, translation)
+				self.assertEqual(
+					self._format_fields(source),
+					self._format_fields(translation),
 				)
+
+	@staticmethod
+	def _format_fields(value):
+		return [field for _, field, _, _ in Formatter().parse(value) if field]
