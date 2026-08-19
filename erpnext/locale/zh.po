@@ -473,7 +473,7 @@ msgstr "*将被计算在该交易内。"
 #: erpnext/stock/doctype/item/item_prices.html:128
 #: erpnext/stock/doctype/item/item_prices.html:136
 msgid "+ Add Price"
-msgstr ""
+msgstr "+ 新增价格"
 
 #: erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.html:112
 #: erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts_accounts_receivable.html:360
@@ -705,7 +705,7 @@ msgstr "<div id=\\\"item-prices-container\\\"></div>"
 #. Content of the 'uom_help_html' (HTML) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "<div style=\"margin-bottom:10px; color: var(--gray-500) !important;\">Define alternate units for this item. Eg: 1 Box = 12 Nos, set conversion factor as 12. (Will also apply for variants) <a href=\"https://docs.frappe.io/erpnext/uom\" target=\"_blank\">Learn more &#8594;</a></div>"
-msgstr ""
+msgstr "<div style=\"margin-bottom:10px; color: var(--gray-500) !important;\">为此物料定义辅助计量单位。例如：1 箱 = 12 个，则换算系数设为 12（同样适用于变体）。<a href=\"https://docs.frappe.io/erpnext/uom\" target=\"_blank\">了解更多 &#8594;</a></div>"
 
 #. Content of the 'settings' (HTML) field in DocType 'Cheque Print Template'
 #: erpnext/accounts/doctype/cheque_print_template/cheque_print_template.json
@@ -1150,13 +1150,13 @@ msgstr ""
 #. DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "A quality inspection must be completed before generating a Delivery Note for this item."
-msgstr ""
+msgstr "为此物料生成送货单前，必须完成质量检验。"
 
 #. Description of the 'Inspection Required before Purchase' (Check) field in
 #. DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "A quality inspection must be completed before generating a Purchase Receipt for this item."
-msgstr ""
+msgstr "为此物料生成采购入库单前，必须完成质量检验。"
 
 #: erpnext/stock/doctype/material_request/material_request.js:476
 msgid "A separate Purchase Order is created for each Supplier."
@@ -2462,7 +2462,7 @@ msgstr "已执行的操作"
 #: erpnext/stock/doctype/item/item.js:408
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Activate Serial / Batch No for Item"
-msgstr ""
+msgstr "启用物料序列号或批次号"
 
 #: erpnext/selling/page/sales_funnel/sales_funnel.py:55
 msgid "Active Leads"
@@ -3990,7 +3990,7 @@ msgstr "所有仓库"
 
 #: erpnext/stock/doctype/item/item_prices.html:72
 msgid "All active prices for this item across buying and selling price lists."
-msgstr ""
+msgstr "此物料在采购和销售价格表中的所有有效价格。"
 
 #. Description of the 'Reconciled' (Check) field in DocType 'Process Payment
 #. Reconciliation Log'
@@ -4515,22 +4515,22 @@ msgstr ""
 #. Description of the 'Allow Negative Stock' (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Allow stock to go below zero for this item, even if negative stock is disabled in Stock Settings."
-msgstr ""
+msgstr "即使库存设置已禁用负库存，也允许此物料库存低于零。"
 
 #. Description of the 'Allow Alternative Item' (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Allow substituting this item with an alternative from the Item Alternative list when stock is unavailable."
-msgstr ""
+msgstr "缺货时，允许使用物料替代清单中的替代物料。"
 
 #. Description of the 'Allow Purchase' (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Allow this item to be used in purchase transactions."
-msgstr ""
+msgstr "允许此物料用于采购交易。"
 
 #. Description of the 'Allow Sales' (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Allow this item to be used in sales transactions."
-msgstr ""
+msgstr "允许此物料用于销售交易。"
 
 #. Label of the allow_to_edit_stock_uom_qty_for_purchase (Check) field in
 #. DocType 'Stock Settings'
@@ -6468,7 +6468,7 @@ msgstr "属性值"
 
 #: erpnext/stock/doctype/item/item.py:894
 msgid "Attribute Value {0} is not valid for the selected attribute {1}."
-msgstr ""
+msgstr "属性值 {0} 不适用于所选属性 {1}。"
 
 #: erpnext/stock/doctype/item/item.py:1040
 msgid "Attribute table is mandatory"
@@ -6480,11 +6480,11 @@ msgstr "属性值{0}必须唯一"
 
 #: erpnext/stock/doctype/item/item.py:883
 msgid "Attribute {0} is disabled."
-msgstr ""
+msgstr "属性 {0} 已停用。"
 
 #: erpnext/stock/doctype/item/item.py:871
 msgid "Attribute {0} is not valid for the selected template."
-msgstr ""
+msgstr "属性 {0} 不适用于所选模板。"
 
 #: erpnext/stock/doctype/item/item.py:1044
 msgid "Attribute {0} selected multiple times in Attributes Table"
@@ -6672,7 +6672,7 @@ msgstr ""
 #. Label of the auto_create_assets (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Auto create assets on purchase"
-msgstr ""
+msgstr "采购时自动创建资产"
 
 #. Label of the auto_insert_price_list_rate_if_missing (Check) field in DocType
 #. 'Stock Settings'
@@ -8322,12 +8322,12 @@ msgstr "未为物料{}创建批次，因其无批次编号规则"
 #. 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Batch number will be auto-created in format AAAA.00001 if not specified in transactions. Leave blank to always enter batch numbers manually."
-msgstr ""
+msgstr "交易中未指定批次号时，将按 AAAA.00001 格式自动创建；留空则始终手工录入批次号。"
 
 #. Description of the 'Has Expiry Date' (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Batch number will be created based on expiry date. Expiry dates can be set in the Batch master."
-msgstr ""
+msgstr "批次号将按失效日期创建；失效日期可在批次主数据中设置。"
 
 #: erpnext/stock/doctype/stock_reservation_entry/stock_reservation_entry.py:384
 msgid "Batch {0} and Warehouse"
@@ -9222,7 +9222,7 @@ msgstr "采购"
 
 #: erpnext/stock/doctype/item/item_prices.html:96
 msgid "Buy & Sell"
-msgstr ""
+msgstr "采购与销售"
 
 #. Description of a DocType
 #: erpnext/selling/doctype/customer/customer.json
@@ -9796,7 +9796,7 @@ msgstr "已有物料移动交易后不能更改物料的属性。请创建一个
 
 #: erpnext/stock/doctype/item/item.py:1129
 msgid "Cannot change Item {0} from serialized to non-serialized because a Serial and Batch Bundle exists for it. Please delete or cancel the Serial and Batch Bundle first."
-msgstr ""
+msgstr "物料 {0} 已存在序列号与批次组合，不能从序列号管理改为非序列号管理。请先删除或取消相关组合。"
 
 #: erpnext/accounts/doctype/accounting_dimension/accounting_dimension.py:74
 msgid "Cannot change Reference Document Type."
@@ -13879,13 +13879,13 @@ msgstr ""
 #. Description of the 'Create Grouped Asset' (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Creates a single grouped asset instead of individual assets when purchased in bulk."
-msgstr ""
+msgstr "批量采购时创建一项组合资产，而非多项独立资产。"
 
 #. Description of the 'Standard Selling Rate' (Currency) field in DocType
 #. 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Creates an Item Price automatically when the item is saved"
-msgstr ""
+msgstr "保存物料时自动创建物料价格"
 
 #: erpnext/accounts/doctype/chart_of_accounts_importer/chart_of_accounts_importer.js:140
 msgid "Creating Accounts..."
@@ -16348,7 +16348,7 @@ msgstr "定义项目类型。"
 #. Description of the 'End of Life' (Date) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Defines the date after which the item can no longer be used in transactions or manufacturing"
-msgstr ""
+msgstr "定义此日期后物料不可再用于交易或生产。"
 
 #. Description of the 'Payment Terms Template' (Link) field in DocType
 #. 'Customer'
@@ -17405,7 +17405,7 @@ msgstr "已禁用仓库{0}不可用于此交易"
 #. Description of the 'Disabled' (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Disabled items cannot be selected in any transaction."
-msgstr ""
+msgstr "已停用物料不能在任何交易中选择。"
 
 #: erpnext/controllers/accounts_controller.py:936
 msgid "Disabled pricing rules since this {} is an internal transfer"
@@ -18510,7 +18510,7 @@ msgstr "ERPNext用户ID"
 #. Description of the 'Maintain Stock' (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "ERPNext will make a stock ledger entry for each transaction of this item. Keep unchecked for non-stock or service items."
-msgstr ""
+msgstr "ERPNext 将为此物料的每笔交易生成库存台账记录；非库存物料或服务类物料请勿勾选。"
 
 #. Option for the 'How often should project be updated of Total Purchase Cost
 #. ?' (Select) field in DocType 'Buying Settings'
@@ -19185,29 +19185,29 @@ msgstr ""
 #. DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Enable for drop shipping - supplier delivers directly to the customer without passing through your warehouse."
-msgstr ""
+msgstr "启用直运：供应商不经过本公司仓库，直接向客户交付。"
 
 #. Description of the 'Include Item In Manufacturing' (Check) field in DocType
 #. 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Enable for raw material items used in BOM. Uncheck for additional services like 'washing' used in manufacturing."
-msgstr ""
+msgstr "用于物料清单的原材料时启用；生产中的“清洗”等附加服务请勿勾选。"
 
 #. Description of the 'Is Subcontracted Item' (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Enable if a vendor manufactures this item for you. You can choose to provide them raw materials using the default BOM."
-msgstr ""
+msgstr "如果此物料由供应商代工，请启用；可选择按默认物料清单向其提供原材料。"
 
 #. Description of the 'Is Fixed Asset' (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Enable if this item is a company asset like machinery or furniture."
-msgstr ""
+msgstr "如果此物料属于机器、家具等公司资产，请启用。"
 
 #. Description of the 'Is Customer Provided Item' (Check) field in DocType
 #. 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Enable if this item is provided by a customer and received via Stock Entry."
-msgstr ""
+msgstr "如果此物料由客户提供并通过库存单据接收，请启用。"
 
 #. Description of the 'Consider Rejected Warehouses' (Check) field in DocType
 #. 'Pick List'
@@ -19266,7 +19266,7 @@ msgstr "启用后，可在送货单和库存单据中将该供应商选为承运
 #. Description of the 'Retain Sample' (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Enable to reserve a small sample from each batch for any analysis arising ahead"
-msgstr ""
+msgstr "启用后从每个批次留取少量样品，供后续检验分析。"
 
 #. Label of the enable_tracking_sales_commissions (Check) field in DocType
 #. 'Selling Settings'
@@ -20147,7 +20147,7 @@ msgstr "必须为物料{0}指定费用科目"
 #. Description of the 'Enable Deferred Expense' (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Expense for this item will be recognized over a period of months. Eg: prepaid insurance or annual software license"
-msgstr ""
+msgstr "此物料的费用将在多个月内分期确认，例如预付保险费或年度软件许可费。"
 
 #: erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts.py:81
 #: erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts_with_account_number.py:140
@@ -23759,7 +23759,7 @@ msgstr ""
 #. Description of the 'Grant Commission' (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "If enabled, sales from this item will be included in Sales Person and Sales Partner commission calculations"
-msgstr ""
+msgstr "启用后，此物料销售额将计入销售人员和销售合作伙伴的佣金计算。"
 
 #. Description of the 'Allow delivery of overproduced quantity' (Check) field
 #. in DocType 'Selling Settings'
@@ -24217,7 +24217,7 @@ msgstr "报表中不按是否开账凭证标志获取科目期初余额（为了
 
 #: erpnext/stock/doctype/item/item.py:254
 msgid "Image in the description has been removed. To disable this behavior, uncheck \"{0}\" in {1}."
-msgstr ""
+msgstr "描述中的图片已移除。如需保留，请在 {1} 中取消勾选“{0}”。"
 
 #: erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts.py:135
 #: erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts_with_account_number.py:229
@@ -24799,7 +24799,7 @@ msgstr "收入与费用"
 #. Description of the 'Enable Deferred Revenue' (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Income from this item will be recognized over a period of months instead of all at once. Eg: annual subscription paid upfront."
-msgstr ""
+msgstr "此物料的收入将在多个月内分期确认，而非一次性确认，例如预收的年度订阅费。"
 
 #. Label of a number card in the Invoicing Workspace
 #: erpnext/accounts/workspace/invoicing/invoicing.json
@@ -25467,7 +25467,7 @@ msgstr "无效属性"
 
 #: erpnext/stock/doctype/item/item.js:904
 msgid "Invalid Attribute Values"
-msgstr ""
+msgstr "无效属性值"
 
 #: erpnext/controllers/accounts_controller.py:650
 msgid "Invalid Auto Repeat Date"
@@ -25802,7 +25802,7 @@ msgstr "库存周转率"
 #. 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Inventory Valuation"
-msgstr ""
+msgstr "存货计价"
 
 #: erpnext/setup/setup_wizard/data/industry_type.txt:29
 msgid "Investment Banking"
@@ -26883,7 +26883,7 @@ msgstr "物料属性值"
 #. Label of the section_break_zlmj (Section Break) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Item Attributes"
-msgstr ""
+msgstr "物料属性"
 
 #. Name of a report
 #: erpnext/stock/report/item_balance/item_balance.json
@@ -27650,7 +27650,7 @@ msgstr "物料价格在价格表，供应商/客户，货币，物料，批号�
 
 #: erpnext/stock/doctype/item/item.py:185
 msgid "Item Price created at rate {0}"
-msgstr ""
+msgstr "已按单价 {0} 创建物料价格"
 
 #: erpnext/stock/get_item_details.py:1126
 msgid "Item Price updated for {0} in Price List {1}"
@@ -28105,7 +28105,7 @@ msgstr "物料{0}非外协物料"
 
 #: erpnext/stock/doctype/item/item.py:853
 msgid "Item {0} is not a template item."
-msgstr ""
+msgstr "物料 {0} 不是模板物料。"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:2615
 msgid "Item {0} is not active or end of life has been reached"
@@ -31037,8 +31037,8 @@ msgstr "最大值"
 #. Description of the 'Max Discount (%)' (Float) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 #, python-format
-msgid "Maximum discount % allowed when selling this item. Eg: if set to 20%, a discount greater than 20% cannot be applied in sales transactions."
-msgstr ""
+msgid "Maximum discount percentage allowed when selling this item. For example, if set to 20 percent, a discount greater than 20 percent cannot be applied in sales transactions."
+msgstr "销售此物料时允许的最大折扣百分比。例如设为 20%，销售交易中不能使用超过 20% 的折扣。"
 
 #: erpnext/controllers/selling_controller.py:279
 msgid "Maximum discount for Item {0} is {1}%"
@@ -31363,7 +31363,7 @@ msgstr "最小数量应大于递归数量"
 
 #: erpnext/stock/doctype/item/item.js:1077
 msgid "Min Value: {0}, Max Value: {1}, in Increments of: {2}"
-msgstr ""
+msgstr "最小值：{0}，最大值：{1}，递增步长：{2}"
 
 #: erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:104
 msgid "Min amount cannot be greater than max amount."
@@ -31426,12 +31426,12 @@ msgstr "最小值"
 #. Description of the 'Minimum Order Qty' (Float) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Minimum quantity should be as per Stock UOM\n\n"
-msgstr ""
+msgstr "最小数量应采用库存计量单位\n\n"
 
 #. Description of the 'Safety Stock' (Float) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Minimum stock level to maintain as a buffer. Used to calculate recommended reorder level: Reorder Level = Safety Stock + (Average Daily Consumption × Lead Time)."
-msgstr ""
+msgstr "作为缓冲而维持的最低库存水平，用于计算建议再订货点：再订货点 = 安全库存 +（日均用量 × 提前期）。"
 
 #. Label of the minute (Text Editor) field in DocType 'Quality Meeting Minutes'
 #. Name of a UOM
@@ -32677,7 +32677,7 @@ msgstr "未找到物料{0}的有效物料清单，无法保证按序列号交货
 
 #: erpnext/stock/doctype/item/item_prices.html:135
 msgid "No active item prices found."
-msgstr ""
+msgstr "未找到有效的物料价格。"
 
 #: erpnext/stock/doctype/item_variant_settings/item_variant_settings.js:46
 msgid "No additional fields available"
@@ -37215,13 +37215,13 @@ msgstr "百分比分配应该等于100 ％"
 #. 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Percentage by which over-billing is allowed against a Sales/Purchase Order for this item. If not set, value from Accounts Settings will be used."
-msgstr ""
+msgstr "此物料相对销售或采购订单允许的超额开票比例；未设置时使用会计设置中的值。"
 
 #. Description of the 'Over Delivery/Receipt Allowance (%)' (Float) field in
 #. DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Percentage by which over-delivery or over-receipt is allowed against a Sales/Purchase Order for this item. If not set, value from Stock Settings will be used."
-msgstr ""
+msgstr "此物料相对销售或采购订单允许的超额交付或超额收货比例；未设置时使用库存设置中的值。"
 
 #. Description of the 'Blanket Order Allowance (%)' (Float) field in DocType
 #. 'Buying Settings'
@@ -38704,7 +38704,7 @@ msgstr "请为积分规则选择多等级积分方案。"
 
 #: erpnext/stock/doctype/item/item.js:360
 msgid "Please select the Warehouse first"
-msgstr ""
+msgstr "请先选择仓库"
 
 #: erpnext/accounts/doctype/coupon_code/coupon_code.py:48
 msgid "Please select the customer."
@@ -39815,7 +39815,7 @@ msgstr "单价（库存单位）"
 #. Label of the prices_html (HTML) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Prices HTML"
-msgstr ""
+msgstr "价格信息"
 
 #. Label of the pricing_tab (Tab Break) field in DocType 'Buying Settings'
 #. Label of the item_price_tab (Tab Break) field in DocType 'Selling Settings'
@@ -41601,7 +41601,7 @@ msgstr "采购税费模板"
 #. 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Purchase Tax Withholding Category"
-msgstr ""
+msgstr "采购代扣税类别"
 
 #. Label of the taxes (Table) field in DocType 'Purchase Invoice'
 #. Name of a DocType
@@ -48246,7 +48246,7 @@ msgstr "销售税费模板"
 #. Label of the sales_tax_withholding_category (Link) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Sales Tax Withholding Category"
-msgstr ""
+msgstr "销售代扣税类别"
 
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/accounts_setup.json
@@ -48692,7 +48692,7 @@ msgstr ""
 
 #: erpnext/stock/doctype/item/item.js:804
 msgid "Search values..."
-msgstr ""
+msgstr "搜索属性值……"
 
 #. Name of a UOM
 #: erpnext/setup/setup_wizard/data/uom_data.json
@@ -49082,7 +49082,7 @@ msgstr ""
 
 #: erpnext/stock/doctype/item/item.js:944
 msgid "Select at least one attribute value."
-msgstr ""
+msgstr "请至少选择一个属性值。"
 
 #: erpnext/public/js/utils/party.js:379
 msgid "Select company first"
@@ -49573,7 +49573,7 @@ msgstr "已预留序列号"
 
 #: erpnext/stock/doctype/item/item.py:478
 msgid "Serial No Series Overlap"
-msgstr ""
+msgstr "序列号规则重叠"
 
 #. Name of a report
 #. Label of a Link in the Stock Workspace
@@ -49709,7 +49709,7 @@ msgstr "序列号/批次号"
 #. Label of the serial_nos_and_batches (Section Break) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Serial Nos / Batches"
-msgstr ""
+msgstr "序列号与批次"
 
 #: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py:2074
 msgid "Serial Nos are created successfully"
@@ -49798,7 +49798,7 @@ msgstr "序列号与批号"
 
 #: erpnext/stock/doctype/item/item.py:1132
 msgid "Serial and Batch Bundle Exists"
-msgstr ""
+msgstr "序列号与批次组合已存在"
 
 #: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py:2303
 msgid "Serial and Batch Bundle created"
@@ -52124,7 +52124,7 @@ msgstr "库存水平"
 #. Label of the stock_levels_html (HTML) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Stock Levels HTML"
-msgstr ""
+msgstr "库存水平"
 
 #: erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts.py:160
 #: erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts_with_account_number.py:273
@@ -55655,7 +55655,7 @@ msgstr "允许超订单需求量发料百分比。例如需求100个，最多允
 #. Description of the 'Last Purchase Rate' (Float) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "The rate at which this item was last purchased via a Purchase Invoice. Auto-updated by the system."
-msgstr ""
+msgstr "此物料最近一次采购发票中的采购单价，由系统自动更新。"
 
 #: banking/src/pages/BankStatementImporter.tsx:205
 msgid "The reference number of the transaction"
@@ -55822,7 +55822,7 @@ msgstr "{0}包含单价物料。"
 
 #: erpnext/stock/doctype/item/item.py:475
 msgid "The {0} prefix '{1}' already exists. Please change the Serial No Series, otherwise you will get a Duplicate Entry error."
-msgstr ""
+msgstr "{0} 前缀“{1}”已存在。请修改序列号规则，否则会发生重复记录错误。"
 
 #: erpnext/stock/doctype/material_request/material_request.py:1068
 msgid "The {0} {1} created successfully"
@@ -55967,7 +55967,7 @@ msgstr ""
 
 #: erpnext/stock/doctype/item/item.js:194
 msgid "This Item is a Template and cannot be used in transactions.<br>All fields present in the 'Copy Fields to Variant' table in Item Variant Settings will be copied to its variant items."
-msgstr ""
+msgstr "此物料是模板，不能直接用于交易。<br>物料变体设置中“复制到变体的字段”表内列出的所有字段都会复制到变体物料。"
 
 #: erpnext/stock/doctype/item/item.js:251
 msgid "This Item is a Variant of {0} (Template)."
@@ -57869,7 +57869,7 @@ msgstr "跟踪服务水平协议"
 #. Description of the 'Has Serial No' (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Track each unit with a unique serial number for warranty and return tracking. Cannot be changed after a stock transaction exists."
-msgstr ""
+msgstr "为每个单件分配唯一序列号，用于保修和退货追踪；发生库存交易后不可更改。"
 
 #. Description of a DocType
 #: erpnext/accounts/doctype/cost_center/cost_center.json
@@ -57879,7 +57879,7 @@ msgstr "为产品线或事业部单独跟踪收入和费用。"
 #. Description of the 'Has Batch No' (Check) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Track this item in batches. Cannot be changed after a stock transaction exists."
-msgstr ""
+msgstr "按批次追踪此物料；发生库存交易后不可更改。"
 
 #. Label of the tracking_status (Select) field in DocType 'Shipment'
 #: erpnext/stock/doctype/shipment/shipment.json
@@ -58620,7 +58620,7 @@ msgstr "单位换算信息"
 #. 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "UOM Conversion Details"
-msgstr ""
+msgstr "计量单位换算明细"
 
 #. Label of the conversion_factor (Float) field in DocType 'POS Invoice Item'
 #. Label of the conversion_factor (Float) field in DocType 'Purchase Invoice
@@ -59784,7 +59784,7 @@ msgstr "有效期至日期不在会计年度{0}内"
 
 #: erpnext/stock/doctype/item/item_prices.html:86
 msgid "Valid Upto"
-msgstr ""
+msgstr "有效期至"
 
 #. Label of the countries (Table) field in DocType 'Shipping Rule'
 #: erpnext/accounts/doctype/shipping_rule/shipping_rule.json
@@ -60288,7 +60288,7 @@ msgstr "查看科目覆盖范围"
 
 #: erpnext/stock/doctype/item/item_prices.html:123
 msgid "View All Prices"
-msgstr ""
+msgstr "查看全部价格"
 
 #: erpnext/manufacturing/doctype/bom_update_tool/bom_update_tool.js:25
 msgid "View BOM Update Log"
@@ -63279,11 +63279,11 @@ msgstr ""
 
 #: erpnext/stock/doctype/item/item.js:890
 msgid "{0}: remove invalid value(s) {1}"
-msgstr ""
+msgstr "{0}：移除无效值 {1}"
 
 #: erpnext/stock/doctype/item/item.js:897
 msgid "{0}: select the typed value {1} from the list or clear it"
-msgstr ""
+msgstr "{0}：请从列表中选择已输入的值 {1}，或将其清除"
 
 #: erpnext/controllers/accounts_controller.py:567
 msgid "{0}: {1} does not belong to the Company: {2}"

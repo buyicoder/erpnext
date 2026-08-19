@@ -712,7 +712,7 @@
    "width": "50%"
   },
   {
-   "description": "Maximum discount % allowed when selling this item. Eg: if set to 20%, a discount greater than 20% cannot be applied in sales transactions.",
+   "description": "Maximum discount percentage allowed when selling this item. For example, if set to 20 percent, a discount greater than 20 percent cannot be applied in sales transactions.",
    "fieldname": "max_discount",
    "fieldtype": "Float",
    "label": "Max Discount (%)",
