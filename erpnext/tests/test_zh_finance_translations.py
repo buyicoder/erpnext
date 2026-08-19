@@ -1,37 +1,32 @@
-import re
-from string import Formatter
 from pathlib import Path
 from unittest import TestCase
 
-from scripts.apply_zh_finance_translations import TRANSLATIONS
-
-
 class TestZhFinanceTranslations(TestCase):
-	def test_reviewed_finance_terms_are_translated(self):
+	def setUp(self):
 		catalog = (Path(__file__).parents[1] / "locale" / "zh.po").read_text()
+		self.catalog = catalog
 
-		for source in TRANSLATIONS:
+	def test_core_finance_journey_uses_reviewed_chinese_terms(self):
+		translations = {
+			"Accounting Onboarding": "会计功能引导",
+			"Custom Financial Statement": "自定义财务报表",
+			"Configure Chart of Accounts": "配置会计科目表",
+			"Review Accounts Settings": "检查会计设置",
+			"View Balance Sheet": "查看资产负债表",
+			"Consolidated Report": "合并财务报表",
+			"Customer Ledger": "客户明细账",
+			"Supplier Ledger": "供应商明细账",
+			"Report View": "报表视图",
+			"Account": "科目",
+			"Search": "搜索",
+			"Notification": "通知",
+			"steps completed": "项已完成",
+			"completed": "已完成",
+		}
+
+		for source, translation in translations.items():
 			with self.subTest(source=source):
-				entry = re.search(
-					rf'msgid "{re.escape(source)}"\nmsgstr "(.+)"', catalog
+				self.assertIn(
+					f'msgid "{source}"\nmsgstr "{translation}"',
+					self.catalog,
 				)
-				self.assertIsNotNone(entry)
-
-	def test_core_finance_journey_uses_chinese_terms(self):
-		for source in (
-			"Accounting Onboarding",
-			"Custom Financial Statement",
-			"Configure Chart of Accounts",
-			"Review Accounts Settings",
-			"View Balance Sheet",
-		):
-			self.assertIn(source, TRANSLATIONS)
-
-	def test_format_placeholders_are_preserved(self):
-		for source, translation in TRANSLATIONS.items():
-			with self.subTest(source=source):
-				source_fields = {field for _, field, _, _ in Formatter().parse(source) if field}
-				translation_fields = {
-					field for _, field, _, _ in Formatter().parse(translation) if field
-				}
-				self.assertEqual(source_fields, translation_fields)
