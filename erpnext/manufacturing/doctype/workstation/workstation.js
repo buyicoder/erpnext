@@ -421,7 +421,7 @@ class WorkstationDashboard {
 		let fields = this.get_raw_material_fields(raw_materials);
 
 		this.materials_dialog = new frappe.ui.Dialog({
-			title: "Raw Materials",
+			title: __("Raw Materials"),
 			fields: fields,
 			size: "large",
 			primary_action_label: __("Make Transfer Entry"),

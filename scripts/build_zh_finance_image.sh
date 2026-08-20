@@ -137,6 +137,7 @@ expected_translations = {
 	"No completed tasks": "暂无已完成任务",
 	"No open issues": "暂无未解决问题",
 	"No completed issues": "暂无已解决问题",
+	"Raw Materials": "原材料",
 	"Cannot apply TDS against multiple parties in one entry": "单笔分录不能对多个往来方应用税款扣缴",
 	"TDS / withholding tax category applied when paying this supplier": "向该供应商付款时适用的代扣代缴税款类别",
 	"TDS/TCS is calculated at the rate defined here on every payment from this customer.": "收到该客户每笔付款时，均按此处定义的税率计算代收代缴税款。",
@@ -429,6 +430,9 @@ runtime_source_contracts = {
 		"\"open:issue\": __(\"No open issues\")",
 		"\"completed:issue\": __(\"No completed issues\")",
 		"} else {",
+	),
+	"manufacturing/doctype/workstation/workstation.js": (
+		"title: __(\"Raw Materials\"),",
 	),
 }
 erpnext_root = Path("/home/frappe/frappe-bench/apps/erpnext/erpnext")

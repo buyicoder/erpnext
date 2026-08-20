@@ -61,6 +61,7 @@ COPY --chown=frappe:frappe erpnext/templates/includes/projects/project_row.html 
 COPY --chown=frappe:frappe erpnext/www/payment_setup_certification.html /home/frappe/frappe-bench/apps/erpnext/erpnext/www/payment_setup_certification.html
 COPY --chown=frappe:frappe erpnext/templates/form_grid/item_grid.html /home/frappe/frappe-bench/apps/erpnext/erpnext/templates/form_grid/item_grid.html
 COPY --chown=frappe:frappe erpnext/templates/pages/projects.js /home/frappe/frappe-bench/apps/erpnext/erpnext/templates/pages/projects.js
+COPY --chown=frappe:frappe erpnext/manufacturing/doctype/workstation/workstation.js /home/frappe/frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js
 COPY --chown=frappe:frappe erpnext/accounts/doctype/bank_reconciliation_tool/bank_reconciliation_tool.js /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/bank_reconciliation_tool/bank_reconciliation_tool.js
 COPY --chown=frappe:frappe erpnext/accounts/doctype/opening_invoice_creation_tool/opening_invoice_creation_tool.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/opening_invoice_creation_tool/opening_invoice_creation_tool.py
 COPY --chown=frappe:frappe erpnext/accounts/doctype/bank_transaction/bank_transaction_upload.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/bank_transaction/bank_transaction_upload.py

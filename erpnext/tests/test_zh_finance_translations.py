@@ -532,6 +532,8 @@ class TestZhFinanceTranslations(TestCase):
 			],
 			"erpnext/public/js/sms_manager.js": 'title: __("Send SMS"),',
 			"erpnext/public/js/payment/payments.js": 'title: __("Payment"),',
+			"erpnext/manufacturing/doctype/workstation/workstation.js":
+				'title: __("Raw Materials"),',
 			"erpnext/stock/page/warehouse_capacity_summary/warehouse_capacity_summary.js":
 				'page.set_secondary_action(__("Refresh"),',
 			"erpnext/templates/pages/rfq.html": '{{ _("View") }}',
@@ -585,10 +587,16 @@ class TestZhFinanceTranslations(TestCase):
 		for source, translation in {
 			"Create Visit": "创建维护巡修",
 			"Payment": "付款",
+			"Raw Materials": "原材料",
 			"Send SMS": "发送短信",
 		}.items():
 			self._assert_translation(source, translation)
 			self._assert_erpnext_runtime_translation(source, translation)
+		workstation_source = (
+			Path(__file__).parents[2]
+			/ "erpnext/manufacturing/doctype/workstation/workstation.js"
+		).read_text()
+		self.assertNotIn('title: "Raw Materials",', workstation_source)
 		for source, translation in {
 			"Get Items": "选物料",
 			"Refresh": "刷新",
