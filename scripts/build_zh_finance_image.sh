@@ -28,6 +28,7 @@ docker run --rm --entrypoint sh \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_item_price_i18n.py,dst=/tmp/test_item_price_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_purchase_receipt_i18n.py,dst=/tmp/test_purchase_receipt_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_repost_item_valuation_i18n.py,dst=/tmp/test_repost_item_valuation_i18n.py,readonly" \
+	--mount "type=bind,src=$repo_root/erpnext/tests/test_promotional_scheme_i18n.py,dst=/tmp/test_promotional_scheme_i18n.py,readonly" \
 	"$image" -lc '
 	set -eu
 	FRAPPE_RUNTIME_VERSION="'"$FRAPPE_RUNTIME_VERSION"'" /home/frappe/frappe-bench/env/bin/python - <<"PY"
@@ -175,6 +176,14 @@ expected_translations = {
 	"Due to Stock Closing Entry {0}, item valuation cannot be reposted on or before {1}.": "因存在库存结转分录 {0}，不能对 {1} 或更早日期的物料成本价进行追溯调整。",
 	"Duplicate Stock Closing Entry": "重复的库存结转分录",
 	"Generate Stock Closing Entry": "生成库存结转分录",
+	"Field {0} is required.": "必须填写字段“{0}”。",
+	"Customer": "客户",
+	"Customer Group": "客户组",
+	"Territory": "区域",
+	"Sales Partner": "业务伙伴",
+	"Campaign": "营销活动",
+	"Supplier": "供应商",
+	"Supplier Group": "供应商组",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)
@@ -348,6 +357,8 @@ PY
 	printf "%s\n" "Verified purchase receipt translation behavior"
 	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_repost_item_valuation_i18n.py"
 	printf "%s\n" "Verified repost item valuation translation behavior"
+	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_promotional_scheme_i18n.py"
+	printf "%s\n" "Verified promotional scheme translation behavior"
 	/home/frappe/frappe-bench/env/bin/python /tmp/validate_frappe_runtime_i18n.py \
 		--frappe-app /home/frappe/frappe-bench/apps/frappe \
 		--catalog /home/frappe/frappe-bench/apps/frappe/frappe/locale/zh.po

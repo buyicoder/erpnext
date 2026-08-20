@@ -136,6 +136,14 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("test_repost_item_valuation_i18n.py,dst=/tmp/test_repost_item_valuation_i18n.py,readonly", self.build_script)
 		self.assertIn("Verified repost item valuation translation behavior", self.build_script)
 		self.assertIn(
+			"COPY --chown=frappe:frappe erpnext/accounts/doctype/promotional_scheme/promotional_scheme.py "
+			"/home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/promotional_scheme/promotional_scheme.py",
+			self.containerfile,
+		)
+		self.assertNotIn("erpnext/tests/test_promotional_scheme_i18n.py", self.containerfile)
+		self.assertIn("test_promotional_scheme_i18n.py,dst=/tmp/test_promotional_scheme_i18n.py,readonly", self.build_script)
+		self.assertIn("Verified promotional scheme translation behavior", self.build_script)
+		self.assertIn(
 			"erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py",
 			self.containerfile,
 		)

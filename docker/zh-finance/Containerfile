@@ -82,6 +82,7 @@ COPY --chown=frappe:frappe erpnext/stock/serial_batch_bundle.py /home/frappe/fra
 COPY --chown=frappe:frappe erpnext/stock/doctype/item_price/item_price.py /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/item_price/item_price.py
 COPY --chown=frappe:frappe erpnext/stock/doctype/purchase_receipt/purchase_receipt.py /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.py
 COPY --chown=frappe:frappe erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.py /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.py
+COPY --chown=frappe:frappe erpnext/accounts/doctype/promotional_scheme/promotional_scheme.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/promotional_scheme/promotional_scheme.py
 COPY --chown=frappe:frappe erpnext/stock/doctype/item/item.json /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json
 COPY --chown=frappe:frappe erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
 COPY --chown=frappe:frappe erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py

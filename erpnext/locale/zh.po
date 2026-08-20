@@ -64409,3 +64409,11 @@ msgstr "会计期间已结账，不能对 {0} 或更早日期的物料成本价�
 #: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.py
 msgid "Due to Stock Closing Entry {0}, item valuation cannot be reposted on or before {1}."
 msgstr "因存在库存结转分录 {0}，不能对 {1} 或更早日期的物料成本价进行追溯调整。"
+
+#: erpnext/accounts/doctype/promotional_scheme/promotional_scheme.py
+msgid "Field {0} is required."
+msgstr "必须填写字段“{0}”。"
+
+#: erpnext/accounts/doctype/promotional_scheme/promotional_scheme.json
+msgid "Campaign"
+msgstr "营销活动"

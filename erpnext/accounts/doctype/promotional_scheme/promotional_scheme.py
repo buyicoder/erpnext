@@ -157,8 +157,7 @@ class PromotionalScheme(Document):
 			applicable_for = frappe.scrub(self.applicable_for)
 
 			if not self.get(applicable_for):
-				msg = f"The field {frappe.bold(self.applicable_for)} is required"
-				frappe.throw(_(msg))
+				frappe.throw(_("Field {0} is required.").format(frappe.bold(_(self.applicable_for))))
 
 	def validate_pricing_rules(self):
 		if self.is_new():
