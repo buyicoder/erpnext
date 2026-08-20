@@ -532,6 +532,8 @@ class TestZhFinanceTranslations(TestCase):
 			],
 			"erpnext/public/js/sms_manager.js": 'title: __("Send SMS"),',
 			"erpnext/public/js/payment/payments.js": 'title: __("Payment"),',
+			"erpnext/stock/page/warehouse_capacity_summary/warehouse_capacity_summary.js":
+				'page.set_secondary_action(__("Refresh"),',
 			"erpnext/stock/page/warehouse_capacity_summary/warehouse_capacity_summary.html":
 				'title="{{ __("Occupied Qty") }}: {{ d.actual_qty }}"',
 		}
@@ -563,6 +565,7 @@ class TestZhFinanceTranslations(TestCase):
 			self._assert_erpnext_runtime_translation(source, translation)
 		for source, translation in {
 			"Get Items": "选物料",
+			"Refresh": "刷新",
 			"Submit": "提交",
 		}.items():
 			self._assert_frappe_translation(source, translation)

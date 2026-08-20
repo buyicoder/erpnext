@@ -53,6 +53,7 @@ COPY --chown=frappe:frappe erpnext/assets/doctype/asset/asset.js /home/frappe/fr
 COPY --chown=frappe:frappe erpnext/maintenance/doctype/maintenance_schedule/maintenance_schedule.js /home/frappe/frappe-bench/apps/erpnext/erpnext/maintenance/doctype/maintenance_schedule/maintenance_schedule.js
 COPY --chown=frappe:frappe erpnext/public/js/sms_manager.js /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/sms_manager.js
 COPY --chown=frappe:frappe erpnext/public/js/payment/payments.js /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/payment/payments.js
+COPY --chown=frappe:frappe erpnext/stock/page/warehouse_capacity_summary/warehouse_capacity_summary.js /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/page/warehouse_capacity_summary/warehouse_capacity_summary.js
 COPY --chown=frappe:frappe erpnext/accounts/doctype/bank_reconciliation_tool/bank_reconciliation_tool.js /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/bank_reconciliation_tool/bank_reconciliation_tool.js
 COPY --chown=frappe:frappe erpnext/accounts/doctype/opening_invoice_creation_tool/opening_invoice_creation_tool.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/opening_invoice_creation_tool/opening_invoice_creation_tool.py
 COPY --chown=frappe:frappe erpnext/accounts/doctype/bank_transaction/bank_transaction_upload.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/bank_transaction/bank_transaction_upload.py

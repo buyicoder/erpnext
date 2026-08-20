@@ -385,6 +385,9 @@ runtime_source_contracts = {
 	),
 	"public/js/sms_manager.js": ("title: __(\"Send SMS\"),",),
 	"public/js/payment/payments.js": ("title: __(\"Payment\"),",),
+	"stock/page/warehouse_capacity_summary/warehouse_capacity_summary.js": (
+		"page.set_secondary_action(__(\"Refresh\"),",
+	),
 }
 erpnext_root = Path("/home/frappe/frappe-bench/apps/erpnext/erpnext")
 for relative_path, contracts in runtime_source_contracts.items():
@@ -521,6 +524,7 @@ if not valid_asset_template:
 print("Verified asset purchase document translation source")
 
 expected_frappe_translations = {
+	"Refresh": "刷新",
 	"Error": "错误",
 	"Failed": "失败",
 	"Current Series": "当前编号",
