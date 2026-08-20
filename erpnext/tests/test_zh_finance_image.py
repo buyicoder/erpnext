@@ -24,6 +24,7 @@ class TestZhFinanceImage(TestCase):
 			self.repo_root / "scripts" / "validate_frappe_runtime_i18n.py"
 		).read_text()
 		self.patches = (self.repo_root / "erpnext" / "patches.txt").read_text()
+		self.localization_readme = (self.repo_root / "localization" / "README.md").read_text()
 		self.browser_overrides = (
 			self.repo_root / "erpnext" / "public" / "js" / "zh_finance_overrides.js"
 		).read_text()
@@ -277,6 +278,28 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn('"http://frontend:8080"', realtime_utils)
 
 	def test_local_deploy_clears_runtime_translation_cache(self):
+		backup_position = self.deploy_script.index("\nbackup_existing_site\n")
+		compose_position = self.deploy_script.index("docker compose")
+		migrate_position = self.deploy_script.index("bench --site '${site_name}' migrate")
+		self.assertLess(backup_position, compose_position)
+		self.assertLess(compose_position, migrate_position)
+		self.assertIn("backup --with-files --compress", self.deploy_script)
+		self.assertIn('docker cp "${backend_container}:${remote_dir}/."', self.deploy_script)
+		self.assertIn('verify_backup_set "${host_dir}"', self.deploy_script)
+		self.assertIn('chmod -R go-rwx "${host_dir}"', self.deploy_script)
+		self.assertIn('BACKUP_ONLY:-0', self.deploy_script)
+		self.assertIn("*-database*.sql.gz", self.deploy_script)
+		self.assertIn("*-site_config_backup*.json", self.deploy_script)
+		self.assertIn("*-files*.tgz", self.deploy_script)
+		self.assertIn("*-private-files*.tgz", self.deploy_script)
+		self.assertIn('gzip -t "${database}"', self.deploy_script)
+		self.assertIn('tar -tzf "${public_files}"', self.deploy_script)
+		self.assertIn('tar -tzf "${private_files}"', self.deploy_script)
+		self.assertIn('python3 -m json.tool "${config}"', self.deploy_script)
+		self.assertIn("Refusing deployment: sites volume", self.deploy_script)
+		self.assertIn("BACKUP_ONLY=1 ./scripts/deploy_local_zh_finance.sh", self.localization_readme)
+		self.assertIn("bench --site frontend restore", self.localization_readme)
+		self.assertIn("site_config_backup.json", self.localization_readme)
 		self.assertIn("up -d --force-recreate", self.deploy_script)
 		self.assertIn("for attempt in {1..30}", self.deploy_script)
 		self.assertIn("timeout 5s bench --site '${site_name}' execute frappe.utils.now", self.deploy_script)
