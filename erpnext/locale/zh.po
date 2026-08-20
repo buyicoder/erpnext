@@ -64421,3 +64421,7 @@ msgstr "营销活动"
 #: erpnext/controllers/taxes_and_totals.py
 msgid "Row {0} (Difference: {1})"
 msgstr "第 {0} 行（差额：{1}）"
+
+#: erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.py
+msgid "<p>The following {0} records do not belong to Company {1}:</p>"
+msgstr "<p>以下{0}记录不属于公司 {1}：</p>"
