@@ -1878,6 +1878,25 @@ class TestZhFinanceTranslations(TestCase):
 		}.items():
 			self._assert_frappe_translation(source, translation)
 
+	def test_every_setup_wizard_message_has_a_chinese_owner(self):
+		missing = []
+		for source_message in self.frappe_runtime_catalog:
+			if not source_message.id or not any(
+				"frappe/desk/page/setup_wizard/" in location
+				for location, _line in source_message.locations
+			):
+				continue
+			owner = self.merged_frappe_catalog.get(
+				source_message.id, context=source_message.context
+			)
+			if source_message.id == "Mx":
+				if not owner or owner.string != "Mx" or "fuzzy" in owner.flags:
+					missing.append(source_message.id)
+			elif not self._is_usable_translation(owner, source_message.id):
+				missing.append(source_message.id)
+
+		self.assertEqual(missing, [])
+
 	def test_every_frappe_public_javascript_message_has_a_translation_owner(self):
 		missing = []
 		for message in self.frappe_runtime_catalog:

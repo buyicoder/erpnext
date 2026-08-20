@@ -607,6 +607,14 @@ if login_source.count('context["title"] = _("Login")') != 1:
 if 'context["title"] = "Login"' in login_source:
 	raise SystemExit("Frappe login page still contains the raw English title")
 print("Verified Frappe login page title translation source")
+setup_wizard_source = Path(
+	"/home/frappe/frappe-bench/apps/frappe/frappe/desk/page/setup_wizard/setup_wizard.js"
+).read_text()
+if setup_wizard_source.count('default: "中文",') != 1:
+	raise SystemExit("Frappe setup wizard Chinese language default is stale")
+if 'default: "English",' in setup_wizard_source:
+	raise SystemExit("Frappe setup wizard still defaults to English")
+print("Verified Frappe setup wizard Chinese language default")
 with (asset_root / "locale/zh/LC_MESSAGES/frappe.mo").open("rb") as mo_file:
 	frappe_translations = GNUTranslations(mo_file)
 frappe_mismatches = {
