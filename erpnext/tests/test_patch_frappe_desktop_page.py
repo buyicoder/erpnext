@@ -2,7 +2,10 @@ from unittest import TestCase
 
 from scripts.patch_frappe_desktop_page import (
 	RAW_DESKTOP_TITLE,
+	RAW_SEARCH_TITLE,
 	TRANSLATED_DESKTOP_TITLE,
+	TRANSLATED_SEARCH_TITLE,
+	patch_html,
 	patch_text,
 )
 
@@ -17,3 +20,13 @@ class TestPatchFrappeDesktopPage(TestCase):
 	def test_patch_fails_when_pinned_source_changes(self):
 		with self.assertRaisesRegex(ValueError, "no longer matches"):
 			patch_text('title: "Desktop",')
+
+	def test_search_tooltip_uses_server_translation(self):
+		patched = patch_html(f"before\n{RAW_SEARCH_TITLE}\nafter")
+
+		self.assertIn(TRANSLATED_SEARCH_TITLE, patched)
+		self.assertNotIn(RAW_SEARCH_TITLE, patched)
+
+	def test_template_patch_fails_when_pinned_source_changes(self):
+		with self.assertRaisesRegex(ValueError, "no longer matches"):
+			patch_html('title="Search"')
