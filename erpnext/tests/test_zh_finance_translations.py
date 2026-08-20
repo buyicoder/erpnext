@@ -2233,6 +2233,32 @@ class TestZhFinanceTranslations(TestCase):
 			msg="Use mainland-standard 账/账号/账户/台账 terminology",
 		)
 
+	def test_accounting_dimension_uses_one_auxiliary_accounting_term(self):
+		translations = {
+			"Accounting Dimensions ": "辅助核算 ",
+			"Enable Accounting Dimensions": "启用辅助核算",
+			"Enable cost center, projects and other custom accounting dimensions": "启用成本中心、项目及其他自定义辅助核算",
+			"Invalid Accounting Dimension": "无效的辅助核算",
+			"Mandatory Accounting Dimension": "必填辅助核算",
+			"Not allowed to create accounting dimension for {0}": "不允许为 {0} 创建辅助核算",
+			"Offsetting for Accounting Dimension": "辅助核算抵销",
+			"Please create a new Accounting Dimension if required.": "如有需要，请新建辅助核算。",
+			"Please set Accounting Dimension {} in {}": "请在 {} 中设置辅助核算 {}",
+			"Select Accounting Dimension.": "请选择辅助核算。",
+			"{0} is a mandatory Accounting Dimension. <br>Please set a value for {0} in Accounting Dimensions section.": "{0} 是必填辅助核算。<br>请在辅助核算区域设置 {0} 的值。",
+			"{0} is not a valid Accounting Dimension.": "{0} 不是有效的辅助核算。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+		catalog_text = (Path(__file__).parents[1] / "locale/zh.po").read_text()
+		self.assertNotRegex(
+			catalog_text,
+			re.compile(r'^msgstr ".*(?:会计维度|核算维度)', re.MULTILINE),
+			msg="Use the reviewed 辅助核算 term consistently",
+		)
+
 	def test_auditing_vouchers_use_reviewed_chinese_terms(self):
 		for source, translation in {
 			"SL": "序号",

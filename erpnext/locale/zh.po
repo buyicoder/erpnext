@@ -2023,7 +2023,7 @@ msgstr "辅助核算"
 #: erpnext/buying/doctype/purchase_order_item/purchase_order_item.json
 #: erpnext/subcontracting/doctype/subcontracting_receipt/subcontracting_receipt.json
 msgid "Accounting Dimensions "
-msgstr "核算维度 "
+msgstr "辅助核算 "
 
 #. Label of the accounting_dimensions_section (Section Break) field in DocType
 #. 'Payment Reconciliation'
@@ -18998,7 +18998,7 @@ msgstr "请在物料主数据中启用<b>{0}</b>，然后再进行{1}检验。"
 #. Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Enable Accounting Dimensions"
-msgstr "启用辅助核算维度"
+msgstr "启用辅助核算"
 
 #: erpnext/stock/doctype/stock_reservation_entry/stock_reservation_entry.py:1728
 msgid "Enable Allow Partial Reservation in the Stock Settings to reserve partial stock."
@@ -19180,7 +19180,7 @@ msgstr ""
 #. 'Accounts Settings'
 #: erpnext/accounts/doctype/accounts_settings/accounts_settings.json
 msgid "Enable cost center, projects and other custom accounting dimensions"
-msgstr "启用成本中心、项目及其他自定义辅助核算维度"
+msgstr "启用成本中心、项目及其他自定义辅助核算"
 
 #. Label of the enable_cutoff_date_on_bulk_delivery_note_creation (Check) field
 #. in DocType 'Selling Settings'
@@ -25481,7 +25481,7 @@ msgstr "无效科目"
 
 #: erpnext/accounts/report/budget_variance_report/budget_variance_report.py:412
 msgid "Invalid Accounting Dimension"
-msgstr "无效的辅助核算维度"
+msgstr "无效的辅助核算"
 
 #: erpnext/accounts/doctype/payment_entry/payment_entry.py:402
 #: erpnext/accounts/doctype/payment_request/payment_request.py:1019
@@ -30077,7 +30077,7 @@ msgstr "总经理"
 
 #: erpnext/accounts/doctype/pos_profile/pos_profile.py:100
 msgid "Mandatory Accounting Dimension"
-msgstr "必填会计维度"
+msgstr "必填辅助核算"
 
 #. Label of the mandatory_depends_on_backend (Small Text) field in DocType
 #. 'Inventory Dimension'
@@ -33195,7 +33195,7 @@ msgstr "不允许为物料{0}设置替代物料"
 
 #: erpnext/accounts/doctype/accounting_dimension/accounting_dimension.py:60
 msgid "Not allowed to create accounting dimension for {0}"
-msgstr "不允许为{0}创建会计维度"
+msgstr "不允许为 {0} 创建辅助核算"
 
 #: erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py:269
 msgid "Not allowed to update stock transactions older than {0}"
@@ -33525,7 +33525,7 @@ msgstr "抵销科目"
 
 #: erpnext/accounts/general_ledger.py:94
 msgid "Offsetting for Accounting Dimension"
-msgstr "会计维度抵销"
+msgstr "辅助核算抵销"
 
 #. Label of the old_parent (Data) field in DocType 'Account'
 #. Label of the old_parent (Data) field in DocType 'Location'
@@ -38069,7 +38069,7 @@ msgstr "请对启用'更新库存'的发票创建到岸成本凭证"
 
 #: erpnext/accounts/doctype/accounting_dimension/accounting_dimension.py:75
 msgid "Please create a new Accounting Dimension if required."
-msgstr "如需，请新建会计维度"
+msgstr "如有需要，请新建辅助核算。"
 
 #: erpnext/controllers/accounts_controller.py:837
 msgid "Please create purchase from internal sale or delivery document itself"
@@ -38809,7 +38809,7 @@ msgstr "请在仓库{0}中设置科目或在公司{1}中设置默认库存科目
 
 #: erpnext/accounts/doctype/pos_invoice_merge_log/pos_invoice_merge_log.py:333
 msgid "Please set Accounting Dimension {} in {}"
-msgstr "请在{}设置会计维度{}"
+msgstr "请在 {} 中设置辅助核算 {}"
 
 #: erpnext/accounts/doctype/ledger_merge/ledger_merge.js:23
 #: erpnext/accounts/doctype/ledger_merge/ledger_merge.js:34
@@ -48838,7 +48838,7 @@ msgstr ""
 
 #: erpnext/accounts/report/profitability_analysis/profitability_analysis.py:23
 msgid "Select Accounting Dimension."
-msgstr "选择会计维度。"
+msgstr "请选择辅助核算。"
 
 #: erpnext/public/js/utils.js:572
 msgid "Select Alternate Item"
@@ -63014,7 +63014,7 @@ msgstr "{0} 是组科目。请选择非组收入科目。"
 
 #: erpnext/accounts/doctype/pos_profile/pos_profile.py:94
 msgid "{0} is a mandatory Accounting Dimension. <br>Please set a value for {0} in Accounting Dimensions section."
-msgstr "{0}是必填会计维度，请在会计维度部分设置{0}的值"
+msgstr "{0} 是必填辅助核算。<br>请在辅助核算区域设置 {0} 的值。"
 
 #: erpnext/accounts/doctype/pos_closing_entry/pos_closing_entry.py:100
 #: erpnext/accounts/doctype/pos_closing_entry/pos_closing_entry.py:153
@@ -63077,7 +63077,7 @@ msgstr "{0}不是库存物料"
 
 #: erpnext/accounts/report/budget_variance_report/budget_variance_report.py:413
 msgid "{0} is not a valid Accounting Dimension."
-msgstr "{0} 不是有效的会计维度。"
+msgstr "{0} 不是有效的辅助核算。"
 
 #: erpnext/controllers/item_variant.py:251
 msgid "{0} is not a valid Value for Attribute {1} of Item {2}."

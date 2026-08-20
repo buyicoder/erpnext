@@ -115,6 +115,18 @@ if not all(
 print("Verified bundled Chinese demo data")
 
 expected_translations = {
+	"Accounting Dimensions ": "辅助核算 ",
+	"Enable Accounting Dimensions": "启用辅助核算",
+	"Enable cost center, projects and other custom accounting dimensions": "启用成本中心、项目及其他自定义辅助核算",
+	"Invalid Accounting Dimension": "无效的辅助核算",
+	"Mandatory Accounting Dimension": "必填辅助核算",
+	"Not allowed to create accounting dimension for {0}": "不允许为 {0} 创建辅助核算",
+	"Offsetting for Accounting Dimension": "辅助核算抵销",
+	"Please create a new Accounting Dimension if required.": "如有需要，请新建辅助核算。",
+	"Please set Accounting Dimension {} in {}": "请在 {} 中设置辅助核算 {}",
+	"Select Accounting Dimension.": "请选择辅助核算。",
+	"{0} is a mandatory Accounting Dimension. <br>Please set a value for {0} in Accounting Dimensions section.": "{0} 是必填辅助核算。<br>请在辅助核算区域设置 {0} 的值。",
+	"{0} is not a valid Accounting Dimension.": "{0} 不是有效的辅助核算。",
 	"Bank Account No": "银行账号",
 	"Exchange Gain/Loss amount has been booked through {0}": "已通过日记账凭证 {0} 登记汇兑损益金额",
 	"Not allowed to update stock transactions older than {0}": "不能更新早于 {0} 的库存交易",
