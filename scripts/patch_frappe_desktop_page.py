@@ -6,6 +6,8 @@ RAW_DESKTOP_TITLE = '''		title: "Desktop",'''
 TRANSLATED_DESKTOP_TITLE = '''		title: __("Desktop"),'''
 RAW_SEARCH_TITLE = '''                    title="Search">'''
 TRANSLATED_SEARCH_TITLE = '''                    title="{{ _("Search") |e }}">'''
+RAW_WORKSPACE_DEPENDENCIES = '''<div class="small">${item.incomplete_dependencies.join(", ")}</div>'''
+TRANSLATED_WORKSPACE_DEPENDENCIES = '''<div class="small">${item.incomplete_dependencies.map((doctype) => __(doctype)).join(", ")}</div>'''
 
 
 def patch_text(source: str) -> str:
@@ -20,6 +22,12 @@ def patch_html(source: str) -> str:
 	return source.replace(RAW_SEARCH_TITLE, TRANSLATED_SEARCH_TITLE)
 
 
+def patch_links_widget(source: str) -> str:
+	if source.count(RAW_WORKSPACE_DEPENDENCIES) != 1:
+		raise ValueError("Pinned Frappe links widget no longer matches the expected source contract")
+	return source.replace(RAW_WORKSPACE_DEPENDENCIES, TRANSLATED_WORKSPACE_DEPENDENCIES)
+
+
 def main():
 	page_path = Path(
 		"/home/frappe/frappe-bench/apps/frappe/frappe/desk/page/desktop/desktop.js"
@@ -27,6 +35,10 @@ def main():
 	page_path.write_text(patch_text(page_path.read_text()))
 	template_path = page_path.with_suffix(".html")
 	template_path.write_text(patch_html(template_path.read_text()))
+	links_widget_path = Path(
+		"/home/frappe/frappe-bench/apps/frappe/frappe/public/js/frappe/widgets/links_widget.js"
+	)
+	links_widget_path.write_text(patch_links_widget(links_widget_path.read_text()))
 
 
 if __name__ == "__main__":
