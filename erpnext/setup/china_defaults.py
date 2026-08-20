@@ -151,9 +151,16 @@ def get_china_localization_status():
 	"""Return a read-only, JSON-serializable audit of China localization defaults."""
 	system_settings = frappe.get_single("System Settings")
 	global_defaults = frappe.get_single("Global Defaults")
+	address_template = frappe.db.get_value(
+		"Address Template",
+		"China",
+		["template", "is_default"],
+		as_dict=True,
+	) or {}
 	expected = {
 		"System Settings": CHINA_SYSTEM_DEFAULTS,
 		"Global Defaults": {"country": "China", "default_currency": "CNY"},
+		"Address Template": {"template": CHINA_ADDRESS_TEMPLATE, "is_default": 1},
 	}
 	actual = {
 		"System Settings": {
@@ -161,6 +168,9 @@ def get_china_localization_status():
 		},
 		"Global Defaults": {
 			field: getattr(global_defaults, field, None) for field in expected["Global Defaults"]
+		},
+		"Address Template": {
+			field: address_template.get(field) for field in expected["Address Template"]
 		},
 	}
 	customized = {

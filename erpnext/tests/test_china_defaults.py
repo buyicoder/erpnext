@@ -100,22 +100,48 @@ class TestChinaDefaults(TestCase):
 	def test_china_localization_status_reports_actual_values_and_customizations(self):
 		system_settings = MagicMock(**CHINA_SYSTEM_DEFAULTS)
 		global_defaults = MagicMock(country="China", default_currency="CNY")
-		with patch.object(
-			china_defaults.frappe,
-			"get_single",
-			side_effect=[system_settings, global_defaults],
+		with (
+			patch.object(
+				china_defaults.frappe,
+				"get_single",
+				side_effect=[system_settings, global_defaults],
+			),
+			patch.object(
+				china_defaults.frappe,
+				"db",
+				MagicMock(
+					get_value=MagicMock(
+						return_value={"template": CHINA_ADDRESS_TEMPLATE, "is_default": 1}
+					)
+				),
+			),
 		):
 			status = china_defaults.get_china_localization_status()
 
 		self.assertTrue(status["matches_china_defaults"])
 		self.assertEqual(status["actual"]["System Settings"], CHINA_SYSTEM_DEFAULTS)
+		self.assertEqual(
+			status["actual"]["Address Template"],
+			{"template": CHINA_ADDRESS_TEMPLATE, "is_default": 1},
+		)
 		self.assertEqual(status["customized"], {})
 
 		system_settings.time_zone = "Asia/Urumqi"
-		with patch.object(
-			china_defaults.frappe,
-			"get_single",
-			side_effect=[system_settings, global_defaults],
+		with (
+			patch.object(
+				china_defaults.frappe,
+				"get_single",
+				side_effect=[system_settings, global_defaults],
+			),
+			patch.object(
+				china_defaults.frappe,
+				"db",
+				MagicMock(
+					get_value=MagicMock(
+						return_value={"template": "用户自定义模板", "is_default": 1}
+					)
+				),
+			),
 		):
 			status = china_defaults.get_china_localization_status()
 
@@ -123,6 +149,10 @@ class TestChinaDefaults(TestCase):
 		self.assertEqual(
 			status["customized"]["System Settings"]["time_zone"],
 			{"expected": "Asia/Shanghai", "actual": "Asia/Urumqi"},
+		)
+		self.assertEqual(
+			status["customized"]["Address Template"]["template"],
+			{"expected": CHINA_ADDRESS_TEMPLATE, "actual": "用户自定义模板"},
 		)
 
 	def test_china_address_template_uses_domestic_order_and_labels(self):
