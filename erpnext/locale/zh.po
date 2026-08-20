@@ -3395,7 +3395,7 @@ msgstr "源单"
 
 #: erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:653
 msgid "Adjustment based on Purchase Invoice rate"
-msgstr "基于采购发票汇率的调整"
+msgstr "根据采购发票单价调整"
 
 #: erpnext/setup/setup_wizard/data/designation.txt:2
 msgid "Administrative Assistant"
@@ -7997,7 +7997,7 @@ msgstr "桶（啤酒）"
 #. Label of the base_amount (Currency) field in DocType 'BOM Creator Item'
 #: erpnext/manufacturing/doctype/bom_creator_item/bom_creator_item.json
 msgid "Base Amount"
-msgstr "基准金额"
+msgstr "本币金额"
 
 #. Label of the base_amount (Currency) field in DocType 'Sales Invoice Payment'
 #: erpnext/accounts/doctype/sales_invoice_payment/sales_invoice_payment.json
@@ -8029,7 +8029,7 @@ msgstr "基准工费率（本币）"
 #. Label of the base_rate (Currency) field in DocType 'BOM Creator Item'
 #: erpnext/manufacturing/doctype/bom_creator_item/bom_creator_item.json
 msgid "Base Rate"
-msgstr "基准汇率"
+msgstr "本币单价"
 
 #. Label of the withholding_amount (Currency) field in DocType 'Tax Withholding
 #. Entry'
@@ -23863,7 +23863,7 @@ msgstr "若启用，系统将使用物料主数据、物料组或品牌中设置
 #. DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "If enabled, the system will use the moving average valuation method to calculate the valuation rate for the batched items and will not consider the individual batch-wise incoming rate."
-msgstr "启用后，系统将采用移动平均计价法计算批次物料计价汇率，不考虑单个批次入库汇率"
+msgstr "启用后，系统将按移动平均法计算批次物料成本价，不再按各批次入库单价分别计算。"
 
 #. Description of the 'Validate Applied Rule' (Check) field in DocType 'Pricing
 #. Rule'
@@ -56464,7 +56464,7 @@ msgstr "新建采购单据时将自动选择此供应商"
 
 #: erpnext/stock/doctype/delivery_note/delivery_note.js:502
 msgid "This table is used to set details about the 'Item', 'Qty', 'Basic Rate', etc."
-msgstr "用于设置'物料'、'数量'、'基本汇率'等详细信息"
+msgstr "用于设置“物料”“数量”“单价”等明细。"
 
 #. Description of a DocType
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.json

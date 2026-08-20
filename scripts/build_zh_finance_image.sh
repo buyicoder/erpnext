@@ -115,6 +115,11 @@ if not all(
 print("Verified bundled Chinese demo data")
 
 expected_translations = {
+	"Adjustment based on Purchase Invoice rate": "根据采购发票单价调整",
+	"Base Amount": "本币金额",
+	"Base Rate": "本币单价",
+	"If enabled, the system will use the moving average valuation method to calculate the valuation rate for the batched items and will not consider the individual batch-wise incoming rate.": "启用后，系统将按移动平均法计算批次物料成本价，不再按各批次入库单价分别计算。",
+	"This table is used to set details about the 'Item', 'Qty', 'Basic Rate', etc.": "用于设置“物料”“数量”“单价”等明细。",
 	"(I) Valuation Rate": "(I) 成本价",
 	"(J) Valuation Rate as per FIFO": "(J) 先进先出成本价",
 	"Cannot deduct when category is for 'Valuation' or 'Valuation and Total'": "费用类别为“计入成本”或“计入成本及总计”时不能抵扣。",

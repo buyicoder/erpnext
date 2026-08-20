@@ -2291,6 +2291,18 @@ class TestZhFinanceTranslations(TestCase):
 			msg="Use 成本价 for valuation rate and 计入成本 for tax allocation",
 		)
 
+	def test_business_rates_are_not_mistranslated_as_exchange_rates(self):
+		translations = {
+			"Adjustment based on Purchase Invoice rate": "根据采购发票单价调整",
+			"Base Amount": "本币金额",
+			"Base Rate": "本币单价",
+			"If enabled, the system will use the moving average valuation method to calculate the valuation rate for the batched items and will not consider the individual batch-wise incoming rate.": "启用后，系统将按移动平均法计算批次物料成本价，不再按各批次入库单价分别计算。",
+			"This table is used to set details about the 'Item', 'Qty', 'Basic Rate', etc.": "用于设置“物料”“数量”“单价”等明细。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
 	def test_auditing_vouchers_use_reviewed_chinese_terms(self):
 		for source, translation in {
 			"SL": "序号",
