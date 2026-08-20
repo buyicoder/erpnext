@@ -6,7 +6,7 @@ RAW_LANGUAGE_DEFAULT = '\t\t\t\tdefault: "English",'
 CHINA_LANGUAGE_DEFAULT = '\t\t\t\tdefault: "中文",'
 RAW_SETUP_DATE_LANGUAGE = '\t\tlet lang = "en";\n\t\tfrappe.boot.user && (lang = frappe.boot.user.language);'
 CHINA_SETUP_DATE_LANGUAGE = (
-	'\t\tlet lang = frappe.boot.lang || frappe.boot.user?.language || "en";'
+	'\t\tlet lang = document.documentElement.lang || frappe.boot.user?.language || "en";'
 )
 
 
