@@ -1131,6 +1131,16 @@ class TestZhFinanceTranslations(TestCase):
 		self.assertIn('"label": _("Send Email")', source)
 		self.assertNotIn('"label": "Send Email"', source)
 
+	def test_default_company_letterhead_uses_translated_logo_alt_text(self):
+		self._assert_translation("Company Logo", "公司标志")
+		self._assert_erpnext_runtime_translation("Company Logo", "公司标志")
+
+		source = (
+			Path(__file__).parents[2] / "erpnext/accounts/letterhead/company_letterhead.html"
+		).read_text()
+		self.assertIn("alt=\"{{ _('Company Logo') }}\"", source)
+		self.assertNotIn('alt="Company Logo"', source)
+
 	def test_public_frontend_uses_reviewed_chinese_terms(self):
 		translations = {
 			" Phantom Item": " 虚拟物料",

@@ -250,6 +250,7 @@ expected_translations = {
 	"Transaction not allowed against stopped Work Order {0}": "生产工单 {0} 已停止，不允许操作",
 	"{0} {1} must be submitted": "{0} {1}必须提交",
 	"Send Email": "发送邮件",
+	"Company Logo": "公司标志",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)

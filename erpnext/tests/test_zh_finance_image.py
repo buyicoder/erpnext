@@ -244,6 +244,7 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("sales_invoice_with_item_image.json", self.containerfile)
 		self.assertIn("cheque_printing_format.json", self.containerfile)
 		self.assertIn("company_letterhead_grey.html", self.containerfile)
+		self.assertIn("erpnext/accounts/letterhead/company_letterhead.html", self.containerfile)
 		self.assertIn("company_letterhead___grey.json", self.containerfile)
 		self.assertIn("erpnext/stock/doctype/item/item.json", self.containerfile)
 		self.assertIn("erpnext/stock/utils.py", self.containerfile)

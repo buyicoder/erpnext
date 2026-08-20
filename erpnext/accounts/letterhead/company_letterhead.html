@@ -58,7 +58,7 @@
 				<div class="logo-container">
 					{% set company_logo = frappe.db.get_value("Company", doc.company, "company_logo") %} {% if
 					company_logo %}
-					<img src="{{ frappe.utils.get_url(company_logo) }}" alt="Company Logo" />
+					<img src="{{ frappe.utils.get_url(company_logo) }}" alt="{{ _('Company Logo') }}" />
 					{% endif %}
 				</div>
 			</td>
