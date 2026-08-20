@@ -1512,8 +1512,11 @@ class SerialBatchCreation:
 		serial_nos_details = []
 
 		if not self.serial_no_series:
-			msg = f"Please set Serial No Series in the item {self.item_code} or create Serial and Batch Bundle manually."
-			frappe.throw(_(msg))
+			frappe.throw(
+				_("Set Serial No Series for Item {0}, or create the Serial and Batch Bundle manually.").format(
+					self.item_code
+				)
+			)
 
 		voucher_no = ""
 		if self.get("voucher_no"):

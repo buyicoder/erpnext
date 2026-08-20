@@ -155,6 +155,7 @@ expected_translations = {
 	"Incorrect Type of Transaction": "交易类型错误",
 	"Delivery Note": "销售出库",
 	"Sales Invoice": "销售发票",
+	"Set Serial No Series for Item {0}, or create the Serial and Batch Bundle manually.": "请为物料 {0} 设置序列号模板，或手工创建序列号与批号组合。",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)

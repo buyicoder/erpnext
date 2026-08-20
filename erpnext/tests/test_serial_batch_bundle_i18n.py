@@ -10,11 +10,13 @@ TYPE_TEMPLATE = (
 	"Item {3} in {4} {5}, it should be {6}."
 )
 QTY_TEMPLATE = "Total Qty {0} of Serial and Batch Bundle {1} does not equal Actual Qty {2} in {3} {4}."
+SERIES_TEMPLATE = "Set Serial No Series for Item {0}, or create the Serial and Batch Bundle manually."
 
 
 TRANSLATIONS = {
 	TYPE_TEMPLATE: "序列号与批号组合 {0} 的交易类型为{1}，但根据单据 {4} {5} 中物料 {3} 的实际数量 {2}，交易类型应为{6}。",
 	QTY_TEMPLATE: "序列号与批号组合 {1} 的总数量 {0} 与单据 {3} {4} 中的实际数量 {2} 不一致。",
+	SERIES_TEMPLATE: "请为物料 {0} 设置序列号模板，或手工创建序列号与批号组合。",
 	"Inward": "入库",
 	"Outward": "出库",
 	"Stock Entry": "物料移动",
@@ -78,3 +80,14 @@ class TestSerialBatchBundleI18n(TestCase):
 		throw.assert_called_once_with(
 			"序列号与批号组合 SABB-0002 的总数量 1.0 与单据 物料移动 MAT-STE-0001 中的实际数量 2.0 不一致。"
 		)
+
+	def test_missing_serial_number_series_uses_fixed_translated_template(self):
+		bundle = SimpleNamespace(serial_no_series=None, item_code="ITEM-001")
+		with (
+			patch.object(serial_batch_bundle, "_", side_effect=self._translate),
+			patch.object(serial_batch_bundle.frappe, "throw", side_effect=RuntimeError) as throw,
+			self.assertRaises(RuntimeError),
+		):
+			serial_batch_bundle.SerialBatchCreation.get_auto_created_serial_nos(bundle)
+
+		throw.assert_called_once_with("请为物料 ITEM-001 设置序列号模板，或手工创建序列号与批号组合。")
