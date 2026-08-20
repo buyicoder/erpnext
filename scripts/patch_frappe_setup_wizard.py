@@ -6,10 +6,7 @@ RAW_LANGUAGE_DEFAULT = '\t\t\t\tdefault: "English",'
 CHINA_LANGUAGE_DEFAULT = '\t\t\t\tdefault: "中文",'
 RAW_SETUP_DATE_LANGUAGE = '\t\tlet lang = "en";\n\t\tfrappe.boot.user && (lang = frappe.boot.user.language);'
 CHINA_SETUP_DATE_LANGUAGE = (
-	"\t\tlet lang = frappe.boot.setup_complete\n"
-	"\t\t\t? frappe.boot.user?.language\n"
-	"\t\t\t: frappe.boot.sysdefaults?.language;\n"
-	'\t\tlang ||= frappe.boot.user?.language || frappe.boot.sysdefaults?.language || "en";'
+	'\t\tlet lang = frappe.boot.lang || frappe.boot.user?.language || "en";'
 )
 
 

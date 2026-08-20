@@ -634,9 +634,7 @@ date_control_source = Path(
 	"/home/frappe/frappe-bench/apps/frappe/frappe/public/js/frappe/form/controls/date.js"
 ).read_text()
 expected_date_language = (
-	"let lang = frappe.boot.setup_complete\n"
-	"\t\t\t? frappe.boot.user?.language\n"
-	"\t\t\t: frappe.boot.sysdefaults?.language;"
+	'let lang = frappe.boot.lang || frappe.boot.user?.language || "en";'
 )
 if date_control_source.count(expected_date_language) != 1:
 	raise SystemExit("Frappe date picker does not fall back to the Chinese system language")
