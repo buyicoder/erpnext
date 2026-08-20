@@ -142,12 +142,14 @@ class SubcontractingOrder(SubcontractingController):
 				frappe.throw(_("Please select a valid Purchase Order that has Service Items."))
 
 			if po.docstatus != 1:
-				msg = f"Please submit Purchase Order {po.name} before proceeding."
-				frappe.throw(_(msg))
+				frappe.throw(_("Please submit Purchase Order {0} before proceeding.").format(po.name))
 
 			if po.per_received == 100:
-				msg = f"Cannot create more Subcontracting Orders against the Purchase Order {po.name}."
-				frappe.throw(_(msg))
+				frappe.throw(
+					_("Cannot create more Subcontracting Orders against the Purchase Order {0}.").format(
+						po.name
+					)
+				)
 		else:
 			self.service_items = self.items = self.supplied_items = None
 			frappe.throw(_("Please select a Subcontracting Purchase Order."))
@@ -175,8 +177,11 @@ class SubcontractingOrder(SubcontractingController):
 		if self.supplier_warehouse:
 			for item in self.supplied_items:
 				if self.supplier_warehouse == item.reserve_warehouse:
-					msg = f"Reserve Warehouse must be different from Supplier Warehouse for Supplied Item {item.main_item_code}."
-					frappe.throw(_(msg))
+					frappe.throw(
+						_(
+							"Reserve Warehouse must be different from Supplier Warehouse for Supplied Item {0}."
+						).format(item.main_item_code)
+					)
 
 	def set_missing_values(self):
 		self.calculate_additional_costs()

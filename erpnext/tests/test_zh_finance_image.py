@@ -72,6 +72,14 @@ class TestZhFinanceImage(TestCase):
 		)
 		self.assertIn("Verified asset purchase document translation source", self.build_script)
 		self.assertIn(
+			"COPY --chown=frappe:frappe erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.py "
+			"/home/frappe/frappe-bench/apps/erpnext/erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.py",
+			self.containerfile,
+		)
+		self.assertNotIn("erpnext/tests/test_subcontracting_order_i18n.py", self.containerfile)
+		self.assertIn("test_subcontracting_order_i18n.py,dst=/tmp/test_subcontracting_order_i18n.py,readonly", self.build_script)
+		self.assertIn("Verified subcontracting order translation behavior", self.build_script)
+		self.assertIn(
 			"erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py",
 			self.containerfile,
 		)

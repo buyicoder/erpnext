@@ -969,6 +969,9 @@ class TestZhFinanceTranslations(TestCase):
 
 	def test_subcontracting_workflows_use_reviewed_chinese_terms(self):
 		translations = {
+			"Please submit Purchase Order {0} before proceeding.": "请先提交采购订单 {0}，再继续操作。",
+			"Cannot create more Subcontracting Orders against the Purchase Order {0}.": "无法再基于采购订单 {0} 创建委外订单。",
+			"Reserve Warehouse must be different from Supplier Warehouse for Supplied Item {0}.": "委外原材料 {0} 的预留仓库必须与委外仓不同。",
 			'<span class="h4"><b>Subcontracting Inward and Outward</b></span>': '<span class="h4"><b>受托加工与委外加工</b></span>',
 			"All linked Sales Orders must be subcontracted.": "所有关联的销售订单必须为受托加工订单。",
 			"Additional {0} {1} of item {2} required as per BOM to complete this transaction": "要完成此交易，根据物料清单还需要 {0} {1} 的物料 {2}",

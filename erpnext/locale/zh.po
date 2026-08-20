@@ -63561,6 +63561,18 @@ msgstr "库存重算必须填写“{0}”"
 msgid "Selected {0} does not contain the Item Code {1}"
 msgstr "所选{0}中不包含物料号 {1}"
 
+#: erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.py
+msgid "Please submit Purchase Order {0} before proceeding."
+msgstr "请先提交采购订单 {0}，再继续操作。"
+
+#: erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.py
+msgid "Cannot create more Subcontracting Orders against the Purchase Order {0}."
+msgstr "无法再基于采购订单 {0} 创建委外订单。"
+
+#: erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.py
+msgid "Reserve Warehouse must be different from Supplier Warehouse for Supplied Item {0}."
+msgstr "委外原材料 {0} 的预留仓库必须与委外仓不同。"
+
 msgid "List View"
 msgstr "列表视图"
 

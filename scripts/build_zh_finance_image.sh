@@ -19,7 +19,9 @@ docker build \
 	--tag "$image" \
 	"$repo_root"
 
-docker run --rm --entrypoint sh "$image" -lc '
+docker run --rm --entrypoint sh \
+	--mount "type=bind,src=$repo_root/erpnext/tests/test_subcontracting_order_i18n.py,dst=/tmp/test_subcontracting_order_i18n.py,readonly" \
+	"$image" -lc '
 	set -eu
 	FRAPPE_RUNTIME_VERSION="'"$FRAPPE_RUNTIME_VERSION"'" /home/frappe/frappe-bench/env/bin/python - <<"PY"
 import ast
@@ -90,6 +92,9 @@ if not all(
 print("Verified bundled Chinese demo data")
 
 expected_translations = {
+	"Please submit Purchase Order {0} before proceeding.": "请先提交采购订单 {0}，再继续操作。",
+	"Cannot create more Subcontracting Orders against the Purchase Order {0}.": "无法再基于采购订单 {0} 创建委外订单。",
+	"Reserve Warehouse must be different from Supplier Warehouse for Supplied Item {0}.": "委外原材料 {0} 的预留仓库必须与委外仓不同。",
 	"Selected {0} does not contain the Item Code {1}": "所选{0}中不包含物料号 {1}",
 	"Purchase Receipt": "采购入库",
 	"Purchase Invoice": "采购发票",
@@ -285,6 +290,9 @@ if "_translations_loaded" not in entry_file.read_text():
 	raise SystemExit(f"Banking entry bundle lacks translation readiness contract: {entry_paths[0]}")
 print(f"Verified {len(asset_paths)} Banking HTML asset references")
 PY
+	cd /home/frappe/frappe-bench
+	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_subcontracting_order_i18n.py"
+	printf "%s\n" "Verified subcontracting order translation behavior"
 	/home/frappe/frappe-bench/env/bin/python /tmp/validate_frappe_runtime_i18n.py \
 		--frappe-app /home/frappe/frappe-bench/apps/frappe \
 		--catalog /home/frappe/frappe-bench/apps/frappe/frappe/locale/zh.po
