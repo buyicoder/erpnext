@@ -13,6 +13,7 @@ import {
 	localize_list_sort_title,
 	localize_list_value_title,
 	localize_open_link_title,
+	localize_workflow_dialog_title,
 	localize_photoswipe_title,
 	localize_quill_accessibility_value,
 	localize_sidebar_editor_text,
@@ -108,6 +109,13 @@ test("localizes only the URL formatter's Open Link title", () => {
 	assert.equal(localize_open_link_title("Open Link", translate), "打开链接");
 	assert.equal(localize_open_link_title("打开链接", translate), "打开链接");
 	assert.equal(localize_open_link_title("Open Document", translate), "Open Document");
+});
+
+test("localizes the workflow help title while preserving its workflow name", () => {
+	const translate = (message) => (message === "Workflow" ? "工作流" : message);
+	assert.equal(localize_workflow_dialog_title("Workflow: Sales Approval", translate), "工作流：Sales Approval");
+	assert.equal(localize_workflow_dialog_title("工作流：销售审批", translate), "工作流：销售审批");
+	assert.equal(localize_workflow_dialog_title("Workflow Builder", translate), "Workflow Builder");
 });
 
 test("localizes list sorting and translated-value tooltips", () => {

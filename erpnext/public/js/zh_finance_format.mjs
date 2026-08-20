@@ -98,6 +98,11 @@ export const localize_photoswipe_title = (title) =>
 export const localize_open_link_title = (title, translate) =>
 	title === "Open Link" ? translate(title) : title;
 
+export const localize_workflow_dialog_title = (title, translate) => {
+	const match = title.match(/^Workflow: (.+)$/);
+	return match ? `${translate("Workflow")}：${match[1]}` : title;
+};
+
 export const localize_list_sort_title = (title, visible_label, translate) => {
 	if (!title || !visible_label) return title;
 	return translate("Click to sort by {0}", [visible_label.trim()]);

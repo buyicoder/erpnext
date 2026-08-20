@@ -16,6 +16,7 @@ import {
 	localize_timeline_element,
 	localize_tree_level_label,
 	localize_version_value_text,
+	localize_workflow_dialog_title,
 } from "./zh_finance_format.mjs";
 
 if (frappe.boot.lang === "zh") {
@@ -52,6 +53,7 @@ if (frappe.boot.lang === "zh") {
 		".dialog-assignment-row .btn-group[role='group'][aria-label='Actions']";
 	const photoswipe_control_selector = ".pswp .pswp__button[title]";
 	const open_link_selector = 'a[target="_blank"][title="Open Link"]';
+	const modal_title_selector = ".modal-title";
 	const list_sort_selector = ".list-row-head [data-sort-by][title]";
 	const list_filter_selector = ".filter-button[title$='Filter Applied'], .filter-button[title$='Filters Applied']";
 	const list_value_title_selector = ".list-row .ellipsis[title]";
@@ -169,6 +171,17 @@ if (frappe.boot.lang === "zh") {
 			if (localized !== element.title) element.title = localized;
 		});
 	};
+	const localize_workflow_titles = (root = document) => {
+		if (!root) return;
+		const elements = root.matches?.(modal_title_selector)
+			? [root]
+			: root.querySelectorAll?.(modal_title_selector) || [];
+		elements.forEach((element) => {
+			if (element.childElementCount) return;
+			const localized = localize_workflow_dialog_title(element.textContent, __);
+			if (localized !== element.textContent) element.textContent = localized;
+		});
+	};
 	const localize_list_titles = (root = document) => {
 		if (!root) return;
 		const filter_controls = root.matches?.(list_filter_selector)
@@ -231,6 +244,7 @@ if (frappe.boot.lang === "zh") {
 	localize_assignment_actions();
 	localize_photoswipe_controls();
 	localize_open_links();
+	localize_workflow_titles();
 	localize_list_titles();
 	localize_sidebar_editor();
 	localize_quill_accessibility();
@@ -252,6 +266,7 @@ if (frappe.boot.lang === "zh") {
 				localize_timeline(mutation.target.parentElement);
 				localize_datatable_controls(mutation.target.parentElement);
 				localize_list_titles(mutation.target.parentElement);
+				localize_workflow_titles(mutation.target.parentElement);
 				localize_sidebar_editor(mutation.target.parentElement);
 				localize_quill_accessibility(mutation.target.parentElement);
 				return;
@@ -264,6 +279,7 @@ if (frappe.boot.lang === "zh") {
 					localize_timeline(node.parentElement);
 					localize_datatable_controls(node.parentElement);
 					localize_list_titles(node.parentElement);
+					localize_workflow_titles(node.parentElement);
 					localize_sidebar_editor(node.parentElement);
 					localize_quill_accessibility(node.parentElement);
 					return;
@@ -277,6 +293,7 @@ if (frappe.boot.lang === "zh") {
 				localize_assignment_actions(node);
 				localize_photoswipe_controls(node);
 				localize_open_links(node);
+				localize_workflow_titles(node);
 				localize_list_titles(node);
 				localize_sidebar_editor(node);
 				localize_quill_accessibility(node);
