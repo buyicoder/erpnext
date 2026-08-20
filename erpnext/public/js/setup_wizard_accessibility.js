@@ -41,7 +41,7 @@ new MutationObserver((mutations) => {
 	for (let mutation of mutations) {
 		if (mutation.type === "characterData") {
 			let parent = mutation.target.parentElement;
-			if (parent?.matches(selector)) erpnext.setup.localize_awesomplete_statuses(parent);
+			if (parent?.matches(selector)) erpnext.setup.localize_awesomplete_statuses();
 		}
 		for (let node of mutation.addedNodes || []) {
 			let candidate = node.nodeType === Node.TEXT_NODE ? node.parentElement : node;
@@ -50,7 +50,7 @@ new MutationObserver((mutations) => {
 				candidate?.matches?.(".awesomplete") ||
 				candidate?.querySelector?.(".awesomplete")
 			) {
-				erpnext.setup.localize_awesomplete_statuses(candidate);
+				erpnext.setup.localize_awesomplete_statuses();
 			}
 		}
 	}

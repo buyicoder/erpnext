@@ -24,11 +24,12 @@ function loadSetupAccessibility({
 	const context = {
 		erpnext: { setup: {} },
 		frappe: { provide() {}, wizard: { values: { language: wizardLanguage } } },
+		statuses: initialStatuses,
 		document: {
 			body: {},
 			documentElement: { lang: htmlLanguage },
 			querySelector: () => (fieldLanguage == null ? null : { value: fieldLanguage }),
-			querySelectorAll: () => initialStatuses,
+			querySelectorAll: () => context.statuses,
 		},
 		MutationObserver: class {
 			constructor(callback) {
@@ -81,6 +82,7 @@ test("keeps status text unchanged after switching the setup language to English"
 		matches: (selector) => selector === ".awesomplete [role='status']",
 	};
 	const textNode = { nodeType: context.Node.TEXT_NODE, parentElement: status };
+	context.statuses = [status];
 
 	context.erpnext.setup.localize_awesomplete_statuses(status);
 	context.observerCallback([{ type: "childList", addedNodes: [textNode] }]);
@@ -102,6 +104,7 @@ test("localizes characterData updates in an existing status node", () => {
 		textContent: "No results found",
 		matches: (selector) => selector === ".awesomplete [role='status']",
 	};
+	context.statuses = [status];
 
 	context.observerCallback([
 		{ type: "characterData", target: { parentElement: status }, addedNodes: [] },
@@ -117,6 +120,7 @@ test("localizes Awesomplete text nodes added after the initial render", () => {
 		matches: (selector) => selector === ".awesomplete [role='status']",
 	};
 	const textNode = { nodeType: context.Node.TEXT_NODE, parentElement: status };
+	context.statuses = [status];
 
 	context.observerCallback([{ type: "childList", addedNodes: [textNode] }]);
 
@@ -132,8 +136,27 @@ test("localizes statuses nested in newly added elements", () => {
 		querySelector: () => null,
 		querySelectorAll: (selector) => (selector === "[role='status']" ? [status] : []),
 	};
+	context.statuses = [status];
 
 	context.observerCallback([{ type: "childList", addedNodes: [wrapper] }]);
 
 	assert.equal(status.textContent, "未找到结果");
+});
+
+test("a later language status update also localizes existing setup statuses", () => {
+	const context = loadSetupAccessibility();
+	const languageStatus = {
+		textContent: "1 results found",
+		matches: (selector) => selector === ".awesomplete [role='status']",
+	};
+	const countryStatus = { textContent: "Begin typing for results." };
+	context.statuses = [languageStatus, countryStatus];
+	const textNode = { nodeType: context.Node.TEXT_NODE, parentElement: languageStatus };
+
+	context.observerCallback([{ type: "childList", addedNodes: [textNode] }]);
+
+	assert.deepEqual(
+		context.statuses.map((status) => status.textContent),
+		["找到 1 条结果", "输入关键词搜索。"],
+	);
 });
