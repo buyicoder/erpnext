@@ -22,6 +22,7 @@ docker build \
 docker run --rm --entrypoint sh \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_subcontracting_order_i18n.py,dst=/tmp/test_subcontracting_order_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_maintenance_schedule_i18n.py,dst=/tmp/test_maintenance_schedule_i18n.py,readonly" \
+	--mount "type=bind,src=$repo_root/erpnext/tests/test_inventory_dimension_i18n.py,dst=/tmp/test_inventory_dimension_i18n.py,readonly" \
 	"$image" -lc '
 	set -eu
 	FRAPPE_RUNTIME_VERSION="'"$FRAPPE_RUNTIME_VERSION"'" /home/frappe/frappe-bench/env/bin/python - <<"PY"
@@ -137,6 +138,12 @@ expected_translations = {
 	"Stock Reservation Entries created": "已创建库存预留单",
 	"Serial and Batch Bundle {0} should have voucher type as {1}": "序列号与批号组合 {0} 的单据类型必须为“{1}”",
 	"Maintenance Schedule": "维护巡修计划",
+	"The user cannot change the value of field {0} because stock transactions exist against dimension {1}.": "该库存辅助核算已有库存交易，不能修改字段 {0}（库存辅助核算：{1}）。",
+	"Deleted custom fields related to dimension {0}": "已删除与库存辅助核算 {0} 相关的自定义字段",
+	"Reference document {0} cannot be a child table.": "引用单据 {0} 不能是子表。",
+	"Reference document {0} cannot be used as an Inventory Dimension.": "引用单据 {0} 不能用作库存辅助核算。",
+	"Dimension Name": "辅助核算名称",
+	"Sales Invoice Item": "销售发票明细",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)
@@ -298,6 +305,8 @@ PY
 	printf "%s\n" "Verified subcontracting order translation behavior"
 	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_maintenance_schedule_i18n.py"
 	printf "%s\n" "Verified maintenance schedule translation behavior"
+	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_inventory_dimension_i18n.py"
+	printf "%s\n" "Verified inventory dimension translation behavior"
 	/home/frappe/frappe-bench/env/bin/python /tmp/validate_frappe_runtime_i18n.py \
 		--frappe-app /home/frappe/frappe-bench/apps/frappe \
 		--catalog /home/frappe/frappe-bench/apps/frappe/frappe/locale/zh.po

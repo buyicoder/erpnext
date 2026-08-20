@@ -23812,7 +23812,7 @@ msgstr "启用后，内部调拨的物料单价不会调整为成本价，但会
 #. DocType 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "If enabled, the source and target warehouse in the Material Transfer Stock Entry must be different else an error will be thrown. If inventory dimensions are present, same source and target warehouse can be allowed but atleast any one of the inventory dimension fields must be different."
-msgstr "启用后，物料调拨库存单的源仓库和目标仓库必须不同，否则报错。如果使用了库存维度，可允许源仓库与目标仓库相同，但至少一个库存维度字段必须不同。"
+msgstr "启用后，物料调拨库存单的源仓库和目标仓库必须不同，否则报错。如果使用了库存辅助核算，可允许源仓库与目标仓库相同，但至少一个库存辅助核算字段必须不同。"
 
 #. Description of the 'Allow negative stock for Batch' (Check) field in DocType
 #. 'Stock Settings'
@@ -25803,7 +25803,7 @@ msgstr "库存辅助核算项负库存"
 #. Closing Balance'
 #: erpnext/stock/doctype/stock_closing_balance/stock_closing_balance.json
 msgid "Inventory Dimension key"
-msgstr "库存维度键值"
+msgstr "库存辅助核算键值"
 
 #. Label of the inventory_settings_section (Section Break) field in DocType
 #. 'Item'
@@ -46715,7 +46715,7 @@ msgstr "第 {0} 行：物料调拨的发料仓和收料仓不能相同"
 
 #: erpnext/stock/doctype/stock_entry/stock_entry.py:1394
 msgid "Row #{0}: Source, Target Warehouse and Inventory Dimensions cannot be the exact same for Material Transfer"
-msgstr "第 {0} 行：物料调拨的发料仓、收料仓和库存维度不能完全相同"
+msgstr "第 {0} 行：物料调拨的发料仓、收料仓和库存辅助核算不能完全相同"
 
 #: erpnext/manufacturing/doctype/workstation/workstation.py:108
 msgid "Row #{0}: Start Time must be before End Time"
@@ -46800,7 +46800,7 @@ msgstr "第{0}行：存在针对物料{1}全部或部分数量的工作订单"
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:106
 msgid "Row #{0}: You cannot use the inventory dimension '{1}' in Stock Reconciliation to modify the quantity or valuation rate. Stock reconciliation with inventory dimensions is intended solely for performing opening entries."
-msgstr "第 {0} 行：库存盘点调整不能使用库存维度“{1}”修改数量或成本价。包含库存维度的盘点调整仅用于录入期初库存。"
+msgstr "第 {0} 行：库存盘点调整不能使用库存辅助核算“{1}”修改数量或成本价。包含库存辅助核算的盘点调整仅用于录入期初库存。"
 
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.py:450
 msgid "Row #{0}: You must select an Asset for Item {1}."
@@ -64333,3 +64333,19 @@ msgstr "物料 {0} 未启用序列号或批号管理，不能填写这些信息"
 #: erpnext/maintenance/doctype/maintenance_schedule/maintenance_schedule.py
 msgid "Serial and Batch Bundle {0} should have voucher type as {1}"
 msgstr "序列号与批号组合 {0} 的单据类型必须为“{1}”"
+
+#: erpnext/stock/doctype/inventory_dimension/inventory_dimension.py
+msgid "The user cannot change the value of field {0} because stock transactions exist against dimension {1}."
+msgstr "该库存辅助核算已有库存交易，不能修改字段 {0}（库存辅助核算：{1}）。"
+
+#: erpnext/stock/doctype/inventory_dimension/inventory_dimension.py
+msgid "Deleted custom fields related to dimension {0}"
+msgstr "已删除与库存辅助核算 {0} 相关的自定义字段"
+
+#: erpnext/stock/doctype/inventory_dimension/inventory_dimension.py
+msgid "Reference document {0} cannot be a child table."
+msgstr "引用单据 {0} 不能是子表。"
+
+#: erpnext/stock/doctype/inventory_dimension/inventory_dimension.py
+msgid "Reference document {0} cannot be used as an Inventory Dimension."
+msgstr "引用单据 {0} 不能用作库存辅助核算。"
