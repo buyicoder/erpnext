@@ -5,21 +5,13 @@ from pathlib import Path
 
 RAW_LANGUAGE_DEFAULT = '\t\t\t\tdefault: "English",'
 CHINA_LANGUAGE_DEFAULT = '\t\t\t\tdefault: "中文",'
-RAW_LANGUAGE_INITIALIZATION = '\t\t\tif (!slide.get_value("language")) {'
-CHINA_LANGUAGE_INITIALIZATION = (
-	'\t\t\tif (!slide.get_value("language") || '
-	'(slide.get_value("language") === "中文" && frappe.boot.lang !== "zh")) {'
+RAW_USER_DETAILS = '@frappe.whitelist()\ndef load_user_details():\n\treturn {'
+CHINA_USER_DETAILS = (
+	'@frappe.whitelist()\ndef load_user_details():\n'
+	'\tif frappe.local.lang != "zh":\n'
+	'\t\tload_messages("中文")\n\n'
+	'\treturn {'
 )
-RAW_LANGUAGE_CURRENT_SELECTION = '\t\t\tlet current_selection = frappe.wizard.values.language;'
-CHINA_LANGUAGE_CURRENT_SELECTION = (
-	'\t\t\tfrappe.setup.utils.bind_language_events(slide);\n'
-	'\t\tlet current_selection = frappe.wizard.values.language;'
-)
-RAW_LANGUAGE_BINDING_ORDER = (
-	'\t\t\tfrappe.setup.utils.bind_region_events(slide);\n'
-	'\t\tfrappe.setup.utils.bind_language_events(slide);'
-)
-CHINA_LANGUAGE_BINDING_ORDER = '\t\t\tfrappe.setup.utils.bind_region_events(slide);'
 RAW_SETUP_DATE_LANGUAGE = '\t\tlet lang = "en";\n\t\tfrappe.boot.user && (lang = frappe.boot.user.language);'
 CHINA_SETUP_DATE_LANGUAGE = (
 	'\t\tlet lang = document.documentElement.lang || frappe.boot.user?.language || "en";'
@@ -33,16 +25,13 @@ CHINA_BUILT_DATE_LANGUAGE = (
 def patch_text(source: str) -> str:
 	if source.count(RAW_LANGUAGE_DEFAULT) != 1:
 		raise ValueError("Pinned Frappe setup wizard no longer matches the expected source contract")
-	if source.count(RAW_LANGUAGE_INITIALIZATION) != 1:
-		raise ValueError("Pinned Frappe setup language initialization no longer matches the expected contract")
-	if source.count(RAW_LANGUAGE_CURRENT_SELECTION) != 1 or source.count(RAW_LANGUAGE_BINDING_ORDER) != 1:
-		raise ValueError("Pinned Frappe setup language binding order no longer matches the expected contract")
-	return (
-		source.replace(RAW_LANGUAGE_DEFAULT, CHINA_LANGUAGE_DEFAULT)
-		.replace(RAW_LANGUAGE_INITIALIZATION, CHINA_LANGUAGE_INITIALIZATION)
-		.replace(RAW_LANGUAGE_CURRENT_SELECTION, CHINA_LANGUAGE_CURRENT_SELECTION)
-		.replace(RAW_LANGUAGE_BINDING_ORDER, CHINA_LANGUAGE_BINDING_ORDER)
-	)
+	return source.replace(RAW_LANGUAGE_DEFAULT, CHINA_LANGUAGE_DEFAULT)
+
+
+def patch_setup_backend_text(source: str) -> str:
+	if source.count(RAW_USER_DETAILS) != 1:
+		raise ValueError("Pinned Frappe setup backend no longer matches the expected source contract")
+	return source.replace(RAW_USER_DETAILS, CHINA_USER_DETAILS)
 
 
 def patch_date_control_text(source: str) -> str:
@@ -77,6 +66,10 @@ def main():
 		"/home/frappe/frappe-bench/apps/frappe/frappe/desk/page/setup_wizard/setup_wizard.js"
 	)
 	wizard_path.write_text(patch_text(wizard_path.read_text()))
+	backend_path = Path(
+		"/home/frappe/frappe-bench/apps/frappe/frappe/desk/page/setup_wizard/setup_wizard.py"
+	)
+	backend_path.write_text(patch_setup_backend_text(backend_path.read_text()))
 	date_control_path = Path(
 		"/home/frappe/frappe-bench/apps/frappe/frappe/public/js/frappe/form/controls/date.js"
 	)
