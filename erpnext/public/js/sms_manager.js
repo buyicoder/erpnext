@@ -80,7 +80,7 @@ erpnext.SMSManager = function SMSManager(doc) {
 	};
 	this.make_dialog = function () {
 		var d = new frappe.ui.Dialog({
-			title: "Send SMS",
+			title: __("Send SMS"),
 			width: 400,
 			fields: [
 				{ fieldname: "number", fieldtype: "Data", label: "Mobile Number", reqd: 1 },

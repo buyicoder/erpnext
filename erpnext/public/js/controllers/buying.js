@@ -627,7 +627,7 @@ erpnext.buying.get_items_from_product_bundle = function (frm) {
 				default: 1,
 			},
 		],
-		primary_action_label: "Get Items",
+		primary_action_label: __("Get Items"),
 		primary_action(args) {
 			if (!args) return;
 			dialog.hide();

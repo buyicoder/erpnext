@@ -121,6 +121,7 @@ expected_translations = {
 	"Stock Entry Type {0} cannot be set as standard": "移动类型 {0} 不能设为标准类型",
 	"Starting a background job to create {0} {1}": "正在后台创建 {0} 个{1}",
 	"New issue created: {0}": "已创建新问题：{0}",
+	"Create Visit": "创建维护巡修",
 	"Cannot apply TDS against multiple parties in one entry": "单笔分录不能对多个往来方应用税款扣缴",
 	"TDS / withholding tax category applied when paying this supplier": "向该供应商付款时适用的代扣代缴税款类别",
 	"TDS/TCS is calculated at the rate defined here on every payment from this customer.": "收到该客户每笔付款时，均按此处定义的税率计算代收代缴税款。",
@@ -369,14 +370,21 @@ runtime_source_contracts = {
 	"public/js/bulk_transaction_processing.js": (
 		"__(\"Starting a background job to create {0} {1}\", [",
 	),
-	"public/js/controllers/buying.js": (
-		"__(\"Assigning Material Request {0} to Item {1} (row {2})\", [",
-		"frappe.msgprint(__(\"Splitting {0} units of {1}\", [qty, d.item_code]));",
-	),
 	"support/doctype/issue/issue.js": (
 		"__(\"New issue created: {0}\", [",
 		"frappe.utils.get_form_link(\"Issue\", r.message, true)",
 	),
+	"assets/doctype/asset/asset.js": ("primary_action_label: __(\"Submit\"),",),
+	"maintenance/doctype/maintenance_schedule/maintenance_schedule.js": (
+		"primary_action_label: __(\"Create Visit\"),",
+	),
+	"public/js/controllers/buying.js": (
+		"__(\"Assigning Material Request {0} to Item {1} (row {2})\", [",
+		"frappe.msgprint(__(\"Splitting {0} units of {1}\", [qty, d.item_code]));",
+		"primary_action_label: __(\"Get Items\"),",
+	),
+	"public/js/sms_manager.js": ("title: __(\"Send SMS\"),",),
+	"public/js/payment/payments.js": ("title: __(\"Payment\"),",),
 }
 erpnext_root = Path("/home/frappe/frappe-bench/apps/erpnext/erpnext")
 for relative_path, contracts in runtime_source_contracts.items():

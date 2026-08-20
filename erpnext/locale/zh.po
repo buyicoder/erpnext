@@ -64632,3 +64632,7 @@ msgstr "正在后台创建 {0} 个{1}"
 #: erpnext/support/doctype/issue/issue.js:126
 msgid "New issue created: {0}"
 msgstr "已创建新问题：{0}"
+
+#: erpnext/maintenance/doctype/maintenance_schedule/maintenance_schedule.js:137
+msgid "Create Visit"
+msgstr "创建维护巡修"

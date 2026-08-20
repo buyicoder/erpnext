@@ -951,7 +951,7 @@ erpnext.asset.scrap_asset = function (frm) {
 			},
 		],
 		size: "medium",
-		primary_action_label: "Submit",
+		primary_action_label: __("Submit"),
 		primary_action(values) {
 			frappe.call({
 				args: {

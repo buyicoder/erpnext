@@ -6,7 +6,7 @@ erpnext.payments = class payments extends erpnext.stock.StockController {
 		var me = this;
 
 		this.dialog = new frappe.ui.Dialog({
-			title: "Payment",
+			title: __("Payment"),
 		});
 
 		this.dialog.show();

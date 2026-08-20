@@ -518,14 +518,20 @@ class TestZhFinanceTranslations(TestCase):
 				"frappe.show_alert(",
 				'__("Starting a background job to create {0} {1}", [',
 			],
-			"erpnext/public/js/controllers/buying.js": [
-				'__("Assigning Material Request {0} to Item {1} (row {2})", [',
-				'frappe.msgprint(__("Splitting {0} units of {1}", [qty, d.item_code]));',
-			],
 			"erpnext/support/doctype/issue/issue.js": [
 				'__("New issue created: {0}", [',
 				'frappe.utils.get_form_link("Issue", r.message, true)',
 			],
+			"erpnext/assets/doctype/asset/asset.js": 'primary_action_label: __("Submit"),',
+			"erpnext/maintenance/doctype/maintenance_schedule/maintenance_schedule.js":
+				'primary_action_label: __("Create Visit"),',
+			"erpnext/public/js/controllers/buying.js": [
+				'__("Assigning Material Request {0} to Item {1} (row {2})", [',
+				'frappe.msgprint(__("Splitting {0} units of {1}", [qty, d.item_code]));',
+				'primary_action_label: __("Get Items"),',
+			],
+			"erpnext/public/js/sms_manager.js": 'title: __("Send SMS"),',
+			"erpnext/public/js/payment/payments.js": 'title: __("Payment"),',
 			"erpnext/stock/page/warehouse_capacity_summary/warehouse_capacity_summary.html":
 				'title="{{ __("Occupied Qty") }}: {{ d.actual_qty }}"',
 		}
@@ -546,6 +552,20 @@ class TestZhFinanceTranslations(TestCase):
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
 			self._assert_erpnext_runtime_translation(source, translation)
+
+	def test_dialog_runtime_labels_use_reviewed_chinese(self):
+		for source, translation in {
+			"Create Visit": "创建维护巡修",
+			"Payment": "付款",
+			"Send SMS": "发送短信",
+		}.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+		for source, translation in {
+			"Get Items": "选物料",
+			"Submit": "提交",
+		}.items():
+			self._assert_frappe_translation(source, translation)
 
 	def test_core_finance_journey_uses_reviewed_chinese_terms(self):
 		translations = {
