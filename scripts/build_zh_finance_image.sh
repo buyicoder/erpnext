@@ -157,6 +157,13 @@ expected_translations = {
 	"Sales Invoice": "销售发票",
 	"Set Serial No Series for Item {0}, or create the Serial and Batch Bundle manually.": "请为物料 {0} 设置序列号模板，或手工创建序列号与批号组合。",
 	"Serial and Batch Bundle {0} does not match one or more of: Item {1}, Warehouse {2}, and {3} {4}.": "序列号与批号组合 {0} 与以下一项或多项不匹配：物料 {1}、仓库 {2}、单据 {3} {4}。",
+	"This Item does not use batch or serial numbers.": "此物料未启用批号或序列号管理。",
+	"To select serial numbers automatically, set Serial No Series for this Item.": "如需自动选择序列号，请为此物料设置序列号模板。",
+	"To select batches automatically, set Batch Number Series for this Item.": "如需自动选择批号，请为此物料设置批号模板。",
+	"To select serial numbers or batches automatically for outbound stock, enable {0} in {1}.": "如需在出库时自动选择序列号或批号，请在{1}中启用“{0}”。",
+	"Auto create Serial and Batch Bundle for outward": "出库时自动创建序列号与批号",
+	"Stock Settings": "库存设置",
+	"Serial and Batch Bundle is not set for Item {0} in Warehouse {1}. {2}": "物料 {0} 在仓库 {1} 中未设置序列号与批号组合。{2}",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)

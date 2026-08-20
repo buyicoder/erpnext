@@ -201,33 +201,43 @@ class SerialBatchBundle:
 			)
 
 	def validate_item(self):
-		msg = ""
+		reasons = []
 		if self.sle.actual_qty > 0:
 			if not self.item_details.has_batch_no and not self.item_details.has_serial_no:
-				msg = f"Item {self.item_code} is not a batch or serial no item"
+				reasons.append(_("This Item does not use batch or serial numbers."))
 
 			if self.item_details.has_serial_no and not self.item_details.serial_no_series:
-				msg += f". If you want auto pick serial bundle, then kindly set Serial No Series in Item {self.item_code}"
+				reasons.append(
+					_("To select serial numbers automatically, set Serial No Series for this Item.")
+				)
 
 			if (
 				self.item_details.has_batch_no
 				and not self.item_details.batch_number_series
 				and not frappe.get_single_value("Stock Settings", "naming_series_prefix")
 			):
-				msg += f". If you want auto pick batch bundle, then kindly set Batch Number Series in Item {self.item_code}"
+				reasons.append(
+					_("To select batches automatically, set Batch Number Series for this Item.")
+				)
 
 		elif self.sle.actual_qty < 0:
 			if not frappe.get_single_value(
 				"Stock Settings", "auto_create_serial_and_batch_bundle_for_outward"
 			):
-				msg += ". If you want auto pick serial/batch bundle, then kindly enable 'Auto Create Serial and Batch Bundle' in Stock Settings."
+				reasons.append(
+					_(
+						"To select serial numbers or batches automatically for outbound stock, enable {0} in {1}."
+					).format(
+						_("Auto create Serial and Batch Bundle for outward"), _("Stock Settings")
+					)
+				)
 
-		if msg:
-			error_msg = (
-				f"Serial and Batch Bundle not set for item {self.item_code} in warehouse {self.warehouse}"
-				+ msg
+		if reasons:
+			frappe.throw(
+				_("Serial and Batch Bundle is not set for Item {0} in Warehouse {1}. {2}").format(
+					self.item_code, self.warehouse, " ".join(reasons)
+				)
 			)
-			frappe.throw(_(error_msg))
 
 	def set_serial_and_batch_bundle(self, sn_doc):
 		self.sle.auto_created_serial_and_batch_bundle = 1
