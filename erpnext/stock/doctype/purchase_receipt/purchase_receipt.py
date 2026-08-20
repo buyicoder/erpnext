@@ -349,14 +349,18 @@ class PurchaseReceipt(BuyingController):
 				)
 
 				if qi.reference_type != self.doctype or qi.reference_name != self.name:
-					msg = f"""Row #{item.idx}: Please select a valid Quality Inspection with Reference Type
-						{frappe.bold(self.doctype)} and Reference Name {frappe.bold(self.name)}."""
-					frappe.throw(_(msg))
+					frappe.throw(
+						_(
+							"Row #{0}: Select a valid Quality Inspection with Reference Type {1} and Reference Name {2}."
+						).format(item.idx, frappe.bold(_(self.doctype)), frappe.bold(self.name))
+					)
 
 				if qi.item_code != item.item_code:
-					msg = f"""Row #{item.idx}: Please select a valid Quality Inspection with Item Code
-						{frappe.bold(item.item_code)}."""
-					frappe.throw(_(msg))
+					frappe.throw(
+						_("Row #{0}: Select a valid Quality Inspection with Item Code {1}.").format(
+							item.idx, frappe.bold(item.item_code)
+						)
+					)
 
 	def get_already_received_qty(self, po, po_detail):
 		qty = frappe.db.sql(

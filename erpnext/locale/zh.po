@@ -64397,3 +64397,11 @@ msgstr "价格表 {0} 不存在或已停用。"
 #: erpnext/stock/doctype/item_price/item_price.py
 msgid "Item Price cannot be created for template Item {0}."
 msgstr "不能为模板物料 {0} 创建物料价格。"
+
+#: erpnext/stock/doctype/purchase_receipt/purchase_receipt.py
+msgid "Row #{0}: Select a valid Quality Inspection with Reference Type {1} and Reference Name {2}."
+msgstr "第 {0} 行：请选择关联类型为 {1}、源单据为 {2} 的有效质量检验单。"
+
+#: erpnext/stock/doctype/purchase_receipt/purchase_receipt.py
+msgid "Row #{0}: Select a valid Quality Inspection with Item Code {1}."
+msgstr "第 {0} 行：请选择物料号为 {1} 的有效质量检验单。"
