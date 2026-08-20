@@ -23,6 +23,7 @@ COPY --chown=frappe:frappe scripts/validate_frappe_runtime_i18n.py /tmp/validate
 COPY --chown=frappe:frappe scripts/merge_erpnext_zh_banking.py /tmp/merge_erpnext_zh_banking.py
 COPY --chown=frappe:frappe localization/erpnext/zh_banking.json /tmp/zh_banking.json
 COPY --chown=frappe:frappe scripts/patch_frappe_print_page.py /tmp/patch_frappe_print_page.py
+COPY --chown=frappe:frappe scripts/patch_frappe_desktop_page.py /tmp/patch_frappe_desktop_page.py
 COPY --chown=frappe:frappe scripts/sync_asset_manifest.py /tmp/sync_asset_manifest.py
 COPY --chown=frappe:frappe erpnext/public/js/erpnext.bundle.js /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/erpnext.bundle.js
 COPY --chown=frappe:frappe erpnext/public/js/zh_finance_overrides.js /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/zh_finance_overrides.js
@@ -79,7 +80,8 @@ RUN sed -i \
 	'/^server {/i map $http_origin $frappe_socket_origin {\n\tdefault $http_origin;\n\t"" $scheme://$http_host;\n}\n' \
 	/templates/nginx/frappe.conf.template
 
-RUN /home/frappe/frappe-bench/env/bin/python /tmp/patch_frappe_print_page.py
+RUN /home/frappe/frappe-bench/env/bin/python /tmp/patch_frappe_print_page.py && \
+	/home/frappe/frappe-bench/env/bin/python /tmp/patch_frappe_desktop_page.py
 
 USER frappe
 RUN /home/frappe/frappe-bench/env/bin/python /tmp/merge_frappe_zh_catalog.py \

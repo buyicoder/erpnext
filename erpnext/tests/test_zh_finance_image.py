@@ -121,8 +121,10 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("merge_erpnext_zh_banking.py", self.containerfile)
 		self.assertIn("localization/erpnext/zh_banking.json", self.containerfile)
 		self.assertIn("patch_frappe_print_page.py", self.containerfile)
+		self.assertIn("patch_frappe_desktop_page.py", self.containerfile)
 		self.assertIn("sync_asset_manifest.py", self.containerfile)
 		self.assertIn("/tmp/patch_frappe_print_page.py", self.containerfile)
+		self.assertIn("/tmp/patch_frappe_desktop_page.py", self.containerfile)
 		self.assertIn("frappe.mo", self.containerfile)
 
 	def test_frappe_catalog_uses_a_pinned_verified_official_baseline(self):
