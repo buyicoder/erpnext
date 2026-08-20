@@ -157,10 +157,25 @@ def get_china_localization_status():
 		["template", "is_default"],
 		as_dict=True,
 	) or {}
+	label_translations = {**CHINA_PRINT_FORMAT_TRANSLATIONS, **CHINA_LETTER_HEAD_TRANSLATIONS}
+	translation_records = frappe.get_all(
+		"Translation",
+		filters={"language": "zh", "source_text": ["in", list(label_translations)]},
+		fields=["source_text", "context", "translated_text"],
+		limit_page_length=0,
+	)
+	runtime_labels = {
+		record.source_text: record.translated_text
+		for record in translation_records
+		if not record.context and record.source_text in label_translations
+	}
 	expected = {
 		"System Settings": CHINA_SYSTEM_DEFAULTS,
 		"Global Defaults": {"country": "China", "default_currency": "CNY"},
 		"Address Template": {"template": CHINA_ADDRESS_TEMPLATE, "is_default": 1},
+		"Translated DocTypes": {"Print Format": 1, "Letter Head": 1},
+		"Print Format Labels": CHINA_PRINT_FORMAT_TRANSLATIONS,
+		"Letter Head Labels": CHINA_LETTER_HEAD_TRANSLATIONS,
 	}
 	actual = {
 		"System Settings": {
@@ -171,6 +186,16 @@ def get_china_localization_status():
 		},
 		"Address Template": {
 			field: address_template.get(field) for field in expected["Address Template"]
+		},
+		"Translated DocTypes": {
+			doctype: int(bool(frappe.get_meta(doctype).translated_doctype))
+			for doctype in expected["Translated DocTypes"]
+		},
+		"Print Format Labels": {
+			source: runtime_labels.get(source) for source in expected["Print Format Labels"]
+		},
+		"Letter Head Labels": {
+			source: runtime_labels.get(source) for source in expected["Letter Head Labels"]
 		},
 	}
 	customized = {

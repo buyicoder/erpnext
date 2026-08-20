@@ -100,6 +100,13 @@ class TestChinaDefaults(TestCase):
 	def test_china_localization_status_reports_actual_values_and_customizations(self):
 		system_settings = MagicMock(**CHINA_SYSTEM_DEFAULTS)
 		global_defaults = MagicMock(country="China", default_currency="CNY")
+		translation_records = [
+			MagicMock(source_text=source, translated_text=translation, context=None)
+			for source, translation in {
+				**CHINA_PRINT_FORMAT_TRANSLATIONS,
+				**CHINA_LETTER_HEAD_TRANSLATIONS,
+			}.items()
+		]
 		with (
 			patch.object(
 				china_defaults.frappe,
@@ -115,6 +122,12 @@ class TestChinaDefaults(TestCase):
 					)
 				),
 			),
+			patch.object(china_defaults.frappe, "get_all", return_value=translation_records),
+			patch.object(
+				china_defaults.frappe,
+				"get_meta",
+				return_value=MagicMock(translated_doctype=1),
+			),
 		):
 			status = china_defaults.get_china_localization_status()
 
@@ -125,6 +138,8 @@ class TestChinaDefaults(TestCase):
 			{"template": CHINA_ADDRESS_TEMPLATE, "is_default": 1},
 		)
 		self.assertEqual(status["customized"], {})
+		self.assertEqual(status["actual"]["Print Format Labels"], CHINA_PRINT_FORMAT_TRANSLATIONS)
+		self.assertEqual(status["actual"]["Letter Head Labels"], CHINA_LETTER_HEAD_TRANSLATIONS)
 
 		system_settings.time_zone = "Asia/Urumqi"
 		with (
@@ -142,6 +157,19 @@ class TestChinaDefaults(TestCase):
 					)
 				),
 			),
+			patch.object(
+				china_defaults.frappe,
+				"get_all",
+				return_value=translation_records[:-1],
+			),
+			patch.object(
+				china_defaults.frappe,
+				"get_meta",
+				side_effect=[
+					MagicMock(translated_doctype=1),
+					MagicMock(translated_doctype=0),
+				],
+			),
 		):
 			status = china_defaults.get_china_localization_status()
 
@@ -153,6 +181,14 @@ class TestChinaDefaults(TestCase):
 		self.assertEqual(
 			status["customized"]["Address Template"]["template"],
 			{"expected": CHINA_ADDRESS_TEMPLATE, "actual": "用户自定义模板"},
+		)
+		self.assertEqual(
+			status["customized"]["Translated DocTypes"]["Letter Head"],
+			{"expected": 1, "actual": 0},
+		)
+		self.assertEqual(
+			status["customized"]["Letter Head Labels"]["Company Letterhead - Grey"],
+			{"expected": "公司抬头（灰色）", "actual": None},
 		)
 
 	def test_china_address_template_uses_domestic_order_and_labels(self):
