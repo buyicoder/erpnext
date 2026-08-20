@@ -64696,3 +64696,7 @@ msgstr "暂无未解决问题"
 #: erpnext/templates/pages/projects.js
 msgid "No completed issues"
 msgstr "暂无已解决问题"
+
+#: erpnext/templates/includes/projects/project_search_box.html
+msgid "Search results for"
+msgstr "搜索结果"

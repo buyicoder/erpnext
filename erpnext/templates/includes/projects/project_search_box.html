@@ -13,7 +13,7 @@
 frappe.ready(function() {
 	if(frappe.utils.get_url_arg("q")){
 	var txt = frappe.utils.get_url_arg("q");
-	$(".project-search-results").html("Search results for : " + encodeURIComponent(txt));
+	$(".project-search-results").text(__("Search results for") + ": " + txt);
 	$(".clear").toggle(true);
 	}
 	var thread = null;

@@ -336,6 +336,7 @@ expected_translations = {
 	"Toggle navigation": "切换导航",
 	"Quick Search": "快速搜索",
 	"Clear Search": "清除搜索",
+	"Search results for": "搜索结果",
 	"Generic Empty State": "暂无内容",
 	"Search {0}": "搜索{0}",
 	"Email Campaign Failed.": "邮件营销活动发送失败。",

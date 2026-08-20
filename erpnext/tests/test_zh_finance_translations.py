@@ -1241,6 +1241,7 @@ class TestZhFinanceTranslations(TestCase):
 			"Toggle navigation": "切换导航",
 			"Quick Search": "快速搜索",
 			"Clear Search": "清除搜索",
+			"Search results for": "搜索结果",
 			"Generic Empty State": "暂无内容",
 			"Search {0}": "搜索{0}",
 		}
@@ -1257,6 +1258,7 @@ class TestZhFinanceTranslations(TestCase):
 			"erpnext/templates/includes/projects/project_search_box.html": [
 				"placeholder=\"{{ _('Quick Search') }}\"",
 				"title=\"{{ _('Clear Search') }}\"",
+				'.text(__("Search results for") + ": " + txt)',
 			],
 			"erpnext/templates/pages/projects.html": [
 				"alt=\"{{ _('Generic Empty State') }}\"",
@@ -1274,6 +1276,11 @@ class TestZhFinanceTranslations(TestCase):
 
 		macros_source = (repo_root / "erpnext/templates/includes/macros.html").read_text()
 		self.assertNotIn('alt="item.website_item_name"', macros_source)
+		project_search_source = (
+			repo_root / "erpnext/templates/includes/projects/project_search_box.html"
+		).read_text()
+		self.assertNotIn('.html("Search results for : "', project_search_source)
+		self.assertNotIn("encodeURIComponent(txt)", project_search_source)
 
 	def test_html_accessibility_attributes_do_not_contain_unreviewed_english(self):
 		repo_root = Path(__file__).parents[2]
