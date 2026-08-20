@@ -316,9 +316,11 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("localization/erpnext/zh_banking.json", self.containerfile)
 		self.assertIn("patch_frappe_print_page.py", self.containerfile)
 		self.assertIn("patch_frappe_desktop_page.py", self.containerfile)
+		self.assertIn("patch_frappe_login_page.py", self.containerfile)
 		self.assertIn("sync_asset_manifest.py", self.containerfile)
 		self.assertIn("/tmp/patch_frappe_print_page.py", self.containerfile)
 		self.assertIn("/tmp/patch_frappe_desktop_page.py", self.containerfile)
+		self.assertIn("/tmp/patch_frappe_login_page.py", self.containerfile)
 		self.assertIn("Verified translated standard workspace sidebar labels", self.build_script)
 		self.assertIn("frappe.mo", self.containerfile)
 		for name in (

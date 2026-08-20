@@ -588,6 +588,7 @@ if not valid_asset_template:
 print("Verified asset purchase document translation source")
 
 expected_frappe_translations = {
+	"Login": "登录",
 	"Refresh": "刷新",
 	"View": "查看",
 	"Continue": "继续",
@@ -600,6 +601,12 @@ expected_frappe_translations = {
 	"Welcome! Please sign in to continue.": "欢迎！请登录后继续。",
 	"Forgot password?": "忘记密码？",
 }
+login_source = Path("/home/frappe/frappe-bench/apps/frappe/frappe/www/login.py").read_text()
+if login_source.count('context["title"] = _("Login")') != 1:
+	raise SystemExit("Frappe login page title translation source is stale")
+if 'context["title"] = "Login"' in login_source:
+	raise SystemExit("Frappe login page still contains the raw English title")
+print("Verified Frappe login page title translation source")
 with (asset_root / "locale/zh/LC_MESSAGES/frappe.mo").open("rb") as mo_file:
 	frappe_translations = GNUTranslations(mo_file)
 frappe_mismatches = {
