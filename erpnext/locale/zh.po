@@ -7644,7 +7644,7 @@ msgstr "银行账户信息"
 #: erpnext/accounts/doctype/payment_entry/payment_entry.json
 #: erpnext/accounts/doctype/payment_request/payment_request.json
 msgid "Bank Account No"
-msgstr "银行帐号"
+msgstr "银行账号"
 
 #. Name of a DocType
 #. Label of a Workspace Sidebar Item
@@ -19776,7 +19776,7 @@ msgstr "汇兑损益"
 #: erpnext/controllers/accounts_controller.py:1809
 #: erpnext/controllers/accounts_controller.py:1894
 msgid "Exchange Gain/Loss amount has been booked through {0}"
-msgstr "自动生成了汇兑损益日记帐凭证{0}"
+msgstr "已通过日记账凭证 {0} 登记汇兑损益金额"
 
 #. Label of the exchange_rate (Float) field in DocType 'Advance Payment Ledger
 #. Entry'
@@ -33199,7 +33199,7 @@ msgstr "不允许为{0}创建会计维度"
 
 #: erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py:269
 msgid "Not allowed to update stock transactions older than {0}"
-msgstr "库存变动日期不能早于库存设置-库存变动锁账天数 {0} 限定的最晚可动帐日期"
+msgstr "不能更新早于 {0} 的库存交易"
 
 #: erpnext/setup/doctype/authorization_control/authorization_control.py:59
 msgid "Not authorized since {0} exceeds limits"
@@ -47290,7 +47290,7 @@ msgstr "第{0}行: 用户未为物料 {2} 选择规则 {1}"
 
 #: erpnext/accounts/doctype/accounting_dimension_filter/accounting_dimension_filter.py:63
 msgid "Row {0}: {1} account already applied for Accounting Dimension {2}"
-msgstr "行 {0}: {1} 帐户已经应用于会计尺寸 {2}"
+msgstr "第 {0} 行：科目 {1} 已用于辅助核算 {2}"
 
 #: erpnext/assets/doctype/asset_category/asset_category.py:41
 msgid "Row {0}: {1} must be greater than 0"
@@ -47298,7 +47298,7 @@ msgstr "第{0}行：{1}必须大于0"
 
 #: erpnext/controllers/accounts_controller.py:814
 msgid "Row {0}: {1} {2} cannot be same as {3} (Party Account) {4}"
-msgstr "行 {0}: {1} {2} 不能与 {3} (组队帐户) {4}"
+msgstr "第 {0} 行：{1} {2} 不能与 {3}（往来科目）{4} 相同"
 
 #: erpnext/accounts/doctype/journal_entry/journal_entry.py:842
 msgid "Row {0}: {1} {2} does not match with {3}"
@@ -49599,7 +49599,7 @@ msgstr "序列号计数"
 #: erpnext/stock/workspace/stock/stock.json
 #: erpnext/workspace_sidebar/stock.json
 msgid "Serial No Ledger"
-msgstr "序列号台帐"
+msgstr "序列号台账"
 
 #: erpnext/public/js/utils/serial_no_batch_selector.js:270
 msgid "Serial No Range"
@@ -50456,7 +50456,7 @@ msgstr "设置科目类型有助于在交易中选择该科目。"
 
 #: erpnext/maintenance/doctype/maintenance_schedule/maintenance_schedule.py:129
 msgid "Setting Events to {0}, since the Employee attached to the below Sales Persons does not have a User ID{1}"
-msgstr "设置事件为{0}，因为关联到业务员的员工无用户帐号 {1}"
+msgstr "已将事件设为 {0}，因为以下业务员关联的员工没有用户账号{1}"
 
 #: erpnext/stock/doctype/pick_list/pick_list.js:98
 msgid "Setting Item Locations..."
@@ -52866,7 +52866,7 @@ msgstr "日期为 {0} 或更早的库存交易已冻结，因为期间已结账�
 #. 'Stock Settings'
 #: erpnext/stock/doctype/stock_settings/stock_settings.json
 msgid "Stock transactions that are older than the mentioned days cannot be modified."
-msgstr "补录单据过账日期不得早于今天-锁帐天数，如今天9月20号，锁账天数10，则系统不允许过账日期早于9月10号"
+msgstr "早于所设天数的库存交易不能修改。"
 
 #: erpnext/accounts/doctype/period_closing_voucher/period_closing_voucher.py:254
 msgid "Stock transactions were created or modified after the Stock Closing Entry {0} was generated. Regenerate it before submitting the Period Closing Voucher."

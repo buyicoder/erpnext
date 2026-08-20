@@ -115,6 +115,14 @@ if not all(
 print("Verified bundled Chinese demo data")
 
 expected_translations = {
+	"Bank Account No": "银行账号",
+	"Exchange Gain/Loss amount has been booked through {0}": "已通过日记账凭证 {0} 登记汇兑损益金额",
+	"Not allowed to update stock transactions older than {0}": "不能更新早于 {0} 的库存交易",
+	"Row {0}: {1} account already applied for Accounting Dimension {2}": "第 {0} 行：科目 {1} 已用于辅助核算 {2}",
+	"Row {0}: {1} {2} cannot be same as {3} (Party Account) {4}": "第 {0} 行：{1} {2} 不能与 {3}（往来科目）{4} 相同",
+	"Serial No Ledger": "序列号台账",
+	"Setting Events to {0}, since the Employee attached to the below Sales Persons does not have a User ID{1}": "已将事件设为 {0}，因为以下业务员关联的员工没有用户账号{1}",
+	"Stock transactions that are older than the mentioned days cannot be modified.": "早于所设天数的库存交易不能修改。",
 	"Accounts Settings": "会计设置",
 	"Please submit Purchase Order {0} before proceeding.": "请先提交采购订单 {0}，再继续操作。",
 	"Cannot create more Subcontracting Orders against the Purchase Order {0}.": "无法再基于采购订单 {0} 创建委外订单。",

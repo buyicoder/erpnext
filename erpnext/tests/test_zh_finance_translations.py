@@ -2211,6 +2211,28 @@ class TestZhFinanceTranslations(TestCase):
 	def test_operational_email_templates_use_reviewed_chinese_terms(self):
 		self._assert_translation("Please take necessary action", "请及时处理")
 
+	def test_mainland_accounting_terms_use_standard_simplified_chinese(self):
+		translations = {
+			"Bank Account No": "银行账号",
+			"Exchange Gain/Loss amount has been booked through {0}": "已通过日记账凭证 {0} 登记汇兑损益金额",
+			"Not allowed to update stock transactions older than {0}": "不能更新早于 {0} 的库存交易",
+			"Row {0}: {1} account already applied for Accounting Dimension {2}": "第 {0} 行：科目 {1} 已用于辅助核算 {2}",
+			"Row {0}: {1} {2} cannot be same as {3} (Party Account) {4}": "第 {0} 行：{1} {2} 不能与 {3}（往来科目）{4} 相同",
+			"Serial No Ledger": "序列号台账",
+			"Setting Events to {0}, since the Employee attached to the below Sales Persons does not have a User ID{1}": "已将事件设为 {0}，因为以下业务员关联的员工没有用户账号{1}",
+			"Stock transactions that are older than the mentioned days cannot be modified.": "早于所设天数的库存交易不能修改。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+		catalog_text = (Path(__file__).parents[1] / "locale/zh.po").read_text()
+		self.assertNotRegex(
+			catalog_text,
+			re.compile(r'^msgstr ".*帐', re.MULTILINE),
+			msg="Use mainland-standard 账/账号/账户/台账 terminology",
+		)
+
 	def test_auditing_vouchers_use_reviewed_chinese_terms(self):
 		for source, translation in {
 			"SL": "序号",
