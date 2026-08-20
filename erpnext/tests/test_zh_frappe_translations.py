@@ -303,3 +303,21 @@ class TestZhFrappeTranslations(TestCase):
 				self.assertIsNotNone(message)
 				self.assertNotIn("fuzzy", message.flags)
 				self.assertEqual(message.string, translation)
+
+	def test_notification_type_preferences_use_reviewed_chinese(self):
+		expected = {
+			"Email everyone for <b>{0}</b> notifications? This adds it to every user's email preferences. Users can still opt out individually afterwards.": "是否为所有用户启用 <b>{0}</b> 通知邮件？此操作会将其添加到每位用户的邮件偏好中，用户之后仍可自行关闭。",
+			"Enable Email Notifications for All Users": "为所有用户启用邮件通知",
+			"Enable the notification type before emailing it to users.": "请先启用该通知类型，再为用户开启邮件通知。",
+			"Enabling email for {0} across all users in the background.": "正在后台为所有用户启用 {0} 邮件通知。",
+			"Type Name": "类型名称",
+			"{0} does not exist": "{0} 不存在",
+			"{0} is a built-in Notification Type and cannot be deleted. Disable it instead.": "{0} 是内置通知类型，无法删除；请将其禁用。",
+			"{0} never sends email, so it cannot be enabled for users.": "{0} 从不发送邮件，因此无法为用户启用。",
+		}
+		for source, translation in expected.items():
+			with self.subTest(source=source):
+				message = self.catalog.get(source)
+				self.assertIsNotNone(message)
+				self.assertNotIn("fuzzy", message.flags)
+				self.assertEqual(message.string, translation)

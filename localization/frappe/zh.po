@@ -648,6 +648,30 @@ msgstr "联系网址必须以 https:// 开头"
 msgid "Website, email or phone where vulnerabilities can be reported. Defaults to `https://security.frappe.io`"
 msgstr "用于报告漏洞的网站、电子邮箱或电话。默认值为 `https://security.frappe.io`"
 
+msgid "Email everyone for <b>{0}</b> notifications? This adds it to every user's email preferences. Users can still opt out individually afterwards."
+msgstr "是否为所有用户启用 <b>{0}</b> 通知邮件？此操作会将其添加到每位用户的邮件偏好中，用户之后仍可自行关闭。"
+
+msgid "Enable Email Notifications for All Users"
+msgstr "为所有用户启用邮件通知"
+
+msgid "Enable the notification type before emailing it to users."
+msgstr "请先启用该通知类型，再为用户开启邮件通知。"
+
+msgid "Enabling email for {0} across all users in the background."
+msgstr "正在后台为所有用户启用 {0} 邮件通知。"
+
+msgid "Type Name"
+msgstr "类型名称"
+
+msgid "{0} does not exist"
+msgstr "{0} 不存在"
+
+msgid "{0} is a built-in Notification Type and cannot be deleted. Disable it instead."
+msgstr "{0} 是内置通知类型，无法删除；请将其禁用。"
+
+msgid "{0} never sends email, so it cannot be enabled for users."
+msgstr "{0} 从不发送邮件，因此无法为用户启用。"
+
 msgid "Warning"
 msgstr "警告"
 
