@@ -123,7 +123,9 @@ frappe.ui.form.on("Issue", {
 								},
 								(r) => {
 									frappe.msgprint(
-										`New issue created: <a href="/app/issue/${r.message}">${r.message}</a>`
+										__("New issue created: {0}", [
+											frappe.utils.get_form_link("Issue", r.message, true),
+										])
 									);
 									frm.reload_doc();
 									dialog.hide();

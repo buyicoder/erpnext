@@ -64624,3 +64624,11 @@ msgstr "第 {0} 行：必须填写物料号"
 #: erpnext/stock/doctype/stock_entry_type/stock_entry_type.py:66
 msgid "Stock Entry Type {0} cannot be set as standard"
 msgstr "移动类型 {0} 不能设为标准类型"
+
+#: erpnext/public/js/bulk_transaction_processing.js:29
+msgid "Starting a background job to create {0} {1}"
+msgstr "正在后台创建 {0} 个{1}"
+
+#: erpnext/support/doctype/issue/issue.js:126
+msgid "New issue created: {0}"
+msgstr "已创建新问题：{0}"

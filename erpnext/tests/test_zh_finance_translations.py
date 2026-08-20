@@ -514,6 +514,18 @@ class TestZhFinanceTranslations(TestCase):
 				'_("Row #{0}: Item Code is Mandatory").format(item.idx)',
 			"erpnext/stock/doctype/stock_entry_type/stock_entry_type.py":
 				'_("Stock Entry Type {0} cannot be set as standard").format(self.name)',
+			"erpnext/public/js/bulk_transaction_processing.js": [
+				"frappe.show_alert(",
+				'__("Starting a background job to create {0} {1}", [',
+			],
+			"erpnext/public/js/controllers/buying.js": [
+				'__("Assigning Material Request {0} to Item {1} (row {2})", [',
+				'frappe.msgprint(__("Splitting {0} units of {1}", [qty, d.item_code]));',
+			],
+			"erpnext/support/doctype/issue/issue.js": [
+				'__("New issue created: {0}", [',
+				'frappe.utils.get_form_link("Issue", r.message, true)',
+			],
 			"erpnext/stock/page/warehouse_capacity_summary/warehouse_capacity_summary.html":
 				'title="{{ __("Occupied Qty") }}: {{ d.actual_qty }}"',
 		}
@@ -528,6 +540,8 @@ class TestZhFinanceTranslations(TestCase):
 			"Revaluation Journal: {0}": "汇率重估日记账凭证：{0}",
 			"Row #{0}: Item Code is Mandatory": "第 {0} 行：必须填写物料号",
 			"Stock Entry Type {0} cannot be set as standard": "移动类型 {0} 不能设为标准类型",
+			"Starting a background job to create {0} {1}": "正在后台创建 {0} 个{1}",
+			"New issue created: {0}": "已创建新问题：{0}",
 		}
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)

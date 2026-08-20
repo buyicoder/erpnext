@@ -119,6 +119,8 @@ expected_translations = {
 	"Revaluation Journal: {0}": "汇率重估日记账凭证：{0}",
 	"Row #{0}: Item Code is Mandatory": "第 {0} 行：必须填写物料号",
 	"Stock Entry Type {0} cannot be set as standard": "移动类型 {0} 不能设为标准类型",
+	"Starting a background job to create {0} {1}": "正在后台创建 {0} 个{1}",
+	"New issue created: {0}": "已创建新问题：{0}",
 	"Cannot apply TDS against multiple parties in one entry": "单笔分录不能对多个往来方应用税款扣缴",
 	"TDS / withholding tax category applied when paying this supplier": "向该供应商付款时适用的代扣代缴税款类别",
 	"TDS/TCS is calculated at the rate defined here on every payment from this customer.": "收到该客户每笔付款时，均按此处定义的税率计算代收代缴税款。",
@@ -363,6 +365,17 @@ runtime_source_contracts = {
 	),
 	"stock/doctype/stock_entry_type/stock_entry_type.py": (
 		"_(\"Stock Entry Type {0} cannot be set as standard\").format(self.name)",
+	),
+	"public/js/bulk_transaction_processing.js": (
+		"__(\"Starting a background job to create {0} {1}\", [",
+	),
+	"public/js/controllers/buying.js": (
+		"__(\"Assigning Material Request {0} to Item {1} (row {2})\", [",
+		"frappe.msgprint(__(\"Splitting {0} units of {1}\", [qty, d.item_code]));",
+	),
+	"support/doctype/issue/issue.js": (
+		"__(\"New issue created: {0}\", [",
+		"frappe.utils.get_form_link(\"Issue\", r.message, true)",
 	),
 }
 erpnext_root = Path("/home/frappe/frappe-bench/apps/erpnext/erpnext")
