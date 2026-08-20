@@ -1206,6 +1206,75 @@ class TestZhFinanceTranslations(TestCase):
 
 		self.assertEqual(violations, [])
 
+	def test_core_user_message_sinks_do_not_bypass_translation_helpers(self):
+		repo_root = Path(__file__).parents[2]
+		core_roots = (
+			"accounts",
+			"controllers",
+			"projects",
+			"selling",
+			"buying",
+			"stock",
+		)
+		violations = []
+
+		for root_name in core_roots:
+			for path in (repo_root / "erpnext" / root_name).rglob("*.py"):
+				if "tests" in path.parts or "patches" in path.parts:
+					continue
+				source = path.read_text()
+				try:
+					tree = ast.parse(source)
+				except SyntaxError as error:
+					violations.append(f"{path.relative_to(repo_root)}:{error.lineno}: invalid Python")
+					continue
+				for node in ast.walk(tree):
+					if not isinstance(node, ast.Call) or not isinstance(node.func, ast.Attribute):
+						continue
+					if node.func.attr in {"throw", "msgprint", "log_error"} and node.args:
+						message = node.args[0]
+						if (
+							isinstance(message, ast.Constant)
+							and isinstance(message.value, str)
+							and re.search(r"[A-Za-z]", message.value)
+						):
+							violations.append(
+								f"{path.relative_to(repo_root)}:{node.lineno}: "
+								f"{node.func.attr}({message.value!r})"
+							)
+					for keyword in node.keywords:
+						if keyword.arg not in {"title", "message", "label"}:
+							continue
+						if (
+							isinstance(keyword.value, ast.Constant)
+							and isinstance(keyword.value.value, str)
+							and re.search(r"[A-Za-z]", keyword.value.value)
+						):
+							violations.append(
+								f"{path.relative_to(repo_root)}:{node.lineno}: "
+								f"{keyword.arg}={keyword.value.value!r}"
+							)
+
+		js_direct_sink = re.compile(
+			r'''frappe\.(throw|msgprint|confirm|show_alert)\(\s*(?P<quote>["'])([A-Za-z][^"']*)(?P=quote)'''
+		)
+		js_action_label = re.compile(
+			r'''\bprimary_action_label\s*:\s*(?P<quote>["'])([A-Za-z][^"']*)(?P=quote)'''
+		)
+		for root_name in core_roots:
+			for path in (repo_root / "erpnext" / root_name).rglob("*.js"):
+				if "tests" in path.parts:
+					continue
+				source = path.read_text()
+				for pattern in (js_direct_sink, js_action_label):
+					for match in pattern.finditer(source):
+						line_number = source.count("\n", 0, match.start()) + 1
+						violations.append(
+							f"{path.relative_to(repo_root)}:{line_number}: {match.group(0)}"
+						)
+
+		self.assertEqual(violations, [])
+
 	def test_public_frontend_uses_reviewed_chinese_terms(self):
 		translations = {
 			" Phantom Item": " 虚拟物料",
