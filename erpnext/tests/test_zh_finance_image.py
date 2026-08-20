@@ -450,6 +450,8 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn('"assets/erpnext/js/setup_wizard_accessibility.js"', hooks)
 		self.assertIn('text === "Begin typing for results."', setup_wizard_accessibility)
 		self.assertIn("`找到 ${match[1]} 条结果`", setup_wizard_accessibility)
+		self.assertIn('let selector = ".toggle-theme-btn";', setup_wizard_accessibility)
+		self.assertIn('["data-label", "aria-label", "title"]', setup_wizard_accessibility)
 
 	def test_timeline_localization_is_scoped_to_timeline_content(self):
 		self.assertIn('const timeline_selector = ".timeline-content";', self.browser_overrides)

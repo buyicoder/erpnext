@@ -20,16 +20,24 @@ function loadSetupAccessibility({
 	wizardLanguage = "中文",
 	htmlLanguage = "zh",
 	initialStatuses = [],
+	initialThemeButtons = [],
 } = {}) {
 	const context = {
 		erpnext: { setup: {} },
 		frappe: { provide() {}, wizard: { values: { language: wizardLanguage } } },
 		statuses: initialStatuses,
+		themeButtons: initialThemeButtons,
+		fieldLanguage,
+		__: (message) => (message === "Toggle Theme" ? "切换主题" : message),
 		document: {
 			body: {},
 			documentElement: { lang: htmlLanguage },
-			querySelector: () => (fieldLanguage == null ? null : { value: fieldLanguage }),
-			querySelectorAll: () => context.statuses,
+			querySelector: () =>
+				context.fieldLanguage == null ? null : { value: context.fieldLanguage },
+			querySelectorAll: (selector) =>
+				selector === ".toggle-theme-btn"
+					? context.themeButtons
+					: context.statuses,
 		},
 		MutationObserver: class {
 			constructor(callback) {
@@ -42,6 +50,44 @@ function loadSetupAccessibility({
 	vm.runInNewContext(source, context);
 	return context;
 }
+
+test("gives the setup theme toggle a Chinese accessible name", () => {
+	const attributes = { "data-label": "Toggle Theme" };
+	const button = {
+		matches: (selector) => selector === ".toggle-theme-btn",
+		getAttribute: (name) => attributes[name],
+		setAttribute: (name, value) => {
+			attributes[name] = value;
+		},
+	};
+	loadSetupAccessibility({ initialThemeButtons: [button] });
+
+	assert.deepEqual(attributes, {
+		"data-label": "切换主题",
+		"aria-label": "切换主题",
+		title: "切换主题",
+	});
+});
+
+test("restores the setup theme toggle after switching back to English", () => {
+	const attributes = { "data-label": "Toggle Theme" };
+	const button = {
+		matches: (selector) => selector === ".toggle-theme-btn",
+		getAttribute: (name) => attributes[name],
+		setAttribute: (name, value) => {
+			attributes[name] = value;
+		},
+	};
+	const context = loadSetupAccessibility({ initialThemeButtons: [button] });
+	context.fieldLanguage = "English";
+	context.erpnext.setup.localize_theme_toggle();
+
+	assert.deepEqual(attributes, {
+		"data-label": "Toggle Theme",
+		"aria-label": "Toggle Theme",
+		title: "Toggle Theme",
+	});
+});
 
 test("setup wizard accessibility messages stay aligned with the shared Chinese formatter", () => {
 	const { erpnext } = loadSetupAccessibility();
