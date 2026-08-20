@@ -1717,6 +1717,40 @@ class TestZhFinanceTranslations(TestCase):
 		}.items():
 			self._assert_translation(source, translation)
 
+	def test_financial_report_template_validation_uses_reviewed_chinese(self):
+		translations = {
+			"Row {0}: ": "第 {0} 行：",
+			"Invalid line reference format: '{0}'. Must start with letter and contain only letters, numbers, underscores, and hyphens": "行引用格式无效：“{0}”。必须以字母开头，且只能包含字母、数字、下划线和连字符",
+			"Duplicate line reference: '{0}'": "行引用重复：“{0}”",
+			"Balance Type is required for Account Data": "科目数据必须填写余额类型",
+			"Formula is required for {0}": "{0} 必须填写公式",
+			"Circular dependency detected: {0}": "检测到循环依赖：{0}",
+			"Line References undefined in Formula: {0}": "公式中存在未定义的行引用：{0}",
+			"Formula is required for Calculated Amount": "计算金额必须填写公式",
+			"Formula has unbalanced parentheses": "公式中的括号不匹配",
+			"Formula references itself ('{0}')": "公式引用了自身（“{0}”）",
+			"Formula references undefined codes: {0}": "公式引用了未定义的代码：{0}",
+			"Formula evaluation error: {0}": "公式计算错误：{0}",
+			"Formula must return a numeric value, got {0}": "公式必须返回数值，实际返回了 {0}",
+			"Account filter is required for Account Data": "科目数据必须填写科目筛选条件",
+			"Invalid JSON format: {0}": "JSON 格式无效：{0}",
+			"Filter must be [field, operator, value]": "筛选条件必须为 [字段, 运算符, 值]",
+			"Field and operator must be strings": "字段和运算符必须为字符串",
+			"Field '{0}' is not a valid Account field": "“{0}”不是有效的科目字段",
+			"Invalid operator '{0}'": "运算符“{0}”无效",
+			"Operator '{0}' requires a list value": "运算符“{0}”要求值为列表",
+			"Logical condition must have exactly one operator": "逻辑条件必须且只能包含一个运算符",
+			"Logical operators must be 'and' or 'or'": "逻辑运算符必须为“and”或“or”",
+			"Logical conditions need at least 1 sub-condition": "逻辑条件至少需要一个子条件",
+			"Filter must be a list or dict": "筛选条件必须为列表或字典",
+			"Custom API path should be in format: app.module.method": "自定义 API 路径应为 app.module.method 格式",
+			"Method '{0}' not found in module '{1}' (might be environment-specific)": "找不到方法“{0}”，模块“{1}”中不存在该方法（可能与当前环境有关）",
+			"Could not validate API path: {0}": "无法验证 API 路径：{0}",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
 	def test_project_management_reports_use_reviewed_chinese_terms(self):
 		translations = {
 			"Project Summary": "项目汇总",

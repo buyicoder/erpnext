@@ -64093,3 +64093,111 @@ msgstr "所有质量程序"
 
 msgid "All Tasks"
 msgstr "所有任务"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Row {0}: "
+msgstr "第 {0} 行："
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Invalid line reference format: '{0}'. Must start with letter and contain only letters, numbers, underscores, and hyphens"
+msgstr "行引用格式无效：“{0}”。必须以字母开头，且只能包含字母、数字、下划线和连字符"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Duplicate line reference: '{0}'"
+msgstr "行引用重复：“{0}”"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Balance Type is required for Account Data"
+msgstr "科目数据必须填写余额类型"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Formula is required for {0}"
+msgstr "{0} 必须填写公式"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Circular dependency detected: {0}"
+msgstr "检测到循环依赖：{0}"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Line References undefined in Formula: {0}"
+msgstr "公式中存在未定义的行引用：{0}"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Formula is required for Calculated Amount"
+msgstr "计算金额必须填写公式"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Formula has unbalanced parentheses"
+msgstr "公式中的括号不匹配"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Formula references itself ('{0}')"
+msgstr "公式引用了自身（“{0}”）"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Formula references undefined codes: {0}"
+msgstr "公式引用了未定义的代码：{0}"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Formula evaluation error: {0}"
+msgstr "公式计算错误：{0}"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Formula must return a numeric value, got {0}"
+msgstr "公式必须返回数值，实际返回了 {0}"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Account filter is required for Account Data"
+msgstr "科目数据必须填写科目筛选条件"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Invalid JSON format: {0}"
+msgstr "JSON 格式无效：{0}"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Filter must be [field, operator, value]"
+msgstr "筛选条件必须为 [字段, 运算符, 值]"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Field and operator must be strings"
+msgstr "字段和运算符必须为字符串"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Field '{0}' is not a valid Account field"
+msgstr "“{0}”不是有效的科目字段"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Invalid operator '{0}'"
+msgstr "运算符“{0}”无效"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Operator '{0}' requires a list value"
+msgstr "运算符“{0}”要求值为列表"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Logical condition must have exactly one operator"
+msgstr "逻辑条件必须且只能包含一个运算符"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Logical operators must be 'and' or 'or'"
+msgstr "逻辑运算符必须为“and”或“or”"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Logical conditions need at least 1 sub-condition"
+msgstr "逻辑条件至少需要一个子条件"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Filter must be a list or dict"
+msgstr "筛选条件必须为列表或字典"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Custom API path should be in format: app.module.method"
+msgstr "自定义 API 路径应为 app.module.method 格式"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Method '{0}' not found in module '{1}' (might be environment-specific)"
+msgstr "找不到方法“{0}”，模块“{1}”中不存在该方法（可能与当前环境有关）"
+
+#: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+msgid "Could not validate API path: {0}"
+msgstr "无法验证 API 路径：{0}"
