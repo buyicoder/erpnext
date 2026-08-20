@@ -952,6 +952,33 @@ class TestZhFinanceTranslations(TestCase):
 		for relative_path, contract in contracts.items():
 			self.assertIn(contract, (repo_root / relative_path).read_text(), relative_path)
 
+	def test_background_error_log_titles_use_reviewed_chinese(self):
+		translations = {
+			"Opening invoice creation failed": "开账发票创建失败",
+			"Bank entry creation failed": "银行交易流水创建失败",
+			"Subscription failed": "订阅处理失败",
+			"Ledger merge failed": "科目合并失败",
+			"Bank Statement Import failed": "银行对账单导入失败",
+			"Unable to create material request": "无法创建物料需求",
+			"Unable to repost item valuation": "无法执行物料成本价追溯调整",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+		repo_root = Path(__file__).parents[2]
+		contracts = {
+			"erpnext/accounts/doctype/opening_invoice_creation_tool/opening_invoice_creation_tool.py": 'doc.log_error(_("Opening invoice creation failed"))',
+			"erpnext/accounts/doctype/bank_transaction/bank_transaction_upload.py": 'bank_transaction.log_error(_("Bank entry creation failed"))',
+			"erpnext/accounts/doctype/subscription/subscription.py": 'sub.log_error(_("Subscription failed"))',
+			"erpnext/accounts/doctype/ledger_merge/ledger_merge.py": 'ledger_merge.log_error(_("Ledger merge failed"))',
+			"erpnext/accounts/doctype/bank_statement_import/bank_statement_import.py": 'data_import.log_error(_("Bank Statement Import failed"))',
+			"erpnext/stock/reorder_item.py": 'mr.log_error(_("Unable to create material request"))',
+			"erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.py": 'doc.log_error(_("Unable to repost item valuation"))',
+		}
+		for relative_path, contract in contracts.items():
+			self.assertIn(contract, (repo_root / relative_path).read_text(), relative_path)
+
 	def test_public_frontend_uses_reviewed_chinese_terms(self):
 		translations = {
 			" Phantom Item": " 虚拟物料",

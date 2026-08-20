@@ -56,7 +56,7 @@ def create_bank_entries(columns, data, bank_account):
 			bank_transaction.submit()
 			success += 1
 		except Exception:
-			bank_transaction.log_error("Bank entry creation failed")
+			bank_transaction.log_error(_("Bank entry creation failed"))
 			errors += 1
 
 	return {"success": success, "errors": errors}

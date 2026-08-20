@@ -51631,6 +51631,34 @@ msgstr "库存结转分录处理失败"
 msgid "Assigning Material Request {0} to Item {1} (row {2})"
 msgstr "正在将物料需求 {0} 分配给物料 {1}（第 {2} 行）"
 
+#: erpnext/accounts/doctype/opening_invoice_creation_tool/opening_invoice_creation_tool.py:309
+msgid "Opening invoice creation failed"
+msgstr "开账发票创建失败"
+
+#: erpnext/accounts/doctype/bank_transaction/bank_transaction_upload.py:59
+msgid "Bank entry creation failed"
+msgstr "银行交易流水创建失败"
+
+#: erpnext/accounts/doctype/subscription/subscription.py:859
+msgid "Subscription failed"
+msgstr "订阅处理失败"
+
+#: erpnext/accounts/doctype/ledger_merge/ledger_merge.py:84
+msgid "Ledger merge failed"
+msgstr "科目合并失败"
+
+#: erpnext/accounts/doctype/bank_statement_import/bank_statement_import.py:303
+msgid "Bank Statement Import failed"
+msgstr "银行对账单导入失败"
+
+#: erpnext/stock/reorder_item.py:303
+msgid "Unable to create material request"
+msgstr "无法创建物料需求"
+
+#: erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.py:428
+msgid "Unable to repost item valuation"
+msgstr "无法执行物料成本价追溯调整"
+
 #: erpnext/setup/setup_wizard/operations/defaults_setup.py:70
 #: erpnext/setup/setup_wizard/operations/install_fixtures.py:488
 #: erpnext/tests/utils.py:275

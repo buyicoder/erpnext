@@ -215,6 +215,12 @@ class TestZhFinanceImage(TestCase):
 			"erpnext/accounts/doctype/account/account.py",
 			"erpnext/stock/utils.py",
 			"erpnext/stock/doctype/stock_closing_entry/stock_closing_entry.py",
+			"erpnext/accounts/doctype/bank_transaction/bank_transaction_upload.py",
+			"erpnext/accounts/doctype/subscription/subscription.py",
+			"erpnext/accounts/doctype/ledger_merge/ledger_merge.py",
+			"erpnext/accounts/doctype/bank_statement_import/bank_statement_import.py",
+			"erpnext/stock/reorder_item.py",
+			"erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.py",
 		):
 			self.assertIn(source_path, self.containerfile)
 		self.assertIn("erpnext/crm/doctype/email_campaign/email_campaign.py", self.containerfile)

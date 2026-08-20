@@ -306,7 +306,7 @@ def start_import(invoices):
 		except Exception:
 			errors += 1
 			frappe.db.rollback()
-			doc.log_error("Opening invoice creation failed")
+			doc.log_error(_("Opening invoice creation failed"))
 			publish(idx, total, d.doctype, errors=errors if is_last else None)
 	if errors:
 		frappe.msgprint(

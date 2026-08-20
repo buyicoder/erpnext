@@ -856,4 +856,4 @@ def process_all(subscription: list, posting_date: DateTimeLikeObject | None = No
 				frappe.db.commit()
 		except frappe.ValidationError:
 			frappe.db.rollback()
-			sub.log_error("Subscription failed")
+			sub.log_error(_("Subscription failed"))

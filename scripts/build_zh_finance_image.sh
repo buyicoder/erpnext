@@ -227,6 +227,13 @@ expected_translations = {
 	"Stock Reposting Ongoing": "库存重新过账进行中",
 	"Stock Closing Entry Failed": "库存结转分录处理失败",
 	"Assigning Material Request {0} to Item {1} (row {2})": "正在将物料需求 {0} 分配给物料 {1}（第 {2} 行）",
+	"Opening invoice creation failed": "开账发票创建失败",
+	"Bank entry creation failed": "银行交易流水创建失败",
+	"Subscription failed": "订阅处理失败",
+	"Ledger merge failed": "科目合并失败",
+	"Bank Statement Import failed": "银行对账单导入失败",
+	"Unable to create material request": "无法创建物料需求",
+	"Unable to repost item valuation": "无法执行物料成本价追溯调整",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)

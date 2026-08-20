@@ -300,7 +300,7 @@ def create_material_request(material_requests):
 
 			except Exception as exception:
 				exceptions_list.append(exception)
-				mr.log_error("Unable to create material request")
+				mr.log_error(_("Unable to create material request"))
 
 	if company_wise_mr:
 		if getattr(frappe.local, "reorder_email_notify", None) is None:

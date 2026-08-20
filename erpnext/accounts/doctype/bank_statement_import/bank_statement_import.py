@@ -300,7 +300,7 @@ def start_import(data_import, bank_account, import_file_path, google_sheets_url,
 	except Exception:
 		frappe.db.rollback()
 		data_import.db_set("status", "Error")
-		data_import.log_error("Bank Statement Import failed")
+		data_import.log_error(_("Bank Statement Import failed"))
 	finally:
 		frappe.flags.in_import = False
 

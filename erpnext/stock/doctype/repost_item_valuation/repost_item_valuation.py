@@ -425,7 +425,7 @@ def repost(doc):
 
 		frappe.db.rollback()
 		traceback = frappe.get_traceback(with_context=True)
-		doc.log_error("Unable to repost item valuation")
+		doc.log_error(_("Unable to repost item valuation"))
 
 		message = frappe.message_log.pop() if frappe.message_log else ""
 		if isinstance(message, dict):
