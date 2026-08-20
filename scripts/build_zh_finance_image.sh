@@ -31,6 +31,7 @@ docker run --rm --entrypoint sh \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_promotional_scheme_i18n.py,dst=/tmp/test_promotional_scheme_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_taxes_and_totals_i18n.py,dst=/tmp/test_taxes_and_totals_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_process_statement_i18n.py,dst=/tmp/test_process_statement_i18n.py,readonly" \
+	--mount "type=bind,src=$repo_root/erpnext/tests/test_tax_report_labels_i18n.py,dst=/tmp/test_tax_report_labels_i18n.py,readonly" \
 	"$image" -lc '
 	set -eu
 	FRAPPE_RUNTIME_VERSION="'"$FRAPPE_RUNTIME_VERSION"'" /home/frappe/frappe-bench/env/bin/python - <<"PY"
@@ -191,6 +192,13 @@ expected_translations = {
 	"<p>The following {0} records do not belong to Company {1}:</p>": "<p>以下{0}记录不属于公司 {1}：</p>",
 	"Cost Center": "成本中心",
 	"Project": "项目",
+	"Customer Name": "客户名称",
+	"Customer Type": "客户类型",
+	"Supplier Name": "供应商名称",
+	"Supplier Type": "供应商类型",
+	"Party": "往来单位",
+	"Party Name": "往来单位名称",
+	"Party Type": "往来类型",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)
@@ -370,6 +378,8 @@ PY
 	printf "%s\n" "Verified taxes and totals translation behavior"
 	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_process_statement_i18n.py"
 	printf "%s\n" "Verified process statement translation behavior"
+	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_tax_report_labels_i18n.py"
+	printf "%s\n" "Verified tax report label translation behavior"
 	/home/frappe/frappe-bench/env/bin/python /tmp/validate_frappe_runtime_i18n.py \
 		--frappe-app /home/frappe/frappe-bench/apps/frappe \
 		--catalog /home/frappe/frappe-bench/apps/frappe/frappe/locale/zh.po

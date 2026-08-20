@@ -8,6 +8,13 @@ from frappe.query_builder.functions import IfNull
 from erpnext.accounts.report.utils import validate_mandatory_date_range
 
 
+def get_party_column_labels(party_type):
+	return {
+		"Customer": (_("Customer"), _("Customer Name"), _("Customer Type")),
+		"Supplier": (_("Supplier"), _("Supplier Name"), _("Supplier Type")),
+	}.get(party_type, (_("Party"), _("Party Name"), _("Party Type")))
+
+
 class TaxWithholdingDetailsReport:
 	party_types = ("Customer", "Supplier")
 	document_types = ("Purchase Invoice", "Sales Invoice", "Payment Entry", "Journal Entry")
@@ -191,7 +198,8 @@ class TaxWithholdingDetailsReport:
 		return [doctype.total_debit.as_("grand_total"), doctype.total_debit.as_("base_total")]
 
 	def get_columns(self):
-		party_type = self.filters.get("party_type", "Party")
+		party_type = self.filters.get("party_type") or "Party"
+		party_label, party_name_label, party_type_label = get_party_column_labels(party_type)
 		return [
 			{
 				"label": _("Tax Withholding Category"),
@@ -202,20 +210,20 @@ class TaxWithholdingDetailsReport:
 			},
 			{"label": _("Tax Id"), "fieldname": "tax_id", "fieldtype": "Data", "width": 60},
 			{
-				"label": _(f"{party_type} Name"),
+				"label": party_name_label,
 				"fieldname": "party_name",
 				"fieldtype": "Data",
 				"width": 180,
 			},
 			{
-				"label": _(party_type),
+				"label": party_label,
 				"fieldname": "party",
 				"fieldtype": "Dynamic Link",
 				"options": "party_type",
 				"width": 180,
 			},
 			{
-				"label": _(f"{party_type} Type"),
+				"label": party_type_label,
 				"fieldname": "party_entity_type",
 				"fieldtype": "Data",
 				"width": 100,
