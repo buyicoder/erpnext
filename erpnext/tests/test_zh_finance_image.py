@@ -96,6 +96,14 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("test_inventory_dimension_i18n.py,dst=/tmp/test_inventory_dimension_i18n.py,readonly", self.build_script)
 		self.assertIn("Verified inventory dimension translation behavior", self.build_script)
 		self.assertIn(
+			"COPY --chown=frappe:frappe erpnext/stock/doctype/stock_entry/stock_entry.py "
+			"/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py",
+			self.containerfile,
+		)
+		self.assertNotIn("erpnext/tests/test_stock_entry_i18n.py", self.containerfile)
+		self.assertIn("test_stock_entry_i18n.py,dst=/tmp/test_stock_entry_i18n.py,readonly", self.build_script)
+		self.assertIn("Verified stock entry translation behavior", self.build_script)
+		self.assertIn(
 			"erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py",
 			self.containerfile,
 		)

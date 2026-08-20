@@ -64349,3 +64349,7 @@ msgstr "引用单据 {0} 不能是子表。"
 #: erpnext/stock/doctype/inventory_dimension/inventory_dimension.py
 msgid "Reference document {0} cannot be used as an Inventory Dimension."
 msgstr "引用单据 {0} 不能用作库存辅助核算。"
+
+#: erpnext/stock/doctype/stock_entry/stock_entry.py
+msgid "Row #{0}: The Job Card Item reference is missing. Create the Stock Entry from the Job Card; rows added manually cannot be linked to a Job Card Item."
+msgstr "第 {0} 行：缺少生产任务单明细引用。请从生产任务单创建物料移动；手工添加的明细无法关联生产任务单明细。"
