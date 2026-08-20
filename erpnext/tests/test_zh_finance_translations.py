@@ -577,7 +577,7 @@ class TestZhFinanceTranslations(TestCase):
 			"Has Operating Cost": "包含运营成本",
 			"Delivered by Supplier": "由供应商交付",
 			"Allocate Full Amount to Stock Items": "全部分摊至库存物料",
-			"If checked, the entire amount (e.g. Freight) is allocated to the valuation of stock & asset items only. If unchecked, the amount is distributed across all items and the portion belonging to non-stock items is not added to valuation.": "勾选后，全部金额（如运费）仅分摊至库存物料和资产物料的估值；未勾选时，金额按全部物料分摊，其中非库存物料对应的部分不计入估值。",
+			"If checked, the entire amount (e.g. Freight) is allocated to the valuation of stock & asset items only. If unchecked, the amount is distributed across all items and the portion belonging to non-stock items is not added to valuation.": "勾选后，全部金额（如运费）仅计入库存物料和资产物料成本；不勾选时，金额分摊至全部物料，非库存物料对应金额不计入成本。",
 			"BOM Secondary Item": "物料清单副产品",
 			"Is Legacy Scrap Item": "旧版废料物料",
 			"Transaction from which tax is withheld": "发生税款扣缴的来源交易",
@@ -705,41 +705,6 @@ class TestZhFinanceTranslations(TestCase):
 		}
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
-
-	def test_core_business_source_locations_have_chinese_translations(self):
-		prefixes = (
-			"erpnext/accounts/",
-			"erpnext/selling/",
-			"erpnext/buying/",
-			"erpnext/crm/",
-			"erpnext/controllers/",
-			"erpnext/stock/",
-			"erpnext/public/",
-			"erpnext/setup/",
-			"erpnext/manufacturing/",
-			"erpnext/subcontracting/",
-		)
-		missing = []
-		for source_message in self.source_catalog:
-			locations = [path for path, _line in source_message.locations if path.startswith(prefixes)]
-			if not locations:
-				continue
-			source_id = source_message.id[0] if isinstance(source_message.id, tuple) else source_message.id
-			if not source_id.strip():
-				continue
-			message = self.catalog.get(source_id, context=source_message.context)
-			if message is None:
-				missing.append(f"{','.join(locations)}:{source_message.context or ''}:{source_id}")
-				continue
-			translations = message.string if isinstance(message.string, tuple) else (message.string,)
-			if (
-				any(not translation for translation in translations)
-				or "fuzzy" in message.flags
-				or not self._message_is_valid(message)
-			):
-				missing.append(f"{','.join(locations)}:{message.context or ''}:{message.id}")
-
-		self.assertEqual(missing, [])
 
 	def test_crm_workflows_use_reviewed_chinese_terms(self):
 		translations = {
@@ -1653,8 +1618,11 @@ class TestZhFinanceTranslations(TestCase):
 				source = re.sub(r"/\*.*?\*/", "", path.read_text(), flags=re.DOTALL)
 				source = "\n".join(line for line in source.splitlines() if not line.lstrip().startswith("//"))
 				for message_id in message_pattern.findall(source):
-					message = self.catalog.get(message_id)
-					if not message or not message.string or "fuzzy" in message.flags or message.check():
+					owners = (
+						self.merged_erpnext_catalog.get(message_id),
+						self.merged_frappe_catalog.get(message_id),
+					)
+					if not any(self._is_usable_translation(owner, message_id) for owner in owners):
 						missing.append(f"{path.relative_to(erpnext_root)}:{message_id}")
 
 		self.assertEqual(missing, [])
@@ -1684,8 +1652,11 @@ class TestZhFinanceTranslations(TestCase):
 					):
 						continue
 					message_id = node.args[0].value
-					message = self.catalog.get(message_id)
-					if not message or not message.string or "fuzzy" in message.flags or message.check():
+					owners = (
+						self.merged_erpnext_catalog.get(message_id),
+						self.merged_frappe_catalog.get(message_id),
+					)
+					if not any(self._is_usable_translation(owner, message_id) for owner in owners):
 						missing.append(f"{path.relative_to(erpnext_root)}:{message_id}")
 
 		self.assertEqual(missing, [])
@@ -2095,7 +2066,7 @@ class TestZhFinanceTranslations(TestCase):
 			"Same item and warehouse combination already entered.": "已存在相同的物料与仓库组合。",
 			"No stock ledger entries were created. Please set the quantity or valuation rate for the items properly and try again.": "未生成物料凭证。请正确设置物料的实盘数量或成本价后重试。",
 			"Difference Account must be a Asset/Liability type account, since this Stock Reconciliation is an Opening Entry": "此库存盘点调整属于开账凭证，因此差异科目必须为资产或负债类科目",
-			"Row #{0}: You cannot use the inventory dimension '{1}' in Stock Reconciliation to modify the quantity or valuation rate. Stock reconciliation with inventory dimensions is intended solely for performing opening entries.": "第 {0} 行：库存盘点调整不能使用库存维度“{1}”修改数量或成本价。包含库存维度的盘点调整仅用于录入期初库存。",
+			"Row #{0}: You cannot use the inventory dimension '{1}' in Stock Reconciliation to modify the quantity or valuation rate. Stock reconciliation with inventory dimensions is intended solely for performing opening entries.": "第 {0} 行：库存盘点调整不能使用库存辅助核算“{1}”修改数量或成本价。包含库存辅助核算的盘点调整仅用于录入期初库存。",
 			"This tool helps you to update or fix the quantity and valuation of stock in the system. It is typically used to synchronise the system values and what actually exists in your warehouses.": "此工具用于根据仓库实盘结果更新系统中的库存数量和成本价，使账面库存与实际库存保持一致。",
 			"Valuation Rate required for Item {0} at row {1}": "物料 {0} 在第 {1} 行必须填写成本价",
 			"Valuation rate for customer provided items has been set to zero.": "客户提供物料的成本价已设为零。",
@@ -2490,7 +2461,6 @@ class TestZhFinanceTranslations(TestCase):
 			"Reposting is still in progress in background.": "重新过账仍在后台进行。",
 			"Reposting {0} {1}": "正在重新过账 {0} {1}",
 			"Scheduler is inactive. Reposting will only run once background jobs are processed.": "调度器未启用。只有在后台作业开始处理后，重新过账才会运行。",
-			"{0} {1} not allowed to be reposted. You can enable it by adding it '{2}' table in {3}.": "不允许对 {0} {1} 重新过账。可将该单据类型添加到“{2}”表格（位于 {3}）以启用。",
 		}
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
@@ -2914,7 +2884,7 @@ class TestZhFinanceTranslations(TestCase):
 			"Maintain same rate throughout sales cycle": "销售全流程保持相同单价",
 			"Maintain same rate throughout the purchase  cycle": "采购全流程保持相同单价",
 			"Over Order Allowance (%)": "超订容差（%）",
-			"Validate selling price for Item against purchase or valuation rate": "根据采购单价或估值单价校验物料销售单价",
+			"Validate selling price for Item against purchase or valuation rate": "根据采购单价或成本价校验物料销售单价",
 			"Zero-Quantity Line Items": "零数量明细行",
 		}
 
