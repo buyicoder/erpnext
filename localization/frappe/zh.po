@@ -435,6 +435,87 @@ msgstr "查看全部 {0} 位用户"
 msgid "{0} with the role <strong>{1}</strong>"
 msgstr "{0} 位用户拥有角色 <strong>{1}</strong>"
 
+msgid "Add Reply-To header"
+msgstr "添加 Reply-To 邮件头"
+
+msgid "Add X-Original-From header"
+msgstr "添加 X-Original-From 邮件头"
+
+msgid "Addresses added here will be used as the Reply-To header for outgoing emails sent from this account."
+msgstr "此处添加的地址将用作该账户外发邮件的 Reply-To 邮件头。"
+
+msgid "Automatic sending of emails is disabled via site config."
+msgstr "站点配置已禁用自动发送邮件。"
+
+msgid "DELAY"
+msgstr "延迟"
+
+msgid "Delivery Status Notification Type"
+msgstr "送达状态通知类型"
+
+msgid "Email size {0:.2f} MB exceeds the maximum allowed size of {1:.2f} MB"
+msgstr "邮件大小 {0:.2f} MB 超过允许的最大值 {1:.2f} MB"
+
+msgid "FAILURE"
+msgstr "失败"
+
+msgid "Failed to retrieve the list of IMAP folders from the server. Please ensure the mailbox is accessible and the account has permission to list folders."
+msgstr "无法从服务器获取 IMAP 文件夹列表。请确认邮箱可访问，且该账户有权列出文件夹。"
+
+msgid "IMAP Folder Not Found"
+msgstr "未找到 IMAP 文件夹"
+
+msgid "IMAP Folder Validation Failed"
+msgstr "IMAP 文件夹验证失败"
+
+msgid "IMAP Folder name cannot be empty."
+msgstr "IMAP 文件夹名称不能为空。"
+
+msgid "NEVER"
+msgstr "从不"
+
+msgid "No IMAP folders were found on the server. Please verify the email account settings and ensure the mailbox contains folders."
+msgstr "服务器上未找到 IMAP 文件夹。请检查邮件账户设置，并确认邮箱中存在文件夹。"
+
+msgid "Outgoing"
+msgstr "发件"
+
+msgid "Raw HTML emails are rendered as complete Jinja templates. Otherwise, emails are wrapped in the standard.html email template, which inserts brand_logo, header and footer."
+msgstr "原始 HTML 邮件将作为完整的 Jinja 模板渲染；否则邮件会套用 standard.html 模板，并插入 brand_logo、页眉和页脚。"
+
+msgid "Redact Message After Send"
+msgstr "发送后清除邮件正文"
+
+msgid "Replace the message body with a placeholder once the email has been sent, so that sensitive content like password reset links is not retained in the queue."
+msgstr "邮件发送后用占位内容替换正文，避免密码重置链接等敏感内容保留在队列中。"
+
+msgid "Reply To email is required"
+msgstr "必须填写回复地址电子邮箱"
+
+msgid "Reply-To Addresses"
+msgstr "回复地址"
+
+msgid "SUCCESS"
+msgstr "成功"
+
+msgid "SUCCESS,FAILURE"
+msgstr "成功、失败"
+
+msgid "SUCCESS,FAILURE,DELAY"
+msgstr "成功、失败、延迟"
+
+msgid "Select which delivery events should trigger a delivery status notification (DSN) from the SMTP server."
+msgstr "选择哪些送达事件应触发 SMTP 服务器的送达状态通知（DSN）。"
+
+msgid "Send As Raw HTML"
+msgstr "以原始 HTML 发送"
+
+msgid "The configured SMTP server does not support DSN (Delivery Status Notification)."
+msgstr "配置的 SMTP 服务器不支持 DSN（送达状态通知）。"
+
+msgid "The following configured IMAP folder(s) were not found or are not accessible on the server:<br><ul>{0}</ul>Please verify the folder names exactly as they appear on the server and ensure the account has access to them."
+msgstr "服务器上找不到或无法访问以下已配置的 IMAP 文件夹：<br><ul>{0}</ul>请核对文件夹名称与服务器上的显示完全一致，并确认该账户有权访问。"
+
 msgid "Warning"
 msgstr "警告"
 

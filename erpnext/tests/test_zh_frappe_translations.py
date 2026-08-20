@@ -196,3 +196,40 @@ class TestZhFrappeTranslations(TestCase):
 				self.assertIsNotNone(message)
 				self.assertNotIn("fuzzy", message.flags)
 				self.assertEqual(message.string, translation)
+
+	def test_email_account_and_queue_use_reviewed_chinese(self):
+		expected = {
+			"Add Reply-To header": "添加 Reply-To 邮件头",
+			"Add X-Original-From header": "添加 X-Original-From 邮件头",
+			"Addresses added here will be used as the Reply-To header for outgoing emails sent from this account.": "此处添加的地址将用作该账户外发邮件的 Reply-To 邮件头。",
+			"Automatic sending of emails is disabled via site config.": "站点配置已禁用自动发送邮件。",
+			"DELAY": "延迟",
+			"Delivery Status Notification Type": "送达状态通知类型",
+			"Email size {0:.2f} MB exceeds the maximum allowed size of {1:.2f} MB": "邮件大小 {0:.2f} MB 超过允许的最大值 {1:.2f} MB",
+			"FAILURE": "失败",
+			"Failed to retrieve the list of IMAP folders from the server. Please ensure the mailbox is accessible and the account has permission to list folders.": "无法从服务器获取 IMAP 文件夹列表。请确认邮箱可访问，且该账户有权列出文件夹。",
+			"IMAP Folder Not Found": "未找到 IMAP 文件夹",
+			"IMAP Folder Validation Failed": "IMAP 文件夹验证失败",
+			"IMAP Folder name cannot be empty.": "IMAP 文件夹名称不能为空。",
+			"NEVER": "从不",
+			"No IMAP folders were found on the server. Please verify the email account settings and ensure the mailbox contains folders.": "服务器上未找到 IMAP 文件夹。请检查邮件账户设置，并确认邮箱中存在文件夹。",
+			"Outgoing": "发件",
+			"Raw HTML emails are rendered as complete Jinja templates. Otherwise, emails are wrapped in the standard.html email template, which inserts brand_logo, header and footer.": "原始 HTML 邮件将作为完整的 Jinja 模板渲染；否则邮件会套用 standard.html 模板，并插入 brand_logo、页眉和页脚。",
+			"Redact Message After Send": "发送后清除邮件正文",
+			"Replace the message body with a placeholder once the email has been sent, so that sensitive content like password reset links is not retained in the queue.": "邮件发送后用占位内容替换正文，避免密码重置链接等敏感内容保留在队列中。",
+			"Reply To email is required": "必须填写回复地址电子邮箱",
+			"Reply-To Addresses": "回复地址",
+			"SUCCESS": "成功",
+			"SUCCESS,FAILURE": "成功、失败",
+			"SUCCESS,FAILURE,DELAY": "成功、失败、延迟",
+			"Select which delivery events should trigger a delivery status notification (DSN) from the SMTP server.": "选择哪些送达事件应触发 SMTP 服务器的送达状态通知（DSN）。",
+			"Send As Raw HTML": "以原始 HTML 发送",
+			"The configured SMTP server does not support DSN (Delivery Status Notification).": "配置的 SMTP 服务器不支持 DSN（送达状态通知）。",
+			"The following configured IMAP folder(s) were not found or are not accessible on the server:<br><ul>{0}</ul>Please verify the folder names exactly as they appear on the server and ensure the account has access to them.": "服务器上找不到或无法访问以下已配置的 IMAP 文件夹：<br><ul>{0}</ul>请核对文件夹名称与服务器上的显示完全一致，并确认该账户有权访问。",
+		}
+		for source, translation in expected.items():
+			with self.subTest(source=source):
+				message = self.catalog.get(source)
+				self.assertIsNotNone(message)
+				self.assertNotIn("fuzzy", message.flags)
+				self.assertEqual(message.string, translation)

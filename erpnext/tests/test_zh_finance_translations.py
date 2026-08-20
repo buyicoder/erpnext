@@ -412,6 +412,44 @@ class TestZhFinanceTranslations(TestCase):
 				)
 		self.assertEqual(missing, [])
 
+	def test_frappe_email_account_and_queue_have_runtime_chinese_owners(self):
+		non_chinese_literals = {
+			"GMail": "Gmail",
+			"OAuth": "OAuth",
+			"Outlook.com": "Outlook.com",
+		}
+		location_prefixes = (
+			"frappe/email/doctype/email_account/",
+			"frappe/email/doctype/email_queue/",
+		)
+		missing = []
+		for source_message in self.frappe_runtime_catalog:
+			if not source_message.id or not any(
+				path.startswith(location_prefixes) for path, _line in source_message.locations
+			):
+				continue
+			owner = self.merged_frappe_catalog.get(
+				source_message.id,
+				context=source_message.context,
+			)
+			if source_message.id in non_chinese_literals:
+				if (
+					owner
+					and owner.string == non_chinese_literals[source_message.id]
+					and "fuzzy" not in owner.flags
+					and self._message_is_valid(owner)
+				):
+					continue
+			if not self._is_usable_translation(owner, source_message.id):
+				missing.append(
+					{
+						"id": source_message.id,
+						"context": source_message.context,
+						"locations": list(source_message.locations),
+					}
+				)
+		self.assertEqual(missing, [])
+
 	def test_statement_email_help_matches_the_chinese_defaults(self):
 		messages = [
 			message
