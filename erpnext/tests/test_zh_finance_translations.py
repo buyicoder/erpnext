@@ -450,6 +450,49 @@ class TestZhFinanceTranslations(TestCase):
 				)
 		self.assertEqual(missing, [])
 
+	def test_frappe_notification_configuration_has_runtime_chinese_owners(self):
+		non_chinese_literals = {"HTML", "Markdown", "Python", "Slack"}
+		reviewed_template_translations = {
+			'<p><strong>{{ __("Condition Examples") }}:</strong></p>\n<pre><code class="language-python">doc.status=="Open"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</code></pre>\n': '<p><strong>{{ __("Condition Examples") }}：</strong></p>\n<pre><code class="language-python">doc.status=="Open"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</code></pre>\n',
+			'<p><strong>{{ __("Condition Examples") }}:</strong></p>\n<pre>doc.status=="Open"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</pre>': '<p><strong>{{ __("Condition Examples") }}：</strong></p>\n<pre>doc.status=="Open"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</pre>',
+		}
+		location_prefix = "frappe/email/doctype/notification/"
+		missing = []
+		for source_message in self.frappe_runtime_catalog:
+			if not source_message.id or not any(
+				path.startswith(location_prefix) for path, _line in source_message.locations
+			):
+				continue
+			owner = self.merged_frappe_catalog.get(
+				source_message.id,
+				context=source_message.context,
+			)
+			if (
+				source_message.id in non_chinese_literals
+				and owner
+				and owner.string == source_message.id
+				and "fuzzy" not in owner.flags
+				and self._message_is_valid(owner)
+			):
+				continue
+			if (
+				source_message.id in reviewed_template_translations
+				and owner
+				and owner.string == reviewed_template_translations[source_message.id]
+				and "fuzzy" not in owner.flags
+				and self._message_is_valid(owner)
+			):
+				continue
+			if not self._is_usable_translation(owner, source_message.id):
+				missing.append(
+					{
+						"id": source_message.id,
+						"context": source_message.context,
+						"locations": list(source_message.locations),
+					}
+				)
+		self.assertEqual(missing, [])
+
 	def test_statement_email_help_matches_the_chinese_defaults(self):
 		messages = [
 			message

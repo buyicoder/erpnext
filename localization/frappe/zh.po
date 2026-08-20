@@ -516,6 +516,54 @@ msgstr "配置的 SMTP 服务器不支持 DSN（送达状态通知）。"
 msgid "The following configured IMAP folder(s) were not found or are not accessible on the server:<br><ul>{0}</ul>Please verify the folder names exactly as they appear on the server and ensure the account has access to them."
 msgstr "服务器上找不到或无法访问以下已配置的 IMAP 文件夹：<br><ul>{0}</ul>请核对文件夹名称与服务器上的显示完全一致，并确认该账户有权访问。"
 
+msgid ""
+"<p><strong>{{ __(\"Condition Examples\") }}:</strong></p>\n"
+"<pre><code class=\"language-python\">doc.status==\"Open\"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n"
+"</code></pre>\n"
+msgstr ""
+"<p><strong>{{ __(\"Condition Examples\") }}：</strong></p>\n"
+"<pre><code class=\"language-python\">doc.status==\"Open\"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n"
+"</code></pre>\n"
+
+msgid ""
+"<p><strong>{{ __(\"Condition Examples\") }}:</strong></p>\n"
+"<pre>doc.status==\"Open\"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n"
+"</pre>"
+msgstr ""
+"<p><strong>{{ __(\"Condition Examples\") }}：</strong></p>\n"
+"<pre>doc.status==\"Open\"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n"
+"</pre>"
+
+msgid "Category for the in-app notification. Used for filtering and per-user email preferences."
+msgstr "应用内通知的分类，用于筛选和设置每位用户的邮件偏好。"
+
+msgid "From Attach Field"
+msgstr "来自附件字段"
+
+msgid "From Field"
+msgstr "来自字段"
+
+msgid "Headline of the in-app notification. Falls back to Subject if left blank. Supports Jinja."
+msgstr "应用内通知的标题；留空时使用主题。支持 Jinja。"
+
+msgid "Notification Message"
+msgstr "通知内容"
+
+msgid "Notification Title"
+msgstr "通知标题"
+
+msgid "Notification Type"
+msgstr "通知类型"
+
+msgid "Optional body of the in-app notification. Supports Jinja."
+msgstr "应用内通知的可选正文。支持 Jinja。"
+
+msgid "Please specify the field from which to attach files"
+msgstr "请指定用于获取附件的字段"
+
+msgid "You are not allowed to delete a standard Notification. You can disable it instead."
+msgstr "您无权删除标准通知，可以将其禁用。"
+
 msgid "Warning"
 msgstr "警告"
 

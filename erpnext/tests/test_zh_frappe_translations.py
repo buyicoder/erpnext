@@ -233,3 +233,25 @@ class TestZhFrappeTranslations(TestCase):
 				self.assertIsNotNone(message)
 				self.assertNotIn("fuzzy", message.flags)
 				self.assertEqual(message.string, translation)
+
+	def test_notification_configuration_uses_reviewed_chinese(self):
+		expected = {
+			'<p><strong>{{ __("Condition Examples") }}:</strong></p>\n<pre><code class="language-python">doc.status=="Open"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</code></pre>\n': '<p><strong>{{ __("Condition Examples") }}：</strong></p>\n<pre><code class="language-python">doc.status=="Open"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</code></pre>\n',
+			'<p><strong>{{ __("Condition Examples") }}:</strong></p>\n<pre>doc.status=="Open"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</pre>': '<p><strong>{{ __("Condition Examples") }}：</strong></p>\n<pre>doc.status=="Open"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</pre>',
+			"Category for the in-app notification. Used for filtering and per-user email preferences.": "应用内通知的分类，用于筛选和设置每位用户的邮件偏好。",
+			"From Attach Field": "来自附件字段",
+			"From Field": "来自字段",
+			"Headline of the in-app notification. Falls back to Subject if left blank. Supports Jinja.": "应用内通知的标题；留空时使用主题。支持 Jinja。",
+			"Notification Message": "通知内容",
+			"Notification Title": "通知标题",
+			"Notification Type": "通知类型",
+			"Optional body of the in-app notification. Supports Jinja.": "应用内通知的可选正文。支持 Jinja。",
+			"Please specify the field from which to attach files": "请指定用于获取附件的字段",
+			"You are not allowed to delete a standard Notification. You can disable it instead.": "您无权删除标准通知，可以将其禁用。",
+		}
+		for source, translation in expected.items():
+			with self.subTest(source=source):
+				message = self.catalog.get(source)
+				self.assertIsNotNone(message)
+				self.assertNotIn("fuzzy", message.flags)
+				self.assertEqual(message.string, translation)
