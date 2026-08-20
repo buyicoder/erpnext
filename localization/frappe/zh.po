@@ -285,6 +285,72 @@ msgstr "你的登录账号是："
 msgid "Your password has expired. Please set a new password."
 msgstr "你的密码已过期，请设置新密码。"
 
+msgid ""
+"0 - too guessable: risky password.\n"
+"<br>\n"
+"1 - very guessable: protection from throttled online attacks. \n"
+"<br>\n"
+"2 - somewhat guessable: protection from unthrottled online attacks.\n"
+"<br>\n"
+"3 - safely unguessable: moderate protection from offline slow-hash scenario.\n"
+"<br>\n"
+"4 - very unguessable: strong protection from offline slow-hash scenario."
+msgstr ""
+"0 - 极易猜中：密码风险很高。\n"
+"<br>\n"
+"1 - 很容易猜中：只能抵御受限速的在线攻击。\n"
+"<br>\n"
+"2 - 较容易猜中：可以抵御未限速的在线攻击。\n"
+"<br>\n"
+"3 - 难以猜中：可以适度抵御离线慢速哈希破解。\n"
+"<br>\n"
+"4 - 极难猜中：可以有效抵御离线慢速哈希破解。"
+
+msgid "Adds a clear (×) button to Link fields, allowing users to quickly remove the selected value."
+msgstr "为链接字段添加清除（×）按钮，便于用户快速移除已选值。"
+
+msgid "Allow Clearing Link Fields"
+msgstr "允许清除链接字段"
+
+msgid "Allowed Doctypes for Guest Uploads"
+msgstr "访客可上传文件的单据类型"
+
+msgid "Disable Product Suggestion"
+msgstr "禁用产品推荐"
+
+msgid "If enabled, only System Managers can upload public files. Other users can't see the checkbox <i>Is Private</i> in the upload dialog."
+msgstr "启用后，仅系统管理员可以上传公开文件；其他用户在上传对话框中看不到“<i>设为私有</i>”复选框。"
+
+msgid "Max Zip Extract Size (MB)"
+msgstr "ZIP 最大解压大小（MB）"
+
+msgid "Maximum total size a ZIP archive is allowed to expand to when extracted."
+msgstr "ZIP 压缩包解压后允许达到的最大总大小。"
+
+msgid "OTP SMS Template"
+msgstr "一次性验证码短信模板"
+
+msgid "OTP SMS Template must contain <code>{0}</code> placeholder to insert the OTP."
+msgstr "一次性验证码短信模板必须包含 <code>{0}</code> 占位符以插入验证码。"
+
+msgid "OTP placeholder should be defined as <code>{{ otp }}</code> "
+msgstr "一次性验证码占位符应定义为 <code>{{ otp }}</code>。"
+
+msgid "Only allow System Managers to upload public files"
+msgstr "仅允许系统管理员上传公开文件"
+
+msgid "Provide a list of allowed Doctypes for file uploads. Each line should contain one allowed Doctype. If unset, uploads to all doctypes are allowed. Example: <br>User<br>Item<br>Quotation"
+msgstr "请提供允许上传文件的单据类型列表，每行填写一个单据类型。留空时允许向所有单据类型上传。示例：<br>用户<br>物料<br>报价单"
+
+msgid "Snapshot Reports"
+msgstr "快照报表"
+
+msgid "Sync In Batches"
+msgstr "分批同步"
+
+msgid "Sync Timeout (Seconds)"
+msgstr "同步超时时间（秒）"
+
 msgid "Warning"
 msgstr "警告"
 

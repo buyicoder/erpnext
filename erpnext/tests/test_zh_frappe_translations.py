@@ -132,3 +132,29 @@ class TestZhFrappeTranslations(TestCase):
 				self.assertIsNotNone(message)
 				self.assertNotIn("fuzzy", message.flags)
 				self.assertEqual(message.string, translation)
+
+	def test_system_settings_use_reviewed_chinese(self):
+		expected = {
+			"0 - too guessable: risky password.\n<br>\n1 - very guessable: protection from throttled online attacks. \n<br>\n2 - somewhat guessable: protection from unthrottled online attacks.\n<br>\n3 - safely unguessable: moderate protection from offline slow-hash scenario.\n<br>\n4 - very unguessable: strong protection from offline slow-hash scenario.": "0 - 极易猜中：密码风险很高。\n<br>\n1 - 很容易猜中：只能抵御受限速的在线攻击。\n<br>\n2 - 较容易猜中：可以抵御未限速的在线攻击。\n<br>\n3 - 难以猜中：可以适度抵御离线慢速哈希破解。\n<br>\n4 - 极难猜中：可以有效抵御离线慢速哈希破解。",
+			"Adds a clear (×) button to Link fields, allowing users to quickly remove the selected value.": "为链接字段添加清除（×）按钮，便于用户快速移除已选值。",
+			"Allow Clearing Link Fields": "允许清除链接字段",
+			"Allowed Doctypes for Guest Uploads": "访客可上传文件的单据类型",
+			"Disable Product Suggestion": "禁用产品推荐",
+			"If enabled, only System Managers can upload public files. Other users can't see the checkbox <i>Is Private</i> in the upload dialog.": "启用后，仅系统管理员可以上传公开文件；其他用户在上传对话框中看不到“<i>设为私有</i>”复选框。",
+			"Max Zip Extract Size (MB)": "ZIP 最大解压大小（MB）",
+			"Maximum total size a ZIP archive is allowed to expand to when extracted.": "ZIP 压缩包解压后允许达到的最大总大小。",
+			"OTP SMS Template": "一次性验证码短信模板",
+			"OTP SMS Template must contain <code>{0}</code> placeholder to insert the OTP.": "一次性验证码短信模板必须包含 <code>{0}</code> 占位符以插入验证码。",
+			"OTP placeholder should be defined as <code>{{ otp }}</code> ": "一次性验证码占位符应定义为 <code>{{ otp }}</code>。",
+			"Only allow System Managers to upload public files": "仅允许系统管理员上传公开文件",
+			"Provide a list of allowed Doctypes for file uploads. Each line should contain one allowed Doctype. If unset, uploads to all doctypes are allowed. Example: <br>User<br>Item<br>Quotation": "请提供允许上传文件的单据类型列表，每行填写一个单据类型。留空时允许向所有单据类型上传。示例：<br>用户<br>物料<br>报价单",
+			"Snapshot Reports": "快照报表",
+			"Sync In Batches": "分批同步",
+			"Sync Timeout (Seconds)": "同步超时时间（秒）",
+		}
+		for source, translation in expected.items():
+			with self.subTest(source=source):
+				message = self.catalog.get(source)
+				self.assertIsNotNone(message)
+				self.assertNotIn("fuzzy", message.flags)
+				self.assertEqual(message.string, translation)
