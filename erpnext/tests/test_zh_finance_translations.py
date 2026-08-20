@@ -996,6 +996,37 @@ class TestZhFinanceTranslations(TestCase):
 		self.assertIn(': __("Dimension Enabled")', source)
 		self.assertNotIn('__(message)', source)
 
+	def test_stock_reposting_confirmations_and_hold_reason_use_static_templates(self):
+		translations = {
+			"Creating reposting entries will change Stock In Hand and Stock Expenses in the Trial Balance, and the Balance Value in the Stock Balance report.": "创建重新过账记录将更改试算平衡表中的存货和存货费用，并同时更改库存余额报表中的余额。",
+			"Are you sure you want to create the selected reposting entries?": "确定要创建所选的重新过账记录吗？",
+			"Reason for hold: {0}": "暂停原因：{0}",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+		repo_root = Path(__file__).parents[2]
+		for relative_path in (
+			"erpnext/stock/report/stock_and_account_value_comparison/stock_and_account_value_comparison.js",
+			"erpnext/stock/report/stock_ledger_invariant_check/stock_ledger_invariant_check.js",
+			"erpnext/stock/report/stock_ledger_variance/stock_ledger_variance.js",
+		):
+			source = (repo_root / relative_path).read_text()
+			self.assertIn(
+				'"Creating reposting entries will change Stock In Hand and Stock Expenses in the Trial Balance, and the Balance Value in the Stock Balance report."',
+				source,
+			)
+			self.assertIn('__("Are you sure you want to create the selected reposting entries?")', source)
+			self.assertIn("frappe.confirm(message,", source)
+			self.assertNotIn("frappe.confirm(__(message)", source)
+
+		purchase_order = (
+			repo_root / "erpnext/buying/doctype/purchase_order/purchase_order.js"
+		).read_text()
+		self.assertIn('__("Reason for hold: {0}", [data.reason_for_hold])', purchase_order)
+		self.assertNotIn('content: __(reason_for_hold)', purchase_order)
+
 	def test_public_frontend_uses_reviewed_chinese_terms(self):
 		translations = {
 			" Phantom Item": " 虚拟物料",

@@ -51667,6 +51667,22 @@ msgstr "辅助核算已禁用"
 msgid "Dimension Enabled"
 msgstr "辅助核算已启用"
 
+#: erpnext/stock/report/stock_and_account_value_comparison/stock_and_account_value_comparison.js:50
+#: erpnext/stock/report/stock_ledger_invariant_check/stock_ledger_invariant_check.js:61
+#: erpnext/stock/report/stock_ledger_variance/stock_ledger_variance.js:91
+msgid "Creating reposting entries will change Stock In Hand and Stock Expenses in the Trial Balance, and the Balance Value in the Stock Balance report."
+msgstr "创建重新过账记录将更改试算平衡表中的存货和存货费用，并同时更改库存余额报表中的余额。"
+
+#: erpnext/stock/report/stock_and_account_value_comparison/stock_and_account_value_comparison.js:52
+#: erpnext/stock/report/stock_ledger_invariant_check/stock_ledger_invariant_check.js:63
+#: erpnext/stock/report/stock_ledger_variance/stock_ledger_variance.js:93
+msgid "Are you sure you want to create the selected reposting entries?"
+msgstr "确定要创建所选的重新过账记录吗？"
+
+#: erpnext/buying/doctype/purchase_order/purchase_order.js:705
+msgid "Reason for hold: {0}"
+msgstr "暂停原因：{0}"
+
 #: erpnext/setup/setup_wizard/operations/defaults_setup.py:70
 #: erpnext/setup/setup_wizard/operations/install_fixtures.py:488
 #: erpnext/tests/utils.py:275

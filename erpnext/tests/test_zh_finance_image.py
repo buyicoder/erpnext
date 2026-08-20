@@ -222,6 +222,9 @@ class TestZhFinanceImage(TestCase):
 			"erpnext/accounts/doctype/bank_statement_import/bank_statement_import.py",
 			"erpnext/stock/reorder_item.py",
 			"erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.py",
+			"erpnext/stock/report/stock_and_account_value_comparison/stock_and_account_value_comparison.js",
+			"erpnext/stock/report/stock_ledger_invariant_check/stock_ledger_invariant_check.js",
+			"erpnext/stock/report/stock_ledger_variance/stock_ledger_variance.js",
 		):
 			self.assertIn(source_path, self.containerfile)
 		self.assertIn("erpnext/crm/doctype/email_campaign/email_campaign.py", self.containerfile)

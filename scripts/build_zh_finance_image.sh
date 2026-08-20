@@ -236,6 +236,9 @@ expected_translations = {
 	"Unable to repost item valuation": "无法执行物料成本价追溯调整",
 	"Dimension Disabled": "辅助核算已禁用",
 	"Dimension Enabled": "辅助核算已启用",
+	"Creating reposting entries will change Stock In Hand and Stock Expenses in the Trial Balance, and the Balance Value in the Stock Balance report.": "创建重新过账记录将更改试算平衡表中的存货和存货费用，并同时更改库存余额报表中的余额。",
+	"Are you sure you want to create the selected reposting entries?": "确定要创建所选的重新过账记录吗？",
+	"Reason for hold: {0}": "暂停原因：{0}",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)
