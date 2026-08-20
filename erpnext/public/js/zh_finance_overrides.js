@@ -8,6 +8,7 @@ import {
 	localize_list_filter_title,
 	localize_list_sort_title,
 	localize_list_value_title,
+	localize_photoswipe_title,
 	localize_quill_accessibility_value,
 	localize_sidebar_editor_text,
 	localize_awesomplete_status_text,
@@ -48,6 +49,7 @@ if (frappe.boot.lang === "zh") {
 	const tree_level_selector = "#tree-level[aria-label='Tree Level']";
 	const assignment_actions_selector =
 		".dialog-assignment-row .btn-group[role='group'][aria-label='Actions']";
+	const photoswipe_control_selector = ".pswp .pswp__button[title]";
 	const list_sort_selector = ".list-row-head [data-sort-by][title]";
 	const list_filter_selector = ".filter-button[title$='Filter Applied'], .filter-button[title$='Filters Applied']";
 	const list_value_title_selector = ".list-row .ellipsis[title]";
@@ -144,6 +146,17 @@ if (frappe.boot.lang === "zh") {
 			if (localized !== original) element.setAttribute("aria-label", localized);
 		});
 	};
+	const localize_photoswipe_controls = (root = document) => {
+		if (!root) return;
+		const elements = root.matches?.(photoswipe_control_selector)
+			? [root]
+			: root.querySelectorAll?.(photoswipe_control_selector) || [];
+		elements.forEach((element) => {
+			const original = element.title;
+			const localized = localize_photoswipe_title(original);
+			if (localized !== original) element.title = localized;
+		});
+	};
 	const localize_list_titles = (root = document) => {
 		if (!root) return;
 		const filter_controls = root.matches?.(list_filter_selector)
@@ -204,6 +217,7 @@ if (frappe.boot.lang === "zh") {
 	localize_timeline();
 	localize_datatable_controls();
 	localize_assignment_actions();
+	localize_photoswipe_controls();
 	localize_list_titles();
 	localize_sidebar_editor();
 	localize_quill_accessibility();
@@ -212,6 +226,7 @@ if (frappe.boot.lang === "zh") {
 			if (mutation.type === "attributes") {
 				localize_datatable_controls(mutation.target);
 				localize_assignment_actions(mutation.target);
+				localize_photoswipe_controls(mutation.target);
 				localize_list_titles(mutation.target);
 				localize_quill_accessibility(mutation.target);
 				return;
@@ -246,6 +261,7 @@ if (frappe.boot.lang === "zh") {
 				localize_timeline(node);
 				localize_datatable_controls(node);
 				localize_assignment_actions(node);
+				localize_photoswipe_controls(node);
 				localize_list_titles(node);
 				localize_sidebar_editor(node);
 				localize_quill_accessibility(node);

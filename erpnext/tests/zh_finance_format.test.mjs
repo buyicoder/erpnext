@@ -12,6 +12,7 @@ import {
 	localize_list_filter_title,
 	localize_list_sort_title,
 	localize_list_value_title,
+	localize_photoswipe_title,
 	localize_quill_accessibility_value,
 	localize_sidebar_editor_text,
 	localize_awesomplete_status_text,
@@ -83,6 +84,22 @@ test("localizes only the assignment action-group accessibility label", () => {
 	assert.equal(localize_assignment_actions_label("Actions", translate), "操作");
 	assert.equal(localize_assignment_actions_label("操作", translate), "操作");
 	assert.equal(localize_assignment_actions_label("Bulk Actions", translate), "Bulk Actions");
+});
+
+test("localizes every PhotoSwipe image-viewer control title", () => {
+	const expected = new Map([
+		["Close (Esc)", "关闭（Esc）"],
+		["Share", "共享"],
+		["Toggle fullscreen", "切换全屏"],
+		["Zoom in/out", "放大或缩小"],
+		["Previous (arrow left)", "上一张（左方向键）"],
+		["Next (arrow right)", "下一张（右方向键）"],
+	]);
+	for (const [source, translation] of expected) {
+		assert.equal(localize_photoswipe_title(source), translation);
+	}
+	assert.equal(localize_photoswipe_title("Download"), "Download");
+	assert.equal(localize_photoswipe_title("constructor"), "constructor");
 });
 
 test("localizes list sorting and translated-value tooltips", () => {

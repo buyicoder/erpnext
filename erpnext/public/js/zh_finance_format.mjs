@@ -83,6 +83,18 @@ export const localize_tree_level_label = (text, translate) =>
 export const localize_assignment_actions_label = (text, translate) =>
 	text === "Actions" ? translate(text) : text;
 
+const PHOTOSWIPE_TITLES = {
+	"Close (Esc)": "关闭（Esc）",
+	Share: "共享",
+	"Toggle fullscreen": "切换全屏",
+	"Zoom in/out": "放大或缩小",
+	"Previous (arrow left)": "上一张（左方向键）",
+	"Next (arrow right)": "下一张（右方向键）",
+};
+
+export const localize_photoswipe_title = (title) =>
+	Object.hasOwn(PHOTOSWIPE_TITLES, title) ? PHOTOSWIPE_TITLES[title] : title;
+
 export const localize_list_sort_title = (title, visible_label, translate) => {
 	if (!title || !visible_label) return title;
 	return translate("Click to sort by {0}", [visible_label.trim()]);

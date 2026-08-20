@@ -464,6 +464,7 @@ class TestZhFinanceImage(TestCase):
 			".dialog-assignment-row .btn-group[role='group'][aria-label='Actions']",
 			self.browser_overrides,
 		)
+		self.assertIn('.pswp .pswp__button[title]', self.browser_overrides)
 		self.assertIn("div[style*='text-align: right']", self.browser_overrides)
 		self.assertIn(".list-row-head [data-sort-by][title]", self.browser_overrides)
 		self.assertIn(".list-row .ellipsis[title]", self.browser_overrides)
