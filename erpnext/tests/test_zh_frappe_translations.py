@@ -255,3 +255,25 @@ class TestZhFrappeTranslations(TestCase):
 				self.assertIsNotNone(message)
 				self.assertNotIn("fuzzy", message.flags)
 				self.assertEqual(message.string, translation)
+
+	def test_form_timeline_uses_reviewed_chinese(self):
+		expected = {
+			"You created this document": "你创建了此单据",
+			"added {0} row(s) to {1}": "在 {1} 中新增了 {0} 行",
+			"cancelled this document": "取消了此单据",
+			"changed {0}": "修改了 {0}",
+			"cleared {0}": "清空了 {0}",
+			"removed {0} row(s) from {1}": "从 {1} 中移除了 {0} 行",
+			"set {0} to": "将 {0} 设置为",
+			"set {0} to {1} in row #{2}": "将第 {2} 行的 {0} 设置为 {1}",
+			"submitted this document": "提交了此单据",
+			"updated {0}": "更新了 {0}",
+			"{0} created this document": "{0} 创建了此单据",
+			"{0} liked": "{0} 点赞了",
+		}
+		for source, translation in expected.items():
+			with self.subTest(source=source):
+				message = self.catalog.get(source)
+				self.assertIsNotNone(message)
+				self.assertNotIn("fuzzy", message.flags)
+				self.assertEqual(message.string, translation)

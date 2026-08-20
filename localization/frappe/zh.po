@@ -564,6 +564,42 @@ msgstr "请指定用于获取附件的字段"
 msgid "You are not allowed to delete a standard Notification. You can disable it instead."
 msgstr "您无权删除标准通知，可以将其禁用。"
 
+msgid "You created this document"
+msgstr "你创建了此单据"
+
+msgid "added {0} row(s) to {1}"
+msgstr "在 {1} 中新增了 {0} 行"
+
+msgid "cancelled this document"
+msgstr "取消了此单据"
+
+msgid "changed {0}"
+msgstr "修改了 {0}"
+
+msgid "cleared {0}"
+msgstr "清空了 {0}"
+
+msgid "removed {0} row(s) from {1}"
+msgstr "从 {1} 中移除了 {0} 行"
+
+msgid "set {0} to"
+msgstr "将 {0} 设置为"
+
+msgid "set {0} to {1} in row #{2}"
+msgstr "将第 {2} 行的 {0} 设置为 {1}"
+
+msgid "submitted this document"
+msgstr "提交了此单据"
+
+msgid "updated {0}"
+msgstr "更新了 {0}"
+
+msgid "{0} created this document"
+msgstr "{0} 创建了此单据"
+
+msgid "{0} liked"
+msgstr "{0} 点赞了"
+
 msgid "Warning"
 msgstr "警告"
 
