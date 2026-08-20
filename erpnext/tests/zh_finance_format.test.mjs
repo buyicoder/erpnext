@@ -5,6 +5,7 @@ import {
 	format_compact_cny_text,
 	format_month_year_text,
 	localize_audit_doctype_text,
+	localize_assignment_actions_label,
 	localize_compact_cny_element,
 	localize_datatable_filter_title,
 	localize_login_activity_text,
@@ -75,6 +76,13 @@ test("localizes report datatable accessibility labels", () => {
 	assert.equal(localize_datatable_filter_title("按科目筛选", translate), "按科目筛选");
 	assert.equal(localize_tree_level_label("Tree Level", translate), "树形层级");
 	assert.equal(localize_tree_level_label("Level", translate), "Level");
+});
+
+test("localizes only the assignment action-group accessibility label", () => {
+	const translate = (message) => (message === "Actions" ? "操作" : message);
+	assert.equal(localize_assignment_actions_label("Actions", translate), "操作");
+	assert.equal(localize_assignment_actions_label("操作", translate), "操作");
+	assert.equal(localize_assignment_actions_label("Bulk Actions", translate), "Bulk Actions");
 });
 
 test("localizes list sorting and translated-value tooltips", () => {

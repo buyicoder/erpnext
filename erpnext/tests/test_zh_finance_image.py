@@ -460,6 +460,10 @@ class TestZhFinanceImage(TestCase):
 	def test_report_datatable_controls_are_localized(self):
 		self.assertIn("input.dt-filter[title^='Filter based on ']", self.browser_overrides)
 		self.assertIn("#tree-level[aria-label='Tree Level']", self.browser_overrides)
+		self.assertIn(
+			".dialog-assignment-row .btn-group[role='group'][aria-label='Actions']",
+			self.browser_overrides,
+		)
 		self.assertIn("div[style*='text-align: right']", self.browser_overrides)
 		self.assertIn(".list-row-head [data-sort-by][title]", self.browser_overrides)
 		self.assertIn(".list-row .ellipsis[title]", self.browser_overrides)

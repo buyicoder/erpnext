@@ -80,6 +80,9 @@ export const localize_datatable_filter_title = (text, translate) => {
 export const localize_tree_level_label = (text, translate) =>
 	text === "Tree Level" ? translate(text) : text;
 
+export const localize_assignment_actions_label = (text, translate) =>
+	text === "Actions" ? translate(text) : text;
+
 export const localize_list_sort_title = (title, visible_label, translate) => {
 	if (!title || !visible_label) return title;
 	return translate("Click to sort by {0}", [visible_label.trim()]);
