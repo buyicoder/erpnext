@@ -8035,7 +8035,7 @@ msgstr "本币单价"
 #. Entry'
 #: erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.json
 msgid "Base Tax Withheld"
-msgstr "本位币代扣税额"
+msgstr "本位币扣缴税额"
 
 #. Label of the taxable_amount (Currency) field in DocType 'Tax Withholding
 #. Entry'
@@ -9761,7 +9761,7 @@ msgstr "不允许修订 {0} {1}，请创建新单据"
 
 #: erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.py:1298
 msgid "Cannot apply TDS against multiple parties in one entry"
-msgstr "单笔凭证不能为多方应用源头减税"
+msgstr "单笔分录不能对多个往来方应用税款扣缴"
 
 #: erpnext/stock/doctype/item/item.py:362
 msgid "Cannot be a fixed asset item as Stock Ledger is created."
@@ -12261,12 +12261,12 @@ msgstr "用途"
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.json
 #: erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json
 msgid "Consider for Tax Withholding"
-msgstr "计入代扣税计算"
+msgstr "计入税款扣缴计算"
 
 #. Label of the apply_tds (Check) field in DocType 'Journal Entry'
 #: erpnext/accounts/doctype/journal_entry/journal_entry.json
 msgid "Consider for Tax Withholding "
-msgstr "计入代扣税计算"
+msgstr "计入税款扣缴计算"
 
 #. Label of the included_in_paid_amount (Check) field in DocType 'Advance Taxes
 #. and Charges'
@@ -18609,7 +18609,7 @@ msgstr "编辑收据"
 #: erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.json
 msgid "Edit Tax Withholding Entries"
-msgstr "编辑代扣税分录"
+msgstr "编辑税款扣缴分录"
 
 #: banking/src/components/features/BankReconciliation/Rules/EditRule.tsx:51
 msgid "Edit this rule"
@@ -24215,7 +24215,7 @@ msgstr "隐藏系统生成的贷/借记单"
 #: erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.json
 msgid "Ignore Tax Withholding Threshold"
-msgstr "忽略代扣税起征点"
+msgstr "忽略税款扣缴起征点"
 
 #. Label of the ignore_user_time_overlap (Check) field in DocType 'Projects
 #. Settings'
@@ -26554,7 +26554,7 @@ msgstr "是否为委外物料"
 #: erpnext/accounts/doctype/purchase_taxes_and_charges/purchase_taxes_and_charges.json
 #: erpnext/accounts/doctype/sales_taxes_and_charges/sales_taxes_and_charges.json
 msgid "Is Tax Withholding Account"
-msgstr "是代扣税科目"
+msgstr "是税款扣缴科目"
 
 #. Label of the is_template (Check) field in DocType 'Task'
 #: erpnext/projects/doctype/task/task.json
@@ -32674,11 +32674,11 @@ msgstr "未检测到表格"
 
 #: erpnext/accounts/doctype/tax_withholding_category/tax_withholding_category.py:100
 msgid "No Tax Withholding data found for the current posting date."
-msgstr "当前过账日期未找到代扣税数据"
+msgstr "当前记账日期未找到税款扣缴数据。"
 
 #: erpnext/accounts/doctype/tax_withholding_category/tax_withholding_category.py:108
 msgid "No Tax withholding account set for Company {0} in Tax Withholding Category {1}."
-msgstr "公司 {0} 未在代扣税类别 {1} 中设置代扣税科目。"
+msgstr "公司 {0} 未在税款扣缴类别 {1} 中设置税款扣缴科目。"
 
 #: erpnext/accounts/report/gross_profit/gross_profit.py:998
 msgid "No Terms"
@@ -41639,7 +41639,7 @@ msgstr "采购税费模板"
 #. 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Purchase Tax Withholding Category"
-msgstr "采购代扣税类别"
+msgstr "采购代扣代缴税款类别"
 
 #. Label of the taxes (Table) field in DocType 'Purchase Invoice'
 #. Name of a DocType
@@ -42984,7 +42984,7 @@ msgstr "物料单价基于"
 #. Label of the rate (Percent) field in DocType 'Lower Deduction Certificate'
 #: erpnext/regional/doctype/lower_deduction_certificate/lower_deduction_certificate.json
 msgid "Rate Of TDS As Per Certificate"
-msgstr "按凭证的TDS费率"
+msgstr "按证明核定的代扣税率"
 
 #. Label of the section_break_6 (Section Break) field in DocType 'Serial and
 #. Batch Entry'
@@ -46257,7 +46257,7 @@ msgstr "第{0}行：无法取消本库存凭证，因关联受托加工订单中
 
 #: erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.py:78
 msgid "Row #{0}: Cannot create entry with different taxable AND withholding document links."
-msgstr "第 {0} 行：不能同时关联不同的计税单据和扣缴单据。"
+msgstr "第 {0} 行：计税单据与扣缴单据不一致，无法创建分录。"
 
 #: erpnext/controllers/accounts_controller.py:3864
 msgid "Row #{0}: Cannot delete item {1} which has already been billed."
@@ -48284,7 +48284,7 @@ msgstr "销售税费模板"
 #. Label of the sales_tax_withholding_category (Link) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Sales Tax Withholding Category"
-msgstr "销售代扣税类别"
+msgstr "销售代收代缴税款类别"
 
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/accounts_setup.json
@@ -49197,7 +49197,7 @@ msgstr "选择日期和时区"
 #. 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "Select the group first to filter the applicable withholding categories below."
-msgstr "请先选择客户组，以筛选下方适用的代扣税类别。"
+msgstr "请先选择客户组，以筛选下方适用的代收代缴税款类别。"
 
 #: erpnext/public/js/setup_wizard.js:89
 msgid "Select the modules that you plan to implement"
@@ -54267,28 +54267,28 @@ msgstr "系统将通知增减数量或金额"
 #. 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
 msgid "TDS / withholding tax category applied when paying this supplier"
-msgstr "向该供应商付款时适用的代扣税类别"
+msgstr "向该供应商付款时适用的代扣代缴税款类别"
 
 #. Name of a report
 #. Label of a Workspace Sidebar Item
 #: erpnext/accounts/report/tds_computation_summary/tds_computation_summary.json
 #: erpnext/workspace_sidebar/taxes.json
 msgid "TDS Computation Summary"
-msgstr "代扣所得税摘要"
+msgstr "代扣税款计算汇总"
 
 #: erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:1609
 msgid "TDS Deducted"
-msgstr "已扣除TDS"
+msgstr "已代扣税款"
 
 #: erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts_with_account_number.py:287
 msgid "TDS Payable"
-msgstr "应付TDS"
+msgstr "应付代扣税款"
 
 #. Description of the 'Tax Withholding Category' (Link) field in DocType
 #. 'Customer'
 #: erpnext/selling/doctype/customer/customer.json
 msgid "TDS/TCS is calculated at the rate defined here on every payment from this customer."
-msgstr "收到该客户每笔付款时，均按此处定义的税率计算代扣代缴税。"
+msgstr "收到该客户每笔付款时，均按此处定义的税率计算代收代缴税款。"
 
 #. Description of a DocType
 #: erpnext/stock/doctype/item_website_specification/item_website_specification.json
@@ -54786,12 +54786,12 @@ msgstr "税别"
 #. Entry'
 #: erpnext/accounts/doctype/journal_entry/journal_entry.json
 msgid "Tax Withholding"
-msgstr "税款代扣代缴"
+msgstr "税款扣缴"
 
 #. Name of a DocType
 #: erpnext/accounts/doctype/tax_withholding_account/tax_withholding_account.json
 msgid "Tax Withholding Account"
-msgstr "代扣税款科目"
+msgstr "税款扣缴科目"
 
 #. Label of the tax_withholding_category (Link) field in DocType 'Journal
 #. Entry'
@@ -54824,14 +54824,14 @@ msgstr "代扣税款科目"
 #: erpnext/selling/doctype/customer/customer.json
 #: erpnext/workspace_sidebar/taxes.json
 msgid "Tax Withholding Category"
-msgstr "代扣税款类别"
+msgstr "税款扣缴类别"
 
 #. Name of a report
 #. Label of a Workspace Sidebar Item
 #: erpnext/accounts/report/tax_withholding_details/tax_withholding_details.json
 #: erpnext/workspace_sidebar/taxes.json
 msgid "Tax Withholding Details"
-msgstr "代扣代缴明细"
+msgstr "税款扣缴明细"
 
 #. Label of the tax_withholding_entries (Table) field in DocType 'Journal
 #. Entry'
@@ -54846,7 +54846,7 @@ msgstr "代扣代缴明细"
 #: erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.json
 msgid "Tax Withholding Entries"
-msgstr "代扣税分录"
+msgstr "税款扣缴分录"
 
 #. Label of the section_tax_withholding_entry (Section Break) field in DocType
 #. 'Payment Entry'
@@ -54860,7 +54860,7 @@ msgstr "代扣税分录"
 #: erpnext/accounts/doctype/sales_invoice/sales_invoice.json
 #: erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.json
 msgid "Tax Withholding Entry"
-msgstr "代扣税分录"
+msgstr "税款扣缴分录"
 
 #. Label of the tax_withholding_group (Link) field in DocType 'Journal Entry'
 #. Label of the tax_withholding_group (Link) field in DocType 'Payment Entry'
@@ -54886,20 +54886,20 @@ msgstr "代扣税分录"
 #: erpnext/selling/doctype/customer/customer.json
 #: erpnext/workspace_sidebar/taxes.json
 msgid "Tax Withholding Group"
-msgstr "代扣税分组"
+msgstr "税款扣缴分组"
 
 #. Name of a DocType
 #. Label of the tax_withholding_rate (Float) field in DocType 'Tax Withholding
 #. Rate'
 #: erpnext/accounts/doctype/tax_withholding_rate/tax_withholding_rate.json
 msgid "Tax Withholding Rate"
-msgstr "代扣税款税率"
+msgstr "税款扣缴税率"
 
 #. Label of the section_break_8 (Section Break) field in DocType 'Tax
 #. Withholding Category'
 #: erpnext/accounts/doctype/tax_withholding_category/tax_withholding_category.json
 msgid "Tax Withholding Rates"
-msgstr "代扣税款税率"
+msgstr "税款扣缴税率"
 
 #. Description of the 'Item Tax Rate' (Code) field in DocType 'Purchase Invoice
 #. Item'
@@ -54922,7 +54922,7 @@ msgstr "从物料主数据获取税费明细表，以字符串形式存储在此
 #. DocType 'Tax Withholding Category'
 #: erpnext/accounts/doctype/tax_withholding_category/tax_withholding_category.json
 msgid "Tax withheld only for amount exceeding cumulative threshold"
-msgstr "仅对超过累计起征额的部分代扣税款"
+msgstr "仅对超过累计起征额的部分进行税款扣缴"
 
 #. Label of the taxable_amount (Currency) field in DocType 'Item Wise Tax
 #. Detail'
@@ -59757,7 +59757,7 @@ msgstr "保存物料时，使用成本价创建期初库存物料移动。"
 #. 'Supplier'
 #: erpnext/buying/doctype/supplier/supplier.json
 msgid "Used to pick the correct rate row inside the Tax Withholding Category for this supplier (e.g. Company vs Individual rates)"
-msgstr "用于在代扣税类别中为该供应商选择正确的税率行（如企业税率或个人税率）。"
+msgstr "用于在代扣代缴税款类别中为该供应商选择正确的税率行（如企业税率或个人税率）。"
 
 #. Description of the 'Account Category' (Link) field in DocType 'Account'
 #: erpnext/accounts/doctype/account/account.json
@@ -61600,23 +61600,23 @@ msgstr "取款"
 #. Entry'
 #: erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.json
 msgid "Withholding Date"
-msgstr "代扣日期"
+msgstr "扣缴日期"
 
 #: erpnext/accounts/report/tax_withholding_details/tax_withholding_details.py:276
 msgid "Withholding Document"
-msgstr "代扣单据"
+msgstr "扣缴单据"
 
 #. Label of the withholding_name (Dynamic Link) field in DocType 'Tax
 #. Withholding Entry'
 #: erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.json
 msgid "Withholding Document Name"
-msgstr "代扣单据编号"
+msgstr "扣缴单据编号"
 
 #. Label of the withholding_doctype (Link) field in DocType 'Tax Withholding
 #. Entry'
 #: erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.json
 msgid "Withholding Document Type"
-msgstr "代扣单据类型"
+msgstr "扣缴单据类型"
 
 #: banking/src/components/features/Settings/Preferences.tsx:70
 msgid "Within 1 day"

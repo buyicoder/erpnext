@@ -115,6 +115,10 @@ if not all(
 print("Verified bundled Chinese demo data")
 
 expected_translations = {
+	"Cannot apply TDS against multiple parties in one entry": "单笔分录不能对多个往来方应用税款扣缴",
+	"TDS / withholding tax category applied when paying this supplier": "向该供应商付款时适用的代扣代缴税款类别",
+	"TDS/TCS is calculated at the rate defined here on every payment from this customer.": "收到该客户每笔付款时，均按此处定义的税率计算代收代缴税款。",
+	"Tax Withholding": "税款扣缴",
 	"Adjustment based on Purchase Invoice rate": "根据采购发票单价调整",
 	"Base Amount": "本币金额",
 	"Base Rate": "本币单价",

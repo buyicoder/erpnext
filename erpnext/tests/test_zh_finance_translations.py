@@ -2689,13 +2689,58 @@ class TestZhFinanceTranslations(TestCase):
 			"Check if this tax is not applicable to items (distinct from 0% rate)": "勾选表示此税种不适用于该物料（不同于 0% 税率）",
 			"PCV": "期末结账凭证（PCV）",
 			"Running": "运行中",
-			"Tax withheld only for amount exceeding cumulative threshold": "仅对超过累计起征额的部分代扣税款",
+			"Tax withheld only for amount exceeding cumulative threshold": "仅对超过累计起征额的部分进行税款扣缴",
 			"When checked, only cumulative threshold will be applied": "勾选后，仅应用累计起征额",
 			"When checked, only transaction threshold will be applied for transaction individually": "勾选后，仅对每笔交易单独应用单笔起征额",
 		}
 
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
+
+	def test_tax_withholding_uses_reviewed_chinese_terms(self):
+		translations = {
+			"Base Tax Withheld": "本位币扣缴税额",
+			"Cannot apply TDS against multiple parties in one entry": "单笔分录不能对多个往来方应用税款扣缴",
+			"Consider for Tax Withholding": "计入税款扣缴计算",
+			"Consider for Tax Withholding ": "计入税款扣缴计算",
+			"Edit Tax Withholding Entries": "编辑税款扣缴分录",
+			"Ignore Tax Withholding Threshold": "忽略税款扣缴起征点",
+			"Is Tax Withholding Account": "是税款扣缴科目",
+			"No Tax Withholding data found for the current posting date.": "当前记账日期未找到税款扣缴数据。",
+			"No Tax withholding account set for Company {0} in Tax Withholding Category {1}.": "公司 {0} 未在税款扣缴类别 {1} 中设置税款扣缴科目。",
+			"Purchase Tax Withholding Category": "采购代扣代缴税款类别",
+			"Rate Of TDS As Per Certificate": "按证明核定的代扣税率",
+			"Row #{0}: Cannot create entry with different taxable AND withholding document links.": "第 {0} 行：计税单据与扣缴单据不一致，无法创建分录。",
+			"Row #{0}: Withholding Amount {1} does not match calculated amount {2}.": "第 {0} 行：扣缴金额 {1} 与计算金额 {2} 不一致。",
+			"Sales Tax Withholding Category": "销售代收代缴税款类别",
+			"Select the group first to filter the applicable withholding categories below.": "请先选择客户组，以筛选下方适用的代收代缴税款类别。",
+			"TDS / withholding tax category applied when paying this supplier": "向该供应商付款时适用的代扣代缴税款类别",
+			"TDS Computation Summary": "代扣税款计算汇总",
+			"TDS Deducted": "已代扣税款",
+			"TDS Payable": "应付代扣税款",
+			"TDS/TCS is calculated at the rate defined here on every payment from this customer.": "收到该客户每笔付款时，均按此处定义的税率计算代收代缴税款。",
+			"Tax Withholding": "税款扣缴",
+			"Tax Withholding Account": "税款扣缴科目",
+			"Tax Withholding Category": "税款扣缴类别",
+			"Tax Withholding Details": "税款扣缴明细",
+			"Tax Withholding Entries": "税款扣缴分录",
+			"Tax Withholding Entry": "税款扣缴分录",
+			"Tax Withholding Group": "税款扣缴分组",
+			"Tax Withholding Rate": "税款扣缴税率",
+			"Tax Withholding Rates": "税款扣缴税率",
+			"Tax withheld only for amount exceeding cumulative threshold": "仅对超过累计起征额的部分进行税款扣缴",
+			"Transaction for which tax is withheld": "被扣缴税款所对应的交易",
+			"Transaction from which tax is withheld": "发生税款扣缴的来源交易",
+			"Used to pick the correct rate row inside the Tax Withholding Category for this supplier (e.g. Company vs Individual rates)": "用于在代扣代缴税款类别中为该供应商选择正确的税率行（如企业税率或个人税率）。",
+			"Withholding Date": "扣缴日期",
+			"Withholding Document": "扣缴单据",
+			"Withholding Document Name": "扣缴单据编号",
+			"Withholding Document Type": "扣缴单据类型",
+		}
+
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
 
 	def test_core_transaction_forms_use_reviewed_chinese_terms(self):
 		translations = {
@@ -2714,7 +2759,7 @@ class TestZhFinanceTranslations(TestCase):
 			"Grand Total:": "价税合计：",
 			"Amount {0} {1} adjusted against {2} {3}": "金额 {0} {1} 已冲抵 {2} {3}",
 			"Amount {0} {1} as adjustment to {2}": "金额 {0} {1} 作为对 {2} 的调整",
-			"Consider for Tax Withholding ": "计入代扣税计算",
+			"Consider for Tax Withholding ": "计入税款扣缴计算",
 			"Grand Total (Company Currency": "总计（本币）",
 			"Material Request already created for the ordered quantity": "已按订购数量创建物料需求",
 			"Payment methods refreshed. Please review before proceeding.": "付款方式已刷新，请核对后继续。",
