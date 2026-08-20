@@ -211,6 +211,9 @@ class StockLedgerEntry(Document):
 			["has_serial_no", "has_batch_no", "is_stock_item", "has_variants", "stock_uom"],
 			as_dict=1,
 		)
+		if not item_detail:
+			self.throw_error_message(_("Item {0} not found").format(self.item_code))
+			return
 
 		values_to_be_change = {}
 		if self.has_batch_no != item_detail.has_batch_no:
@@ -222,27 +225,28 @@ class StockLedgerEntry(Document):
 		if values_to_be_change:
 			self.db_set(values_to_be_change)
 
-		if not item_detail:
-			self.throw_error_message(f"Item {self.item_code} not found")
-
 		if item_detail.has_variants:
 			self.throw_error_message(
-				f"Stock cannot exist for Item {self.item_code} since has variants",
+				_("Stock cannot exist for Item {0} since it has variants").format(self.item_code),
 				ItemTemplateCannotHaveStock,
 			)
 
 		if item_detail.is_stock_item != 1:
-			self.throw_error_message(f"Item {self.item_code} must be a stock Item")
+			self.throw_error_message(_("Item {0} must be a stock item").format(self.item_code))
 
 		if item_detail.has_serial_no or item_detail.has_batch_no:
 			if not self.serial_and_batch_bundle:
-				self.throw_error_message(f"Serial No / Batch No are mandatory for Item {self.item_code}")
+				self.throw_error_message(
+					_("Serial No / Batch No are mandatory for Item {0}").format(self.item_code)
+				)
 
 		if self.serial_and_batch_bundle and not item_detail.has_serial_no and not item_detail.has_batch_no:
-			self.throw_error_message(f"Serial No and Batch No are not allowed for Item {self.item_code}")
+			self.throw_error_message(
+				_("Serial No and Batch No are not allowed for Item {0}").format(self.item_code)
+			)
 
 	def throw_error_message(self, message, exception=frappe.ValidationError):
-		frappe.throw(_(message), exception)
+		frappe.throw(message, exception)
 
 	def check_stock_frozen_date(self):
 		stock_settings = frappe.get_cached_doc("Stock Settings")

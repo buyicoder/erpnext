@@ -64289,3 +64289,23 @@ msgstr "发现重复的批号 {0}。"
 #: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
 msgid "Batch {0} is not available in warehouse {1}."
 msgstr "批号 {0} 在仓库 {1} 中不可用。"
+
+#: erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py
+msgid "Item {0} not found"
+msgstr "未找到物料 {0}"
+
+#: erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py
+msgid "Stock cannot exist for Item {0} since it has variants"
+msgstr "物料 {0} 是模板物料，不能登记库存"
+
+#: erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py
+msgid "Item {0} must be a stock item"
+msgstr "物料 {0} 必须启用库存管理"
+
+#: erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py
+msgid "Serial No / Batch No are mandatory for Item {0}"
+msgstr "物料 {0} 必须填写序列号或批号"
+
+#: erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py
+msgid "Serial No and Batch No are not allowed for Item {0}"
+msgstr "物料 {0} 未启用序列号或批号管理，不能填写这些信息"

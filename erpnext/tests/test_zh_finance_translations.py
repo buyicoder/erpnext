@@ -1753,6 +1753,11 @@ class TestZhFinanceTranslations(TestCase):
 
 	def test_serial_and_batch_validation_uses_reviewed_chinese(self):
 		translations = {
+			"Item {0} not found": "未找到物料 {0}",
+			"Stock cannot exist for Item {0} since it has variants": "物料 {0} 是模板物料，不能登记库存",
+			"Item {0} must be a stock item": "物料 {0} 必须启用库存管理",
+			"Serial No / Batch No are mandatory for Item {0}": "物料 {0} 必须填写序列号或批号",
+			"Serial No and Batch No are not allowed for Item {0}": "物料 {0} 未启用序列号或批号管理，不能填写这些信息",
 			"Serial No {0} is already present in the warehouse {1}.": "序列号 {0} 已存在于仓库 {1} 中。",
 			"Batch {0} for item {1} has negative stock of {2} in warehouse {3}.": "批号 {0} 对应物料 {1}，负库存数量为 {2}，所在仓库为 {3}。",
 			"Serial No Exists In Future Transaction(s)": "未来日期的交易中已存在该序列号",

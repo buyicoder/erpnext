@@ -69,6 +69,12 @@ class TestZhFinanceImage(TestCase):
 			"erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py",
 			self.containerfile,
 		)
+		self.assertIn(
+			"COPY --chown=frappe:frappe erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py "
+			"/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py",
+			self.containerfile,
+		)
+		self.assertIn("Verified Stock Ledger Entry translation source", self.build_script)
 		self.assertIn("erpnext/hooks.py", self.containerfile)
 		self.assertIn("erpnext/controllers/selling_controller.py", self.containerfile)
 		self.assertIn("erpnext/controllers/buying_controller.py", self.containerfile)

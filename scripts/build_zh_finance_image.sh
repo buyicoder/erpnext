@@ -132,6 +132,21 @@ if mismatches:
 	raise SystemExit(f"Compiled ERPNext translations do not match: {mismatches}")
 print(f"Verified {len(expected_translations)} compiled ERPNext translations")
 
+stock_ledger_source = Path(
+	"/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py"
+).read_text()
+required_stock_templates = {
+	"_(\"Item {0} not found\").format(self.item_code)",
+	"_(\"Stock cannot exist for Item {0} since it has variants\").format(self.item_code)",
+	"_(\"Serial No and Batch No are not allowed for Item {0}\").format(self.item_code)",
+}
+missing_stock_templates = {template for template in required_stock_templates if template not in stock_ledger_source}
+if missing_stock_templates or "frappe.throw(_(message)" in stock_ledger_source:
+	raise SystemExit(
+		f"Stock Ledger Entry translation source is stale: missing={sorted(missing_stock_templates)}"
+	)
+print("Verified Stock Ledger Entry translation source")
+
 expected_frappe_translations = {
 	"Current Series": "当前编号",
 	"Create Saved Filter": "创建已保存筛选",
