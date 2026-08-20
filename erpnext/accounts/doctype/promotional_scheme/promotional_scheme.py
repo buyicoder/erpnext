@@ -258,11 +258,14 @@ class PromotionalScheme(Document):
 
 
 def raise_for_transaction_exists(name):
-	msg = f"""You can't change the {frappe.bold(_('Applicable For'))}
-		because transactions are present against the Promotional Scheme {frappe.bold(name)}. """
-	msg += "Kindly disable this Promotional Scheme and create new for new Applicable For."
-
-	frappe.throw(_(msg), TransactionExists)
+	applicable_for = frappe.bold(_("Applicable For"))
+	scheme_name = frappe.bold(frappe.utils.escape_html(name))
+	frappe.throw(
+		_(
+			"You cannot change {0} because transactions exist against Promotional Scheme {1}. Disable this Promotional Scheme and create a new one for a different {0}."
+		).format(applicable_for, scheme_name),
+		TransactionExists,
+	)
 
 
 def get_pricing_rules(doc, rules=None):

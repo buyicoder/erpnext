@@ -239,6 +239,10 @@ expected_translations = {
 	"Creating reposting entries will change Stock In Hand and Stock Expenses in the Trial Balance, and the Balance Value in the Stock Balance report.": "创建重新过账记录将更改试算平衡表中的存货和存货费用，并同时更改库存余额报表中的余额。",
 	"Are you sure you want to create the selected reposting entries?": "确定要创建所选的重新过账记录吗？",
 	"Reason for hold: {0}": "暂停原因：{0}",
+	"Row {0}: The field {1} is mandatory for internal transfer": "第 {0} 行：内部调拨必须填写字段 {1}",
+	"You cannot change {0} because transactions exist against Promotional Scheme {1}. Disable this Promotional Scheme and create a new one for a different {0}.": "无法更改{0}，因为促销方案 {1} 已存在交易。请禁用此促销方案，并为其他{0}新建促销方案。",
+	"Batch No {0} was not supplied against {1} {2}": "批号 {0} 未随 {1} {2} 提供",
+	"Serial Nos {0} were not supplied against {1} {2}": "序列号 {0} 未随 {1} {2} 提供",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)

@@ -51683,6 +51683,22 @@ msgstr "确定要创建所选的重新过账记录吗？"
 msgid "Reason for hold: {0}"
 msgstr "暂停原因：{0}"
 
+#: erpnext/controllers/accounts_controller.py:883
+msgid "Row {0}: The field {1} is mandatory for internal transfer"
+msgstr "第 {0} 行：内部调拨必须填写字段 {1}"
+
+#: erpnext/accounts/doctype/promotional_scheme/promotional_scheme.py:264
+msgid "You cannot change {0} because transactions exist against Promotional Scheme {1}. Disable this Promotional Scheme and create a new one for a different {0}."
+msgstr "无法更改{0}，因为促销方案 {1} 已存在交易。请禁用此促销方案，并为其他{0}新建促销方案。"
+
+#: erpnext/controllers/subcontracting_controller.py:1072
+msgid "Batch No {0} was not supplied against {1} {2}"
+msgstr "批号 {0} 未随 {1} {2} 提供"
+
+#: erpnext/controllers/subcontracting_controller.py:1089
+msgid "Serial Nos {0} were not supplied against {1} {2}"
+msgstr "序列号 {0} 未随 {1} {2} 提供"
+
 #: erpnext/setup/setup_wizard/operations/defaults_setup.py:70
 #: erpnext/setup/setup_wizard/operations/install_fixtures.py:488
 #: erpnext/tests/utils.py:275

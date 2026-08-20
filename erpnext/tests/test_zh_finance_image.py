@@ -189,6 +189,7 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("erpnext/hooks.py", self.containerfile)
 		self.assertIn("erpnext/controllers/selling_controller.py", self.containerfile)
 		self.assertIn("erpnext/controllers/buying_controller.py", self.containerfile)
+		self.assertIn("erpnext/controllers/accounts_controller.py", self.containerfile)
 		self.assertIn("erpnext/buying/doctype/purchase_order/purchase_order.js", self.containerfile)
 		self.assertNotIn("erpnext/tests/test_buying_controller_i18n.py", self.containerfile)
 		self.assertIn(

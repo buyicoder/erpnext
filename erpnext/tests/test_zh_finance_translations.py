@@ -1027,6 +1027,40 @@ class TestZhFinanceTranslations(TestCase):
 		self.assertIn('__("Reason for hold: {0}", [data.reason_for_hold])', purchase_order)
 		self.assertNotIn('content: __(reason_for_hold)', purchase_order)
 
+	def test_dynamic_business_validation_messages_use_fixed_translatable_templates(self):
+		translations = {
+			"Row {0}: The field {1} is mandatory for internal transfer": "第 {0} 行：内部调拨必须填写字段 {1}",
+			"You cannot change {0} because transactions exist against Promotional Scheme {1}. Disable this Promotional Scheme and create a new one for a different {0}.": "无法更改{0}，因为促销方案 {1} 已存在交易。请禁用此促销方案，并为其他{0}新建促销方案。",
+			"Batch No {0} was not supplied against {1} {2}": "批号 {0} 未随 {1} {2} 提供",
+			"Serial Nos {0} were not supplied against {1} {2}": "序列号 {0} 未随 {1} {2} 提供",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+		repo_root = Path(__file__).parents[2]
+		contracts = {
+			"erpnext/controllers/accounts_controller.py": [
+				'_("Row {0}: The field {1} is mandatory for internal transfer").format(',
+				"row.idx, bold(_(label))",
+			],
+			"erpnext/accounts/doctype/promotional_scheme/promotional_scheme.py": [
+				'frappe.bold(frappe.utils.escape_html(name))',
+				'"You cannot change {0} because transactions exist against Promotional Scheme {1}.',
+			],
+			"erpnext/controllers/subcontracting_controller.py": [
+				'_("Batch No {0} was not supplied against {1} {2}").format(',
+				'_("Serial Nos {0} were not supplied against {1} {2}").format(',
+				'frappe.utils.escape_html(row.get("batch_no"))',
+				"frappe.utils.escape_html(incorrect_sn)",
+				"_(self.subcontract_data.order_doctype)",
+			],
+		}
+		for relative_path, snippets in contracts.items():
+			source = (repo_root / relative_path).read_text()
+			for snippet in snippets:
+				self.assertIn(snippet, source, relative_path)
+
 	def test_public_frontend_uses_reviewed_chinese_terms(self):
 		translations = {
 			" Phantom Item": " 虚拟物料",
