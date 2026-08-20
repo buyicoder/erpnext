@@ -1134,7 +1134,7 @@ class BuyingController(SubcontractingController):
 					alert = True
 
 		for message in messages:
-			frappe.msgprint(message, title="Success", indicator="green", alert=alert)
+			frappe.msgprint(message, title=_("Success"), indicator="green", alert=alert)
 
 	def make_asset(self, row, accounting_dimensions, is_grouped_asset=False):
 		if not row.asset_location:

@@ -189,6 +189,12 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("erpnext/hooks.py", self.containerfile)
 		self.assertIn("erpnext/controllers/selling_controller.py", self.containerfile)
 		self.assertIn("erpnext/controllers/buying_controller.py", self.containerfile)
+		self.assertNotIn("erpnext/tests/test_buying_controller_i18n.py", self.containerfile)
+		self.assertIn(
+			"test_buying_controller_i18n.py,dst=/tmp/test_buying_controller_i18n.py,readonly",
+			self.build_script,
+		)
+		self.assertIn("Verified buying controller translation behavior", self.build_script)
 		self.assertIn("erpnext/controllers/stock_controller.py", self.containerfile)
 		self.assertIn("erpnext/controllers/subcontracting_controller.py", self.containerfile)
 		self.assertIn("erpnext/controllers/trends.py", self.containerfile)

@@ -33,6 +33,7 @@ docker run --rm --entrypoint sh \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_process_statement_i18n.py,dst=/tmp/test_process_statement_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_currency_exchange_settings_i18n.py,dst=/tmp/test_currency_exchange_settings_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_selling_controller_i18n.py,dst=/tmp/test_selling_controller_i18n.py,readonly" \
+	--mount "type=bind,src=$repo_root/erpnext/tests/test_buying_controller_i18n.py,dst=/tmp/test_buying_controller_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_repost_accounting_ledger_i18n.py,dst=/tmp/test_repost_accounting_ledger_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_tax_report_labels_i18n.py,dst=/tmp/test_tax_report_labels_i18n.py,readonly" \
 	"$image" -lc '
@@ -424,6 +425,8 @@ PY
 	printf "%s\n" "Verified currency exchange settings translation behavior"
 	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_selling_controller_i18n.py"
 	printf "%s\n" "Verified selling controller translation behavior"
+	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_buying_controller_i18n.py"
+	printf "%s\n" "Verified buying controller translation behavior"
 	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_repost_accounting_ledger_i18n.py"
 	printf "%s\n" "Verified accounting ledger repost translation behavior"
 	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_tax_report_labels_i18n.py"
