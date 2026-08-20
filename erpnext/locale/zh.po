@@ -64201,3 +64201,91 @@ msgstr "找不到方法“{0}”，模块“{1}”中不存在该方法（可能
 #: erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
 msgid "Could not validate API path: {0}"
 msgstr "无法验证 API 路径：{0}"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "Serial No {0} is already present in the warehouse {1}."
+msgstr "序列号 {0} 已存在于仓库 {1} 中。"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "Batch {0} for item {1} has negative stock of {2} in warehouse {3}."
+msgstr "批号 {0} 对应物料 {1}，负库存数量为 {2}，所在仓库为 {3}。"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "Serial No Exists In Future Transaction(s)"
+msgstr "未来日期的交易中已存在该序列号"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "Batches Exists In Future Transaction(s)"
+msgstr "未来日期的交易中已存在该批号"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "A future-dated Stock Reconciliation exists. Cancel it first. To post a backdated serial or batch transaction, avoid using Stock Reconciliation. See the affected transactions below."
+msgstr "已存在未来日期的库存盘点单，请先取消该单据。如需补录过去日期的序列号或批号交易，请避免使用库存盘点。受影响的交易如下。"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "<li>Serial No {0} in {1}</li>"
+msgstr "<li>序列号 {0}，所在单据 {1}</li>"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "<li>Batch {0} in {1}</li>"
+msgstr "<li>批号 {0}，所在单据 {1}</li>"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "Item {0} does not use serial numbers or batches."
+msgstr "物料 {0} 未启用序列号或批号管理。"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "{0} {1} is submitted. Cancel it first."
+msgstr "{0} {1} 已提交，请先取消该单据。"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "Serial No {0} is in warehouse {1} but is reserved for {2} {3} via {4}. Use an unreserved serial number or cancel the reservation."
+msgstr "序列号 {0} 位于仓库 {1}，但已为 {2} {3} 预留，预留记录为 {4}。请使用未预留的序列号，或先取消该预留。"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "Serial No {0} is not present in warehouse {1}."
+msgstr "序列号 {0} 不在仓库 {1} 中。"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "{0} {1} does not exist."
+msgstr "{0} {1} 不存在。"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "{0} {1} must be submitted first."
+msgstr "{0} {1} 必须先提交。"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "Total quantity {0} in Serial and Batch Bundle {1} does not match quantity {2} for item {3} in {4} {5}."
+msgstr "数量合计 {0}（序列号与批号 {1}）与数量 {2}（物料 {3}，单据 {4} {5}）不一致。"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "Serial No {0} does not belong to batch {1}."
+msgstr "序列号 {0} 不属于批号 {1}。"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "Serial Nos {0} do not belong to item {1}."
+msgstr "序列号 {0} 不属于物料 {1}。"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "Batch Nos {0} do not belong to item {1}."
+msgstr "批号 {0} 不属于物料 {1}。"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "Serial Nos {0} are not part of the original document."
+msgstr "序列号 {0} 不属于原始单据。"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "Batch Nos {0} are not part of the original document."
+msgstr "批号 {0} 不属于原始单据。"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "Duplicate Serial No {0} found."
+msgstr "发现重复的序列号 {0}。"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "Duplicate Batch No {0} found."
+msgstr "发现重复的批号 {0}。"
+
+#: erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+msgid "Batch {0} is not available in warehouse {1}."
+msgstr "批号 {0} 在仓库 {1} 中不可用。"

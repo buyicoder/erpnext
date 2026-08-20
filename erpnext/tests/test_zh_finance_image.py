@@ -64,6 +64,10 @@ class TestZhFinanceImage(TestCase):
 			self.containerfile,
 		)
 		self.assertIn("erpnext/setup/china_money.py", self.containerfile)
+		self.assertIn(
+			"erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py",
+			self.containerfile,
+		)
 		self.assertIn("erpnext/hooks.py", self.containerfile)
 		self.assertIn("erpnext/controllers/selling_controller.py", self.containerfile)
 		self.assertIn("erpnext/controllers/buying_controller.py", self.containerfile)

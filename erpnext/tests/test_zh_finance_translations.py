@@ -1751,6 +1751,35 @@ class TestZhFinanceTranslations(TestCase):
 			self._assert_translation(source, translation)
 			self._assert_erpnext_runtime_translation(source, translation)
 
+	def test_serial_and_batch_validation_uses_reviewed_chinese(self):
+		translations = {
+			"Serial No {0} is already present in the warehouse {1}.": "序列号 {0} 已存在于仓库 {1} 中。",
+			"Batch {0} for item {1} has negative stock of {2} in warehouse {3}.": "批号 {0} 对应物料 {1}，负库存数量为 {2}，所在仓库为 {3}。",
+			"Serial No Exists In Future Transaction(s)": "未来日期的交易中已存在该序列号",
+			"Batches Exists In Future Transaction(s)": "未来日期的交易中已存在该批号",
+			"A future-dated Stock Reconciliation exists. Cancel it first. To post a backdated serial or batch transaction, avoid using Stock Reconciliation. See the affected transactions below.": "已存在未来日期的库存盘点单，请先取消该单据。如需补录过去日期的序列号或批号交易，请避免使用库存盘点。受影响的交易如下。",
+			"<li>Serial No {0} in {1}</li>": "<li>序列号 {0}，所在单据 {1}</li>",
+			"<li>Batch {0} in {1}</li>": "<li>批号 {0}，所在单据 {1}</li>",
+			"Item {0} does not use serial numbers or batches.": "物料 {0} 未启用序列号或批号管理。",
+			"{0} {1} is submitted. Cancel it first.": "{0} {1} 已提交，请先取消该单据。",
+			"Serial No {0} is in warehouse {1} but is reserved for {2} {3} via {4}. Use an unreserved serial number or cancel the reservation.": "序列号 {0} 位于仓库 {1}，但已为 {2} {3} 预留，预留记录为 {4}。请使用未预留的序列号，或先取消该预留。",
+			"Serial No {0} is not present in warehouse {1}.": "序列号 {0} 不在仓库 {1} 中。",
+			"{0} {1} does not exist.": "{0} {1} 不存在。",
+			"{0} {1} must be submitted first.": "{0} {1} 必须先提交。",
+			"Total quantity {0} in Serial and Batch Bundle {1} does not match quantity {2} for item {3} in {4} {5}.": "数量合计 {0}（序列号与批号 {1}）与数量 {2}（物料 {3}，单据 {4} {5}）不一致。",
+			"Serial No {0} does not belong to batch {1}.": "序列号 {0} 不属于批号 {1}。",
+			"Serial Nos {0} do not belong to item {1}.": "序列号 {0} 不属于物料 {1}。",
+			"Batch Nos {0} do not belong to item {1}.": "批号 {0} 不属于物料 {1}。",
+			"Serial Nos {0} are not part of the original document.": "序列号 {0} 不属于原始单据。",
+			"Batch Nos {0} are not part of the original document.": "批号 {0} 不属于原始单据。",
+			"Duplicate Serial No {0} found.": "发现重复的序列号 {0}。",
+			"Duplicate Batch No {0} found.": "发现重复的批号 {0}。",
+			"Batch {0} is not available in warehouse {1}.": "批号 {0} 在仓库 {1} 中不可用。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
 	def test_project_management_reports_use_reviewed_chinese_terms(self):
 		translations = {
 			"Project Summary": "项目汇总",
