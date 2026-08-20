@@ -1211,10 +1211,12 @@ class TestZhFinanceTranslations(TestCase):
 		core_roots = (
 			"accounts",
 			"controllers",
+			"crm",
 			"projects",
 			"selling",
 			"buying",
 			"stock",
+			"utilities",
 		)
 		violations = []
 
@@ -1274,6 +1276,53 @@ class TestZhFinanceTranslations(TestCase):
 						)
 
 		self.assertEqual(violations, [])
+
+	def test_campaign_and_bulk_transaction_statuses_use_chinese_runtime_messages(self):
+		translations = {
+			"Email Campaign Failed.": "邮件营销活动发送失败。",
+			"Failed to authenticate API key": "YouTube API 密钥认证失败",
+			"Failed to authenticate the API key. Please check the error logs.": "API 密钥认证失败，请查看错误日志。",
+			"Successful": "成功",
+			"Partially successful": "部分成功",
+			"Unable to update YouTube statistics": "无法更新 YouTube 统计数据",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+		self._assert_frappe_translation("Failed", "失败")
+
+		repo_root = Path(__file__).parents[2]
+		campaign_source = (
+			repo_root / "erpnext/crm/doctype/email_campaign/email_campaign.py"
+		).read_text()
+		self.assertIn('frappe.log_error(title=_("Email Campaign Failed."))', campaign_source)
+
+		bulk_source = (repo_root / "erpnext/utilities/bulk_transaction.py").read_text()
+		for snippet in (
+			'title=_("Successful")',
+			'title=_("Partially successful")',
+			'title=_("Failed")',
+			"_(to_doctype)",
+		):
+			self.assertIn(snippet, bulk_source)
+		for forbidden in (
+			'title="Successful"',
+			'title="Partially successful"',
+			'title="Failed"',
+		):
+			self.assertNotIn(forbidden, bulk_source)
+
+		video_source = (repo_root / "erpnext/utilities/doctype/video/video.py").read_text()
+		self.assertEqual(video_source.count('_("Unable to update YouTube statistics")'), 2)
+
+		video_settings_source = (
+			repo_root / "erpnext/utilities/doctype/video_settings/video_settings.py"
+		).read_text()
+		self.assertIn('self.log_error(_("Failed to authenticate API key"))', video_settings_source)
+		self.assertIn(
+			'_("Failed to authenticate the API key. Please check the error logs.")',
+			video_settings_source,
+		)
 
 	def test_public_frontend_uses_reviewed_chinese_terms(self):
 		translations = {

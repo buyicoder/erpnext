@@ -20361,6 +20361,19 @@ msgstr "失败条目"
 msgid "Failed to Authenticate the API key."
 msgstr "API密钥认证失败"
 
+#: erpnext/utilities/doctype/video_settings/video_settings.py:33
+msgid "Failed to authenticate API key"
+msgstr "YouTube API 密钥认证失败"
+
+#: erpnext/utilities/doctype/video_settings/video_settings.py:35
+msgid "Failed to authenticate the API key. Please check the error logs."
+msgstr "API 密钥认证失败，请查看错误日志。"
+
+#: erpnext/utilities/doctype/video/video.py:62
+#: erpnext/utilities/doctype/video/video.py:131
+msgid "Unable to update YouTube statistics"
+msgstr "无法更新 YouTube 统计数据"
+
 #: erpnext/setup/setup_wizard/setup_wizard.py:45
 #: erpnext/setup/setup_wizard/setup_wizard.py:46
 msgid "Failed to create demo data"
@@ -51747,6 +51760,14 @@ msgstr "暂无内容"
 #: erpnext/templates/includes/macros.html:303
 msgid "Search {0}"
 msgstr "搜索{0}"
+
+#: erpnext/crm/doctype/email_campaign/email_campaign.py:200
+msgid "Email Campaign Failed."
+msgstr "邮件营销活动发送失败。"
+
+#: erpnext/utilities/bulk_transaction.py:217
+msgid "Partially successful"
+msgstr "部分成功"
 
 #: erpnext/setup/setup_wizard/operations/defaults_setup.py:70
 #: erpnext/setup/setup_wizard/operations/install_fixtures.py:488

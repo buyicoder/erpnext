@@ -260,6 +260,12 @@ expected_translations = {
 	"Clear Search": "清除搜索",
 	"Generic Empty State": "暂无内容",
 	"Search {0}": "搜索{0}",
+	"Email Campaign Failed.": "邮件营销活动发送失败。",
+	"Failed to authenticate API key": "YouTube API 密钥认证失败",
+	"Failed to authenticate the API key. Please check the error logs.": "API 密钥认证失败，请查看错误日志。",
+	"Successful": "成功",
+	"Partially successful": "部分成功",
+	"Unable to update YouTube statistics": "无法更新 YouTube 统计数据",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)
@@ -406,6 +412,7 @@ print("Verified asset purchase document translation source")
 
 expected_frappe_translations = {
 	"Error": "错误",
+	"Failed": "失败",
 	"Current Series": "当前编号",
 	"Create Saved Filter": "创建已保存筛选",
 	"No rows selected": "未选择任何行",

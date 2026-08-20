@@ -59,7 +59,7 @@ class Video(Document):
 			self.comment_count = video_stats.get("commentCount")
 
 		except Exception:
-			self.log_error("Unable to update YouTube statistics")
+			self.log_error(_("Unable to update YouTube statistics"))
 
 
 def is_tracking_enabled():
@@ -128,7 +128,7 @@ def batch_update_youtube_data():
 			video_stats = video.items
 			return video_stats
 		except Exception:
-			frappe.log_error("Unable to update YouTube statistics")
+			frappe.log_error(_("Unable to update YouTube statistics"))
 
 	def prepare_and_set_data(video_list):
 		video_ids = get_formatted_ids(video_list)

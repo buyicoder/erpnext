@@ -30,6 +30,8 @@ class VideoSettings(Document):
 			try:
 				Api(api_key=self.api_key).get_i18n_languages(parts="snippet")
 			except Exception:
-				title = _("Failed to Authenticate the API key.")
-				self.log_error("Failed to authenticate API key")
-				frappe.throw(title + " Please check the error logs.", title=_("Invalid Credentials"))
+				self.log_error(_("Failed to authenticate API key"))
+				frappe.throw(
+					_("Failed to authenticate the API key. Please check the error logs."),
+					title=_("Invalid Credentials"),
+				)

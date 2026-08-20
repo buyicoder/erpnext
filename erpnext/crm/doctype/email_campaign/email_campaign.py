@@ -197,7 +197,7 @@ def send_mail(entry, email_campaign):
 			queue_separately=True,
 		)
 	except Exception:
-		frappe.log_error(title="Email Campaign Failed.")
+		frappe.log_error(title=_("Email Campaign Failed."))
 
 	return comm
 

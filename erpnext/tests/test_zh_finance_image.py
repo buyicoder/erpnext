@@ -238,6 +238,9 @@ class TestZhFinanceImage(TestCase):
 		):
 			self.assertIn(source_path, self.containerfile)
 		self.assertIn("erpnext/crm/doctype/email_campaign/email_campaign.py", self.containerfile)
+		self.assertIn("erpnext/utilities/bulk_transaction.py", self.containerfile)
+		self.assertIn("erpnext/utilities/doctype/video/video.py", self.containerfile)
+		self.assertIn("erpnext/utilities/doctype/video_settings/video_settings.py", self.containerfile)
 		self.assertIn(
 			"erpnext/crm/doctype/appointment_booking_settings/appointment_booking_settings.py",
 			self.containerfile,
