@@ -140,8 +140,11 @@ class RepostItemValuation(Document):
 		year_end_date = self.get_max_period_closing_date(self.company)
 		if year_end_date and getdate(self.posting_date) <= getdate(year_end_date):
 			date = frappe.format(year_end_date, "Date")
-			msg = f"Due to period closing, you cannot repost item valuation before {date}"
-			frappe.throw(_(msg))
+			frappe.throw(
+				_("Due to period closing, item valuation cannot be reposted on or before {0}.").format(
+					date
+				)
+			)
 
 		# Accounting Period
 		if self.voucher_type:
@@ -163,7 +166,9 @@ class RepostItemValuation(Document):
 			name = get_link_to_form("Stock Closing Entry", closing_stock[0].name)
 			to_date = frappe.format(closing_stock[0].posting_date, "Date")
 			frappe.throw(
-				_("Due to stock closing entry {0}, you cannot repost item valuation before {1}").format(
+				_(
+					"Due to Stock Closing Entry {0}, item valuation cannot be reposted on or before {1}."
+				).format(
 					name, to_date
 				)
 			)

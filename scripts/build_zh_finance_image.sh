@@ -27,6 +27,7 @@ docker run --rm --entrypoint sh \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_serial_batch_bundle_i18n.py,dst=/tmp/test_serial_batch_bundle_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_item_price_i18n.py,dst=/tmp/test_item_price_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_purchase_receipt_i18n.py,dst=/tmp/test_purchase_receipt_i18n.py,readonly" \
+	--mount "type=bind,src=$repo_root/erpnext/tests/test_repost_item_valuation_i18n.py,dst=/tmp/test_repost_item_valuation_i18n.py,readonly" \
 	"$image" -lc '
 	set -eu
 	FRAPPE_RUNTIME_VERSION="'"$FRAPPE_RUNTIME_VERSION"'" /home/frappe/frappe-bench/env/bin/python - <<"PY"
@@ -170,6 +171,10 @@ expected_translations = {
 	"Item Price cannot be created for template Item {0}.": "不能为模板物料 {0} 创建物料价格。",
 	"Row #{0}: Select a valid Quality Inspection with Reference Type {1} and Reference Name {2}.": "第 {0} 行：请选择关联类型为 {1}、源单据为 {2} 的有效质量检验单。",
 	"Row #{0}: Select a valid Quality Inspection with Item Code {1}.": "第 {0} 行：请选择物料号为 {1} 的有效质量检验单。",
+	"Due to period closing, item valuation cannot be reposted on or before {0}.": "会计期间已结账，不能对 {0} 或更早日期的物料成本价进行追溯调整。",
+	"Due to Stock Closing Entry {0}, item valuation cannot be reposted on or before {1}.": "因存在库存结转分录 {0}，不能对 {1} 或更早日期的物料成本价进行追溯调整。",
+	"Duplicate Stock Closing Entry": "重复的库存结转分录",
+	"Generate Stock Closing Entry": "生成库存结转分录",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)
@@ -341,6 +346,8 @@ PY
 	printf "%s\n" "Verified item price translation behavior"
 	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_purchase_receipt_i18n.py"
 	printf "%s\n" "Verified purchase receipt translation behavior"
+	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_repost_item_valuation_i18n.py"
+	printf "%s\n" "Verified repost item valuation translation behavior"
 	/home/frappe/frappe-bench/env/bin/python /tmp/validate_frappe_runtime_i18n.py \
 		--frappe-app /home/frappe/frappe-bench/apps/frappe \
 		--catalog /home/frappe/frappe-bench/apps/frappe/frappe/locale/zh.po
