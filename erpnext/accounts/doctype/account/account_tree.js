@@ -50,7 +50,7 @@ frappe.treeview_settings["Account"] = {
 			disable_onchange: true,
 		},
 	],
-	root_label: "Accounts",
+	root_label: "All Accounts",
 	get_tree_nodes: "erpnext.accounts.utils.get_children",
 	on_node_render: function (node, deep) {
 		const render_balances = () => {

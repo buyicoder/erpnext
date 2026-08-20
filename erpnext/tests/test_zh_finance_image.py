@@ -27,6 +27,9 @@ class TestZhFinanceImage(TestCase):
 		self.browser_overrides = (
 			self.repo_root / "erpnext" / "public" / "js" / "zh_finance_overrides.js"
 		).read_text()
+		self.account_tree = (
+			self.repo_root / "erpnext" / "accounts" / "doctype" / "account" / "account_tree.js"
+		).read_text()
 
 	def test_image_compiles_translations_and_frontend_assets(self):
 		self.assertIn("bench compile-po-to-mo --app erpnext --locale zh --force", self.containerfile)
@@ -38,6 +41,7 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("erpnext/public/js/controllers/transaction.js", self.containerfile)
 		self.assertIn("erpnext/public/scss/modern-cn-theme.scss", self.containerfile)
 		self.assertIn("erpnext/public/scss/erpnext.bundle.scss", self.containerfile)
+		self.assertIn("erpnext/accounts/doctype/account/account_tree.js", self.containerfile)
 		self.assertIn("erpnext/projects/doctype/project/project.py", self.containerfile)
 		self.assertIn("erpnext/projects/doctype/project/project_dashboard.html", self.containerfile)
 		self.assertIn("erpnext/manufacturing/doctype/work_order/work_order_preview.html", self.containerfile)
@@ -229,6 +233,10 @@ class TestZhFinanceImage(TestCase):
 			'const chart_date_selector = ".chart-container svg text";',
 			self.browser_overrides,
 		)
+
+	def test_account_tree_uses_the_account_specific_root_label(self):
+		self.assertIn('root_label: "All Accounts"', self.account_tree)
+		self.assertNotIn('root_label: "Accounts"', self.account_tree)
 
 	def test_audit_list_localization_uses_doctype_hooks(self):
 		hooks = (self.repo_root / "erpnext" / "hooks.py").read_text()

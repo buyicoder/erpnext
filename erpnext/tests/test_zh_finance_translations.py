@@ -1709,6 +1709,7 @@ class TestZhFinanceTranslations(TestCase):
 
 	def test_tree_root_labels_use_reviewed_chinese_terms(self):
 		for source, translation in {
+			"All Accounts": "所有科目",
 			"All Locations": "所有地点",
 			"All Companies": "所有公司",
 			"All Quality Procedures": "所有质量程序",
