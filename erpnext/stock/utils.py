@@ -561,7 +561,7 @@ def check_pending_reposting(posting_date: str, company: str | None = None, throw
 		frappe.msgprint(
 			msg,
 			raise_exception=PendingRepostingError,
-			title="Stock Reposting Ongoing",
+			title=_("Stock Reposting Ongoing"),
 			indicator="red",
 			primary_action={
 				"label": _("Show pending entries"),

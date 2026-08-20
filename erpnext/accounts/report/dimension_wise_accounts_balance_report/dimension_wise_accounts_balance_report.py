@@ -123,7 +123,7 @@ def format_gl_entries(gl_entries_by_account, accounts_by_name, dimension_list, d
 			if not d:
 				frappe.msgprint(
 					_("Could not retrieve information for {0}.").format(entry.account),
-					title="Error",
+					title=_("Error"),
 					raise_exception=1,
 				)
 

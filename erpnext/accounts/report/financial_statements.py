@@ -240,7 +240,7 @@ def calculate_values(
 			if not d:
 				frappe.msgprint(
 					_("Could not retrieve information for {0}.").format(entry.account),
-					title="Error",
+					title=_("Error"),
 					raise_exception=1,
 				)
 			for period in period_list:

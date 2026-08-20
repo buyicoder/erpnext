@@ -214,7 +214,7 @@ def prepare_closing_stock_balance(name):
 		doc.db_set("status", "Completed")
 	except Exception:
 		doc.db_set("status", "Failed")
-		doc.log_error(title="Stock Closing Entry Failed")
+		doc.log_error(title=_("Stock Closing Entry Failed"))
 
 
 class StockClosing:

@@ -928,6 +928,30 @@ class TestZhFinanceTranslations(TestCase):
 			any(message and message.string and "fuzzy" not in message.flags for message in messages)
 		)
 
+	def test_runtime_error_titles_use_reviewed_chinese(self):
+		translations = {
+			"Invalid Accounts": "无效科目",
+			"Stock Reposting Ongoing": "库存重新过账进行中",
+			"Stock Closing Entry Failed": "库存结转分录处理失败",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+		self._assert_frappe_translation("Error", "错误")
+
+		repo_root = Path(__file__).parents[2]
+		contracts = {
+			"erpnext/accounts/report/financial_statements.py": 'title=_("Error")',
+			"erpnext/accounts/report/dimension_wise_accounts_balance_report/dimension_wise_accounts_balance_report.py": 'title=_("Error")',
+			"erpnext/accounts/doctype/accounts_settings/accounts_settings.py": 'title=_("Error")',
+			"erpnext/accounts/doctype/account/account.py": 'title=_("Invalid Accounts")',
+			"erpnext/stock/utils.py": 'title=_("Stock Reposting Ongoing")',
+			"erpnext/stock/doctype/stock_closing_entry/stock_closing_entry.py": 'doc.log_error(title=_("Stock Closing Entry Failed"))',
+		}
+		for relative_path, contract in contracts.items():
+			self.assertIn(contract, (repo_root / relative_path).read_text(), relative_path)
+
 	def test_public_frontend_uses_reviewed_chinese_terms(self):
 		translations = {
 			" Phantom Item": " 虚拟物料",

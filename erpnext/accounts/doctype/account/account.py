@@ -635,7 +635,7 @@ def merge_account(old, new):
 			msg=_(
 				"""Merging is only possible if following properties are same in both records. Is Group, Root Type, Company and Account Currency"""
 			),
-			title=("Invalid Accounts"),
+			title=_("Invalid Accounts"),
 			exc=InvalidAccountMergeError,
 		)
 

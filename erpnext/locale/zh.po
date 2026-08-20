@@ -51615,6 +51615,18 @@ msgstr "信用证有效期天数"
 msgid "Stale Days should start from 1."
 msgstr "陈旧天数应从1开始"
 
+#: erpnext/accounts/doctype/account/account.py:634
+msgid "Invalid Accounts"
+msgstr "无效科目"
+
+#: erpnext/stock/utils.py:561
+msgid "Stock Reposting Ongoing"
+msgstr "库存重新过账进行中"
+
+#: erpnext/stock/doctype/stock_closing_entry/stock_closing_entry.py:217
+msgid "Stock Closing Entry Failed"
+msgstr "库存结转分录处理失败"
+
 #: erpnext/setup/setup_wizard/operations/defaults_setup.py:70
 #: erpnext/setup/setup_wizard/operations/install_fixtures.py:488
 #: erpnext/tests/utils.py:275

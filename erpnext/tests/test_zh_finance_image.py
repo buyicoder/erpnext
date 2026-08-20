@@ -207,6 +207,15 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("erpnext/accounts/notification/notification_for_new_fiscal_year/notification_for_new_fiscal_year.html", self.containerfile)
 		self.assertIn("erpnext/accounts/notification/notification_for_new_fiscal_year/notification_for_new_fiscal_year.json", self.containerfile)
 		self.assertIn("erpnext/accounts/party.py", self.containerfile)
+		for source_path in (
+			"erpnext/accounts/report/financial_statements.py",
+			"erpnext/accounts/report/dimension_wise_accounts_balance_report/dimension_wise_accounts_balance_report.py",
+			"erpnext/accounts/doctype/accounts_settings/accounts_settings.py",
+			"erpnext/accounts/doctype/account/account.py",
+			"erpnext/stock/utils.py",
+			"erpnext/stock/doctype/stock_closing_entry/stock_closing_entry.py",
+		):
+			self.assertIn(source_path, self.containerfile)
 		self.assertIn("erpnext/crm/doctype/email_campaign/email_campaign.py", self.containerfile)
 		self.assertIn(
 			"erpnext/crm/doctype/appointment_booking_settings/appointment_booking_settings.py",

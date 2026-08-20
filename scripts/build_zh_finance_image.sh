@@ -223,6 +223,9 @@ expected_translations = {
 	"Party": "往来单位",
 	"Party Name": "往来单位名称",
 	"Party Type": "往来类型",
+	"Invalid Accounts": "无效科目",
+	"Stock Reposting Ongoing": "库存重新过账进行中",
+	"Stock Closing Entry Failed": "库存结转分录处理失败",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)
@@ -368,6 +371,7 @@ if not valid_asset_template:
 print("Verified asset purchase document translation source")
 
 expected_frappe_translations = {
+	"Error": "错误",
 	"Current Series": "当前编号",
 	"Create Saved Filter": "创建已保存筛选",
 	"No rows selected": "未选择任何行",
