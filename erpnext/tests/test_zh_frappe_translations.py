@@ -321,3 +321,20 @@ class TestZhFrappeTranslations(TestCase):
 				self.assertIsNotNone(message)
 				self.assertNotIn("fuzzy", message.flags)
 				self.assertEqual(message.string, translation)
+
+	def test_global_search_settings_use_reviewed_chinese(self):
+		expected = {
+			"Cannot configure Core DocTypes for Global Search.": "无法为全局搜索配置核心单据类型。",
+			"Configure search fields": "配置搜索字段",
+			"Document Name (ID)": "单据名称（ID）",
+			"Document Type is required": "必须选择单据类型",
+			"Please select Document Type first.": "请先选择单据类型。",
+			"Search fields updated.": "搜索字段已更新。",
+			"Updating search index": "正在更新搜索索引",
+		}
+		for source, translation in expected.items():
+			with self.subTest(source=source):
+				message = self.catalog.get(source)
+				self.assertIsNotNone(message)
+				self.assertNotIn("fuzzy", message.flags)
+				self.assertEqual(message.string, translation)

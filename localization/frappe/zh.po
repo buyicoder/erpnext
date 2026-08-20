@@ -672,6 +672,27 @@ msgstr "{0} 是内置通知类型，无法删除；请将其禁用。"
 msgid "{0} never sends email, so it cannot be enabled for users."
 msgstr "{0} 从不发送邮件，因此无法为用户启用。"
 
+msgid "Cannot configure Core DocTypes for Global Search."
+msgstr "无法为全局搜索配置核心单据类型。"
+
+msgid "Configure search fields"
+msgstr "配置搜索字段"
+
+msgid "Document Name (ID)"
+msgstr "单据名称（ID）"
+
+msgid "Document Type is required"
+msgstr "必须选择单据类型"
+
+msgid "Please select Document Type first."
+msgstr "请先选择单据类型。"
+
+msgid "Search fields updated."
+msgstr "搜索字段已更新。"
+
+msgid "Updating search index"
+msgstr "正在更新搜索索引"
+
 msgid "Warning"
 msgstr "警告"
 

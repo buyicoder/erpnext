@@ -571,6 +571,28 @@ class TestZhFinanceTranslations(TestCase):
 				)
 		self.assertEqual(missing, [])
 
+	def test_frappe_global_search_settings_have_runtime_chinese_owners(self):
+		location_prefix = "frappe/desk/doctype/global_search_settings/"
+		missing = []
+		for source_message in self.frappe_runtime_catalog:
+			if not source_message.id or not any(
+				path.startswith(location_prefix) for path, _line in source_message.locations
+			):
+				continue
+			owner = self.merged_frappe_catalog.get(
+				source_message.id,
+				context=source_message.context,
+			)
+			if not self._is_usable_translation(owner, source_message.id):
+				missing.append(
+					{
+						"id": source_message.id,
+						"context": source_message.context,
+						"locations": list(source_message.locations),
+					}
+				)
+		self.assertEqual(missing, [])
+
 	def test_statement_email_help_matches_the_chinese_defaults(self):
 		messages = [
 			message
