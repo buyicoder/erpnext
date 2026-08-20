@@ -80,6 +80,14 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("test_subcontracting_order_i18n.py,dst=/tmp/test_subcontracting_order_i18n.py,readonly", self.build_script)
 		self.assertIn("Verified subcontracting order translation behavior", self.build_script)
 		self.assertIn(
+			"COPY --chown=frappe:frappe erpnext/maintenance/doctype/maintenance_schedule/maintenance_schedule.py "
+			"/home/frappe/frappe-bench/apps/erpnext/erpnext/maintenance/doctype/maintenance_schedule/maintenance_schedule.py",
+			self.containerfile,
+		)
+		self.assertNotIn("erpnext/tests/test_maintenance_schedule_i18n.py", self.containerfile)
+		self.assertIn("test_maintenance_schedule_i18n.py,dst=/tmp/test_maintenance_schedule_i18n.py,readonly", self.build_script)
+		self.assertIn("Verified maintenance schedule translation behavior", self.build_script)
+		self.assertIn(
 			"erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py",
 			self.containerfile,
 		)

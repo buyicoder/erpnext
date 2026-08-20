@@ -75,6 +75,7 @@ COPY --chown=frappe:frappe erpnext/projects/report/project_wise_stock_tracking/p
 COPY --chown=frappe:frappe erpnext/projects/report/project_wise_stock_tracking/project_wise_stock_tracking.json /home/frappe/frappe-bench/apps/erpnext/erpnext/projects/report/project_wise_stock_tracking/project_wise_stock_tracking.json
 COPY --chown=frappe:frappe erpnext/assets/doctype/asset/asset.py /home/frappe/frappe-bench/apps/erpnext/erpnext/assets/doctype/asset/asset.py
 COPY --chown=frappe:frappe erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.py /home/frappe/frappe-bench/apps/erpnext/erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.py
+COPY --chown=frappe:frappe erpnext/maintenance/doctype/maintenance_schedule/maintenance_schedule.py /home/frappe/frappe-bench/apps/erpnext/erpnext/maintenance/doctype/maintenance_schedule/maintenance_schedule.py
 COPY --chown=frappe:frappe erpnext/stock/doctype/item/item.json /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json
 COPY --chown=frappe:frappe erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
 COPY --chown=frappe:frappe erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py

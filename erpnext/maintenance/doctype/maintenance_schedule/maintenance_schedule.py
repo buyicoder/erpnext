@@ -290,10 +290,11 @@ class MaintenanceSchedule(TransactionBase):
 
 		for row in voucher_nos:
 			if row.voucher_type != "Maintenance Schedule":
-				msg = f"""Serial and Batch Bundle {row.name}
-					should have voucher type as 'Maintenance Schedule'"""
-
-				frappe.throw(_(msg))
+				frappe.throw(
+					_("Serial and Batch Bundle {0} should have voucher type as {1}").format(
+						row.name, _("Maintenance Schedule")
+					)
+				)
 
 	def on_update(self):
 		self.db_set("status", "Draft")

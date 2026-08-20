@@ -64329,3 +64329,7 @@ msgstr "物料 {0} 必须填写序列号或批号"
 #: erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py
 msgid "Serial No and Batch No are not allowed for Item {0}"
 msgstr "物料 {0} 未启用序列号或批号管理，不能填写这些信息"
+
+#: erpnext/maintenance/doctype/maintenance_schedule/maintenance_schedule.py
+msgid "Serial and Batch Bundle {0} should have voucher type as {1}"
+msgstr "序列号与批号组合 {0} 的单据类型必须为“{1}”"

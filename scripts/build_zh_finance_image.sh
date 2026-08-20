@@ -21,6 +21,7 @@ docker build \
 
 docker run --rm --entrypoint sh \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_subcontracting_order_i18n.py,dst=/tmp/test_subcontracting_order_i18n.py,readonly" \
+	--mount "type=bind,src=$repo_root/erpnext/tests/test_maintenance_schedule_i18n.py,dst=/tmp/test_maintenance_schedule_i18n.py,readonly" \
 	"$image" -lc '
 	set -eu
 	FRAPPE_RUNTIME_VERSION="'"$FRAPPE_RUNTIME_VERSION"'" /home/frappe/frappe-bench/env/bin/python - <<"PY"
@@ -134,6 +135,8 @@ expected_translations = {
 	"Subcontracted Purchase Order": "委外采购订单",
 	"Subcontract BOM": "委外物料清单",
 	"Stock Reservation Entries created": "已创建库存预留单",
+	"Serial and Batch Bundle {0} should have voucher type as {1}": "序列号与批号组合 {0} 的单据类型必须为“{1}”",
+	"Maintenance Schedule": "维护巡修计划",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)
@@ -293,6 +296,8 @@ PY
 	cd /home/frappe/frappe-bench
 	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_subcontracting_order_i18n.py"
 	printf "%s\n" "Verified subcontracting order translation behavior"
+	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_maintenance_schedule_i18n.py"
+	printf "%s\n" "Verified maintenance schedule translation behavior"
 	/home/frappe/frappe-bench/env/bin/python /tmp/validate_frappe_runtime_i18n.py \
 		--frappe-app /home/frappe/frappe-bench/apps/frappe \
 		--catalog /home/frappe/frappe-bench/apps/frappe/frappe/locale/zh.po
