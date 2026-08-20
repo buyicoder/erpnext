@@ -465,6 +465,7 @@ class TestZhFinanceImage(TestCase):
 			self.browser_overrides,
 		)
 		self.assertIn('.pswp .pswp__button[title]', self.browser_overrides)
+		self.assertIn('a[target="_blank"][title="Open Link"]', self.browser_overrides)
 		self.assertIn("div[style*='text-align: right']", self.browser_overrides)
 		self.assertIn(".list-row-head [data-sort-by][title]", self.browser_overrides)
 		self.assertIn(".list-row .ellipsis[title]", self.browser_overrides)

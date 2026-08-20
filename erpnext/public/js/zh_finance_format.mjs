@@ -95,6 +95,9 @@ const PHOTOSWIPE_TITLES = {
 export const localize_photoswipe_title = (title) =>
 	Object.hasOwn(PHOTOSWIPE_TITLES, title) ? PHOTOSWIPE_TITLES[title] : title;
 
+export const localize_open_link_title = (title, translate) =>
+	title === "Open Link" ? translate(title) : title;
+
 export const localize_list_sort_title = (title, visible_label, translate) => {
 	if (!title || !visible_label) return title;
 	return translate("Click to sort by {0}", [visible_label.trim()]);

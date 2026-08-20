@@ -12,6 +12,7 @@ import {
 	localize_list_filter_title,
 	localize_list_sort_title,
 	localize_list_value_title,
+	localize_open_link_title,
 	localize_photoswipe_title,
 	localize_quill_accessibility_value,
 	localize_sidebar_editor_text,
@@ -100,6 +101,13 @@ test("localizes every PhotoSwipe image-viewer control title", () => {
 	}
 	assert.equal(localize_photoswipe_title("Download"), "Download");
 	assert.equal(localize_photoswipe_title("constructor"), "constructor");
+});
+
+test("localizes only the URL formatter's Open Link title", () => {
+	const translate = (message) => (message === "Open Link" ? "打开链接" : message);
+	assert.equal(localize_open_link_title("Open Link", translate), "打开链接");
+	assert.equal(localize_open_link_title("打开链接", translate), "打开链接");
+	assert.equal(localize_open_link_title("Open Document", translate), "Open Document");
 });
 
 test("localizes list sorting and translated-value tooltips", () => {
