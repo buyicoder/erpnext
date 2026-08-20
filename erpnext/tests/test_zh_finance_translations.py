@@ -1689,11 +1689,15 @@ class TestZhFinanceTranslations(TestCase):
 		}
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
+
 		self._assert_translation("Billing Amount", "开票金额")
 		self._assert_translation("Billing Amount", "计费金额", context="Timesheet Detail")
 		self._assert_translation(
 			"Billing Amount", "计费金额", context="Timesheet Billing Summary"
 		)
+
+	def test_operational_email_templates_use_reviewed_chinese_terms(self):
+		self._assert_translation("Please take necessary action", "请及时处理")
 
 	def test_project_management_reports_use_reviewed_chinese_terms(self):
 		translations = {

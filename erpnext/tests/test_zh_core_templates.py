@@ -15,6 +15,19 @@ class TestZhCoreTemplates(TestCase):
 				'{{ __("Produced Qty") }}',
 			),
 			"stock/dashboard/item_dashboard.html": ('{{ __("More") }}',),
+			"stock/doctype/delivery_trip/dispatch_notification_template.html": (
+				'{{ _("Dispatch Notification") }}',
+				'{{ _("Delivery Note") }}',
+				'{{ _("Driver") }}',
+				'{{ _("Vehicle Number") }}',
+			),
+			"setup/doctype/email_digest/templates/default.html": (
+				'{{ _("Item Code") }}',
+				'{{ _("Quantity") }}',
+				'{{ _("Rate") }}',
+				'{{ _("Amount") }}',
+				'{{ _("Please take necessary action") }}',
+			),
 		}
 
 		for relative_path, expected_calls in contracts.items():

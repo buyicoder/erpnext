@@ -64062,3 +64062,7 @@ msgstr "修改人"
 #: erpnext/projects/doctype/project/project_dashboard.html:1
 msgid "Activity Summary"
 msgstr "活动汇总"
+
+#: erpnext/setup/doctype/email_digest/templates/default.html:253
+msgid "Please take necessary action"
+msgstr "请及时处理"

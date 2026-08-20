@@ -43,6 +43,11 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("erpnext/manufacturing/doctype/work_order/work_order_preview.html", self.containerfile)
 		self.assertIn("erpnext/stock/dashboard/item_dashboard.html", self.containerfile)
 		self.assertIn(
+			"erpnext/stock/doctype/delivery_trip/dispatch_notification_template.html",
+			self.containerfile,
+		)
+		self.assertIn("erpnext/setup/doctype/email_digest/templates/default.html", self.containerfile)
+		self.assertIn(
 			"erpnext/projects/report/project_wise_stock_tracking/project_wise_stock_tracking.py",
 			self.containerfile,
 		)
