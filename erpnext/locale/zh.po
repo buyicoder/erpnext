@@ -63553,6 +63553,10 @@ msgstr "品牌"
 msgid "Warehouse"
 msgstr "仓库"
 
+#: erpnext/stock/stock_ledger.py
+msgid "The field {0} is required for the reposting"
+msgstr "库存重算必须填写“{0}”"
+
 msgid "List View"
 msgstr "列表视图"
 

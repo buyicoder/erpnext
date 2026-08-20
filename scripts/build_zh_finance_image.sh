@@ -89,6 +89,11 @@ if not all(
 print("Verified bundled Chinese demo data")
 
 expected_translations = {
+	"The field {0} is required for the reposting": "库存重算必须填写“{0}”",
+	"Item Code": "物料号",
+	"Warehouse": "仓库",
+	"Posting Date": "记账日期",
+	"Posting Time": "记账时间",
 	"Statement PDF Password": "对账单 PDF 密码",
 	"Create User Automatically": "自动创建用户",
 	"Included fee is bigger than the withdrawal itself.": "已计入手续费不能大于支出金额。",
@@ -146,6 +151,64 @@ if missing_stock_templates or "frappe.throw(_(message)" in stock_ledger_source:
 		f"Stock Ledger Entry translation source is stale: missing={sorted(missing_stock_templates)}"
 	)
 print("Verified Stock Ledger Entry translation source")
+
+stock_reposting_source = Path(
+	"/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/stock_ledger.py"
+).read_text()
+import ast
+
+stock_reposting_tree = ast.parse(stock_reposting_source)
+validate_item_warehouse = next(
+	node
+	for node in ast.walk(stock_reposting_tree)
+	if isinstance(node, ast.FunctionDef) and node.name == "validate_item_warehouse"
+)
+throw_calls = [
+	node
+	for node in ast.walk(validate_item_warehouse)
+	if isinstance(node, ast.Call)
+	and isinstance(node.func, ast.Attribute)
+	and node.func.attr == "throw"
+]
+field_label_assignments = [
+	node
+	for node in ast.walk(validate_item_warehouse)
+	if isinstance(node, ast.Assign)
+	and any(isinstance(target, ast.Name) and target.id == "field_label" for target in node.targets)
+]
+if len(throw_calls) != 1 or len(field_label_assignments) != 1:
+	raise SystemExit("Stock reposting translation source is stale")
+throw_call = throw_calls[0]
+formatted_message = throw_call.args[0]
+field_label_value = field_label_assignments[0].value
+valid_reposting_template = (
+	isinstance(formatted_message, ast.Call)
+	and isinstance(formatted_message.func, ast.Attribute)
+	and formatted_message.func.attr == "format"
+	and isinstance(formatted_message.func.value, ast.Call)
+	and isinstance(formatted_message.func.value.func, ast.Name)
+	and formatted_message.func.value.func.id == "_"
+	and isinstance(formatted_message.func.value.args[0], ast.Constant)
+	and formatted_message.func.value.args[0].value == "The field {0} is required for the reposting"
+	and len(formatted_message.args) == 1
+	and isinstance(formatted_message.args[0], ast.Name)
+	and formatted_message.args[0].id == "field_label"
+	and isinstance(field_label_value, ast.Call)
+	and isinstance(field_label_value.func, ast.Name)
+	and field_label_value.func.id == "_"
+	and len(field_label_value.args) == 1
+	and isinstance(field_label_value.args[0], ast.Call)
+	and isinstance(field_label_value.args[0].func, ast.Attribute)
+	and isinstance(field_label_value.args[0].func.value, ast.Name)
+	and field_label_value.args[0].func.value.id == "frappe"
+	and field_label_value.args[0].func.attr == "unscrub"
+	and len(field_label_value.args[0].args) == 1
+	and isinstance(field_label_value.args[0].args[0], ast.Name)
+	and field_label_value.args[0].args[0].id == "field"
+)
+if not valid_reposting_template:
+	raise SystemExit("Stock reposting translation source is stale")
+print("Verified stock reposting translation source")
 
 expected_frappe_translations = {
 	"Current Series": "当前编号",

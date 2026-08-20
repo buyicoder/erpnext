@@ -76,6 +76,7 @@ COPY --chown=frappe:frappe erpnext/projects/report/project_wise_stock_tracking/p
 COPY --chown=frappe:frappe erpnext/stock/doctype/item/item.json /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json
 COPY --chown=frappe:frappe erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
 COPY --chown=frappe:frappe erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py
+COPY --chown=frappe:frappe erpnext/stock/stock_ledger.py /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/stock_ledger.py
 COPY --chown=frappe:frappe erpnext/stock/utils.py /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/utils.py
 COPY --chown=frappe:frappe erpnext/manufacturing/doctype/production_plan/production_plan.py /home/frappe/frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.py
 COPY --chown=frappe:frappe erpnext/setup/china_defaults.py /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/china_defaults.py

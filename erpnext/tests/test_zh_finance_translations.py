@@ -1838,6 +1838,7 @@ class TestZhFinanceTranslations(TestCase):
 
 	def test_stock_reposting_uses_reviewed_chinese_terms(self):
 		translations = {
+			"The field {0} is required for the reposting": "库存重算必须填写“{0}”",
 			"Current Index": "已处理项数",
 			"Auto Reposting of Incorrect Valuation": "自动修复成本价错误",
 			"Auto Repost Incorrect Valuation Entries (Weekly)": "每周自动重新过账成本价错误记录",

@@ -75,6 +75,12 @@ class TestZhFinanceImage(TestCase):
 			self.containerfile,
 		)
 		self.assertIn("Verified Stock Ledger Entry translation source", self.build_script)
+		self.assertIn(
+			"COPY --chown=frappe:frappe erpnext/stock/stock_ledger.py "
+			"/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/stock_ledger.py",
+			self.containerfile,
+		)
+		self.assertIn("Verified stock reposting translation source", self.build_script)
 		self.assertIn("erpnext/hooks.py", self.containerfile)
 		self.assertIn("erpnext/controllers/selling_controller.py", self.containerfile)
 		self.assertIn("erpnext/controllers/buying_controller.py", self.containerfile)
