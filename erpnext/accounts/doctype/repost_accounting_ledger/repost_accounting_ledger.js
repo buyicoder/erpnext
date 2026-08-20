@@ -44,10 +44,12 @@ frappe.ui.form.on("Repost Accounting Ledger", {
 			freeze_message: __("Generating Preview"),
 			callback: function (r) {
 				if (r && r.message) {
-					let content = r.message;
+					const preview_note = frappe.utils.escape_html(
+						__("Review the accounting entries before reposting.")
+					);
+					let content = `<p class="text-muted">${preview_note}</p>${r.message}`;
 					let opts = {
-						title: "Preview",
-						subtitle: "preview",
+						title: __("Accounting Ledger Repost Preview"),
 						content: content,
 						print_settings: { orientation: "landscape" },
 						columns: [],

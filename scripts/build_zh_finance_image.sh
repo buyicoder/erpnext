@@ -201,6 +201,14 @@ expected_translations = {
 	"Target Warehouse is set for some items but the customer is not an internal customer.": "部分物料设置了目标仓库，但客户不是内部客户。",
 	"This {0} will be treated as a material transfer.": "此{0}将按物料调拨处理。",
 	"Sales Order": "销售订单",
+	"Repost Accounting Ledger": "会计凭证重新过账",
+	"Repost Accounting Ledger Items": "会计凭证重新过账明细",
+	"Repost Accounting Ledger Settings": "会计凭证重新过账设置",
+	"Repost Allowed Types": "允许重新过账的单据类型",
+	"Unable to Repost Accounting Ledger": "无法重新过账会计凭证",
+	"Generating Preview": "正在生成预览…",
+	"Accounting Ledger Repost Preview": "会计凭证重新过账预览",
+	"Review the accounting entries before reposting.": "请在重新过账前核对会计凭证明细。",
 	"Cost Center": "成本中心",
 	"Project": "项目",
 	"Customer Name": "客户名称",
@@ -227,6 +235,19 @@ if stock_transfer_title != "内部调拨":
 		f"{stock_transfer_title!r} != '内部调拨'"
 	)
 print(f"Verified {len(expected_translations)} compiled ERPNext translations")
+
+repost_preview_source = Path(
+	"/home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/"
+	"repost_accounting_ledger/repost_accounting_ledger.js"
+).read_text()
+for contract in (
+	"title: __(\"Accounting Ledger Repost Preview\"),",
+	"const preview_note = frappe.utils.escape_html(",
+	"__(\"Review the accounting entries before reposting.\")",
+	"let content = `<p class=\"text-muted\">${preview_note}</p>${r.message}`;",
+):
+	if contract not in repost_preview_source:
+		raise SystemExit(f"Repost Accounting Ledger preview localization missing: {contract}")
 
 stock_ledger_source = Path(
 	"/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py"

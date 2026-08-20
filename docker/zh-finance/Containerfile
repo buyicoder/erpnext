@@ -6,6 +6,9 @@ COPY banking/package.json banking/yarn.lock ./
 RUN yarn install --frozen-lockfile
 COPY banking/ ./
 RUN yarn test:localization && mkdir -p /erpnext/www && yarn build
+COPY erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.js /workspace/erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.js
+COPY erpnext/tests/repost_accounting_ledger_i18n.test.mjs /workspace/erpnext/tests/repost_accounting_ledger_i18n.test.mjs
+RUN node --test /workspace/erpnext/tests/repost_accounting_ledger_i18n.test.mjs
 
 FROM buyicoder/erpnext-cn:v16.32.3
 
@@ -86,6 +89,7 @@ COPY --chown=frappe:frappe erpnext/accounts/doctype/promotional_scheme/promotion
 COPY --chown=frappe:frappe erpnext/controllers/taxes_and_totals.py /home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/taxes_and_totals.py
 COPY --chown=frappe:frappe erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.py
 COPY --chown=frappe:frappe erpnext/accounts/doctype/currency_exchange_settings/currency_exchange_settings.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/currency_exchange_settings/currency_exchange_settings.py
+COPY --chown=frappe:frappe erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.js /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.js
 COPY --chown=frappe:frappe erpnext/accounts/report/tds_computation_summary/tds_computation_summary.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/report/tds_computation_summary/tds_computation_summary.py
 COPY --chown=frappe:frappe erpnext/accounts/report/tax_withholding_details/tax_withholding_details.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/report/tax_withholding_details/tax_withholding_details.py
 COPY --chown=frappe:frappe erpnext/stock/doctype/item/item.json /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json

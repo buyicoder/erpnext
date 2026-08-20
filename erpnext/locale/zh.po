@@ -22301,7 +22301,7 @@ msgstr "正在生成主生产计划..."
 
 #: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.js:44
 msgid "Generating Preview"
-msgstr "生成预览"
+msgstr "正在生成预览…"
 
 #. Label of the get_actual_demand (Button) field in DocType 'Master Production
 #. Schedule'
@@ -44578,23 +44578,23 @@ msgstr "重新过账"
 #: erpnext/workspace_sidebar/invoicing.json
 #: erpnext/workspace_sidebar/payments.json
 msgid "Repost Accounting Ledger"
-msgstr "会计凭证更新台账"
+msgstr "会计凭证重新过账"
 
 #. Name of a DocType
 #: erpnext/accounts/doctype/repost_accounting_ledger_items/repost_accounting_ledger_items.json
 msgid "Repost Accounting Ledger Items"
-msgstr "重过账凭证明细"
+msgstr "会计凭证重新过账明细"
 
 #. Label of a Workspace Sidebar Item
 #: erpnext/workspace_sidebar/accounts_setup.json
 #: erpnext/workspace_sidebar/erpnext_settings.json
 msgid "Repost Accounting Ledger Settings"
-msgstr "过账可改科目单据设置"
+msgstr "会计凭证重新过账设置"
 
 #. Name of a DocType
 #: erpnext/accounts/doctype/repost_allowed_types/repost_allowed_types.json
 msgid "Repost Allowed Types"
-msgstr "允许重过账单据类型"
+msgstr "允许重新过账的单据类型"
 
 #. Label of the repost_error_log (Long Text) field in DocType 'Repost Payment
 #. Ledger'
@@ -58760,7 +58760,7 @@ msgstr "取消核销分派"
 
 #: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:375
 msgid "Unable to Repost Accounting Ledger"
-msgstr "无法重新过账会计台账"
+msgstr "无法重新过账会计凭证"
 
 #: erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:477
 msgid "Unable to fetch DocType details. Please contact system administrator."
@@ -64446,3 +64446,11 @@ msgstr "{{ customer.customer_name }}，您好：<br>附件为截至 {{ doc.posti
 #: erpnext/accounts/doctype/currency_exchange_settings/currency_exchange_settings.py
 msgid "Exchange rate service call failed: {0}"
 msgstr "汇率服务调用失败：{0}"
+
+#: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.js
+msgid "Accounting Ledger Repost Preview"
+msgstr "会计凭证重新过账预览"
+
+#: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.js
+msgid "Review the accounting entries before reposting."
+msgstr "请在重新过账前核对会计凭证明细。"

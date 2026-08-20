@@ -365,6 +365,21 @@ class TestZhFinanceTranslations(TestCase):
 			"Internal Transfer", "内部调拨", context="Stock Transfer"
 		)
 
+	def test_accounting_ledger_repost_preview_uses_reviewed_chinese(self):
+		translations = {
+			"Repost Accounting Ledger": "会计凭证重新过账",
+			"Repost Accounting Ledger Items": "会计凭证重新过账明细",
+			"Repost Accounting Ledger Settings": "会计凭证重新过账设置",
+			"Repost Allowed Types": "允许重新过账的单据类型",
+			"Unable to Repost Accounting Ledger": "无法重新过账会计凭证",
+			"Generating Preview": "正在生成预览…",
+			"Accounting Ledger Repost Preview": "会计凭证重新过账预览",
+			"Review the accounting entries before reposting.": "请在重新过账前核对会计凭证明细。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
 	def test_every_erpnext_source_message_has_a_chinese_runtime_owner(self):
 		from babel.messages.extract import extract_from_dir
 		from frappe.gettext.translate import PYTHON_KEYWORDS, get_method_map
@@ -470,6 +485,12 @@ class TestZhFinanceTranslations(TestCase):
 	def test_reviewed_core_visible_sinks_use_translation_helpers(self):
 		repo_root = Path(__file__).parents[2]
 		contracts = {
+			"erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.js": [
+				'title: __("Accounting Ledger Repost Preview"),',
+				"const preview_note = frappe.utils.escape_html(",
+				'__("Review the accounting entries before reposting.")',
+				'let content = `<p class="text-muted">${preview_note}</p>${r.message}`;',
+			],
 			"erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.js":
 				'frappe.throw(__("Enter {0} name.", [__(frm.doc.customer_collection)]));',
 			"erpnext/buying/doctype/purchase_order/purchase_order.js":
