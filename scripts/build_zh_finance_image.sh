@@ -65,6 +65,14 @@ if missing:
 	raise SystemExit("Asset manifest references missing files: " + ", ".join(missing))
 print(f"Verified {len(manifest)} asset manifest entries")
 
+form_sidebar_source = Path(
+	"/home/frappe/frappe-bench/apps/frappe/frappe/public/js/frappe/form/templates/form_sidebar.html"
+).read_text()
+translated_single_title = "frm.meta.issingle ? __(frappe.utils.html2text(title)) : frappe.utils.html2text(title)"
+if translated_single_title not in form_sidebar_source:
+	raise SystemExit("Single DocType sidebar titles are not translated in the final image")
+print("Verified translated Single DocType sidebar titles")
+
 demo_root = Path("/home/frappe/frappe-bench/apps/erpnext/erpnext/setup/demo_data")
 demo_items = json.loads((demo_root / "item.json").read_text())
 demo_customers = json.loads((demo_root / "customer.json").read_text())
@@ -107,6 +115,7 @@ if not all(
 print("Verified bundled Chinese demo data")
 
 expected_translations = {
+	"Accounts Settings": "会计设置",
 	"Please submit Purchase Order {0} before proceeding.": "请先提交采购订单 {0}，再继续操作。",
 	"Cannot create more Subcontracting Orders against the Purchase Order {0}.": "无法再基于采购订单 {0} 创建委外订单。",
 	"Reserve Warehouse must be different from Supplier Warehouse for Supplied Item {0}.": "委外原材料 {0} 的预留仓库必须与委外仓不同。",

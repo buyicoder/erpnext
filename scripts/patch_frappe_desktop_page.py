@@ -10,6 +10,8 @@ RAW_WORKSPACE_DEPENDENCIES = '''<div class="small">${item.incomplete_dependencie
 TRANSLATED_WORKSPACE_DEPENDENCIES = '''<div class="small">${item.incomplete_dependencies.map((doctype) => __(doctype)).join(", ")}</div>'''
 RAW_TREE_ROOT_LABEL = '''\t\t\tlabel: use_label,'''
 TRANSLATED_TREE_ROOT_LABEL = '''\t\t\tlabel: __(use_label),'''
+RAW_FORM_SIDEBAR_TITLE = '''\t\t\t\t<span class="bold ellipsis mr-3 text-medium">{%= frappe.utils.escape_html(frappe.utils.html2text(title)) %}</span>'''
+TRANSLATED_FORM_SIDEBAR_TITLE = '''\t\t\t\t<span class="bold ellipsis mr-3 text-medium">{%= frappe.utils.escape_html(frm.meta.issingle ? __(frappe.utils.html2text(title)) : frappe.utils.html2text(title)) %}</span>'''
 
 
 def patch_text(source: str) -> str:
@@ -36,6 +38,12 @@ def patch_treeview(source: str) -> str:
 	return source.replace(RAW_TREE_ROOT_LABEL, TRANSLATED_TREE_ROOT_LABEL)
 
 
+def patch_form_sidebar(source: str) -> str:
+	if source.count(RAW_FORM_SIDEBAR_TITLE) != 1:
+		raise ValueError("Pinned Frappe form sidebar no longer matches the expected source contract")
+	return source.replace(RAW_FORM_SIDEBAR_TITLE, TRANSLATED_FORM_SIDEBAR_TITLE)
+
+
 def main():
 	page_path = Path(
 		"/home/frappe/frappe-bench/apps/frappe/frappe/desk/page/desktop/desktop.js"
@@ -51,6 +59,10 @@ def main():
 		"/home/frappe/frappe-bench/apps/frappe/frappe/public/js/frappe/views/treeview.js"
 	)
 	treeview_path.write_text(patch_treeview(treeview_path.read_text()))
+	form_sidebar_path = Path(
+		"/home/frappe/frappe-bench/apps/frappe/frappe/public/js/frappe/form/templates/form_sidebar.html"
+	)
+	form_sidebar_path.write_text(patch_form_sidebar(form_sidebar_path.read_text()))
 
 
 if __name__ == "__main__":

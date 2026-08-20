@@ -2,14 +2,17 @@ from unittest import TestCase
 
 from scripts.patch_frappe_desktop_page import (
 	RAW_DESKTOP_TITLE,
+	RAW_FORM_SIDEBAR_TITLE,
 	RAW_SEARCH_TITLE,
 	RAW_WORKSPACE_DEPENDENCIES,
 	RAW_TREE_ROOT_LABEL,
 	TRANSLATED_DESKTOP_TITLE,
+	TRANSLATED_FORM_SIDEBAR_TITLE,
 	TRANSLATED_SEARCH_TITLE,
 	TRANSLATED_WORKSPACE_DEPENDENCIES,
 	TRANSLATED_TREE_ROOT_LABEL,
 	patch_html,
+	patch_form_sidebar,
 	patch_links_widget,
 	patch_treeview,
 	patch_text,
@@ -56,3 +59,14 @@ class TestPatchFrappeDesktopPage(TestCase):
 	def test_tree_root_label_patch_fails_when_pinned_source_changes(self):
 		with self.assertRaisesRegex(ValueError, "no longer matches"):
 			patch_treeview("label: use_label,")
+
+	def test_single_doctype_sidebar_title_uses_runtime_translation(self):
+		patched = patch_form_sidebar(f"before\n{RAW_FORM_SIDEBAR_TITLE}\nafter")
+
+		self.assertIn(TRANSLATED_FORM_SIDEBAR_TITLE, patched)
+		self.assertIn("frm.meta.issingle ? __(", patched)
+		self.assertNotIn(RAW_FORM_SIDEBAR_TITLE, patched)
+
+	def test_form_sidebar_patch_fails_when_pinned_source_changes(self):
+		with self.assertRaisesRegex(ValueError, "no longer matches"):
+			patch_form_sidebar("<span>{%= title %}</span>")
