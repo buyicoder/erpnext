@@ -28,6 +28,9 @@ class TestZhFinanceImage(TestCase):
 		self.browser_overrides = (
 			self.repo_root / "erpnext" / "public" / "js" / "zh_finance_overrides.js"
 		).read_text()
+		self.setup_wizard_source = (
+			self.repo_root / "erpnext" / "public" / "js" / "setup_wizard.js"
+		).read_text()
 		self.account_tree = (
 			self.repo_root / "erpnext" / "accounts" / "doctype" / "account" / "account_tree.js"
 		).read_text()
@@ -319,6 +322,8 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("patch_frappe_login_page.py", self.containerfile)
 		self.assertIn("patch_frappe_setup_wizard.py", self.containerfile)
 		self.assertIn("erpnext/public/js/setup_wizard.js", self.containerfile)
+		self.assertIn('__("Standard with Numbers")', self.setup_wizard_source)
+		self.assertIn("erpnext.setup.chart_options(r.message)", self.setup_wizard_source)
 		self.assertIn("sync_asset_manifest.py", self.containerfile)
 		self.assertIn("/tmp/patch_frappe_print_page.py", self.containerfile)
 		self.assertIn("/tmp/patch_frappe_desktop_page.py", self.containerfile)

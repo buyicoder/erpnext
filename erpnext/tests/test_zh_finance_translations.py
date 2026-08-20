@@ -1921,6 +1921,10 @@ class TestZhFinanceTranslations(TestCase):
 			self._assert_translation(source, translation)
 			self._assert_erpnext_runtime_translation(source, translation)
 
+	def test_setup_wizard_chart_options_use_reviewed_chinese(self):
+		self._assert_translation("Standard with Numbers", "标准（带编号）")
+		self._assert_erpnext_runtime_translation("Standard with Numbers", "标准（带编号）")
+
 	def test_every_frappe_public_javascript_message_has_a_translation_owner(self):
 		missing = []
 		for message in self.frappe_runtime_catalog:

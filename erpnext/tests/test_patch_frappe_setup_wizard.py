@@ -2,7 +2,10 @@ from unittest import TestCase
 
 from scripts.patch_frappe_setup_wizard import (
 	CHINA_LANGUAGE_DEFAULT,
+	CHINA_SETUP_DATE_LANGUAGE,
 	RAW_LANGUAGE_DEFAULT,
+	RAW_SETUP_DATE_LANGUAGE,
+	patch_date_control_text,
 	patch_text,
 )
 
@@ -13,6 +16,12 @@ class TestPatchFrappeSetupWizard(TestCase):
 
 		self.assertIn(CHINA_LANGUAGE_DEFAULT, patched)
 		self.assertNotIn(RAW_LANGUAGE_DEFAULT, patched)
+
+	def test_setup_date_picker_uses_chinese_system_default_before_user_setup(self):
+		patched = patch_date_control_text(f"before\n{RAW_SETUP_DATE_LANGUAGE}\nafter\n")
+
+		self.assertIn(CHINA_SETUP_DATE_LANGUAGE, patched)
+		self.assertNotIn(RAW_SETUP_DATE_LANGUAGE, patched)
 
 	def test_pinned_source_contract_rejects_missing_or_duplicate_default(self):
 		with self.assertRaises(ValueError):

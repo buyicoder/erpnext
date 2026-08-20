@@ -63695,6 +63695,10 @@ msgstr "到期日"
 msgid "Today"
 msgstr "今天"
 
+#: erpnext/public/js/setup_wizard.js
+msgid "Standard with Numbers"
+msgstr "标准（带编号）"
+
 msgid "Total"
 msgstr "合计"
 

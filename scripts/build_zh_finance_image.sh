@@ -138,6 +138,7 @@ expected_translations = {
 	"Other": "其他",
 	"Excel / Spreadsheets": "Excel / 电子表格",
 	"Nothing yet - starting fresh": "尚未使用，准备从零开始",
+	"Standard with Numbers": "标准（带编号）",
 	"Zero Balance Journal: {0}": "零余额日记账凭证：{0}",
 	"Revaluation Journal: {0}": "汇率重估日记账凭证：{0}",
 	"Row #{0}: Item Code is Mandatory": "第 {0} 行：必须填写物料号",
@@ -628,6 +629,18 @@ if setup_wizard_source.count('default: "中文",') != 1:
 	raise SystemExit("Frappe setup wizard Chinese language default is stale")
 if 'default: "English",' in setup_wizard_source:
 	raise SystemExit("Frappe setup wizard still defaults to English")
+date_control_source = Path(
+	"/home/frappe/frappe-bench/apps/frappe/frappe/public/js/frappe/form/controls/date.js"
+).read_text()
+expected_date_language = (
+	"let lang = frappe.boot.setup_complete\n"
+	"\t\t\t? frappe.boot.user?.language\n"
+	"\t\t\t: frappe.boot.sysdefaults?.language;"
+)
+if date_control_source.count(expected_date_language) != 1:
+	raise SystemExit("Frappe date picker does not fall back to the Chinese system language")
+if 'let lang = "en";\n\t\tfrappe.boot.user && (lang = frappe.boot.user.language);' in date_control_source:
+	raise SystemExit("Frappe date picker still defaults setup sessions to English")
 print("Verified Frappe setup wizard Chinese language default")
 with (asset_root / "locale/zh/LC_MESSAGES/frappe.mo").open("rb") as mo_file:
 	frappe_translations = GNUTranslations(mo_file)

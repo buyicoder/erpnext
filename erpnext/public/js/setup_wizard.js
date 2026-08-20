@@ -28,6 +28,13 @@ erpnext.setup.persona_options = function (values) {
 	}));
 };
 
+erpnext.setup.chart_options = function (values) {
+	return values.map((value) => ({
+		value,
+		label: value === "Standard with Numbers" ? __("Standard with Numbers") : value,
+	}));
+};
+
 frappe.pages["setup-wizard"].on_page_load = function (wrapper) {
 	if (frappe.sys_defaults.company) {
 		frappe.set_route("desk");
@@ -258,7 +265,10 @@ erpnext.setup.slides_settings = [
 					args: { country: country, with_standard: true },
 					callback: function (r) {
 						if (r.message) {
-							slide.get_input("chart_of_accounts").empty().add_options(r.message);
+							slide
+								.get_input("chart_of_accounts")
+								.empty()
+								.add_options(erpnext.setup.chart_options(r.message));
 						}
 					},
 				});
