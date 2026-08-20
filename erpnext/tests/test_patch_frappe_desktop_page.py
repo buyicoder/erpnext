@@ -4,11 +4,14 @@ from scripts.patch_frappe_desktop_page import (
 	RAW_DESKTOP_TITLE,
 	RAW_SEARCH_TITLE,
 	RAW_WORKSPACE_DEPENDENCIES,
+	RAW_TREE_ROOT_LABEL,
 	TRANSLATED_DESKTOP_TITLE,
 	TRANSLATED_SEARCH_TITLE,
 	TRANSLATED_WORKSPACE_DEPENDENCIES,
+	TRANSLATED_TREE_ROOT_LABEL,
 	patch_html,
 	patch_links_widget,
+	patch_treeview,
 	patch_text,
 )
 
@@ -43,3 +46,13 @@ class TestPatchFrappeDesktopPage(TestCase):
 	def test_workspace_dependency_patch_fails_when_pinned_source_changes(self):
 		with self.assertRaisesRegex(ValueError, "no longer matches"):
 			patch_links_widget('${item.incomplete_dependencies.join(", ")}')
+
+	def test_tree_root_label_uses_runtime_translation_without_changing_its_value(self):
+		patched = patch_treeview(f"before\n{RAW_TREE_ROOT_LABEL}\nafter")
+
+		self.assertIn(TRANSLATED_TREE_ROOT_LABEL, patched)
+		self.assertNotIn(RAW_TREE_ROOT_LABEL, patched)
+
+	def test_tree_root_label_patch_fails_when_pinned_source_changes(self):
+		with self.assertRaisesRegex(ValueError, "no longer matches"):
+			patch_treeview("label: use_label,")

@@ -64081,3 +64081,15 @@ msgstr "单价"
 #: erpnext/accounts/print_format/sales_auditing_voucher/sales_auditing_voucher.html
 msgid "Net Payable"
 msgstr "应付净额"
+
+msgid "All Locations"
+msgstr "所有地点"
+
+msgid "All Companies"
+msgstr "所有公司"
+
+msgid "All Quality Procedures"
+msgstr "所有质量程序"
+
+msgid "All Tasks"
+msgstr "所有任务"
