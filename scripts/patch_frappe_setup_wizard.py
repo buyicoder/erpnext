@@ -10,6 +10,16 @@ CHINA_LANGUAGE_INITIALIZATION = (
 	'\t\t\tif (!slide.get_value("language") || '
 	'(slide.get_value("language") === "中文" && frappe.boot.lang !== "zh")) {'
 )
+RAW_LANGUAGE_CURRENT_SELECTION = '\t\t\tlet current_selection = frappe.wizard.values.language;'
+CHINA_LANGUAGE_CURRENT_SELECTION = (
+	'\t\t\tfrappe.setup.utils.bind_language_events(slide);\n'
+	'\t\tlet current_selection = frappe.wizard.values.language;'
+)
+RAW_LANGUAGE_BINDING_ORDER = (
+	'\t\t\tfrappe.setup.utils.bind_region_events(slide);\n'
+	'\t\tfrappe.setup.utils.bind_language_events(slide);'
+)
+CHINA_LANGUAGE_BINDING_ORDER = '\t\t\tfrappe.setup.utils.bind_region_events(slide);'
 RAW_SETUP_DATE_LANGUAGE = '\t\tlet lang = "en";\n\t\tfrappe.boot.user && (lang = frappe.boot.user.language);'
 CHINA_SETUP_DATE_LANGUAGE = (
 	'\t\tlet lang = document.documentElement.lang || frappe.boot.user?.language || "en";'
@@ -25,8 +35,13 @@ def patch_text(source: str) -> str:
 		raise ValueError("Pinned Frappe setup wizard no longer matches the expected source contract")
 	if source.count(RAW_LANGUAGE_INITIALIZATION) != 1:
 		raise ValueError("Pinned Frappe setup language initialization no longer matches the expected contract")
-	return source.replace(RAW_LANGUAGE_DEFAULT, CHINA_LANGUAGE_DEFAULT).replace(
-		RAW_LANGUAGE_INITIALIZATION, CHINA_LANGUAGE_INITIALIZATION
+	if source.count(RAW_LANGUAGE_CURRENT_SELECTION) != 1 or source.count(RAW_LANGUAGE_BINDING_ORDER) != 1:
+		raise ValueError("Pinned Frappe setup language binding order no longer matches the expected contract")
+	return (
+		source.replace(RAW_LANGUAGE_DEFAULT, CHINA_LANGUAGE_DEFAULT)
+		.replace(RAW_LANGUAGE_INITIALIZATION, CHINA_LANGUAGE_INITIALIZATION)
+		.replace(RAW_LANGUAGE_CURRENT_SELECTION, CHINA_LANGUAGE_CURRENT_SELECTION)
+		.replace(RAW_LANGUAGE_BINDING_ORDER, CHINA_LANGUAGE_BINDING_ORDER)
 	)
 
 
