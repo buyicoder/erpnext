@@ -192,6 +192,7 @@ RUN /home/frappe/frappe-bench/env/bin/python /tmp/merge_frappe_zh_catalog.py \
 	bench compile-po-to-mo --app erpnext --locale zh --force && \
 	bench build --app frappe && \
 	bench build --app erpnext && \
+	/home/frappe/frappe-bench/env/bin/python /tmp/patch_frappe_setup_wizard.py --built-assets && \
 	/home/frappe/frappe-bench/env/bin/python /tmp/sync_asset_manifest.py \
 		--asset-root /home/frappe/frappe-bench/assets \
 		--manifest /home/frappe/frappe-bench/assets/assets.json && \
