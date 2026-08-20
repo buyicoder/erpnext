@@ -247,6 +247,13 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("cheque_printing_format.json", self.containerfile)
 		self.assertIn("company_letterhead_grey.html", self.containerfile)
 		self.assertIn("erpnext/accounts/letterhead/company_letterhead.html", self.containerfile)
+		for portal_template in (
+			"erpnext/www/support/index.html",
+			"erpnext/templates/includes/projects/project_search_box.html",
+			"erpnext/templates/pages/projects.html",
+			"erpnext/templates/includes/macros.html",
+		):
+			self.assertIn(portal_template, self.containerfile)
 		self.assertIn("company_letterhead___grey.json", self.containerfile)
 		self.assertIn("erpnext/stock/doctype/item/item.json", self.containerfile)
 		self.assertIn("erpnext/stock/utils.py", self.containerfile)

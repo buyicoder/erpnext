@@ -268,7 +268,7 @@
 
 		{% if values | len > 20 %}
 		<!-- show inline filter if values more than 20 -->
-		<input type="text" class="form-control form-control-sm mb-2 filter-lookup-input" placeholder="Search {{ item_field.label + 's' }}"/>
+		<input type="text" class="form-control form-control-sm mb-2 filter-lookup-input" placeholder="{{ _('Search {0}').format(_(item_field.label)) }}"/>
 		{% endif %}
 
 		{% if values %}
@@ -300,7 +300,7 @@
 		<div class="filter-label mb-3">{{ attribute.name }}</div>
 		{% if attribute.item_attribute_values | len > 20 %}
 		<!-- show inline filter if values more than 20 -->
-		<input type="text" class="form-control form-control-sm mb-2 filter-lookup-input" placeholder="Search {{ attribute.name + 's' }}"/>
+		<input type="text" class="form-control form-control-sm mb-2 filter-lookup-input" placeholder="{{ _('Search {0}').format(attribute.name) }}"/>
 		{% endif %}
 
 		{% if attribute.item_attribute_values %}
@@ -331,7 +331,7 @@
 <div class="recommended-item mb-6 d-flex">
 	<div class="r-item-image">
 		{% if item.website_item_thumbnail %}
-			{{ product_image(item.website_item_thumbnail, css_class="r-product-image", alt="item.website_item_name", no_border=True) }}
+			{{ product_image(item.website_item_thumbnail, css_class="r-product-image", alt=item.website_item_name, no_border=True) }}
 		{% else %}
 			<div class="no-image-r-item">
 				{{ frappe.utils.get_abbr(item.website_item_name) or "NA" }}

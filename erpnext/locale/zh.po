@@ -51723,6 +51723,31 @@ msgstr "添加付款方式"
 msgid "{0} percent off"
 msgstr "优惠 {0}%"
 
+#: erpnext/www/support/index.html:25
+msgid "Search the docs (Press ? to focus)"
+msgstr "搜索文档（按 ? 键聚焦）"
+
+#: erpnext/www/support/index.html:35
+msgid "Toggle navigation"
+msgstr "切换导航"
+
+#: erpnext/templates/includes/projects/project_search_box.html:2
+msgid "Quick Search"
+msgstr "快速搜索"
+
+#: erpnext/templates/includes/projects/project_search_box.html:8
+msgid "Clear Search"
+msgstr "清除搜索"
+
+#: erpnext/templates/pages/projects.html:130
+msgid "Generic Empty State"
+msgstr "暂无内容"
+
+#: erpnext/templates/includes/macros.html:271
+#: erpnext/templates/includes/macros.html:303
+msgid "Search {0}"
+msgstr "搜索{0}"
+
 #: erpnext/setup/setup_wizard/operations/defaults_setup.py:70
 #: erpnext/setup/setup_wizard/operations/install_fixtures.py:488
 #: erpnext/tests/utils.py:275

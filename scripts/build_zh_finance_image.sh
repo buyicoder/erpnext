@@ -254,6 +254,12 @@ expected_translations = {
 	"Redeem Loyalty Points": "兑换积分",
 	"Add Payment Method": "添加付款方式",
 	"{0} percent off": "优惠 {0}%",
+	"Search the docs (Press ? to focus)": "搜索文档（按 ? 键聚焦）",
+	"Toggle navigation": "切换导航",
+	"Quick Search": "快速搜索",
+	"Clear Search": "清除搜索",
+	"Generic Empty State": "暂无内容",
+	"Search {0}": "搜索{0}",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)

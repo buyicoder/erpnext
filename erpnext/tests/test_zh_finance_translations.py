@@ -1141,6 +1141,46 @@ class TestZhFinanceTranslations(TestCase):
 		self.assertIn("alt=\"{{ _('Company Logo') }}\"", source)
 		self.assertNotIn('alt="Company Logo"', source)
 
+	def test_public_portal_search_and_accessibility_text_is_translatable(self):
+		translations = {
+			"Search the docs (Press ? to focus)": "搜索文档（按 ? 键聚焦）",
+			"Toggle navigation": "切换导航",
+			"Quick Search": "快速搜索",
+			"Clear Search": "清除搜索",
+			"Generic Empty State": "暂无内容",
+			"Search {0}": "搜索{0}",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+		repo_root = Path(__file__).parents[2]
+		contracts = {
+			"erpnext/www/support/index.html": [
+				"placeholder=\"{{ _('Search the docs (Press ? to focus)') }}\"",
+				"aria-label=\"{{ _('Toggle navigation') }}\"",
+			],
+			"erpnext/templates/includes/projects/project_search_box.html": [
+				"placeholder=\"{{ _('Quick Search') }}\"",
+				"title=\"{{ _('Clear Search') }}\"",
+			],
+			"erpnext/templates/pages/projects.html": [
+				"alt=\"{{ _('Generic Empty State') }}\"",
+			],
+			"erpnext/templates/includes/macros.html": [
+				"placeholder=\"{{ _('Search {0}').format(_(item_field.label)) }}\"",
+				"placeholder=\"{{ _('Search {0}').format(attribute.name) }}\"",
+				'alt=item.website_item_name',
+			],
+		}
+		for relative_path, snippets in contracts.items():
+			source = (repo_root / relative_path).read_text()
+			for snippet in snippets:
+				self.assertIn(snippet, source, relative_path)
+
+		macros_source = (repo_root / "erpnext/templates/includes/macros.html").read_text()
+		self.assertNotIn('alt="item.website_item_name"', macros_source)
+
 	def test_public_frontend_uses_reviewed_chinese_terms(self):
 		translations = {
 			" Phantom Item": " 虚拟物料",
