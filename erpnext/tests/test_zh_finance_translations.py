@@ -1061,6 +1061,44 @@ class TestZhFinanceTranslations(TestCase):
 			for snippet in snippets:
 				self.assertIn(snippet, source, relative_path)
 
+	def test_stock_dynamic_labels_and_validations_use_fixed_templates(self):
+		translations = {
+			"Item {0} is a template; please select one of its variants": "物料 {0} 是模板，请选择其具体规格物料",
+			"Target {0}": "目标{0}",
+			"Source {0}": "来源{0}",
+			"Row {0}: {1} {2} must be submitted": "第 {0} 行：必须先提交{1} {2}",
+			"Transaction not allowed against stopped Work Order {0}": "生产工单 {0} 已停止，不允许操作",
+			"{0} {1} must be submitted": "{0} {1}必须提交",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+		repo_root = Path(__file__).parents[2]
+		contracts = {
+			"erpnext/stock/get_item_details.py": [
+				'_("Item {0} is a template; please select one of its variants").format(item.name)',
+			],
+			"erpnext/stock/doctype/inventory_dimension/inventory_dimension.py": [
+				'_("Target {0}").format(self.dimension_name)',
+				'_("Source {0}").format(self.dimension_name)',
+				"label=label,",
+			],
+			"erpnext/stock/doctype/landed_cost_voucher/landed_cost_voucher.py": [
+				'_("Row {0}: {1} {2} must be submitted").format(',
+				"_(d.receipt_document_type)",
+			],
+			"erpnext/stock/doctype/stock_entry/stock_entry.py": [
+				'_("{0} {1} must be submitted").format(_("Work Order"), self.work_order)',
+				'_("Transaction not allowed against stopped Work Order {0}").format(self.work_order)',
+				"frappe.throw(msg, title=title)",
+			],
+		}
+		for relative_path, snippets in contracts.items():
+			source = (repo_root / relative_path).read_text()
+			for snippet in snippets:
+				self.assertIn(snippet, source, relative_path)
+
 	def test_public_frontend_uses_reviewed_chinese_terms(self):
 		translations = {
 			" Phantom Item": " 虚拟物料",

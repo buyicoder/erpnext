@@ -243,6 +243,12 @@ expected_translations = {
 	"You cannot change {0} because transactions exist against Promotional Scheme {1}. Disable this Promotional Scheme and create a new one for a different {0}.": "无法更改{0}，因为促销方案 {1} 已存在交易。请禁用此促销方案，并为其他{0}新建促销方案。",
 	"Batch No {0} was not supplied against {1} {2}": "批号 {0} 未随 {1} {2} 提供",
 	"Serial Nos {0} were not supplied against {1} {2}": "序列号 {0} 未随 {1} {2} 提供",
+	"Item {0} is a template; please select one of its variants": "物料 {0} 是模板，请选择其具体规格物料",
+	"Target {0}": "目标{0}",
+	"Source {0}": "来源{0}",
+	"Row {0}: {1} {2} must be submitted": "第 {0} 行：必须先提交{1} {2}",
+	"Transaction not allowed against stopped Work Order {0}": "生产工单 {0} 已停止，不允许操作",
+	"{0} {1} must be submitted": "{0} {1}必须提交",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)

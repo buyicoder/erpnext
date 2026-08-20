@@ -2426,13 +2426,13 @@ class StockEntry(StockController, SubcontractingInwardController):
 		def _validate_work_order(pro_doc):
 			msg, title = "", ""
 			if flt(pro_doc.docstatus) != 1:
-				msg = f"Work Order {self.work_order} must be submitted"
+				msg = _("{0} {1} must be submitted").format(_("Work Order"), self.work_order)
 
 			if pro_doc.status == "Stopped":
-				msg = f"Transaction not allowed against stopped Work Order {self.work_order}"
+				msg = _("Transaction not allowed against stopped Work Order {0}").format(self.work_order)
 
 			if msg:
-				frappe.throw(_(msg), title=title)
+				frappe.throw(msg, title=title)
 
 		if self.job_card:
 			job_doc = frappe.get_doc("Job Card", self.job_card)

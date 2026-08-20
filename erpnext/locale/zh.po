@@ -51699,6 +51699,22 @@ msgstr "批号 {0} 未随 {1} {2} 提供"
 msgid "Serial Nos {0} were not supplied against {1} {2}"
 msgstr "序列号 {0} 未随 {1} {2} 提供"
 
+#: erpnext/stock/get_item_details.py:425
+msgid "Item {0} is a template; please select one of its variants"
+msgstr "物料 {0} 是模板，请选择其具体规格物料"
+
+#: erpnext/stock/doctype/inventory_dimension/inventory_dimension.py:166
+msgid "Target {0}"
+msgstr "目标{0}"
+
+#: erpnext/stock/doctype/inventory_dimension/inventory_dimension.py:168
+msgid "Source {0}"
+msgstr "来源{0}"
+
+#: erpnext/stock/doctype/landed_cost_voucher/landed_cost_voucher.py:129
+msgid "Row {0}: {1} {2} must be submitted"
+msgstr "第 {0} 行：必须先提交{1} {2}"
+
 #: erpnext/setup/setup_wizard/operations/defaults_setup.py:70
 #: erpnext/setup/setup_wizard/operations/install_fixtures.py:488
 #: erpnext/tests/utils.py:275

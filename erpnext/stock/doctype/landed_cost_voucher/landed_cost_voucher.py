@@ -126,8 +126,10 @@ class LandedCostVoucher(Document):
 				d.receipt_document_type, d.receipt_document, ["docstatus", "company"]
 			)
 			if docstatus != 1:
-				msg = f"Row {d.idx}: {d.receipt_document_type} {frappe.bold(d.receipt_document)} must be submitted"
-				frappe.throw(_(msg), title=_("Invalid Document"))
+				msg = _("Row {0}: {1} {2} must be submitted").format(
+					d.idx, _(d.receipt_document_type), frappe.bold(d.receipt_document)
+				)
+				frappe.throw(msg, title=_("Invalid Document"))
 
 			if company != self.company:
 				frappe.throw(

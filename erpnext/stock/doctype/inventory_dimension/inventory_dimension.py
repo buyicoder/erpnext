@@ -163,15 +163,11 @@ class InventoryDimension(Document):
 		if not doctype:
 			doctype = self.document_type
 
-		label_start_with = ""
-		if doctype in ["Purchase Invoice Item", "Purchase Receipt Item"]:
-			label_start_with = "Target"
-		elif doctype in ["Sales Invoice Item", "Delivery Note Item", "Stock Entry Detail"]:
-			label_start_with = "Source"
-
 		label = self.dimension_name
-		if label_start_with:
-			label = f"{label_start_with} {self.dimension_name}"
+		if doctype in ["Purchase Invoice Item", "Purchase Receipt Item"]:
+			label = _("Target {0}").format(self.dimension_name)
+		elif doctype in ["Sales Invoice Item", "Delivery Note Item", "Stock Entry Detail"]:
+			label = _("Source {0}").format(self.dimension_name)
 
 		# Note: `reqd` is intentionally NOT set on the custom fields. Mandatory enforcement
 		# happens on the server side via StockController.validate_inventory_dimension_mandatory()
@@ -190,7 +186,7 @@ class InventoryDimension(Document):
 				fieldtype="Link",
 				insert_after="inventory_dimension",
 				options=self.reference_document,
-				label=_(label),
+				label=label,
 				depends_on="eval:doc.s_warehouse" if doctype == "Stock Entry Detail" else "",
 				search_index=1,
 			),
