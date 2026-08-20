@@ -89,11 +89,10 @@ class CurrencyExchangeSettings(Document):
 
 		try:
 			response = requests.get(api_url, params=params)
-		except requests.exceptions.RequestException as e:
-			frappe.throw("Error: " + str(e))
-
-		response.raise_for_status()
-		value = response.json()
+			response.raise_for_status()
+			value = response.json()
+		except (requests.exceptions.RequestException, ValueError) as e:
+			frappe.throw(_("Exchange rate service call failed: {0}").format(str(e)))
 
 		return response, value
 
@@ -104,9 +103,9 @@ class CurrencyExchangeSettings(Document):
 					str(key.key).format(transaction_date=nowdate(), to_currency="INR", from_currency="USD")
 				]
 		except Exception:
-			frappe.throw(_("Invalid result key. Response:") + " " + response.text)
+			frappe.throw(_("Invalid result key. Response: {0}").format(response.text))
 		if not isinstance(value, int | float):
-			frappe.throw(_("Returned exchange rate is neither integer not float."))
+			frappe.throw(_("The exchange rate service did not return a numeric exchange rate."))
 
 		self.url = response.url
 

@@ -336,6 +336,16 @@ class TestZhFinanceTranslations(TestCase):
 		)
 		self.assertNotIn("PFA", translation)
 
+	def test_currency_exchange_service_errors_use_reviewed_chinese(self):
+		translations = {
+			"Exchange rate service call failed: {0}": "汇率服务调用失败：{0}",
+			"Invalid result key. Response: {0}": "汇率服务返回结果中不存在配置的结果键。响应内容：{0}",
+			"The exchange rate service did not return a numeric exchange rate.": "汇率服务未返回有效的数值汇率。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
 	def test_every_erpnext_source_message_has_a_chinese_runtime_owner(self):
 		from babel.messages.extract import extract_from_dir
 		from frappe.gettext.translate import PYTHON_KEYWORDS, get_method_map

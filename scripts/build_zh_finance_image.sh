@@ -31,6 +31,7 @@ docker run --rm --entrypoint sh \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_promotional_scheme_i18n.py,dst=/tmp/test_promotional_scheme_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_taxes_and_totals_i18n.py,dst=/tmp/test_taxes_and_totals_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_process_statement_i18n.py,dst=/tmp/test_process_statement_i18n.py,readonly" \
+	--mount "type=bind,src=$repo_root/erpnext/tests/test_currency_exchange_settings_i18n.py,dst=/tmp/test_currency_exchange_settings_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_tax_report_labels_i18n.py,dst=/tmp/test_tax_report_labels_i18n.py,readonly" \
 	"$image" -lc '
 	set -eu
@@ -193,6 +194,9 @@ expected_translations = {
 	"Statement Of Accounts for {{ customer.customer_name }}": "{{ customer.customer_name }} 往来对账单",
 	"Hello {{ customer.customer_name }},<br>Please find attached your Statement Of Accounts from {{ doc.from_date }} to {{ doc.to_date }}.": "{{ customer.customer_name }}，您好：<br>附件为 {{ doc.from_date }} 至 {{ doc.to_date }} 的往来对账单，请查收。",
 	"Hello {{ customer.customer_name }},<br>Please find attached your Statement Of Accounts until {{ doc.posting_date }}.": "{{ customer.customer_name }}，您好：<br>附件为截至 {{ doc.posting_date }} 的往来对账单，请查收。",
+	"Exchange rate service call failed: {0}": "汇率服务调用失败：{0}",
+	"Invalid result key. Response: {0}": "汇率服务返回结果中不存在配置的结果键。响应内容：{0}",
+	"The exchange rate service did not return a numeric exchange rate.": "汇率服务未返回有效的数值汇率。",
 	"Cost Center": "成本中心",
 	"Project": "项目",
 	"Customer Name": "客户名称",
@@ -381,6 +385,8 @@ PY
 	printf "%s\n" "Verified taxes and totals translation behavior"
 	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_process_statement_i18n.py"
 	printf "%s\n" "Verified process statement translation behavior"
+	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_currency_exchange_settings_i18n.py"
+	printf "%s\n" "Verified currency exchange settings translation behavior"
 	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_tax_report_labels_i18n.py"
 	printf "%s\n" "Verified tax report label translation behavior"
 	/home/frappe/frappe-bench/env/bin/python /tmp/validate_frappe_runtime_i18n.py \

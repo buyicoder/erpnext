@@ -25735,9 +25735,9 @@ msgstr "无效的参考{0} {1}"
 msgid "Invalid regex pattern."
 msgstr "无效的正则表达式。"
 
-#: erpnext/accounts/doctype/currency_exchange_settings/currency_exchange_settings.py:107
-msgid "Invalid result key. Response:"
-msgstr "无效的结果键值。响应："
+#: erpnext/accounts/doctype/currency_exchange_settings/currency_exchange_settings.py
+msgid "Invalid result key. Response: {0}"
+msgstr "汇率服务返回结果中不存在配置的结果键。响应内容：{0}"
 
 #: erpnext/stock/doctype/landed_cost_voucher/landed_cost_voucher.py:479
 msgid "Invalid search query"
@@ -45662,9 +45662,9 @@ msgstr "退货数量(库存单位)"
 msgid "Returned Quantity"
 msgstr "退回数量"
 
-#: erpnext/accounts/doctype/currency_exchange_settings/currency_exchange_settings.py:109
-msgid "Returned exchange rate is neither integer not float."
-msgstr "退货汇率既非整型也非浮点型"
+#: erpnext/accounts/doctype/currency_exchange_settings/currency_exchange_settings.py
+msgid "The exchange rate service did not return a numeric exchange rate."
+msgstr "汇率服务未返回有效的数值汇率。"
 
 #. Label of the returns (Float) field in DocType 'Cashier Closing'
 #: erpnext/accounts/doctype/cashier_closing/cashier_closing.json
@@ -64437,3 +64437,7 @@ msgstr "{{ customer.customer_name }}，您好：<br>附件为 {{ doc.from_date }
 #: erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.py
 msgid "Hello {{ customer.customer_name }},<br>Please find attached your Statement Of Accounts until {{ doc.posting_date }}."
 msgstr "{{ customer.customer_name }}，您好：<br>附件为截至 {{ doc.posting_date }} 的往来对账单，请查收。"
+
+#: erpnext/accounts/doctype/currency_exchange_settings/currency_exchange_settings.py
+msgid "Exchange rate service call failed: {0}"
+msgstr "汇率服务调用失败：{0}"
