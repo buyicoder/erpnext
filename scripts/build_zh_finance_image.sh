@@ -596,6 +596,9 @@ expected_frappe_translations = {
 	"Current Series": "当前编号",
 	"Create Saved Filter": "创建已保存筛选",
 	"No rows selected": "未选择任何行",
+	"Sign In": "登录",
+	"Welcome! Please sign in to continue.": "欢迎！请登录后继续。",
+	"Forgot password?": "忘记密码？",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/frappe.mo").open("rb") as mo_file:
 	frappe_translations = GNUTranslations(mo_file)

@@ -66,6 +66,9 @@ class TestZhFrappeTranslations(TestCase):
 			"to close": "关闭",
 			"to navigate": "导航",
 			"to select": "选择",
+			"Sign In": "登录",
+			"Welcome! Please sign in to continue.": "欢迎！请登录后继续。",
+			"Forgot password?": "忘记密码？",
 		}
 		for source, translation in expected.items():
 			with self.subTest(source=source):

@@ -2171,3 +2171,17 @@ msgstr "从 {1} 移除 {0} 行"
 msgctxt "User added rows to child table"
 msgid "{0} rows to {1}"
 msgstr "向 {1} 添加 {0} 行"
+
+#: frappe/www/login.html:98 frappe/www/login.html:120
+#: frappe/www/login.html:136 frappe/www/login.html:195
+msgid "Sign In"
+msgstr "登录"
+
+#: frappe/www/login.html:120 frappe/www/login.html:136
+#: frappe/www/login.html:195
+msgid "Welcome! Please sign in to continue."
+msgstr "欢迎！请登录后继续。"
+
+#: frappe/www/login.html:48
+msgid "Forgot password?"
+msgstr "忘记密码？"

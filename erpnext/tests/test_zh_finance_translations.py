@@ -1870,6 +1870,14 @@ class TestZhFinanceTranslations(TestCase):
 		for source, translation in translations.items():
 			self._assert_frappe_translation(source, translation)
 
+	def test_anonymous_login_uses_reviewed_frappe_terms(self):
+		for source, translation in {
+			"Sign In": "登录",
+			"Welcome! Please sign in to continue.": "欢迎！请登录后继续。",
+			"Forgot password?": "忘记密码？",
+		}.items():
+			self._assert_frappe_translation(source, translation)
+
 	def test_every_frappe_public_javascript_message_has_a_translation_owner(self):
 		missing = []
 		for message in self.frappe_runtime_catalog:
