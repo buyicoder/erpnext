@@ -90,3 +90,45 @@ class TestZhFrappeTranslations(TestCase):
 				self.assertIsNotNone(message)
 				self.assertNotIn("fuzzy", message.flags)
 				self.assertEqual(message.string, translation)
+
+	def test_account_access_journey_uses_reviewed_chinese(self):
+		expected = {
+			"A new account has been created for you at {0}.": "已在 {0} 为你创建新账户。",
+			"Back to sign in": "返回登录",
+			"Click below to accept your invitation and get started.": "点击下方按钮接受邀请并开始使用。",
+			"Click the button below to complete your registration and set a new password.": "点击下方按钮完成注册并设置新密码。",
+			"Click the button below to sign in to your account. This link will expire in {0} minutes.": "点击下方按钮登录账户。此链接将在 {0} 分钟后失效。",
+			"Complete your registration": "完成注册",
+			"Didn't receive the link?": "没有收到链接？",
+			"Full name is required.": "必须填写姓名。",
+			"Good": "较强",
+			"Great!": "很强！",
+			"If you didn't request this link, you can ignore this email. Someone may have entered your email address by mistake.": "如果你没有请求此链接，可以忽略这封邮件；可能有人误填了你的电子邮箱地址。",
+			"Invalid Email.": "电子邮箱格式无效。",
+			"Invalid credentials, try again.": "登录信息无效，请重试。",
+			"Invitation cancelled": "邀请已取消",
+			"Invitation expired": "邀请已过期",
+			"Let's setup your account.": "开始设置你的账户。",
+			"Log In to {0}": "登录 {0}",
+			"Log in to {0}": "登录 {0}",
+			"Or copy and paste this link:": "或复制并粘贴此链接：",
+			"Please check your email.": "请查收电子邮件。",
+			"Please enter a valid email.": "请输入有效的电子邮箱地址。",
+			"Please enter your email, we'll send you password reset link": "请输入电子邮箱地址，我们将向你发送密码重置链接",
+			"Poor!": "较弱！",
+			"Resend": "重新发送",
+			"Send Link": "发送链接",
+			"Sign Up": "注册",
+			"Too many requests. Please try again later.": "请求过于频繁，请稍后重试。",
+			"Use minimum of 8 characters(case sensitive) with at least one number or special character.": "请至少使用 8 个区分大小写的字符，并包含至少一个数字或特殊字符。",
+			"Use strong passwords.": "请使用高强度密码。",
+			"You've been invited": "你收到了一份邀请",
+			"Your login ID is:": "你的登录账号是：",
+			"Your password has expired. Please set a new password.": "你的密码已过期，请设置新密码。",
+		}
+		for source, translation in expected.items():
+			with self.subTest(source=source):
+				message = self.catalog.get(source)
+				self.assertIsNotNone(message)
+				self.assertNotIn("fuzzy", message.flags)
+				self.assertEqual(message.string, translation)

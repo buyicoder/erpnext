@@ -189,6 +189,102 @@ msgstr "上传"
 msgid "User"
 msgstr "用户"
 
+msgid "A new account has been created for you at {0}."
+msgstr "已在 {0} 为你创建新账户。"
+
+msgid "Back to sign in"
+msgstr "返回登录"
+
+msgid "Click below to accept your invitation and get started."
+msgstr "点击下方按钮接受邀请并开始使用。"
+
+msgid "Click the button below to complete your registration and set a new password."
+msgstr "点击下方按钮完成注册并设置新密码。"
+
+msgid "Click the button below to sign in to your account. This link will expire in {0} minutes."
+msgstr "点击下方按钮登录账户。此链接将在 {0} 分钟后失效。"
+
+msgid "Complete your registration"
+msgstr "完成注册"
+
+msgid "Didn't receive the link?"
+msgstr "没有收到链接？"
+
+msgid "Full name is required."
+msgstr "必须填写姓名。"
+
+msgid "Good"
+msgstr "较强"
+
+msgid "Great!"
+msgstr "很强！"
+
+msgid "If you didn't request this link, you can ignore this email. Someone may have entered your email address by mistake."
+msgstr "如果你没有请求此链接，可以忽略这封邮件；可能有人误填了你的电子邮箱地址。"
+
+msgid "Invalid Email."
+msgstr "电子邮箱格式无效。"
+
+msgid "Invalid credentials, try again."
+msgstr "登录信息无效，请重试。"
+
+msgid "Invitation cancelled"
+msgstr "邀请已取消"
+
+msgid "Invitation expired"
+msgstr "邀请已过期"
+
+msgid "Let's setup your account."
+msgstr "开始设置你的账户。"
+
+msgid "Log In to {0}"
+msgstr "登录 {0}"
+
+msgid "Log in to {0}"
+msgstr "登录 {0}"
+
+msgid "Or copy and paste this link:"
+msgstr "或复制并粘贴此链接："
+
+msgid "Please check your email."
+msgstr "请查收电子邮件。"
+
+msgid "Please enter a valid email."
+msgstr "请输入有效的电子邮箱地址。"
+
+msgid "Please enter your email, we'll send you password reset link"
+msgstr "请输入电子邮箱地址，我们将向你发送密码重置链接"
+
+msgid "Poor!"
+msgstr "较弱！"
+
+msgid "Resend"
+msgstr "重新发送"
+
+msgid "Send Link"
+msgstr "发送链接"
+
+msgid "Sign Up"
+msgstr "注册"
+
+msgid "Too many requests. Please try again later."
+msgstr "请求过于频繁，请稍后重试。"
+
+msgid "Use minimum of 8 characters(case sensitive) with at least one number or special character."
+msgstr "请至少使用 8 个区分大小写的字符，并包含至少一个数字或特殊字符。"
+
+msgid "Use strong passwords."
+msgstr "请使用高强度密码。"
+
+msgid "You've been invited"
+msgstr "你收到了一份邀请"
+
+msgid "Your login ID is:"
+msgstr "你的登录账号是："
+
+msgid "Your password has expired. Please set a new password."
+msgstr "你的密码已过期，请设置新密码。"
+
 msgid "Warning"
 msgstr "警告"
 
