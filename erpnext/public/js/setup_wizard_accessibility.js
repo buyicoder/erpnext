@@ -26,7 +26,9 @@ erpnext.setup.localize_awesomplete_statuses = function (root = document) {
 	if (!is_chinese) return;
 
 	let selector = ".awesomplete [role='status']";
-	let elements = root.matches?.(selector) ? [root] : root.querySelectorAll?.(selector) || [];
+	let elements = root.matches?.(selector)
+		? [root]
+		: root.querySelectorAll?.(root.matches?.(".awesomplete") ? "[role='status']" : selector) || [];
 	for (let element of elements) {
 		let localized = erpnext.setup.localize_awesomplete_status_text(element.textContent);
 		if (localized !== element.textContent) element.textContent = localized;
@@ -45,7 +47,8 @@ new MutationObserver((mutations) => {
 			let candidate = node.nodeType === Node.TEXT_NODE ? node.parentElement : node;
 			if (
 				candidate?.matches?.(selector) ||
-				candidate?.querySelector?.(selector)
+				candidate?.matches?.(".awesomplete") ||
+				candidate?.querySelector?.(".awesomplete")
 			) {
 				erpnext.setup.localize_awesomplete_statuses(candidate);
 			}

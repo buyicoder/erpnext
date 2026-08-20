@@ -128,9 +128,9 @@ test("localizes statuses nested in newly added elements", () => {
 	const status = { textContent: "No results found" };
 	const wrapper = {
 		nodeType: context.Node.ELEMENT_NODE,
-		matches: () => false,
-		querySelector: () => status,
-		querySelectorAll: () => [status],
+		matches: (selector) => selector === ".awesomplete",
+		querySelector: () => null,
+		querySelectorAll: (selector) => (selector === "[role='status']" ? [status] : []),
 	};
 
 	context.observerCallback([{ type: "childList", addedNodes: [wrapper] }]);
