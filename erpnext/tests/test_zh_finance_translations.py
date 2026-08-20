@@ -553,6 +553,13 @@ class TestZhFinanceTranslations(TestCase):
 				'{{ _("{0} star").format(loop.index) }}',
 				'{{ _("{0} percent of reviews have a {1}-star rating").format(percent, loop.index) }}',
 			],
+			"erpnext/templates/pages/projects.js": [
+				'"open:task": __("No open tasks")',
+				'"completed:task": __("No completed tasks")',
+				'"open:issue": __("No open issues")',
+				'"completed:issue": __("No completed issues")',
+				"} else {",
+			],
 			"erpnext/stock/page/warehouse_capacity_summary/warehouse_capacity_summary.html":
 				'title="{{ __("Occupied Qty") }}: {{ d.actual_qty }}"',
 		}
@@ -623,6 +630,18 @@ class TestZhFinanceTranslations(TestCase):
 		}.items():
 			self._assert_translation(source, translation)
 			self._assert_erpnext_runtime_translation(source, translation)
+
+	def test_project_portal_empty_states_use_reviewed_chinese(self):
+		for source, translation in {
+			"No open tasks": "暂无未完成任务",
+			"No completed tasks": "暂无已完成任务",
+			"No open issues": "暂无未解决问题",
+			"No completed issues": "暂无已解决问题",
+		}.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+		text = (Path(__file__).parents[2] / "erpnext/templates/pages/projects.js").read_text()
+		self.assertNotIn('.html("No " + item_status + " " + item)', text)
 
 	def test_core_finance_journey_uses_reviewed_chinese_terms(self):
 		translations = {

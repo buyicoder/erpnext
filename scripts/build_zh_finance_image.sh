@@ -133,6 +133,10 @@ expected_translations = {
 	"Not In Stock": "库存不足",
 	"{0} star": "{0} 星",
 	"{0} percent of reviews have a {1}-star rating": "{0}% 的评价为 {1} 星",
+	"No open tasks": "暂无未完成任务",
+	"No completed tasks": "暂无已完成任务",
+	"No open issues": "暂无未解决问题",
+	"No completed issues": "暂无已解决问题",
 	"Cannot apply TDS against multiple parties in one entry": "单笔分录不能对多个往来方应用税款扣缴",
 	"TDS / withholding tax category applied when paying this supplier": "向该供应商付款时适用的代扣代缴税款类别",
 	"TDS/TCS is calculated at the rate defined here on every payment from this customer.": "收到该客户每笔付款时，均按此处定义的税率计算代收代缴税款。",
@@ -417,6 +421,13 @@ runtime_source_contracts = {
 	"templates/includes/macros.html": (
 		"{{ _(\"{0} star\").format(loop.index) }}",
 		"{{ _(\"{0} percent of reviews have a {1}-star rating\").format(percent, loop.index) }}",
+	),
+	"templates/pages/projects.js": (
+		"\"open:task\": __(\"No open tasks\")",
+		"\"completed:task\": __(\"No completed tasks\")",
+		"\"open:issue\": __(\"No open issues\")",
+		"\"completed:issue\": __(\"No completed issues\")",
+		"} else {",
 	),
 }
 erpnext_root = Path("/home/frappe/frappe-bench/apps/erpnext/erpnext")

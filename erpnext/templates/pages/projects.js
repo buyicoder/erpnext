@@ -18,6 +18,12 @@ frappe.ready(function () {
 	});
 
 	var start = 10;
+	const empty_messages = {
+		"open:task": __("No open tasks"),
+		"completed:task": __("No completed tasks"),
+		"open:issue": __("No open issues"),
+		"completed:issue": __("No completed issues"),
+	};
 	$(".more-tasks").click(function () {
 		more_items("task", true);
 	});
@@ -50,11 +56,12 @@ frappe.ready(function () {
 			},
 			success: function (data) {
 				if (typeof data.message == "undefined") {
-					$(".project-" + item).html("No " + item_status + " " + item);
+					$(".project-" + item).html(empty_messages[`${item_status}:${item}`]);
 					$(".more-" + item).toggle(false);
+				} else {
+					$(".project-" + item).html(data.message);
+					$(".more-" + item).toggle(true);
 				}
-				$(".project-" + item).html(data.message);
-				$(".more-" + item).toggle(true);
 
 				// update status
 				if (item_status === "open") {

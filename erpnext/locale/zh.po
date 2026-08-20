@@ -64680,3 +64680,19 @@ msgstr "{0} 星"
 #: erpnext/templates/includes/macros.html
 msgid "{0} percent of reviews have a {1}-star rating"
 msgstr "{0}% 的评价为 {1} 星"
+
+#: erpnext/templates/pages/projects.js
+msgid "No open tasks"
+msgstr "暂无未完成任务"
+
+#: erpnext/templates/pages/projects.js
+msgid "No completed tasks"
+msgstr "暂无已完成任务"
+
+#: erpnext/templates/pages/projects.js
+msgid "No open issues"
+msgstr "暂无未解决问题"
+
+#: erpnext/templates/pages/projects.js
+msgid "No completed issues"
+msgstr "暂无已解决问题"
