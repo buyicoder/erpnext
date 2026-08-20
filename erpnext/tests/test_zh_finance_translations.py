@@ -1699,6 +1699,14 @@ class TestZhFinanceTranslations(TestCase):
 	def test_operational_email_templates_use_reviewed_chinese_terms(self):
 		self._assert_translation("Please take necessary action", "请及时处理")
 
+	def test_auditing_vouchers_use_reviewed_chinese_terms(self):
+		for source, translation in {
+			"SL": "序号",
+			"Basic Rate": "单价",
+			"Net Payable": "应付净额",
+		}.items():
+			self._assert_translation(source, translation)
+
 	def test_project_management_reports_use_reviewed_chinese_terms(self):
 		translations = {
 			"Project Summary": "项目汇总",

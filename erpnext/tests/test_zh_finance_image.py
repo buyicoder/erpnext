@@ -134,6 +134,10 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("/tmp/patch_frappe_print_page.py", self.containerfile)
 		self.assertIn("/tmp/patch_frappe_desktop_page.py", self.containerfile)
 		self.assertIn("frappe.mo", self.containerfile)
+		for name in ("purchase_auditing_voucher", "sales_auditing_voucher"):
+			self.assertIn(f"accounts/print_format/{name}/{name}.json", self.containerfile)
+			self.assertIn(f"accounts/print_format/{name}/{name}.html", self.containerfile)
+			self.assertIn(f'\\"dn\\":\\"{name}\\"', self.deploy_script)
 
 	def test_frappe_catalog_uses_a_pinned_verified_official_baseline(self):
 		self.assertIn("fetch_frappe_zh_baseline.sh", self.build_script)

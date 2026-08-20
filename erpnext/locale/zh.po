@@ -64066,3 +64066,18 @@ msgstr "活动汇总"
 #: erpnext/setup/doctype/email_digest/templates/default.html:253
 msgid "Please take necessary action"
 msgstr "请及时处理"
+
+#: erpnext/accounts/print_format/purchase_auditing_voucher/purchase_auditing_voucher.html
+#: erpnext/accounts/print_format/sales_auditing_voucher/sales_auditing_voucher.html
+msgid "SL"
+msgstr "序号"
+
+#: erpnext/accounts/print_format/purchase_auditing_voucher/purchase_auditing_voucher.html
+#: erpnext/accounts/print_format/sales_auditing_voucher/sales_auditing_voucher.html
+msgid "Basic Rate"
+msgstr "单价"
+
+#: erpnext/accounts/print_format/purchase_auditing_voucher/purchase_auditing_voucher.html
+#: erpnext/accounts/print_format/sales_auditing_voucher/sales_auditing_voucher.html
+msgid "Net Payable"
+msgstr "应付净额"

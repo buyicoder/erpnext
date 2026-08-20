@@ -14,10 +14,21 @@ class TestChinaPrintFormats(TestCase):
 			"pos_invoice_with_item_image/pos_invoice_with_item_image.json",
 			"sales_invoice_with_item_image/sales_invoice_with_item_image.json",
 			"cheque_printing_format/cheque_printing_format.json",
+			"purchase_auditing_voucher/purchase_auditing_voucher.json",
+			"sales_auditing_voucher/sales_auditing_voucher.json",
 		):
 			with self.subTest(print_format=relative_path):
 				print_format = json.loads((PRINT_FORMAT_ROOT / relative_path).read_text())
 				self.assertEqual(print_format["default_print_language"], "zh")
+
+	def test_auditing_vouchers_translate_every_visible_label(self):
+		for name in ("purchase_auditing_voucher", "sales_auditing_voucher"):
+			html = (PRINT_FORMAT_ROOT / name / f"{name}.html").read_text()
+			with self.subTest(print_format=name):
+				self.assertNotIn("<th>SL</th>", html)
+				self.assertNotIn("<strong>Total</strong>", html)
+				self.assertIn('{{ _("Voucher No") }}', html)
+				self.assertIn('{{ _("Total Taxes and Charges") }}', html)
 
 	def test_finance_print_formats_do_not_hardcode_english_labels(self):
 		formats = {
