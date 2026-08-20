@@ -32,6 +32,13 @@ class TestZhFinanceImage(TestCase):
 			self.repo_root / "erpnext" / "accounts" / "doctype" / "account" / "account_tree.js"
 		).read_text()
 
+	def test_final_image_verifier_uses_literal_heredoc_input(self):
+		self.assertIn('--env "FRAPPE_RUNTIME_VERSION=$FRAPPE_RUNTIME_VERSION"', self.build_script)
+		self.assertIn('"$image" -s <<\'VERIFY_SCRIPT\'', self.build_script)
+		self.assertIn("/home/frappe/frappe-bench/env/bin/python - <<'PY'", self.build_script)
+		self.assertIn("\nVERIFY_SCRIPT\n", self.build_script)
+		self.assertNotIn('"$image" -lc \'', self.build_script)
+
 	def test_image_compiles_translations_and_frontend_assets(self):
 		self.assertIn("bench compile-po-to-mo --app erpnext --locale zh --force", self.containerfile)
 		self.assertIn("bench compile-po-to-mo --app frappe --locale zh --force", self.containerfile)

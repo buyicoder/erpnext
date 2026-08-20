@@ -20,6 +20,7 @@ docker build \
 	"$repo_root"
 
 docker run --rm --entrypoint sh \
+	--env "FRAPPE_RUNTIME_VERSION=$FRAPPE_RUNTIME_VERSION" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_subcontracting_order_i18n.py,dst=/tmp/test_subcontracting_order_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_maintenance_schedule_i18n.py,dst=/tmp/test_maintenance_schedule_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_inventory_dimension_i18n.py,dst=/tmp/test_inventory_dimension_i18n.py,readonly" \
@@ -36,9 +37,9 @@ docker run --rm --entrypoint sh \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_buying_controller_i18n.py,dst=/tmp/test_buying_controller_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_repost_accounting_ledger_i18n.py,dst=/tmp/test_repost_accounting_ledger_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_tax_report_labels_i18n.py,dst=/tmp/test_tax_report_labels_i18n.py,readonly" \
-	"$image" -lc '
+	"$image" -s <<'VERIFY_SCRIPT'
 	set -eu
-	FRAPPE_RUNTIME_VERSION="'"$FRAPPE_RUNTIME_VERSION"'" /home/frappe/frappe-bench/env/bin/python - <<"PY"
+	/home/frappe/frappe-bench/env/bin/python - <<'PY'
 import ast
 import json
 import os
@@ -644,6 +645,6 @@ PY
 	grep -F "this.print_format_control.get_value()" /home/frappe/frappe-bench/apps/frappe/frappe/printing/page/print/print.js >/dev/null
 	test -s /home/frappe/frappe-bench/assets/locale/zh/LC_MESSAGES/erpnext.mo
 	grep -F "{{ _(\"Banking\") }}" /home/frappe/frappe-bench/apps/erpnext/erpnext/www/banking.html >/dev/null
-'
+VERIFY_SCRIPT
 
 printf '%s\n' "Built $image from $source_commit"
