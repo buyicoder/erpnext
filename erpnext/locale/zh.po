@@ -64608,3 +64608,19 @@ msgstr "会计凭证重新过账预览"
 #: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.js
 msgid "Review the accounting entries before reposting."
 msgstr "请在重新过账前核对会计凭证明细。"
+
+#: erpnext/accounts/doctype/exchange_rate_revaluation/exchange_rate_revaluation.py:374
+msgid "Zero Balance Journal: {0}"
+msgstr "零余额日记账凭证：{0}"
+
+#: erpnext/accounts/doctype/exchange_rate_revaluation/exchange_rate_revaluation.py:381
+msgid "Revaluation Journal: {0}"
+msgstr "汇率重估日记账凭证：{0}"
+
+#: erpnext/stock/doctype/pick_list/pick_list.py:682
+msgid "Row #{0}: Item Code is Mandatory"
+msgstr "第 {0} 行：必须填写物料号"
+
+#: erpnext/stock/doctype/stock_entry_type/stock_entry_type.py:66
+msgid "Stock Entry Type {0} cannot be set as standard"
+msgstr "移动类型 {0} 不能设为标准类型"

@@ -115,6 +115,10 @@ if not all(
 print("Verified bundled Chinese demo data")
 
 expected_translations = {
+	"Zero Balance Journal: {0}": "零余额日记账凭证：{0}",
+	"Revaluation Journal: {0}": "汇率重估日记账凭证：{0}",
+	"Row #{0}: Item Code is Mandatory": "第 {0} 行：必须填写物料号",
+	"Stock Entry Type {0} cannot be set as standard": "移动类型 {0} 不能设为标准类型",
 	"Cannot apply TDS against multiple parties in one entry": "单笔分录不能对多个往来方应用税款扣缴",
 	"TDS / withholding tax category applied when paying this supplier": "向该供应商付款时适用的代扣代缴税款类别",
 	"TDS/TCS is calculated at the rate defined here on every payment from this customer.": "收到该客户每笔付款时，均按此处定义的税率计算代收代缴税款。",
@@ -348,6 +352,26 @@ if stock_transfer_title != "内部调拨":
 		f"{stock_transfer_title!r} != '内部调拨'"
 	)
 print(f"Verified {len(expected_translations)} compiled ERPNext translations")
+
+runtime_source_contracts = {
+	"accounts/doctype/exchange_rate_revaluation/exchange_rate_revaluation.py": (
+		"_(\"Zero Balance Journal: {0}\").format(",
+		"_(\"Revaluation Journal: {0}\").format(",
+	),
+	"stock/doctype/pick_list/pick_list.py": (
+		"_(\"Row #{0}: Item Code is Mandatory\").format(item.idx)",
+	),
+	"stock/doctype/stock_entry_type/stock_entry_type.py": (
+		"_(\"Stock Entry Type {0} cannot be set as standard\").format(self.name)",
+	),
+}
+erpnext_root = Path("/home/frappe/frappe-bench/apps/erpnext/erpnext")
+for relative_path, contracts in runtime_source_contracts.items():
+	source = (erpnext_root / relative_path).read_text()
+	missing = [contract for contract in contracts if contract not in source]
+	if missing:
+		raise SystemExit(f"Runtime translation source is stale in {relative_path}: {missing}")
+print(f"Verified {len(runtime_source_contracts)} runtime translation source overlays")
 
 repost_preview_source = Path(
 	"/home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/"

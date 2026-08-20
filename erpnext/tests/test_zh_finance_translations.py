@@ -488,6 +488,10 @@ class TestZhFinanceTranslations(TestCase):
 	def test_reviewed_core_visible_sinks_use_translation_helpers(self):
 		repo_root = Path(__file__).parents[2]
 		contracts = {
+			"erpnext/accounts/doctype/exchange_rate_revaluation/exchange_rate_revaluation.py": [
+				'_("Zero Balance Journal: {0}").format(',
+				'_("Revaluation Journal: {0}").format(',
+			],
 			"erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.js": [
 				'title: __("Accounting Ledger Repost Preview"),',
 				"const preview_note = frappe.utils.escape_html(",
@@ -506,6 +510,10 @@ class TestZhFinanceTranslations(TestCase):
 				'message: __("Calculating Arrival Times"),',
 				'message: __("Optimizing Route"),',
 			],
+			"erpnext/stock/doctype/pick_list/pick_list.py":
+				'_("Row #{0}: Item Code is Mandatory").format(item.idx)',
+			"erpnext/stock/doctype/stock_entry_type/stock_entry_type.py":
+				'_("Stock Entry Type {0} cannot be set as standard").format(self.name)',
 			"erpnext/stock/page/warehouse_capacity_summary/warehouse_capacity_summary.html":
 				'title="{{ __("Occupied Qty") }}: {{ d.actual_qty }}"',
 		}
@@ -513,6 +521,17 @@ class TestZhFinanceTranslations(TestCase):
 			text = (repo_root / relative_path).read_text()
 			for snippet in expected if isinstance(expected, list) else [expected]:
 				self.assertIn(snippet, text, relative_path)
+
+	def test_core_runtime_messages_use_reviewed_chinese(self):
+		translations = {
+			"Zero Balance Journal: {0}": "零余额日记账凭证：{0}",
+			"Revaluation Journal: {0}": "汇率重估日记账凭证：{0}",
+			"Row #{0}: Item Code is Mandatory": "第 {0} 行：必须填写物料号",
+			"Stock Entry Type {0} cannot be set as standard": "移动类型 {0} 不能设为标准类型",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
 
 	def test_core_finance_journey_uses_reviewed_chinese_terms(self):
 		translations = {

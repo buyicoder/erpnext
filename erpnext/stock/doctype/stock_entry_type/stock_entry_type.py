@@ -63,7 +63,7 @@ class StockEntryType(Document):
 			"Subcontracting Delivery",
 			"Subcontracting Return",
 		]:
-			frappe.throw(f"Stock Entry Type {self.name} cannot be set as standard")
+			frappe.throw(_("Stock Entry Type {0} cannot be set as standard").format(self.name))
 
 
 class ManufactureEntry:
