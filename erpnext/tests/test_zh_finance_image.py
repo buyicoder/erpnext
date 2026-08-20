@@ -482,3 +482,7 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("cheque_printing_format", self.deploy_script)
 		self.assertIn("company_letterhead___grey", self.deploy_script)
 		self.assertIn("bench --site '${site_name}' clear-cache", self.deploy_script)
+		self.assertIn(
+			"bench --site '${site_name}' execute erpnext.setup.china_defaults.get_china_localization_status",
+			self.deploy_script,
+		)

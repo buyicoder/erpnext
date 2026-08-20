@@ -97,6 +97,34 @@ class TestChinaDefaults(TestCase):
 		self.assertEqual(CHINA_SYSTEM_DEFAULTS["first_day_of_the_week"], "Monday")
 		self.assertEqual(CHINA_SYSTEM_DEFAULTS["rounding_method"], "Commercial Rounding")
 
+	def test_china_localization_status_reports_actual_values_and_customizations(self):
+		system_settings = MagicMock(**CHINA_SYSTEM_DEFAULTS)
+		global_defaults = MagicMock(country="China", default_currency="CNY")
+		with patch.object(
+			china_defaults.frappe,
+			"get_single",
+			side_effect=[system_settings, global_defaults],
+		):
+			status = china_defaults.get_china_localization_status()
+
+		self.assertTrue(status["matches_china_defaults"])
+		self.assertEqual(status["actual"]["System Settings"], CHINA_SYSTEM_DEFAULTS)
+		self.assertEqual(status["customized"], {})
+
+		system_settings.time_zone = "Asia/Urumqi"
+		with patch.object(
+			china_defaults.frappe,
+			"get_single",
+			side_effect=[system_settings, global_defaults],
+		):
+			status = china_defaults.get_china_localization_status()
+
+		self.assertFalse(status["matches_china_defaults"])
+		self.assertEqual(
+			status["customized"]["System Settings"]["time_zone"],
+			{"expected": "Asia/Shanghai", "actual": "Asia/Urumqi"},
+		)
+
 	def test_china_address_template_uses_domestic_order_and_labels(self):
 		self.assertLess(CHINA_ADDRESS_TEMPLATE.index("{{ state }}"), CHINA_ADDRESS_TEMPLATE.index("{{ city }}"))
 		self.assertLess(CHINA_ADDRESS_TEMPLATE.index("{{ city }}"), CHINA_ADDRESS_TEMPLATE.index("{{ county }}"))

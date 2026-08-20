@@ -111,7 +111,8 @@ docker exec "${backend_container}" bash -lc \
 	bench --site '${site_name}' execute frappe.reload_doc --kwargs '{\"module\":\"accounts\",\"dt\":\"print_format\",\"dn\":\"journal_auditing_voucher\",\"force\":True}' && \
 	bench --site '${site_name}' execute frappe.reload_doc --kwargs '{\"module\":\"accounts\",\"dt\":\"letter_head\",\"dn\":\"company_letterhead___grey\",\"force\":True}' && \
 	bench --site '${site_name}' execute frappe.reload_doc --kwargs '{\"module\":\"accounts\",\"dt\":\"notification\",\"dn\":\"notification_for_new_fiscal_year\",\"force\":True}' && \
-	bench --site '${site_name}' clear-cache"
+	bench --site '${site_name}' clear-cache && \
+	bench --site '${site_name}' execute erpnext.setup.china_defaults.get_china_localization_status"
 
-printf 'Deployed %s, applied China defaults, migrated, and cleared translation cache for site %s\n' \
+printf 'Deployed %s, applied China defaults, reported localization status, migrated, and cleared translation cache for site %s\n' \
 	"${project_name}" "${site_name}"

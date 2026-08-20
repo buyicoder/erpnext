@@ -147,6 +147,39 @@ def apply_china_defaults(force=False, clear_cache=True):
 	return CHINA_SYSTEM_DEFAULTS
 
 
+def get_china_localization_status():
+	"""Return a read-only, JSON-serializable audit of China localization defaults."""
+	system_settings = frappe.get_single("System Settings")
+	global_defaults = frappe.get_single("Global Defaults")
+	expected = {
+		"System Settings": CHINA_SYSTEM_DEFAULTS,
+		"Global Defaults": {"country": "China", "default_currency": "CNY"},
+	}
+	actual = {
+		"System Settings": {
+			field: getattr(system_settings, field, None) for field in expected["System Settings"]
+		},
+		"Global Defaults": {
+			field: getattr(global_defaults, field, None) for field in expected["Global Defaults"]
+		},
+	}
+	customized = {
+		doctype: {
+			field: {"expected": value, "actual": actual[doctype][field]}
+			for field, value in fields.items()
+			if actual[doctype][field] != value
+		}
+		for doctype, fields in expected.items()
+	}
+	customized = {doctype: fields for doctype, fields in customized.items() if fields}
+	return {
+		"matches_china_defaults": not customized,
+		"expected": expected,
+		"actual": actual,
+		"customized": customized,
+	}
+
+
 def localize_bundled_demo_data():
 	"""Localize the records created by ERPNext's demo-data loader."""
 	if not frappe.db.get_single_value("Global Defaults", "demo_company"):
