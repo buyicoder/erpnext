@@ -213,6 +213,7 @@ class TestZhFinanceImage(TestCase):
 			"erpnext/accounts/report/dimension_wise_accounts_balance_report/dimension_wise_accounts_balance_report.py",
 			"erpnext/accounts/doctype/accounts_settings/accounts_settings.py",
 			"erpnext/accounts/doctype/account/account.py",
+			"erpnext/accounts/doctype/accounting_dimension/accounting_dimension.js",
 			"erpnext/stock/utils.py",
 			"erpnext/stock/doctype/stock_closing_entry/stock_closing_entry.py",
 			"erpnext/accounts/doctype/bank_transaction/bank_transaction_upload.py",

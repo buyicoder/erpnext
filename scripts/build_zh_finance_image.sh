@@ -234,6 +234,8 @@ expected_translations = {
 	"Bank Statement Import failed": "银行对账单导入失败",
 	"Unable to create material request": "无法创建物料需求",
 	"Unable to repost item valuation": "无法执行物料成本价追溯调整",
+	"Dimension Disabled": "辅助核算已禁用",
+	"Dimension Enabled": "辅助核算已启用",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)

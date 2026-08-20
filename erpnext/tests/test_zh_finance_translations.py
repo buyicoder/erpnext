@@ -979,6 +979,23 @@ class TestZhFinanceTranslations(TestCase):
 		for relative_path, contract in contracts.items():
 			self.assertIn(contract, (repo_root / relative_path).read_text(), relative_path)
 
+	def test_accounting_dimension_status_alerts_use_static_translatable_messages(self):
+		translations = {
+			"Dimension Disabled": "辅助核算已禁用",
+			"Dimension Enabled": "辅助核算已启用",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+		source = (
+			Path(__file__).parents[2]
+			/ "erpnext/accounts/doctype/accounting_dimension/accounting_dimension.js"
+		).read_text()
+		self.assertIn('? __("Dimension Disabled")', source)
+		self.assertIn(': __("Dimension Enabled")', source)
+		self.assertNotIn('__(message)', source)
+
 	def test_public_frontend_uses_reviewed_chinese_terms(self):
 		translations = {
 			" Phantom Item": " 虚拟物料",

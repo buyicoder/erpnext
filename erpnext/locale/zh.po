@@ -51659,6 +51659,14 @@ msgstr "无法创建物料需求"
 msgid "Unable to repost item valuation"
 msgstr "无法执行物料成本价追溯调整"
 
+#: erpnext/accounts/doctype/accounting_dimension/accounting_dimension.js:52
+msgid "Dimension Disabled"
+msgstr "辅助核算已禁用"
+
+#: erpnext/accounts/doctype/accounting_dimension/accounting_dimension.js:53
+msgid "Dimension Enabled"
+msgstr "辅助核算已启用"
+
 #: erpnext/setup/setup_wizard/operations/defaults_setup.py:70
 #: erpnext/setup/setup_wizard/operations/install_fixtures.py:488
 #: erpnext/tests/utils.py:275
