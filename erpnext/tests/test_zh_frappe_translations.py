@@ -277,3 +277,29 @@ class TestZhFrappeTranslations(TestCase):
 				self.assertIsNotNone(message)
 				self.assertNotIn("fuzzy", message.flags)
 				self.assertEqual(message.string, translation)
+
+	def test_security_txt_configuration_uses_reviewed_chinese(self):
+		expected = {
+			"Date after which this security.txt should be considered stale. Expires timestamp is converted to UTC.": "超过此日期后，security.txt 将视为失效。过期时间会转换为 UTC。",
+			"Days Remaining": "剩余天数",
+			"Defaults to `en`": "默认值为 `en`",
+			"Expiration date must be in the future": "过期日期必须晚于当前时间",
+			"Expires": "有效期至",
+			"Guidelines and policies on vulnerability reporting. Defaults to `https://frappe.io/security`": "漏洞报告指南与安全策略。默认值为 `https://frappe.io/security`",
+			"Please update your security settings from desk.": "请前往管理后台更新安全设置。",
+			"Policy": "安全策略",
+			"Preferred Language": "首选语言",
+			"Public Policy URL must start with https://": "公开安全策略网址必须以 https:// 开头",
+			"Security.txt": "Security.txt",
+			"Security.txt will be served only under HTTPS.": "Security.txt 仅通过 HTTPS 提供。",
+			"Security.txt will expire soon!": "Security.txt 即将过期！",
+			"Site": "站点",
+			"URL contact must start with https://": "联系网址必须以 https:// 开头",
+			"Website, email or phone where vulnerabilities can be reported. Defaults to `https://security.frappe.io`": "用于报告漏洞的网站、电子邮箱或电话。默认值为 `https://security.frappe.io`",
+		}
+		for source, translation in expected.items():
+			with self.subTest(source=source):
+				message = self.catalog.get(source)
+				self.assertIsNotNone(message)
+				self.assertNotIn("fuzzy", message.flags)
+				self.assertEqual(message.string, translation)

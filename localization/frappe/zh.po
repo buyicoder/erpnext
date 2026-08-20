@@ -600,6 +600,54 @@ msgstr "{0} 创建了此单据"
 msgid "{0} liked"
 msgstr "{0} 点赞了"
 
+msgid "Date after which this security.txt should be considered stale. Expires timestamp is converted to UTC."
+msgstr "超过此日期后，security.txt 将视为失效。过期时间会转换为 UTC。"
+
+msgid "Days Remaining"
+msgstr "剩余天数"
+
+msgid "Defaults to `en`"
+msgstr "默认值为 `en`"
+
+msgid "Expiration date must be in the future"
+msgstr "过期日期必须晚于当前时间"
+
+msgid "Expires"
+msgstr "有效期至"
+
+msgid "Guidelines and policies on vulnerability reporting. Defaults to `https://frappe.io/security`"
+msgstr "漏洞报告指南与安全策略。默认值为 `https://frappe.io/security`"
+
+msgid "Please update your security settings from desk."
+msgstr "请前往管理后台更新安全设置。"
+
+msgid "Policy"
+msgstr "安全策略"
+
+msgid "Preferred Language"
+msgstr "首选语言"
+
+msgid "Public Policy URL must start with https://"
+msgstr "公开安全策略网址必须以 https:// 开头"
+
+msgid "Security.txt"
+msgstr "Security.txt"
+
+msgid "Security.txt will be served only under HTTPS."
+msgstr "Security.txt 仅通过 HTTPS 提供。"
+
+msgid "Security.txt will expire soon!"
+msgstr "Security.txt 即将过期！"
+
+msgid "Site"
+msgstr "站点"
+
+msgid "URL contact must start with https://"
+msgstr "联系网址必须以 https:// 开头"
+
+msgid "Website, email or phone where vulnerabilities can be reported. Defaults to `https://security.frappe.io`"
+msgstr "用于报告漏洞的网站、电子邮箱或电话。默认值为 `https://security.frappe.io`"
+
 msgid "Warning"
 msgstr "警告"
 

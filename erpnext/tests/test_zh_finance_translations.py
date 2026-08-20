@@ -515,6 +515,40 @@ class TestZhFinanceTranslations(TestCase):
 				)
 		self.assertEqual(missing, [])
 
+	def test_frappe_security_txt_configuration_has_runtime_chinese_owners(self):
+		location_prefixes = (
+			"frappe/core/doctype/security_settings/",
+			"frappe/templates/emails/security_txt_expiry_alert.html",
+		)
+		missing = []
+		for source_message in self.frappe_runtime_catalog:
+			if not source_message.id or not any(
+				any(path.startswith(prefix) for prefix in location_prefixes)
+				for path, _line in source_message.locations
+			):
+				continue
+			owner = self.merged_frappe_catalog.get(
+				source_message.id,
+				context=source_message.context,
+			)
+			if (
+				source_message.id == "Security.txt"
+				and owner
+				and owner.string == source_message.id
+				and "fuzzy" not in owner.flags
+				and self._message_is_valid(owner)
+			):
+				continue
+			if not self._is_usable_translation(owner, source_message.id):
+				missing.append(
+					{
+						"id": source_message.id,
+						"context": source_message.context,
+						"locations": list(source_message.locations),
+					}
+				)
+		self.assertEqual(missing, [])
+
 	def test_statement_email_help_matches_the_chinese_defaults(self):
 		messages = [
 			message
