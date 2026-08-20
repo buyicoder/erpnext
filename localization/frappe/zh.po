@@ -714,6 +714,42 @@ msgstr "仅当邮件模板勾选“使用 HTML”时才能使用原始 HTML。�
 msgid "You are not authorized to undo this email"
 msgstr "您无权撤回此邮件"
 
+msgid "Add to Desktop"
+msgstr "添加到桌面"
+
+msgid "Child Item"
+msgstr "子条目"
+
+msgid "Filter Area"
+msgstr "筛选区域"
+
+msgid "Keep Closed"
+msgstr "保持折叠"
+
+msgid "Need Workspace Manager role to edit private workspace of other users."
+msgstr "编辑其他用户的私有工作区需要“工作区管理员”角色。"
+
+msgid "Need Workspace Manager role to edit public workspaces."
+msgstr "编辑公共工作区需要“工作区管理员”角色。"
+
+msgid "Route Options"
+msgstr "路由选项"
+
+msgid "Show Arrow"
+msgstr "显示箭头"
+
+msgid "Sidebar Item Group"
+msgstr "侧栏条目组"
+
+msgid "Tab"
+msgstr "标签页"
+
+msgid "Workspace Sidebar Item"
+msgstr "工作区侧栏条目"
+
+msgid "You need to be {0} to rename this document"
+msgstr "需要具备 {0} 角色才能重命名此单据"
+
 msgid "Warning"
 msgstr "警告"
 

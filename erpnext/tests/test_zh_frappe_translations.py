@@ -355,3 +355,25 @@ class TestZhFrappeTranslations(TestCase):
 				self.assertIsNotNone(message)
 				self.assertNotIn("fuzzy", message.flags)
 				self.assertEqual(message.string, translation)
+
+	def test_workspace_navigation_and_permissions_use_reviewed_chinese(self):
+		expected = {
+			"Add to Desktop": "添加到桌面",
+			"Child Item": "子条目",
+			"Filter Area": "筛选区域",
+			"Keep Closed": "保持折叠",
+			"Need Workspace Manager role to edit private workspace of other users.": "编辑其他用户的私有工作区需要“工作区管理员”角色。",
+			"Need Workspace Manager role to edit public workspaces.": "编辑公共工作区需要“工作区管理员”角色。",
+			"Route Options": "路由选项",
+			"Show Arrow": "显示箭头",
+			"Sidebar Item Group": "侧栏条目组",
+			"Tab": "标签页",
+			"Workspace Sidebar Item": "工作区侧栏条目",
+			"You need to be {0} to rename this document": "需要具备 {0} 角色才能重命名此单据",
+		}
+		for source, translation in expected.items():
+			with self.subTest(source=source):
+				message = self.catalog.get(source)
+				self.assertIsNotNone(message)
+				self.assertNotIn("fuzzy", message.flags)
+				self.assertEqual(message.string, translation)
