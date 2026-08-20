@@ -637,6 +637,17 @@ setup_backend_source = Path(
 expected_setup_language_load = 'if frappe.local.lang != "zh":\n\t\tload_messages("中文")'
 if setup_backend_source.count(expected_setup_language_load) != 1:
 	raise SystemExit("Frappe setup wizard does not load Chinese messages before first render")
+erpnext_hooks_source = Path(
+	"/home/frappe/frappe-bench/apps/erpnext/erpnext/hooks.py"
+).read_text()
+setup_accessibility_source = Path(
+	"/home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/setup_wizard_accessibility.js"
+).read_text()
+if '"assets/erpnext/js/setup_wizard_accessibility.js"' not in erpnext_hooks_source:
+	raise SystemExit("ERPNext setup wizard does not load its Chinese accessibility overrides")
+for expected in ("输入关键词搜索。", "找到 ${match[1]} 条结果", "第 ${match[2]} 项，共 ${match[3]} 项"):
+	if expected not in setup_accessibility_source:
+		raise SystemExit(f"Setup wizard accessibility localization is missing: {expected}")
 date_control_source = Path(
 	"/home/frappe/frappe-bench/apps/frappe/frappe/public/js/frappe/form/controls/date.js"
 ).read_text()

@@ -15,6 +15,9 @@ RUN node --test /workspace/erpnext/tests/zh_finance_format.test.mjs
 COPY erpnext/public/js/setup_wizard.js /workspace/erpnext/public/js/setup_wizard.js
 COPY erpnext/tests/setup_wizard_i18n.test.mjs /workspace/erpnext/tests/setup_wizard_i18n.test.mjs
 RUN node --test /workspace/erpnext/tests/setup_wizard_i18n.test.mjs
+COPY erpnext/public/js/setup_wizard_accessibility.js /workspace/erpnext/public/js/setup_wizard_accessibility.js
+COPY erpnext/tests/setup_wizard_accessibility.test.mjs /workspace/erpnext/tests/setup_wizard_accessibility.test.mjs
+RUN node --test /workspace/erpnext/tests/setup_wizard_accessibility.test.mjs
 
 FROM buyicoder/erpnext-cn:v16.32.3
 
@@ -24,6 +27,7 @@ LABEL org.opencontainers.image.revision="${SOURCE_COMMIT}"
 USER root
 COPY --chown=frappe:frappe erpnext/locale/zh.po /home/frappe/frappe-bench/apps/erpnext/erpnext/locale/zh.po
 COPY --chown=frappe:frappe erpnext/hooks.py /home/frappe/frappe-bench/apps/erpnext/erpnext/hooks.py
+COPY --chown=frappe:frappe erpnext/public/js/setup_wizard_accessibility.js /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/setup_wizard_accessibility.js
 COPY --chown=frappe:frappe .build/frappe-v16.24.4-zh.po /tmp/frappe-zh-baseline.po
 COPY --chown=frappe:frappe localization/frappe/zh.po /tmp/frappe-zh-overrides.po
 COPY --chown=frappe:frappe localization/frappe/realtime_utils.js /home/frappe/frappe-bench/apps/frappe/realtime/utils.js

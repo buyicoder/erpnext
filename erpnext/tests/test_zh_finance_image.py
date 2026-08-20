@@ -50,6 +50,8 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("erpnext/public/js/zh_finance_format.mjs", self.containerfile)
 		self.assertIn("erpnext/tests/zh_finance_format.test.mjs", self.containerfile)
 		self.assertIn("node --test /workspace/erpnext/tests/zh_finance_format.test.mjs", self.containerfile)
+		self.assertIn("erpnext/public/js/setup_wizard_accessibility.js", self.containerfile)
+		self.assertIn("erpnext/tests/setup_wizard_accessibility.test.mjs", self.containerfile)
 		self.assertIn("erpnext/public/js/zh_audit_list.js", self.containerfile)
 		self.assertIn("erpnext/public/js/controllers/transaction.js", self.containerfile)
 		self.assertIn("erpnext/public/scss/modern-cn-theme.scss", self.containerfile)
@@ -439,6 +441,15 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn('"Activity Log": "public/js/zh_audit_list.js"', hooks)
 		self.assertIn('"Access Log": "public/js/zh_audit_list.js"', hooks)
 		self.assertIn('"User": "public/js/zh_audit_list.js"', hooks)
+
+	def test_setup_wizard_loads_its_chinese_accessibility_overrides(self):
+		hooks = (self.repo_root / "erpnext" / "hooks.py").read_text()
+		setup_wizard_accessibility = (
+			self.repo_root / "erpnext" / "public" / "js" / "setup_wizard_accessibility.js"
+		).read_text()
+		self.assertIn('"assets/erpnext/js/setup_wizard_accessibility.js"', hooks)
+		self.assertIn('text === "Begin typing for results."', setup_wizard_accessibility)
+		self.assertIn("`找到 ${match[1]} 条结果`", setup_wizard_accessibility)
 
 	def test_timeline_localization_is_scoped_to_timeline_content(self):
 		self.assertIn('const timeline_selector = ".timeline-content";', self.browser_overrides)
