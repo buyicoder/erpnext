@@ -2259,6 +2259,38 @@ class TestZhFinanceTranslations(TestCase):
 			msg="Use the reviewed 辅助核算 term consistently",
 		)
 
+	def test_valuation_rate_uses_cost_price_and_tax_allocation_terms(self):
+		translations = {
+			"(I) Valuation Rate": "(I) 成本价",
+			"(J) Valuation Rate as per FIFO": "(J) 先进先出成本价",
+			"Cannot deduct when category is for 'Valuation' or 'Valuation and Total'": "费用类别为“计入成本”或“计入成本及总计”时不能抵扣。",
+			"Enable this to block transactions where the selling price is less than the purchase or valuation rate": "启用后，销售单价低于采购单价或成本价时将阻止交易",
+			"If checked, the entire amount (e.g. Freight) is allocated to the valuation of stock & asset items only. If unchecked, the amount is distributed across all items and the portion belonging to non-stock items is not added to valuation.": "勾选后，全部金额（如运费）仅计入库存物料和资产物料成本；不勾选时，金额分摊至全部物料，非库存物料对应金额不计入成本。",
+			"Opening Stock entry created with zero valuation rate: {0}": "已创建成本价为零的期初库存物料移动：{0}",
+			"Row #{idx}: Item rate has been updated as per valuation rate since its an internal stock transfer.": "第 {idx} 行：这是内部库存调拨，物料单价已按成本价更新。",
+			"Row {0}: Item rate has been updated as per valuation rate since its an internal stock transfer": "第 {0} 行：这是内部库存调拨，物料单价已按成本价更新。",
+			"Set valuation rate for rejected Materials": "为拒收物料设置成本价",
+			"Used to create an opening Stock Entry with the Valuation Rate when the item is saved": "保存物料时，使用成本价创建期初库存物料移动。",
+			"Validate selling price for Item against purchase or valuation rate": "根据采购单价或成本价校验物料销售单价",
+			"Valuation": "计入成本",
+			"Valuation (I - K)": "成本价（I-K）",
+			"Valuation Field Type": "成本价字段类型",
+			"Valuation and Total": "计入成本及总计",
+			"Valuation rate for the item as per Sales Invoice (Only for Internal Transfers)": "按销售发票确定物料成本价（仅用于内部调拨）",
+			"Valuation type charges can not be marked as Inclusive": "计入成本类费用不能标记为价内税",
+			"Valuation type charges can not marked as Inclusive": "计入成本类费用不能标记为价内税",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+		catalog_text = (Path(__file__).parents[1] / "locale/zh.po").read_text()
+		self.assertNotRegex(
+			catalog_text,
+			re.compile(r'^msgstr ".*(?:计价率|估值率|估价率|估值单价|计价单价|估值类型罪名)', re.MULTILINE),
+			msg="Use 成本价 for valuation rate and 计入成本 for tax allocation",
+		)
+
 	def test_auditing_vouchers_use_reviewed_chinese_terms(self):
 		for source, translation in {
 			"SL": "序号",

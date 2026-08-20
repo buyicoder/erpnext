@@ -439,12 +439,12 @@ msgstr "（工费率（每小时）/ 60）*实际工序时间"
 #: erpnext/stock/report/stock_ledger_invariant_check/stock_ledger_invariant_check.py:293
 #: erpnext/stock/report/stock_ledger_variance/stock_ledger_variance.py:176
 msgid "(I) Valuation Rate"
-msgstr "(I) 计价率"
+msgstr "(I) 成本价"
 
 #: erpnext/stock/report/stock_ledger_invariant_check/stock_ledger_invariant_check.py:298
 #: erpnext/stock/report/stock_ledger_variance/stock_ledger_variance.py:181
 msgid "(J) Valuation Rate as per FIFO"
-msgstr "(J) 按先进先出法计价率"
+msgstr "(J) 先进先出成本价"
 
 #: erpnext/stock/report/stock_ledger_invariant_check/stock_ledger_invariant_check.py:308
 #: erpnext/stock/report/stock_ledger_variance/stock_ledger_variance.py:191
@@ -9883,7 +9883,7 @@ msgstr "存在有效报价单，无法将此商机标记为未成交。"
 #: erpnext/accounts/doctype/purchase_taxes_and_charges_template/purchase_taxes_and_charges_template.js:16
 #: erpnext/accounts/doctype/purchase_taxes_and_charges_template/purchase_taxes_and_charges_template.js:26
 msgid "Cannot deduct when category is for 'Valuation' or 'Valuation and Total'"
-msgstr "分类是“估值”或“估值和总计”的时候不能扣税。"
+msgstr "费用类别为“计入成本”或“计入成本及总计”时不能抵扣。"
 
 #: erpnext/accounts/doctype/payment_entry/payment_entry.js:1854
 msgid "Cannot delete Exchange Gain/Loss row"
@@ -19265,7 +19265,7 @@ msgstr "启用后，销售交易中的物料可使用负单价，适用于大额
 #. valuation rate' (Check) field in DocType 'Selling Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Enable this to block transactions where the selling price is less than the purchase or valuation rate"
-msgstr "启用后，当销售单价低于采购单价或估值单价时阻止交易"
+msgstr "启用后，销售单价低于采购单价或成本价时将阻止交易"
 
 #: erpnext/support/doctype/service_level_agreement/service_level_agreement.js:34
 msgid "Enable to apply SLA on every {0}"
@@ -23658,7 +23658,7 @@ msgstr "如勾选，拣货单提交时不自动更新拣货数量"
 #. DocType 'Purchase Taxes and Charges'
 #: erpnext/accounts/doctype/purchase_taxes_and_charges/purchase_taxes_and_charges.json
 msgid "If checked, the entire amount (e.g. Freight) is allocated to the valuation of stock & asset items only. If unchecked, the amount is distributed across all items and the portion belonging to non-stock items is not added to valuation."
-msgstr "勾选后，全部金额（如运费）仅分摊至库存物料和资产物料的估值；未勾选时，金额按全部物料分摊，其中非库存物料对应的部分不计入估值。"
+msgstr "勾选后，全部金额（如运费）仅计入库存物料和资产物料成本；不勾选时，金额分摊至全部物料，非库存物料对应金额不计入成本。"
 
 #. Description of the 'Considered In Paid Amount' (Check) field in DocType
 #. 'Purchase Taxes and Charges'
@@ -34069,7 +34069,7 @@ msgstr "期初库存"
 
 #: erpnext/stock/doctype/item/item.py:340
 msgid "Opening Stock entry created with zero valuation rate: {0}"
-msgstr "以零估值率创建的期初存货分录条目: {0}"
+msgstr "已创建成本价为零的期初库存物料移动：{0}"
 
 #: erpnext/stock/doctype/item/item.py:348
 msgid "Opening Stock entry created: {0}"
@@ -46858,7 +46858,7 @@ msgstr "第 {idx} 行：向委外供应商提供原材料时不能选择供应�
 
 #: erpnext/controllers/buying_controller.py:671
 msgid "Row #{idx}: Item rate has been updated as per valuation rate since its an internal stock transfer."
-msgstr "行号#{idx}：内部调拨时物料单价已按估价率更新"
+msgstr "第 {idx} 行：这是内部库存调拨，物料单价已按成本价更新。"
 
 #: erpnext/controllers/buying_controller.py:1142
 msgid "Row #{idx}: Please enter a location for the asset item {item_code}."
@@ -47113,7 +47113,7 @@ msgstr "行号{0}：物料税模板已按有效税率更新"
 
 #: erpnext/controllers/selling_controller.py:644
 msgid "Row {0}: Item rate has been updated as per valuation rate since its an internal stock transfer"
-msgstr "行号{0}：内部调拨时物料单价已按估价率更新"
+msgstr "第 {0} 行：这是内部库存调拨，物料单价已按成本价更新。"
 
 #: erpnext/controllers/subcontracting_controller.py:152
 msgid "Row {0}: Item {1} must be a stock item."
@@ -50399,7 +50399,7 @@ msgstr ""
 #. DocType 'Buying Settings'
 #: erpnext/buying/doctype/buying_settings/buying_settings.json
 msgid "Set valuation rate for rejected Materials"
-msgstr "为拒收物料设置估值单价"
+msgstr "为拒收物料设置成本价"
 
 #: erpnext/assets/doctype/asset/asset.py:902
 msgid "Set {0} in asset category {1} for company {2}"
@@ -59751,7 +59751,7 @@ msgstr "用于在记录运费或关税等额外采购成本时平衡账目。"
 #. Description of the 'Opening Stock' (Float) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
 msgid "Used to create an opening Stock Entry with the Valuation Rate when the item is saved"
-msgstr "用于在保存商品时创建包含估值率的期初库存条目。"
+msgstr "保存物料时，使用成本价创建期初库存物料移动。"
 
 #. Description of the 'Tax Withholding Group' (Link) field in DocType
 #. 'Supplier'
@@ -60030,7 +60030,7 @@ msgstr "按物料清单校验耗用数量"
 #. Settings'
 #: erpnext/selling/doctype/selling_settings/selling_settings.json
 msgid "Validate selling price for Item against purchase or valuation rate"
-msgstr "根据采购单价或估值单价校验物料销售单价"
+msgstr "根据采购单价或成本价校验物料销售单价"
 
 #. Label of the validity_details_section (Section Break) field in DocType
 #. 'Lower Deduction Certificate'
@@ -60056,17 +60056,17 @@ msgstr "此报价的有效期已经结束。"
 #. 'Purchase Taxes and Charges'
 #: erpnext/accounts/doctype/purchase_taxes_and_charges/purchase_taxes_and_charges.json
 msgid "Valuation"
-msgstr "成本价"
+msgstr "计入成本"
 
 #: erpnext/stock/report/stock_ledger_variance/stock_ledger_variance.js:63
 msgid "Valuation (I - K)"
-msgstr "计价（I-K）"
+msgstr "成本价（I-K）"
 
 #: erpnext/stock/report/available_serial_no/available_serial_no.js:61
 #: erpnext/stock/report/stock_balance/stock_balance.js:101
 #: erpnext/stock/report/stock_ledger/stock_ledger.js:114
 msgid "Valuation Field Type"
-msgstr "计价字段类型"
+msgstr "成本价字段类型"
 
 #. Label of the valuation_method (Select) field in DocType 'Item'
 #: erpnext/stock/doctype/item/item.json
@@ -60141,7 +60141,7 @@ msgstr "物料 {0} 在第 {1} 行必须填写成本价"
 #. 'Purchase Taxes and Charges'
 #: erpnext/accounts/doctype/purchase_taxes_and_charges/purchase_taxes_and_charges.json
 msgid "Valuation and Total"
-msgstr "成本价与总计"
+msgstr "计入成本及总计"
 
 #: erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:998
 msgid "Valuation rate for customer provided items has been set to zero."
@@ -60154,16 +60154,16 @@ msgstr "客户提供物料的成本价已设为零。"
 #: erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json
 #: erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json
 msgid "Valuation rate for the item as per Sales Invoice (Only for Internal Transfers)"
-msgstr "按销售发票的物料计价单价（仅限内部调拨）"
+msgstr "按销售发票确定物料成本价（仅用于内部调拨）"
 
 #: erpnext/accounts/doctype/payment_entry/payment_entry.py:2292
 #: erpnext/controllers/accounts_controller.py:3304
 msgid "Valuation type charges can not be marked as Inclusive"
-msgstr "计价类型费用不可标记为含税"
+msgstr "计入成本类费用不能标记为价内税"
 
 #: erpnext/public/js/controllers/accounts.js:228
 msgid "Valuation type charges can not marked as Inclusive"
-msgstr "估值类型罪名不能标记为包容性"
+msgstr "计入成本类费用不能标记为价内税"
 
 #: erpnext/stock/report/stock_ledger_variance/stock_ledger_variance.js:58
 msgid "Value (G - D)"
