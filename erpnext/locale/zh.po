@@ -64668,3 +64668,15 @@ msgstr "您的认证已过期。请点击下方按钮开始新的认证。"
 #: erpnext/www/payment_setup_certification.html
 msgid "Your certification is due to expire soon. Click on the button below to start a new certification."
 msgstr "您的认证即将到期。请点击下方按钮开始新的认证。"
+
+#: erpnext/templates/form_grid/item_grid.html
+msgid "Not In Stock"
+msgstr "库存不足"
+
+#: erpnext/templates/includes/macros.html
+msgid "{0} star"
+msgstr "{0} 星"
+
+#: erpnext/templates/includes/macros.html
+msgid "{0} percent of reviews have a {1}-star rating"
+msgstr "{0}% 的评价为 {1} 星"

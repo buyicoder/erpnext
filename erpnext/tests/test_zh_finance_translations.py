@@ -544,6 +544,15 @@ class TestZhFinanceTranslations(TestCase):
 				'{{ _("Certification History") }}',
 				'{{ _("Certification ID") }}',
 			],
+			"erpnext/templates/form_grid/item_grid.html": [
+				'title = __("Warehouse")',
+				'var title = __("In Stock")',
+				'var title = __("Not In Stock")',
+			],
+			"erpnext/templates/includes/macros.html": [
+				'{{ _("{0} star").format(loop.index) }}',
+				'{{ _("{0} percent of reviews have a {1}-star rating").format(percent, loop.index) }}',
+			],
 			"erpnext/stock/page/warehouse_capacity_summary/warehouse_capacity_summary.html":
 				'title="{{ __("Occupied Qty") }}: {{ d.actual_qty }}"',
 		}
@@ -595,6 +604,23 @@ class TestZhFinanceTranslations(TestCase):
 				"您的认证即将到期。请点击下方按钮开始新的认证。",
 		}
 		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+	def test_item_grid_stock_tooltip_uses_reviewed_chinese(self):
+		for source, translation in {
+			"Warehouse": "仓库",
+			"In Stock": "库存",
+			"Not In Stock": "库存不足",
+		}.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+	def test_review_rating_tooltip_uses_reviewed_chinese(self):
+		for source, translation in {
+			"{0} star": "{0} 星",
+			"{0} percent of reviews have a {1}-star rating": "{0}% 的评价为 {1} 星",
+		}.items():
 			self._assert_translation(source, translation)
 			self._assert_erpnext_runtime_translation(source, translation)
 

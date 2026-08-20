@@ -14,7 +14,7 @@
 		<div class="col-sm-6 col-xs-8">
 			{% if(doc.warehouse) {
 				var color = "grey",
-					title = "Warehouse",
+					title = __("Warehouse"),
 					actual_qty = (frm.doc.doctype==="Sales Order"
 						? doc.projected_qty : doc.actual_qty);
                 if(flt(frm.doc.per_delivered, 2) < 100
@@ -22,10 +22,10 @@
     				if(actual_qty != undefined) {
     					if(actual_qty >= doc.qty) {
     						var color = "green";
-    						var title = "In Stock"
+						var title = __("In Stock")
     					} else {
     						var color = "red";
-    						var title = "Not In Stock"
+						var title = __("Not In Stock")
     					}
     				}
                 } %}

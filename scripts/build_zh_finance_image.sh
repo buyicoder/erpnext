@@ -130,6 +130,9 @@ expected_translations = {
 	"Certification ID": "认证编号",
 	"Your certification has expired. Click on the button below to start a new certification.": "您的认证已过期。请点击下方按钮开始新的认证。",
 	"Your certification is due to expire soon. Click on the button below to start a new certification.": "您的认证即将到期。请点击下方按钮开始新的认证。",
+	"Not In Stock": "库存不足",
+	"{0} star": "{0} 星",
+	"{0} percent of reviews have a {1}-star rating": "{0}% 的评价为 {1} 星",
 	"Cannot apply TDS against multiple parties in one entry": "单笔分录不能对多个往来方应用税款扣缴",
 	"TDS / withholding tax category applied when paying this supplier": "向该供应商付款时适用的代扣代缴税款类别",
 	"TDS/TCS is calculated at the rate defined here on every payment from this customer.": "收到该客户每笔付款时，均按此处定义的税率计算代收代缴税款。",
@@ -405,6 +408,15 @@ runtime_source_contracts = {
 		"{{ _(\"Continue\") }}",
 		"{{ _(\"Certification History\") }}",
 		"{{ _(\"Certification ID\") }}",
+	),
+	"templates/form_grid/item_grid.html": (
+		"title = __(\"Warehouse\")",
+		"var title = __(\"In Stock\")",
+		"var title = __(\"Not In Stock\")",
+	),
+	"templates/includes/macros.html": (
+		"{{ _(\"{0} star\").format(loop.index) }}",
+		"{{ _(\"{0} percent of reviews have a {1}-star rating\").format(percent, loop.index) }}",
 	),
 }
 erpnext_root = Path("/home/frappe/frappe-bench/apps/erpnext/erpnext")

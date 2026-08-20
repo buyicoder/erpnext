@@ -215,11 +215,11 @@
 	<div class="rating-progress-bar-section col-4 ml-4">
 		{% for percent in reviews_per_rating %}
 			<div class="col-sm-4 small rating-bar-title">
-				{{ loop.index }} star
+				{{ _("{0} star").format(loop.index) }}
 			</div>
 			<div class="row">
 				<div class="col-md-7">
-					<div class="progress rating-progress-bar" title="{{ percent }} % of reviews are {{ loop.index }} star">
+					<div class="progress rating-progress-bar" title="{{ _("{0} percent of reviews have a {1}-star rating").format(percent, loop.index) }}">
 						<div class="progress-bar progress-bar-cosmetic" role="progressbar"
 							aria-valuenow="{{ percent }}"
 							aria-valuemin="0" aria-valuemax="100"
