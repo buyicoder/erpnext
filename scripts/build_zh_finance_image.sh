@@ -22,6 +22,7 @@ docker build \
 docker run --rm --entrypoint sh "$image" -lc '
 	set -eu
 	FRAPPE_RUNTIME_VERSION="'"$FRAPPE_RUNTIME_VERSION"'" /home/frappe/frappe-bench/env/bin/python - <<"PY"
+import ast
 import json
 import os
 import re
@@ -89,6 +90,9 @@ if not all(
 print("Verified bundled Chinese demo data")
 
 expected_translations = {
+	"Selected {0} does not contain the Item Code {1}": "所选{0}中不包含物料号 {1}",
+	"Purchase Receipt": "采购入库",
+	"Purchase Invoice": "采购发票",
 	"The field {0} is required for the reposting": "库存重算必须填写“{0}”",
 	"Item Code": "物料号",
 	"Warehouse": "仓库",
@@ -155,7 +159,6 @@ print("Verified Stock Ledger Entry translation source")
 stock_reposting_source = Path(
 	"/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/stock_ledger.py"
 ).read_text()
-import ast
 
 stock_reposting_tree = ast.parse(stock_reposting_source)
 validate_item_warehouse = next(
@@ -209,6 +212,47 @@ valid_reposting_template = (
 if not valid_reposting_template:
 	raise SystemExit("Stock reposting translation source is stale")
 print("Verified stock reposting translation source")
+
+asset_source = Path(
+	"/home/frappe/frappe-bench/apps/erpnext/erpnext/assets/doctype/asset/asset.py"
+).read_text()
+asset_tree = ast.parse(asset_source)
+purchase_doc_function = next(
+	node
+	for node in asset_tree.body
+	if isinstance(node, ast.FunctionDef) and node.name == "get_values_from_purchase_doc"
+)
+asset_throw_calls = [
+	node
+	for node in ast.walk(purchase_doc_function)
+	if isinstance(node, ast.Call)
+	and isinstance(node.func, ast.Attribute)
+	and node.func.attr == "throw"
+]
+if len(asset_throw_calls) != 1:
+	raise SystemExit("Asset purchase document translation source is stale")
+asset_message = asset_throw_calls[0].args[0]
+valid_asset_template = (
+	isinstance(asset_message, ast.Call)
+	and isinstance(asset_message.func, ast.Attribute)
+	and asset_message.func.attr == "format"
+	and isinstance(asset_message.func.value, ast.Call)
+	and isinstance(asset_message.func.value.func, ast.Name)
+	and asset_message.func.value.func.id == "_"
+	and isinstance(asset_message.func.value.args[0], ast.Constant)
+	and asset_message.func.value.args[0].value == "Selected {0} does not contain the Item Code {1}"
+	and len(asset_message.args) == 2
+	and isinstance(asset_message.args[0], ast.Call)
+	and isinstance(asset_message.args[0].func, ast.Name)
+	and asset_message.args[0].func.id == "_"
+	and isinstance(asset_message.args[0].args[0], ast.Name)
+	and asset_message.args[0].args[0].id == "doctype"
+	and isinstance(asset_message.args[1], ast.Name)
+	and asset_message.args[1].id == "item_code"
+)
+if not valid_asset_template:
+	raise SystemExit("Asset purchase document translation source is stale")
+print("Verified asset purchase document translation source")
 
 expected_frappe_translations = {
 	"Current Series": "当前编号",

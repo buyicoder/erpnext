@@ -1337,7 +1337,9 @@ def get_values_from_purchase_doc(purchase_doc_name: str, item_code: str, doctype
 	matching_items = [item for item in purchase_doc.items if item.item_code == item_code]
 
 	if not matching_items:
-		frappe.throw(_(f"Selected {doctype} does not contain the Item Code {item_code}"))
+		frappe.throw(
+			_("Selected {0} does not contain the Item Code {1}").format(_(doctype), item_code)
+		)
 
 	first_item = matching_items[0]
 

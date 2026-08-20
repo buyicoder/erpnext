@@ -63557,6 +63557,10 @@ msgstr "仓库"
 msgid "The field {0} is required for the reposting"
 msgstr "库存重算必须填写“{0}”"
 
+#: erpnext/assets/doctype/asset/asset.py
+msgid "Selected {0} does not contain the Item Code {1}"
+msgstr "所选{0}中不包含物料号 {1}"
+
 msgid "List View"
 msgstr "列表视图"
 

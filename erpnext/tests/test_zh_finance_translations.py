@@ -1359,6 +1359,7 @@ class TestZhFinanceTranslations(TestCase):
 
 	def test_fixed_asset_lifecycle_uses_reviewed_chinese_terms(self):
 		translations = {
+			"Selected {0} does not contain the Item Code {1}": "所选{0}中不包含物料号 {1}",
 			"<b>Cannot create asset.</b><br><br>You're trying to create <b>{0} asset(s)</b> from {2} {3}.<br>However, only <b>{1} item(s)</b> were purchased and <b>{4} asset(s)</b> already exist against {5}.": "<b>无法创建资产。</b><br><br>您正在尝试创建 <b>{0} 项资产</b>，来源为 {2} {3}。<br>但仅采购了 <b>{1} 个物料</b>，并且已有 <b>{4} 项资产</b>关联到 {5}。",
 			"Asset Type": "资产类型",
 			"Existing Asset": "现有资产",
@@ -1384,6 +1385,10 @@ class TestZhFinanceTranslations(TestCase):
 		}
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
+		self._assert_erpnext_runtime_translation(
+			"Selected {0} does not contain the Item Code {1}",
+			"所选{0}中不包含物料号 {1}",
+		)
 
 	def test_asset_capitalization_and_maintenance_use_reviewed_chinese_terms(self):
 		translations = {

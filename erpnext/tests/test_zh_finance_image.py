@@ -66,6 +66,12 @@ class TestZhFinanceImage(TestCase):
 		)
 		self.assertIn("erpnext/setup/china_money.py", self.containerfile)
 		self.assertIn(
+			"COPY --chown=frappe:frappe erpnext/assets/doctype/asset/asset.py "
+			"/home/frappe/frappe-bench/apps/erpnext/erpnext/assets/doctype/asset/asset.py",
+			self.containerfile,
+		)
+		self.assertIn("Verified asset purchase document translation source", self.build_script)
+		self.assertIn(
 			"erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py",
 			self.containerfile,
 		)
