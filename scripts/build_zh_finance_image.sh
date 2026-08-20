@@ -74,6 +74,14 @@ if translated_single_title not in form_sidebar_source:
 	raise SystemExit("Single DocType sidebar titles are not translated in the final image")
 print("Verified translated Single DocType sidebar titles")
 
+sidebar_item_source = Path(
+	"/home/frappe/frappe-bench/apps/frappe/frappe/public/js/frappe/ui/sidebar/sidebar_item.html"
+).read_text()
+translated_standard_sidebar_label = "item.standard ? __(item.label) : item.label"
+if sidebar_item_source.count(translated_standard_sidebar_label) != 3:
+	raise SystemExit("Standard workspace sidebar labels are not translated in the final image")
+print("Verified translated standard workspace sidebar labels")
+
 demo_root = Path("/home/frappe/frappe-bench/apps/erpnext/erpnext/setup/demo_data")
 demo_items = json.loads((demo_root / "item.json").read_text())
 demo_customers = json.loads((demo_root / "customer.json").read_text())
@@ -139,6 +147,15 @@ expected_translations = {
 	"No open issues": "暂无未解决问题",
 	"No completed issues": "暂无已解决问题",
 	"Raw Materials": "原材料",
+	"Invoicing": "开票管理",
+	"Payments": "付款",
+	"Financial Reports": "财务报表",
+	"Accounts Setup": "会计设置",
+	"Taxes": "税",
+	"Banking": "银行",
+	"Budget": "预算",
+	"Share Management": "股份管理",
+	"Subscription": "订阅",
 	"Cannot apply TDS against multiple parties in one entry": "单笔分录不能对多个往来方应用税款扣缴",
 	"TDS / withholding tax category applied when paying this supplier": "向该供应商付款时适用的代扣代缴税款类别",
 	"TDS/TCS is calculated at the rate defined here on every payment from this customer.": "收到该客户每笔付款时，均按此处定义的税率计算代收代缴税款。",

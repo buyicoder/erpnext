@@ -651,6 +651,21 @@ class TestZhFinanceTranslations(TestCase):
 		text = (Path(__file__).parents[2] / "erpnext/templates/pages/projects.js").read_text()
 		self.assertNotIn('.html("No " + item_status + " " + item)', text)
 
+	def test_standard_accounting_sidebar_uses_reviewed_chinese(self):
+		for source, translation in {
+			"Invoicing": "开票管理",
+			"Payments": "付款",
+			"Financial Reports": "财务报表",
+			"Accounts Setup": "会计设置",
+			"Taxes": "税",
+			"Banking": "银行",
+			"Budget": "预算",
+			"Share Management": "股份管理",
+			"Subscription": "订阅",
+		}.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
 	def test_core_finance_journey_uses_reviewed_chinese_terms(self):
 		translations = {
 			"Calculating Arrival Times": "正在计算预计到达时间",

@@ -12,6 +12,10 @@ RAW_TREE_ROOT_LABEL = '''\t\t\tlabel: use_label,'''
 TRANSLATED_TREE_ROOT_LABEL = '''\t\t\tlabel: __(use_label),'''
 RAW_FORM_SIDEBAR_TITLE = '''\t\t\t\t<span class="bold ellipsis mr-3 text-medium">{%= frappe.utils.escape_html(frappe.utils.html2text(title)) %}</span>'''
 TRANSLATED_FORM_SIDEBAR_TITLE = '''\t\t\t\t<span class="bold ellipsis mr-3 text-medium">{%= frappe.utils.escape_html(frm.meta.issingle ? __(frappe.utils.html2text(title)) : frappe.utils.html2text(title)) %}</span>'''
+RAW_STANDARD_SIDEBAR_TOOLTIP = '''    title="{{ item.label }}"'''
+TRANSLATED_STANDARD_SIDEBAR_TOOLTIP = '''    title="{{ item.standard ? __(item.label) : item.label }}"'''
+RAW_STANDARD_SIDEBAR_LABEL = '''<span class="sidebar-item-label">{{ item.label }}</span>'''
+TRANSLATED_STANDARD_SIDEBAR_LABEL = '''<span class="sidebar-item-label">{{ item.standard ? __(item.label) : item.label }}</span>'''
 
 
 def patch_text(source: str) -> str:
@@ -44,6 +48,16 @@ def patch_form_sidebar(source: str) -> str:
 	return source.replace(RAW_FORM_SIDEBAR_TITLE, TRANSLATED_FORM_SIDEBAR_TITLE)
 
 
+def patch_sidebar_item(source: str) -> str:
+	if source.count(RAW_STANDARD_SIDEBAR_TOOLTIP) != 1:
+		raise ValueError("Pinned Frappe sidebar item tooltip no longer matches the expected source contract")
+	if source.count(RAW_STANDARD_SIDEBAR_LABEL) != 2:
+		raise ValueError("Pinned Frappe sidebar item labels no longer match the expected source contract")
+	return source.replace(
+		RAW_STANDARD_SIDEBAR_TOOLTIP, TRANSLATED_STANDARD_SIDEBAR_TOOLTIP
+	).replace(RAW_STANDARD_SIDEBAR_LABEL, TRANSLATED_STANDARD_SIDEBAR_LABEL)
+
+
 def main():
 	page_path = Path(
 		"/home/frappe/frappe-bench/apps/frappe/frappe/desk/page/desktop/desktop.js"
@@ -63,6 +77,10 @@ def main():
 		"/home/frappe/frappe-bench/apps/frappe/frappe/public/js/frappe/form/templates/form_sidebar.html"
 	)
 	form_sidebar_path.write_text(patch_form_sidebar(form_sidebar_path.read_text()))
+	sidebar_item_path = Path(
+		"/home/frappe/frappe-bench/apps/frappe/frappe/public/js/frappe/ui/sidebar/sidebar_item.html"
+	)
+	sidebar_item_path.write_text(patch_sidebar_item(sidebar_item_path.read_text()))
 
 
 if __name__ == "__main__":

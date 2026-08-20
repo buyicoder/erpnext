@@ -4,16 +4,21 @@ from scripts.patch_frappe_desktop_page import (
 	RAW_DESKTOP_TITLE,
 	RAW_FORM_SIDEBAR_TITLE,
 	RAW_SEARCH_TITLE,
+	RAW_STANDARD_SIDEBAR_LABEL,
+	RAW_STANDARD_SIDEBAR_TOOLTIP,
 	RAW_WORKSPACE_DEPENDENCIES,
 	RAW_TREE_ROOT_LABEL,
 	TRANSLATED_DESKTOP_TITLE,
 	TRANSLATED_FORM_SIDEBAR_TITLE,
 	TRANSLATED_SEARCH_TITLE,
+	TRANSLATED_STANDARD_SIDEBAR_LABEL,
+	TRANSLATED_STANDARD_SIDEBAR_TOOLTIP,
 	TRANSLATED_WORKSPACE_DEPENDENCIES,
 	TRANSLATED_TREE_ROOT_LABEL,
 	patch_html,
 	patch_form_sidebar,
 	patch_links_widget,
+	patch_sidebar_item,
 	patch_treeview,
 	patch_text,
 )
@@ -70,3 +75,22 @@ class TestPatchFrappeDesktopPage(TestCase):
 	def test_form_sidebar_patch_fails_when_pinned_source_changes(self):
 		with self.assertRaisesRegex(ValueError, "no longer matches"):
 			patch_form_sidebar("<span>{%= title %}</span>")
+
+	def test_standard_sidebar_labels_translate_without_changing_custom_labels(self):
+		source = "\n".join(
+			[
+				RAW_STANDARD_SIDEBAR_TOOLTIP,
+				RAW_STANDARD_SIDEBAR_LABEL,
+				RAW_STANDARD_SIDEBAR_LABEL,
+			]
+		)
+
+		patched = patch_sidebar_item(source)
+
+		self.assertIn(TRANSLATED_STANDARD_SIDEBAR_TOOLTIP, patched)
+		self.assertEqual(patched.count(TRANSLATED_STANDARD_SIDEBAR_LABEL), 2)
+		self.assertIn("item.standard ? __(item.label) : item.label", patched)
+
+	def test_sidebar_item_patch_fails_when_pinned_source_changes(self):
+		with self.assertRaisesRegex(ValueError, "no longer matches"):
+			patch_sidebar_item(RAW_STANDARD_SIDEBAR_LABEL)
