@@ -1181,6 +1181,31 @@ class TestZhFinanceTranslations(TestCase):
 		macros_source = (repo_root / "erpnext/templates/includes/macros.html").read_text()
 		self.assertNotIn('alt="item.website_item_name"', macros_source)
 
+	def test_html_accessibility_attributes_do_not_contain_unreviewed_english(self):
+		repo_root = Path(__file__).parents[2]
+		html_root = repo_root / "erpnext"
+		attribute_pattern = re.compile(
+			r'''\b(title|placeholder|aria-label|alt)=(?P<quote>["'])([A-Za-z][^"']+)(?P=quote)'''
+		)
+		allowed_literals = {
+			("erpnext/www/book_appointment/index.html", "placeholder", "Skype"),
+		}
+		violations = []
+		for path in html_root.rglob("*.html"):
+			if "tests" in path.parts:
+				continue
+			relative_path = path.relative_to(repo_root).as_posix()
+			for line_number, line in enumerate(path.read_text().splitlines(), 1):
+				for match in attribute_pattern.finditer(line):
+					attribute = match.group(1)
+					value = match.group(3)
+					if (relative_path, attribute, value) not in allowed_literals:
+						violations.append(
+							f"{relative_path}:{line_number}: {attribute}={value!r}"
+						)
+
+		self.assertEqual(violations, [])
+
 	def test_public_frontend_uses_reviewed_chinese_terms(self):
 		translations = {
 			" Phantom Item": " 虚拟物料",
