@@ -266,6 +266,15 @@ expected_translations = {
 	"Successful": "成功",
 	"Partially successful": "部分成功",
 	"Unable to update YouTube statistics": "无法更新 YouTube 统计数据",
+	"All Accounts": "所有科目",
+	"All Locations": "所有地点",
+	"All Companies": "所有公司",
+	"All Departments": "所有部门",
+	"All Quality Procedures": "所有质量程序",
+	"All Tasks": "所有任务",
+	"BOM": "物料清单",
+	"Cost Centers": "成本中心",
+	"Warehouses": "仓库",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)

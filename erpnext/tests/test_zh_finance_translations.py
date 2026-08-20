@@ -2220,14 +2220,28 @@ class TestZhFinanceTranslations(TestCase):
 			self._assert_translation(source, translation)
 
 	def test_tree_root_labels_use_reviewed_chinese_terms(self):
-		for source, translation in {
+		reviewed_translations = {
 			"All Accounts": "所有科目",
 			"All Locations": "所有地点",
 			"All Companies": "所有公司",
+			"All Departments": "所有部门",
 			"All Quality Procedures": "所有质量程序",
 			"All Tasks": "所有任务",
-		}.items():
+			"BOM": "物料清单",
+			"Cost Centers": "成本中心",
+			"Warehouses": "仓库",
+		}
+		repo_root = Path(__file__).parents[2]
+		discovered_labels = set()
+		for path in (repo_root / "erpnext").rglob("*_tree.js"):
+			discovered_labels.update(
+				re.findall(r'\broot_label\s*:\s*"([^"]+)"', path.read_text())
+			)
+
+		self.assertEqual(discovered_labels, set(reviewed_translations))
+		for source, translation in reviewed_translations.items():
 			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
 
 	def test_financial_report_template_validation_uses_reviewed_chinese(self):
 		translations = {
