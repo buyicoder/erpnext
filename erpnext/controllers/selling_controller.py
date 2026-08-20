@@ -883,8 +883,8 @@ class SellingController(StockController):
 
 		if not self.get("is_internal_customer") and any(d.get("target_warehouse") for d in items):
 			msg = _("Target Warehouse is set for some items but the customer is not an internal customer.")
-			msg += " " + _("This {} will be treated as material transfer.").format(_(self.doctype))
-			frappe.msgprint(msg, title="Internal Transfer", alert=True)
+			msg += " " + _("This {0} will be treated as a material transfer.").format(_(self.doctype))
+			frappe.msgprint(msg, title=_("Internal Transfer", context="Stock Transfer"), alert=True)
 
 	def validate_items(self):
 		# validate items to see if they have is_sales_item enabled

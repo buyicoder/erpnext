@@ -25412,6 +25412,11 @@ msgstr "公司{0}的内部供应商已存在"
 msgid "Internal Transfer"
 msgstr "内部转账"
 
+#: erpnext/controllers/selling_controller.py
+msgctxt "Stock Transfer"
+msgid "Internal Transfer"
+msgstr "内部调拨"
+
 #: erpnext/controllers/accounts_controller.py:847
 msgid "Internal Transfer Reference Missing"
 msgstr "缺少内部调拨参考"
@@ -54298,7 +54303,7 @@ msgstr "提交前需填写目标仓库"
 
 #: erpnext/controllers/selling_controller.py:885
 msgid "Target Warehouse is set for some items but the customer is not an internal customer."
-msgstr "部分物料设置了目标仓库，但客户不是内部客户"
+msgstr "部分物料设置了目标仓库，但客户不是内部客户。"
 
 #: erpnext/manufacturing/doctype/work_order/work_order.py:395
 msgid "Target Warehouse {0} must be same as Delivery Warehouse {1} in the Subcontracting Inward Order Item."
@@ -56359,9 +56364,9 @@ msgstr "这将限制用户访问其他员工记录"
 msgid "This will update the warehouse and status of Serial Nos counted in {0} to match the stock ledger. Continue?"
 msgstr "这将更新 {0} 中已盘点序列号的仓库和状态，使其与库存明细账一致。是否继续？"
 
-#: erpnext/controllers/selling_controller.py:886
-msgid "This {} will be treated as material transfer."
-msgstr "此{}将被视为物料转移"
+#: erpnext/controllers/selling_controller.py
+msgid "This {0} will be treated as a material transfer."
+msgstr "此{0}将按物料调拨处理。"
 
 #. Option for the 'Under Withheld Reason' (Select) field in DocType 'Tax
 #. Withholding Entry'

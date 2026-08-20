@@ -32,6 +32,7 @@ docker run --rm --entrypoint sh \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_taxes_and_totals_i18n.py,dst=/tmp/test_taxes_and_totals_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_process_statement_i18n.py,dst=/tmp/test_process_statement_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_currency_exchange_settings_i18n.py,dst=/tmp/test_currency_exchange_settings_i18n.py,readonly" \
+	--mount "type=bind,src=$repo_root/erpnext/tests/test_selling_controller_i18n.py,dst=/tmp/test_selling_controller_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_tax_report_labels_i18n.py,dst=/tmp/test_tax_report_labels_i18n.py,readonly" \
 	"$image" -lc '
 	set -eu
@@ -197,6 +198,9 @@ expected_translations = {
 	"Exchange rate service call failed: {0}": "汇率服务调用失败：{0}",
 	"Invalid result key. Response: {0}": "汇率服务返回结果中不存在配置的结果键。响应内容：{0}",
 	"The exchange rate service did not return a numeric exchange rate.": "汇率服务未返回有效的数值汇率。",
+	"Target Warehouse is set for some items but the customer is not an internal customer.": "部分物料设置了目标仓库，但客户不是内部客户。",
+	"This {0} will be treated as a material transfer.": "此{0}将按物料调拨处理。",
+	"Sales Order": "销售订单",
 	"Cost Center": "成本中心",
 	"Project": "项目",
 	"Customer Name": "客户名称",
@@ -216,6 +220,12 @@ mismatches = {
 }
 if mismatches:
 	raise SystemExit(f"Compiled ERPNext translations do not match: {mismatches}")
+stock_transfer_title = translations.pgettext("Stock Transfer", "Internal Transfer")
+if stock_transfer_title != "内部调拨":
+	raise SystemExit(
+		"Compiled ERPNext contextual translation does not match: "
+		f"{stock_transfer_title!r} != '内部调拨'"
+	)
 print(f"Verified {len(expected_translations)} compiled ERPNext translations")
 
 stock_ledger_source = Path(
@@ -387,6 +397,8 @@ PY
 	printf "%s\n" "Verified process statement translation behavior"
 	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_currency_exchange_settings_i18n.py"
 	printf "%s\n" "Verified currency exchange settings translation behavior"
+	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_selling_controller_i18n.py"
+	printf "%s\n" "Verified selling controller translation behavior"
 	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_tax_report_labels_i18n.py"
 	printf "%s\n" "Verified tax report label translation behavior"
 	/home/frappe/frappe-bench/env/bin/python /tmp/validate_frappe_runtime_i18n.py \

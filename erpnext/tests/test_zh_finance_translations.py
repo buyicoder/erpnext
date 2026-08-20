@@ -346,6 +346,25 @@ class TestZhFinanceTranslations(TestCase):
 			self._assert_translation(source, translation)
 			self._assert_erpnext_runtime_translation(source, translation)
 
+	def test_internal_stock_transfer_warning_uses_reviewed_chinese(self):
+		translations = {
+			"Target Warehouse is set for some items but the customer is not an internal customer.": "部分物料设置了目标仓库，但客户不是内部客户。",
+			"This {0} will be treated as a material transfer.": "此{0}将按物料调拨处理。",
+			"Sales Order": "销售订单",
+			"Delivery Note": "销售出库",
+			"Sales Invoice": "销售发票",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+		self._assert_translation(
+			"Internal Transfer", "内部调拨", context="Stock Transfer"
+		)
+		self._assert_erpnext_runtime_translation(
+			"Internal Transfer", "内部调拨", context="Stock Transfer"
+		)
+
 	def test_every_erpnext_source_message_has_a_chinese_runtime_owner(self):
 		from babel.messages.extract import extract_from_dir
 		from frappe.gettext.translate import PYTHON_KEYWORDS, get_method_map
@@ -2370,9 +2389,9 @@ class TestZhFinanceTranslations(TestCase):
 				self._format_fields(translation),
 			)
 
-	def _assert_erpnext_runtime_translation(self, source, translation):
-		with self.subTest(runtime_source=source):
-			message = self.merged_erpnext_catalog.get(source)
+	def _assert_erpnext_runtime_translation(self, source, translation, context=None):
+		with self.subTest(runtime_source=source, context=context):
+			message = self.merged_erpnext_catalog.get(source, context=context)
 			self.assertIsNotNone(message)
 			self.assertNotIn("fuzzy", message.flags)
 			self.assertEqual(message.string, translation)
