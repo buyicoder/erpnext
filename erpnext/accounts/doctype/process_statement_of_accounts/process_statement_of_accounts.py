@@ -87,15 +87,8 @@ class ProcessStatementOfAccounts(Document):
 		self.validate_account()
 		self.validate_company_for_table("Cost Center")
 		self.validate_company_for_table("Project")
+		self.set_default_email_content()
 
-		if not self.subject:
-			self.subject = "Statement Of Accounts for {{ customer.customer_name }}"
-		if not self.body:
-			if self.report == "General Ledger":
-				body_str = " from {{ doc.from_date }} to {{ doc.to_date }}."
-			else:
-				body_str = " until {{ doc.posting_date }}."
-			self.body = "Hello {{ customer.customer_name }},<br>PFA your Statement Of Accounts" + body_str
 		if not self.pdf_name:
 			self.pdf_name = "{{ customer.customer_name }}"
 
@@ -129,6 +122,24 @@ class ProcessStatementOfAccounts(Document):
 						"Print Format must be an enabled Report Print Format matching the selected Report."
 					),
 				)
+
+	def set_default_email_content(self):
+		if not self.subject:
+			self.subject = _("Statement Of Accounts for {{ customer.customer_name }}")
+
+		if self.body:
+			return
+
+		if self.report == "General Ledger":
+			self.body = _(
+				"Hello {{ customer.customer_name }},<br>Please find attached your Statement Of Accounts "
+				"from {{ doc.from_date }} to {{ doc.to_date }}."
+			)
+		else:
+			self.body = _(
+				"Hello {{ customer.customer_name }},<br>Please find attached your Statement Of Accounts "
+				"until {{ doc.posting_date }}."
+			)
 
 	def validate_account(self):
 		if not self.account:

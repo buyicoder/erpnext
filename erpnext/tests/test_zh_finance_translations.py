@@ -311,6 +311,31 @@ class TestZhFinanceTranslations(TestCase):
 				missing.append(source)
 		self.assertEqual(missing, [])
 
+	def test_statement_email_defaults_use_reviewed_chinese(self):
+		translations = {
+			"Statement Of Accounts for {{ customer.customer_name }}": "{{ customer.customer_name }} 往来对账单",
+			"Hello {{ customer.customer_name }},<br>Please find attached your Statement Of Accounts from {{ doc.from_date }} to {{ doc.to_date }}.": "{{ customer.customer_name }}，您好：<br>附件为 {{ doc.from_date }} 至 {{ doc.to_date }} 的往来对账单，请查收。",
+			"Hello {{ customer.customer_name }},<br>Please find attached your Statement Of Accounts until {{ doc.posting_date }}.": "{{ customer.customer_name }}，您好：<br>附件为截至 {{ doc.posting_date }} 的往来对账单，请查收。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
+	def test_statement_email_help_matches_the_chinese_defaults(self):
+		messages = [
+			message
+			for message in self.catalog
+			if isinstance(message.id, str) and "PFA your Statement Of Accounts" in message.id
+		]
+		self.assertEqual(len(messages), 1)
+		translation = messages[0].string
+		self.assertIn("{{ customer.customer_name }} 往来对账单", translation)
+		self.assertIn(
+			"附件为 {{ doc.from_date }} 至 {{ doc.to_date }} 的往来对账单，请查收。",
+			translation,
+		)
+		self.assertNotIn("PFA", translation)
+
 	def test_every_erpnext_source_message_has_a_chinese_runtime_owner(self):
 		from babel.messages.extract import extract_from_dir
 		from frappe.gettext.translate import PYTHON_KEYWORDS, get_method_map

@@ -666,16 +666,16 @@ msgstr "<br>\n"
 "<h4>注意事项</h4>\n"
 "<ul>\n"
 "<li>\n"
-"您可以在 \"<b>主题 \"</b>和<b>\"正文</b>\"字段中使用 \"<a href=\"https://jinja.palletsprojects.com/en/2.11.x/\" target=\"_blank\">Jinja \"标记</a>来获取动态值。\n"
+"您可以在<b>主题</b>和<b>正文</b>字段中使用<a href=\"https://jinja.palletsprojects.com/en/2.11.x/\" target=\"_blank\">Jinja 标签</a>引用动态值。\n"
 "</li><li>\n"
-"    该类型中的所有字段均可在<b>doc</b>对象下使用，而邮件将发送给的客户的所有字段均可在<b>客户</b>对象下使用。\n"
+"    本单据的所有字段均可通过 <b>doc</b> 对象引用，收件客户的所有字段均可通过 <b>customer</b> 对象引用。\n"
 "</li></ul>\n"
 "<h4>示例</h4>\n"
 "<!-- {% raw %} -->\n"
 "<ul>\n"
-"    <li><b>主题</b>：<br><br><pre><code> {{ customer.customer_name }}的账目报表 </code></pre><br></li>\n"
+"    <li><b>主题</b>：<br><br><pre><code>{{ customer.customer_name }} 往来对账单</code></pre><br></li>\n"
 "    <li><b>正文</b>：<br><br>\n"
-"<pre><code>您好 {{ customer.customer_name }},<br>PFA 您的会计报表从 {{ doc.from_date }} 转到 {{ doc.to_date }}。</code> </pre></li>\n"
+"<pre><code>{{ customer.customer_name }}，您好：<br>附件为 {{ doc.from_date }} 至 {{ doc.to_date }} 的往来对账单，请查收。</code> </pre></li>\n"
 "</ul>\n"
 "<!-- {% endraw %} -->"
 
@@ -64425,3 +64425,15 @@ msgstr "第 {0} 行（差额：{1}）"
 #: erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.py
 msgid "<p>The following {0} records do not belong to Company {1}:</p>"
 msgstr "<p>以下{0}记录不属于公司 {1}：</p>"
+
+#: erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.py
+msgid "Statement Of Accounts for {{ customer.customer_name }}"
+msgstr "{{ customer.customer_name }} 往来对账单"
+
+#: erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.py
+msgid "Hello {{ customer.customer_name }},<br>Please find attached your Statement Of Accounts from {{ doc.from_date }} to {{ doc.to_date }}."
+msgstr "{{ customer.customer_name }}，您好：<br>附件为 {{ doc.from_date }} 至 {{ doc.to_date }} 的往来对账单，请查收。"
+
+#: erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.py
+msgid "Hello {{ customer.customer_name }},<br>Please find attached your Statement Of Accounts until {{ doc.posting_date }}."
+msgstr "{{ customer.customer_name }}，您好：<br>附件为截至 {{ doc.posting_date }} 的往来对账单，请查收。"
