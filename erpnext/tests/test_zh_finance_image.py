@@ -189,6 +189,8 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("erpnext/hooks.py", self.containerfile)
 		self.assertIn("erpnext/controllers/selling_controller.py", self.containerfile)
 		self.assertIn("erpnext/selling/doctype/customer/customer.py", self.containerfile)
+		self.assertIn("erpnext/selling/page/point_of_sale/pos_payment.js", self.containerfile)
+		self.assertIn("erpnext/selling/page/point_of_sale/pos_item_details.js", self.containerfile)
 		self.assertIn("erpnext/controllers/buying_controller.py", self.containerfile)
 		self.assertIn("erpnext/controllers/accounts_controller.py", self.containerfile)
 		self.assertIn("erpnext/buying/doctype/purchase_order/purchase_order.js", self.containerfile)

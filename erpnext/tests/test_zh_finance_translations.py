@@ -1747,6 +1747,9 @@ class TestZhFinanceTranslations(TestCase):
 			"POS Invoice": "POS 发票",
 			"POS Invoice Merge Log": "POS 发票合并日志",
 			"POS Transactions": "POS 交易",
+			"Redeem Loyalty Points": "兑换积分",
+			"Add Payment Method": "添加付款方式",
+			"{0} percent off": "优惠 {0}%",
 			"At least one mode of payment is required for POS invoice.": "POS 发票必须至少设置一种付款方式。",
 			"Payment methods are mandatory. Please add at least one payment method.": "必须设置付款方式，请至少添加一种付款方式。",
 			"You can only select one mode of payment as default": "只能将一种付款方式设为默认",
@@ -1765,6 +1768,20 @@ class TestZhFinanceTranslations(TestCase):
 		}
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)
+
+		repo_root = Path(__file__).parents[2]
+		payment_source = (
+			repo_root / "erpnext/selling/page/point_of_sale/pos_payment.js"
+		).read_text()
+		self.assertIn('${__("Redeem Loyalty Points")}', payment_source)
+		self.assertIn('+ ${__("Add Payment Method")}', payment_source)
+		self.assertNotIn("+ Add Payment Method</div>", payment_source)
+
+		item_details_source = (
+			repo_root / "erpnext/selling/page/point_of_sale/pos_item_details.js"
+		).read_text()
+		self.assertIn('__("{0} percent off", [item.discount_percentage])', item_details_source)
+		self.assertNotIn("${item.discount_percentage}% off", item_details_source)
 
 	def test_landed_cost_allocation_uses_reviewed_chinese_terms(self):
 		translations = {

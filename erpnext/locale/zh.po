@@ -51715,6 +51715,14 @@ msgstr "来源{0}"
 msgid "Row {0}: {1} {2} must be submitted"
 msgstr "第 {0} 行：必须先提交{1} {2}"
 
+#: erpnext/selling/page/point_of_sale/pos_payment.js:669
+msgid "Add Payment Method"
+msgstr "添加付款方式"
+
+#: erpnext/selling/page/point_of_sale/pos_item_details.js:169
+msgid "{0} percent off"
+msgstr "优惠 {0}%"
+
 #: erpnext/setup/setup_wizard/operations/defaults_setup.py:70
 #: erpnext/setup/setup_wizard/operations/install_fixtures.py:488
 #: erpnext/tests/utils.py:275

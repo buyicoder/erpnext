@@ -601,7 +601,7 @@ erpnext.PointOfSale.Payment = class {
 		this.$payment_modes.append(
 			`<div class="payment-mode-wrapper">
 				<div class="mode-of-payment loyalty-card" data-mode="loyalty-amount" data-payment-type="loyalty-amount">
-					Redeem Loyalty Points
+					${__("Redeem Loyalty Points")}
 					<div class="loyalty-amount-amount pay-amount">${amount}</div>
 					<div class="loyalty-amount-name">${frappe.utils.escape_html(loyalty_program)}</div>
 					<div class="loyalty-amount mode-of-payment-control"></div>
@@ -667,7 +667,7 @@ erpnext.PointOfSale.Payment = class {
 		if (docstatus === 0)
 			this.$payment_modes.append(
 				`<div class="w-full pr-2">
-					<div class="add-mode-of-payment w-half text-grey mb-4 no-select pointer">+ Add Payment Method</div>
+					<div class="add-mode-of-payment w-half text-grey mb-4 no-select pointer">+ ${__("Add Payment Method")}</div>
 				</div>`
 			);
 	}
