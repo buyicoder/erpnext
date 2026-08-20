@@ -39,6 +39,8 @@ docker exec "${project_name}-backend-1" bash -lc \
 	bench --site '${site_name}' execute frappe.reload_doc --kwargs '{\"module\":\"accounts\",\"dt\":\"print_format\",\"dn\":\"cheque_printing_format\",\"force\":True}' && \
 	bench --site '${site_name}' execute frappe.reload_doc --kwargs '{\"module\":\"accounts\",\"dt\":\"print_format\",\"dn\":\"purchase_auditing_voucher\",\"force\":True}' && \
 	bench --site '${site_name}' execute frappe.reload_doc --kwargs '{\"module\":\"accounts\",\"dt\":\"print_format\",\"dn\":\"sales_auditing_voucher\",\"force\":True}' && \
+	bench --site '${site_name}' execute frappe.reload_doc --kwargs '{\"module\":\"accounts\",\"dt\":\"print_format\",\"dn\":\"bank_and_cash_payment_voucher\",\"force\":True}' && \
+	bench --site '${site_name}' execute frappe.reload_doc --kwargs '{\"module\":\"accounts\",\"dt\":\"print_format\",\"dn\":\"journal_auditing_voucher\",\"force\":True}' && \
 	bench --site '${site_name}' execute frappe.reload_doc --kwargs '{\"module\":\"accounts\",\"dt\":\"letter_head\",\"dn\":\"company_letterhead___grey\",\"force\":True}' && \
 	bench --site '${site_name}' execute frappe.reload_doc --kwargs '{\"module\":\"accounts\",\"dt\":\"notification\",\"dn\":\"notification_for_new_fiscal_year\",\"force\":True}' && \
 	bench --site '${site_name}' clear-cache"

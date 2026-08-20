@@ -16,6 +16,8 @@ class TestChinaPrintFormats(TestCase):
 			"cheque_printing_format/cheque_printing_format.json",
 			"purchase_auditing_voucher/purchase_auditing_voucher.json",
 			"sales_auditing_voucher/sales_auditing_voucher.json",
+			"bank_and_cash_payment_voucher/bank_and_cash_payment_voucher.json",
+			"journal_auditing_voucher/journal_auditing_voucher.json",
 		):
 			with self.subTest(print_format=relative_path):
 				print_format = json.loads((PRINT_FORMAT_ROOT / relative_path).read_text())
@@ -29,6 +31,16 @@ class TestChinaPrintFormats(TestCase):
 				self.assertNotIn("<strong>Total</strong>", html)
 				self.assertIn('{{ _("Voucher No") }}', html)
 				self.assertIn('{{ _("Total Taxes and Charges") }}', html)
+
+	def test_ledger_vouchers_translate_debit_credit_and_remarks(self):
+		for name in ("bank_and_cash_payment_voucher", "journal_auditing_voucher"):
+			html = (PRINT_FORMAT_ROOT / name / f"{name}.html").read_text()
+			with self.subTest(print_format=name):
+				self.assertIn('{{ _("Debit") }}', html)
+				self.assertIn('{{ _("Credit") }}', html)
+				self.assertIn('{{ _("Total Debit") }}', html)
+				self.assertIn('{{ _("Total Credit") }}', html)
+				self.assertIn('{{ _("Remarks") }}', html)
 
 	def test_finance_print_formats_do_not_hardcode_english_labels(self):
 		formats = {
