@@ -11,6 +11,7 @@ import {
 	localize_list_filter_title,
 	localize_list_sort_title,
 	localize_list_value_title,
+	localize_quill_accessibility_value,
 	localize_sidebar_editor_text,
 	localize_awesomplete_status_text,
 	localize_timeline_element,
@@ -18,6 +19,29 @@ import {
 	localize_tree_level_label,
 	localize_version_value_text,
 } from "../public/js/zh_finance_format.mjs";
+
+test("localizes Quill toolbar accessibility labels and video prompt", () => {
+	const labels = {
+		bold: "粗体",
+		italic: "斜体",
+		underline: "下划线",
+		strike: "删除线",
+		blockquote: "引用块",
+		"code-block": "代码块",
+		"direction: rtl": "从右向左",
+		link: "链接",
+		image: "图片",
+		"list: ordered": "有序列表",
+		"list: bullet": "无序列表",
+		clean: "清除格式",
+	};
+	for (const [source, translation] of Object.entries(labels)) {
+		assert.equal(localize_quill_accessibility_value("aria-label", source), translation);
+	}
+	assert.equal(localize_quill_accessibility_value("data-video", "Embed URL"), "输入视频地址");
+	assert.equal(localize_quill_accessibility_value("aria-label", "custom-action"), "custom-action");
+	assert.equal(localize_quill_accessibility_value("data-link", "https://quilljs.com"), "https://quilljs.com");
+});
 
 test("localizes only the hard-coded workspace sidebar editor controls", () => {
 	const translate = (message) =>

@@ -106,6 +106,27 @@ export const localize_sidebar_editor_text = (text, translate) => {
 	return text.replace(normalized, translate(normalized));
 };
 
+const QUILL_ACCESSIBILITY_LABELS = {
+	bold: "粗体",
+	italic: "斜体",
+	underline: "下划线",
+	strike: "删除线",
+	blockquote: "引用块",
+	"code-block": "代码块",
+	"direction: rtl": "从右向左",
+	link: "链接",
+	image: "图片",
+	"list: ordered": "有序列表",
+	"list: bullet": "无序列表",
+	clean: "清除格式",
+};
+
+export const localize_quill_accessibility_value = (attribute, value) => {
+	if (attribute === "aria-label") return QUILL_ACCESSIBILITY_LABELS[value] || value;
+	if (attribute === "data-video" && value === "Embed URL") return "输入视频地址";
+	return value;
+};
+
 const LOCALIZABLE_TIMELINE_VALUES = new Set(["To Deliver and Bill", "To Receive and Bill"]);
 
 export const localize_version_value_text = (text, translate) =>

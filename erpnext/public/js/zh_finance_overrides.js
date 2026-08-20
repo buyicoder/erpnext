@@ -7,6 +7,7 @@ import {
 	localize_list_filter_title,
 	localize_list_sort_title,
 	localize_list_value_title,
+	localize_quill_accessibility_value,
 	localize_sidebar_editor_text,
 	localize_awesomplete_status_text,
 	localize_timeline_element,
@@ -52,6 +53,8 @@ if (frappe.boot.lang === "zh") {
 		".body-sidebar .bottom-edit-controls .discard-button",
 		".body-sidebar .bottom-edit-controls .save-sidebar",
 	].join(", ");
+	const quill_accessibility_selector =
+		".ql-container [aria-label], .ql-tooltip-editor input[data-video]";
 	const localize_compact_cny = (root = document) => {
 		if (!root) return;
 		const elements = root.matches?.(cny_amount_selector)
@@ -166,6 +169,20 @@ if (frappe.boot.lang === "zh") {
 			if (localized !== element.textContent) element.textContent = localized;
 		});
 	};
+	const localize_quill_accessibility = (root = document) => {
+		if (!root) return;
+		const elements = root.matches?.(quill_accessibility_selector)
+			? [root]
+			: root.querySelectorAll?.(quill_accessibility_selector) || [];
+		elements.forEach((element) => {
+			for (const attribute of ["aria-label", "data-video"]) {
+				const original = element.getAttribute(attribute);
+				if (!original) continue;
+				const localized = localize_quill_accessibility_value(attribute, original);
+				if (localized !== original) element.setAttribute(attribute, localized);
+			}
+		});
+	};
 
 	localize_compact_cny();
 	localize_awesomplete_status();
@@ -174,11 +191,13 @@ if (frappe.boot.lang === "zh") {
 	localize_datatable_controls();
 	localize_list_titles();
 	localize_sidebar_editor();
+	localize_quill_accessibility();
 	new MutationObserver((mutations) => {
 		mutations.forEach((mutation) => {
 			if (mutation.type === "attributes") {
 				localize_datatable_controls(mutation.target);
 				localize_list_titles(mutation.target);
+				localize_quill_accessibility(mutation.target);
 				return;
 			}
 			if (mutation.type === "characterData") {
@@ -189,6 +208,7 @@ if (frappe.boot.lang === "zh") {
 				localize_datatable_controls(mutation.target.parentElement);
 				localize_list_titles(mutation.target.parentElement);
 				localize_sidebar_editor(mutation.target.parentElement);
+				localize_quill_accessibility(mutation.target.parentElement);
 				return;
 			}
 			mutation.addedNodes.forEach((node) => {
@@ -200,6 +220,7 @@ if (frappe.boot.lang === "zh") {
 					localize_datatable_controls(node.parentElement);
 					localize_list_titles(node.parentElement);
 					localize_sidebar_editor(node.parentElement);
+					localize_quill_accessibility(node.parentElement);
 					return;
 				}
 				if (node.nodeType !== Node.ELEMENT_NODE) return;
@@ -210,6 +231,7 @@ if (frappe.boot.lang === "zh") {
 				localize_datatable_controls(node);
 				localize_list_titles(node);
 				localize_sidebar_editor(node);
+				localize_quill_accessibility(node);
 			});
 		});
 	}).observe(document.body, {

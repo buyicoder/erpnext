@@ -9,6 +9,9 @@ RUN yarn test:localization && mkdir -p /erpnext/www && yarn build
 COPY erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.js /workspace/erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.js
 COPY erpnext/tests/repost_accounting_ledger_i18n.test.mjs /workspace/erpnext/tests/repost_accounting_ledger_i18n.test.mjs
 RUN node --test /workspace/erpnext/tests/repost_accounting_ledger_i18n.test.mjs
+COPY erpnext/public/js/zh_finance_format.mjs /workspace/erpnext/public/js/zh_finance_format.mjs
+COPY erpnext/tests/zh_finance_format.test.mjs /workspace/erpnext/tests/zh_finance_format.test.mjs
+RUN node --test /workspace/erpnext/tests/zh_finance_format.test.mjs
 
 FROM buyicoder/erpnext-cn:v16.32.3
 

@@ -38,6 +38,8 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("bench build --app frappe", self.containerfile)
 		self.assertIn("bench build --app erpnext", self.containerfile)
 		self.assertIn("erpnext/public/js/zh_finance_format.mjs", self.containerfile)
+		self.assertIn("erpnext/tests/zh_finance_format.test.mjs", self.containerfile)
+		self.assertIn("node --test /workspace/erpnext/tests/zh_finance_format.test.mjs", self.containerfile)
 		self.assertIn("erpnext/public/js/zh_audit_list.js", self.containerfile)
 		self.assertIn("erpnext/public/js/controllers/transaction.js", self.containerfile)
 		self.assertIn("erpnext/public/scss/modern-cn-theme.scss", self.containerfile)
