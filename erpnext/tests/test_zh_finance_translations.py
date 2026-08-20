@@ -1634,6 +1634,7 @@ class TestZhFinanceTranslations(TestCase):
 
 	def test_project_timesheet_and_activity_cost_uses_reviewed_chinese_terms(self):
 		translations = {
+			"Activity Summary": "活动汇总",
 			"Timesheet": "工时单",
 			"Timesheet Detail": "工时单明细",
 			"Timesheets": "工时单",

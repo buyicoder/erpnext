@@ -64059,3 +64059,6 @@ msgstr "API"
 #: erpnext/templates/pages/projects.html
 msgid "Modified By"
 msgstr "修改人"
+#: erpnext/projects/doctype/project/project_dashboard.html:1
+msgid "Activity Summary"
+msgstr "活动汇总"
