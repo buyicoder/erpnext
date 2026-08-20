@@ -24,6 +24,7 @@ docker run --rm --entrypoint sh \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_maintenance_schedule_i18n.py,dst=/tmp/test_maintenance_schedule_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_inventory_dimension_i18n.py,dst=/tmp/test_inventory_dimension_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_stock_entry_i18n.py,dst=/tmp/test_stock_entry_i18n.py,readonly" \
+	--mount "type=bind,src=$repo_root/erpnext/tests/test_serial_batch_bundle_i18n.py,dst=/tmp/test_serial_batch_bundle_i18n.py,readonly" \
 	"$image" -lc '
 	set -eu
 	FRAPPE_RUNTIME_VERSION="'"$FRAPPE_RUNTIME_VERSION"'" /home/frappe/frappe-bench/env/bin/python - <<"PY"
@@ -146,6 +147,14 @@ expected_translations = {
 	"Dimension Name": "辅助核算名称",
 	"Sales Invoice Item": "销售发票明细",
 	"Row #{0}: The Job Card Item reference is missing. Create the Stock Entry from the Job Card; rows added manually cannot be linked to a Job Card Item.": "第 {0} 行：缺少生产任务单明细引用。请从生产任务单创建物料移动；手工添加的明细无法关联生产任务单明细。",
+	"The transaction type of Serial and Batch Bundle {0} is {1}, but based on Actual Qty {2} for Item {3} in {4} {5}, it should be {6}.": "序列号与批号组合 {0} 的交易类型为{1}，但根据单据 {4} {5} 中物料 {3} 的实际数量 {2}，交易类型应为{6}。",
+	"Total Qty {0} of Serial and Batch Bundle {1} does not equal Actual Qty {2} in {3} {4}.": "序列号与批号组合 {1} 的总数量 {0} 与单据 {3} {4} 中的实际数量 {2} 不一致。",
+	"Inward": "入库",
+	"Outward": "出库",
+	"Stock Entry": "物料移动",
+	"Incorrect Type of Transaction": "交易类型错误",
+	"Delivery Note": "销售出库",
+	"Sales Invoice": "销售发票",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)
@@ -311,6 +320,8 @@ PY
 	printf "%s\n" "Verified inventory dimension translation behavior"
 	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_stock_entry_i18n.py"
 	printf "%s\n" "Verified stock entry translation behavior"
+	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_serial_batch_bundle_i18n.py"
+	printf "%s\n" "Verified serial and batch bundle translation behavior"
 	/home/frappe/frappe-bench/env/bin/python /tmp/validate_frappe_runtime_i18n.py \
 		--frappe-app /home/frappe/frappe-bench/apps/frappe \
 		--catalog /home/frappe/frappe-bench/apps/frappe/frappe/locale/zh.po

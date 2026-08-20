@@ -78,6 +78,7 @@ COPY --chown=frappe:frappe erpnext/subcontracting/doctype/subcontracting_order/s
 COPY --chown=frappe:frappe erpnext/maintenance/doctype/maintenance_schedule/maintenance_schedule.py /home/frappe/frappe-bench/apps/erpnext/erpnext/maintenance/doctype/maintenance_schedule/maintenance_schedule.py
 COPY --chown=frappe:frappe erpnext/stock/doctype/inventory_dimension/inventory_dimension.py /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/inventory_dimension/inventory_dimension.py
 COPY --chown=frappe:frappe erpnext/stock/doctype/stock_entry/stock_entry.py /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py
+COPY --chown=frappe:frappe erpnext/stock/serial_batch_bundle.py /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/serial_batch_bundle.py
 COPY --chown=frappe:frappe erpnext/stock/doctype/item/item.json /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json
 COPY --chown=frappe:frappe erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
 COPY --chown=frappe:frappe erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py

@@ -64353,3 +64353,11 @@ msgstr "引用单据 {0} 不能用作库存辅助核算。"
 #: erpnext/stock/doctype/stock_entry/stock_entry.py
 msgid "Row #{0}: The Job Card Item reference is missing. Create the Stock Entry from the Job Card; rows added manually cannot be linked to a Job Card Item."
 msgstr "第 {0} 行：缺少生产任务单明细引用。请从生产任务单创建物料移动；手工添加的明细无法关联生产任务单明细。"
+
+#: erpnext/stock/serial_batch_bundle.py
+msgid "The transaction type of Serial and Batch Bundle {0} is {1}, but based on Actual Qty {2} for Item {3} in {4} {5}, it should be {6}."
+msgstr "序列号与批号组合 {0} 的交易类型为{1}，但根据单据 {4} {5} 中物料 {3} 的实际数量 {2}，交易类型应为{6}。"
+
+#: erpnext/stock/serial_batch_bundle.py
+msgid "Total Qty {0} of Serial and Batch Bundle {1} does not equal Actual Qty {2} in {3} {4}."
+msgstr "序列号与批号组合 {1} 的总数量 {0} 与单据 {3} {4} 中的实际数量 {2} 不一致。"

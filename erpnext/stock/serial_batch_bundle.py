@@ -171,13 +171,34 @@ class SerialBatchBundle:
 			if sn_doc.type_of_transaction == "Inward":
 				correct_type = "Outward"
 
-			msg = f"The type of transaction of Serial and Batch Bundle {link} is {bold(sn_doc.type_of_transaction)} but as per the Actual Qty {self.sle.actual_qty} for the item {bold(self.sle.item_code)} in the {self.sle.voucher_type} {self.sle.voucher_no} the type of transaction should be {bold(correct_type)}"
-			frappe.throw(_(msg), title=_("Incorrect Type of Transaction"))
+			frappe.throw(
+				_(
+					"The transaction type of Serial and Batch Bundle {0} is {1}, but based on Actual Qty {2} for Item {3} in {4} {5}, it should be {6}."
+				).format(
+					link,
+					bold(_(sn_doc.type_of_transaction)),
+					self.sle.actual_qty,
+					bold(self.sle.item_code),
+					_(self.sle.voucher_type),
+					self.sle.voucher_no,
+					bold(_(correct_type)),
+				),
+				title=_("Incorrect Type of Transaction"),
+			)
 
 		precision = sn_doc.precision("total_qty")
 		if self.sle.actual_qty and flt(sn_doc.total_qty, precision) != flt(self.sle.actual_qty, precision):
-			msg = f"Total qty {flt(sn_doc.total_qty, precision)} of Serial and Batch Bundle {link} is not equal to Actual Qty {flt(self.sle.actual_qty, precision)} in the {self.sle.voucher_type} {self.sle.voucher_no}"
-			frappe.throw(_(msg))
+			frappe.throw(
+				_(
+					"Total Qty {0} of Serial and Batch Bundle {1} does not equal Actual Qty {2} in {3} {4}."
+				).format(
+					flt(sn_doc.total_qty, precision),
+					link,
+					flt(self.sle.actual_qty, precision),
+					_(self.sle.voucher_type),
+					self.sle.voucher_no,
+				)
+			)
 
 	def validate_item(self):
 		msg = ""

@@ -104,6 +104,14 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("test_stock_entry_i18n.py,dst=/tmp/test_stock_entry_i18n.py,readonly", self.build_script)
 		self.assertIn("Verified stock entry translation behavior", self.build_script)
 		self.assertIn(
+			"COPY --chown=frappe:frappe erpnext/stock/serial_batch_bundle.py "
+			"/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/serial_batch_bundle.py",
+			self.containerfile,
+		)
+		self.assertNotIn("erpnext/tests/test_serial_batch_bundle_i18n.py", self.containerfile)
+		self.assertIn("test_serial_batch_bundle_i18n.py,dst=/tmp/test_serial_batch_bundle_i18n.py,readonly", self.build_script)
+		self.assertIn("Verified serial and batch bundle translation behavior", self.build_script)
+		self.assertIn(
 			"erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py",
 			self.containerfile,
 		)
