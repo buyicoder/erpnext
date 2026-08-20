@@ -34,6 +34,7 @@ COPY --chown=frappe:frappe scripts/patch_frappe_login_page.py /tmp/patch_frappe_
 COPY --chown=frappe:frappe scripts/patch_frappe_setup_wizard.py /tmp/patch_frappe_setup_wizard.py
 COPY --chown=frappe:frappe scripts/sync_asset_manifest.py /tmp/sync_asset_manifest.py
 COPY --chown=frappe:frappe erpnext/public/js/erpnext.bundle.js /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/erpnext.bundle.js
+COPY --chown=frappe:frappe erpnext/public/js/setup_wizard.js /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/setup_wizard.js
 COPY --chown=frappe:frappe erpnext/public/js/zh_finance_overrides.js /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/zh_finance_overrides.js
 COPY --chown=frappe:frappe erpnext/public/js/zh_finance_format.mjs /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/zh_finance_format.mjs
 COPY --chown=frappe:frappe erpnext/public/js/zh_audit_list.js /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/zh_audit_list.js

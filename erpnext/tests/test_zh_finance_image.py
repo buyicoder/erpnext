@@ -318,6 +318,7 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("patch_frappe_desktop_page.py", self.containerfile)
 		self.assertIn("patch_frappe_login_page.py", self.containerfile)
 		self.assertIn("patch_frappe_setup_wizard.py", self.containerfile)
+		self.assertIn("erpnext/public/js/setup_wizard.js", self.containerfile)
 		self.assertIn("sync_asset_manifest.py", self.containerfile)
 		self.assertIn("/tmp/patch_frappe_print_page.py", self.containerfile)
 		self.assertIn("/tmp/patch_frappe_desktop_page.py", self.containerfile)

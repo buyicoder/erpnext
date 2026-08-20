@@ -124,6 +124,20 @@ if not all(
 print("Verified bundled Chinese demo data")
 
 expected_translations = {
+	"My own business": "我的企业",
+	"A company I work for": "我所在的公司",
+	"A client I'm consulting for": "我服务的客户",
+	"Retail": "零售",
+	"Wholesale / Distribution": "批发 / 分销",
+	"E-commerce": "电子商务",
+	"Services / Consulting": "服务 / 咨询",
+	"Construction / Real Estate": "建筑 / 房地产",
+	"Technology / Software": "科技 / 软件",
+	"Healthcare": "医疗健康",
+	"Food & Beverage": "餐饮",
+	"Other": "其他",
+	"Excel / Spreadsheets": "Excel / 电子表格",
+	"Nothing yet - starting fresh": "尚未使用，准备从零开始",
 	"Zero Balance Journal: {0}": "零余额日记账凭证：{0}",
 	"Revaluation Journal: {0}": "汇率重估日记账凭证：{0}",
 	"Row #{0}: Item Code is Mandatory": "第 {0} 行：必须填写物料号",

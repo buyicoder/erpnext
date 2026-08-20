@@ -1897,6 +1897,30 @@ class TestZhFinanceTranslations(TestCase):
 
 		self.assertEqual(missing, [])
 
+	def test_erpnext_persona_options_use_reviewed_chinese(self):
+		for source, translation in {
+			"My own business": "我的企业",
+			"A company I work for": "我所在的公司",
+			"A client I'm consulting for": "我服务的客户",
+			"Manufacturing": "生产",
+			"Retail": "零售",
+			"Wholesale / Distribution": "批发 / 分销",
+			"E-commerce": "电子商务",
+			"Services / Consulting": "服务 / 咨询",
+			"Construction / Real Estate": "建筑 / 房地产",
+			"Technology / Software": "科技 / 软件",
+			"Healthcare": "医疗健康",
+			"Education": "教育培训",
+			"Agriculture": "农业",
+			"Food & Beverage": "餐饮",
+			"Non Profit": "公益组织",
+			"Other": "其他",
+			"Excel / Spreadsheets": "Excel / 电子表格",
+			"Nothing yet - starting fresh": "尚未使用，准备从零开始",
+		}.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
 	def test_every_frappe_public_javascript_message_has_a_translation_owner(self):
 		missing = []
 		for message in self.frappe_runtime_catalog:

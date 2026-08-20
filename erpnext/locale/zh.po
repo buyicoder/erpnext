@@ -64732,3 +64732,59 @@ msgstr "应收账款账龄"
 #: erpnext/accounts/dashboard_chart/accounts_payable_ageing/accounts_payable_ageing.json
 msgid "Accounts Payable Ageing"
 msgstr "应付账款账龄"
+
+#: erpnext/public/js/setup_wizard.js
+msgid "My own business"
+msgstr "我的企业"
+
+#: erpnext/public/js/setup_wizard.js
+msgid "A company I work for"
+msgstr "我所在的公司"
+
+#: erpnext/public/js/setup_wizard.js
+msgid "A client I'm consulting for"
+msgstr "我服务的客户"
+
+#: erpnext/public/js/setup_wizard.js
+msgid "Retail"
+msgstr "零售"
+
+#: erpnext/public/js/setup_wizard.js
+msgid "Wholesale / Distribution"
+msgstr "批发 / 分销"
+
+#: erpnext/public/js/setup_wizard.js
+msgid "E-commerce"
+msgstr "电子商务"
+
+#: erpnext/public/js/setup_wizard.js
+msgid "Services / Consulting"
+msgstr "服务 / 咨询"
+
+#: erpnext/public/js/setup_wizard.js
+msgid "Construction / Real Estate"
+msgstr "建筑 / 房地产"
+
+#: erpnext/public/js/setup_wizard.js
+msgid "Technology / Software"
+msgstr "科技 / 软件"
+
+#: erpnext/public/js/setup_wizard.js
+msgid "Healthcare"
+msgstr "医疗健康"
+
+#: erpnext/public/js/setup_wizard.js
+msgid "Food & Beverage"
+msgstr "餐饮"
+
+#: erpnext/public/js/setup_wizard.js
+msgid "Other"
+msgstr "其他"
+
+#: erpnext/public/js/setup_wizard.js
+msgid "Excel / Spreadsheets"
+msgstr "Excel / 电子表格"
+
+#: erpnext/public/js/setup_wizard.js
+msgid "Nothing yet - starting fresh"
+msgstr "尚未使用，准备从零开始"

@@ -1,5 +1,33 @@
 frappe.provide("erpnext.setup");
 
+erpnext.setup.persona_option_labels = {
+	"My own business": __("My own business"),
+	"A company I work for": __("A company I work for"),
+	"A client I'm consulting for": __("A client I'm consulting for"),
+	Manufacturing: __("Manufacturing"),
+	Retail: __("Retail"),
+	"Wholesale / Distribution": __("Wholesale / Distribution"),
+	"E-commerce": __("E-commerce"),
+	"Services / Consulting": __("Services / Consulting"),
+	"Construction / Real Estate": __("Construction / Real Estate"),
+	"Technology / Software": __("Technology / Software"),
+	Healthcare: __("Healthcare"),
+	Education: __("Education"),
+	Agriculture: __("Agriculture"),
+	"Food & Beverage": __("Food & Beverage"),
+	"Non Profit": __("Non Profit"),
+	Other: __("Other"),
+	"Excel / Spreadsheets": __("Excel / Spreadsheets"),
+	"Nothing yet - starting fresh": __("Nothing yet - starting fresh"),
+};
+
+erpnext.setup.persona_options = function (values) {
+	return values.map((value) => ({
+		value,
+		label: erpnext.setup.persona_option_labels[value] || value,
+	}));
+};
+
 frappe.pages["setup-wizard"].on_page_load = function (wrapper) {
 	if (frappe.sys_defaults.company) {
 		frappe.set_route("desk");
@@ -30,9 +58,12 @@ erpnext.setup.slides_settings = [
 				fieldname: "persona_implementing_for",
 				label: __("Who are you setting this up for?"),
 				fieldtype: "Select",
-				options: ["", "My own business", "A company I work for", "A client I'm consulting for"].join(
-					"\n"
-				),
+				options: erpnext.setup.persona_options([
+					"",
+					"My own business",
+					"A company I work for",
+					"A client I'm consulting for",
+				]),
 				reqd: 1,
 			},
 			{
@@ -46,7 +77,7 @@ erpnext.setup.slides_settings = [
 				fieldname: "persona_industry",
 				label: __("What kind of work do you do?"),
 				fieldtype: "Select",
-				options: [
+				options: erpnext.setup.persona_options([
 					"",
 					"Manufacturing",
 					"Retail",
@@ -61,14 +92,14 @@ erpnext.setup.slides_settings = [
 					"Food & Beverage",
 					"Non Profit",
 					"Other",
-				].join("\n"),
+				]),
 				reqd: 1,
 			},
 			{
 				fieldname: "persona_current_system",
 				label: __("What do you use today?"),
 				fieldtype: "Select",
-				options: [
+				options: erpnext.setup.persona_options([
 					"",
 					"Tally",
 					"QuickBooks",
@@ -81,7 +112,7 @@ erpnext.setup.slides_settings = [
 					"Excel / Spreadsheets",
 					"Nothing yet - starting fresh",
 					"Other",
-				].join("\n"),
+				]),
 				reqd: 1,
 			},
 			{
