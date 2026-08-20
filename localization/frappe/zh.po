@@ -693,6 +693,27 @@ msgstr "搜索字段已更新。"
 msgid "Updating search index"
 msgstr "正在更新搜索索引"
 
+msgid "Are you sure you want to relink this communication?"
+msgstr "确定要重新关联此沟通记录吗？"
+
+msgid "Email undo window is over. Cannot undo email."
+msgstr "邮件撤回时限已过，无法撤回。"
+
+msgid "Failed to delete communication"
+msgstr "删除沟通记录失败"
+
+msgid "Fw: {0}"
+msgstr "转发：{0}"
+
+msgid "It is too late to undo this email. It is already being sent."
+msgstr "现在撤回已太晚，邮件已经开始发送。"
+
+msgid "Raw HTML can be used only with Email Templates having 'Use HTML' checked. Proceeding with plain text email."
+msgstr "仅当邮件模板勾选“使用 HTML”时才能使用原始 HTML。将改用纯文本邮件。"
+
+msgid "You are not authorized to undo this email"
+msgstr "您无权撤回此邮件"
+
 msgid "Warning"
 msgstr "警告"
 

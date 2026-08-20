@@ -338,3 +338,20 @@ class TestZhFrappeTranslations(TestCase):
 				self.assertIsNotNone(message)
 				self.assertNotIn("fuzzy", message.flags)
 				self.assertEqual(message.string, translation)
+
+	def test_communication_email_actions_use_reviewed_chinese(self):
+		expected = {
+			"Are you sure you want to relink this communication?": "确定要重新关联此沟通记录吗？",
+			"Email undo window is over. Cannot undo email.": "邮件撤回时限已过，无法撤回。",
+			"Failed to delete communication": "删除沟通记录失败",
+			"Fw: {0}": "转发：{0}",
+			"It is too late to undo this email. It is already being sent.": "现在撤回已太晚，邮件已经开始发送。",
+			"Raw HTML can be used only with Email Templates having 'Use HTML' checked. Proceeding with plain text email.": "仅当邮件模板勾选“使用 HTML”时才能使用原始 HTML。将改用纯文本邮件。",
+			"You are not authorized to undo this email": "您无权撤回此邮件",
+		}
+		for source, translation in expected.items():
+			with self.subTest(source=source):
+				message = self.catalog.get(source)
+				self.assertIsNotNone(message)
+				self.assertNotIn("fuzzy", message.flags)
+				self.assertEqual(message.string, translation)
