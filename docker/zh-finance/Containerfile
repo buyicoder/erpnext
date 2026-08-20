@@ -79,6 +79,7 @@ COPY --chown=frappe:frappe erpnext/controllers/stock_controller.py /home/frappe/
 COPY --chown=frappe:frappe erpnext/controllers/subcontracting_controller.py /home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/subcontracting_controller.py
 COPY --chown=frappe:frappe erpnext/controllers/trends.py /home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/trends.py
 COPY --chown=frappe:frappe erpnext/controllers/selling_controller.py /home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/selling_controller.py
+COPY --chown=frappe:frappe erpnext/selling/doctype/customer/customer.py /home/frappe/frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.py
 COPY --chown=frappe:frappe erpnext/stock/doctype/stock_closing_entry/stock_closing_entry.py /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_closing_entry/stock_closing_entry.py
 COPY --chown=frappe:frappe erpnext/stock/report/stock_and_account_value_comparison/stock_and_account_value_comparison.js /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/report/stock_and_account_value_comparison/stock_and_account_value_comparison.js
 COPY --chown=frappe:frappe erpnext/stock/report/stock_ledger_invariant_check/stock_ledger_invariant_check.js /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/report/stock_ledger_invariant_check/stock_ledger_invariant_check.js

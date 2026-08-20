@@ -658,7 +658,7 @@ def check_credit_limit(customer, company, ignore_outstanding_sales_order=False, 
 				title=_("Credit Limit Crossed"),
 				raise_exception=1,
 				primary_action={
-					"label": "Send Email",
+					"label": _("Send Email"),
 					"server_action": "erpnext.selling.doctype.customer.customer.send_emails",
 					"hide_on_success": True,
 					"args": {

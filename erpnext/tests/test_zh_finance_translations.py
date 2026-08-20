@@ -1121,6 +1121,16 @@ class TestZhFinanceTranslations(TestCase):
 			self.assertIn(required, source, relative_path)
 			self.assertNotIn(forbidden, source, relative_path)
 
+	def test_credit_limit_primary_action_uses_translated_label(self):
+		self._assert_translation("Send Email", "发送邮件")
+		self._assert_erpnext_runtime_translation("Send Email", "发送邮件")
+
+		source = (
+			Path(__file__).parents[2] / "erpnext/selling/doctype/customer/customer.py"
+		).read_text()
+		self.assertIn('"label": _("Send Email")', source)
+		self.assertNotIn('"label": "Send Email"', source)
+
 	def test_public_frontend_uses_reviewed_chinese_terms(self):
 		translations = {
 			" Phantom Item": " 虚拟物料",
