@@ -68,7 +68,7 @@ class ItemPrice(Document):
 
 			if not price_list_details:
 				link = frappe.utils.get_link_to_form("Price List", self.price_list)
-				frappe.throw(f"The price list {link} does not exist or is disabled")
+				frappe.throw(_("Price List {0} does not exist or is disabled.").format(link))
 
 			self.buying, self.selling, self.currency = price_list_details
 
@@ -80,9 +80,9 @@ class ItemPrice(Document):
 
 	def validate_item_template(self):
 		if frappe.get_cached_value("Item", self.item_code, "has_variants"):
-			msg = f"Item Price cannot be created for the template item {bold(self.item_code)}"
-
-			frappe.throw(_(msg))
+			frappe.throw(
+				_("Item Price cannot be created for template Item {0}.").format(bold(self.item_code))
+			)
 
 	def check_duplicates(self):
 		item_price = frappe.qb.DocType("Item Price")

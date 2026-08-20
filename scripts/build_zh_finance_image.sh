@@ -25,6 +25,7 @@ docker run --rm --entrypoint sh \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_inventory_dimension_i18n.py,dst=/tmp/test_inventory_dimension_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_stock_entry_i18n.py,dst=/tmp/test_stock_entry_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_serial_batch_bundle_i18n.py,dst=/tmp/test_serial_batch_bundle_i18n.py,readonly" \
+	--mount "type=bind,src=$repo_root/erpnext/tests/test_item_price_i18n.py,dst=/tmp/test_item_price_i18n.py,readonly" \
 	"$image" -lc '
 	set -eu
 	FRAPPE_RUNTIME_VERSION="'"$FRAPPE_RUNTIME_VERSION"'" /home/frappe/frappe-bench/env/bin/python - <<"PY"
@@ -164,6 +165,8 @@ expected_translations = {
 	"Auto create Serial and Batch Bundle for outward": "出库时自动创建序列号与批号",
 	"Stock Settings": "库存设置",
 	"Serial and Batch Bundle is not set for Item {0} in Warehouse {1}. {2}": "物料 {0} 在仓库 {1} 中未设置序列号与批号组合。{2}",
+	"Price List {0} does not exist or is disabled.": "价格表 {0} 不存在或已停用。",
+	"Item Price cannot be created for template Item {0}.": "不能为模板物料 {0} 创建物料价格。",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)
@@ -331,6 +334,8 @@ PY
 	printf "%s\n" "Verified stock entry translation behavior"
 	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_serial_batch_bundle_i18n.py"
 	printf "%s\n" "Verified serial and batch bundle translation behavior"
+	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_item_price_i18n.py"
+	printf "%s\n" "Verified item price translation behavior"
 	/home/frappe/frappe-bench/env/bin/python /tmp/validate_frappe_runtime_i18n.py \
 		--frappe-app /home/frappe/frappe-bench/apps/frappe \
 		--catalog /home/frappe/frappe-bench/apps/frappe/frappe/locale/zh.po

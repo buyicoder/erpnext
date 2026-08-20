@@ -64389,3 +64389,11 @@ msgstr "如需在出库时自动选择序列号或批号，请在{1}中启用“
 #: erpnext/stock/serial_batch_bundle.py
 msgid "Serial and Batch Bundle is not set for Item {0} in Warehouse {1}. {2}"
 msgstr "物料 {0} 在仓库 {1} 中未设置序列号与批号组合。{2}"
+
+#: erpnext/stock/doctype/item_price/item_price.py
+msgid "Price List {0} does not exist or is disabled."
+msgstr "价格表 {0} 不存在或已停用。"
+
+#: erpnext/stock/doctype/item_price/item_price.py
+msgid "Item Price cannot be created for template Item {0}."
+msgstr "不能为模板物料 {0} 创建物料价格。"
