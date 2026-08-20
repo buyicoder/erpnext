@@ -1922,6 +1922,8 @@ class TestZhFinanceTranslations(TestCase):
 			self._assert_erpnext_runtime_translation(source, translation)
 
 	def test_setup_wizard_chart_options_use_reviewed_chinese(self):
+		self._assert_translation("Standard", "标准")
+		self._assert_erpnext_runtime_translation("Standard", "标准")
 		self._assert_translation("Standard with Numbers", "标准（带编号）")
 		self._assert_erpnext_runtime_translation("Standard with Numbers", "标准（带编号）")
 

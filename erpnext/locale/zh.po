@@ -63699,6 +63699,9 @@ msgstr "今天"
 msgid "Standard with Numbers"
 msgstr "标准（带编号）"
 
+msgid "Standard"
+msgstr "标准"
+
 msgid "Total"
 msgstr "合计"
 

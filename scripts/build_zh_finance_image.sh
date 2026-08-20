@@ -139,6 +139,7 @@ expected_translations = {
 	"Other": "其他",
 	"Excel / Spreadsheets": "Excel / 电子表格",
 	"Nothing yet - starting fresh": "尚未使用，准备从零开始",
+	"Standard": "标准",
 	"Standard with Numbers": "标准（带编号）",
 	"Zero Balance Journal: {0}": "零余额日记账凭证：{0}",
 	"Revaluation Journal: {0}": "汇率重估日记账凭证：{0}",

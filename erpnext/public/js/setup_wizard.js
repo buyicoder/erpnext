@@ -31,8 +31,15 @@ erpnext.setup.persona_options = function (values) {
 erpnext.setup.chart_options = function (values) {
 	return values.map((value) => ({
 		value,
-		label: value === "Standard with Numbers" ? __("Standard with Numbers") : value,
+		label: __(value),
 	}));
+};
+
+erpnext.setup.set_chart_options = function (slide, values) {
+	slide
+		.get_input("chart_of_accounts")
+		.empty()
+		.add_options(erpnext.setup.chart_options(values));
 };
 
 frappe.pages["setup-wizard"].on_page_load = function (wrapper) {
@@ -258,18 +265,21 @@ erpnext.setup.slides_settings = [
 
 		load_chart_of_accounts: function (slide) {
 			let country = frappe.wizard.values.country || frappe.defaults.get_default("country");
+			let standard_options = ["Standard", "Standard with Numbers"];
+			erpnext.setup.set_chart_options(slide, standard_options);
 
 			if (country) {
 				frappe.call({
 					method: "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts.get_charts_for_country",
 					args: { country: country, with_standard: true },
+					silent: true,
 					callback: function (r) {
 						if (r.message) {
-							slide
-								.get_input("chart_of_accounts")
-								.empty()
-								.add_options(erpnext.setup.chart_options(r.message));
+							erpnext.setup.set_chart_options(slide, r.message);
 						}
+					},
+					error: function () {
+						erpnext.setup.set_chart_options(slide, standard_options);
 					},
 				});
 			}
