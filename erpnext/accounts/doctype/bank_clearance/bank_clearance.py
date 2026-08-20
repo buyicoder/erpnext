@@ -128,7 +128,7 @@ class BankClearance(Document):
 				)
 
 			msg += "</ul>"
-			msgprint(_(msg))
+			msgprint(msg)
 			return
 
 		if not entries_to_update:

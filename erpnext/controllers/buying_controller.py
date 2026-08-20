@@ -130,7 +130,7 @@ class BuyingController(SubcontractingController):
 			msg += f"<li>{po} ({date})</li>"
 		msg += "</ul>"
 
-		frappe.throw(_(msg))
+		frappe.throw(msg)
 
 	def create_package_for_transfer(self) -> None:
 		"""Create serial and batch package for Sourece Warehouse in case of inter transfer."""

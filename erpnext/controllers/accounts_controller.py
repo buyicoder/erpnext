@@ -2348,7 +2348,7 @@ class AccountsController(TransactionBase):
 		)
 		message += _("<p>To allow over-billing, please set allowance in Accounts Settings.</p>")
 
-		frappe.throw(_(message))
+		frappe.throw(message)
 
 	def get_company_default(self, fieldname, ignore_validation=False):
 		from erpnext.accounts.utils import get_company_default

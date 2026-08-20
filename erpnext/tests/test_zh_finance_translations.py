@@ -1099,6 +1099,28 @@ class TestZhFinanceTranslations(TestCase):
 			for snippet in snippets:
 				self.assertIn(snippet, source, relative_path)
 
+	def test_pretranslated_dynamic_messages_are_not_sent_back_to_gettext(self):
+		repo_root = Path(__file__).parents[2]
+		contracts = {
+			"erpnext/controllers/buying_controller.py": ("frappe.throw(msg)", "frappe.throw(_(msg))"),
+			"erpnext/controllers/accounts_controller.py": (
+				"frappe.throw(message)",
+				"frappe.throw(_(message))",
+			),
+			"erpnext/stock/doctype/item/item.py": (
+				'frappe.throw(msg, title=_("Cannot Merge")',
+				'frappe.throw(_(msg), title=_("Cannot Merge")',
+			),
+			"erpnext/accounts/doctype/bank_clearance/bank_clearance.py": (
+				"msgprint(msg)",
+				"msgprint(_(msg))",
+			),
+		}
+		for relative_path, (required, forbidden) in contracts.items():
+			source = (repo_root / relative_path).read_text()
+			self.assertIn(required, source, relative_path)
+			self.assertNotIn(forbidden, source, relative_path)
+
 	def test_public_frontend_uses_reviewed_chinese_terms(self):
 		translations = {
 			" Phantom Item": " 虚拟物料",
