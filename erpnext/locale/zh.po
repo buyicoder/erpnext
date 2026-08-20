@@ -64365,3 +64365,7 @@ msgstr "序列号与批号组合 {1} 的总数量 {0} 与单据 {3} {4} 中的�
 #: erpnext/stock/serial_batch_bundle.py
 msgid "Set Serial No Series for Item {0}, or create the Serial and Batch Bundle manually."
 msgstr "请为物料 {0} 设置序列号模板，或手工创建序列号与批号组合。"
+
+#: erpnext/stock/serial_batch_bundle.py
+msgid "Serial and Batch Bundle {0} does not match one or more of: Item {1}, Warehouse {2}, and {3} {4}."
+msgstr "序列号与批号组合 {0} 与以下一项或多项不匹配：物料 {1}、仓库 {2}、单据 {3} {4}。"

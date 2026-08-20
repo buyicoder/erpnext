@@ -351,15 +351,17 @@ class SerialBatchBundle:
 				"voucher_no": self.sle.voucher_no,
 			},
 		):
-			msg = f"""
-					The Serial and Batch Bundle
-					{bold(self.sle.serial_and_batch_bundle)}
-					does not belong to Item {bold(self.item_code)}
-					or Warehouse {bold(self.warehouse)}
-					or {self.sle.voucher_type} no {bold(self.sle.voucher_no)}
-				"""
-
-			frappe.throw(_(msg))
+			frappe.throw(
+				_(
+					"Serial and Batch Bundle {0} does not match one or more of: Item {1}, Warehouse {2}, and {3} {4}."
+				).format(
+					bold(self.sle.serial_and_batch_bundle),
+					bold(self.item_code),
+					bold(self.warehouse),
+					_(self.sle.voucher_type),
+					bold(self.sle.voucher_no),
+				)
+			)
 
 	def delink_serial_and_batch_bundle(self):
 		if self.is_pos_or_asset_repair_transaction():

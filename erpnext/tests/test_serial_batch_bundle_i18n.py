@@ -11,12 +11,16 @@ TYPE_TEMPLATE = (
 )
 QTY_TEMPLATE = "Total Qty {0} of Serial and Batch Bundle {1} does not equal Actual Qty {2} in {3} {4}."
 SERIES_TEMPLATE = "Set Serial No Series for Item {0}, or create the Serial and Batch Bundle manually."
+OWNERSHIP_TEMPLATE = (
+	"Serial and Batch Bundle {0} does not match one or more of: Item {1}, Warehouse {2}, and {3} {4}."
+)
 
 
 TRANSLATIONS = {
 	TYPE_TEMPLATE: "序列号与批号组合 {0} 的交易类型为{1}，但根据单据 {4} {5} 中物料 {3} 的实际数量 {2}，交易类型应为{6}。",
 	QTY_TEMPLATE: "序列号与批号组合 {1} 的总数量 {0} 与单据 {3} {4} 中的实际数量 {2} 不一致。",
 	SERIES_TEMPLATE: "请为物料 {0} 设置序列号模板，或手工创建序列号与批号组合。",
+	OWNERSHIP_TEMPLATE: "序列号与批号组合 {0} 与以下一项或多项不匹配：物料 {1}、仓库 {2}、单据 {3} {4}。",
 	"Inward": "入库",
 	"Outward": "出库",
 	"Stock Entry": "物料移动",
@@ -91,3 +95,30 @@ class TestSerialBatchBundleI18n(TestCase):
 			serial_batch_bundle.SerialBatchCreation.get_auto_created_serial_nos(bundle)
 
 		throw.assert_called_once_with("请为物料 ITEM-001 设置序列号模板，或手工创建序列号与批号组合。")
+
+	def test_bundle_ownership_error_translates_voucher_type(self):
+		bundle = SimpleNamespace(
+			sle=SimpleNamespace(
+				serial_and_batch_bundle="SABB-0003",
+				voucher_type="Stock Entry",
+				voucher_no="MAT-STE-0002",
+			),
+			item_code="ITEM-002",
+			warehouse="Stores - TC",
+		)
+		with (
+			patch.object(
+				serial_batch_bundle.frappe,
+				"db",
+				SimpleNamespace(exists=lambda *args, **kwargs: False),
+			),
+			patch.object(serial_batch_bundle, "_", side_effect=self._translate),
+			patch.object(serial_batch_bundle, "bold", side_effect=lambda value: f"<b>{value}</b>"),
+			patch.object(serial_batch_bundle.frappe, "throw", side_effect=RuntimeError) as throw,
+			self.assertRaises(RuntimeError),
+		):
+			serial_batch_bundle.SerialBatchBundle.validate_item_and_warehouse(bundle)
+
+		throw.assert_called_once_with(
+			"序列号与批号组合 <b>SABB-0003</b> 与以下一项或多项不匹配：物料 <b>ITEM-002</b>、仓库 <b>Stores - TC</b>、单据 物料移动 <b>MAT-STE-0002</b>。"
+		)

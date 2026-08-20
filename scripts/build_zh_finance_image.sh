@@ -156,6 +156,7 @@ expected_translations = {
 	"Delivery Note": "销售出库",
 	"Sales Invoice": "销售发票",
 	"Set Serial No Series for Item {0}, or create the Serial and Batch Bundle manually.": "请为物料 {0} 设置序列号模板，或手工创建序列号与批号组合。",
+	"Serial and Batch Bundle {0} does not match one or more of: Item {1}, Warehouse {2}, and {3} {4}.": "序列号与批号组合 {0} 与以下一项或多项不匹配：物料 {1}、仓库 {2}、单据 {3} {4}。",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)
