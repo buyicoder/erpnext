@@ -90,6 +90,7 @@ COPY --chown=frappe:frappe erpnext/controllers/taxes_and_totals.py /home/frappe/
 COPY --chown=frappe:frappe erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.py
 COPY --chown=frappe:frappe erpnext/accounts/doctype/currency_exchange_settings/currency_exchange_settings.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/currency_exchange_settings/currency_exchange_settings.py
 COPY --chown=frappe:frappe erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.js /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.js
+COPY --chown=frappe:frappe erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py
 COPY --chown=frappe:frappe erpnext/accounts/report/tds_computation_summary/tds_computation_summary.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/report/tds_computation_summary/tds_computation_summary.py
 COPY --chown=frappe:frappe erpnext/accounts/report/tax_withholding_details/tax_withholding_details.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/report/tax_withholding_details/tax_withholding_details.py
 COPY --chown=frappe:frappe erpnext/stock/doctype/item/item.json /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json

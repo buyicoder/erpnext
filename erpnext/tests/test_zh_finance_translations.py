@@ -375,6 +375,9 @@ class TestZhFinanceTranslations(TestCase):
 			"Generating Preview": "正在生成预览…",
 			"Accounting Ledger Repost Preview": "会计凭证重新过账预览",
 			"Review the accounting entries before reposting.": "请在重新过账前核对会计凭证明细。",
+			"The following document types cannot be reposted:<ul>{0}</ul>Add them to {1} in {2} to enable reposting.": "以下单据类型不能重新过账：<ul>{0}</ul>如需启用，请将这些单据类型添加到“{1}”表格（位于{2}）。",
+			"The following documents have deferred revenue or expense enabled and cannot be reposted:<ul>{0}</ul>": "以下单据已启用递延收入或递延费用，不能重新过账：<ul>{0}</ul>",
+			"Allowed DocTypes": "允许的单据类型",
 		}
 		for source, translation in translations.items():
 			self._assert_translation(source, translation)

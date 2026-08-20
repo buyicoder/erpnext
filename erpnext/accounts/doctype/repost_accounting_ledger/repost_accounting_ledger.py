@@ -467,8 +467,8 @@ def get_child_docs(doc: list) -> list:
 
 
 def validate_docs_for_deferred_accounting(sales_docs, purchase_docs):
-	docs_with_deferred_revenue = ()
-	docs_with_deferred_expense = ()
+	docs_with_deferred_revenue = []
+	docs_with_deferred_expense = []
 
 	if sales_docs:
 		docs_with_deferred_revenue = frappe.db.get_all(
@@ -487,11 +487,17 @@ def validate_docs_for_deferred_accounting(sales_docs, purchase_docs):
 		)
 
 	if docs_with_deferred_revenue or docs_with_deferred_expense:
+		document_names = sorted(
+			{x[0] for x in docs_with_deferred_expense + docs_with_deferred_revenue}
+		)
+		document_list = "".join(
+			f"<li>{frappe.bold(frappe.utils.escape_html(name))}</li>" for name in document_names
+		)
 		frappe.throw(
-			_("Documents: {0} have deferred revenue/expense enabled for them. Cannot repost.").format(
-				frappe.bold(
-					comma_and([x[0] for x in docs_with_deferred_expense + docs_with_deferred_revenue])
-				)
+			_(
+				"The following documents have deferred revenue or expense enabled and cannot be reposted:<ul>{0}</ul>"
+			).format(
+				document_list
 			)
 		)
 
@@ -500,15 +506,17 @@ def validate_docs_for_voucher_types(doc_voucher_types):
 	allowed_types = get_allowed_types_from_settings()
 	# Validate voucher types
 	voucher_types = set(doc_voucher_types)
-	if disallowed_types := voucher_types.difference(allowed_types):
-		message = "are" if len(disallowed_types) > 1 else "is"
+	if disallowed_types := sorted(voucher_types.difference(allowed_types)):
+		document_type_list = "".join(
+			f"<li>{frappe.bold(frappe.utils.escape_html(_(doctype)))}</li>"
+			for doctype in disallowed_types
+		)
 		frappe.throw(
 			_(
-				"{0} {1} not allowed to be reposted. You can enable it by adding it '{2}' table in {3}."
+				"The following document types cannot be reposted:<ul>{0}</ul>Add them to {1} in {2} to enable reposting."
 			).format(
-				frappe.bold(comma_and(list(disallowed_types))),
-				message,
-				frappe.bold("Allowed Doctype"),
+				document_type_list,
+				frappe.bold(_("Allowed DocTypes")),
 				frappe.utils.get_link_to_form("Accounts Settings"),
 			)
 		)

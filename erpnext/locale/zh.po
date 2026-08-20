@@ -18107,9 +18107,9 @@ msgstr "文档类型已作为维度使用"
 msgid "Documents Processed on each trigger. Queue Size should be between 5 and 100"
 msgstr "在5到100之间"
 
-#: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:491
-msgid "Documents: {0} have deferred revenue/expense enabled for them. Cannot repost."
-msgstr "不允许更新递延收入/费用相关会计凭证"
+#: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py
+msgid "The following documents have deferred revenue or expense enabled and cannot be reposted:<ul>{0}</ul>"
+msgstr "以下单据已启用递延收入或递延费用，不能重新过账：<ul>{0}</ul>"
 
 #. Label of the dont_create_loyalty_points (Check) field in DocType 'Sales
 #. Invoice'
@@ -63201,9 +63201,9 @@ msgstr "{0}{1}已暂挂"
 msgid "{0} {1} must be submitted"
 msgstr "{0} {1}必须提交"
 
-#: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:506
-msgid "{0} {1} not allowed to be reposted. You can enable it by adding it '{2}' table in {3}."
-msgstr "不允许对 {0} {1} 重新过账。可将该单据类型添加到“{2}”表格（位于 {3}）以启用。"
+#: erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py
+msgid "The following document types cannot be reposted:<ul>{0}</ul>Add them to {1} in {2} to enable reposting."
+msgstr "以下单据类型不能重新过账：<ul>{0}</ul>如需启用，请将这些单据类型添加到“{1}”表格（位于{2}）。"
 
 #: erpnext/buying/utils.py:117
 msgid "{0} {1} status is {2}."
