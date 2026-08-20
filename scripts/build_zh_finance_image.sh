@@ -14,6 +14,7 @@ source_commit="$(git -C "$repo_root" rev-parse HEAD)"
 "$repo_root/scripts/fetch_frappe_zh_baseline.sh"
 
 docker build \
+	--pull=false \
 	--file "$repo_root/docker/zh-finance/Containerfile" \
 	--build-arg "SOURCE_COMMIT=$source_commit" \
 	--tag "$image" \
