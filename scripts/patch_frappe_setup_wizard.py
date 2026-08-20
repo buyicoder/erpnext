@@ -5,6 +5,11 @@ from pathlib import Path
 
 RAW_LANGUAGE_DEFAULT = '\t\t\t\tdefault: "English",'
 CHINA_LANGUAGE_DEFAULT = '\t\t\t\tdefault: "中文",'
+RAW_LANGUAGE_INITIALIZATION = '\t\t\tif (!slide.get_value("language")) {'
+CHINA_LANGUAGE_INITIALIZATION = (
+	'\t\t\tif (!slide.get_value("language") || '
+	'(slide.get_value("language") === "中文" && frappe.boot.lang !== "zh")) {'
+)
 RAW_SETUP_DATE_LANGUAGE = '\t\tlet lang = "en";\n\t\tfrappe.boot.user && (lang = frappe.boot.user.language);'
 CHINA_SETUP_DATE_LANGUAGE = (
 	'\t\tlet lang = document.documentElement.lang || frappe.boot.user?.language || "en";'
@@ -18,7 +23,11 @@ CHINA_BUILT_DATE_LANGUAGE = (
 def patch_text(source: str) -> str:
 	if source.count(RAW_LANGUAGE_DEFAULT) != 1:
 		raise ValueError("Pinned Frappe setup wizard no longer matches the expected source contract")
-	return source.replace(RAW_LANGUAGE_DEFAULT, CHINA_LANGUAGE_DEFAULT)
+	if source.count(RAW_LANGUAGE_INITIALIZATION) != 1:
+		raise ValueError("Pinned Frappe setup language initialization no longer matches the expected contract")
+	return source.replace(RAW_LANGUAGE_DEFAULT, CHINA_LANGUAGE_DEFAULT).replace(
+		RAW_LANGUAGE_INITIALIZATION, CHINA_LANGUAGE_INITIALIZATION
+	)
 
 
 def patch_date_control_text(source: str) -> str:

@@ -631,6 +631,12 @@ if setup_wizard_source.count('default: "中文",') != 1:
 	raise SystemExit("Frappe setup wizard Chinese language default is stale")
 if 'default: "English",' in setup_wizard_source:
 	raise SystemExit("Frappe setup wizard still defaults to English")
+expected_language_initialization = (
+	'if (!slide.get_value("language") || '
+	'(slide.get_value("language") === "中文" && frappe.boot.lang !== "zh")) {'
+)
+if setup_wizard_source.count(expected_language_initialization) != 1:
+	raise SystemExit("Frappe setup wizard does not load Chinese messages for its Chinese default")
 date_control_source = Path(
 	"/home/frappe/frappe-bench/apps/frappe/frappe/public/js/frappe/form/controls/date.js"
 ).read_text()
