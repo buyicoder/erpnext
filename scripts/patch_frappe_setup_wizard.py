@@ -9,9 +9,9 @@ RAW_SETUP_DATE_LANGUAGE = '\t\tlet lang = "en";\n\t\tfrappe.boot.user && (lang =
 CHINA_SETUP_DATE_LANGUAGE = (
 	'\t\tlet lang = document.documentElement.lang || frappe.boot.user?.language || "en";'
 )
-RAW_BUILT_DATE_LANGUAGE = 'let e="en";frappe.boot.user&&(e=frappe.boot.user.language),'
+RAW_BUILT_DATE_LANGUAGE = 'e="en";frappe.boot.user&&(e=frappe.boot.user.language),'
 CHINA_BUILT_DATE_LANGUAGE = (
-	'let e=document.documentElement.lang||frappe.boot.user?.language||"en";'
+	'e=document.documentElement.lang||frappe.boot.user?.language||"en";'
 )
 
 
