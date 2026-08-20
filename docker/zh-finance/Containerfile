@@ -67,6 +67,7 @@ COPY --chown=frappe:frappe erpnext/accounts/print_format/journal_auditing_vouche
 COPY --chown=frappe:frappe erpnext/accounts/letterhead/company_letterhead_grey.html /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/letterhead/company_letterhead_grey.html
 COPY --chown=frappe:frappe erpnext/accounts/letter_head/company_letterhead___grey/company_letterhead___grey.json /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/letter_head/company_letterhead___grey/company_letterhead___grey.json
 COPY --chown=frappe:frappe erpnext/controllers/buying_controller.py /home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/buying_controller.py
+COPY --chown=frappe:frappe erpnext/buying/doctype/purchase_order/purchase_order.js /home/frappe/frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js
 COPY --chown=frappe:frappe erpnext/controllers/stock_controller.py /home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/stock_controller.py
 COPY --chown=frappe:frappe erpnext/controllers/subcontracting_controller.py /home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/subcontracting_controller.py
 COPY --chown=frappe:frappe erpnext/controllers/trends.py /home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/trends.py

@@ -1110,6 +1110,19 @@ class TestZhFinanceTranslations(TestCase):
 			self._assert_translation(source, translation)
 			self._assert_erpnext_runtime_translation(source, translation)
 
+	def test_purchase_order_assignment_message_uses_reviewed_chinese(self):
+		source = "Assigning Material Request {0} to Item {1} (row {2})"
+		translation = "正在将物料需求 {0} 分配给物料 {1}（第 {2} 行）"
+		self._assert_translation(source, translation)
+		self._assert_erpnext_runtime_translation(source, translation)
+
+		purchase_order_js = (
+			Path(__file__).parents[2]
+			/ "erpnext/buying/doctype/purchase_order/purchase_order.js"
+		).read_text()
+		self.assertIn('__("Assigning Material Request {0} to Item {1} (row {2})", [', purchase_order_js)
+		self.assertNotIn('"Assigning " +', purchase_order_js)
+
 	def test_subcontracting_vocabulary_rejects_legacy_ambiguous_terms(self):
 		forbidden_terms = ("外包", "外协", "分包")
 		allowed_terms = ("委外", "受托加工")

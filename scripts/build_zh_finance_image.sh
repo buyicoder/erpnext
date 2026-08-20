@@ -226,6 +226,7 @@ expected_translations = {
 	"Invalid Accounts": "无效科目",
 	"Stock Reposting Ongoing": "库存重新过账进行中",
 	"Stock Closing Entry Failed": "库存结转分录处理失败",
+	"Assigning Material Request {0} to Item {1} (row {2})": "正在将物料需求 {0} 分配给物料 {1}（第 {2} 行）",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)
