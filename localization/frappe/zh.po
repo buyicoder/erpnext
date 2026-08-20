@@ -351,6 +351,90 @@ msgstr "分批同步"
 msgid "Sync Timeout (Seconds)"
 msgstr "同步超时时间（秒）"
 
+msgid "Allows printing or PDF download of documents."
+msgstr "允许打印单据或将单据下载为 PDF。"
+
+msgid "Allows sharing document access with other users."
+msgstr "允许与其他用户共享单据访问权限。"
+
+msgid "Allows the user to access reports related to the document."
+msgstr "允许用户访问与该单据相关的报表。"
+
+msgid "Allows the user to create new documents."
+msgstr "允许用户新建单据。"
+
+msgid "Allows the user to delete documents."
+msgstr "允许用户删除单据。"
+
+msgid "Allows the user to edit existing records they have access to."
+msgstr "允许用户编辑其有权访问的现有记录。"
+
+msgid "Allows the user to email from the document."
+msgstr "允许用户从单据发送电子邮件。"
+
+msgid "Allows the user to export data from the Report view."
+msgstr "允许用户从报表视图导出数据。"
+
+msgid "Allows the user to search and see records."
+msgstr "允许用户搜索并查看记录。"
+
+msgid "Allows the user to use Data Import tool to create / update records."
+msgstr "允许用户使用数据导入工具新建或更新记录。"
+
+msgid "Allows the user to view the document."
+msgstr "允许用户查看单据。"
+
+msgid "Allows users to enable the mask property for any field of the respective doctype."
+msgstr "允许用户为相应单据类型的任意字段启用掩码属性。"
+
+msgid "If the user enables the mask property for the phone number field, the value will be displayed in a masked format (e.g., 811XXXXXXX)."
+msgstr "如果用户为电话号码字段启用掩码属性，该值将以脱敏格式显示（例如 811XXXXXXX）。"
+
+msgid "If the user has access to Employee and Report is enabled, they can view Employee-based reports."
+msgstr "如果用户有权访问员工且已启用报表权限，则可以查看基于员工的报表。"
+
+msgid "Meaning of Different Permission Types"
+msgstr "不同权限类型的含义"
+
+msgid "No user has the role <strong>{0}</strong>"
+msgstr "没有用户拥有角色 <strong>{0}</strong>"
+
+msgid "The email button is enabled for the user in the document."
+msgstr "用户可以使用单据中的电子邮件按钮。"
+
+msgid "The print button is enabled for the user in the document."
+msgstr "用户可以使用单据中的打印按钮。"
+
+msgid "The user can create a new Item but cannot edit existing items."
+msgstr "用户可以新建物料，但不能编辑现有物料。"
+
+msgid "The user can delete Draft / Cancelled documents."
+msgstr "用户可以删除草稿或已取消的单据。"
+
+msgid "The user can export report data."
+msgstr "用户可以导出报表数据。"
+
+msgid "The user can import new records or update existing data for the document."
+msgstr "用户可以为该单据类型导入新记录或更新现有数据。"
+
+msgid "The user can select a Customer in Sales Order but cannot open the Customer master."
+msgstr "用户可以在销售订单中选择客户，但不能打开客户主数据。"
+
+msgid "The user can share document access with another user."
+msgstr "用户可以与其他用户共享单据访问权限。"
+
+msgid "The user can update a customer or any other fields in an existing Sales Order but cannot create a new Sales Order."
+msgstr "用户可以更新现有销售订单中的客户或其他字段，但不能新建销售订单。"
+
+msgid "The user can view Sales Invoices but cannot modify any field values in them."
+msgstr "用户可以查看销售发票，但不能修改其中任何字段的值。"
+
+msgid "View all {0} users"
+msgstr "查看全部 {0} 位用户"
+
+msgid "{0} with the role <strong>{1}</strong>"
+msgstr "{0} 位用户拥有角色 <strong>{1}</strong>"
+
 msgid "Warning"
 msgstr "警告"
 

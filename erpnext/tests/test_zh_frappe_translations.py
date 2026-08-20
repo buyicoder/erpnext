@@ -158,3 +158,41 @@ class TestZhFrappeTranslations(TestCase):
 				self.assertIsNotNone(message)
 				self.assertNotIn("fuzzy", message.flags)
 				self.assertEqual(message.string, translation)
+
+	def test_permission_manager_help_uses_reviewed_chinese(self):
+		expected = {
+			"Allows printing or PDF download of documents.": "允许打印单据或将单据下载为 PDF。",
+			"Allows sharing document access with other users.": "允许与其他用户共享单据访问权限。",
+			"Allows the user to access reports related to the document.": "允许用户访问与该单据相关的报表。",
+			"Allows the user to create new documents.": "允许用户新建单据。",
+			"Allows the user to delete documents.": "允许用户删除单据。",
+			"Allows the user to edit existing records they have access to.": "允许用户编辑其有权访问的现有记录。",
+			"Allows the user to email from the document.": "允许用户从单据发送电子邮件。",
+			"Allows the user to export data from the Report view.": "允许用户从报表视图导出数据。",
+			"Allows the user to search and see records.": "允许用户搜索并查看记录。",
+			"Allows the user to use Data Import tool to create / update records.": "允许用户使用数据导入工具新建或更新记录。",
+			"Allows the user to view the document.": "允许用户查看单据。",
+			"Allows users to enable the mask property for any field of the respective doctype.": "允许用户为相应单据类型的任意字段启用掩码属性。",
+			"If the user enables the mask property for the phone number field, the value will be displayed in a masked format (e.g., 811XXXXXXX).": "如果用户为电话号码字段启用掩码属性，该值将以脱敏格式显示（例如 811XXXXXXX）。",
+			"If the user has access to Employee and Report is enabled, they can view Employee-based reports.": "如果用户有权访问员工且已启用报表权限，则可以查看基于员工的报表。",
+			"Meaning of Different Permission Types": "不同权限类型的含义",
+			"No user has the role <strong>{0}</strong>": "没有用户拥有角色 <strong>{0}</strong>",
+			"The email button is enabled for the user in the document.": "用户可以使用单据中的电子邮件按钮。",
+			"The print button is enabled for the user in the document.": "用户可以使用单据中的打印按钮。",
+			"The user can create a new Item but cannot edit existing items.": "用户可以新建物料，但不能编辑现有物料。",
+			"The user can delete Draft / Cancelled documents.": "用户可以删除草稿或已取消的单据。",
+			"The user can export report data.": "用户可以导出报表数据。",
+			"The user can import new records or update existing data for the document.": "用户可以为该单据类型导入新记录或更新现有数据。",
+			"The user can select a Customer in Sales Order but cannot open the Customer master.": "用户可以在销售订单中选择客户，但不能打开客户主数据。",
+			"The user can share document access with another user.": "用户可以与其他用户共享单据访问权限。",
+			"The user can update a customer or any other fields in an existing Sales Order but cannot create a new Sales Order.": "用户可以更新现有销售订单中的客户或其他字段，但不能新建销售订单。",
+			"The user can view Sales Invoices but cannot modify any field values in them.": "用户可以查看销售发票，但不能修改其中任何字段的值。",
+			"View all {0} users": "查看全部 {0} 位用户",
+			"{0} with the role <strong>{1}</strong>": "{0} 位用户拥有角色 <strong>{1}</strong>",
+		}
+		for source, translation in expected.items():
+			with self.subTest(source=source):
+				message = self.catalog.get(source)
+				self.assertIsNotNone(message)
+				self.assertNotIn("fuzzy", message.flags)
+				self.assertEqual(message.string, translation)
