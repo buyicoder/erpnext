@@ -64417,3 +64417,7 @@ msgstr "必须填写字段“{0}”。"
 #: erpnext/accounts/doctype/promotional_scheme/promotional_scheme.json
 msgid "Campaign"
 msgstr "营销活动"
+
+#: erpnext/controllers/taxes_and_totals.py
+msgid "Row {0} (Difference: {1})"
+msgstr "第 {0} 行（差额：{1}）"

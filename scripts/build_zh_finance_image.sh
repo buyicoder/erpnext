@@ -29,6 +29,7 @@ docker run --rm --entrypoint sh \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_purchase_receipt_i18n.py,dst=/tmp/test_purchase_receipt_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_repost_item_valuation_i18n.py,dst=/tmp/test_repost_item_valuation_i18n.py,readonly" \
 	--mount "type=bind,src=$repo_root/erpnext/tests/test_promotional_scheme_i18n.py,dst=/tmp/test_promotional_scheme_i18n.py,readonly" \
+	--mount "type=bind,src=$repo_root/erpnext/tests/test_taxes_and_totals_i18n.py,dst=/tmp/test_taxes_and_totals_i18n.py,readonly" \
 	"$image" -lc '
 	set -eu
 	FRAPPE_RUNTIME_VERSION="'"$FRAPPE_RUNTIME_VERSION"'" /home/frappe/frappe-bench/env/bin/python - <<"PY"
@@ -184,6 +185,8 @@ expected_translations = {
 	"Campaign": "营销活动",
 	"Supplier": "供应商",
 	"Supplier Group": "供应商组",
+	"Row {0} (Difference: {1})": "第 {0} 行（差额：{1}）",
+	"Item Wise Tax Details do not match with Taxes and Charges at the following rows:": "以下行的物料税费明细与税费不一致：",
 }
 with (asset_root / "locale/zh/LC_MESSAGES/erpnext.mo").open("rb") as mo_file:
 	translations = GNUTranslations(mo_file)
@@ -359,6 +362,8 @@ PY
 	printf "%s\n" "Verified repost item valuation translation behavior"
 	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_promotional_scheme_i18n.py"
 	printf "%s\n" "Verified promotional scheme translation behavior"
+	PYTHONPATH=apps/erpnext:apps/frappe env/bin/python -m unittest discover -s /tmp -p "test_taxes_and_totals_i18n.py"
+	printf "%s\n" "Verified taxes and totals translation behavior"
 	/home/frappe/frappe-bench/env/bin/python /tmp/validate_frappe_runtime_i18n.py \
 		--frappe-app /home/frappe/frappe-bench/apps/frappe \
 		--catalog /home/frappe/frappe-bench/apps/frappe/frappe/locale/zh.po

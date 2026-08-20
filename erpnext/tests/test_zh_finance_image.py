@@ -144,6 +144,14 @@ class TestZhFinanceImage(TestCase):
 		self.assertIn("test_promotional_scheme_i18n.py,dst=/tmp/test_promotional_scheme_i18n.py,readonly", self.build_script)
 		self.assertIn("Verified promotional scheme translation behavior", self.build_script)
 		self.assertIn(
+			"COPY --chown=frappe:frappe erpnext/controllers/taxes_and_totals.py "
+			"/home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/taxes_and_totals.py",
+			self.containerfile,
+		)
+		self.assertNotIn("erpnext/tests/test_taxes_and_totals_i18n.py", self.containerfile)
+		self.assertIn("test_taxes_and_totals_i18n.py,dst=/tmp/test_taxes_and_totals_i18n.py,readonly", self.build_script)
+		self.assertIn("Verified taxes and totals translation behavior", self.build_script)
+		self.assertIn(
 			"erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py",
 			self.containerfile,
 		)

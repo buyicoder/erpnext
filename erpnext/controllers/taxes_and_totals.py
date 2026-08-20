@@ -558,7 +558,7 @@ class calculate_taxes_and_totals:
 				detail_row["amount"] = flt(detail_row["amount"] + diff, 5)
 
 			else:
-				invalid_rows.append(f"Row {tax.idx} (Difference: {diff})")
+				invalid_rows.append(_("Row {0} (Difference: {1})").format(tax.idx, diff))
 
 		if self.doc.flags.ignore_validate:
 			return
@@ -570,7 +570,7 @@ class calculate_taxes_and_totals:
 				+ "<br>".join(invalid_rows)
 			)
 
-			frappe.throw(_(message))
+			frappe.throw(message)
 
 	def get_tax_amount_if_for_valuation_or_deduction(self, tax_amount, tax):
 		# if just for valuation, do not add the tax amount in total
