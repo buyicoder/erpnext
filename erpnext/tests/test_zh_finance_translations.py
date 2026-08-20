@@ -666,6 +666,20 @@ class TestZhFinanceTranslations(TestCase):
 			self._assert_translation(source, translation)
 			self._assert_erpnext_runtime_translation(source, translation)
 
+	def test_payments_dashboard_uses_reviewed_chinese(self):
+		for source, translation in {
+			"Total Outgoing Bills": "销售发票总额",
+			"Total Incoming Bills": "采购发票总额",
+			"Total Incoming Payment": "收款总额",
+			"Total Outgoing Payment": "付款总额",
+			"Incoming Bills (Purchase Invoice)": "采购发票",
+			"Outgoing Bills (Sales Invoice)": "销售发票",
+			"Accounts Receivable Ageing": "应收账款账龄",
+			"Accounts Payable Ageing": "应付账款账龄",
+		}.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
+
 	def test_core_finance_journey_uses_reviewed_chinese_terms(self):
 		translations = {
 			"Calculating Arrival Times": "正在计算预计到达时间",

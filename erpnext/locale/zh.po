@@ -64700,3 +64700,35 @@ msgstr "暂无已解决问题"
 #: erpnext/templates/includes/projects/project_search_box.html
 msgid "Search results for"
 msgstr "搜索结果"
+
+#: erpnext/accounts/number_card/total_outgoing_bills/total_outgoing_bills.json
+msgid "Total Outgoing Bills"
+msgstr "销售发票总额"
+
+#: erpnext/accounts/number_card/total_incoming_bills/total_incoming_bills.json
+msgid "Total Incoming Bills"
+msgstr "采购发票总额"
+
+#: erpnext/accounts/number_card/total_incoming_payment/total_incoming_payment.json
+msgid "Total Incoming Payment"
+msgstr "收款总额"
+
+#: erpnext/accounts/number_card/total_outgoing_payment/total_outgoing_payment.json
+msgid "Total Outgoing Payment"
+msgstr "付款总额"
+
+#: erpnext/accounts/dashboard_chart/incoming_bills_(purchase_invoice)/incoming_bills_(purchase_invoice).json
+msgid "Incoming Bills (Purchase Invoice)"
+msgstr "采购发票"
+
+#: erpnext/accounts/dashboard_chart/outgoing_bills_(sales_invoice)/outgoing_bills_(sales_invoice).json
+msgid "Outgoing Bills (Sales Invoice)"
+msgstr "销售发票"
+
+#: erpnext/accounts/dashboard_chart/accounts_receivable_ageing/accounts_receivable_ageing.json
+msgid "Accounts Receivable Ageing"
+msgstr "应收账款账龄"
+
+#: erpnext/accounts/dashboard_chart/accounts_payable_ageing/accounts_payable_ageing.json
+msgid "Accounts Payable Ageing"
+msgstr "应付账款账龄"
