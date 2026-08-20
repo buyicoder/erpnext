@@ -534,6 +534,16 @@ class TestZhFinanceTranslations(TestCase):
 			"erpnext/public/js/payment/payments.js": 'title: __("Payment"),',
 			"erpnext/stock/page/warehouse_capacity_summary/warehouse_capacity_summary.js":
 				'page.set_secondary_action(__("Refresh"),',
+			"erpnext/templates/pages/rfq.html": '{{ _("View") }}',
+			"erpnext/templates/includes/transaction_row.html": '{{ _("View") }}',
+			"erpnext/templates/includes/projects/project_timesheets.html": '{{ _("View") }}',
+			"erpnext/templates/includes/projects/project_row.html": '{{ _("View") }}',
+			"erpnext/www/payment_setup_certification.html": [
+				'{{ _("ERPNext Certification") }}',
+				'{{ _("Continue") }}',
+				'{{ _("Certification History") }}',
+				'{{ _("Certification ID") }}',
+			],
 			"erpnext/stock/page/warehouse_capacity_summary/warehouse_capacity_summary.html":
 				'title="{{ __("Occupied Qty") }}: {{ d.actual_qty }}"',
 		}
@@ -567,8 +577,26 @@ class TestZhFinanceTranslations(TestCase):
 			"Get Items": "选物料",
 			"Refresh": "刷新",
 			"Submit": "提交",
+			"View": "查看",
 		}.items():
 			self._assert_frappe_translation(source, translation)
+
+	def test_public_certification_page_uses_reviewed_chinese(self):
+		translations = {
+			"ERPNext Certification": "ERPNext 认证",
+			"Certification price is 20,000 INR / 300 USD.": "认证费用为 20,000 印度卢比或 300 美元。",
+			"You must first sign up and login to apply for certification.": "申请认证前，请先注册并登录。",
+			"Sign Up": "注册",
+			"Certification History": "认证记录",
+			"Certification ID": "认证编号",
+			"Your certification has expired. Click on the button below to start a new certification.":
+				"您的认证已过期。请点击下方按钮开始新的认证。",
+			"Your certification is due to expire soon. Click on the button below to start a new certification.":
+				"您的认证即将到期。请点击下方按钮开始新的认证。",
+		}
+		for source, translation in translations.items():
+			self._assert_translation(source, translation)
+			self._assert_erpnext_runtime_translation(source, translation)
 
 	def test_core_finance_journey_uses_reviewed_chinese_terms(self):
 		translations = {

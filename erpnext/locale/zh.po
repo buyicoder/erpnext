@@ -64636,3 +64636,35 @@ msgstr "已创建新问题：{0}"
 #: erpnext/maintenance/doctype/maintenance_schedule/maintenance_schedule.js:137
 msgid "Create Visit"
 msgstr "创建维护巡修"
+
+#: erpnext/www/payment_setup_certification.html
+msgid "ERPNext Certification"
+msgstr "ERPNext 认证"
+
+#: erpnext/www/payment_setup_certification.html
+msgid "Certification price is 20,000 INR / 300 USD."
+msgstr "认证费用为 20,000 印度卢比或 300 美元。"
+
+#: erpnext/www/payment_setup_certification.html
+msgid "You must first sign up and login to apply for certification."
+msgstr "申请认证前，请先注册并登录。"
+
+#: erpnext/www/payment_setup_certification.html
+msgid "Sign Up"
+msgstr "注册"
+
+#: erpnext/www/payment_setup_certification.html
+msgid "Certification History"
+msgstr "认证记录"
+
+#: erpnext/www/payment_setup_certification.html
+msgid "Certification ID"
+msgstr "认证编号"
+
+#: erpnext/www/payment_setup_certification.html
+msgid "Your certification has expired. Click on the button below to start a new certification."
+msgstr "您的认证已过期。请点击下方按钮开始新的认证。"
+
+#: erpnext/www/payment_setup_certification.html
+msgid "Your certification is due to expire soon. Click on the button below to start a new certification."
+msgstr "您的认证即将到期。请点击下方按钮开始新的认证。"

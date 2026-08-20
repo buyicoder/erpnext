@@ -2,7 +2,7 @@
   <div class="web-list-item transaction-list-item">
     <div class="row">
       <div class="col-xs-2">{{ timesheet.name }}</div>
-      <a class="transaction-item-link" href="/timesheet/{{ timesheet.name}}">Link</a>
+      <a class="transaction-item-link" href="/timesheet/{{ timesheet.name}}">{{ _("View") }}</a>
       <div class="col-xs-2">{{ timesheet.status }}</div>
       <div class="col-xs-2">{{ frappe.utils.format_date(timesheet.from_time, "medium") }}</div>
       <div class="col-xs-2">{{ frappe.utils.format_date(timesheet.to_time, "medium") }}</div>

@@ -122,6 +122,14 @@ expected_translations = {
 	"Starting a background job to create {0} {1}": "正在后台创建 {0} 个{1}",
 	"New issue created: {0}": "已创建新问题：{0}",
 	"Create Visit": "创建维护巡修",
+	"ERPNext Certification": "ERPNext 认证",
+	"Certification price is 20,000 INR / 300 USD.": "认证费用为 20,000 印度卢比或 300 美元。",
+	"You must first sign up and login to apply for certification.": "申请认证前，请先注册并登录。",
+	"Sign Up": "注册",
+	"Certification History": "认证记录",
+	"Certification ID": "认证编号",
+	"Your certification has expired. Click on the button below to start a new certification.": "您的认证已过期。请点击下方按钮开始新的认证。",
+	"Your certification is due to expire soon. Click on the button below to start a new certification.": "您的认证即将到期。请点击下方按钮开始新的认证。",
 	"Cannot apply TDS against multiple parties in one entry": "单笔分录不能对多个往来方应用税款扣缴",
 	"TDS / withholding tax category applied when paying this supplier": "向该供应商付款时适用的代扣代缴税款类别",
 	"TDS/TCS is calculated at the rate defined here on every payment from this customer.": "收到该客户每笔付款时，均按此处定义的税率计算代收代缴税款。",
@@ -388,6 +396,16 @@ runtime_source_contracts = {
 	"stock/page/warehouse_capacity_summary/warehouse_capacity_summary.js": (
 		"page.set_secondary_action(__(\"Refresh\"),",
 	),
+	"templates/pages/rfq.html": ("{{ _(\"View\") }}",),
+	"templates/includes/transaction_row.html": ("{{ _(\"View\") }}",),
+	"templates/includes/projects/project_timesheets.html": ("{{ _(\"View\") }}",),
+	"templates/includes/projects/project_row.html": ("{{ _(\"View\") }}",),
+	"www/payment_setup_certification.html": (
+		"{{ _(\"ERPNext Certification\") }}",
+		"{{ _(\"Continue\") }}",
+		"{{ _(\"Certification History\") }}",
+		"{{ _(\"Certification ID\") }}",
+	),
 }
 erpnext_root = Path("/home/frappe/frappe-bench/apps/erpnext/erpnext")
 for relative_path, contracts in runtime_source_contracts.items():
@@ -525,6 +543,8 @@ print("Verified asset purchase document translation source")
 
 expected_frappe_translations = {
 	"Refresh": "刷新",
+	"View": "查看",
+	"Continue": "继续",
 	"Error": "错误",
 	"Failed": "失败",
 	"Current Series": "当前编号",
