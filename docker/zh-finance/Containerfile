@@ -1,0 +1,128 @@
+FROM node:22-bookworm-slim AS banking-builder
+
+WORKDIR /workspace
+RUN corepack enable
+COPY banking/package.json banking/yarn.lock ./
+RUN yarn install --frozen-lockfile
+COPY banking/ ./
+RUN yarn test:localization && mkdir -p /erpnext/www && yarn build
+
+FROM buyicoder/erpnext-cn:v16.32.3
+
+ARG SOURCE_COMMIT
+LABEL org.opencontainers.image.revision="${SOURCE_COMMIT}"
+
+USER root
+COPY --chown=frappe:frappe erpnext/locale/zh.po /home/frappe/frappe-bench/apps/erpnext/erpnext/locale/zh.po
+COPY --chown=frappe:frappe erpnext/hooks.py /home/frappe/frappe-bench/apps/erpnext/erpnext/hooks.py
+COPY --chown=frappe:frappe .build/frappe-v16.24.4-zh.po /tmp/frappe-zh-baseline.po
+COPY --chown=frappe:frappe localization/frappe/zh.po /tmp/frappe-zh-overrides.po
+COPY --chown=frappe:frappe localization/frappe/realtime_utils.js /home/frappe/frappe-bench/apps/frappe/realtime/utils.js
+COPY --chown=frappe:frappe scripts/merge_frappe_zh_catalog.py /tmp/merge_frappe_zh_catalog.py
+COPY --chown=frappe:frappe scripts/validate_frappe_runtime_i18n.py /tmp/validate_frappe_runtime_i18n.py
+COPY --chown=frappe:frappe scripts/merge_erpnext_zh_banking.py /tmp/merge_erpnext_zh_banking.py
+COPY --chown=frappe:frappe localization/erpnext/zh_banking.json /tmp/zh_banking.json
+COPY --chown=frappe:frappe scripts/patch_frappe_print_page.py /tmp/patch_frappe_print_page.py
+COPY --chown=frappe:frappe scripts/patch_frappe_desktop_page.py /tmp/patch_frappe_desktop_page.py
+COPY --chown=frappe:frappe scripts/sync_asset_manifest.py /tmp/sync_asset_manifest.py
+COPY --chown=frappe:frappe erpnext/public/js/erpnext.bundle.js /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/erpnext.bundle.js
+COPY --chown=frappe:frappe erpnext/public/js/zh_finance_overrides.js /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/zh_finance_overrides.js
+COPY --chown=frappe:frappe erpnext/public/js/zh_finance_format.mjs /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/zh_finance_format.mjs
+COPY --chown=frappe:frappe erpnext/public/js/zh_audit_list.js /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/zh_audit_list.js
+COPY --chown=frappe:frappe erpnext/public/js/controllers/transaction.js /home/frappe/frappe-bench/apps/erpnext/erpnext/public/js/controllers/transaction.js
+COPY --chown=frappe:frappe erpnext/public/scss/modern-cn-theme.scss /home/frappe/frappe-bench/apps/erpnext/erpnext/public/scss/modern-cn-theme.scss
+COPY --chown=frappe:frappe erpnext/public/scss/erpnext.bundle.scss /home/frappe/frappe-bench/apps/erpnext/erpnext/public/scss/erpnext.bundle.scss
+COPY --chown=frappe:frappe erpnext/accounts/report/accounts_receivable/accounts_receivable.js /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/report/accounts_receivable/accounts_receivable.js
+COPY --chown=frappe:frappe erpnext/accounts/doctype/journal_entry/journal_entry.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/journal_entry/journal_entry.py
+COPY --chown=frappe:frappe erpnext/accounts/doctype/payment_entry/payment_entry.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.py
+COPY --chown=frappe:frappe erpnext/accounts/doctype/account/account_tree.js /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account_tree.js
+COPY --chown=frappe:frappe erpnext/accounts/doctype/financial_report_template/financial_report_validation.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_validation.py
+COPY --chown=frappe:frappe erpnext/accounts/doctype/exchange_rate_revaluation/exchange_rate_revaluation.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/exchange_rate_revaluation/exchange_rate_revaluation.py
+COPY --chown=frappe:frappe erpnext/accounts/doctype/bank_reconciliation_tool/bank_reconciliation_tool.js /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/bank_reconciliation_tool/bank_reconciliation_tool.js
+COPY --chown=frappe:frappe erpnext/accounts/doctype/opening_invoice_creation_tool/opening_invoice_creation_tool.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/opening_invoice_creation_tool/opening_invoice_creation_tool.py
+COPY --chown=frappe:frappe erpnext/accounts/doctype/financial_report_template/financial_report_engine.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_engine.py
+COPY --chown=frappe:frappe erpnext/accounts/notification/notification_for_new_fiscal_year/notification_for_new_fiscal_year.html /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/notification/notification_for_new_fiscal_year/notification_for_new_fiscal_year.html
+COPY --chown=frappe:frappe erpnext/accounts/notification/notification_for_new_fiscal_year/notification_for_new_fiscal_year.json /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/notification/notification_for_new_fiscal_year/notification_for_new_fiscal_year.json
+COPY --chown=frappe:frappe erpnext/accounts/party.py /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/party.py
+COPY --chown=frappe:frappe erpnext/crm/doctype/email_campaign/email_campaign.py /home/frappe/frappe-bench/apps/erpnext/erpnext/crm/doctype/email_campaign/email_campaign.py
+COPY --chown=frappe:frappe erpnext/crm/doctype/appointment_booking_settings/appointment_booking_settings.py /home/frappe/frappe-bench/apps/erpnext/erpnext/crm/doctype/appointment_booking_settings/appointment_booking_settings.py
+COPY --chown=frappe:frappe erpnext/accounts/print_format/pos_invoice_with_item_image/pos_invoice_with_item_image.json /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/print_format/pos_invoice_with_item_image/pos_invoice_with_item_image.json
+COPY --chown=frappe:frappe erpnext/accounts/print_format/sales_invoice_with_item_image/sales_invoice_with_item_image.json /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/print_format/sales_invoice_with_item_image/sales_invoice_with_item_image.json
+COPY --chown=frappe:frappe erpnext/accounts/print_format/cheque_printing_format/cheque_printing_format.json /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/print_format/cheque_printing_format/cheque_printing_format.json
+COPY --chown=frappe:frappe erpnext/accounts/print_format/purchase_auditing_voucher/purchase_auditing_voucher.json /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/print_format/purchase_auditing_voucher/purchase_auditing_voucher.json
+COPY --chown=frappe:frappe erpnext/accounts/print_format/purchase_auditing_voucher/purchase_auditing_voucher.html /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/print_format/purchase_auditing_voucher/purchase_auditing_voucher.html
+COPY --chown=frappe:frappe erpnext/accounts/print_format/sales_auditing_voucher/sales_auditing_voucher.json /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/print_format/sales_auditing_voucher/sales_auditing_voucher.json
+COPY --chown=frappe:frappe erpnext/accounts/print_format/sales_auditing_voucher/sales_auditing_voucher.html /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/print_format/sales_auditing_voucher/sales_auditing_voucher.html
+COPY --chown=frappe:frappe erpnext/accounts/print_format/bank_and_cash_payment_voucher/bank_and_cash_payment_voucher.json /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/print_format/bank_and_cash_payment_voucher/bank_and_cash_payment_voucher.json
+COPY --chown=frappe:frappe erpnext/accounts/print_format/bank_and_cash_payment_voucher/bank_and_cash_payment_voucher.html /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/print_format/bank_and_cash_payment_voucher/bank_and_cash_payment_voucher.html
+COPY --chown=frappe:frappe erpnext/accounts/print_format/journal_auditing_voucher/journal_auditing_voucher.json /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/print_format/journal_auditing_voucher/journal_auditing_voucher.json
+COPY --chown=frappe:frappe erpnext/accounts/print_format/journal_auditing_voucher/journal_auditing_voucher.html /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/print_format/journal_auditing_voucher/journal_auditing_voucher.html
+COPY --chown=frappe:frappe erpnext/accounts/letterhead/company_letterhead_grey.html /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/letterhead/company_letterhead_grey.html
+COPY --chown=frappe:frappe erpnext/accounts/letter_head/company_letterhead___grey/company_letterhead___grey.json /home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/letter_head/company_letterhead___grey/company_letterhead___grey.json
+COPY --chown=frappe:frappe erpnext/controllers/buying_controller.py /home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/buying_controller.py
+COPY --chown=frappe:frappe erpnext/controllers/stock_controller.py /home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/stock_controller.py
+COPY --chown=frappe:frappe erpnext/controllers/subcontracting_controller.py /home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/subcontracting_controller.py
+COPY --chown=frappe:frappe erpnext/controllers/trends.py /home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/trends.py
+COPY --chown=frappe:frappe erpnext/controllers/selling_controller.py /home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/selling_controller.py
+COPY --chown=frappe:frappe erpnext/setup/china_money.py /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/china_money.py
+COPY --chown=frappe:frappe erpnext/projects/doctype/project/project.py /home/frappe/frappe-bench/apps/erpnext/erpnext/projects/doctype/project/project.py
+COPY --chown=frappe:frappe erpnext/projects/doctype/project/project_dashboard.html /home/frappe/frappe-bench/apps/erpnext/erpnext/projects/doctype/project/project_dashboard.html
+COPY --chown=frappe:frappe erpnext/manufacturing/doctype/work_order/work_order_preview.html /home/frappe/frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order_preview.html
+COPY --chown=frappe:frappe erpnext/stock/dashboard/item_dashboard.html /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/dashboard/item_dashboard.html
+COPY --chown=frappe:frappe erpnext/stock/doctype/delivery_trip/dispatch_notification_template.html /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_trip/dispatch_notification_template.html
+COPY --chown=frappe:frappe erpnext/setup/doctype/email_digest/templates/default.html /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/doctype/email_digest/templates/default.html
+COPY --chown=frappe:frappe erpnext/projects/report/project_wise_stock_tracking/project_wise_stock_tracking.py /home/frappe/frappe-bench/apps/erpnext/erpnext/projects/report/project_wise_stock_tracking/project_wise_stock_tracking.py
+COPY --chown=frappe:frappe erpnext/projects/report/project_wise_stock_tracking/project_wise_stock_tracking.json /home/frappe/frappe-bench/apps/erpnext/erpnext/projects/report/project_wise_stock_tracking/project_wise_stock_tracking.json
+COPY --chown=frappe:frappe erpnext/stock/doctype/item/item.json /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json
+COPY --chown=frappe:frappe erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py
+COPY --chown=frappe:frappe erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py
+COPY --chown=frappe:frappe erpnext/stock/utils.py /home/frappe/frappe-bench/apps/erpnext/erpnext/stock/utils.py
+COPY --chown=frappe:frappe erpnext/manufacturing/doctype/production_plan/production_plan.py /home/frappe/frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.py
+COPY --chown=frappe:frappe erpnext/setup/china_defaults.py /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/china_defaults.py
+COPY --chown=frappe:frappe erpnext/patches.txt /home/frappe/frappe-bench/apps/erpnext/erpnext/patches.txt
+COPY --chown=frappe:frappe erpnext/patches/v16_0/localize_china_demo_cached_values.py /home/frappe/frappe-bench/apps/erpnext/erpnext/patches/v16_0/localize_china_demo_cached_values.py
+COPY --chown=frappe:frappe erpnext/setup/demo_data/customer.json /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/demo_data/customer.json
+COPY --chown=frappe:frappe erpnext/setup/demo_data/customer_group.json /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/demo_data/customer_group.json
+COPY --chown=frappe:frappe erpnext/setup/demo_data/item.json /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/demo_data/item.json
+COPY --chown=frappe:frappe erpnext/setup/demo_data/item_group.json /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/demo_data/item_group.json
+COPY --chown=frappe:frappe erpnext/setup/demo_data/purchase_order.json /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/demo_data/purchase_order.json
+COPY --chown=frappe:frappe erpnext/setup/demo_data/sales_order.json /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/demo_data/sales_order.json
+COPY --chown=frappe:frappe erpnext/setup/demo_data/supplier.json /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/demo_data/supplier.json
+COPY --chown=frappe:frappe erpnext/setup/demo_data/supplier_group.json /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/demo_data/supplier_group.json
+COPY --chown=frappe:frappe erpnext/setup/setup_wizard/operations/defaults_setup.py /home/frappe/frappe-bench/apps/erpnext/erpnext/setup/setup_wizard/operations/defaults_setup.py
+RUN sed -i \
+	's#proxy_set_header Origin \$proxy_x_forwarded_proto://${FRAPPE_SITE_NAME_HEADER};#proxy_set_header Origin \$frappe_socket_origin;#' \
+	/templates/nginx/frappe.conf.template && \
+	sed -i \
+	'/^server {/i map $http_origin $frappe_socket_origin {\n\tdefault $http_origin;\n\t"" $scheme://$http_host;\n}\n' \
+	/templates/nginx/frappe.conf.template
+
+RUN /home/frappe/frappe-bench/env/bin/python /tmp/patch_frappe_print_page.py && \
+	/home/frappe/frappe-bench/env/bin/python /tmp/patch_frappe_desktop_page.py
+
+USER frappe
+RUN /home/frappe/frappe-bench/env/bin/python /tmp/merge_frappe_zh_catalog.py \
+		--baseline /tmp/frappe-zh-baseline.po \
+		--overrides /tmp/frappe-zh-overrides.po \
+		--output /home/frappe/frappe-bench/apps/frappe/frappe/locale/zh.po && \
+	/home/frappe/frappe-bench/env/bin/python /tmp/merge_erpnext_zh_banking.py \
+		--baseline /home/frappe/frappe-bench/apps/erpnext/erpnext/locale/zh.po \
+		--translations /tmp/zh_banking.json \
+		--output /home/frappe/frappe-bench/apps/erpnext/erpnext/locale/zh.po && \
+	cd /home/frappe/frappe-bench && \
+	bench compile-po-to-mo --app frappe --locale zh --force && \
+	bench compile-po-to-mo --app erpnext --locale zh --force && \
+	bench build --app frappe && \
+	bench build --app erpnext && \
+	/home/frappe/frappe-bench/env/bin/python /tmp/sync_asset_manifest.py \
+		--asset-root /home/frappe/frappe-bench/assets \
+		--manifest /home/frappe/frappe-bench/assets/assets.json && \
+	mkdir -p assets/locale/zh/LC_MESSAGES && \
+	cp sites/assets/locale/zh/LC_MESSAGES/frappe.mo assets/locale/zh/LC_MESSAGES/frappe.mo && \
+	cp sites/assets/locale/zh/LC_MESSAGES/erpnext.mo assets/locale/zh/LC_MESSAGES/erpnext.mo
+
+# bench build rebuilds ERPNext's bundled Banking app from the pinned upstream
+# source. Overlay the localized standalone build afterwards and update both the
+# immutable image assets and the sites/assets tree used by existing deployments.
+COPY --from=banking-builder --chown=frappe:frappe /erpnext/public/banking /home/frappe/frappe-bench/assets/erpnext/banking
+COPY --from=banking-builder --chown=frappe:frappe /erpnext/www/banking.html /home/frappe/frappe-bench/apps/erpnext/erpnext/www/banking.html

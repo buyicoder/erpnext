@@ -1,0 +1,634 @@
+{
+ "actions": [],
+ "creation": "2013-06-24 16:37:54",
+ "description": "Default settings for your stock-related transactions",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "defaults_tab",
+  "item_defaults_section",
+  "item_naming_by",
+  "naming_series_details",
+  "configure",
+  "column_break_4",
+  "item_group",
+  "valuation_method",
+  "price_list_defaults_section",
+  "auto_insert_price_list_rate_if_missing",
+  "update_existing_price_list_rate",
+  "update_price_list_based_on",
+  "conversion_factor_section",
+  "stock_uom",
+  "allow_to_edit_stock_uom_qty_for_sales",
+  "allow_to_edit_stock_uom_qty_for_purchase",
+  "allow_to_edit_stock_uom_qty_for_stock_entry",
+  "allow_uom_with_conversion_rate_defined_in_item",
+  "warehouse_defaults_section",
+  "default_warehouse",
+  "sample_retention_warehouse",
+  "stock_validations_tab",
+  "negative_stock_section",
+  "allow_negative_stock",
+  "section_break_9",
+  "over_delivery_receipt_allowance",
+  "mr_qty_allowance",
+  "over_picking_allowance",
+  "column_break_121",
+  "role_allowed_to_over_deliver_receive",
+  "display_data_formatting_section",
+  "show_barcode_field",
+  "clean_description_html",
+  "internal_transfer_rules_section",
+  "allow_internal_transfer_at_arms_length_price",
+  "validate_material_transfer_warehouses",
+  "serial_and_batch_item_settings_tab",
+  "enable_serial_and_batch_no_for_item",
+  "section_break_7",
+  "pick_serial_and_batch_based_on",
+  "allow_existing_serial_no",
+  "use_serial_batch_fields",
+  "disable_serial_no_and_batch_selector",
+  "section_break_gnhq",
+  "allow_negative_stock_for_batch",
+  "do_not_use_batchwise_valuation",
+  "use_naming_series",
+  "naming_series_prefix",
+  "auto_bundle_section",
+  "auto_create_serial_and_batch_bundle_for_outward",
+  "do_not_update_serial_batch_on_creation_of_auto_bundle",
+  "set_serial_and_batch_bundle_naming_based_on_naming_series",
+  "naming_series_preview",
+  "configure_series",
+  "column_break_pjkx",
+  "stock_reservation_tab",
+  "enable_stock_reservation",
+  "auto_reserve_stock",
+  "column_break_rx3e",
+  "allow_partial_reservation",
+  "auto_reserve_stock_for_sales_order_on_purchase",
+  "serial_and_batch_reservation_section",
+  "auto_reserve_serial_and_batch",
+  "quality_tab",
+  "quality_inspection_settings_section",
+  "allow_to_make_quality_inspection_after_purchase_or_delivery",
+  "action_if_quality_inspection_is_rejected",
+  "action_if_quality_inspection_is_not_submitted",
+  "stock_planning_tab",
+  "auto_material_request",
+  "auto_indent",
+  "reorder_email_notify",
+  "stock_closing_tab",
+  "control_historical_stock_transactions_section",
+  "stock_frozen_upto_days",
+  "stock_frozen_upto",
+  "column_break_26",
+  "stock_auth_role",
+  "section_break_kcvr",
+  "role_allowed_to_create_edit_back_dated_transactions",
+  "document_naming_tab",
+  "transaction_naming_html"
+ ],
+ "fields": [
+  {
+   "default": "Item Code",
+   "fieldname": "item_naming_by",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Item Naming By",
+   "options": "Item Code\nNaming Series"
+  },
+  {
+   "documentation_url": "https://docs.frappe.io/erpnext/stock-settings#21-default-item-group",
+   "fieldname": "item_group",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Default Item Group",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "stock_uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Default Stock UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "default_warehouse",
+   "fieldtype": "Link",
+   "label": "Default Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "documentation_url": "https://docs.frappe.io/erpnext/retain-sample-stock",
+   "fieldname": "sample_retention_warehouse",
+   "fieldtype": "Link",
+   "label": "Sample Retention Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "documentation_url": "https://docs.erpnext.com/docs/v14/user/manual/en/stock/articles/calculation-of-valuation-rate-in-fifo-and-moving-average",
+   "fieldname": "valuation_method",
+   "fieldtype": "Select",
+   "label": "Default Valuation Method",
+   "options": "FIFO\nMoving Average\nLIFO"
+  },
+  {
+   "description": "The percentage you are allowed to receive or deliver more against the quantity ordered. For example, if you have ordered 100 units, and your Allowance is 10%, then you are allowed to receive 110 units.",
+   "fieldname": "over_delivery_receipt_allowance",
+   "fieldtype": "Float",
+   "label": "Over Delivery/Receipt Allowance (%)",
+   "non_negative": 1
+  },
+  {
+   "default": "Stop",
+   "fieldname": "action_if_quality_inspection_is_not_submitted",
+   "fieldtype": "Select",
+   "label": "Action if Quality Inspection is not submitted",
+   "options": "Stop\nWarn"
+  },
+  {
+   "default": "1",
+   "fieldname": "show_barcode_field",
+   "fieldtype": "Check",
+   "label": "Show barcode field in stock transactions"
+  },
+  {
+   "default": "1",
+   "fieldname": "clean_description_html",
+   "fieldtype": "Check",
+   "label": "Convert Item description to clean HTML in transactions"
+  },
+  {
+   "depends_on": "enable_serial_and_batch_no_for_item",
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break",
+   "label": "Serial Item settings"
+  },
+  {
+   "default": "0",
+   "documentation_url": "https://docs.frappe.io/erpnext/stock-settings#71-auto-insert-price-list-rate-if-missing",
+   "fieldname": "auto_insert_price_list_rate_if_missing",
+   "fieldtype": "Check",
+   "label": "Auto insert Item Price if missing"
+  },
+  {
+   "default": "0",
+   "description": "This can be enabled at specific Item level as well",
+   "documentation_url": "https://docs.frappe.io/erpnext/stock-settings#allow-negative-stock",
+   "fieldname": "allow_negative_stock",
+   "fieldtype": "Check",
+   "label": "Allow negative stock"
+  },
+  {
+   "fieldname": "auto_material_request",
+   "fieldtype": "Section Break",
+   "label": "Auto Material Request"
+  },
+  {
+   "default": "0",
+   "description": "This option is useful if you want to ensure a constant supply of raw materials/products and avoid shortage. A Material Request will be raised automatically when stock reached the re-order level defined in the Item form.",
+   "fieldname": "auto_indent",
+   "fieldtype": "Check",
+   "label": "Raise Material Request when stock reaches re-order level"
+  },
+  {
+   "default": "0",
+   "description": "An email will be sent to notify the User with the role 'Purchase Manager' when an automatic Material Request is created.",
+   "fieldname": "reorder_email_notify",
+   "fieldtype": "Check",
+   "label": "Notify by email on creation of automatic Material Request"
+  },
+  {
+   "description": "No stock transactions can be created or modified before this date.",
+   "fieldname": "stock_frozen_upto",
+   "fieldtype": "Date",
+   "label": "Stock frozen up to"
+  },
+  {
+   "description": "Stock transactions that are older than the mentioned days cannot be modified.",
+   "fieldname": "stock_frozen_upto_days",
+   "fieldtype": "Int",
+   "label": "Freeze stocks older than (days)"
+  },
+  {
+   "depends_on": "eval:(doc.stock_frozen_upto || doc.stock_frozen_upto_days)",
+   "description": "The users with this Role are allowed to create/modify a stock transaction, even though the transaction is frozen.",
+   "fieldname": "stock_auth_role",
+   "fieldtype": "Link",
+   "label": "Role allowed to edit frozen stock",
+   "options": "Role"
+  },
+  {
+   "default": "0",
+   "description": "This will be applied if no naming series is configured in Item master",
+   "fieldname": "use_naming_series",
+   "fieldtype": "Check",
+   "label": "Have default Naming Series for Batch ID?"
+  },
+  {
+   "default": "BATCH-",
+   "depends_on": "eval:doc.use_naming_series==1",
+   "fieldname": "naming_series_prefix",
+   "fieldtype": "Data",
+   "label": "Naming Series Prefix"
+  },
+  {
+   "description": "If mentioned, the system will allow only the users with this Role to create or modify any stock transaction earlier than the latest stock transaction for a specific item and warehouse. If set as blank, it allows all users to create/edit back-dated transactions.",
+   "fieldname": "role_allowed_to_create_edit_back_dated_transactions",
+   "fieldtype": "Link",
+   "label": "Role allowed to create/edit back-dated transactions",
+   "options": "Role"
+  },
+  {
+   "fieldname": "column_break_26",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "control_historical_stock_transactions_section",
+   "fieldtype": "Section Break",
+   "label": "Control Historical Stock Transactions"
+  },
+  {
+   "default": "0",
+   "description": "If enabled, users must enter Serial No. / Batch data manually instead of using the selector dialog.",
+   "fieldname": "disable_serial_no_and_batch_selector",
+   "fieldtype": "Check",
+   "label": "Disable Serial No and Batch selector"
+  },
+  {
+   "depends_on": "eval: doc.over_delivery_receipt_allowance>0",
+   "description": "Users with this role are allowed to over deliver/receive against orders above the allowance percentage",
+   "fieldname": "role_allowed_to_over_deliver_receive",
+   "fieldtype": "Link",
+   "label": "Role Allowed to Over Deliver/Receive",
+   "options": "Role"
+  },
+  {
+   "fieldname": "item_defaults_section",
+   "fieldtype": "Section Break",
+   "label": "Item Defaults"
+  },
+  {
+   "fieldname": "section_break_9",
+   "fieldtype": "Section Break",
+   "label": "Quantity Tolerance"
+  },
+  {
+   "fieldname": "quality_inspection_settings_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "Stop",
+   "fieldname": "action_if_quality_inspection_is_rejected",
+   "fieldtype": "Select",
+   "label": "Action if Quality Inspection is rejected",
+   "options": "Stop\nWarn"
+  },
+  {
+   "description": "The percentage you are allowed to transfer more against the quantity ordered. For example, if you have ordered 100 units, and your Allowance is 10%, then you are allowed transfer 110 units.",
+   "fieldname": "mr_qty_allowance",
+   "fieldtype": "Float",
+   "label": "Over Transfer Allowance (%)",
+   "non_negative": 1
+  },
+  {
+   "default": "0",
+   "depends_on": "auto_insert_price_list_rate_if_missing",
+   "fieldname": "update_existing_price_list_rate",
+   "fieldtype": "Check",
+   "label": "Update existing Price List Rate"
+  },
+  {
+   "fieldname": "defaults_tab",
+   "fieldtype": "Tab Break",
+   "label": "Defaults"
+  },
+  {
+   "fieldname": "stock_validations_tab",
+   "fieldtype": "Tab Break",
+   "label": "Stock Validations"
+  },
+  {
+   "fieldname": "stock_planning_tab",
+   "fieldtype": "Tab Break",
+   "label": "Stock Planning"
+  },
+  {
+   "fieldname": "stock_closing_tab",
+   "fieldtype": "Tab Break",
+   "label": "Stock Closing"
+  },
+  {
+   "fieldname": "serial_and_batch_item_settings_tab",
+   "fieldtype": "Tab Break",
+   "label": "Serial & Batch Item"
+  },
+  {
+   "fieldname": "price_list_defaults_section",
+   "fieldtype": "Section Break",
+   "label": "Price List Defaults"
+  },
+  {
+   "fieldname": "column_break_121",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "stock_reservation_tab",
+   "fieldtype": "Tab Break",
+   "label": "Stock Reservation"
+  },
+  {
+   "default": "0",
+   "description": "Allows to keep aside a specific quantity of inventory for a particular order.",
+   "fieldname": "enable_stock_reservation",
+   "fieldtype": "Check",
+   "label": "Enable stock reservation"
+  },
+  {
+   "fieldname": "column_break_rx3e",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "depends_on": "eval: doc.enable_stock_reservation",
+   "description": "Partial stock can be reserved. For example, If you have a Sales Order of 100 units and the Available Stock is 90 units then a Stock Reservation Entry will be created for 90 units. ",
+   "fieldname": "allow_partial_reservation",
+   "fieldtype": "Check",
+   "label": "Allow partial reservation"
+  },
+  {
+   "default": "FIFO",
+   "depends_on": "auto_create_serial_and_batch_bundle_for_outward",
+   "fieldname": "pick_serial_and_batch_based_on",
+   "fieldtype": "Select",
+   "label": "Pick Serial / Batch Based On",
+   "mandatory_depends_on": "auto_create_serial_and_batch_bundle_for_outward",
+   "options": "FIFO\nLIFO\nExpiry"
+  },
+  {
+   "default": "1",
+   "fieldname": "auto_create_serial_and_batch_bundle_for_outward",
+   "fieldtype": "Check",
+   "label": "Auto create Serial and Batch Bundle for outward"
+  },
+  {
+   "default": "1",
+   "depends_on": "eval: doc.enable_stock_reservation",
+   "description": "Serial and Batch Nos will be auto-reserved based on <b>Pick Serial / Batch Based On</b>",
+   "fieldname": "auto_reserve_serial_and_batch",
+   "fieldtype": "Check",
+   "label": "Auto reserve Serial and Batch Nos"
+  },
+  {
+   "fieldname": "serial_and_batch_reservation_section",
+   "fieldtype": "Section Break",
+   "label": "Serial and Batch Reservation"
+  },
+  {
+   "fieldname": "conversion_factor_section",
+   "fieldtype": "Section Break",
+   "label": "UOM Defaults"
+  },
+  {
+   "default": "0",
+   "documentation_url": "https://docs.frappe.io/erpnext/stock-settings#why-to-edit-stock-qty-qty-as-per-stock-uom",
+   "fieldname": "allow_to_edit_stock_uom_qty_for_sales",
+   "fieldtype": "Check",
+   "label": "Allow to edit stock UOM qty for Sales documents"
+  },
+  {
+   "default": "0",
+   "documentation_url": "https://docs.frappe.io/erpnext/stock-settings#why-to-edit-stock-qty-qty-as-per-stock-uom",
+   "fieldname": "allow_to_edit_stock_uom_qty_for_purchase",
+   "fieldtype": "Check",
+   "label": "Allow to edit stock UOM qty for Purchase documents"
+  },
+  {
+   "default": "0",
+   "documentation_url": "https://docs.frappe.io/erpnext/stock-settings#why-to-edit-stock-qty-qty-as-per-stock-uom",
+   "fieldname": "allow_to_edit_stock_uom_qty_for_stock_entry",
+   "fieldtype": "Check",
+   "label": "Allow to edit stock UOM qty for Stock Entry"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval: doc.enable_stock_reservation",
+   "description": "Stock will be reserved on submission of <b>Purchase Receipt</b> created against Material Request for Sales Order.",
+   "fieldname": "auto_reserve_stock_for_sales_order_on_purchase",
+   "fieldtype": "Check",
+   "label": "Auto reserve Stock for Sales Order on Purchase"
+  },
+  {
+   "default": "1",
+   "description": "On submission of the stock transaction, system will auto create the Serial and Batch Bundle based on the Serial No / Batch fields.",
+   "fieldname": "use_serial_batch_fields",
+   "fieldtype": "Check",
+   "label": "Use Serial / Batch fields"
+  },
+  {
+   "default": "1",
+   "description": "If enabled, do not update serial / batch values in the stock transactions on creation of auto Serial \n / Batch Bundle. ",
+   "fieldname": "do_not_update_serial_batch_on_creation_of_auto_bundle",
+   "fieldtype": "Check",
+   "label": "Do not update Serial / Batch on creation of auto bundle"
+  },
+  {
+   "default": "0",
+   "description": "If enabled, the item rate won't adjust to the valuation rate during internal transfers, but accounting will still use the valuation rate. This will allow the user to specify a different rate for printing or taxation purposes.",
+   "fieldname": "allow_internal_transfer_at_arms_length_price",
+   "fieldtype": "Check",
+   "label": "Allow internal transfers at user-defined rate"
+  },
+  {
+   "default": "0",
+   "description": "If enabled, the system will use the moving average valuation method to calculate the valuation rate for the batched items and will not consider the individual batch-wise incoming rate.",
+   "fieldname": "do_not_use_batchwise_valuation",
+   "fieldtype": "Check",
+   "label": "Do not use Batch-wise Valuation"
+  },
+  {
+   "description": "The percentage you are allowed to pick more items in the pick list than the ordered quantity.",
+   "fieldname": "over_picking_allowance",
+   "fieldtype": "Percent",
+   "label": "Over Picking Allowance (%)",
+   "non_negative": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "allow_existing_serial_no",
+   "fieldtype": "Check",
+   "label": "Allow existing Serial No to be Manufactured/Received again"
+  },
+  {
+   "default": "0",
+   "description": "Upon submission of the Sales Order, Work Order, or Production Plan, the system will automatically reserve the stock.",
+   "fieldname": "auto_reserve_stock",
+   "fieldtype": "Check",
+   "label": "Auto reserve stock"
+  },
+  {
+   "default": "0",
+   "fieldname": "set_serial_and_batch_bundle_naming_based_on_naming_series",
+   "fieldtype": "Check",
+   "label": "Set Serial and Batch Bundle Naming Based on Naming Series"
+  },
+  {
+   "depends_on": "enable_serial_and_batch_no_for_item",
+   "fieldname": "section_break_gnhq",
+   "fieldtype": "Section Break",
+   "label": "Batch Item settings"
+  },
+  {
+   "default": "0",
+   "description": "If enabled, the system will allow selecting UOMs in sales and purchase transactions only if the conversion rate is set in the item master.",
+   "fieldname": "allow_uom_with_conversion_rate_defined_in_item",
+   "fieldtype": "Check",
+   "label": "Allow UOM with conversion rate defined in Item"
+  },
+  {
+   "fieldname": "quality_tab",
+   "fieldtype": "Tab Break",
+   "label": "Quality"
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_to_make_quality_inspection_after_purchase_or_delivery",
+   "fieldtype": "Check",
+   "label": "Allow to make Quality Inspection after Purchase / Delivery"
+  },
+  {
+   "default": "Rate",
+   "depends_on": "eval: doc.auto_insert_price_list_rate_if_missing",
+   "fieldname": "update_price_list_based_on",
+   "fieldtype": "Select",
+   "label": "Update Price List based on",
+   "mandatory_depends_on": "eval: doc.auto_insert_price_list_rate_if_missing",
+   "options": "Rate\nPrice List Rate"
+  },
+  {
+   "default": "0",
+   "description": "If enabled, the source and target warehouse in the Material Transfer Stock Entry must be different else an error will be thrown. If inventory dimensions are present, same source and target warehouse can be allowed but atleast any one of the inventory dimension fields must be different.",
+   "fieldname": "validate_material_transfer_warehouses",
+   "fieldtype": "Check",
+   "label": "Validate Material Transfer warehouses"
+  },
+  {
+   "default": "0",
+   "description": "If enabled, the system will allow negative stock entries for the batch. But, this may lead to incorrect valuation rates, so it is recommended to avoid using this option. The system will permit negative stock only when it is caused by backdated entries and will validate and block negative stock in all other cases.",
+   "fieldname": "allow_negative_stock_for_batch",
+   "fieldtype": "Check",
+   "label": "Allow negative stock for Batch"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_serial_and_batch_no_for_item",
+   "fieldtype": "Check",
+   "label": "Activate Serial / Batch No for Item"
+  },
+  {
+   "fieldname": "warehouse_defaults_section",
+   "fieldtype": "Section Break",
+   "label": "Warehouse Defaults"
+  },
+  {
+   "fieldname": "internal_transfer_rules_section",
+   "fieldtype": "Section Break",
+   "label": "Internal Transfer Rules"
+  },
+  {
+   "fieldname": "display_data_formatting_section",
+   "fieldtype": "Section Break",
+   "label": "Display & Data Formatting"
+  },
+  {
+   "fieldname": "naming_series_details",
+   "fieldtype": "Small Text",
+   "hidden": 1,
+   "is_virtual": 1,
+   "label": "Naming Series options",
+   "read_only": 1
+  },
+  {
+   "fieldname": "document_naming_tab",
+   "fieldtype": "Tab Break",
+   "label": "Document Naming"
+  },
+  {
+   "fieldname": "transaction_naming_html",
+   "fieldtype": "HTML"
+  },
+  {
+   "fieldname": "configure",
+   "fieldtype": "Button",
+   "hidden": 1,
+   "label": "Configure Series"
+  },
+  {
+   "fieldname": "negative_stock_section",
+   "fieldtype": "Section Break",
+   "label": "Negative Stock"
+  },
+  {
+   "fieldname": "auto_bundle_section",
+   "fieldtype": "Section Break",
+   "label": "Serial and Batch Bundle"
+  },
+  {
+   "fieldname": "naming_series_preview",
+   "fieldtype": "Small Text",
+   "hidden": 1,
+   "is_virtual": 1,
+   "label": "Naming Series options",
+   "read_only": 1
+  },
+  {
+   "fieldname": "configure_series",
+   "fieldtype": "Button",
+   "hidden": 1,
+   "label": "Configure Series"
+  },
+  {
+   "fieldname": "column_break_pjkx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_kcvr",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "icon": "icon-cog",
+ "idx": 1,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-08-01 23:35:02.896836",
+ "modified_by": "Administrator",
+ "module": "Stock",
+ "name": "Stock Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Stock Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Sales User"
+  }
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "ASC",
+ "states": [],
+ "track_changes": 1
+}

@@ -1,0 +1,2176 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Frappe Framework\n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Actions"
+msgstr "操作"
+
+msgid "Activity"
+msgstr "动态"
+
+msgid "Add a Row"
+msgstr "新增一行"
+
+msgid "Apply"
+msgstr "应用"
+
+msgid "Assigned To"
+msgstr "负责人"
+
+msgid "Attach"
+msgstr "添加附件"
+
+msgid "Calendar"
+msgstr "日历"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Clear"
+msgstr "清除"
+
+msgid "Close"
+msgstr "关闭"
+
+msgid "Comment"
+msgstr "评论"
+
+msgid "Confirm"
+msgstr "确认"
+
+msgid "Copy Link"
+msgstr "复制链接"
+
+msgid "Created"
+msgstr "创建时间"
+
+msgid "Dashboard"
+msgstr "仪表板"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Download"
+msgstr "下载"
+
+msgid "Dr"
+msgstr "借方"
+
+msgid "Duplicate"
+msgstr "复制为新记录"
+
+msgid "Edit"
+msgstr "编辑"
+
+msgid "Email"
+msgstr "电子邮箱"
+
+msgid "Error"
+msgstr "错误"
+
+msgid "Export"
+msgstr "导出"
+
+msgid "Filter"
+msgstr "筛选"
+
+msgid "Form"
+msgstr "表单"
+
+msgid "Import"
+msgstr "导入"
+
+msgid "Kanban"
+msgstr "看板"
+
+msgid "Language"
+msgstr "语言"
+
+msgid "List"
+msgstr "列表"
+
+msgid "Loading..."
+msgstr "正在加载……"
+
+msgid "Logout"
+msgstr "退出登录"
+
+msgid "Mandatory"
+msgstr "必填"
+
+msgid "Menu"
+msgstr "菜单"
+
+msgid "More"
+msgstr "更多"
+
+msgid "Move"
+msgstr "移动"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "New"
+msgstr "新建"
+
+msgid "No"
+msgstr "否"
+
+msgid "No Results found"
+msgstr "未找到结果"
+
+msgid "No filters found"
+msgstr "未找到筛选条件"
+
+msgid "No {0} found"
+msgstr "未找到{0}"
+
+msgid "Permissions"
+msgstr "权限"
+
+msgid "Print"
+msgstr "打印"
+
+msgid "Refresh"
+msgstr "刷新"
+
+msgid "Remove"
+msgstr "移除"
+
+msgid "Rename"
+msgstr "重命名"
+
+msgid "Report"
+msgstr "报表"
+
+msgid "Role"
+msgstr "角色"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Search"
+msgstr "搜索"
+
+msgid "Select"
+msgstr "选择"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Share"
+msgstr "共享"
+
+msgid "Sort Ascending"
+msgstr "升序排列"
+
+msgid "Sort Descending"
+msgstr "降序排列"
+
+msgid "Status"
+msgstr "状态"
+
+msgid "Submit"
+msgstr "提交"
+
+msgid "Success"
+msgstr "成功"
+
+msgid "Timeline"
+msgstr "时间线"
+
+msgid "Update"
+msgstr "更新"
+
+msgid "Upload"
+msgstr "上传"
+
+msgid "User"
+msgstr "用户"
+
+msgid "Warning"
+msgstr "警告"
+
+msgid "Yes"
+msgstr "是"
+
+msgid "Add"
+msgstr "新增"
+
+msgid "Add Attachment"
+msgstr "添加附件"
+
+msgid "Add a Filter"
+msgstr "新增筛选条件"
+
+msgid "Advanced Search"
+msgstr "高级搜索"
+
+msgid "All"
+msgstr "全部"
+
+msgid "Amend"
+msgstr "修订"
+
+msgid "Apply Filters"
+msgstr "应用筛选"
+
+msgid "Archive"
+msgstr "归档"
+
+msgid "Assign"
+msgstr "分配"
+
+msgid "Assign To"
+msgstr "分配给"
+
+msgid "Assign a user"
+msgstr "分配用户"
+
+msgid "Assign to me"
+msgstr "分配给我"
+
+msgid "Assigning..."
+msgstr "正在分配……"
+
+msgid "Assignments"
+msgstr "任务分配"
+
+msgid "Attachments"
+msgstr "附件"
+
+msgid "Back"
+msgstr "返回"
+
+msgid "Bulk Edit"
+msgstr "批量编辑"
+
+msgid "Cancel All"
+msgstr "全部取消"
+
+msgid "Cancelled"
+msgstr "已取消"
+
+msgid "Cancelling"
+msgstr "正在取消"
+
+msgid "Cannot cancel {0}."
+msgstr "无法取消{0}。"
+
+msgid "Cannot delete {0}"
+msgstr "无法删除{0}"
+
+msgid "Cannot submit {0}."
+msgstr "无法提交{0}。"
+
+msgid "Cannot update {0}"
+msgstr "无法更新{0}"
+
+msgid "Clear All"
+msgstr "全部清除"
+
+msgid "Clear Assignment"
+msgstr "清除分配"
+
+msgid "Clear Filters"
+msgstr "清除筛选"
+
+msgid "Clear all filters"
+msgstr "清除全部筛选"
+
+msgid "Collapse All"
+msgstr "全部折叠"
+
+msgid "Comments"
+msgstr "评论"
+
+msgid "Complete By"
+msgstr "完成期限"
+
+msgid "Compose Email"
+msgstr "撰写邮件"
+
+msgid "Connections"
+msgstr "关联记录"
+
+msgid "Count"
+msgstr "数量"
+
+msgid "Create"
+msgstr "创建"
+
+msgid "Create New"
+msgstr "新建"
+
+msgid "Create Saved Filter"
+msgstr "创建已保存筛选"
+
+msgid "Create a Reminder"
+msgstr "创建提醒"
+
+msgid "Create a new document"
+msgstr "新建单据"
+
+msgid "Create a new {0}"
+msgstr "新建{0}"
+
+msgid "Create your first {0}"
+msgstr "创建第一条{0}"
+
+msgid "Created By"
+msgstr "创建人"
+
+msgid "Created By You"
+msgstr "由你创建"
+
+msgid "Created By {0}"
+msgstr "由 {0} 创建"
+
+msgid "Last Edited By You"
+msgstr "最后由你编辑"
+
+msgid "Last Edited By {0}"
+msgstr "最后由 {0} 编辑"
+
+msgid "Filter based on {0}"
+msgstr "按 {0} 筛选"
+
+msgid "Created On"
+msgstr "创建时间"
+
+msgid "Current status"
+msgstr "当前状态"
+
+msgid "Customize"
+msgstr "自定义"
+
+msgid "Customize Form"
+msgstr "自定义表单"
+
+msgid "Date"
+msgstr "日期"
+
+msgid "Delete all"
+msgstr "全部删除"
+
+msgid "Delete comment?"
+msgstr "是否删除评论？"
+
+msgid "Delete row"
+msgstr "删除行"
+
+msgid "Description"
+msgstr "说明"
+
+msgid "Details"
+msgstr "详细信息"
+
+msgid "Disabled"
+msgstr "已停用"
+
+msgid "Discard"
+msgstr "放弃更改"
+
+msgid "Dismiss"
+msgstr "关闭"
+
+msgid "Document"
+msgstr "单据"
+
+msgid "Document Name"
+msgstr "单据名称"
+
+msgid "Documents"
+msgstr "单据"
+
+msgid "Done"
+msgstr "完成"
+
+msgid "Download PDF"
+msgstr "下载 PDF"
+
+msgid "Download Report"
+msgstr "下载报表"
+
+msgid "Draft"
+msgstr "草稿"
+
+msgid "Drag and drop files here or upload from"
+msgstr "将文件拖放到此处，或从以下位置上传"
+
+msgid "Drop files here"
+msgstr "将文件拖放到此处"
+
+msgid "Duplicate row"
+msgstr "复制行"
+
+msgid "Edit Filters"
+msgstr "编辑筛选条件"
+
+msgid "Edit Full Form"
+msgstr "编辑完整表单"
+
+msgid "Edit row"
+msgstr "编辑行"
+
+msgid "Email Sent"
+msgstr "邮件已发送"
+
+msgid "Enter Value"
+msgstr "输入值"
+
+msgid "Everyone"
+msgstr "所有人"
+
+msgid "Expand All"
+msgstr "全部展开"
+
+msgid "Fields"
+msgstr "字段"
+
+msgid "File Manager"
+msgstr "文件管理"
+
+msgid "File upload failed."
+msgstr "文件上传失败。"
+
+msgid "Filters"
+msgstr "筛选条件"
+
+msgid "Filters saved"
+msgstr "筛选条件已保存"
+
+msgid "First"
+msgstr "首页"
+
+msgid "Follow"
+msgstr "关注"
+
+msgid "From"
+msgstr "来自"
+
+msgid "Access Control"
+msgstr "访问控制"
+
+msgid "Add New Permission Rule"
+msgstr "新增权限规则"
+
+msgid "Add Roles"
+msgstr "新增角色"
+
+msgid "Add User Permissions"
+msgstr "新增用户权限"
+
+msgid "Additional Permissions"
+msgstr "附加权限"
+
+msgid "Allow Print for Cancelled"
+msgstr "允许打印已取消单据"
+
+msgid "Allow Print for Draft"
+msgstr "允许打印草稿"
+
+msgid "Allow Read On All Link Options"
+msgstr "允许读取全部关联选项"
+
+msgid "Allow Roles"
+msgstr "允许的角色"
+
+msgid "Allowed Roles"
+msgstr "允许的角色"
+
+msgid "Apply Strict User Permissions"
+msgstr "严格应用用户权限"
+
+msgid "Apply User Permission On"
+msgstr "应用用户权限于"
+
+msgid "Based on Permissions For User"
+msgstr "按用户权限查看"
+
+msgid "Cannot Download Report due to insufficient permissions"
+msgstr "权限不足，无法下载报表"
+
+msgid "Cannot edit Standard Notification. To edit, please disable this and duplicate it"
+msgstr "不能编辑标准通知；如需修改，请先停用并复制一份。"
+
+msgid "Cannot edit a standard report. Please duplicate and create a new report"
+msgstr "不能编辑标准报表，请复制后创建新报表。"
+
+msgid "Cannot share {0} with submit permission as the doctype {1} is not submittable"
+msgstr "{1} 不支持提交，不能向 {0} 授予提交权限。"
+
+msgid "Clear User Permissions"
+msgstr "清除用户权限"
+
+msgid "Confirm Access"
+msgstr "确认访问"
+
+msgid "Custom Report"
+msgstr "自定义报表"
+
+msgid "Custom Reports"
+msgstr "自定义报表"
+
+msgid "Default Print Format"
+msgstr "默认打印格式"
+
+msgid "Default Print Language"
+msgstr "默认打印语言"
+
+msgid "Desk Access"
+msgstr "工作台访问权限"
+
+msgid "Document Share"
+msgstr "单据共享"
+
+msgid "Document Share Key"
+msgstr "单据共享密钥"
+
+msgid "Document Share Key Expiry (in Days)"
+msgstr "单据共享密钥有效期（天）"
+
+msgid "Document Types and Permissions"
+msgstr "单据类型与权限"
+
+msgid "Edit Auto Email Report Settings"
+msgstr "编辑自动邮件报表设置"
+
+msgid "Edit Print Format"
+msgstr "编辑打印格式"
+
+msgid "Enable Email Notifications"
+msgstr "启用邮件通知"
+
+msgid "Enable Prepared Report"
+msgstr "启用预生成报表"
+
+msgid "Enable Report"
+msgstr "启用报表"
+
+msgid "Enable Snapshot Reports"
+msgstr "启用快照报表"
+
+msgid "Enable System Notification"
+msgstr "启用系统通知"
+
+msgid "Error in Notification"
+msgstr "通知配置错误"
+
+msgid "Event Notifications"
+msgstr "事件通知"
+
+msgid "Export Report: {0}"
+msgstr "导出报表：{0}"
+
+msgid "Export not allowed. You need {0} role to export."
+msgstr "不允许导出，需要具备 {0} 角色。"
+
+msgid "Following Report Filters have missing values:"
+msgstr "以下报表筛选条件缺少值："
+
+msgid "Generate New Report"
+msgstr "生成新报表"
+
+msgid "Go to Notification Settings List"
+msgstr "前往通知设置列表"
+
+msgid "Ignore User Permissions"
+msgstr "忽略用户权限"
+
+msgid "Insufficient Permission Level for {0}"
+msgstr "对 {0} 的权限级别不足"
+
+msgid "Insufficient Permission for {0}"
+msgstr "没有足够权限访问 {0}"
+
+msgid "Looks like you haven’t received any notifications."
+msgstr "暂时没有收到通知。"
+
+msgid "Mark all as read"
+msgstr "全部标为已读"
+
+msgid "Mark as Read"
+msgstr "标为已读"
+
+msgid "Mark as Unread"
+msgstr "标为未读"
+
+msgid "Missing Permission"
+msgstr "缺少权限"
+
+msgid "Must have report permission to access this report."
+msgstr "必须具备报表权限才能访问此报表。"
+
+msgid "New Notification"
+msgstr "新建通知"
+
+msgid "New Report name"
+msgstr "新报表名称"
+
+msgid "New Role"
+msgstr "新建角色"
+
+msgid "No New notifications"
+msgstr "没有新通知"
+
+msgid "No Permissions Specified"
+msgstr "未指定权限"
+
+msgid "No Permissions set for this criteria."
+msgstr "未为此条件设置权限。"
+
+msgid "No Roles Specified"
+msgstr "未指定角色"
+
+msgid "No permission for {0}"
+msgstr "没有访问 {0} 的权限"
+
+msgid "No permission to read {0}"
+msgstr "没有读取 {0} 的权限"
+
+msgid "Notification"
+msgstr "通知"
+
+msgid "Notification Log"
+msgstr "通知日志"
+
+msgid "Notification Recipient"
+msgstr "通知接收人"
+
+msgid "Notification Settings"
+msgstr "通知设置"
+
+msgid "Notifications"
+msgstr "通知"
+
+msgid "Notifications Disabled"
+msgstr "通知已停用"
+
+msgid "Permission"
+msgstr "权限"
+
+msgid "Permission Error"
+msgstr "权限错误"
+
+msgid "Permission Inspector"
+msgstr "权限检查器"
+
+msgid "Permission Level"
+msgstr "权限级别"
+
+msgid "Permission Manager"
+msgstr "权限管理"
+
+msgid "Permission Rules"
+msgstr "权限规则"
+
+msgid "Permission Type"
+msgstr "权限类型"
+
+msgid "Permitted Roles"
+msgstr "获准角色"
+
+msgid "Prepared Report"
+msgstr "预生成报表"
+
+msgid "Preparing Report"
+msgstr "正在生成报表"
+
+msgid "Print Documents"
+msgstr "打印单据"
+
+msgid "Print Format"
+msgstr "打印格式"
+
+msgid "Print Format Builder"
+msgstr "打印格式设计器"
+
+msgid "Print Language"
+msgstr "打印语言"
+
+msgid "Print Settings"
+msgstr "打印设置"
+
+msgid "Printing"
+msgstr "正在打印"
+
+msgid "Printing failed"
+msgstr "打印失败"
+
+msgid "Query Report"
+msgstr "查询报表"
+
+msgid "Read"
+msgstr "读取"
+
+msgid "Read Only"
+msgstr "只读"
+
+msgid "Reload Report"
+msgstr "重新加载报表"
+
+msgid "Report Builder"
+msgstr "报表设计器"
+
+msgid "Report Filters"
+msgstr "报表筛选条件"
+
+msgid "Report Name"
+msgstr "报表名称"
+
+msgid "Report Type"
+msgstr "报表类型"
+
+msgid "Report View"
+msgstr "报表视图"
+
+msgid "Report timed out."
+msgstr "报表生成超时。"
+
+msgid "Report updated successfully"
+msgstr "报表更新成功"
+
+msgid "Report was not saved (there were errors)"
+msgstr "报表未保存（存在错误）"
+
+msgid "Reports"
+msgstr "报表"
+
+msgid "Reset Permissions for {0}?"
+msgstr "是否重置 {0} 的权限？"
+
+msgid "Restore Original Permissions"
+msgstr "恢复原始权限"
+
+msgid "Role Permissions"
+msgstr "角色权限"
+
+msgid "Role Permissions Manager"
+msgstr "角色权限管理"
+
+msgid "Roles"
+msgstr "角色"
+
+msgid "Roles & Permissions"
+msgstr "角色与权限"
+
+msgid "Save Report"
+msgstr "保存报表"
+
+msgid "Select Print Format"
+msgstr "选择打印格式"
+
+msgid "Select Report"
+msgstr "选择报表"
+
+msgid "Set Permissions"
+msgstr "设置权限"
+
+msgid "Set Role For"
+msgstr "设置角色"
+
+msgid "Set User Permissions"
+msgstr "设置用户权限"
+
+msgid "Share With"
+msgstr "共享给"
+
+msgid "Share this document with"
+msgstr "将此单据共享给"
+
+msgid "Shared"
+msgstr "已共享"
+
+msgid "Show Permissions"
+msgstr "显示权限"
+
+msgid "Show Report"
+msgstr "查看报表"
+
+msgid "Standard Permissions"
+msgstr "标准权限"
+
+msgid "System Notification"
+msgstr "系统通知"
+
+msgid "Unread"
+msgstr "未读"
+
+msgid "User Permission"
+msgstr "用户权限"
+
+msgid "User Permissions"
+msgstr "用户权限"
+
+msgid "User Permissions are used to limit users to specific records."
+msgstr "用户权限用于限制用户只能访问指定记录。"
+
+msgid "User Permissions created successfully"
+msgstr "用户权限创建成功"
+
+msgid "User is mandatory for Share"
+msgstr "共享时必须选择用户"
+
+msgid "Account"
+msgstr "账户"
+
+msgid "Active Sessions"
+msgstr "活动会话"
+
+msgid "Allow Consecutive Login Attempts"
+msgstr "允许连续登录尝试次数"
+
+msgid "Allow Import (via Data Import Tool)"
+msgstr "允许通过数据导入工具导入"
+
+msgid "Allow Login After Fail"
+msgstr "登录失败后允许再次登录的等待时间"
+
+msgid "Allow Login using Mobile Number"
+msgstr "允许使用手机号登录"
+
+msgid "Allow Login using User Name"
+msgstr "允许使用用户名登录"
+
+msgid "Allow only one session per user"
+msgstr "每个用户仅允许一个会话"
+
+msgid "Awaiting Password"
+msgstr "等待设置密码"
+
+msgid "Bulk PDF Export"
+msgstr "批量导出 PDF"
+
+msgid "Cancel Import"
+msgstr "取消导入"
+
+msgid "Change Password"
+msgstr "修改密码"
+
+msgid "Completed By User"
+msgstr "完成人"
+
+msgid "Confirm New Password"
+msgstr "确认新密码"
+
+msgid "Create Account"
+msgstr "创建账户"
+
+msgid "Create or Edit Workflow"
+msgstr "创建或编辑审批流"
+
+msgid "Create your workflow visually using the Workflow Builder."
+msgstr "使用审批流设计器以可视化方式创建审批流。"
+
+msgid "Data Export"
+msgstr "数据导出"
+
+msgid "Data Import"
+msgstr "数据导入"
+
+msgid "Data Import Log"
+msgstr "数据导入日志"
+
+msgid "Data Import Template"
+msgstr "数据导入模板"
+
+msgid "Defines workflow states and rules for a document."
+msgstr "定义单据的审批状态和流转规则。"
+
+msgid "Delete Account"
+msgstr "删除账户"
+
+msgid "Document Type is not importable"
+msgstr "此单据类型不允许导入"
+
+msgid "Don't Import"
+msgstr "不导入"
+
+msgid "Enable Password Policy"
+msgstr "启用密码策略"
+
+msgid "Enter your password"
+msgstr "请输入密码"
+
+msgid "Export 1 record"
+msgstr "导出 1 条记录"
+
+msgid "Export Data"
+msgstr "导出数据"
+
+msgid "Export Errored Rows"
+msgstr "导出错误行"
+
+msgid "Export Type"
+msgstr "导出类型"
+
+msgid "Export {0} records"
+msgstr "导出 {0} 条记录"
+
+msgid "Failed Login Attempts"
+msgstr "登录失败次数"
+
+msgid "Failed to change password."
+msgstr "密码修改失败。"
+
+msgid "Force User to Reset Password"
+msgstr "强制用户重置密码"
+
+msgid "Forgot Password?"
+msgstr "忘记密码？"
+
+msgid "Generate Random Password"
+msgstr "生成随机密码"
+
+msgid "Go to Workflow"
+msgstr "前往审批流"
+
+msgid "Import File"
+msgstr "导入文件"
+
+msgid "Import File Errors and Warnings"
+msgstr "导入文件错误与警告"
+
+msgid "Import Log"
+msgstr "导入日志"
+
+msgid "Import Preview"
+msgstr "导入预览"
+
+msgid "Import Progress"
+msgstr "导入进度"
+
+msgid "Import Type"
+msgstr "导入类型"
+
+msgid "Import Warnings"
+msgstr "导入警告"
+
+msgid "Import from Google Sheets"
+msgstr "从 Google 表格导入"
+
+msgid "Import template should be of type .csv, .xlsx or .xls"
+msgstr "导入模板必须为 .csv、.xlsx 或 .xls 格式"
+
+msgid "Import template should contain a Header and atleast one row."
+msgstr "导入模板必须包含表头和至少一行数据。"
+
+msgid "Import timed out, please re-try."
+msgstr "导入超时，请重试。"
+
+msgid "Importing {0} is not allowed."
+msgstr "不允许导入 {0}。"
+
+msgid "Importing {0} of {1}"
+msgstr "正在导入第 {0} 条，共 {1} 条"
+
+msgid "Incorrect User or Password"
+msgstr "用户名或密码错误"
+
+msgid "Invalid Login Token"
+msgstr "无效的登录令牌"
+
+msgid "Invalid Password"
+msgstr "密码无效"
+
+msgid "Invalid username or password"
+msgstr "用户名或密码错误"
+
+msgid "Last Login"
+msgstr "上次登录时间"
+
+msgid "Login"
+msgstr "登录"
+
+msgid "Login Activity"
+msgstr "登录活动"
+
+msgid "Login After"
+msgstr "允许登录开始时间"
+
+msgid "Login Before"
+msgstr "允许登录截止时间"
+
+msgid "Login Failed please try again"
+msgstr "登录失败，请重试"
+
+msgid "Login Methods"
+msgstr "登录方式"
+
+msgid "Login Page"
+msgstr "登录页面"
+
+msgid "Login Required"
+msgstr "需要登录"
+
+msgid "Login session expired, refresh page to retry"
+msgstr "登录会话已过期，请刷新页面后重试"
+
+msgid "Login with Email Link"
+msgstr "使用邮件链接登录"
+
+msgid "Login with LDAP"
+msgstr "使用 LDAP 登录"
+
+msgid "Login with password"
+msgstr "使用密码登录"
+
+msgid "Logout All Sessions"
+msgstr "退出所有会话"
+
+msgid "My Account"
+msgstr "我的账户"
+
+msgid "New Password"
+msgstr "新密码"
+
+msgid "No Active Sessions"
+msgstr "没有活动会话"
+
+msgid "No data to export"
+msgstr "没有可导出的数据"
+
+msgid "No records will be exported"
+msgstr "没有记录会被导出"
+
+msgid "Old Password"
+msgstr "原密码"
+
+msgid "Only CSV and Excel formats are supported for export"
+msgstr "仅支持导出 CSV 和 Excel 格式"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Password Reset"
+msgstr "重置密码"
+
+msgid "Password changed successfully."
+msgstr "密码修改成功。"
+
+msgid "Password is required."
+msgstr "必须填写密码。"
+
+msgid "Password requirements not met"
+msgstr "密码不符合安全要求"
+
+msgid "Passwords do not match"
+msgstr "两次输入的密码不一致"
+
+msgid "Please enter the password"
+msgstr "请输入密码"
+
+msgid "Please enter your new password."
+msgstr "请输入新密码。"
+
+msgid "Please enter your old password."
+msgstr "请输入原密码。"
+
+msgid "Reset Password"
+msgstr "重置密码"
+
+msgid "Reset your password"
+msgstr "重置您的密码"
+
+msgid "Session Defaults"
+msgstr "会话默认值"
+
+msgid "Session Defaults Saved"
+msgstr "会话默认值已保存"
+
+msgid "Session Expired"
+msgstr "会话已过期"
+
+msgid "Sessions"
+msgstr "会话"
+
+msgid "Set New Password"
+msgstr "设置新密码"
+
+msgid "Set Password"
+msgstr "设置密码"
+
+msgid "Start Import"
+msgstr "开始导入"
+
+msgid "Submit After Import"
+msgstr "导入后提交"
+
+msgid "Successfully imported {0}"
+msgstr "已成功导入 {0}"
+
+msgid "Successfully imported {0} out of {1} records."
+msgstr "已成功导入 {1} 条记录中的 {0} 条。"
+
+msgid "System Settings"
+msgstr "系统设置"
+
+msgid "System Users"
+msgstr "系统用户"
+
+msgid "Update Password"
+msgstr "更新密码"
+
+msgid "User Details"
+msgstr "用户详情"
+
+msgid "User Group"
+msgstr "用户组"
+
+msgid "User ID"
+msgstr "用户编号"
+
+msgid "User Menu"
+msgstr "用户菜单"
+
+msgid "User Name"
+msgstr "用户名"
+
+msgid "User Role"
+msgstr "用户角色"
+
+msgid "User Type"
+msgstr "用户类型"
+
+msgid "User is disabled"
+msgstr "用户已停用"
+
+msgid "Username"
+msgstr "用户名"
+
+msgid "Users"
+msgstr "用户"
+
+msgid "Verify Password"
+msgstr "验证密码"
+
+msgid "Workflow"
+msgstr "审批流"
+
+msgid "Workflow Action"
+msgstr "审批操作"
+
+msgid "Workflow Action Name"
+msgstr "审批操作名称"
+
+msgid "Workflow Builder"
+msgstr "审批流设计器"
+
+msgid "Workflow Details"
+msgstr "审批流详情"
+
+msgid "Workflow Document State"
+msgstr "审批流单据状态"
+
+msgid "Workflow Evaluation Error"
+msgstr "审批流计算错误"
+
+msgid "Workflow Name"
+msgstr "审批流名称"
+
+msgid "Workflow State"
+msgstr "审批状态"
+
+msgid "Workflow State Field"
+msgstr "审批状态字段"
+
+msgid "Workflow State not set"
+msgstr "未设置审批状态"
+
+msgid "Workflow State transition not allowed from {0} to {1}"
+msgstr "不允许从审批状态 {0} 流转到 {1}"
+
+msgid "Workflow Status"
+msgstr "审批流状态"
+
+msgid "Workflow Transition"
+msgstr "审批流转"
+
+msgid "Workflow updated successfully"
+msgstr "审批流更新成功"
+
+msgid "Your session has expired, please login again to continue."
+msgstr "会话已过期，请重新登录后继续。"
+
+msgid "{0} records will be exported"
+msgstr "将导出 {0} 条记录"
+
+msgid "Add to ToDo"
+msgstr "添加到待办"
+
+msgid "Allow Guests to Upload Files"
+msgstr "允许访客上传文件"
+
+msgid "Allowed File Extensions"
+msgstr "允许的文件扩展名"
+
+msgid "Attach Files"
+msgstr "添加文件"
+
+msgid "Attached File"
+msgstr "已附加文件"
+
+msgid "Attachment Settings"
+msgstr "附件设置"
+
+msgid "Auto Email Report"
+msgstr "自动邮件报表"
+
+msgid "Calendar Name"
+msgstr "日历名称"
+
+msgid "Calendar View"
+msgstr "日历视图"
+
+msgid "Cannot access file path {0}"
+msgstr "无法访问文件路径 {0}"
+
+msgid "Cannot attach a folder to a document"
+msgstr "不能将文件夹附加到单据"
+
+msgid "Cannot delete Home and Attachments folders"
+msgstr "不能删除首页和附件文件夹"
+
+msgid "Click on a file to select it."
+msgstr "单击文件进行选择。"
+
+msgid "Contact Email"
+msgstr "联系人邮箱"
+
+msgid "Copy File URL"
+msgstr "复制文件地址"
+
+msgid "Could not connect to outgoing email server"
+msgstr "无法连接发件服务器"
+
+msgid "Default Email Template"
+msgstr "默认邮件模板"
+
+msgid "Default Workspace"
+msgstr "默认工作区"
+
+msgid "Don't Send Emails"
+msgstr "不发送邮件"
+
+msgid "Email Account"
+msgstr "邮件账户"
+
+msgid "Email Account Disabled."
+msgstr "邮件账户已停用。"
+
+msgid "Email Account Name"
+msgstr "邮件账户名称"
+
+msgid "Email Address"
+msgstr "电子邮箱地址"
+
+msgid "Email Addresses"
+msgstr "电子邮箱地址"
+
+msgid "Email Domain"
+msgstr "邮件域名"
+
+msgid "Email Group"
+msgstr "邮件组"
+
+msgid "Email Group Member"
+msgstr "邮件组成员"
+
+msgid "Email Inbox"
+msgstr "收件箱"
+
+msgid "Email Queue"
+msgstr "邮件队列"
+
+msgid "Email Queue Recipient"
+msgstr "邮件队列收件人"
+
+msgid "Email Retry Limit"
+msgstr "邮件重试次数"
+
+msgid "Email Rule"
+msgstr "邮件规则"
+
+msgid "Email Sent At"
+msgstr "邮件发送时间"
+
+msgid "Email Settings"
+msgstr "邮件设置"
+
+msgid "Email Signature"
+msgstr "邮件签名"
+
+msgid "Email Status"
+msgstr "邮件状态"
+
+msgid "Email Template"
+msgstr "邮件模板"
+
+msgid "Email To"
+msgstr "收件人"
+
+msgid "Email is required."
+msgstr "必须填写电子邮箱。"
+
+msgid "Emails"
+msgstr "邮件"
+
+msgid "Enter Email Recipient(s) in the To, CC, or BCC fields"
+msgstr "请在收件人、抄送或密送字段中填写邮件地址"
+
+msgid "Enter folder name"
+msgstr "输入文件夹名称"
+
+msgid "Event"
+msgstr "日程"
+
+msgid "Event Category"
+msgstr "日程类别"
+
+msgid "Event Frequency"
+msgstr "日程频率"
+
+msgid "Event Participants"
+msgstr "参与人"
+
+msgid "Event Reminders"
+msgstr "日程提醒"
+
+msgid "Event Type"
+msgstr "日程类型"
+
+msgid "Events"
+msgstr "日程"
+
+msgid "File"
+msgstr "文件"
+
+msgid "File Information"
+msgstr "文件信息"
+
+msgid "File Name"
+msgstr "文件名"
+
+msgid "File Size"
+msgstr "文件大小"
+
+msgid "File Storage"
+msgstr "文件存储"
+
+msgid "File Type"
+msgstr "文件类型"
+
+msgid "File URL"
+msgstr "文件地址"
+
+msgid "File not attached"
+msgstr "未附加文件"
+
+msgid "File size exceeded the maximum allowed size of {0} MB"
+msgstr "文件大小超过上限 {0} MB"
+
+msgid "File too big"
+msgstr "文件过大"
+
+msgid "File type of {0} is not allowed"
+msgstr "不允许上传 {0} 类型的文件"
+
+msgid "Filename"
+msgstr "文件名"
+
+msgid "Files"
+msgstr "文件"
+
+msgid "Folder"
+msgstr "文件夹"
+
+msgid "Folder Name"
+msgstr "文件夹名称"
+
+msgid "Folder {0} is not empty"
+msgstr "文件夹 {0} 非空"
+
+msgid "Go to Workspace"
+msgstr "前往工作区"
+
+msgid "Max File Size (MB)"
+msgstr "最大文件大小（MB）"
+
+msgid "My Workspaces"
+msgstr "我的工作区"
+
+msgid "New Email"
+msgstr "新建邮件"
+
+msgid "New Email Account"
+msgstr "新建邮件账户"
+
+msgid "New Event"
+msgstr "新建日程"
+
+msgid "New Folder"
+msgstr "新建文件夹"
+
+msgid "New Workspace"
+msgstr "新建工作区"
+
+msgid "No Email Account"
+msgstr "没有邮件账户"
+
+msgid "No Emails"
+msgstr "没有邮件"
+
+msgid "No Upcoming Events"
+msgstr "没有即将开始的日程"
+
+msgid "No file attached"
+msgstr "未附加文件"
+
+msgid "Notify by Email"
+msgstr "通过邮件通知"
+
+msgid "Only System Managers can make this file public."
+msgstr "只有系统管理员可以将此文件设为公开。"
+
+msgid "Pending Emails"
+msgstr "待发送邮件"
+
+msgid "Please add a subject to your email"
+msgstr "请填写邮件主题"
+
+msgid "Please attach a file first."
+msgstr "请先添加文件。"
+
+msgid "Please enter a valid email address."
+msgstr "请输入有效的电子邮箱地址。"
+
+msgid "Please select a file first."
+msgstr "请先选择文件。"
+
+msgid "Please select a file or url"
+msgstr "请选择文件或填写地址"
+
+msgid "Please set Email Address"
+msgstr "请设置电子邮箱地址"
+
+msgid "Primary Email"
+msgstr "主要邮箱"
+
+msgid "Private Files (MB)"
+msgstr "私有文件（MB）"
+
+msgid "Profile"
+msgstr "个人资料"
+
+msgid "Profile Picture"
+msgstr "头像"
+
+msgid "Profile updated successfully."
+msgstr "个人资料更新成功。"
+
+msgid "Public Files (MB)"
+msgstr "公开文件（MB）"
+
+msgid "Pull Emails"
+msgstr "收取邮件"
+
+msgid "Pulling emails..."
+msgstr "正在收取邮件……"
+
+msgid "Reminder"
+msgstr "提醒"
+
+msgid "Reminder cannot be created in past."
+msgstr "不能创建过去时间的提醒。"
+
+msgid "Reminder set at {0}"
+msgstr "提醒时间已设为 {0}"
+
+msgid "Repeat this Event"
+msgstr "重复此日程"
+
+msgid "Search by filename or extension"
+msgstr "按文件名或扩展名搜索"
+
+msgid "Select Workspace"
+msgstr "选择工作区"
+
+msgid "Select or drag across time slots to create a new event."
+msgstr "选择或拖动时间段以创建新日程。"
+
+msgid "Send Welcome Email"
+msgstr "发送欢迎邮件"
+
+msgid "Server error during upload. The file might be corrupted."
+msgstr "上传时发生服务器错误，文件可能已损坏。"
+
+msgid "Show Calendar"
+msgstr "显示日历"
+
+msgid "Size exceeds the maximum allowed file size."
+msgstr "文件大小超过允许的上限。"
+
+msgid "Sync Calendar"
+msgstr "同步日历"
+
+msgid "ToDo"
+msgstr "待办"
+
+msgid "Unable to update event"
+msgstr "无法更新日程"
+
+msgid "Upload file"
+msgstr "上传文件"
+
+msgid "Upload {0} files"
+msgstr "上传 {0} 个文件"
+
+msgid "Update Profile"
+msgstr "更新个人资料"
+
+msgid "User Email"
+msgstr "用户邮箱"
+
+msgid "View File"
+msgstr "查看文件"
+
+msgid "Welcome email sent"
+msgstr "欢迎邮件已发送"
+
+msgid "Workspace"
+msgstr "工作区"
+
+msgid "Workspace Manager"
+msgstr "工作区管理员"
+
+msgid "Workspace Sidebar"
+msgstr "工作区侧栏"
+
+msgid "Workspace added to desktop"
+msgstr "工作区已添加到工作台"
+
+msgid "Workspace {0} created"
+msgstr "工作区 {0} 已创建"
+
+msgid "Workspaces"
+msgstr "工作区"
+
+msgid "You do not have permission to access this file"
+msgstr "您无权访问此文件"
+
+msgid "You need the Workspace Manager role to edit this workspace."
+msgstr "需要工作区管理员角色才能编辑此工作区。"
+
+msgid "Your email address"
+msgstr "您的电子邮箱地址"
+
+msgid "← Back to upload files"
+msgstr "← 返回文件上传"
+
+msgid "Add"
+msgstr "新建"
+
+msgid "{0} Filters Applied"
+msgstr "已应用 {0} 个筛选条件"
+
+msgid "Clear all filters"
+msgstr "清除全部筛选条件"
+
+msgid "descending"
+msgstr "降序"
+
+msgid "Completed"
+msgstr "已完成"
+
+msgid "Document has been submitted"
+msgstr "单据已提交"
+
+msgid "Begin typing for results."
+msgstr "输入关键词搜索。"
+
+msgid "Framework"
+msgstr "系统管理"
+
+msgid "Navigation Buttons"
+msgstr "导航按钮"
+
+msgid "System User"
+msgstr "系统用户"
+
+msgid "Website User"
+msgstr "网站用户"
+
+msgid "Audits"
+msgstr "审计"
+
+msgid "Customize Quick Filters"
+msgstr "自定义快捷筛选条件"
+
+msgid "Open Link"
+msgstr "打开链接"
+
+msgid "Current Series"
+msgstr "当前编号"
+
+msgid "Copied {0} {1} to clipboard"
+msgstr "已将 {0} {1} 复制到剪贴板"
+
+msgid "Desktop"
+msgstr "工作台"
+
+msgid "DocType Missing"
+msgstr "缺少单据类型"
+
+msgid "Edit Sidebar"
+msgstr "编辑侧边栏"
+
+msgid "No rows selected"
+msgstr "未选择任何行"
+
+msgid "Not permitted. {0}."
+msgstr "无权执行此操作。{0}。"
+
+msgid "Open in new tab"
+msgstr "在新标签页中打开"
+
+msgid "Please select a DocType in options before setting filters"
+msgstr "设置筛选条件前，请先在选项中选择单据类型"
+
+msgid "Saving Changes..."
+msgstr "正在保存更改……"
+
+msgid "Saving Sidebar"
+msgstr "正在保存侧边栏"
+
+msgid "XMLHttpRequest Error"
+msgstr "网络请求错误"
+
+msgid "esc"
+msgstr "Esc"
+
+msgid "to close"
+msgstr "关闭"
+
+msgid "to navigate"
+msgstr "导航"
+
+msgid "to select"
+msgstr "选择"
+
+msgid " You are impersonating as another user."
+msgstr " 你正在以其他用户身份操作。"
+
+msgid "Add CSS"
+msgstr "添加 CSS"
+
+msgid "Add New"
+msgstr "新增"
+
+msgid "Add Series Prefix"
+msgstr "添加编号前缀"
+
+msgid "Add multiple"
+msgstr "批量添加"
+
+msgid "Add row"
+msgstr "新增一行"
+
+msgid "Add/Update Filter"
+msgstr "添加或更新筛选条件"
+
+msgid "Allowed special characters are '/' and '-'"
+msgstr "允许使用的特殊字符为“/”和“-”"
+
+msgid "Already amended as {0}"
+msgstr "已修订为 {0}"
+
+msgid "Are you sure you want to delete all {0} rows?"
+msgstr "确定要删除全部 {0} 行吗？"
+
+msgid "Are you sure you want to log out?"
+msgstr "确定要退出登录吗？"
+
+msgid "Clear Link"
+msgstr "清除关联"
+
+msgid "Clear cache and reload"
+msgstr "清除缓存并重新加载"
+
+msgid "Click on {0} to edit"
+msgstr "点击 {0} 进行编辑"
+
+msgid "Company Abbreviation (requires ERPNext to be installed)"
+msgstr "公司简称（需要安装 ERPNext）"
+
+msgid "Configure search settings"
+msgstr "配置搜索设置"
+
+msgctxt "Confirm gravatar deletion prompt"
+msgid "Confirm"
+msgstr "确认"
+
+msgid "Copy Apps Version"
+msgstr "复制应用版本"
+
+msgctxt "Description of a list view shortcut"
+msgid "Create a new document"
+msgstr "新建单据"
+
+msgctxt "Customize qucik filters of List View"
+msgid "Customize Quick Filters"
+msgstr "自定义快捷筛选条件"
+
+msgid "Day of month"
+msgstr "每月第几日"
+
+msgid "Delete Gravatar URLs"
+msgstr "删除 Gravatar 头像链接"
+
+msgid "Delete all {0} rows"
+msgstr "删除全部 {0} 行"
+
+msgid "Delete {0} rows"
+msgstr "删除 {0} 行"
+
+msgid "Document Naming"
+msgstr "单据编号规则"
+
+msgid "Duplicate rows"
+msgstr "复制行"
+
+msgid "Duplicate {0} rows"
+msgstr "复制 {0} 行"
+
+msgid "Edit Filter"
+msgstr "编辑筛选条件"
+
+msgid "Edit {0} rows"
+msgstr "编辑 {0} 行"
+
+msgid "Email sending undone"
+msgstr "已撤销邮件发送"
+
+msgid "Enter list of Options, each on a new line."
+msgstr "请输入选项列表，每个选项单独一行。"
+
+msgid "Enter the fieldname of the currency field or a cached value (e.g. Company:company:default_currency)."
+msgstr "请输入币种字段的字段名或缓存值（例如 Company:company:default_currency）。"
+
+msgid "Examples:"
+msgstr "示例："
+
+msgid "Existing Gravatar URLs may still be stored on User and Contact records. Do you want to delete these URLs now?"
+msgstr "用户和联系人记录中可能仍保存着 Gravatar 头像链接。是否立即删除这些链接？"
+
+msgid "Existing Gravatar URLs may still be stored on User, Contact, and Lead records. Do you want to delete these URLs now?"
+msgstr "用户、联系人和潜在客户记录中可能仍保存着 Gravatar 头像链接。是否立即删除这些链接？"
+
+msgid "Filtered by: {0}."
+msgstr "筛选条件：{0}。"
+
+msgid "Fiscal Year (requires ERPNext to be installed)"
+msgstr "会计年度（需要安装 ERPNext）"
+
+msgid "Following documents are linked with {0}"
+msgstr "以下单据与 {0} 关联"
+
+msgid "For comparison, use >5, <10 or =324.\nFor ranges, use 5:10 (for values between 5 & 10)."
+msgstr "比较时可输入 >5、<10 或 =324。\n范围可输入 5:10（表示 5 到 10 之间的值）。"
+
+msgid "Forum"
+msgstr "社区论坛"
+
+msgid "Frappe Framework Version"
+msgstr "Frappe 框架版本"
+
+msgid "Frappe no longer uses Gravatar because it can disclose hashed email addresses to a third-party service. To fully stop this behavior, existing Gravatar image URLs must be deleted."
+msgstr "Frappe 已停止使用 Gravatar，因为它可能向第三方服务泄露经过哈希处理的邮箱地址。要彻底停止此行为，需要删除现有的 Gravatar 头像链接。"
+
+msgid "Getting Started"
+msgstr "快速入门"
+
+msgid "Gravatar URL deletion has been queued."
+msgstr "Gravatar 头像链接删除任务已进入队列。"
+
+msgid "Gravatar URLs will not be deleted."
+msgstr "不会删除 Gravatar 头像链接。"
+
+msgid "HTML Message"
+msgstr "HTML 消息"
+
+msgid "Has Attachments"
+msgstr "包含附件"
+
+msgid "Hidden columns include: <br> {0}"
+msgstr "隐藏的列包括：<br> {0}"
+
+msgid "In {0}, {1} is required in every row."
+msgstr "在 {0} 中，每一行都必须填写 {1}。"
+
+msgid "In {0}, {1} is required in row {2}."
+msgstr "在 {0} 的第 {2} 行中，必须填写 {1}。"
+
+msgid "In {0}, {1} is required in rows {2}."
+msgstr "在 {0} 的第 {2} 行中，必须填写 {1}。"
+
+msgid "In {0}, {1} is required in {2} rows."
+msgstr "在 {0} 中，有 {2} 行必须填写 {1}。"
+
+msgid "Keep Gravatar URLs"
+msgstr "保留 Gravatar 头像链接"
+
+msgid "Last"
+msgstr "末页"
+
+msgid "Liked by me"
+msgstr "我收藏的"
+
+msgid "Liked by {0} people"
+msgstr "{0} 人已收藏"
+
+msgid "Linked with {0}"
+msgstr "与 {0} 关联"
+
+msgid "Manage Billing"
+msgstr "管理账单"
+
+msgid "More Options"
+msgstr "更多选项"
+
+msgctxt "Number not available"
+msgid "N/A"
+msgstr "暂无数值"
+
+msgid "Naming Series updated"
+msgstr "编号规则已更新"
+
+msgid "No data to perform this action"
+msgstr "没有可执行此操作的数据"
+
+msgid "No editable fields available for bulk edit."
+msgstr "没有可供批量编辑的字段。"
+
+msgid "No matching entries in the current results"
+msgstr "当前结果中没有匹配项"
+
+msgid "No naming series defined"
+msgstr "尚未定义编号规则"
+
+msgid "No other document types."
+msgstr "没有其他单据类型。"
+
+msgid "No pinned document types."
+msgstr "没有置顶的单据类型。"
+
+msgid "Not configured"
+msgstr "未配置"
+
+msgid "Open Frappe CRM"
+msgstr "打开 Frappe CRM"
+
+msgid "Open Frappe Helpdesk"
+msgstr "打开 Frappe 服务台"
+
+msgid "Open Global Search"
+msgstr "打开全局搜索"
+
+msgid "Open Source applications for the web."
+msgstr "面向 Web 的开源应用平台。"
+
+msgid "Open Translation"
+msgstr "打开翻译"
+
+msgid "Optionally, set the number of digits in the series using dot (.) followed by hashes (#). For example, '.####' means that the series will have four digits. Default is five digits."
+msgstr "如需设置编号位数，可在点号（.）后添加井号（#）。例如“.####”表示编号为四位，默认为五位。"
+
+msgid "Pin"
+msgstr "置顶"
+
+msgid "Pinned"
+msgstr "已置顶"
+
+msgid "Please add at least one naming series."
+msgstr "请至少添加一条编号规则。"
+
+msgid "Please adjust filters to include some data"
+msgstr "请调整筛选条件以包含数据"
+
+msgid "Please fill the following mandatory fields before saving:"
+msgstr "保存前请填写以下必填字段："
+
+msgid "Please select a transaction."
+msgstr "请选择单据类型。"
+
+msgid "Refresh List"
+msgstr "刷新列表"
+
+msgid "Remove Filter"
+msgstr "移除筛选条件"
+
+msgid "Reset All"
+msgstr "全部重置"
+
+msgid "Rules for configuring series"
+msgstr "编号规则配置说明"
+
+msgid "Sales without complexity, lock-in and per-user costs. Try it for free!"
+msgstr "简化销售管理，无平台锁定，无按用户收费。立即免费试用！"
+
+msgid "Scan"
+msgstr "扫描"
+
+msgid "Search for countries..."
+msgstr "搜索国家或地区……"
+
+msgid "Search for icons..."
+msgstr "搜索图标……"
+
+msgid "Search or type a command"
+msgstr "搜索或输入命令"
+
+msgid "Series"
+msgstr "编号规则"
+
+msgid "Setting"
+msgstr "设置"
+
+msgid "Show keyboard shortcuts"
+msgstr "显示键盘快捷键"
+
+msgid "Show more"
+msgstr "显示更多"
+
+msgid "Skip All"
+msgstr "全部跳过"
+
+msgid "Support without complexity, lock-in and per-user costs. Try it for free!"
+msgstr "简化客户支持，无平台锁定，无按用户收费。立即免费试用！"
+
+msgid "Supported Variables:"
+msgstr "支持的变量："
+
+msgid "Switch theme"
+msgstr "切换主题"
+
+msgid "Switch to CRM"
+msgstr "切换到 CRM"
+
+msgid "Switch to Frappe CRM"
+msgstr "切换到 Frappe CRM"
+
+msgid "Switch to Helpdesk"
+msgstr "切换到服务台"
+
+msgid "This is a snapshot report generated {0}."
+msgstr "这是生成于 {0} 的快照报表。"
+
+msgid "Toggle sidebar"
+msgstr "展开或收起侧边栏"
+
+msgid "Transaction"
+msgstr "单据类型"
+
+msgid "Trigger primary action"
+msgstr "执行主要操作"
+
+msgid "Unpin"
+msgstr "取消置顶"
+
+msgid "Update Available"
+msgstr "有可用更新"
+
+msgid "Update {0} rows"
+msgstr "更新 {0} 行"
+
+msgid "Updated {0} selected {1}. Save the form to keep changes."
+msgstr "已更新选中的 {0} 个{1}。请保存表单以保留更改。"
+
+msgid "Use ampersand to match multiple terms"
+msgstr "使用 & 可同时匹配多个关键词"
+
+msgid "View Documentation"
+msgstr "查看文档"
+
+msgid "Visit Frappe Support Portal"
+msgstr "访问 Frappe 支持门户"
+
+msgid "Week of the year"
+msgstr "一年中的第几周"
+
+msgid "Welcome to Frappe!"
+msgstr "欢迎使用 Frappe！"
+
+msgid "Welcome to the {0} workspace"
+msgstr "欢迎进入 {0} 工作区"
+
+msgid "Year in 2 digits"
+msgstr "两位年份"
+
+msgid "Year in 4 digits"
+msgstr "四位年份"
+
+msgid "You can also use variables in the series name by putting them between (.) dots"
+msgstr "还可以将变量放在点号（.）之间，用于组成编号规则"
+
+msgid "and {0} more"
+msgstr "以及其他 {0} 项"
+
+msgid "completed"
+msgstr "已完成"
+
+msgid "e.g."
+msgstr "例如"
+
+msgctxt "Comparison value is empty"
+msgid "empty"
+msgstr "为空"
+
+msgid "fieldname on the document e.g."
+msgstr "单据中的字段名，例如"
+
+msgid "found"
+msgstr "已找到"
+
+msgid "is disabled"
+msgstr "已禁用"
+
+msgid "is enabled"
+msgstr "已启用"
+
+msgid "result"
+msgstr "条结果"
+
+msgid "results"
+msgstr "条结果"
+
+msgid "row"
+msgstr "行"
+
+msgid "rows"
+msgstr "行"
+
+msgid "steps completed"
+msgstr "项已完成"
+
+msgid "to open Awesome Bar"
+msgstr "打开快捷命令栏"
+
+msgid "to open Global Search"
+msgstr "打开全局搜索"
+
+msgid "{0} Naming Series"
+msgstr "{0}编号规则"
+
+msgid "{0} contains {1}"
+msgstr "{0}包含{1}"
+
+msgid "{0} does not contain {1}"
+msgstr "{0}不包含{1}"
+
+msgid "{0} equals {1}"
+msgstr "{0}等于{1}"
+
+msgid "{0} is a descendant of {1}"
+msgstr "{0}是{1}的下级节点"
+
+msgid "{0} is after {1}"
+msgstr "{0}晚于{1}"
+
+msgid "{0} is an ancestor of {1}"
+msgstr "{0}是{1}的上级节点"
+
+msgid "{0} is before {1}"
+msgstr "{0}早于{1}"
+
+msgid "{0} is between {1}"
+msgstr "{0}介于{1}之间"
+
+msgid "{0} is disabled"
+msgstr "{0}已禁用"
+
+msgid "{0} is enabled"
+msgstr "{0}已启用"
+
+msgid "{0} is not a descendant of {1}"
+msgstr "{0}不是{1}的下级节点"
+
+msgid "{0} is not an ancestor of {1}"
+msgstr "{0}不是{1}的上级节点"
+
+msgid "{0} is on or after {1}"
+msgstr "{0}不早于{1}"
+
+msgid "{0} is on or before {1}"
+msgstr "{0}不晚于{1}"
+
+msgid "{0} is required."
+msgstr "{0}为必填项。"
+
+msgid "{0} is {1}"
+msgstr "{0}是{1}"
+
+msgid "{0} of {1} records match (filtered on visible rows only)"
+msgstr "{1} 条记录中有 {0} 条匹配（仅筛选当前可见行）"
+
+msgid "{0} restricted document"
+msgstr "{0} 个受限单据"
+
+msgid "{0} restricted documents"
+msgstr "{0} 个受限单据"
+
+msgid "{0} unread notifications"
+msgstr "{0} 条未读通知"
+
+msgid "Domains"
+msgstr "业务域"
+
+msgid "Places"
+msgstr "地点"
+
+msgid "QZ Tray Connection Active!"
+msgstr "QZ Tray 已连接！"
+
+msgid "value"
+msgstr "值"
+
+msgid "Preferences"
+msgstr "偏好设置"
+
+msgid "Manage your preferences"
+msgstr "管理偏好设置"
+
+msgid "All Results"
+msgstr "全部结果"
+
+msgid "added"
+msgstr "已添加"
+
+msgid "removed"
+msgstr "已移除"
+
+msgid "Half Day"
+msgstr "半天"
+
+msgid "Quarter Day"
+msgstr "四分之一天"
+
+msgctxt "User removed row from child table"
+msgid "1 row from {0}"
+msgstr "从 {0} 移除 1 行"
+
+msgctxt "User added row to child table"
+msgid "1 row to {0}"
+msgstr "向 {0} 添加 1 行"
+
+msgctxt "User removed rows from child table"
+msgid "{0} rows from {1}"
+msgstr "从 {1} 移除 {0} 行"
+
+msgctxt "User added rows to child table"
+msgid "{0} rows to {1}"
+msgstr "向 {1} 添加 {0} 行"

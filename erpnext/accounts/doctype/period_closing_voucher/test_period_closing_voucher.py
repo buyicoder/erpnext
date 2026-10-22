@@ -1,0 +1,616 @@
+# Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
+# License: GNU General Public License v3. See license.txt
+import unittest
+
+import frappe
+from frappe.utils import flt, today
+
+from erpnext.accounts.doctype.finance_book.test_finance_book import create_finance_book
+from erpnext.accounts.doctype.journal_entry.test_journal_entry import make_journal_entry
+from erpnext.accounts.doctype.sales_invoice.test_sales_invoice import create_sales_invoice
+from erpnext.accounts.general_ledger import make_reverse_gl_entries
+from erpnext.accounts.utils import get_fiscal_year
+from erpnext.tests.utils import ERPNextTestSuite
+
+
+class TestPeriodClosingVoucher(ERPNextTestSuite):
+	def setUp(self):
+		super().setUp()
+		frappe.db.set_single_value("Accounts Settings", "use_legacy_controller_for_pcv", 1)
+
+	def test_closing_entry(self):
+		cost_center = create_cost_center("Test Cost Center 1")
+
+		jv1 = make_journal_entry(
+			posting_date="2021-03-15",
+			amount=400,
+			account1="Cash - TPC",
+			account2="Sales - TPC",
+			cost_center=cost_center,
+			company="Test PCV Company",
+			save=False,
+		)
+		jv1.company = "Test PCV Company"
+		jv1.save()
+		jv1.submit()
+
+		jv2 = make_journal_entry(
+			posting_date="2021-03-15",
+			amount=600,
+			account1="Cost of Goods Sold - TPC",
+			account2="Cash - TPC",
+			cost_center=cost_center,
+			company="Test PCV Company",
+			save=False,
+		)
+		jv2.company = "Test PCV Company"
+		jv2.save()
+		jv2.submit()
+
+		pcv = self.make_period_closing_voucher(posting_date="2021-03-31")
+		surplus_account = pcv.closing_account_head
+
+		expected_gle = (
+			("Cost of Goods Sold - TPC", 0.0, 600.0),
+			(surplus_account, 200.0, 0.0),
+			("Sales - TPC", 400.0, 0.0),
+		)
+
+		pcv_gle = frappe.db.sql(
+			"""
+			select account, debit, credit from `tabGL Entry` where voucher_no=%s order by account
+		""",
+			(pcv.name),
+		)
+		pcv.reload()
+		self.assertEqual(pcv.gle_processing_status, "Completed")
+		self.assertEqual(pcv_gle, expected_gle)
+
+	def test_cost_center_wise_posting(self):
+		surplus_account = create_account()
+
+		cost_center1 = create_cost_center("Main")
+		cost_center2 = create_cost_center("Western Branch")
+
+		create_sales_invoice(
+			company="Test PCV Company",
+			cost_center=cost_center1,
+			income_account="Sales - TPC",
+			expense_account="Cost of Goods Sold - TPC",
+			rate=400,
+			debit_to="Debtors - TPC",
+			currency="USD",
+			customer="_Test Customer USD",
+			posting_date="2021-03-15",
+		)
+		create_sales_invoice(
+			company="Test PCV Company",
+			cost_center=cost_center2,
+			income_account="Sales - TPC",
+			expense_account="Cost of Goods Sold - TPC",
+			rate=200,
+			debit_to="Debtors - TPC",
+			currency="USD",
+			customer="_Test Customer USD",
+			posting_date="2021-03-15",
+		)
+
+		pcv = self.make_period_closing_voucher(posting_date="2021-03-31", submit=False)
+		pcv.save()
+		pcv.submit()
+		surplus_account = pcv.closing_account_head
+
+		expected_gle = (
+			(surplus_account, 0.0, 400.0, cost_center1),
+			(surplus_account, 0.0, 200.0, cost_center2),
+			("Sales - TPC", 400.0, 0.0, cost_center1),
+			("Sales - TPC", 200.0, 0.0, cost_center2),
+		)
+
+		pcv_gle = frappe.db.sql(
+			"""
+			select account, debit, credit, cost_center
+			from `tabGL Entry` where voucher_no=%s
+			order by account, cost_center
+		""",
+			(pcv.name),
+		)
+
+		self.assertSequenceEqual(pcv_gle, expected_gle)
+
+		pcv.reload()
+		pcv.cancel()
+
+		self.assertFalse(
+			frappe.db.get_value(
+				"GL Entry",
+				{"voucher_type": "Period Closing Voucher", "voucher_no": pcv.name, "is_cancelled": 0},
+			)
+		)
+
+	def test_period_closing_with_finance_book_entries(self):
+		surplus_account = create_account()
+		cost_center = create_cost_center("Test Cost Center 1")
+
+		create_sales_invoice(
+			company="Test PCV Company",
+			income_account="Sales - TPC",
+			expense_account="Cost of Goods Sold - TPC",
+			cost_center=cost_center,
+			rate=400,
+			debit_to="Debtors - TPC",
+			currency="USD",
+			customer="_Test Customer USD",
+			posting_date="2021-03-15",
+		)
+
+		jv = make_journal_entry(
+			account1="Cash - TPC",
+			account2="Sales - TPC",
+			amount=400,
+			cost_center=cost_center,
+			posting_date="2021-03-15",
+			company="Test PCV Company",
+		)
+		jv.company = "Test PCV Company"
+		jv.finance_book = create_finance_book().name
+		jv.save()
+		jv.submit()
+
+		pcv = self.make_period_closing_voucher(posting_date="2021-03-31")
+		surplus_account = pcv.closing_account_head
+
+		expected_gle = (
+			(surplus_account, 0.0, 400.0, None),
+			(surplus_account, 0.0, 400.0, jv.finance_book),
+			("Sales - TPC", 400.0, 0.0, None),
+			("Sales - TPC", 400.0, 0.0, jv.finance_book),
+		)
+
+		pcv_gle = frappe.db.sql(
+			"""
+			select account, debit, credit, finance_book
+			from `tabGL Entry` where voucher_no=%s
+			order by account, finance_book
+		""",
+			(pcv.name),
+		)
+
+		self.assertSequenceEqual(pcv_gle, expected_gle)
+
+	def test_gl_entries_restrictions(self):
+		cost_center = create_cost_center("Test Cost Center 1")
+
+		self.make_period_closing_voucher(posting_date="2021-03-31")
+
+		jv1 = make_journal_entry(
+			posting_date="2021-03-15",
+			amount=400,
+			account1="Cash - TPC",
+			account2="Sales - TPC",
+			cost_center=cost_center,
+			company="Test PCV Company",
+			save=False,
+		)
+		jv1.company = "Test PCV Company"
+		jv1.save()
+
+		self.assertRaises(frappe.ValidationError, jv1.submit)
+
+	def test_closing_balance_with_dimensions_and_test_reposting_entry(self):
+		cost_center1 = create_cost_center("Test Cost Center 1")
+		cost_center2 = create_cost_center("Test Cost Center 2")
+
+		jv1 = make_journal_entry(
+			posting_date="2021-03-15",
+			amount=400,
+			account1="Cash - TPC",
+			account2="Sales - TPC",
+			cost_center=cost_center1,
+			company="Test PCV Company",
+			save=False,
+		)
+		jv1.company = "Test PCV Company"
+		jv1.save()
+		jv1.submit()
+
+		jv2 = make_journal_entry(
+			posting_date="2021-03-15",
+			amount=200,
+			account1="Cash - TPC",
+			account2="Sales - TPC",
+			cost_center=cost_center2,
+			company="Test PCV Company",
+			save=False,
+		)
+		jv2.company = "Test PCV Company"
+		jv2.save()
+		jv2.submit()
+
+		pcv1 = self.make_period_closing_voucher(posting_date="2021-03-31")
+
+		closing_balance = frappe.db.get_value(
+			"Account Closing Balance",
+			{
+				"account": "Sales - TPC",
+				"cost_center": cost_center1,
+				"period_closing_voucher": pcv1.name,
+				"is_period_closing_voucher_entry": 0,
+			},
+			["credit", "credit_in_account_currency"],
+			as_dict=1,
+		)
+
+		self.assertEqual(closing_balance.credit, 400)
+		self.assertEqual(closing_balance.credit_in_account_currency, 400)
+
+		jv3 = make_journal_entry(
+			posting_date="2022-03-15",
+			amount=300,
+			account1="Cash - TPC",
+			account2="Sales - TPC",
+			cost_center=cost_center2,
+			company="Test PCV Company",
+			save=False,
+		)
+
+		jv3.company = "Test PCV Company"
+		jv3.save()
+		jv3.submit()
+
+		pcv2 = self.make_period_closing_voucher(posting_date="2022-03-31")
+
+		cc1_closing_balance = frappe.db.get_value(
+			"Account Closing Balance",
+			{
+				"account": "Sales - TPC",
+				"cost_center": cost_center1,
+				"period_closing_voucher": pcv2.name,
+				"is_period_closing_voucher_entry": 0,
+			},
+			["credit", "credit_in_account_currency"],
+			as_dict=1,
+		)
+
+		cc2_closing_balance = frappe.db.get_value(
+			"Account Closing Balance",
+			{
+				"account": "Sales - TPC",
+				"cost_center": cost_center2,
+				"period_closing_voucher": pcv2.name,
+				"is_period_closing_voucher_entry": 0,
+			},
+			["credit", "credit_in_account_currency"],
+			as_dict=1,
+		)
+
+		self.assertEqual(cc1_closing_balance.credit, 400)
+		self.assertEqual(cc1_closing_balance.credit_in_account_currency, 400)
+		self.assertEqual(cc2_closing_balance.credit, 500)
+		self.assertEqual(cc2_closing_balance.credit_in_account_currency, 500)
+
+		warehouse = frappe.db.get_value("Warehouse", {"company": "Test PCV Company"}, "name")
+
+		repost_doc = frappe.get_doc(
+			{
+				"doctype": "Repost Item Valuation",
+				"company": "Test PCV Company",
+				"posting_date": "2020-03-15",
+				"based_on": "Item and Warehouse",
+				"item_code": "Test Item 1",
+				"warehouse": warehouse,
+			}
+		)
+
+		self.assertRaises(frappe.ValidationError, repost_doc.save)
+
+		repost_doc.posting_date = today()
+		repost_doc.save()
+
+	def test_stock_validations_before_period_closing(self):
+		from unittest.mock import patch
+
+		from frappe.custom.doctype.custom_field.custom_field import create_custom_fields
+
+		from erpnext.stock.doctype.item.test_item import make_item
+		from erpnext.stock.doctype.stock_entry.stock_entry_utils import make_stock_entry
+
+		create_custom_fields(
+			{
+				"Stock Closing Entry": [
+					{
+						"fieldname": "warehouse",
+						"label": "Warehouse",
+						"fieldtype": "Link",
+						"options": "Warehouse",
+					}
+				]
+			}
+		)
+
+		item = make_item("Test PCV Stock Item", {"is_stock_item": 1})
+		se = make_stock_entry(
+			item_code=item.name,
+			qty=10,
+			rate=100,
+			to_warehouse="Stores - TPC",
+			company="Test PCV Company",
+			posting_date="2021-03-15",
+		)
+
+		pcv = self.make_period_closing_voucher(posting_date="2021-03-31", submit=False)
+		self.assertRaisesRegex(frappe.ValidationError, "Create a Stock Closing Entry", pcv.submit)
+
+		sce = frappe.get_doc(
+			{
+				"doctype": "Stock Closing Entry",
+				"company": "Test PCV Company",
+				"from_date": pcv.period_start_date,
+				"to_date": pcv.period_end_date,
+				"warehouse": "Stores - TPC",
+			}
+		).insert()
+
+		with patch("erpnext.stock.doctype.stock_closing_entry.stock_closing_entry.enqueue"):
+			sce.submit()
+
+		sce.db_set("status", "Completed")
+
+		pcv.reload()
+		self.assertRaisesRegex(frappe.ValidationError, "Create a Stock Closing Entry", pcv.submit)
+
+		frappe.db.set_value("Stock Closing Entry", sce.name, {"warehouse": None, "status": "In Progress"})
+
+		pcv.reload()
+		self.assertRaisesRegex(frappe.ValidationError, "is not completed yet", pcv.submit)
+
+		sce.create_stock_closing_balance_entries()
+		sce.db_set("status", "Completed")
+
+		sle = frappe.db.get_value(
+			"Stock Ledger Entry",
+			{"voucher_no": se.name},
+			["name", "stock_value_difference"],
+			as_dict=1,
+		)
+		frappe.db.set_value(
+			"Stock Ledger Entry", sle.name, "stock_value_difference", sle.stock_value_difference + 100
+		)
+
+		pcv.reload()
+		self.assertRaisesRegex(frappe.ValidationError, "does not match", pcv.submit)
+
+		frappe.db.set_value(
+			"Stock Ledger Entry", sle.name, "stock_value_difference", sle.stock_value_difference
+		)
+
+		pcv.reload()
+		self.assertRaisesRegex(frappe.ValidationError, "Regenerate", pcv.submit)
+
+		self.rebuild_stock_closing_balance(sce)
+		pcv.reload()
+		pcv.submit()
+		self.assertEqual(pcv.docstatus, 1)
+
+	def test_batch_valuation_seeded_from_stock_closing_after_period_closing(self):
+		from erpnext.stock.doctype.item.test_item import make_item
+		from erpnext.stock.doctype.serial_and_batch_bundle.test_serial_and_batch_bundle import (
+			get_batch_from_bundle,
+		)
+		from erpnext.stock.doctype.stock_entry.stock_entry_utils import make_stock_entry
+
+		item = make_item(
+			"Test PCV Batch Item",
+			{
+				"is_stock_item": 1,
+				"has_batch_no": 1,
+				"create_new_batch": 1,
+				"batch_number_series": "TPCVB.####",
+			},
+		)
+		se1 = make_stock_entry(
+			item_code=item.name,
+			qty=10,
+			rate=100,
+			to_warehouse="Stores - TPC",
+			company="Test PCV Company",
+			posting_date="2021-03-15",
+		)
+		batch_no = get_batch_from_bundle(se1.items[0].serial_and_batch_bundle)
+		make_stock_entry(
+			item_code=item.name,
+			qty=10,
+			rate=200,
+			to_warehouse="Stores - TPC",
+			company="Test PCV Company",
+			posting_date="2021-06-15",
+			batch_no=batch_no,
+		)
+
+		pcv = self.make_period_closing_voucher(posting_date="2021-03-31", submit=False)
+		sce = self.make_completed_stock_closing_entry(pcv.period_start_date, pcv.period_end_date)
+		pcv.reload()
+		pcv.submit()
+
+		outward = make_stock_entry(
+			item_code=item.name,
+			qty=5,
+			from_warehouse="Stores - TPC",
+			company="Test PCV Company",
+			posting_date="2022-04-01",
+			batch_no=batch_no,
+		)
+		stock_value_difference = frappe.db.get_value(
+			"Stock Ledger Entry",
+			{"voucher_no": outward.name, "is_cancelled": 0},
+			"stock_value_difference",
+		)
+		self.assertEqual(flt(stock_value_difference, 2), -750.0)
+
+		self.assertRaisesRegex(
+			frappe.ValidationError,
+			"frozen",
+			make_stock_entry,
+			item_code=item.name,
+			qty=1,
+			rate=100,
+			to_warehouse="Stores - TPC",
+			company="Test PCV Company",
+			posting_date="2021-05-01",
+		)
+		self.assertRaisesRegex(frappe.ValidationError, "frozen", se1.cancel)
+		self.assertRaisesRegex(frappe.ValidationError, "closed accounting period", sce.cancel)
+
+	def test_period_closing_blocks_stale_stock_closing_entry(self):
+		from erpnext.stock.doctype.item.test_item import make_item
+		from erpnext.stock.doctype.stock_entry.stock_entry_utils import make_stock_entry
+
+		item = make_item("Test PCV Stock Item", {"is_stock_item": 1})
+		make_stock_entry(
+			item_code=item.name,
+			qty=10,
+			rate=100,
+			to_warehouse="Stores - TPC",
+			company="Test PCV Company",
+			posting_date="2021-03-15",
+		)
+
+		pcv = self.make_period_closing_voucher(posting_date="2021-03-31", submit=False)
+		sce = self.make_completed_stock_closing_entry(pcv.period_start_date, pcv.period_end_date)
+
+		make_stock_entry(
+			item_code=item.name,
+			qty=5,
+			rate=100,
+			to_warehouse="Stores - TPC",
+			company="Test PCV Company",
+			posting_date="2021-05-01",
+		)
+
+		pcv.reload()
+		self.assertRaisesRegex(frappe.ValidationError, "Regenerate", pcv.submit)
+
+		self.rebuild_stock_closing_balance(sce)
+		pcv.reload()
+		pcv.submit()
+		self.assertEqual(pcv.docstatus, 1)
+
+	def make_completed_stock_closing_entry(self, from_date, to_date):
+		from unittest.mock import patch
+
+		sce = frappe.get_doc(
+			{
+				"doctype": "Stock Closing Entry",
+				"company": "Test PCV Company",
+				"from_date": from_date,
+				"to_date": to_date,
+			}
+		).insert()
+
+		with patch("erpnext.stock.doctype.stock_closing_entry.stock_closing_entry.enqueue"):
+			sce.submit()
+
+		sce.create_stock_closing_balance_entries()
+		sce.db_set("status", "Completed")
+		return sce
+
+	def rebuild_stock_closing_balance(self, sce):
+		sce.remove_stock_closing()
+		sce.create_stock_closing_balance_entries()
+		sce.db_set("status", "Completed")
+
+	def make_period_closing_voucher(self, posting_date, submit=True):
+		surplus_account = create_account()
+		cost_center = create_cost_center("Test Cost Center 1")
+		fy = get_fiscal_year(posting_date, company="Test PCV Company")
+		pcv = frappe.get_doc(
+			{
+				"doctype": "Period Closing Voucher",
+				"transaction_date": posting_date or today(),
+				"period_start_date": fy[1],
+				"period_end_date": fy[2],
+				"company": "Test PCV Company",
+				"fiscal_year": fy[0],
+				"cost_center": cost_center,
+				"closing_account_head": surplus_account,
+				"remarks": "test",
+			}
+		)
+		pcv.insert()
+		if submit:
+			pcv.submit()
+
+		return pcv
+
+	@ERPNextTestSuite.change_settings(
+		"Accounts Settings",
+		{"enable_immutable_ledger": 1},
+	)
+	def test_immutable_ledger_reverse_entry_uses_passed_posting_date_after_pcv(self):
+		cost_center = create_cost_center("Test Cost Center 1")
+
+		jv = make_journal_entry(
+			posting_date="2021-03-15",
+			amount=400,
+			account1="Cash - TPC",
+			account2="Sales - TPC",
+			cost_center=cost_center,
+			company="Test PCV Company",
+			save=False,
+		)
+		jv.company = "Test PCV Company"
+		jv.save()
+		jv.submit()
+
+		self.make_period_closing_voucher(posting_date="2021-03-31")
+
+		frappe.db.set_value("Company", "Test PCV Company", "accounts_frozen_till_date", "2021-12-31")
+
+		try:
+			make_reverse_gl_entries(
+				voucher_type="Journal Entry",
+				voucher_no=jv.name,
+			)
+		finally:
+			frappe.db.set_value("Company", "Test PCV Company", "accounts_frozen_till_date", None)
+
+		totals_after_cancel = frappe.db.sql(
+			"""
+				select sum(debit) as total_debit, sum(credit) as total_credit
+				from `tabGL Entry`
+				where voucher_type=%s and voucher_no=%s and is_cancelled=0
+			""",
+			("Journal Entry", jv.name),
+			as_dict=True,
+		)[0]
+
+		self.assertEqual(totals_after_cancel.total_debit, totals_after_cancel.total_credit)
+
+
+def create_account():
+	account = frappe.get_doc(
+		{
+			"account_name": "Reserve and Surplus",
+			"is_group": 0,
+			"company": "Test PCV Company",
+			"root_type": "Liability",
+			"report_type": "Balance Sheet",
+			"account_currency": "USD",
+			"parent_account": "Current Liabilities - TPC",
+			"doctype": "Account",
+		}
+	).insert(ignore_if_duplicate=True)
+	return account.name
+
+
+def create_cost_center(cc_name):
+	costcenter = frappe.get_doc(
+		{
+			"company": "Test PCV Company",
+			"cost_center_name": cc_name,
+			"doctype": "Cost Center",
+			"parent_cost_center": "Test PCV Company - TPC",
+		}
+	)
+	costcenter.insert(ignore_if_duplicate=True)
+	return costcenter.name
